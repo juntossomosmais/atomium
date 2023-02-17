@@ -54,7 +54,7 @@
     "@storybook/theming": "^6.5.16",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.11",
+    "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "babel-loader": "^8.3.0",
