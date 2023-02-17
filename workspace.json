@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "components": "packages/components",
+    "tokens": "packages/tokens",
+    "storybook": "packages/storybook"
+  }
+}
