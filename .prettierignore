@@ -1,0 +1,5 @@
+/node_modules
+/packages/components/coverage
+/packages/components/dist
+/packages/components/loader
+/packages/components/www
