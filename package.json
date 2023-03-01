@@ -34,7 +34,7 @@
     "@nrwl/cli": "15.7.0",
     "@nrwl/eslint-plugin-nx": "^15.7.1",
     "@nrwl/storybook": "^15.7.0",
-    "@nrwl/workspace": "15.7.0",
+    "@nrwl/workspace": "15.8.1",
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/vue-output-target": "^0.7.0",
     "@storybook/addon-actions": "^6.5.16",
