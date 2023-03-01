@@ -33,7 +33,7 @@
     "@ionic/core": "^6.5.3",
     "@nrwl/cli": "15.7.0",
     "@nrwl/eslint-plugin-nx": "^15.7.1",
-    "@nrwl/storybook": "^15.7.0",
+    "@nrwl/storybook": "^15.8.1",
     "@nrwl/workspace": "15.7.0",
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/vue-output-target": "^0.7.0",
