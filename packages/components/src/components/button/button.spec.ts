@@ -1,11 +1,11 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { AtButton } from './button'
+import { AtoButton } from './button'
 
-describe('AtButton', () => {
+describe('AtoButton', () => {
   it('should render an ion-button element', async () => {
     const page = await newSpecPage({
-      components: [AtButton],
-      html: '<at-button></at-button>',
+      components: [AtoButton],
+      html: '<ato-button></ato-button>',
     })
 
     expect(page.root.shadowRoot.querySelector('ion-button')).toBeTruthy()
@@ -13,17 +13,17 @@ describe('AtButton', () => {
 
   it('should set color prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtButton],
-      html: '<at-button color="red"></at-button>',
+      components: [AtoButton],
+      html: '<ato-button color="primary"></ato-button>',
     })
 
-    expect(page.rootInstance.color).toBe('red')
+    expect(page.rootInstance.color).toBe('primary')
   })
 
   it('should set fill prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtButton],
-      html: '<at-button fill="outline"></at-button>',
+      components: [AtoButton],
+      html: '<ato-button fill="outline"></ato-button>',
     })
 
     expect(page.rootInstance.fill).toBe('outline')
@@ -31,8 +31,8 @@ describe('AtButton', () => {
 
   it('should set size prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtButton],
-      html: '<at-button size="small"></at-button>',
+      components: [AtoButton],
+      html: '<ato-button size="small"></ato-button>',
     })
 
     expect(page.rootInstance.size).toBe('small')
@@ -40,8 +40,8 @@ describe('AtButton', () => {
 
   it('should set disabled prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtButton],
-      html: '<at-button disabled></at-button>',
+      components: [AtoButton],
+      html: '<ato-button disabled></ato-button>',
     })
 
     expect(page.rootInstance.disabled).toBe(true)
@@ -49,8 +49,8 @@ describe('AtButton', () => {
 
   it('should set type prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtButton],
-      html: '<at-button type="submit"></at-button>',
+      components: [AtoButton],
+      html: '<ato-button type="submit"></ato-button>',
     })
 
     expect(page.rootInstance.type).toBe('submit')
@@ -59,16 +59,21 @@ describe('AtButton', () => {
     const labelText = 'Click me'
 
     const page = await newSpecPage({
-      components: [AtButton],
-      html: `<at-button>${labelText}</at-button>`,
+      components: [AtoButton],
+      html: `<ato-button>${labelText}</ato-button>`,
     })
 
     await page.waitForChanges()
 
-    expect(page.root).toEqualLightHtml(`
-      <at-button fill="solid" size="default">
+    expect(page.root).toEqualHtml(`
+      <ato-button color="primary" fill="solid" size="default">
+        <mock:shadow-root>
+          <ion-button class="btn-default btn-solid-primary" type="button">
+            <slot></slot>
+          </ion-button>
+        </mock:shadow-root>
         ${labelText}
-      </at-button>
+      </ato-button>
     `)
   })
 })
