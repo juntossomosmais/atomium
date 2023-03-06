@@ -1,6 +1,6 @@
-import readme from './readme.md'
-
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'
+
+import readme from './readme.md'
 
 export default {
   title: 'Components/Button',
