@@ -1,16 +1,18 @@
+import { Color, Mode } from '@ionic/core'
 import { Component, Event, EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
-  tag: 'at-button',
+  tag: 'ato-button',
   styleUrl: 'button.scss',
   shadow: true,
 })
-export class AtButton {
-  @Prop({ reflect: true }) color?: string
-  @Prop({ reflect: true }) fill?: 'clear' | 'outline' | 'solid' = 'solid'
-  @Prop({ reflect: true }) size?: 'small' | 'default' | 'large' = 'default'
-  @Prop({ reflect: true }) disabled?: boolean
-  @Prop() type?: 'submit' | 'reset' | 'button' = 'button'
+export class AtoButton {
+  @Prop({ reflect: true }) color: Color = 'primary'
+  @Prop({ reflect: true }) fill: 'clear' | 'outline' | 'solid' = 'solid'
+  @Prop({ reflect: true }) size: 'small' | 'default' | 'large' = 'default'
+  @Prop() disabled?: boolean
+  @Prop() type: 'submit' | 'reset' | 'button' = 'button'
+  @Prop() mode: Mode = 'md'
 
   @Event() buttonClick: EventEmitter
 
@@ -27,7 +29,7 @@ export class AtButton {
         onClick={() => this.buttonClick.emit()}
         type={this.type}
       >
-        <slot name="button-text" />
+        <slot />
       </ion-button>
     )
   }
