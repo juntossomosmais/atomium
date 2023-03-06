@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                              | Default     |
-| ---------- | ---------- | ----------- | --------------------------------- | ----------- |
-| `color`    | `color`    |             | `string`                          | `undefined` |
-| `disabled` | `disabled` |             | `boolean`                         | `undefined` |
-| `fill`     | `fill`     |             | `"clear" \| "outline" \| "solid"` | `'solid'`   |
-| `size`     | `size`     |             | `"default" \| "large" \| "small"` | `'default'` |
-| `type`     | `type`     |             | `"button" \| "reset" \| "submit"` | `'button'`  |
+| Property   | Attribute  | Description | Type                                                                                                                                             | Default     |
+| ---------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `color`    | `color`    |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| string & Record<never, never>` | `'primary'` |
+| `disabled` | `disabled` |             | `boolean`                                                                                                                                        | `undefined` |
+| `fill`     | `fill`     |             | `"clear" \| "outline" \| "solid"`                                                                                                                | `'solid'`   |
+| `mode`     | `mode`     |             | `"ios" \| "md"`                                                                                                                                  | `'md'`      |
+| `size`     | `size`     |             | `"default" \| "large" \| "small"`                                                                                                                | `'default'` |
+| `type`     | `type`     |             | `"button" \| "reset" \| "submit"`                                                                                                                | `'button'`  |
 
 
 ## Events
@@ -32,9 +33,9 @@
 ### Graph
 ```mermaid
 graph TD;
-  at-button --> ion-button
+  ato-button --> ion-button
   ion-button --> ion-ripple-effect
-  style at-button fill:#f9f,stroke:#333,stroke-width:4px
+  style ato-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
