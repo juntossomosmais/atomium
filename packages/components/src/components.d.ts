@@ -5,48 +5,146 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Color, Mode, TextFieldTypes } from "@ionic/core";
+export { Color, Mode, TextFieldTypes } from "@ionic/core";
 export namespace Components {
-    interface AtButton {
-        "color"?: string;
+    interface AtoButton {
+        "color": Color;
         "disabled"?: boolean;
-        "fill"?: 'clear' | 'outline' | 'solid';
+        "fill": 'clear' | 'outline' | 'solid';
+        "mode": Mode;
+        "size": 'small' | 'default' | 'large';
+        "type": 'submit' | 'reset' | 'button';
+    }
+    interface AtoInput {
+        "accept"?: string;
+        "autocapitalize"?: 'words' | 'characters' | 'sentences' | 'none';
+        "autocomplete"?: 'on' | 'off';
+        "autofocus"?: boolean;
+        "clearIcon"?: string;
+        "clearInput"?: boolean;
+        "clearOnEdit"?: boolean;
+        "color": Color;
+        "debounce"?: number;
+        "disabled"?: boolean;
+        "expandable"?: boolean;
+        "fill": 'default' | 'solid' | 'outline';
+        "icon"?: string;
+        "iconRight"?: string;
+        "inputmode"?: | 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
+        "labelPosition"?: 'fixed' | 'stacked' | 'floating';
+        "labelText"?: string;
+        "maxlength"?: number;
+        "minlength"?: number;
+        "mode": Mode;
+        "multiple"?: boolean;
+        "name"?: string;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
         "size"?: 'small' | 'default' | 'large';
-        "type"?: 'submit' | 'reset' | 'button';
+        "spellcheck"?: boolean;
+        "type": TextFieldTypes;
+        "value": string;
     }
 }
-export interface AtButtonCustomEvent<T> extends CustomEvent<T> {
+export interface AtoButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLAtButtonElement;
+    target: HTMLAtoButtonElement;
+}
+export interface AtoInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtoInputElement;
 }
 declare global {
-    interface HTMLAtButtonElement extends Components.AtButton, HTMLStencilElement {
+    interface HTMLAtoButtonElement extends Components.AtoButton, HTMLStencilElement {
     }
-    var HTMLAtButtonElement: {
-        prototype: HTMLAtButtonElement;
-        new (): HTMLAtButtonElement;
+    var HTMLAtoButtonElement: {
+        prototype: HTMLAtoButtonElement;
+        new (): HTMLAtoButtonElement;
+    };
+    interface HTMLAtoInputElement extends Components.AtoInput, HTMLStencilElement {
+    }
+    var HTMLAtoInputElement: {
+        prototype: HTMLAtoInputElement;
+        new (): HTMLAtoInputElement;
     };
     interface HTMLElementTagNameMap {
-        "at-button": HTMLAtButtonElement;
+        "ato-button": HTMLAtoButtonElement;
+        "ato-input": HTMLAtoInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface AtButton {
-        "color"?: string;
+    interface AtoButton {
+        "color"?: Color;
         "disabled"?: boolean;
         "fill"?: 'clear' | 'outline' | 'solid';
-        "onButtonClick"?: (event: AtButtonCustomEvent<any>) => void;
+        "mode"?: Mode;
+        "onButtonClick"?: (event: AtoButtonCustomEvent<any>) => void;
         "size"?: 'small' | 'default' | 'large';
         "type"?: 'submit' | 'reset' | 'button';
     }
+    interface AtoInput {
+        "accept"?: string;
+        "autocapitalize"?: 'words' | 'characters' | 'sentences' | 'none';
+        "autocomplete"?: 'on' | 'off';
+        "autofocus"?: boolean;
+        "clearIcon"?: string;
+        "clearInput"?: boolean;
+        "clearOnEdit"?: boolean;
+        "color"?: Color;
+        "debounce"?: number;
+        "disabled"?: boolean;
+        "expandable"?: boolean;
+        "fill"?: 'default' | 'solid' | 'outline';
+        "icon"?: string;
+        "iconRight"?: string;
+        "inputmode"?: | 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
+        "labelPosition"?: 'fixed' | 'stacked' | 'floating';
+        "labelText"?: string;
+        "maxlength"?: number;
+        "minlength"?: number;
+        "mode"?: Mode;
+        "multiple"?: boolean;
+        "name"?: string;
+        "onAtoBlur"?: (event: AtoInputCustomEvent<void>) => void;
+        "onAtoChange"?: (event: AtoInputCustomEvent<string>) => void;
+        "onAtoFocus"?: (event: AtoInputCustomEvent<void>) => void;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
+        "size"?: 'small' | 'default' | 'large';
+        "spellcheck"?: boolean;
+        "type"?: TextFieldTypes;
+        "value"?: string;
+    }
     interface IntrinsicElements {
-        "at-button": AtButton;
+        "ato-button": AtoButton;
+        "ato-input": AtoInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "at-button": LocalJSX.AtButton & JSXBase.HTMLAttributes<HTMLAtButtonElement>;
+            "ato-button": LocalJSX.AtoButton & JSXBase.HTMLAttributes<HTMLAtoButtonElement>;
+            "ato-input": LocalJSX.AtoInput & JSXBase.HTMLAttributes<HTMLAtoInputElement>;
         }
     }
 }
