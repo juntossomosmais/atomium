@@ -10,7 +10,7 @@ export default {
   decorators: [withKnobs],
 }
 
-export const MyInput = () => {
+export const AtoInput = () => {
   const colorOptions = {
     Default: '',
     Primary: 'primary',
@@ -121,15 +121,15 @@ export const MyInput = () => {
 
     <script>
       document.querySelector('ato-input').addEventListener('atoChange', (e) => {
-        console.log('atoChange', e.detail.value)
+        console.log('<ato-input> atoChange':, e.detail.value)
       })
 
-      document.querySelector('ato-input').addEventListener('atoFocus', (e) => {
-        console.log("atoFocus usando focus!")
+      document.querySelector('ato-input').addEventListener('atoFocus', () => {
+        console.log("<ato-input> atoFocus using focus!")
       })
 
-      document.querySelector('ato-input').addEventListener('atoBlur', (e) => {
-        console.log("atoBlur usando blur!")
+      document.querySelector('ato-input').addEventListener('atoBlur', () => {
+        console.log("<ato-input> atoBlur using blur!")
       })
     </script>
 
