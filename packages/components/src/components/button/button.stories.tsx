@@ -10,7 +10,7 @@ export default {
   decorators: [withKnobs],
 }
 
-export const AtButton = () => {
+export const AtoButton = () => {
   const colorOptions = {
     Default: '',
     Red: 'red',
@@ -38,12 +38,12 @@ export const AtButton = () => {
   )
 
   return `
-    <at-button
+    <ato-button
       color=${color}
       fill=${fill}
       size=${size}
       type=${type}
       disabled=${disabled}>
         ${text('Label', 'Click me')}
-    </at-button>`
+    </ato-button>`
 }
