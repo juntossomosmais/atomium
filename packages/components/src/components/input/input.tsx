@@ -65,16 +65,16 @@ export class AtoInput {
     this.inputEl.removeEventListener('ionFocus', this.handleFocus)
   }
 
-  handleChange = (event: any) => {
+  private handleChange = (event: any) => {
     this.atoChange.emit(event.detail)
   }
 
-  handleBlur = () => {
+  private handleBlur = () => {
     this.inputEl.removeEventListener('ionBlur', this.handleBlur)
     this.atoBlur.emit()
   }
 
-  handleFocus = () => {
+  private handleFocus = () => {
     this.inputEl.removeEventListener('ionFocus', this.handleFocus)
     this.atoFocus.emit()
   }
