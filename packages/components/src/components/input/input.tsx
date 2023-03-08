@@ -46,7 +46,7 @@ export class AtoInput {
     | 'decimal'
     | 'search'
 
-  @Prop() labelPosition?: 'fixed' | 'stacked' | 'floating'
+  @Prop() labelPosition?: 'fixed' | 'stacked' | 'floating' = 'floating'
   @Prop() labelText?: string
 
   @Event() atoFocus!: EventEmitter<void>
