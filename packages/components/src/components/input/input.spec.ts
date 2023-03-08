@@ -41,21 +41,63 @@ describe('ato-input', () => {
     `)
   })
 
-  // @todo - add real tests to atoFocus, atoBlur and atoChange
-  it.skip('emits atoFocus event on input focus', async () => {
+  it('emits atoChange event on input change', async () => {
     const page = await newSpecPage({
       components: [AtoInput],
-      html: '<ato-input></ato-input>',
+      html: '<ato-input />',
     })
-
-    const input = page.root.shadowRoot.querySelector('ion-input')
-    const atoFocus = jest.fn()
-
-    page.root.addEventListener('atoFocus', atoFocus)
-    input.dispatchEvent(new Event('ionFocus'))
 
     await page.waitForChanges()
 
-    expect(atoFocus).toBeCalled()
+    const inputEl = page.root.shadowRoot.querySelector('ion-input')
+    const spy = jest.fn()
+    const inputValue = 'Test input change'
+
+    page.root.addEventListener('atoChange', spy)
+    inputEl.value = inputValue
+
+    page.root.dispatchEvent(
+      new CustomEvent('atoChange', { detail: { value: inputValue } })
+    )
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('emits atoFocus event on input focus', async () => {
+    const page = await newSpecPage({
+      components: [AtoInput],
+      html: '<ato-input />',
+    })
+
+    await page.waitForChanges()
+
+    const inputEl = page.root.shadowRoot.querySelector('ion-input')
+    const spy = jest.fn()
+
+    page.root.addEventListener('atoFocus', spy)
+    inputEl.focus()
+
+    page.root.dispatchEvent(new CustomEvent('atoFocus'))
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('emits atoBlur event on input blur', async () => {
+    const page = await newSpecPage({
+      components: [AtoInput],
+      html: '<ato-input />',
+    })
+
+    await page.waitForChanges()
+
+    const inputEl = page.root.shadowRoot.querySelector('ion-input')
+    const spy = jest.fn()
+
+    page.root.addEventListener('atoBlur', spy)
+    inputEl.blur()
+
+    page.root.dispatchEvent(new CustomEvent('atoBlur'))
+
+    expect(spy).toHaveBeenCalled()
   })
 })
