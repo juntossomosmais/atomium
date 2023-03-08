@@ -55,6 +55,26 @@ export namespace Components {
         "type": TextFieldTypes;
         "value": string;
     }
+    interface AtoSelect {
+        "cancelText"?: string;
+        "color": Color;
+        "disabled"?: boolean;
+        "interface"?: 'popover' | 'action-sheet';
+        "labelPosition"?: 'fixed' | 'stacked';
+        "labelText"?: string;
+        "mode": Mode;
+        "multiple"?: boolean;
+        "name": string;
+        "okText"?: string;
+        "options": Array<{
+    value: string
+    selected?: boolean
+    disabled?: boolean
+  }>;
+        "overlayDismiss"?: boolean;
+        "placeholder": string;
+        "size"?: 'small' | 'large';
+    }
 }
 export interface AtoButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -63,6 +83,10 @@ export interface AtoButtonCustomEvent<T> extends CustomEvent<T> {
 export interface AtoInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtoInputElement;
+}
+export interface AtoSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtoSelectElement;
 }
 declare global {
     interface HTMLAtoButtonElement extends Components.AtoButton, HTMLStencilElement {
@@ -77,9 +101,16 @@ declare global {
         prototype: HTMLAtoInputElement;
         new (): HTMLAtoInputElement;
     };
+    interface HTMLAtoSelectElement extends Components.AtoSelect, HTMLStencilElement {
+    }
+    var HTMLAtoSelectElement: {
+        prototype: HTMLAtoSelectElement;
+        new (): HTMLAtoSelectElement;
+    };
     interface HTMLElementTagNameMap {
         "ato-button": HTMLAtoButtonElement;
         "ato-input": HTMLAtoInputElement;
+        "ato-select": HTMLAtoSelectElement;
     }
 }
 declare namespace LocalJSX {
@@ -134,9 +165,35 @@ declare namespace LocalJSX {
         "type"?: TextFieldTypes;
         "value"?: string;
     }
+    interface AtoSelect {
+        "cancelText"?: string;
+        "color"?: Color;
+        "disabled"?: boolean;
+        "interface"?: 'popover' | 'action-sheet';
+        "labelPosition"?: 'fixed' | 'stacked';
+        "labelText"?: string;
+        "mode"?: Mode;
+        "multiple"?: boolean;
+        "name"?: string;
+        "okText"?: string;
+        "onAtoBlur"?: (event: AtoSelectCustomEvent<void>) => void;
+        "onAtoCancel"?: (event: AtoSelectCustomEvent<void>) => void;
+        "onAtoChange"?: (event: AtoSelectCustomEvent<string>) => void;
+        "onAtoDimiss"?: (event: AtoSelectCustomEvent<void>) => void;
+        "onAtoFocus"?: (event: AtoSelectCustomEvent<void>) => void;
+        "options"?: Array<{
+    value: string
+    selected?: boolean
+    disabled?: boolean
+  }>;
+        "overlayDismiss"?: boolean;
+        "placeholder"?: string;
+        "size"?: 'small' | 'large';
+    }
     interface IntrinsicElements {
         "ato-button": AtoButton;
         "ato-input": AtoInput;
+        "ato-select": AtoSelect;
     }
 }
 export { LocalJSX as JSX };
@@ -145,6 +202,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ato-button": LocalJSX.AtoButton & JSXBase.HTMLAttributes<HTMLAtoButtonElement>;
             "ato-input": LocalJSX.AtoInput & JSXBase.HTMLAttributes<HTMLAtoInputElement>;
+            "ato-select": LocalJSX.AtoSelect & JSXBase.HTMLAttributes<HTMLAtoSelectElement>;
         }
     }
 }
