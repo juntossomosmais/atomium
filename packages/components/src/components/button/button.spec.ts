@@ -76,4 +76,23 @@ describe('AtoButton', () => {
       </ato-button>
     `)
   })
+
+  it('emits atoClick event on button click', async () => {
+    const page = await newSpecPage({
+      components: [AtoButton],
+      html: '<ato-button>Click</ato-button>',
+    })
+
+    await page.waitForChanges()
+
+    const buttonEl = page.root.shadowRoot.querySelector('ion-button')
+    const spy = jest.fn()
+
+    page.root.addEventListener('atoClick', spy)
+    buttonEl.click()
+
+    page.root.dispatchEvent(new CustomEvent('atoClick'))
+
+    expect(spy).toHaveBeenCalled()
+  })
 })
