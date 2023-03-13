@@ -19,9 +19,9 @@
 
 ## Events
 
-| Event         | Description | Type               |
-| ------------- | ----------- | ------------------ |
-| `buttonClick` |             | `CustomEvent<any>` |
+| Event      | Description | Type               |
+| ---------- | ----------- | ------------------ |
+| `atoClick` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
