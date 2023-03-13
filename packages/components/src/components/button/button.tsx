@@ -14,7 +14,7 @@ export class AtoButton {
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
   @Prop() mode: Mode = 'md'
 
-  @Event() buttonClick: EventEmitter
+  @Event() atoClick: EventEmitter
 
   render() {
     const buttonClasses = {
@@ -26,7 +26,7 @@ export class AtoButton {
       <ion-button
         class={buttonClasses}
         disabled={this.disabled}
-        onClick={() => this.buttonClick.emit()}
+        onClick={() => this.atoClick.emit()}
         type={this.type}
       >
         <slot />
