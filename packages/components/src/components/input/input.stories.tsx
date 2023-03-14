@@ -121,7 +121,7 @@ export const AtoInput = () => {
 
     <script>
       document.querySelector('ato-input').addEventListener('atoChange', (e) => {
-        console.log('<ato-input> atoChange':, e.detail.value)
+        console.log('<ato-input> atoChange:', e.detail.value)
       })
 
       document.querySelector('ato-input').addEventListener('atoFocus', () => {
