@@ -3,6 +3,8 @@
 .npmrc
 
 # compiled output
+packages/react-library/src/components
+storybook-static
 dist
 tmp
 /out-tsc
