@@ -1,4 +1,4 @@
-import { defineCustomElements } from '../../components/loader'
+import { defineCustomElements } from 'atomium/loader'
 
 defineCustomElements()
 
