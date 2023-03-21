@@ -40,12 +40,12 @@ export const config: Config = {
       type: 'docs-readme',
     },
     vueOutputTarget({
-      componentCorePackage: '@atomium',
+      componentCorePackage: 'atomium/dist',
       proxiesFile: 'dist/vue/index.ts',
     }),
     reactOutputTarget({
-      componentCorePackage: '@atomium',
-      proxiesFile: 'dist/react/index.ts',
+      componentCorePackage: 'atomium/dist',
+      proxiesFile: '../react-library/src/components/stencil-generated/index.ts',
       includeDefineCustomElements: true,
       loaderDir: 'loader',
       includePolyfills: true,
