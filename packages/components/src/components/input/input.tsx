@@ -15,23 +15,23 @@ export class AtoInput {
   @Prop() name?: string
   @Prop() minlength?: number
   @Prop() maxlength?: number
-  @Prop() disabled?: boolean
-  @Prop() required?: boolean
+  @Prop() disabled = false
+  @Prop() required = false
   @Prop({ reflect: true }) color: Color = 'primary'
   @Prop() mode: Mode = 'md'
-  @Prop() expandable?: boolean
+  @Prop() expandable = false
   @Prop({ reflect: true }) fill: 'default' | 'solid' | 'outline' = 'default'
   @Prop() size?: 'small' | 'default' | 'large' = 'default'
-  @Prop() autofocus?: boolean
-  @Prop() clearInput?: boolean
+  @Prop() autofocus = false
+  @Prop() clearInput = false
   @Prop() pattern?: string
-  @Prop() readonly?: boolean
-  @Prop() spellcheck?: boolean
-  @Prop() autocapitalize?: 'words' | 'characters' | 'sentences' | 'none'
+  @Prop() readonly = false
+  @Prop() spellcheck = false
+  @Prop() autocapitalize: 'words' | 'characters' | 'sentences' | 'none' = 'none'
   @Prop() autocomplete?: 'on' | 'off'
   @Prop() accept?: string
-  @Prop() multiple?: boolean
-  @Prop() clearOnEdit?: boolean
+  @Prop() multiple = false
+  @Prop() clearOnEdit = false
   @Prop() debounce?: number
   @Prop() clearIcon?: string
   @Prop() icon?: string
@@ -44,7 +44,7 @@ export class AtoInput {
     | 'email'
     | 'numeric'
     | 'decimal'
-    | 'search'
+    | 'search' = 'none'
 
   @Prop() labelPosition?: 'fixed' | 'stacked' | 'floating' = 'floating'
   @Prop() labelText?: string

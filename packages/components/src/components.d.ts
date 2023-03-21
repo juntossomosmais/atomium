@@ -18,16 +18,16 @@ export namespace Components {
     }
     interface AtoInput {
         "accept"?: string;
-        "autocapitalize"?: 'words' | 'characters' | 'sentences' | 'none';
+        "autocapitalize": 'words' | 'characters' | 'sentences' | 'none';
         "autocomplete"?: 'on' | 'off';
-        "autofocus"?: boolean;
+        "autofocus": boolean;
         "clearIcon"?: string;
-        "clearInput"?: boolean;
-        "clearOnEdit"?: boolean;
+        "clearInput": boolean;
+        "clearOnEdit": boolean;
         "color": Color;
         "debounce"?: number;
-        "disabled"?: boolean;
-        "expandable"?: boolean;
+        "disabled": boolean;
+        "expandable": boolean;
         "fill": 'default' | 'solid' | 'outline';
         "icon"?: string;
         "iconRight"?: string;
@@ -44,14 +44,14 @@ export namespace Components {
         "maxlength"?: number;
         "minlength"?: number;
         "mode": Mode;
-        "multiple"?: boolean;
+        "multiple": boolean;
         "name"?: string;
         "pattern"?: string;
         "placeholder"?: string;
-        "readonly"?: boolean;
-        "required"?: boolean;
+        "readonly": boolean;
+        "required": boolean;
         "size"?: 'small' | 'default' | 'large';
-        "spellcheck"?: boolean;
+        "spellcheck": boolean;
         "type": TextFieldTypes;
         "value": string;
     }
@@ -119,7 +119,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "fill"?: 'clear' | 'outline' | 'solid';
         "mode"?: Mode;
-        "onButtonClick"?: (event: AtoButtonCustomEvent<any>) => void;
+        "onAtoClick"?: (event: AtoButtonCustomEvent<any>) => void;
         "size"?: 'small' | 'default' | 'large';
         "type"?: 'submit' | 'reset' | 'button';
     }
