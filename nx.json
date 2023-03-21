@@ -14,7 +14,9 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    ".eslintrc.json": "*"
+    ".eslintrc.json": "*",
+    "tsconfig.base.json": "*",
+    "nx.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
@@ -29,7 +31,13 @@
       "dependsOn": ["^build"]
     }
   },
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "workspaceLayout": {
-    "libsDir": "packages/libs"
+    "appsDir": "packages/storybook",
+    "libsDir": "packages"
   }
 }
