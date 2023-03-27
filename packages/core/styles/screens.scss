@@ -1,0 +1,31 @@
+// ==================================================
+// Variables
+//
+// 1. Media Queries
+// ==================================================
+
+@import '~rupture-sass/rupture';
+
+// --------------------------------------------------
+// 2. Media Queries
+// --------------------------------------------------
+
+$screen-xs: 360px; // xExtra small screen / phone
+$screen-sm: 768px; // Extra small screen / phone
+$screen-md: 992px; // Small screen / tablet
+$screen-lg: 1280px; // Medium screen / desktop
+$screen-xlg: 1440px; // Extra Large screen / wide desktop
+$screen-fhd: 1920px; // Full HD resolution
+$screen-2k: 2048px; // 2K resolution
+$screen-4k: 3840px; // 4K resolution
+
+$rupture: map-merge(
+  $rupture,
+  (
+    anti-overlap: -1px,
+    scale: 0 $screen-xs $screen-sm $screen-md $screen-lg $screen-xlg $screen-fhd
+      $screen-2k $screen-4k,
+    scale-names: 'small' 'mobile' 'tablet' 'desktop' 'desktopL' 'desktopXL'
+      'desktopFHD' 'desktop2k' 'desktop4k',
+  )
+);
