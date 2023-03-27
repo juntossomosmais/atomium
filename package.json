@@ -14,12 +14,13 @@
     "lib:build": "nx run atomium:build && nx run atomium-react:build",
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
-    "postinstall": "npx husky install && npm run lib:build",
+    "postinstall": "npx husky install && npm run lib:build && npm run tokens:build",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "start": "nx run-many --target=start",
     "storybook:build": "nx run atomium-storybook:build",
-    "test": "nx run atomium:test"
+    "test": "nx run atomium:test",
+    "tokens:build": "nx run atomium-tokens:build"
   },
   "dependencies": {
     "@stencil/core": "^3.0.0"
@@ -56,6 +57,7 @@
     "@types/react": "^18.0.28",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
+    "autoprefixer": "^10.4.14",
     "babel-loader": "^8.3.0",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
@@ -69,6 +71,7 @@
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
     "lint-staged": "^13.1.2",
+    "node-sass": "^8.0.0",
     "nx": "15.7.0",
     "postcss-scss": "^4.0.6",
     "prettier": "2.8.4",
@@ -76,6 +79,10 @@
     "puppeteer": "^19.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup": "^3.20.2",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rupture-sass": "^0.3.0",
+    "sass-loader": "^13.2.2",
     "stylelint": "^15.1.0",
     "stylelint-config-recommended": "^10.0.1",
     "stylelint-order": "^6.0.2",

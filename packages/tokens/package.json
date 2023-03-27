@@ -1,0 +1,12 @@
+{
+  "name": "atomium-tokens",
+  "version": "0.0.1",
+  "main": "dist/tokens.css",
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "rollup -c"
+  },
+  "files": [
+    "dist"
+  ]
+}
