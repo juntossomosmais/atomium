@@ -18,7 +18,7 @@
 
   /* Colors
   * ------------------------- */
-  --color-neutral-dark-1: #000;
+  --color-neutral-black: #000;
   --color-neutral-regular: #1f2328;
   --color-neutral-light-1: #464f59;
   --color-neutral-light-2: #7e8b97;
@@ -26,26 +26,32 @@
   --color-neutral-light-4: #dee1e4;
   --color-neutral-light-5: #f1f3f3;
   --color-neutral-white: #fff;
+
   --color-brand-primary-dark-1: #b85000;
   --color-brand-primary-regular: #ed6700;
   --color-brand-primary-light-1: #ff913d;
   --color-brand-primary-light-2: #fff3eb;
+
   --color-brand-secondary-dark-1: #12579b;
   --color-brand-secondary-regular: #1976d2;
-  --color-brand-secondary-light-1: #4a9ef2;
+  --color-brand-secondary-light-1: #4a9ff2;
   --color-brand-secondary-light-2: #e4f0fc;
+
   --color-contextual-error-dark-1: #b60000;
   --color-contextual-error-regular: #d60000;
   --color-contextual-error-light-1: #ff0a0a;
   --color-contextual-error-light-2: #ffebeb;
+
   --color-contextual-success-dark-1: #106105;
   --color-contextual-success-regular: #168806;
   --color-contextual-success-light-1: #26b413;
   --color-contextual-success-light-2: #e4ffe0;
+
   --color-contextual-warning-dark-1: #856900;
   --color-contextual-warning-regular: #ffc900;
   --color-contextual-warning-light-1: #ffda52;
   --color-contextual-warning-light-2: #fff4cc;
+
   --color-contextual-info-dark-1: #0a6171;
   --color-contextual-info-regular: #0d8296;
   --color-contextual-info-light-1: #10a2bc;
@@ -56,8 +62,8 @@
   --font-family: 'Roboto', sans-serif;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
-  // This font-weight is deprecated, letting here for backwards compatibility.
-  --font-weight-medium: 500;
+
+  --text-color: var(--color-neutral-regular);
 
   /* Typography
   * ------------------------- */
@@ -129,83 +135,6 @@
   --zindex-1000: 1000;
   --zindex-overlay: 10000;
   --transition-duration: 0.25s;
-
-  /* Old Colors
-  * TODO: Remove it after all color variables are migrated to new color variables
-  * ------------------------- */
-  --black: #111;
-  --white: #fff;
-  --gray-1: #f5f5f5;
-  --gray-2: #d8d8d8;
-  --gray-3: #9b9b9b;
-  --gray-4: #4a4a4a;
-  --gray-5: #333;
-  --blue-1: #daf0ff;
-  --blue-2: #007fd8;
-  --blue-3: #0060a7;
-  --blue-4: #003a64;
-  --green-1: #7ed321;
-  --orange-1: #ff7d00;
-  --purple-1: #bd10e0;
-  --red-1: #ba1e24;
-  --red-2: #d0021b;
-
-  --default-color: var(--gray-4);
-  --default-color-lighten: #5c5c5c;
-  --default-color-contrast: var(--white);
-  --white-color: var(--white);
-  --white-color-lighten: var(--gray-1);
-  --white-color-contrast: var(--black);
-  --disabled-color: var(--gray-3);
-  --disabled-color-contrast: var(--gray-1);
-  --primary-color: var(--orange-1);
-  --primary-color-lighten: #ff9834;
-  --primary-color-contrast: var(--white);
-  --secondary-color: var(--blue-2);
-  --secondary-color-lighten: #0090f5;
-  --secondary-color-contrast: var(--white);
-  --success-color: var(--green-1);
-  --success-color-lighten: #8bde2f;
-  --success-color-contrast: var(--white);
-  --danger-color: var(--red-2);
-  --danger-color-lighten: #d32228;
-  --danger-color-contrast: var(--white);
-
-  --text-color: #333333;
-  --text-color-lighten: var(--gray-3);
-
-  /* OLD: Typography
-   * TODO: Remove it after exclude from projects
-  */
-  --typography-panel-font: 900 38px/40px var(--font-family);
-  --typography-panel-letter: 0;
-  --typography-title-font: 500 24px/28px var(--font-family);
-  --typography-title-letter: -0.357143px;
-  --typography-subheader-font: var(--font-weight-regular) 20px/24px
-    var(--font-family);
-  --typography-subheader-letter: -0.288572px;
-  --typography-body-font: var(--font-weight-regular) 16px/19px
-    var(--font-family);
-  --typography-body-letter: -0.228572px;
-  --typography-body2-font: var(--font-weight-regular) 14px/16px
-    var(--font-family);
-  --typography-body2-letter: -0.2px;
-  --typography-caption-font: var(--font-weight-regular) 12px/14px
-    var(--font-family);
-  --typography-caption-letter: -0.171429px;
-  --typography-button-font: 500 16px/19px var(--font-family);
-  --typography-button-letter: -0.228572px;
-
-  /* OLD: Spacings
-   * TODO: Remove it after exclude from projects
-  * ------------------------- */
-  --space-xxs: 4px;
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space: 24px;
-  --space-md: 32px;
-  --space-lg: 48px;
-  --space-xlg: 64px;
 }
 
 /* Mobile
