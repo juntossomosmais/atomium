@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
 
 .markdown-body {
-  background: var(--white);
+  background: var(--color-neutral-white);
   margin: 0 auto;
   max-width: 980px;
   min-width: 200px;
-  padding: var(--space) var(--space-lg);
+  padding: var(--spacing-large) var(--spacing-large);
 }
 
 .markdown-body * {
@@ -18,49 +18,73 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 0;
+  line-height: 1.25;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .markdown-body h1 {
-  font-size: 32px;
+  border-bottom: 1px solid var(--color-neutral-light-4);
+  color: var(--color-neutral-black);
+  font: var(--title-headline-large);
+  letter-spacing: var(--title-headline-large-letter);
+  font-weight: var(--font-weight-bold);
+  padding-bottom: var(--spacing-xxsmall);
+  margin-bottom: var(--spacing-base);
 }
 
-.markdown-body h1,
 .markdown-body h2 {
-  border-bottom: 1px solid var(--gray-2);
-  font-weight: 600;
-  padding-bottom: 0.3em;
+  border: 0;
+  color: var(--color-neutral-light-1);
+  font: var(--title-headline-small);
+  letter-spacing: var(--title-headline-small-letter);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xsmall);
+  padding: 0;
 }
 
-.markdown-body h2 {
-  font-size: 24px;
+.markdown-body h2:not(:first-child) {
+  margin-top: var(--spacing-large);
 }
 
 .markdown-body h3 {
-  font-size: 20px;
+  color: var(--color-neutral-light-1);
+  font: var(--title-headline-xsmall);
+  letter-spacing: var(--title-headline-xsmall-letter);
+  margin-bottom: var(--spacing-xsmall);
 }
 
-.markdown-body h3,
-.markdown-body h4 {
-  font-weight: 600;
+.markdown-body h3:not(:first-child) {
+  margin-top: var(--spacing-large);
 }
 
 .markdown-body h4 {
-  font-size: 16px;
+  color: var(--color-neutral-light-1);
+  font: var(--text-subtitle-large);
+  letter-spacing: var(--text-subtitle-large-letter);
+  margin-bottom: var(--spacing-xxsmall);
+}
+
+.markdown-body h4:not(:first-child) {
+  margin-top: var(--spacing-large);
 }
 
 .markdown-body h5 {
-  font-size: 14px;
+  color: var(--color-neutral-light-1);
+  font: var(--text-subtitle-medium);
+  letter-spacing: var(--text-subtitle-medium-letter);
+  margin-bottom: var(--spacing-xxsmall);
 }
 
-.markdown-body h5,
-.markdown-body h6 {
-  font-weight: 600;
+.markdown-body h5:not(:first-child) {
+  margin-top: var(--spacing-base);
 }
 
 .markdown-body h6 {
-  font-size: 12px;
+  color: var(--color-neutral-light-1);
+  font: var(--text-caption);
+  letter-spacing: var(--text-caption-letter);
+  margin-bottom: var(--spacing-xxsmall);
 }
 
 .markdown-body p {
@@ -68,51 +92,8 @@
   margin-bottom: 10px;
 }
 
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  font-weight: 600;
-  line-height: 1.25;
-  margin-bottom: var(--space-sm);
-  margin-top: var(--space);
-}
-
-.markdown-body h1 {
-  font-size: 2em;
-}
-
-.markdown-body h1,
-.markdown-body h2 {
-  border-bottom: 1px solid var(--gray-2);
-  padding-bottom: 0.3em;
-}
-
-.markdown-body h2 {
-  font-size: 1.5em;
-}
-
-.markdown-body h3 {
-  font-size: 1.25em;
-}
-
-.markdown-body h4 {
-  font-size: 1em;
-}
-
-.markdown-body h5 {
-  font-size: 0.875em;
-}
-
-.markdown-body h6 {
-  color: #6a737d;
-  font-size: 0.85em;
-}
-
 .markdown-body a {
-  color: var(--secondary-color);
+  color: var(--color-brand-secondary-regular);
   text-decoration: none;
 }
 
@@ -142,16 +123,16 @@
 }
 
 .markdown-body hr {
-  background-color: var(--gray-1);
+  background-color: var(--color-neutral-light-4);
   border: 0;
   height: 0.25em;
-  margin: var(--space) 0;
+  margin: var(--spacing-large) 0;
   padding: 0;
 }
 
 @media (max-width: 767px) {
   .markdown-body {
-    padding: 15px;
+    padding: var(--spacing-base);
   }
 }
 
@@ -166,34 +147,5 @@
 
 .badges img {
   display: inline-block;
-  margin-right: var(--space-xs) !important;
-}
-
-.row-items > * {
-  margin-right: var(--space-sm) !important;
-  margin-bottom: var(--space-sm) !important;
-}
-
-.sm-offset-left {
-  margin-left: var(--space-sm) !important;
-}
-
-.md-offset-left {
-  margin-left: var(--space-md) !important;
-}
-
-.lg-offset-left {
-  margin-left: var(--space-lg) !important;
-}
-
-.sm-offset-top {
-  margin-top: var(--space-sm) !important;
-}
-
-.md-offset-top {
-  margin-top: var(--space-md) !important;
-}
-
-.lg-offset-top {
-  margin-top: var(--space-lg) !important;
+  margin-right: var(--spacing-xsmall) !important;
 }
