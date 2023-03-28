@@ -135,14 +135,10 @@
   --zindex-1000: 1000;
   --zindex-overlay: 10000;
   --transition-duration: 0.25s;
-}
 
-/* Mobile
-* ------------------------- */
-@include below(mobile) {
-  :root {
+  @include below(mobile) {
     /* Typography
-  * ------------------------- */
+    * ------------------------- */
     --title-giant: var(--font-weight-bold) 30px/40px var(--font-family);
     --title-giant-letter: 0.025em;
     --title-display: var(--font-weight-bold) 28px/36px var(--font-family);
@@ -193,4 +189,10 @@
     --text-badge: var(--font-weight-bold) 10px/16px var(--font-family);
     --text-badge-letter: 0.0004em;
   }
+}
+
+body {
+  color: var(--text-color);
+  font-family: var(--font-family);
+  text-rendering: optimizeLegibility;
 }
