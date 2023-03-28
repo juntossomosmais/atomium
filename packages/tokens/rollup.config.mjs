@@ -2,10 +2,10 @@ import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 
 export default {
-  input: 'src/tokens.scss',
+  input: 'src/index.scss',
   output: [
     {
-      file: `dist/tokens.css`
+      file: `dist/styles.css`
     },
   ],
   plugins: [

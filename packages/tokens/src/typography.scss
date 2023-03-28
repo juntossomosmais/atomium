@@ -1,0 +1,29 @@
+@mixin typography-generator($variable-name) {
+  .jsm-#{$variable-name} {
+    font: var(--#{$variable-name});
+    letter-spacing: var(--#{$variable-name}-letter);
+  }
+}
+
+@include typography-generator('title-giant');
+@include typography-generator('title-display');
+@include typography-generator('title-headline-xxlarge');
+@include typography-generator('title-headline-xlarge');
+@include typography-generator('title-headline-large');
+@include typography-generator('title-headline-medium');
+@include typography-generator('title-headline-small');
+@include typography-generator('title-headline-xsmall');
+@include typography-generator('text-subtitle-large');
+@include typography-generator('text-subtitle-medium');
+@include typography-generator('text-body-large');
+@include typography-generator('text-body-medium');
+@include typography-generator('text-body-small');
+@include typography-generator('text-link-large');
+@include typography-generator('text-link-medium');
+@include typography-generator('text-link-small');
+@include typography-generator('button-large');
+@include typography-generator('button-medium');
+@include typography-generator('text-caption');
+@include typography-generator('text-caption-focused');
+@include typography-generator('text-overline');
+@include typography-generator('text-badge');
