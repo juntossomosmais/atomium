@@ -34,7 +34,6 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: 'loader',
-      copy: [{ src: 'assets' }],
     },
     {
       type: 'docs-readme',
