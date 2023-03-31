@@ -7,9 +7,10 @@ import { Component, Event, EventEmitter, h, Prop } from '@stencil/core'
   shadow: true,
 })
 export class AtoButton {
-  @Prop({ reflect: true }) color: Color = 'primary'
-  @Prop({ reflect: true }) fill: 'clear' | 'outline' | 'solid' = 'solid'
-  @Prop({ reflect: true }) size: 'small' | 'default' | 'large' = 'default'
+  @Prop() color: Color = 'primary'
+  @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
+  @Prop() size: 'small' | 'default' | 'large' = 'default'
+  @Prop() shape: 'default' | 'round' = 'default'
   @Prop() disabled?: boolean
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
   @Prop() mode: Mode = 'md'
@@ -25,6 +26,8 @@ export class AtoButton {
     return (
       <ion-button
         class={buttonClasses}
+        fill={this.fill}
+        shape={this.shape}
         disabled={this.disabled}
         onClick={() => this.atoClick.emit()}
         type={this.type}
