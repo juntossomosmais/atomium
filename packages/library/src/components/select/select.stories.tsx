@@ -1,4 +1,5 @@
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'
+import { Meta } from '@storybook/html'
+import { AtoSelect } from 'atomium/dist/types'
 
 import readme from './readme.md'
 
@@ -7,81 +8,58 @@ export default {
   parameters: {
     notes: readme,
   },
-  decorators: [withKnobs],
-}
+  argTypes: {
+    labelText: {
+      control: 'text',
+    },
+    interface: {
+      control: {
+        type: 'select',
+        options: ['popover', 'action-sheet'],
+      },
+    },
+    color: {
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary'],
+      },
+    },
+    labelPosition: {
+      control: {
+        type: 'select',
+        options: ['fixed', 'stacked'],
+      },
+    },
+    multiple: {
+      control: 'boolean',
+    },
+    mode: {
+      control: {
+        type: 'select',
+        options: ['ios', 'md'],
+      },
+    },
+    disabled: {
+      control: 'boolean',
+    },
+  },
+} as Meta
 
-export const AtoSelect = () => {
-  const interfaceOptions = {
-    Popover: 'popover',
-    'Action Sheet': 'action-sheet',
-  }
-  const colorOptions = {
-    Primary: 'primary',
-    Secondary: 'secondary',
-    Tertiary: 'tertiary',
-    Success: 'success',
-    Warning: 'warning',
-    Danger: 'danger',
-    Light: 'light',
-    Medium: 'medium',
-    Dark: 'dark',
-  }
-  const modeOptions = {
-    IOS: 'ios',
-    MD: 'md',
-  }
-  const interfaceValue = select('Interface', interfaceOptions, 'popover')
-  const colorValue = select('Color', colorOptions, 'primary')
-  const modeValue = select('Mode', modeOptions, 'md')
-  const cancelTextValue = text('Cancel Text', 'Cancel')
-  const okTextValue = text('Ok Text', 'OK')
-  const disabledValue = boolean('Disabled', false)
-  const multipleValue = boolean('Multiple', false)
-  const overlayDismissValue = boolean('Overlay Dismiss', true)
-  const labelValue = text('Label', 'Select')
-  const labelPositionValue = select(
-    'Label Position',
-    { Fixed: 'fixed', Stacked: 'stacked' },
-    'stacked'
-  )
-
+export const Default = (args: AtoSelect) => {
   return `
     <ato-select
       name='select'
       placeholder='Select an option'
-      interface=${interfaceValue}
-      color=${colorValue}
-      mode=${modeValue}
-      cancelText=${cancelTextValue}
-      okText=${okTextValue}
-      disabled=${disabledValue}
-      multiple=${multipleValue}
-      overlayDismiss=${overlayDismissValue}
-      label-text=${labelValue}
-      label-position=${labelPositionValue}
+      interface=${args.interface}
+      color=${args.color}
+      mode=${args.mode}
+      disabled=${args.disabled}
+      multiple=${args.multiple}
+      label-text=${args.labelText}
+      label-position=${args.labelPosition}
     />
 
     <script>
-      document.querySelector('ato-select').addEventListener('atoChange', (e) => {
-        console.log('<ato-select> atoChange:', e.detail)
-      })
-
-      document.querySelector('ato-select').addEventListener('atoFocus', () => {
-        console.log("<ato-select> atoFocus using focus!")
-      })
-
-      document.querySelector('ato-select').addEventListener('atoBlur', () => {
-        console.log("<ato-select> atoBlur using blur!")
-      })
-
-      document.querySelector('ato-select').addEventListener('atoCancel', () => {
-        console.log("<ato-select> atoCancel using cancel!")
-      })
-
-      document.querySelector('ato-select').addEventListener('atoDimiss', () => {
-        console.log("<ato-select> atoDimiss using dismiss!")
-      })
-
       document.querySelector('ato-select').options = [
         { value: 'Red', disabled: false },
         { value: 'Green', disabled: false },
@@ -90,4 +68,14 @@ export const AtoSelect = () => {
       ]
     </script>
   `
+}
+
+Default.args = {
+  interface: 'popover',
+  color: 'primary',
+  mode: 'md',
+  disabled: false,
+  multiple: false,
+  labelText: 'Select',
+  labelPosition: 'floating',
 }
