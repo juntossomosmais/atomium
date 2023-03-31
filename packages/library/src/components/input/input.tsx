@@ -35,7 +35,6 @@ export class AtoInput {
   @Prop() debounce?: number
   @Prop() clearIcon?: string
   @Prop() icon?: string
-  @Prop() iconRight?: string
   @Prop() inputmode?:
     | 'none'
     | 'text'
@@ -102,7 +101,6 @@ export class AtoInput {
           fill={this.fill}
           size={this.size}
           icon={this.icon}
-          iconRight={this.iconRight}
           autofocus={this.autofocus}
           clearInput={this.clearInput}
           pattern={this.pattern}
