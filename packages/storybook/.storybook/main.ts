@@ -8,7 +8,6 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/addon-knobs',
     '@storybook/addon-links',
     '@storybook/addon-notes',
     '@storybook/theming',
