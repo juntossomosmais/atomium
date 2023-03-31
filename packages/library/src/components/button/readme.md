@@ -13,6 +13,7 @@
 | `disabled` | `disabled` |             | `boolean`                                                                                                                                        | `undefined` |
 | `fill`     | `fill`     |             | `"clear" \| "outline" \| "solid"`                                                                                                                | `'solid'`   |
 | `mode`     | `mode`     |             | `"ios" \| "md"`                                                                                                                                  | `'md'`      |
+| `shape`    | `shape`    |             | `"default" \| "round"`                                                                                                                           | `'default'` |
 | `size`     | `size`     |             | `"default" \| "large" \| "small"`                                                                                                                | `'default'` |
 | `type`     | `type`     |             | `"button" \| "reset" \| "submit"`                                                                                                                | `'button'`  |
 

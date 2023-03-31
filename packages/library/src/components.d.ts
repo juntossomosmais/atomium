@@ -13,6 +13,7 @@ export namespace Components {
         "disabled"?: boolean;
         "fill": 'clear' | 'outline' | 'solid';
         "mode": Mode;
+        "shape": 'default' | 'round';
         "size": 'small' | 'default' | 'large';
         "type": 'submit' | 'reset' | 'button';
     }
@@ -120,6 +121,7 @@ declare namespace LocalJSX {
         "fill"?: 'clear' | 'outline' | 'solid';
         "mode"?: Mode;
         "onAtoClick"?: (event: AtoButtonCustomEvent<any>) => void;
+        "shape"?: 'default' | 'round';
         "size"?: 'small' | 'default' | 'large';
         "type"?: 'submit' | 'reset' | 'button';
     }
