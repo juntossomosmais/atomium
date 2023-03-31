@@ -7,6 +7,9 @@ export default {
   title: 'Components/Select',
   parameters: {
     notes: readme,
+    actions: {
+      handles: ['atoChange', 'atoFocus', 'atoBlur'],
+    },
   },
   argTypes: {
     labelText: {
