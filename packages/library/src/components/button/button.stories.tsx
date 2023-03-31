@@ -7,8 +7,14 @@ export default {
   title: 'Components/Button',
   parameters: {
     notes: readme,
+    actions: {
+      handles: ['click'],
+    },
   },
   argTypes: {
+    handleAtoClick: {
+      action: 'clicked',
+    },
     color: {
       control: {
         type: 'select',
@@ -79,4 +85,7 @@ Default.args = {
   disabled: false,
   type: 'button',
   mode: 'md',
+  atoClick: {
+    action: 'clicked',
+  },
 }
