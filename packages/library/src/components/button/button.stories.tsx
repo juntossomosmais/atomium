@@ -8,13 +8,10 @@ export default {
   parameters: {
     notes: readme,
     actions: {
-      handles: ['click'],
+      handles: ['atoClick'],
     },
   },
   argTypes: {
-    handleAtoClick: {
-      action: 'clicked',
-    },
     color: {
       control: {
         type: 'select',
@@ -85,7 +82,4 @@ Default.args = {
   disabled: false,
   type: 'button',
   mode: 'md',
-  atoClick: {
-    action: 'clicked',
-  },
 }
