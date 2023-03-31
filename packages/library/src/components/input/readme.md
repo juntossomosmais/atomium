@@ -22,7 +22,6 @@
 | `expandable`     | `expandable`     |             | `boolean`                                                                                                                                        | `false`      |
 | `fill`           | `fill`           |             | `"default" \| "outline" \| "solid"`                                                                                                              | `'default'`  |
 | `icon`           | `icon`           |             | `string`                                                                                                                                         | `undefined`  |
-| `iconRight`      | `icon-right`     |             | `string`                                                                                                                                         | `undefined`  |
 | `inputmode`      | `inputmode`      |             | `"decimal" \| "email" \| "none" \| "numeric" \| "search" \| "tel" \| "text" \| "url"`                                                            | `'none'`     |
 | `labelPosition`  | `label-position` |             | `"fixed" \| "floating" \| "stacked"`                                                                                                             | `'floating'` |
 | `labelText`      | `label-text`     |             | `string`                                                                                                                                         | `undefined`  |

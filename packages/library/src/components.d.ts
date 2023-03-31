@@ -31,7 +31,6 @@ export namespace Components {
         "expandable": boolean;
         "fill": 'default' | 'solid' | 'outline';
         "icon"?: string;
-        "iconRight"?: string;
         "inputmode"?: | 'none'
     | 'text'
     | 'tel'
@@ -139,7 +138,6 @@ declare namespace LocalJSX {
         "expandable"?: boolean;
         "fill"?: 'default' | 'solid' | 'outline';
         "icon"?: string;
-        "iconRight"?: string;
         "inputmode"?: | 'none'
     | 'text'
     | 'tel'
