@@ -5,6 +5,8 @@
   "private": true,
   "npmClient": "npm",
   "engines": {
+    "yarn": "please-use-npm",
+    "npm": "8.x",
     "node": "16.x"
   },
   "workspaces": [
