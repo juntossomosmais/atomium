@@ -3,3 +3,4 @@ build
 dist
 coverage
 !.commitlintrc.js
+**/*.d.ts
