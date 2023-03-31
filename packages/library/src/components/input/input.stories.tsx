@@ -7,6 +7,9 @@ export default {
   title: 'Components/Input',
   parameters: {
     notes: readme,
+    actions: {
+      handles: ['atoChange', 'atoFocus', 'atoBlur'],
+    },
   },
   argTypes: {
     color: {
