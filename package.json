@@ -84,6 +84,7 @@
     "rollup": "^3.20.2",
     "rollup-plugin-postcss": "^4.0.2",
     "rupture-sass": "^0.3.0",
+    "sass": "^1.60.0",
     "sass-loader": "^13.2.2",
     "stylelint": "^15.1.0",
     "stylelint-config-recommended": "^10.0.1",
