@@ -10,6 +10,7 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-notes',
+    '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/theming',
   ],
