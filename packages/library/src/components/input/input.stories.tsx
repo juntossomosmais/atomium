@@ -1,59 +1,56 @@
-import { Meta } from '@storybook/html'
+import { withActions } from '@storybook/addon-actions/decorator'
+import { Meta, StoryObj } from '@storybook/html'
+
 import { AtoInput } from 'atomium/dist/types'
 
-import readme from './readme.md'
+type argsInput = AtoInput
 
 export default {
   title: 'Components/Input',
   parameters: {
-    notes: readme,
     actions: {
       handles: ['atoChange', 'atoFocus', 'atoBlur'],
     },
   },
+  decorators: [withActions],
   argTypes: {
-    color: {
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary'],
-      },
-    },
-    mode: {
-      control: {
-        type: 'select',
-        options: ['ios', 'md'],
-      },
-    },
-    expandable: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    fill: {
-      control: {
-        type: 'select',
-        options: ['default', 'outline', 'solid'],
-      },
-    },
-    size: {
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
-      },
-    },
-    disabled: {
-      control: 'boolean',
+    labelText: {
+      control: 'text',
     },
     placeholder: {
       control: 'text',
     },
+    color: {
+      control: 'select',
+      options: ['primary', 'secondary'],
+    },
+    labelPosition: {
+      control: 'select',
+      options: ['fixed', 'stacked', 'floating'],
+    },
+    fill: {
+      control: 'select',
+      options: ['default', 'outline', 'solid'],
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+    },
+    disabled: {
+      control: 'boolean',
+    },
     type: {
-      control: {
-        type: 'inline-radio',
-        options: { text: 'text', password: 'password' },
-      },
+      control: 'inline-radio',
+      options: { text: 'text', password: 'password' },
     },
     autofocus: {
+      control: 'boolean',
+    },
+    mode: {
+      control: 'select',
+      options: ['ios', 'md'],
+    },
+    expandable: {
       control: 'boolean',
     },
     clearInput: {
@@ -75,74 +72,67 @@ export default {
       control: 'boolean',
     },
     autocapitalize: {
-      control: {
-        type: 'select',
-        options: ['none', 'sentences', 'words', 'characters'],
-      },
+      control: 'select',
+      options: ['none', 'sentences', 'words', 'characters'],
     },
     autocomplete: {
-      control: {
-        type: 'boolean',
-      },
+      control: 'boolean',
     },
     inputmode: {
-      control: {
-        type: 'select',
-        options: [
-          'none',
-          'decimal',
-          'numeric',
-          'tel',
-          'search',
-          'text',
-          'url',
-          'email',
-        ],
-      },
-    },
-    labelPosition: {
-      control: {
-        type: 'select',
-        options: ['fixed', 'stacked', 'floating'],
-      },
+      control: 'select',
+      options: [
+        'none',
+        'decimal',
+        'numeric',
+        'tel',
+        'search',
+        'text',
+        'url',
+        'email',
+      ],
     },
   },
-} as Meta
+} as Meta<argsInput>
 
-export const Default = (args: AtoInput) => {
+type Story = StoryObj<argsInput>
+
+const createInput = (args: argsInput) => {
   return `
-    <ato-input
-      label-text="${args.labelText}"
-      label-position="${args.labelPosition}"
-      fill="${args.fill}"
-      color="${args.color}"
-      mode="${args.mode}"
-      expandable="${args.expandable}"
-      size="${args.size}"
-      disabled="${args.disabled}"
-      placeholder="${args.placeholder}"
-      type="${args.type}"
-      autofocus="${args.autofocus}"
-      clear-input="${args.clearInput}"
-      clear-on-edit="${args.clearOnEdit}"
-      pattern="${args.pattern}"
-      readonly="${args.readonly}"
-      required="${args.required}"
-      spellcheck="${args.spellcheck}"
-      autocapitalize="${args.autocapitalize}"
-      autocomplete="${args.autocomplete}"
-      inputmode="${args.inputmode}"
-    />
+<ato-input
+  label-text="${args.labelText}"
+  label-position="${args.labelPosition}"
+  fill="${args.fill}"
+  color="${args.color}"
+  mode="${args.mode}"
+  expandable="${args.expandable}"
+  size="${args.size}"
+  disabled="${args.disabled}"
+  placeholder="${args.placeholder}"
+  type="${args.type}"
+  autofocus="${args.autofocus}"
+  clear-input="${args.clearInput}"
+  clear-on-edit="${args.clearOnEdit}"
+  pattern="${args.pattern}"
+  readonly="${args.readonly}"
+  required="${args.required}"
+  spellcheck="${args.spellcheck}"
+  autocapitalize="${args.autocapitalize}"
+  autocomplete="${args.autocomplete}"
+  inputmode="${args.inputmode}"
+/>
   `
 }
 
-Default.args = {
-  labelText: 'Example input',
-  labelPosition: 'floating',
-  fill: 'default',
-  color: 'primary',
-  mode: 'md',
-  disabled: false,
-  placeholder: 'Placeholder',
-  readonly: false,
+export const Default: Story = {
+  render: (args) => createInput(args),
+  args: {
+    labelText: 'Example input',
+    labelPosition: 'floating',
+    fill: 'default',
+    color: 'primary',
+    mode: 'md',
+    disabled: false,
+    placeholder: 'Placeholder',
+    readonly: false,
+  },
 }

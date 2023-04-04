@@ -1,12 +1,7 @@
-import { Meta, Description } from '@storybook/addon-docs'
+import { Meta, Markdown } from '@storybook/addon-docs'
 
-import readme from '../../../README.md'
+import README from '../../../README.md?raw'
 
-<Meta
-  title="Getting Started/Introduction"
-  parameters={{
-    notes: readme,
-  }}
-/>
+<Meta title="Getting Started/Introduction" />
 
-<Description>{readme}</Description>
+<Markdown>{README}</Markdown>
