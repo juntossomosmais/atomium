@@ -35,9 +35,6 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: 'loader',
     },
-    {
-      type: 'docs-readme',
-    },
     vueOutputTarget({
       componentCorePackage: 'atomium/dist',
       proxiesFile: 'dist/vue/index.ts',
