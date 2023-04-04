@@ -19,8 +19,8 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --watch --docs",
+    "build": "stencil build",
+    "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:watch": "stencil test --spec --watchAll",
     "generate": "stencil generate"
