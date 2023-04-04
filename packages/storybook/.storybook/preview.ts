@@ -1,5 +1,3 @@
-import { addParameters } from '@storybook/html'
-
 import { defineCustomElements } from 'atomium/loader'
 
 import '@ionic/core/css/core.css'
@@ -40,8 +38,13 @@ const customViewports = {
   },
 }
 
-addParameters({
-  viewport: {
-    viewports: customViewports,
+const preview = {
+  parameters: {
+    viewport: {
+      viewports: customViewports,
+    },
+    actions: { argTypesRegex: '^ato.*' },
   },
-})
+}
+
+export default preview
