@@ -1,5 +1,5 @@
 {
-  "defaultProject": "atomium-storybook",
+  "defaultProject": "atomium-docs",
   "extends": "@nrwl/workspace/presets/core.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "atomium-ds",
@@ -37,7 +37,7 @@
     }
   },
   "workspaceLayout": {
-    "appsDir": "packages/storybook",
+    "appsDir": "apps",
     "libsDir": "packages"
   }
 }

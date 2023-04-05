@@ -1,5 +1,5 @@
 {
-  "name": "atomium-storybook",
+  "name": "atomium-docs",
   "version": "0.0.1",
   "scripts": {
     "start": "storybook dev -p 6006",
