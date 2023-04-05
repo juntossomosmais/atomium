@@ -31,8 +31,8 @@ describe('AtoSelect', () => {
         color="secondary"
         mode="ios"
         overlay-dismiss
-        label-text="Select a fruit"
-        label-position="stacked"
+        label="Select a fruit"
+        label-placement="stacked"
       ></ato-select>`,
     })
 
@@ -52,25 +52,13 @@ describe('AtoSelect', () => {
         color="secondary"
         mode="ios"
         overlay-dismiss
-        label-text="Select a fruit"
-        label-position="stacked"
+        label="Select a fruit"
+        label-placement="stacked"
       >
         <mock:shadow-root>
           <ion-item>
-            <ion-label color="secondary" position="stacked">Select a fruit</ion-label>
-            <ion-select
-              name="test"
-              interface="action-sheet"
-              placeholder="Select an option"
-              cancel-text="Cancel"
-              ok-text="OK"
-              disabled
-              multiple
-              color="secondary"
-              mode="ios"
-              overlay-dismiss
-            >
-              <ion-select-option value="apple" selected>apple</ion-select-option>
+            <ion-select cancel-text="Cancel" color="secondary" disabled="" interface="action-sheet" label="Select a fruit" label-placement="stacked" mode="ios" multiple="" name="test" ok-text="OK" overlay-dismiss="" placeholder="Select an option">
+              <ion-select-option value="apple">apple</ion-select-option>
               <ion-select-option value="banana" disabled>banana</ion-select-option>
               <ion-select-option value="orange">orange</ion-select-option>
             </ion-select>

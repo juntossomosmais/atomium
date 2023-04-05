@@ -21,8 +21,8 @@ export class AtoSelect {
   @Prop({ reflect: true }) mode: Mode = 'md'
   @Prop() overlayDismiss?: boolean
 
-  @Prop() labelText?: string
-  @Prop() labelPosition?: 'fixed' | 'stacked' = 'stacked'
+  @Prop() label?: string
+  @Prop() labelPlacement?: 'fixed' | 'stacked' = 'stacked'
 
   @Prop({ mutable: true }) options: Array<{
     value: string
@@ -75,13 +75,10 @@ export class AtoSelect {
   render(): JSX.Element {
     return (
       <ion-item>
-        {this.labelText && (
-          <ion-label color={this.color} position={this.labelPosition}>
-            {this.labelText}
-          </ion-label>
-        )}
         <ion-select
           name={this.name}
+          label={this.label}
+          label-placement={this.labelPlacement}
           interface={this.interface}
           placeholder={this.placeholder}
           cancel-text={this.cancelText}
@@ -91,18 +88,12 @@ export class AtoSelect {
           color={this.color}
           mode={this.mode}
           overlay-dismiss={this.overlayDismiss}
-          ionChange={this.handleChange}
-          ionCancel={this.handleCancel}
-          ionDismiss={this.handleDimiss}
-          ionBlur={this.handleBlur}
-          ionFocus={this.handleFocus}
+          onIonChange={this.handleChange}
+          onIonBlur={this.handleBlur}
+          onIonFocus={this.handleFocus}
         >
           {this.options.map((option) => (
-            <ion-select-option
-              value={option.value}
-              disabled={option.disabled}
-              selected={option.selected}
-            >
+            <ion-select-option value={option.value} disabled={option.disabled}>
               {option.value}
             </ion-select-option>
           ))}

@@ -13,24 +13,18 @@ export namespace Components {
         "disabled"?: boolean;
         "fill": 'clear' | 'outline' | 'solid';
         "mode": Mode;
-        "shape": 'default' | 'round';
+        "shape"?: 'round';
         "size": 'small' | 'default' | 'large';
         "type": 'submit' | 'reset' | 'button';
     }
     interface AtoInput {
         "accept"?: string;
-        "autocapitalize": 'words' | 'characters' | 'sentences' | 'none';
-        "autocomplete"?: 'on' | 'off';
         "autofocus": boolean;
-        "clearIcon"?: string;
         "clearInput": boolean;
         "clearOnEdit": boolean;
         "color": Color;
-        "debounce"?: number;
         "disabled": boolean;
-        "expandable": boolean;
-        "fill": 'default' | 'solid' | 'outline';
-        "icon"?: string;
+        "fill": 'solid' | 'outline';
         "inputmode"?: | 'none'
     | 'text'
     | 'tel'
@@ -39,8 +33,8 @@ export namespace Components {
     | 'numeric'
     | 'decimal'
     | 'search';
-        "labelPosition"?: 'fixed' | 'stacked' | 'floating';
-        "labelText"?: string;
+        "label"?: string;
+        "labelPlacement"?: 'fixed' | 'stacked' | 'floating';
         "maxlength"?: number;
         "minlength"?: number;
         "mode": Mode;
@@ -48,10 +42,7 @@ export namespace Components {
         "name"?: string;
         "pattern"?: string;
         "placeholder"?: string;
-        "readonly": boolean;
         "required": boolean;
-        "size"?: 'small' | 'default' | 'large';
-        "spellcheck": boolean;
         "type": TextFieldTypes;
         "value": string;
     }
@@ -60,8 +51,8 @@ export namespace Components {
         "color": Color;
         "disabled"?: boolean;
         "interface"?: 'popover' | 'action-sheet';
-        "labelPosition"?: 'fixed' | 'stacked';
-        "labelText"?: string;
+        "label"?: string;
+        "labelPlacement"?: 'fixed' | 'stacked';
         "mode": Mode;
         "multiple"?: boolean;
         "name": string;
@@ -120,24 +111,18 @@ declare namespace LocalJSX {
         "fill"?: 'clear' | 'outline' | 'solid';
         "mode"?: Mode;
         "onAtoClick"?: (event: AtoButtonCustomEvent<any>) => void;
-        "shape"?: 'default' | 'round';
+        "shape"?: 'round';
         "size"?: 'small' | 'default' | 'large';
         "type"?: 'submit' | 'reset' | 'button';
     }
     interface AtoInput {
         "accept"?: string;
-        "autocapitalize"?: 'words' | 'characters' | 'sentences' | 'none';
-        "autocomplete"?: 'on' | 'off';
         "autofocus"?: boolean;
-        "clearIcon"?: string;
         "clearInput"?: boolean;
         "clearOnEdit"?: boolean;
         "color"?: Color;
-        "debounce"?: number;
         "disabled"?: boolean;
-        "expandable"?: boolean;
-        "fill"?: 'default' | 'solid' | 'outline';
-        "icon"?: string;
+        "fill"?: 'solid' | 'outline';
         "inputmode"?: | 'none'
     | 'text'
     | 'tel'
@@ -146,8 +131,8 @@ declare namespace LocalJSX {
     | 'numeric'
     | 'decimal'
     | 'search';
-        "labelPosition"?: 'fixed' | 'stacked' | 'floating';
-        "labelText"?: string;
+        "label"?: string;
+        "labelPlacement"?: 'fixed' | 'stacked' | 'floating';
         "maxlength"?: number;
         "minlength"?: number;
         "mode"?: Mode;
@@ -158,10 +143,7 @@ declare namespace LocalJSX {
         "onAtoFocus"?: (event: AtoInputCustomEvent<void>) => void;
         "pattern"?: string;
         "placeholder"?: string;
-        "readonly"?: boolean;
         "required"?: boolean;
-        "size"?: 'small' | 'default' | 'large';
-        "spellcheck"?: boolean;
         "type"?: TextFieldTypes;
         "value"?: string;
     }
@@ -170,8 +152,8 @@ declare namespace LocalJSX {
         "color"?: Color;
         "disabled"?: boolean;
         "interface"?: 'popover' | 'action-sheet';
-        "labelPosition"?: 'fixed' | 'stacked';
-        "labelText"?: string;
+        "label"?: string;
+        "labelPlacement"?: 'fixed' | 'stacked';
         "mode"?: Mode;
         "multiple"?: boolean;
         "name"?: string;

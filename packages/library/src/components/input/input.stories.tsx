@@ -14,8 +14,12 @@ export default {
   },
   decorators: [withActions],
   argTypes: {
-    labelText: {
+    label: {
       control: 'text',
+    },
+    labelPlacement: {
+      control: 'select',
+      options: ['fixed', 'stacked', 'floating'],
     },
     placeholder: {
       control: 'text',
@@ -24,17 +28,9 @@ export default {
       control: 'select',
       options: ['primary', 'secondary'],
     },
-    labelPosition: {
-      control: 'select',
-      options: ['fixed', 'stacked', 'floating'],
-    },
     fill: {
       control: 'select',
-      options: ['default', 'outline', 'solid'],
-    },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      options: ['outline', 'solid'],
     },
     disabled: {
       control: 'boolean',
@@ -43,15 +39,9 @@ export default {
       control: 'inline-radio',
       options: { text: 'text', password: 'password' },
     },
-    autofocus: {
-      control: 'boolean',
-    },
     mode: {
       control: 'select',
       options: ['ios', 'md'],
-    },
-    expandable: {
-      control: 'boolean',
     },
     clearInput: {
       control: 'boolean',
@@ -62,20 +52,7 @@ export default {
     pattern: {
       control: 'text',
     },
-    readonly: {
-      control: 'boolean',
-    },
     required: {
-      control: 'boolean',
-    },
-    spellcheck: {
-      control: 'boolean',
-    },
-    autocapitalize: {
-      control: 'select',
-      options: ['none', 'sentences', 'words', 'characters'],
-    },
-    autocomplete: {
       control: 'boolean',
     },
     inputmode: {
@@ -99,25 +76,17 @@ type Story = StoryObj<argsInput>
 const createInput = (args: argsInput) => {
   return `
 <ato-input
-  label-text="${args.labelText}"
-  label-position="${args.labelPosition}"
+  label="${args.label}"
+  label-placement="${args.labelPlacement}"
   fill="${args.fill}"
   color="${args.color}"
   mode="${args.mode}"
-  expandable="${args.expandable}"
-  size="${args.size}"
   disabled="${args.disabled}"
   placeholder="${args.placeholder}"
   type="${args.type}"
-  autofocus="${args.autofocus}"
-  clear-input="${args.clearInput}"
   clear-on-edit="${args.clearOnEdit}"
   pattern="${args.pattern}"
-  readonly="${args.readonly}"
   required="${args.required}"
-  spellcheck="${args.spellcheck}"
-  autocapitalize="${args.autocapitalize}"
-  autocomplete="${args.autocomplete}"
   inputmode="${args.inputmode}"
 />
   `
@@ -126,13 +95,14 @@ const createInput = (args: argsInput) => {
 export const Default: Story = {
   render: (args) => createInput(args),
   args: {
-    labelText: 'Example input',
-    labelPosition: 'floating',
-    fill: 'default',
+    label: 'Example input',
+    labelPlacement: 'floating',
+    fill: 'outline',
     color: 'primary',
     mode: 'md',
     disabled: false,
     placeholder: 'Placeholder',
-    readonly: false,
+    clearInput: false,
+    clearOnEdit: false,
   },
 }

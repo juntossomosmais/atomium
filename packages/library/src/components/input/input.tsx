@@ -19,22 +19,13 @@ export class AtoInput {
   @Prop() required = false
   @Prop({ reflect: true }) color: Color = 'primary'
   @Prop() mode: Mode = 'md'
-  @Prop() expandable = false
-  @Prop({ reflect: true }) fill: 'default' | 'solid' | 'outline' = 'default'
-  @Prop() size?: 'small' | 'default' | 'large' = 'default'
+  @Prop({ reflect: true }) fill: 'solid' | 'outline' = 'outline'
   @Prop() autofocus = false
-  @Prop() clearInput = false
   @Prop() pattern?: string
-  @Prop() readonly = false
-  @Prop() spellcheck = false
-  @Prop() autocapitalize: 'words' | 'characters' | 'sentences' | 'none' = 'none'
-  @Prop() autocomplete?: 'on' | 'off'
   @Prop() accept?: string
   @Prop() multiple = false
   @Prop() clearOnEdit = false
-  @Prop() debounce?: number
-  @Prop() clearIcon?: string
-  @Prop() icon?: string
+  @Prop() clearInput = false
   @Prop() inputmode?:
     | 'none'
     | 'text'
@@ -45,8 +36,8 @@ export class AtoInput {
     | 'decimal'
     | 'search' = 'none'
 
-  @Prop() labelPosition?: 'fixed' | 'stacked' | 'floating' = 'floating'
-  @Prop() labelText?: string
+  @Prop() labelPlacement?: 'fixed' | 'stacked' | 'floating' = 'floating'
+  @Prop() label?: string
 
   @Event() atoFocus!: EventEmitter<void>
   @Event() atoBlur!: EventEmitter<void>
@@ -54,18 +45,20 @@ export class AtoInput {
 
   componentDidLoad() {
     this.inputEl.addEventListener('ionChange', this.handleChange)
+    this.inputEl.addEventListener('ionInput', this.handleChange)
     this.inputEl.addEventListener('ionBlur', this.handleBlur)
     this.inputEl.addEventListener('ionFocus', this.handleFocus)
   }
 
   disconnectedCallback() {
     this.inputEl.removeEventListener('ionChange', this.handleChange)
+    this.inputEl.removeEventListener('ionInput', this.handleChange)
     this.inputEl.removeEventListener('ionBlur', this.handleBlur)
     this.inputEl.removeEventListener('ionFocus', this.handleFocus)
   }
 
   private handleChange = (event: any) => {
-    this.atoChange.emit(event.detail)
+    this.atoChange.emit(event.detail.value)
   }
 
   private handleBlur = () => {
@@ -80,45 +73,31 @@ export class AtoInput {
 
   render(): JSX.Element {
     return (
-      <ion-item fill={this.fill}>
-        {this.labelText && (
-          <ion-label color={this.color} position={this.labelPosition}>
-            {this.labelText}
-          </ion-label>
-        )}
-        <ion-input
-          value={this.value}
-          type={this.type}
-          placeholder={this.placeholder}
-          name={this.name}
-          minlength={this.minlength}
-          maxlength={this.maxlength}
-          disabled={this.disabled}
-          required={this.required}
-          color={this.color}
-          mode={this.mode}
-          expandable={this.expandable}
-          fill={this.fill}
-          size={this.size}
-          icon={this.icon}
-          autofocus={this.autofocus}
-          clearInput={this.clearInput}
-          pattern={this.pattern}
-          readonly={this.readonly}
-          spellcheck={this.spellcheck}
-          autocapitalize={this.autocapitalize}
-          autocomplete={this.autocomplete}
-          inputmode={this.inputmode}
-          accept={this.accept}
-          multiple={this.multiple}
-          clear-on-edit={this.clearOnEdit}
-          debounce={this.debounce}
-          clear-icon={this.clearIcon}
-          ionChange={this.handleChange}
-          ionFocus={this.handleFocus}
-          ionBlur={this.handleBlur}
-        />
-      </ion-item>
+      <ion-input
+        label={this.label}
+        labelPlacement={this.labelPlacement}
+        value={this.value}
+        type={this.type}
+        placeholder={this.placeholder}
+        name={this.name}
+        minlength={this.minlength}
+        maxlength={this.maxlength}
+        disabled={this.disabled}
+        required={this.required}
+        color={this.color}
+        mode={this.mode}
+        fill={this.fill}
+        autofocus={this.autofocus}
+        pattern={this.pattern}
+        inputmode={this.inputmode}
+        multiple={this.multiple}
+        clearInput={this.clearInput}
+        clearOnEdit={this.clearOnEdit}
+        onIonChange={this.handleChange}
+        onIonInput={this.handleChange}
+        onIonBlur={this.handleBlur}
+        onIonFocus={this.handleFocus}
+      />
     )
   }
 }
