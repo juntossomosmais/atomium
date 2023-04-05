@@ -14,8 +14,12 @@ export default {
   },
   decorators: [withActions],
   argTypes: {
-    labelText: {
+    label: {
       control: 'text',
+    },
+    labelPlacement: {
+      control: 'select',
+      options: ['stacked', 'fixed'],
     },
     interface: {
       control: 'select',
@@ -24,10 +28,6 @@ export default {
     color: {
       control: 'select',
       options: ['primary', 'secondary'],
-    },
-    labelPosition: {
-      control: 'select',
-      options: ['stacked', 'fixed'],
     },
     multiple: {
       control: 'boolean',
@@ -54,8 +54,8 @@ const createSelect = (args: argsSelect) => {
   mode=${args.mode}
   disabled=${args.disabled}
   multiple=${args.multiple}
-  label-text=${args.labelText}
-  label-position=${args.labelPosition}
+  label=${args.label}
+  label-placement=${args.labelPlacement}
 />
 
 <script>
@@ -77,7 +77,7 @@ export const Primary: Story = {
     mode: 'md',
     disabled: false,
     multiple: false,
-    labelText: 'Select',
-    labelPosition: 'stacked',
+    label: 'Select',
+    labelPlacement: 'stacked',
   },
 }

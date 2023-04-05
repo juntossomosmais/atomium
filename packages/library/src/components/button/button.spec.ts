@@ -66,9 +66,9 @@ describe('AtoButton', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ato-button color="primary" fill="solid" size="default">
+      <ato-button>
         <mock:shadow-root>
-          <ion-button class="btn-default btn-solid-primary" type="button">
+          <ion-button class="btn-default btn-solid-primary" fill="solid" type="button">
             <slot></slot>
           </ion-button>
         </mock:shadow-root>

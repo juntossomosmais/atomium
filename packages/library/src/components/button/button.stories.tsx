@@ -32,7 +32,7 @@ export default {
     },
     shape: {
       control: 'select',
-      options: ['default', 'round'],
+      options: ['none', 'round'],
       description: 'The shape of the button.',
     },
     size: {

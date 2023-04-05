@@ -10,12 +10,16 @@ export class AtoButton {
   @Prop() color: Color = 'primary'
   @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
   @Prop() size: 'small' | 'default' | 'large' = 'default'
-  @Prop() shape: 'default' | 'round' = 'default'
+  @Prop() shape?: 'round'
   @Prop() disabled?: boolean
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
   @Prop() mode: Mode = 'md'
 
   @Event() atoClick: EventEmitter
+
+  private handleClick = () => {
+    this.atoClick.emit()
+  }
 
   render() {
     const buttonClasses = {
@@ -29,8 +33,8 @@ export class AtoButton {
         fill={this.fill}
         shape={this.shape}
         disabled={this.disabled}
-        onClick={() => this.atoClick.emit()}
         type={this.type}
+        onClick={this.handleClick}
       >
         <slot />
       </ion-button>
