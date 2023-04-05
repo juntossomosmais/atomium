@@ -31,35 +31,23 @@ dd {
   margin: 0;
 }
 
-body {
-  font: var(--text-body-large);
-  letter-spacing: var(--text-body-large-letter);
-}
-
-.markdown-body {
+.sb-docs {
   background: var(--color-neutral-white);
-  margin: 0 auto;
-  max-width: 980px;
-  min-width: 200px;
-  padding: var(--spacing-large) var(--spacing-large);
+  font: var(--text-body-large);
 }
 
-.markdown-body * {
-  box-sizing: border-box;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
+.sb-docs h1,
+.sb-docs h2,
+.sb-docs h3,
+.sb-docs h4,
+.sb-docs h5,
+.sb-docs h6 {
   line-height: 1.25;
   margin-bottom: 0;
   margin-top: 0;
 }
 
-.markdown-body h1 {
+.sb-docs h1 {
   border-bottom: 1px solid var(--color-neutral-light-4);
   color: var(--color-neutral-black);
   font: var(--title-display);
@@ -69,7 +57,7 @@ body {
   margin-bottom: var(--spacing-base);
 }
 
-.markdown-body h2 {
+.sb-docs h2 {
   border: 0;
   color: var(--color-neutral-light-1);
   font: var(--title-headline-medium);
@@ -79,98 +67,98 @@ body {
   padding: 0;
 }
 
-.markdown-body h2:not(:first-child) {
+.sb-docs h2:not(:first-child) {
   margin-top: var(--spacing-large);
 }
 
-.markdown-body h3 {
+.sb-docs h3 {
   color: var(--color-neutral-light-1);
   font: var(--title-headline-small);
   letter-spacing: var(--title-headline-small-letter);
   margin-bottom: var(--spacing-xsmall);
 }
 
-.markdown-body h3:not(:first-child) {
+.sb-docs h3:not(:first-child) {
   margin-top: var(--spacing-large);
 }
 
-.markdown-body h4 {
+.sb-docs h4 {
   color: var(--color-neutral-light-1);
   font: var(--title-headline-xsmall);
   letter-spacing: var(--title-headline-xsmall-letter);
   margin-bottom: var(--spacing-xxsmall);
 }
 
-.markdown-body h4:not(:first-child) {
+.sb-docs h4:not(:first-child) {
   margin-top: var(--spacing-large);
 }
 
-.markdown-body h5 {
+.sb-docs h5 {
   color: var(--color-neutral-light-1);
   font: var(--text-subtitle-medium);
   letter-spacing: var(--text-subtitle-medium-letter);
   margin-bottom: var(--spacing-xxsmall);
 }
 
-.markdown-body h5:not(:first-child) {
+.sb-docs h5:not(:first-child) {
   margin-top: var(--spacing-base);
 }
 
-.markdown-body h6 {
+.sb-docs h6 {
   color: var(--color-neutral-light-1);
   font: var(--text-caption);
   letter-spacing: var(--text-caption-letter);
   margin-bottom: var(--spacing-xxsmall);
 }
 
-.markdown-body p.sbdocs-p,
-.markdown-body li.sbdocs-li {
+.sb-docs p.sbdocs-p,
+.sb-docs li.sbdocs-li {
   font: var(--text-body-large);
   letter-spacing: var(--text-body-large-letter);
 }
 
-.markdown-body p:not(:last-child) {
+.sb-docs p:not(:last-child) {
   margin-bottom: var(--spacing-base);
 }
 
-.markdown-body p:not(:first-child) {
+.sb-docs p:not(:first-child) {
   margin-top: var(--spacing-base);
 }
 
-.markdown-body ul.sbdocs-ul {
+.sb-docs ul.sbdocs-ul {
   padding-left: var(--spacing-large);
   margin-bottom: var(--spacing-base);
 }
 
-.markdown-body li.sbdocs-li:not(:last-child) {
+.sb-docs li.sbdocs-li:not(:last-child) {
   margin-bottom: var(--spacing-xxsmall);
 }
 
-.markdown-body table.sbdocs-table {
+.sb-docs table.sbdocs-table {
   font: var(--text-body-medium);
   letter-spacing: var(--text-body-medium-letter);
 }
 
-.markdown-body .sbdocs-blockquote {
+.sb-docs .sbdocs-blockquote {
   border-left: 4px solid var(--color-neutral-light-4);
   margin-bottom: var(--spacing-base);
   padding: 0 var(--spacing-large);
 }
 
-.markdown-body .sbdocs-blockquote p {
+.sb-docs .sbdocs-blockquote p {
   color: var(--color-neutral-light-1);
 }
 
-.markdown-body a {
+.sb-docs a {
   color: var(--color-brand-secondary-regular);
   text-decoration: none;
 }
 
-.markdown-body a:hover {
+.sb-docs a:hover {
   text-decoration: underline;
 }
 
-.markdown-body code {
+.sb-docs code {
   background-color: rgba(27, 31, 35, 0.05);
   border-radius: 3px;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
@@ -179,7 +167,7 @@ body {
   padding: 0.2em 0.4em;
 }
 
-.markdown-body pre code {
+.sb-docs pre code {
   background-color: initial;
   border: 0;
   display: inline;
@@ -191,7 +179,7 @@ body {
   word-wrap: normal;
 }
 
-.markdown-body hr {
+.sb-docs hr {
   background-color: var(--color-neutral-light-4);
   border: 0;
   height: 0.25em;
@@ -200,7 +188,7 @@ body {
 }
 
 @media (max-width: 767px) {
-  .markdown-body {
+  .sb-docs {
     padding: var(--spacing-base);
   }
 }
