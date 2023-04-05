@@ -12,14 +12,7 @@
     "eslint:recommended",
     "prettier"
   ],
-  "plugins": [
-    "@nrwl/nx",
-    "prettier",
-    "jest",
-    "import",
-    "@typescript-eslint",
-    "sonarjs"
-  ],
+  "plugins": ["prettier", "jest", "import", "@typescript-eslint", "sonarjs"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -80,31 +73,9 @@
   },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
-    },
-    {
       "files": "*.json",
       "parser": "jsonc-eslint-parser",
       "rules": {}
-    },
-    {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {
-        "@nrwl/nx/enforce-module-boundaries": [
-          "error",
-          {
-            "allowCircularSelfDependency": true,
-            "allow": ["@components/**"]
-          }
-        ]
-      }
     }
   ]
 }
