@@ -1,4 +1,4 @@
-import { Color, Mode, TextFieldTypes } from '@ionic/core'
+import { Mode, TextFieldTypes } from '@ionic/core'
 import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
@@ -9,17 +9,17 @@ import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 export class AtoInput {
   @Element() inputEl!: HTMLInputElement
 
-  @Prop({ reflect: true }) value: string
-  @Prop({ reflect: true }) type: TextFieldTypes = 'text'
+  @Prop() color?: 'primary' | 'secondary'
+  @Prop() value: string
+  @Prop() type: TextFieldTypes = 'text'
   @Prop() placeholder?: string
   @Prop() name?: string
   @Prop() minlength?: number
   @Prop() maxlength?: number
   @Prop() disabled = false
   @Prop() required = false
-  @Prop({ reflect: true }) color: Color = 'primary'
   @Prop() mode: Mode = 'md'
-  @Prop({ reflect: true }) fill: 'solid' | 'outline' = 'outline'
+  @Prop() fill: 'solid' | 'outline' = 'outline'
   @Prop() autofocus = false
   @Prop() pattern?: string
   @Prop() accept?: string
@@ -74,6 +74,7 @@ export class AtoInput {
   render(): JSX.Element {
     return (
       <ion-input
+        class="ion-input"
         label={this.label}
         labelPlacement={this.labelPlacement}
         value={this.value}
