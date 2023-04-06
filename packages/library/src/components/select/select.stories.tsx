@@ -27,7 +27,7 @@ export default {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary'],
+      options: ['default', 'primary', 'secondary'],
     },
     multiple: {
       control: 'boolean',
@@ -69,11 +69,11 @@ const createSelect = (args: argsSelect) => {
   `
 }
 
-export const Primary: Story = {
+export const Default: Story = {
   render: (args) => createSelect(args),
   args: {
     interface: 'popover',
-    color: 'primary',
+    color: undefined,
     mode: 'md',
     disabled: false,
     multiple: false,
