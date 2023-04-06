@@ -1,4 +1,4 @@
-import { Color, Mode } from '@ionic/core'
+import { Mode } from '@ionic/core'
 import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
@@ -9,16 +9,16 @@ import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 export class AtoSelect {
   @Element() selectEl!: HTMLIonSelectElement
 
-  @Prop({ reflect: true }) name: string
-  @Prop({ reflect: true }) interface?: 'popover' | 'action-sheet' = 'popover'
-  @Prop({ reflect: true }) placeholder: string
+  @Prop() color?: 'primary' | 'secondary'
+  @Prop() name: string
+  @Prop() interface?: 'popover' | 'action-sheet' = 'popover'
+  @Prop() placeholder: string
   @Prop() cancelText?: string
   @Prop() okText?: string
   @Prop() disabled?: boolean
   @Prop() multiple?: boolean
   @Prop() size?: 'small' | 'large'
-  @Prop({ reflect: true }) color: Color = 'primary'
-  @Prop({ reflect: true }) mode: Mode = 'md'
+  @Prop() mode: Mode = 'md'
   @Prop() overlayDismiss?: boolean
 
   @Prop() label?: string
