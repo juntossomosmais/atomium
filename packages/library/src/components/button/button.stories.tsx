@@ -22,7 +22,7 @@ export default {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
+      options: ['primary', 'secondary'],
       description: "The color to use from your application's color palette.",
     },
     fill: {
@@ -34,6 +34,11 @@ export default {
       control: 'select',
       options: ['none', 'round'],
       description: 'The shape of the button.',
+    },
+    expand: {
+      control: 'select',
+      options: ['none', 'block', 'full'],
+      description: 'Expands the button to fill its parent container.',
     },
     size: {
       control: 'select',
@@ -69,6 +74,7 @@ const createButton = (args: argsButton) => {
   color="${args.color}"
   fill="${args.fill}"
   shape="${args.shape}"
+  expand="${args.expand}"
   size="${args.size}"
   disabled="${args.disabled}"
   type="${args.type}"
@@ -85,11 +91,20 @@ export const Default: Story = {
     color: 'primary',
     fill: 'solid',
     shape: 'round',
-    size: 'default',
+    size: undefined,
+    expand: undefined,
     disabled: false,
     type: 'button',
     mode: 'md',
     label: 'Button',
+  },
+}
+
+export const Secondary: Story = {
+  render: (args) => createButton(args),
+  args: {
+    ...Default.args,
+    color: 'secondary',
   },
 }
 

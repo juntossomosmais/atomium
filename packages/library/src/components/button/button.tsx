@@ -1,4 +1,4 @@
-import { Color, Mode } from '@ionic/core'
+import { Mode } from '@ionic/core'
 import { Component, Event, EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
@@ -7,9 +7,10 @@ import { Component, Event, EventEmitter, h, Prop } from '@stencil/core'
   shadow: true,
 })
 export class AtoButton {
-  @Prop() color: Color = 'primary'
+  @Prop() color: 'primary' | 'secondary' = 'primary'
   @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
   @Prop() size: 'small' | 'default' | 'large' = 'default'
+  @Prop() expand?: 'block' | 'full'
   @Prop() shape?: 'round'
   @Prop() disabled?: boolean
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
@@ -22,14 +23,9 @@ export class AtoButton {
   }
 
   render() {
-    const buttonClasses = {
-      [`btn-${this.size}`]: !!this.size,
-      [`btn-${this.fill}-${this.color}`]: !!this.color && !!this.fill,
-    }
-
     return (
       <ion-button
-        class={buttonClasses}
+        color={this.color}
         fill={this.fill}
         shape={this.shape}
         disabled={this.disabled}
