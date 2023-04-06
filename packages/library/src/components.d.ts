@@ -5,12 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Color, Mode, TextFieldTypes } from "@ionic/core";
-export { Color, Mode, TextFieldTypes } from "@ionic/core";
+import { Mode, TextFieldTypes } from "@ionic/core";
+export { Mode, TextFieldTypes } from "@ionic/core";
 export namespace Components {
     interface AtoButton {
-        "color": Color;
+        "color": 'primary' | 'secondary';
         "disabled"?: boolean;
+        "expand"?: 'block' | 'full';
         "fill": 'clear' | 'outline' | 'solid';
         "mode": Mode;
         "shape"?: 'round';
@@ -22,7 +23,7 @@ export namespace Components {
         "autofocus": boolean;
         "clearInput": boolean;
         "clearOnEdit": boolean;
-        "color": Color;
+        "color"?: 'primary' | 'secondary';
         "disabled": boolean;
         "fill": 'solid' | 'outline';
         "inputmode"?: | 'none'
@@ -48,7 +49,7 @@ export namespace Components {
     }
     interface AtoSelect {
         "cancelText"?: string;
-        "color": Color;
+        "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
         "interface"?: 'popover' | 'action-sheet';
         "label"?: string;
@@ -106,8 +107,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AtoButton {
-        "color"?: Color;
+        "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
+        "expand"?: 'block' | 'full';
         "fill"?: 'clear' | 'outline' | 'solid';
         "mode"?: Mode;
         "onAtoClick"?: (event: AtoButtonCustomEvent<any>) => void;
@@ -120,7 +122,7 @@ declare namespace LocalJSX {
         "autofocus"?: boolean;
         "clearInput"?: boolean;
         "clearOnEdit"?: boolean;
-        "color"?: Color;
+        "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
         "fill"?: 'solid' | 'outline';
         "inputmode"?: | 'none'
@@ -149,7 +151,7 @@ declare namespace LocalJSX {
     }
     interface AtoSelect {
         "cancelText"?: string;
-        "color"?: Color;
+        "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
         "interface"?: 'popover' | 'action-sheet';
         "label"?: string;
