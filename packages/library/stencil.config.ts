@@ -1,5 +1,7 @@
 import { Config } from '@stencil/core'
 import { OutputTargetCustom } from '@stencil/core/internal'
+import { sass } from '@stencil/sass'
+
 import { reactOutputTarget } from '@stencil/react-output-target'
 import { vueOutputTarget } from '@stencil/vue-output-target'
 import * as fs from 'fs'
@@ -24,6 +26,11 @@ const componentOutputTargets = fs
 
 export const config: Config = {
   namespace: 'atomium',
+  plugins: [
+    sass({
+      injectGlobalPaths: ['@ionic/core/css/core.css'],
+    }),
+  ],
   globalScript: 'src/global/global.ts',
   globalStyle: 'src/global/global.scss',
   outputTargets: [
