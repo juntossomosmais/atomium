@@ -68,7 +68,7 @@ describe('AtoButton', () => {
     expect(page.root).toEqualHtml(`
       <ato-button>
         <mock:shadow-root>
-          <ion-button class="btn-default btn-solid-primary" fill="solid" type="button">
+          <ion-button color="primary" fill="solid" type="button">
             <slot></slot>
           </ion-button>
         </mock:shadow-root>

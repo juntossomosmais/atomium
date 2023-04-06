@@ -9,9 +9,9 @@ describe('ato-input', () => {
       html: `<ato-input value="test"></ato-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ato-input color="primary" fill="outline" type="text" value="test">
+      <ato-input value="test">
         <mock:shadow-root>
-          <ion-input color="primary" fill="outline" inputmode="none" labelplacement="floating" mode="md" type="text" value="test"></ion-input>
+          <ion-input class="ion-input" fill="outline" inputmode="none" labelplacement="floating" mode="md" type="text" value="test"></ion-input>
         </mock:shadow-root>
       </ato-input>
     `)
@@ -30,7 +30,7 @@ describe('ato-input', () => {
     expect(page.root).toEqualHtml(`
       <ato-input ${props}>
         <mock:shadow-root>
-          <ion-input autofocus="" color="secondary" disabled="" fill="outline inputmode=" inputmode="none" label="Password" labelplacement="fixed" mode="ios" multiple="" name="password" pattern="[A-Za-z]{3}" placeholder="Enter password" required="" type="password" value="test"></ion-input>
+          <ion-input autofocus="" class="ion-input" color="secondary" disabled="" fill="outline inputmode=" inputmode="none" label="Password" labelplacement="fixed" mode="ios" multiple="" name="password" pattern="[A-Za-z]{3}" placeholder="Enter password" required="" type="password" value="test"></ion-input>
         </mock:shadow-root>
       </ato-input>
     `)
