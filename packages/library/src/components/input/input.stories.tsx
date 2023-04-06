@@ -26,7 +26,7 @@ export default {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary'],
+      options: ['default', 'primary', 'secondary'],
     },
     fill: {
       control: 'select',
@@ -98,7 +98,7 @@ export const Default: Story = {
     label: 'Example input',
     labelPlacement: 'floating',
     fill: 'outline',
-    color: 'primary',
+    color: undefined,
     mode: 'md',
     disabled: false,
     placeholder: 'Placeholder',
