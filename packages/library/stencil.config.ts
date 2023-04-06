@@ -28,7 +28,7 @@ export const config: Config = {
   namespace: 'atomium',
   plugins: [
     sass({
-      injectGlobalPaths: ['@ionic/core/css/core.css'],
+      injectGlobalPaths: ['../../node_modules/@ionic/core/css/core.css'],
     }),
   ],
   globalScript: 'src/global/global.ts',
