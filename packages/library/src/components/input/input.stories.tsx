@@ -6,7 +6,7 @@ import { AtoInput } from 'atomium/dist/types'
 type argsInput = AtoInput
 
 export default {
-  title: 'Components/Input',
+  title: 'Ionic Components/Input',
   parameters: {
     actions: {
       handles: ['atoChange', 'atoFocus', 'atoBlur'],

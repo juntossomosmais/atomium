@@ -6,7 +6,7 @@ import { AtoSelect } from 'atomium/dist/types'
 type argsSelect = AtoSelect
 
 export default {
-  title: 'Components/Select',
+  title: 'Ionic Components/Select',
   parameters: {
     actions: {
       handles: ['atoChange', 'atoFocus', 'atoBlur'],
