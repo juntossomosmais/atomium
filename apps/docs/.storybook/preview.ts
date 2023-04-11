@@ -1,5 +1,7 @@
 import { defineCustomElements } from 'atomium/loader'
 
+import DocumentationTemplate from './DocumentationTemplate.mdx'
+
 import 'atomium-tokens/dist/styles.css'
 import 'atomium/dist/atomium/atomium.css'
 
@@ -44,6 +46,9 @@ const preview = {
       viewports: customViewports,
     },
     actions: { argTypesRegex: '^ato.*' },
+    docs: {
+      page: DocumentationTemplate,
+    },
   },
 }
 
