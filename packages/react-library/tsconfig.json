@@ -1,10 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "rootDir": "src",
     "outDir": "./dist",
     "lib": ["dom", "es2015"],
     "module": "es2015",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "target": "es2015",
     "skipLibCheck": true,
     "jsx": "react",
