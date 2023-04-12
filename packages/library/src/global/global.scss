@@ -54,4 +54,8 @@
   --ion-color-light-contrast-rgb: rgb(#000);
   --ion-color-light-shade: var(--color-neutral-light-2);
   --ion-color-light-tint: var(--color-neutral-white);
+
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: var(--spacing-base);
+  --ion-grid-column-padding-sm: var(--spacing-xsmall);
 }
