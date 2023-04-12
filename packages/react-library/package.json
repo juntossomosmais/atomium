@@ -5,7 +5,8 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "tsc -p ."
+    "build": "tsc -p . && npm run copy",
+    "copy": "copyfiles --flat ../library/dist/atomium/atomium.css ./dist"
   },
   "files": [
     "dist"
