@@ -46,7 +46,7 @@ export const Default: Story = {
 <ato-grid>
   <ato-row>
     <ato-col class="col">1</ato-col>
-    <ato-col class="col"size="8" size-sm="10">2</ato-col>
+    <ato-col class="col" size="8" size-sm="10">2</ato-col>
     <ato-col class="col">3</ato-col>
   </ato-row>
 </ato-grid>
