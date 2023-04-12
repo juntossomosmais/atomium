@@ -18,6 +18,21 @@ export namespace Components {
         "size": 'small' | 'default' | 'large';
         "type": 'submit' | 'reset' | 'button';
     }
+    interface AtoCol {
+        "offset"?: string;
+        "offsetLg"?: string;
+        "offsetMd"?: string;
+        "offsetSm"?: string;
+        "pull"?: string;
+        "push"?: string;
+        "size"?: 'auto' | string;
+        "sizeLg"?: string;
+        "sizeMd"?: string;
+        "sizeSm"?: string;
+    }
+    interface AtoGrid {
+        "fixed"?: boolean;
+    }
     interface AtoInput {
         "accept"?: string;
         "autofocus": boolean;
@@ -46,6 +61,8 @@ export namespace Components {
         "required": boolean;
         "type": TextFieldTypes;
         "value": string;
+    }
+    interface AtoRow {
     }
     interface AtoSelect {
         "cancelText"?: string;
@@ -87,11 +104,29 @@ declare global {
         prototype: HTMLAtoButtonElement;
         new (): HTMLAtoButtonElement;
     };
+    interface HTMLAtoColElement extends Components.AtoCol, HTMLStencilElement {
+    }
+    var HTMLAtoColElement: {
+        prototype: HTMLAtoColElement;
+        new (): HTMLAtoColElement;
+    };
+    interface HTMLAtoGridElement extends Components.AtoGrid, HTMLStencilElement {
+    }
+    var HTMLAtoGridElement: {
+        prototype: HTMLAtoGridElement;
+        new (): HTMLAtoGridElement;
+    };
     interface HTMLAtoInputElement extends Components.AtoInput, HTMLStencilElement {
     }
     var HTMLAtoInputElement: {
         prototype: HTMLAtoInputElement;
         new (): HTMLAtoInputElement;
+    };
+    interface HTMLAtoRowElement extends Components.AtoRow, HTMLStencilElement {
+    }
+    var HTMLAtoRowElement: {
+        prototype: HTMLAtoRowElement;
+        new (): HTMLAtoRowElement;
     };
     interface HTMLAtoSelectElement extends Components.AtoSelect, HTMLStencilElement {
     }
@@ -101,7 +136,10 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ato-button": HTMLAtoButtonElement;
+        "ato-col": HTMLAtoColElement;
+        "ato-grid": HTMLAtoGridElement;
         "ato-input": HTMLAtoInputElement;
+        "ato-row": HTMLAtoRowElement;
         "ato-select": HTMLAtoSelectElement;
     }
 }
@@ -116,6 +154,21 @@ declare namespace LocalJSX {
         "shape"?: 'round';
         "size"?: 'small' | 'default' | 'large';
         "type"?: 'submit' | 'reset' | 'button';
+    }
+    interface AtoCol {
+        "offset"?: string;
+        "offsetLg"?: string;
+        "offsetMd"?: string;
+        "offsetSm"?: string;
+        "pull"?: string;
+        "push"?: string;
+        "size"?: 'auto' | string;
+        "sizeLg"?: string;
+        "sizeMd"?: string;
+        "sizeSm"?: string;
+    }
+    interface AtoGrid {
+        "fixed"?: boolean;
     }
     interface AtoInput {
         "accept"?: string;
@@ -149,6 +202,8 @@ declare namespace LocalJSX {
         "type"?: TextFieldTypes;
         "value"?: string;
     }
+    interface AtoRow {
+    }
     interface AtoSelect {
         "cancelText"?: string;
         "color"?: 'primary' | 'secondary';
@@ -176,7 +231,10 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "ato-button": AtoButton;
+        "ato-col": AtoCol;
+        "ato-grid": AtoGrid;
         "ato-input": AtoInput;
+        "ato-row": AtoRow;
         "ato-select": AtoSelect;
     }
 }
@@ -185,7 +243,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ato-button": LocalJSX.AtoButton & JSXBase.HTMLAttributes<HTMLAtoButtonElement>;
+            "ato-col": LocalJSX.AtoCol & JSXBase.HTMLAttributes<HTMLAtoColElement>;
+            "ato-grid": LocalJSX.AtoGrid & JSXBase.HTMLAttributes<HTMLAtoGridElement>;
             "ato-input": LocalJSX.AtoInput & JSXBase.HTMLAttributes<HTMLAtoInputElement>;
+            "ato-row": LocalJSX.AtoRow & JSXBase.HTMLAttributes<HTMLAtoRowElement>;
             "ato-select": LocalJSX.AtoSelect & JSXBase.HTMLAttributes<HTMLAtoSelectElement>;
         }
     }
