@@ -1,6 +1,7 @@
 {
   "name": "@atomium/react",
   "version": "0.0.0",
+  "description": "React transpiled for Atomium",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
