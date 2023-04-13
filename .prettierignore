@@ -1,6 +1,0 @@
-/node_modules
-/packages/library/coverage
-/packages/library/dist
-/packages/library/loader
-/packages/library/www
-/packages/library/src/components.d.ts
