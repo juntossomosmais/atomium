@@ -1,0 +1,55 @@
+# Changelog
+
+## 1.0.0 (2023-04-13)
+
+
+### Features
+
+* **button:** add props of shape and fill ([29ed01f](https://github.com/juntossomosmais/atomium/commit/29ed01f457157ea9296ce14bf96ff19f45cf6129))
+* **components:** add basic configs for stencil, ionic and jest ([5fe6f35](https://github.com/juntossomosmais/atomium/commit/5fe6f357fef9c7ff6f4eaac3ccd4b62c8c938d17))
+* **core:** add initial ato-select component ([735464e](https://github.com/juntossomosmais/atomium/commit/735464e28aeda792c572f0ff0173eab2be6769aa))
+* **core:** add initial ionic variables ([626d3dc](https://github.com/juntossomosmais/atomium/commit/626d3dcf3f1bc65ac3e4d622fe745180f1447a58))
+* **core:** add initial tests to ato-select component ([574341b](https://github.com/juntossomosmais/atomium/commit/574341bc66b3723d22f3dfecfa70275683df5d0e))
+* **core:** change at-button to ato-button ([6988dac](https://github.com/juntossomosmais/atomium/commit/6988dac326018532aad0867d6ce99d67b7531d1c))
+* **core:** change ato-button event click's name ([99c7b9d](https://github.com/juntossomosmais/atomium/commit/99c7b9d8763be72f279181f6547e4ab74255e483))
+* **core:** improve button's types and add md as prop ([da02687](https://github.com/juntossomosmais/atomium/commit/da026872a66c0b2f428acf0d3335fac4a1de3e38))
+* **core:** set 'floating' as default in 'label-position' ([0186094](https://github.com/juntossomosmais/atomium/commit/0186094dfaacbd4be26d05d89079fa75e9f997bd))
+* **docs:** add documentation template ([93447eb](https://github.com/juntossomosmais/atomium/commit/93447eb488f924d6350d543775d886ce20df89b7))
+* **docs:** load css from atomium ([07b34bd](https://github.com/juntossomosmais/atomium/commit/07b34bd0f84534c0f2fd81a2cbbd3b06533afb3c))
+* **docs:** migrate storybook to v7 ([9b84a76](https://github.com/juntossomosmais/atomium/commit/9b84a7611cb44c55a09793614fcd17b736274388))
+* **docs:** remove page for robots ([b837947](https://github.com/juntossomosmais/atomium/commit/b8379476c3968e9d12c6687ba65c63655c59e1f3))
+* enable three shaking to each component ([25047f5](https://github.com/juntossomosmais/atomium/commit/25047f54c208220b2df82c3457b70f4b6f259998))
+* **input:** remove unuse value ([f17d344](https://github.com/juntossomosmais/atomium/commit/f17d344b011efe2d8f667195603c7183e113ccdc))
+* **library:** add atomium tokens to ionic ([5cd9b22](https://github.com/juntossomosmais/atomium/commit/5cd9b2264b28c88247908899de9bcef6a82d4a63))
+* **library:** add col component ([807d486](https://github.com/juntossomosmais/atomium/commit/807d4865257f7f4090588fd7b10eaac202fa77d5))
+* **library:** add components of grid ([1e4fcec](https://github.com/juntossomosmais/atomium/commit/1e4fcec65449cf8f419a706e97de2f10de431dcc))
+* **library:** add custom variables for grids ([8afefd8](https://github.com/juntossomosmais/atomium/commit/8afefd86eb454f43dfb368df243bbe64a9546a00))
+* **library:** add grid component ([72e8d58](https://github.com/juntossomosmais/atomium/commit/72e8d58a6073d32d7522b60f53aca66fcd88d28e))
+* **library:** add row component ([1c2828b](https://github.com/juntossomosmais/atomium/commit/1c2828b595e59e1bbe0e5b55bbe38ec8a59b32af))
+* **library:** improve example of ion-button ([2c00713](https://github.com/juntossomosmais/atomium/commit/2c0071359efd8606cea529f0fbfb6b66af40ecbd))
+* **library:** improve example of ion-input ([b86a1c5](https://github.com/juntossomosmais/atomium/commit/b86a1c5ab5d4dc2a039bab54838e491f663b275a))
+* **library:** improve example of ion-select ([2747251](https://github.com/juntossomosmais/atomium/commit/27472518ed8ba6c2dad97c310a50a94fbd1fbc53))
+* **library:** inject css of ionic/core as native to all components ([055a49b](https://github.com/juntossomosmais/atomium/commit/055a49b503be3c80a4c2a437d7ad6b2f261761f7))
+* **library:** load css of core, structure and padding for ionic ([d801b7d](https://github.com/juntossomosmais/atomium/commit/d801b7d4ae86aa85ff78d8b36c661b9f69fa4638))
+* **library:** remove imports for global scss ([9a58c1f](https://github.com/juntossomosmais/atomium/commit/9a58c1f3523ea96f38fef8c0de344d98d16ea543))
+* **react:** add react-library to export wrappers for react ([cea4309](https://github.com/juntossomosmais/atomium/commit/cea43099532f9f91ce693728976add6e72b64db3))
+* **storybook:** add addon-a11y ([6a61691](https://github.com/juntossomosmais/atomium/commit/6a616911e3d77a0195f844863c8efa16cf617c14))
+* **storybook:** add custom viewports to addon-viewport ([48de5c8](https://github.com/juntossomosmais/atomium/commit/48de5c8732202665fda63392742bb792cc9bb78f))
+* **storybook:** add initial css reset to normalize storybook ([67d611d](https://github.com/juntossomosmais/atomium/commit/67d611d733ccf50fe75c7170980cb1c749485798))
+* **storybook:** add initial package for storybook ([483c619](https://github.com/juntossomosmais/atomium/commit/483c61951b9e54135c370eb735bab7c38f0098a1))
+* **storybook:** import tokens for atomium ([2375cee](https://github.com/juntossomosmais/atomium/commit/2375cee6dafe3519c4d31544d5126853ea86bc48))
+* **storybook:** init improves of uiux of docs ([1628bfe](https://github.com/juntossomosmais/atomium/commit/1628bfe50e6fca76e8c47b9b2ea08cf1b032faa5))
+* **storybook:** init styles customization to docs ([44051ee](https://github.com/juntossomosmais/atomium/commit/44051ee789086f033bb95ab715ffb5367d60dbfe))
+* **tokens:** add folder for tokens ([cc1ea57](https://github.com/juntossomosmais/atomium/commit/cc1ea5799cc587e6eb69f8d9818df5a1ce635d31))
+* **tokens:** add package to build tokens ([5d8b22d](https://github.com/juntossomosmais/atomium/commit/5d8b22daf0b0dd61c9583a62ae5ef95b339305f6))
+* **tokens:** add utility-class to typography ([0cbd725](https://github.com/juntossomosmais/atomium/commit/0cbd725133b7f3061ae39a16c5e478e158918e9d))
+* update all tokens and remove old tokens for venice ([300923a](https://github.com/juntossomosmais/atomium/commit/300923a603ce228b17081df61c5a65dee1105a5d))
+
+
+### Bug Fixes
+
+* **core:** remove wrong ':' inside function ([932a0fb](https://github.com/juntossomosmais/atomium/commit/932a0fbe47606ce56a804720d4787cfec0e61667))
+* **docs:** change path to get stories ([68410a7](https://github.com/juntossomosmais/atomium/commit/68410a7490161e1aee11abcb05891d3448bf99d8))
+* **library:** change path of injectGlobalPaths to use node_modules ([5d1b59d](https://github.com/juntossomosmais/atomium/commit/5d1b59d0b4bbea513452b1dd6756f9bab2cf12d9))
+* **npmrc:** add required token in `.npmrc.example` ([b5982d6](https://github.com/juntossomosmais/atomium/commit/b5982d66647764aabb19e3be0a25b5c684015502))
+* **npmrc:** remove duplicate `npmrc.example` file ([d67ffac](https://github.com/juntossomosmais/atomium/commit/d67ffac91a5226d8aa385d0e94049eddf3dfc352))
