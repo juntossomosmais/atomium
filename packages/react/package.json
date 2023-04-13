@@ -1,17 +1,17 @@
 {
-  "name": "atomium-react",
+  "name": "@atomium/react",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "tsc -p . && npm run copy",
-    "copy": "copyfiles --flat ../library/dist/atomium/atomium.css ./dist"
+    "copy": "copyfiles --flat ../core/dist/atomium/atomium.css ./dist"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "atomium": "*"
+    "@atomium/core": "*"
   }
 }
