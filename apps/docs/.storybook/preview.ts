@@ -1,9 +1,9 @@
-import { defineCustomElements } from 'atomium/loader'
+import { defineCustomElements } from '../../../packages/core/loader'
 
 import DocumentationTemplate from './DocumentationTemplate.mdx'
 
-import 'atomium-tokens/dist/styles.css'
-import 'atomium/dist/atomium/atomium.css'
+import '@atomium/core/dist/atomium/atomium.css'
+import '@atomium/tokens/dist/styles.css'
 
 defineCustomElements()
 
