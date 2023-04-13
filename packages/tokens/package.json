@@ -1,6 +1,6 @@
 {
   "name": "@atomium/tokens",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "dist/styles.css",
   "scripts": {
     "start": "rollup -c -w",
