@@ -1,7 +1,7 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoInput } from 'atomium/dist/types'
+import { AtoInput } from '@atomium/core'
 
 type argsInput = AtoInput
 
