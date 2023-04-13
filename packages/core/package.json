@@ -19,7 +19,7 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build && copyfiles --flat ./dist/atomium/atomium.css ./dist",
     "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:watch": "stencil test --spec --watchAll",
