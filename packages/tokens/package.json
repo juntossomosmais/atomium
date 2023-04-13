@@ -1,5 +1,5 @@
 {
-  "name": "atomium-tokens",
+  "name": "@atomium/tokens",
   "version": "0.0.1",
   "main": "dist/styles.css",
   "scripts": {
