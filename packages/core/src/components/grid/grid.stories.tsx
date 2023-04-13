@@ -1,7 +1,7 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoGrid } from '@atomium/core'
+import { AtoGrid } from '@atomium/core/dist'
 
 export default {
   title: 'Ionic Components/Grid',
