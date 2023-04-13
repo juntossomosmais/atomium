@@ -1,6 +1,7 @@
 {
   "name": "@atomium/tokens",
   "version": "0.0.0",
+  "description": "Tokens and variables for Atomium",
   "main": "dist/styles.css",
   "scripts": {
     "start": "rollup -c -w",
