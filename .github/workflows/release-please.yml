@@ -15,5 +15,6 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
+          monorepo-tags: true
           release-type: node
           package-name: release-please-action
