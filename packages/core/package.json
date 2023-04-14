@@ -1,7 +1,15 @@
 {
   "name": "@atomium/core",
-  "version": "0.0.0",
+  "version": "0.0.0-semantic-release",
   "description": "Core of web components for Atomium",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juntossomosmais/atomium.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -10,10 +18,6 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/atomium/atomium.esm.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
-  },
   "files": [
     "dist/",
     "loader/"
