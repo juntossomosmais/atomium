@@ -1,3 +1,5 @@
 {
-  ".": "0.0.0"
+  "packages/core": "0.0.0",
+  "packages/react": "0.0.0",
+  "packages/tokens": "0.0.0"
 }
