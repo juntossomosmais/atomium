@@ -1,7 +1,7 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoSelect } from '@atomium/core/dist'
+import { AtoSelect } from './select'
 
 type argsSelect = AtoSelect
 

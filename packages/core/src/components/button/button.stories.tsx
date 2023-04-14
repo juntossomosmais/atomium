@@ -1,7 +1,7 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoButton } from '@atomium/core/dist'
+import { AtoButton } from './button'
 
 type argsButton = AtoButton & {
   label: string
