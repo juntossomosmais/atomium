@@ -1,7 +1,6 @@
 {
   "name": "atomium",
   "description": "Atomium is a official design system of Juntos Somos Mais",
-  "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "npmClient": "npm",
