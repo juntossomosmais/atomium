@@ -43,11 +43,11 @@ export const config: Config = {
       esmLoaderPath: 'loader',
     },
     vueOutputTarget({
-      componentCorePackage: '@atomium/core/dist',
+      componentCorePackage: '@juntossomosmais/atomium/dist',
       proxiesFile: 'dist/vue/index.ts',
     }),
     reactOutputTarget({
-      componentCorePackage: '@atomium/core/dist',
+      componentCorePackage: '@juntossomosmais/atomium/dist',
       proxiesFile: '../react/src/components/stencil-generated/index.ts',
       includeDefineCustomElements: true,
       loaderDir: 'loader',
