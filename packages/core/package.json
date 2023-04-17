@@ -1,5 +1,5 @@
 {
-  "name": "@atomium/core",
+  "name": "@juntossomosmais/atomium",
   "version": "0.1.0-alpha.1",
   "description": "Core of web components for Atomium",
   "repository": {
@@ -8,7 +8,7 @@
     "directory": "packages/core"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@juntossomosmais:registry": "https://npm.pkg.github.com"
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -27,7 +27,6 @@
     "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:watch": "stencil test --spec --watchAll",
-    "generate": "stencil generate",
-    "prepublish": "npm run build"
+    "generate": "stencil generate"
   }
 }

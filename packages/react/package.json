@@ -1,5 +1,5 @@
 {
-  "name": "@atomium/react",
+  "name": "@juntossomosmais/atomium-react",
   "version": "0.1.0-alpha.1",
   "description": "React transpiled for Atomium",
   "repository": {
@@ -8,15 +8,14 @@
     "directory": "packages/react"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@juntossomosmais:registry": "https://npm.pkg.github.com"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "tsc -p . && npm run copy",
-    "copy": "copyfiles --flat ../core/dist/atomium/atomium.css ./dist",
-    "prepublish": "npm run build"
+    "copy": "copyfiles --flat ../core/dist/atomium/atomium.css ./dist"
   },
   "files": [
     "dist"
