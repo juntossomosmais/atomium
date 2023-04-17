@@ -21,6 +21,6 @@
     "dist"
   ],
   "dependencies": {
-    "@atomium/core": "*"
+    "@juntossomosmais/atomium": "*"
   }
 }
