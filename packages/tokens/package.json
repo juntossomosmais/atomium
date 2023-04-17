@@ -1,5 +1,5 @@
 {
-  "name": "@atomium/tokens",
+  "name": "@juntossomosmais/atomium-tokens",
   "version": "0.1.0-alpha.1",
   "description": "Tokens and variables for Atomium",
   "repository": {
@@ -8,13 +8,12 @@
     "directory": "packages/tokens"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@juntossomosmais:registry": "https://npm.pkg.github.com"
   },
   "main": "dist/styles.css",
   "scripts": {
     "start": "rollup -c -w",
-    "build": "rollup -c",
-    "prepublish": "npm run build"
+    "build": "rollup -c"
   },
   "files": [
     "dist"
