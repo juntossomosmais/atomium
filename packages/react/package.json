@@ -1,6 +1,6 @@
 {
   "name": "@atomium/react",
-  "version": "0.0.0-semantic-release",
+  "version": "0.1.0-alpha.1",
   "description": "React transpiled for Atomium",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "tsc -p . && npm run copy",
-    "copy": "copyfiles --flat ../core/dist/atomium/atomium.css ./dist"
+    "copy": "copyfiles --flat ../core/dist/atomium/atomium.css ./dist",
+    "prepublish": "npm run build"
   },
   "files": [
     "dist"
