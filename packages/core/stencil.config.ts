@@ -25,7 +25,7 @@ const componentOutputTargets = fs
   }))
 
 export const config: Config = {
-  namespace: 'atomium',
+  namespace: 'core',
   plugins: [
     sass({
       injectGlobalPaths: ['../../node_modules/@ionic/core/css/core.css'],
