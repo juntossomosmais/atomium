@@ -1,0 +1,88 @@
+name: Release Packages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          command: manifest
+          release-type: node
+          package-name: release-please-action
+          monorepo-tags: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout Repository
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache node modules
+        if: ${{ steps.release.outputs.release_created }}
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: List the state of node modules
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }} && ${{ steps.release.outputs.release_created }}
+        continue-on-error: true
+        run: npm list
+
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm ci
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        if: ${{ steps.release.outputs.release_created }}
+        uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: ${{ github.base_ref }}
+
+      - name: Build and publish Packages 🏗
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          npx nx affected:build --prod --with-deps --base=origin/main
+          npm publish
+        continue-on-error: false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docs 📚
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm run docs:build
+        continue-on-error: false
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Storybook 🚀
+        if: ${{ steps.release.outputs.release_created }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: apps/docs/storybook-static
