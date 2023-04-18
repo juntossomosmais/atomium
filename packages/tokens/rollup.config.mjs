@@ -5,7 +5,7 @@ export default {
   input: 'src/index.scss',
   output: [
     {
-      file: `dist/styles.css`
+      file: `dist/core.css`
     },
   ],
   plugins: [
