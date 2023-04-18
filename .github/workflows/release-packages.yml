@@ -1,0 +1,22 @@
+name: Release Packages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          command: manifest
+          release-type: node
+          package-name: release-please-action
+          monorepo-tags: true
+          token: ${{ secrets.GITHUB_TOKEN }}
