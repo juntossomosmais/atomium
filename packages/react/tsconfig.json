@@ -12,7 +12,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "declarationDir": "./dist/types"
+    "declarationDir": "../core/dist/react/types"
   },
   "include": ["src"],
   "exclude": ["node_modules"]
