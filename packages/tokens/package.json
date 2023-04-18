@@ -11,6 +11,9 @@
     "@juntossomosmais:registry": "https://npm.pkg.github.com"
   },
   "main": "dist/styles.css",
+  "exports": {
+    "./*": "./dist/*"
+  },
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
