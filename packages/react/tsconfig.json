@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "./dist",
+    "outDir": "../core/dist/react",
     "lib": ["dom", "es2015"],
     "module": "es2015",
     "moduleResolution": "node",
