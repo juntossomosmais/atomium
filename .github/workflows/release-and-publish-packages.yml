@@ -58,16 +58,16 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: npm ci --legacy-peer-deps
 
-      - name: Build and publish Core 🏗
-        if: ${{ steps.release.outputs['packages/core--releases_created'] }}
+      - name: Build and publish Core
+        if: ${{ steps.release.outputs['packages/core--release_created'] }}
         run: |
           npm run core:publish
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish Tokens 🏗
-        if: ${{ steps.release.outputs['packages/tokens--releases_created'] }}
+      - name: Build and publish Tokens
+        if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
         run: |
           npm run tokens:publish
         continue-on-error: false
