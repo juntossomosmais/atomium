@@ -15,7 +15,8 @@
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "tsc -p . && npm run copy",
-    "copy": "copyfiles --flat ../core/dist/atomium/atomium.css ./dist"
+    "copy": "copyfiles --flat ../core/dist/atomium/atomium.css ./dist",
+    "publish": "npm publish"
   },
   "files": [
     "dist"
