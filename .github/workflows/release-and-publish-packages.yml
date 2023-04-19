@@ -27,14 +27,6 @@ jobs:
         with:
           ref: main
 
-      - name: Setup Node
-        if: ${{ steps.release.outputs.releases_created }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org'
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Cache node modules
         if: ${{ steps.release.outputs.releases_created }}
         id: cache-npm
@@ -48,7 +40,6 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
       - name: List the state of node modules
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }} && ${{ steps.release.outputs.releases_created }}
         continue-on-error: true
@@ -58,16 +49,24 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: npm ci --legacy-peer-deps
 
-      - name: Build and publish Core 🏗
-        if: ${{ steps.release.outputs['packages/core--releases_created'] }}
+      - name: Setup Node
+        if: ${{ steps.release.outputs.releases_created }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@juntossomosmais'
+
+      - name: Build and publish Core
+        if: ${{ steps.release.outputs['packages/core--release_created'] }}
         run: |
           npm run core:publish
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish Tokens 🏗
-        if: ${{ steps.release.outputs['packages/tokens--releases_created'] }}
+      - name: Build and publish Tokens
+        if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
         run: |
           npm run tokens:publish
         continue-on-error: false
