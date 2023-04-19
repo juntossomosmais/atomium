@@ -55,6 +55,7 @@ jobs:
           scope: '@juntossomosmais'
 
       - name: Authenticate with the GitHub Package Registry
+        if: ${{ steps.release.outputs.releases_created }}
         run: |
           echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
           @juntossomosmais:registry=https://npm.pkg.github.com" > ~/.npmrc
