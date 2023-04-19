@@ -1,6 +1,6 @@
 {
   "prerelease": true,
-  "bump-patch-for-minor-pre-major": true,
+  "release-as": "0.1.0-alpha.2",
   "packages": {
     "packages/core": {},
     "packages/tokens": {}
