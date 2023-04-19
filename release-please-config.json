@@ -1,4 +1,5 @@
 {
+  "prerelease": true,
   "packages": {
     "packages/core": {},
     "packages/tokens": {}
