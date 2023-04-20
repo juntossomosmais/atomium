@@ -1,0 +1,12 @@
+{
+  "name": "@juntossomosmais/atomium-react",
+  "description": "React transpiled for Atomium",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "tsc -p . && copyfiles --flat ./package.json ../core/dist/react/package.json"
+  }
+}
