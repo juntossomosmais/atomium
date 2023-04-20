@@ -6,7 +6,6 @@
 packages/react/src/components
 storybook-static
 dist
-tmp
 /out-tsc
 
 # dependencies
