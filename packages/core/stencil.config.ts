@@ -40,7 +40,7 @@ export const config: Config = {
     },
     {
       type: 'dist',
-      esmLoaderPath: 'loader',
+      esmLoaderPath: '../loader',
     },
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium/dist',
@@ -48,9 +48,9 @@ export const config: Config = {
     }),
     reactOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium/dist',
-      proxiesFile: '../react/src/components/stencil-generated/index.ts',
+      proxiesFile: '../react/src/components/index.ts',
       includeDefineCustomElements: true,
-      loaderDir: 'loader',
+      loaderDir: '../loader',
       includePolyfills: true,
     }),
   ] as OutputTargetCustom[],
