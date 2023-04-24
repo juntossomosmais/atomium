@@ -17,7 +17,7 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "publish": "npm publish"
+    "publish": "npm publish --access public"
   },
   "files": [
     "dist"

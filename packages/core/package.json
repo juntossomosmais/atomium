@@ -32,6 +32,6 @@
     "generate": "stencil generate",
     "prebuild": "npx mkdirp react && npx mkdirp vue",
     "prepublish": "npx copyfiles --flat ./dist/core/core.css ./",
-    "publish": "npm publish"
+    "publish": "npm publish --access public"
   }
 }
