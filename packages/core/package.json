@@ -2,14 +2,14 @@
   "name": "@juntossomosmais/atomium",
   "version": "0.1.0-alpha.5",
   "description": "Core of web components for Atomium",
-  "access": "public",
   "repository": {
     "type": "git",
     "url": "https://github.com/juntossomosmais/atomium.git",
     "directory": "packages/core"
   },
   "publishConfig": {
-    "@juntossomosmais:registry": "https://npm.pkg.github.com"
+    "@juntossomosmais:registry": "https://npm.pkg.github.com",
+    "access": "public"
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
