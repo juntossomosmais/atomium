@@ -21,7 +21,8 @@
   "files": [
     "dist/",
     "loader/",
-    "react/"
+    "react/",
+    "vue/"
   ],
   "scripts": {
     "build": "stencil build",
