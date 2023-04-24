@@ -1,7 +1,7 @@
 import { Color } from '@ionic/core'
 import { Component, Prop, h } from '@stencil/core'
 
-const CDN_URL = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg/'
+const CDN_URL = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg'
 
 @Component({
   tag: 'ato-icon',
