@@ -19,7 +19,7 @@
     "docs:build": "nx run atomium-docs:build",
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
-    "postinstall": "npx husky install && npm run core:build && npm run tokens:build",
+    "postinstall": "npx husky install & nx build @juntossomosmais/atomium:prebuild && npm run core:build && npm run tokens:build",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "react:build": "cd packages/react && npm run build",

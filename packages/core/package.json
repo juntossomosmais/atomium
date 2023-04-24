@@ -17,7 +17,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/atomium/atomium.esm.js",
+  "unpkg": "dist/core/core.esm.js",
   "files": [
     "dist/",
     "loader/",
@@ -30,6 +30,7 @@
     "test": "stencil test --spec",
     "test:watch": "stencil test --spec --watchAll",
     "generate": "stencil generate",
+    "prebuild": "npx mkdirp react && npx mkdirp vue",
     "prepublish": "npx copyfiles --flat ./dist/core/core.css ./",
     "publish": "npm publish"
   }
