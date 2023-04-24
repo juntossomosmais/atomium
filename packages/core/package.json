@@ -1,7 +1,8 @@
 {
   "name": "@juntossomosmais/atomium",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.5",
   "description": "Core of web components for Atomium",
+  "access": "public",
   "repository": {
     "type": "git",
     "url": "https://github.com/juntossomosmais/atomium.git",
@@ -22,16 +23,15 @@
     "dist/",
     "loader/",
     "react/",
-    "vue/"
+    "vue/",
+    "core.css"
   ],
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build && npx copyfiles --flat ./dist/core/core.css ./",
     "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:watch": "stencil test --spec --watchAll",
     "generate": "stencil generate",
-    "prebuild": "npx mkdirp react && npx mkdirp vue",
-    "prepublish": "npx copyfiles --flat ./dist/core/core.css ./",
-    "publish": "npm publish"
+    "prebuild": "npx mkdirp react && npx mkdirp vue"
   }
 }
