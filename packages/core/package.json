@@ -18,19 +18,18 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/atomium/atomium.esm.js",
-  "exports": {
-    "./*": "./dist/*"
-  },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "react/"
   ],
   "scripts": {
-    "build": "stencil build && copyfiles --flat ./dist/core/core.css ./dist",
+    "build": "stencil build",
     "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:watch": "stencil test --spec --watchAll",
     "generate": "stencil generate",
+    "prepublish": "npx copyfiles --flat ./dist/core/core.css ./",
     "publish": "npm publish"
   }
 }
