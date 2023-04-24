@@ -1,6 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 
-import { AtoIcon } from './icon'
+import { AtoIcon, CDN_URL } from './icon'
 
 describe('ato-icon', () => {
   it('should render ion-icon element', async () => {
@@ -13,7 +13,14 @@ describe('ato-icon', () => {
       throw new Error('page.root is undefined')
     }
 
-    const ionIcon = page.root.shadowRoot.querySelector('ion-icon')
-    expect(ionIcon).toBeTruthy()
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <ato-icon color="primary" icon="heart" size="large">
+        <mock:shadow-root>
+          <ion-icon color="primary" icon="${CDN_URL}/heart.svg" size="large"></ion-icon>
+        </mock:shadow-root>
+      </ato-icon>
+    `)
   })
 })
