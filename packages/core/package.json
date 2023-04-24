@@ -31,7 +31,7 @@
     "test:watch": "stencil test --spec --watchAll",
     "generate": "stencil generate",
     "prebuild": "npx mkdirp react && npx mkdirp vue",
-    "prepublish": "npx copyfiles --flat ./dist/core/core.css ./",
+    "prepare": "npx copyfiles --flat ./dist/core/core.css ./",
     "publish": "npm publish --access public"
   }
 }

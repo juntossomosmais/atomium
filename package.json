@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "core:build": "nx build @juntossomosmais/atomium:build && npm run react:build && npm run vue:build",
-    "core:publish": "npm run core:build && nx run @juntossomosmais/atomium:prepublish && nx run @juntossomosmais/atomium:publish",
+    "core:publish": "npm run core:build && nx run @juntossomosmais/atomium:publish",
     "docs:build": "nx run atomium-docs:build",
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
