@@ -14,8 +14,8 @@
     "apps/*"
   ],
   "scripts": {
-    "core:build": "nx build @juntossomosmais/atomium:build && npm run react:build && npm run vue:build",
-    "docs:build": "nx run atomium-docs:build",
+    "core:build": "nx build @juntossomosmais/atomium && npm run react:build && npm run vue:build",
+    "docs:build": "nx build atomium-docs",
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
     "postinstall": "npx husky install & nx build @juntossomosmais/atomium:prebuild && npm run core:build && npm run tokens:build",
@@ -24,7 +24,7 @@
     "react:build": "cd packages/react && npm run build",
     "start": "nx run-many --target=start",
     "test": "nx run atomium:test",
-    "tokens:build": "nx build @juntossomosmais/atomium-tokens:build",
+    "tokens:build": "nx build @juntossomosmais/atomium-tokens",
     "tokens:publish": "npm run tokens:build && nx run @juntossomosmais/atomium-tokens:publish",
     "vue:build": "cd packages/vue && npm run build"
   },
