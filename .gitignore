@@ -4,6 +4,7 @@
 
 # compiled output
 packages/react/src/components
+packages/vue/src/components
 packages/core/src/components.d.ts
 packages/core/react
 packages/core/vue
