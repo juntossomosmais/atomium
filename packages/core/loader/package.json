@@ -1,5 +1,5 @@
 {
-  "name": "atomium-loader",
+  "name": "core-loader",
   "private": true,
   "typings": "./index.d.ts",
   "module": "./index.js",
