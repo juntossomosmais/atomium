@@ -32,6 +32,7 @@
     "test": "stencil test --spec",
     "test:watch": "stencil test --spec --watchAll",
     "generate": "stencil generate",
-    "prebuild": "npx mkdirp react && npx mkdirp vue"
+    "prebuild": "npx mkdirp react && npx mkdirp vue",
+    "publish-library": "npm publish --access public"
   }
 }
