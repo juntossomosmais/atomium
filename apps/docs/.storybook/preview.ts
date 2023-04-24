@@ -1,4 +1,4 @@
-import { defineCustomElements } from '../../../packages/core/loader'
+import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 
 import DocumentationTemplate from './DocumentationTemplate.mdx'
 
