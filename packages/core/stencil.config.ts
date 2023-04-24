@@ -44,7 +44,10 @@ export const config: Config = {
     },
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium/dist',
-      proxiesFile: 'dist/vue/index.ts',
+      proxiesFile: '../vue/src/components/index.ts',
+      includeDefineCustomElements: true,
+      loaderDir: '../loader',
+      includePolyfills: true,
     }),
     reactOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium/dist',

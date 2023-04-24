@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "../core/vue",
+    "lib": ["dom", "es2020"],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "skipLibCheck": true,
+    "declarationDir": "../core/vue/types"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
