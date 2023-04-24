@@ -4,6 +4,10 @@
 
 # compiled output
 packages/react/src/components
+packages/core/src/components.d.ts
+packages/core/react
+packages/core/vue
+packages/core/core.css
 storybook-static
 dist
 tmp
