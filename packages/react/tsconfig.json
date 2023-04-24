@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "../core/dist/react",
+    "outDir": "../core/react",
     "lib": ["dom", "es2015"],
     "module": "es2015",
     "moduleResolution": "node",
@@ -12,7 +12,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "declarationDir": "../core/dist/react/types"
+    "declarationDir": "../core/react/types"
   },
   "include": ["src"],
   "exclude": ["node_modules"]
