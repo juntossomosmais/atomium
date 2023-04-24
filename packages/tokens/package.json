@@ -2,6 +2,7 @@
   "name": "@juntossomosmais/atomium-tokens",
   "version": "0.1.0-alpha.2",
   "description": "Tokens and variables for Atomium",
+  "access": "public",
   "repository": {
     "type": "git",
     "url": "https://github.com/juntossomosmais/atomium.git",
@@ -16,8 +17,7 @@
   },
   "scripts": {
     "start": "rollup -c -w",
-    "build": "rollup -c",
-    "publish": "npm publish"
+    "build": "rollup -c"
   },
   "files": [
     "dist"

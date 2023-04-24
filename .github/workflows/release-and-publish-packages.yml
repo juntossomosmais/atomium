@@ -69,7 +69,8 @@ jobs:
       - name: Build and publish Core
         if: ${{ steps.release.outputs['packages/core--release_created'] }}
         run: |
-          npm run core:publish --access public
+          npm run core:build
+          nx run @juntossomosmais/atomium:publish
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -77,7 +78,8 @@ jobs:
       - name: Build and publish Tokens
         if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
         run: |
-          npm run tokens:publish --access public
+          npm run tokens:build
+          nx run @juntossomosmais/atomium-tokens:publish
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
