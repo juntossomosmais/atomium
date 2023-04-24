@@ -3,7 +3,7 @@ import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 import DocumentationTemplate from './DocumentationTemplate.mdx'
 
 import '@juntossomosmais/atomium-tokens/core.css'
-import '@juntossomosmais/atomium/core.css'
+import '@juntossomosmais/atomium/dist/core/core.css'
 
 defineCustomElements()
 
