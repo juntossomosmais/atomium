@@ -70,7 +70,7 @@ jobs:
         if: ${{ steps.release.outputs['packages/core--release_created'] }}
         run: |
           npm run core:build
-          npx nx run @juntossomosmais/atomium:publish
+          npx nx run @juntossomosmais/atomium:publish-library
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -79,7 +79,7 @@ jobs:
         if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
         run: |
           npm run tokens:build
-          npx nx run @juntossomosmais/atomium-tokens:publish
+          npx nx run @juntossomosmais/atomium-tokens:publish-library
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
