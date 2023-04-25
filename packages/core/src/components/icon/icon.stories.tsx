@@ -1,9 +1,9 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoIcon } from './icon'
+import { AtomIcon } from './icon'
 
-type argsIcon = AtoIcon
+type argsIcon = AtomIcon
 
 export default {
   title: 'Ionic Components/Icon',
@@ -37,7 +37,7 @@ type Story = StoryObj<argsIcon>
 
 const createIcon = (args: argsIcon) => {
   return `
-    <ato-icon
+    <atom-icon
       icon=${args.icon}
       color=${args.color}
       size=${args.size}

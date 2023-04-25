@@ -1,12 +1,12 @@
 import { newSpecPage } from '@stencil/core/testing'
 
-import { AtoIcon, CDN_URL } from './icon'
+import { AtomIcon, CDN_URL } from './icon'
 
-describe('ato-icon', () => {
+describe('atom-icon', () => {
   it('should render ion-icon element', async () => {
     const page = await newSpecPage({
-      components: [AtoIcon],
-      html: `<ato-icon icon="heart" color="primary" size="large"></ato-icon>`,
+      components: [AtomIcon],
+      html: `<atom-icon icon="heart" color="primary" size="large"></atom-icon>`,
     })
 
     if (!page?.root?.shadowRoot) {
@@ -16,11 +16,11 @@ describe('ato-icon', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ato-icon color="primary" icon="heart" size="large">
+      <atom-icon color="primary" icon="heart" size="large">
         <mock:shadow-root>
           <ion-icon color="primary" icon="${CDN_URL}/heart.svg" size="large"></ion-icon>
         </mock:shadow-root>
-      </ato-icon>
+      </atom-icon>
     `)
   })
 })

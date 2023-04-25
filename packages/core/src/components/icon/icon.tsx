@@ -4,10 +4,10 @@ import { Component, Prop, h } from '@stencil/core'
 export const CDN_URL = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg'
 
 @Component({
-  tag: 'ato-icon',
+  tag: 'atom-icon',
   shadow: true,
 })
-export class AtoIcon {
+export class AtomIcon {
   @Prop() icon?: string
   @Prop() color?: Color
   @Prop() size?: 'small' | 'large'
