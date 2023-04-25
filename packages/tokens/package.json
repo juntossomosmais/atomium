@@ -12,7 +12,6 @@
     "@juntossomosmais:registry": "https://npm.pkg.github.com",
     "access": "public"
   },
-  "main": "dist/styles.css",
   "exports": {
     "./*": "./dist/*"
   },
