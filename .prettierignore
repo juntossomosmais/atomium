@@ -4,3 +4,4 @@
 /packages/core/loader
 /packages/core/www
 /packages/core/src/components.d.ts
+*.md
