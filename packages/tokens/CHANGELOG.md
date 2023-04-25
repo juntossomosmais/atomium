@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.6](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.2...atomium-tokens-v0.1.0-alpha.6) (2023-04-25)
+
+
+### Features
+
+* change output to tokens.css ([4bb19c5](https://github.com/juntossomosmais/atomium/commit/4bb19c5ac4476f087399c486692f7f72d58ff300))
+
 ## 0.1.0-alpha.2 (2023-04-19)
 
 
