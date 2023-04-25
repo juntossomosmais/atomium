@@ -54,4 +54,4 @@ npm run storybook:build
 
 ## Contributing
 
-All contribuitions needs to follow code patters of our [Front-end Guideline](https://github.com/juntossomosmais/frontend-guideline)
+All contributions must follow the code patterns of our [Front-end Guideline](https://github.com/juntossomosmais/frontend-guideline)
