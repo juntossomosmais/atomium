@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/html'
 import { AtoGrid } from './grid'
 
 export default {
-  title: 'Ionic Components/Grid',
+  title: 'Components/Grid',
   decorators: [withActions],
   parameters: {
     docs: {

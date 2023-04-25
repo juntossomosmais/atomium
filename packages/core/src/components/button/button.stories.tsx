@@ -8,7 +8,7 @@ type argsButton = AtoButton & {
 }
 
 export default {
-  title: 'Ionic Components/Button',
+  title: 'Components/Button',
   parameters: {
     actions: {
       handles: ['atoClick'],
