@@ -1,5 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { AtoSelect } from './select'
+import { AtomSelect } from './select'
 
 const optionsMock = [
   { value: 'apple', selected: true },
@@ -7,19 +7,19 @@ const optionsMock = [
   { value: 'orange' },
 ]
 
-describe('AtoSelect', () => {
+describe('AtomSelect', () => {
   it('should render an ion-select element', async () => {
     const page = await newSpecPage({
-      components: [AtoSelect],
-      html: '<ato-select />',
+      components: [AtomSelect],
+      html: '<atom-select />',
     })
 
     expect(page.root.shadowRoot.querySelector('ion-select')).toBeTruthy()
   })
   it('renders with all props', async () => {
     const page = await newSpecPage({
-      components: [AtoSelect],
-      html: `<ato-select
+      components: [AtomSelect],
+      html: `<atom-select
         name="test"
         interface="action-sheet"
         placeholder="Select an option"
@@ -33,14 +33,14 @@ describe('AtoSelect', () => {
         overlay-dismiss
         label="Select a fruit"
         label-placement="stacked"
-      ></ato-select>`,
+      ></atom-select>`,
     })
 
     page.rootInstance.options = optionsMock
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ato-select
+      <atom-select
         name="test"
         interface="action-sheet"
         placeholder="Select an option"
@@ -64,14 +64,14 @@ describe('AtoSelect', () => {
             </ion-select>
           </ion-item>
         </mock:shadow-root>
-      </ato-select>
+      </atom-select>
     `)
   })
 
   it('emits atoChange event on select change', async () => {
     const page = await newSpecPage({
-      components: [AtoSelect],
-      html: '<ato-select />',
+      components: [AtomSelect],
+      html: '<atom-select />',
     })
 
     page.rootInstance.options = optionsMock

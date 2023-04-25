@@ -1,15 +1,15 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoSelect } from './select'
+import { AtomSelect } from './select'
 
-type argsSelect = AtoSelect
+type argsSelect = AtomSelect
 
 export default {
   title: 'Components/Select',
   parameters: {
     actions: {
-      handles: ['atoChange', 'atoFocus', 'atoBlur'],
+      handles: ['atomChange', 'atomFocus', 'atomBlur'],
     },
   },
   decorators: [withActions],
@@ -46,7 +46,7 @@ type Story = StoryObj<argsSelect>
 
 const createSelect = (args: argsSelect) => {
   return `
-<ato-select
+<atom-select
   name='select'
   placeholder='Select an option'
   interface=${args.interface}
@@ -59,7 +59,7 @@ const createSelect = (args: argsSelect) => {
 />
 
 <script>
-  document.querySelector('ato-select').options = [
+  document.querySelector('atom-select').options = [
     { value: 'Red', disabled: false },
     { value: 'Green', disabled: false },
     { value: 'Blue', disabled: false },

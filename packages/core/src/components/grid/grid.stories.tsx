@@ -1,7 +1,7 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoGrid } from './grid'
+import { AtomGrid } from './grid'
 
 export default {
   title: 'Components/Grid',
@@ -37,45 +37,45 @@ export default {
         'Columns can be pushed to the right by a certain number of columns',
     },
   },
-} as Meta<AtoGrid>
+} as Meta<AtomGrid>
 
-type Story = StoryObj<AtoGrid>
+type Story = StoryObj<AtomGrid>
 
 export const Default: Story = {
   render: () => `
-<ato-grid>
-  <ato-row>
-    <ato-col class="col">1</ato-col>
-    <ato-col class="col" size="8" size-sm="10">2</ato-col>
-    <ato-col class="col">3</ato-col>
-  </ato-row>
-</ato-grid>
-<ato-grid>
-  <ato-row>
-    <ato-col class="col">1</ato-col>
-    <ato-col class="col">2</ato-col>
-    <ato-col class="col">3</ato-col>
-    <ato-col class="col">4</ato-col>
-    <ato-col class="col">5</ato-col>
-    <ato-col class="col">6</ato-col>
-  </ato-row>
-</ato-grid>
-<ato-grid>
-  <ato-row>
-    <ato-col class="col">1</ato-col>
-    <ato-col class="col">2</ato-col>
-    <ato-col class="col">3</ato-col>
-    <ato-col class="col">4</ato-col>
-    <ato-col class="col">5</ato-col>
-    <ato-col class="col">6</ato-col>
-    <ato-col class="col">7</ato-col>
-    <ato-col class="col">8</ato-col>
-    <ato-col class="col">9</ato-col>
-    <ato-col class="col">10</ato-col>
-    <ato-col class="col">11</ato-col>
-    <ato-col class="col">12</ato-col>
-  </ato-row>
-</ato-grid>
+<atom-grid>
+  <atom-row>
+    <atom-col class="col">1</atom-col>
+    <atom-col class="col" size="8" size-sm="10">2</atom-col>
+    <atom-col class="col">3</atom-col>
+  </atom-row>
+</atom-grid>
+<atom-grid>
+  <atom-row>
+    <atom-col class="col">1</atom-col>
+    <atom-col class="col">2</atom-col>
+    <atom-col class="col">3</atom-col>
+    <atom-col class="col">4</atom-col>
+    <atom-col class="col">5</atom-col>
+    <atom-col class="col">6</atom-col>
+  </atom-row>
+</atom-grid>
+<atom-grid>
+  <atom-row>
+    <atom-col class="col">1</atom-col>
+    <atom-col class="col">2</atom-col>
+    <atom-col class="col">3</atom-col>
+    <atom-col class="col">4</atom-col>
+    <atom-col class="col">5</atom-col>
+    <atom-col class="col">6</atom-col>
+    <atom-col class="col">7</atom-col>
+    <atom-col class="col">8</atom-col>
+    <atom-col class="col">9</atom-col>
+    <atom-col class="col">10</atom-col>
+    <atom-col class="col">11</atom-col>
+    <atom-col class="col">12</atom-col>
+  </atom-row>
+</atom-grid>
 
 <style>
   .col {

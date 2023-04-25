@@ -2,11 +2,11 @@ import { Mode } from '@ionic/core'
 import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
-  tag: 'ato-select',
+  tag: 'atom-select',
   styleUrl: 'select.scss',
   shadow: true,
 })
-export class AtoSelect {
+export class AtomSelect {
   @Element() selectEl!: HTMLIonSelectElement
 
   @Prop() color?: 'primary' | 'secondary'
@@ -30,11 +30,11 @@ export class AtoSelect {
     disabled?: boolean
   }> = []
 
-  @Event() atoBlur!: EventEmitter<void>
-  @Event() atoCancel!: EventEmitter<void>
-  @Event({ bubbles: true, composed: true }) atoChange!: EventEmitter<string>
-  @Event() atoDimiss!: EventEmitter<void>
-  @Event() atoFocus!: EventEmitter<void>
+  @Event() atomBlur!: EventEmitter<void>
+  @Event() atomCancel!: EventEmitter<void>
+  @Event({ bubbles: true, composed: true }) atomChange!: EventEmitter<string>
+  @Event() atomDimiss!: EventEmitter<void>
+  @Event() atomFocus!: EventEmitter<void>
 
   componentDidLoad() {
     this.selectEl.addEventListener('ionChange', this.handleChange)
@@ -49,27 +49,27 @@ export class AtoSelect {
   }
 
   private handleChange = (event: CustomEvent<{ value: string }>) => {
-    this.atoChange.emit(event.detail.value)
+    this.atomChange.emit(event.detail.value)
   }
 
   private handleCancel = () => {
     this.selectEl.removeEventListener('ionCancel', this.handleCancel)
-    this.atoCancel.emit()
+    this.atomCancel.emit()
   }
 
   private handleBlur = () => {
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
-    this.atoBlur.emit()
+    this.atomBlur.emit()
   }
 
   private handleFocus = () => {
     this.selectEl.removeEventListener('ionFocus', this.handleBlur)
-    this.atoFocus.emit()
+    this.atomFocus.emit()
   }
 
   private handleDimiss = () => {
     this.selectEl.removeEventListener('ionDimiss', this.handleDimiss)
-    this.atoDimiss.emit()
+    this.atomDimiss.emit()
   }
 
   render(): JSX.Element {
