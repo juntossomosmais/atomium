@@ -2,11 +2,11 @@ import { Mode, TextFieldTypes } from '@ionic/core'
 import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
-  tag: 'ato-input',
+  tag: 'atom-input',
   styleUrl: 'input.scss',
   shadow: true,
 })
-export class AtoInput {
+export class AtomInput {
   @Element() inputEl!: HTMLInputElement
 
   @Prop() color?: 'primary' | 'secondary'
@@ -39,9 +39,9 @@ export class AtoInput {
   @Prop() labelPlacement?: 'fixed' | 'stacked' | 'floating' = 'floating'
   @Prop() label?: string
 
-  @Event() atoFocus!: EventEmitter<void>
-  @Event() atoBlur!: EventEmitter<void>
-  @Event({ bubbles: true, composed: true }) atoChange!: EventEmitter<string>
+  @Event() atomFocus!: EventEmitter<void>
+  @Event() atomBlur!: EventEmitter<void>
+  @Event({ bubbles: true, composed: true }) atomChange!: EventEmitter<string>
 
   componentDidLoad() {
     this.inputEl.addEventListener('ionChange', this.handleChange)
@@ -58,17 +58,17 @@ export class AtoInput {
   }
 
   private handleChange = (event: any) => {
-    this.atoChange.emit(event.detail.value)
+    this.atomChange.emit(event.detail.value)
   }
 
   private handleBlur = () => {
     this.inputEl.removeEventListener('ionBlur', this.handleBlur)
-    this.atoBlur.emit()
+    this.atomBlur.emit()
   }
 
   private handleFocus = () => {
     this.inputEl.removeEventListener('ionFocus', this.handleFocus)
-    this.atoFocus.emit()
+    this.atomFocus.emit()
   }
 
   render(): JSX.Element {

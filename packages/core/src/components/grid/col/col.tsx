@@ -1,10 +1,10 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 @Component({
-  tag: 'ato-col',
+  tag: 'atom-col',
   shadow: false,
 })
-export class AtoCol {
+export class AtomCol {
   @Prop() size?: 'auto' | string
   @Prop() sizeSm?: string
   @Prop() sizeMd?: string

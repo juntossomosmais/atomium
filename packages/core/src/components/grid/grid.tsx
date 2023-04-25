@@ -1,10 +1,10 @@
 import { Component, h, Prop } from '@stencil/core'
 
 @Component({
-  tag: 'ato-grid',
+  tag: 'atom-grid',
   shadow: false,
 })
-export class AtoGrid {
+export class AtomGrid {
   @Prop() fixed?: boolean
 
   render() {

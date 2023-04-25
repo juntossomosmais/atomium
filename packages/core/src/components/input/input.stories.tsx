@@ -1,15 +1,15 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoInput } from './input'
+import { AtomInput } from './input'
 
-type argsInput = AtoInput
+type argsInput = AtomInput
 
 export default {
   title: 'Components/Input',
   parameters: {
     actions: {
-      handles: ['atoChange', 'atoFocus', 'atoBlur'],
+      handles: ['atomChange', 'atomFocus', 'atomBlur'],
     },
   },
   decorators: [withActions],
@@ -75,7 +75,7 @@ type Story = StoryObj<argsInput>
 
 const createInput = (args: argsInput) => {
   return `
-<ato-input
+<atom-input
   label="${args.label}"
   label-placement="${args.labelPlacement}"
   fill="${args.fill}"

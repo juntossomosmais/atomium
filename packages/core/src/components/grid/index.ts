@@ -1,3 +1,3 @@
-export { AtoCol } from './col/col'
-export { AtoGrid } from './grid'
-export { AtoRow } from './row/row'
+export { AtomCol } from './col/col'
+export { AtomGrid } from './grid'
+export { AtomRow } from './row/row'

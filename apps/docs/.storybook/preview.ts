@@ -43,7 +43,7 @@ const preview = {
     viewport: {
       viewports: customViewports,
     },
-    actions: { argTypesRegex: '^ato.*' },
+    actions: { argTypesRegex: '^atom.*' },
     docs: {
       page: DocumentationTemplate,
     },

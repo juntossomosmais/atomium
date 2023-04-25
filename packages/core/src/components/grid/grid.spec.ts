@@ -1,11 +1,11 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { AtoGrid } from './grid'
+import { AtomGrid } from './grid'
 
 describe('AtoGrid', () => {
   it('should render an ion-grid element', async () => {
     const page = await newSpecPage({
-      components: [AtoGrid],
-      html: '<ato-grid></ato-grid>',
+      components: [AtomGrid],
+      html: '<atom-grid></atom-grid>',
     })
 
     expect(page.root.querySelector('ion-grid')).toBeTruthy()
@@ -13,33 +13,33 @@ describe('AtoGrid', () => {
 
   it('should set fixed prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtoGrid],
+      components: [AtomGrid],
       html: `
-        <ato-grid fixed="true">
-          <ato-row>
-            <ato-col>1</ato-col>
-            <ato-col>2</ato-col>
-            <ato-col>3</ato-col>
-          </ato-row>
-        <ato-grid>
+        <atom-grid fixed="true">
+          <atom-row>
+            <atom-col>1</atom-col>
+            <atom-col>2</atom-col>
+            <atom-col>3</atom-col>
+          </atom-row>
+        <atom-grid>
       `,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ato-grid fixed="true">
+      <atom-grid fixed="true">
         <ion-grid fixed="">
-          <ato-row>
-            <ato-col>1</ato-col>
-            <ato-col>2</ato-col>
-            <ato-col>3</ato-col>
-          </ato-row>
-          <ato-grid>
+          <atom-row>
+            <atom-col>1</atom-col>
+            <atom-col>2</atom-col>
+            <atom-col>3</atom-col>
+          </atom-row>
+          <atom-grid>
             <ion-grid></ion-grid>
-          </ato-grid>
+          </atom-grid>
         </ion-grid>
-      </ato-grid>
+      </atom-grid>
     `)
   })
 })

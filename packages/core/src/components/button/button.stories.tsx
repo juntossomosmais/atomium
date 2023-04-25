@@ -1,9 +1,9 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { Meta, StoryObj } from '@storybook/html'
 
-import { AtoButton } from './button'
+import { AtomButton } from './button'
 
-type argsButton = AtoButton & {
+type argsButton = AtomButton & {
   label: string
 }
 
@@ -11,7 +11,7 @@ export default {
   title: 'Components/Button',
   parameters: {
     actions: {
-      handles: ['atoClick'],
+      handles: ['atomClick'],
     },
   },
   decorators: [withActions],
@@ -70,7 +70,7 @@ type Story = StoryObj<argsButton>
 
 const createButton = (args: argsButton) => {
   return `
-<ato-button
+<atom-button
   color="${args.color}"
   fill="${args.fill}"
   shape="${args.shape}"
@@ -81,7 +81,7 @@ const createButton = (args: argsButton) => {
   mode="${args.mode}"
 >
   ${args.label}
-</ato-button>
+</atom-button>
   `
 }
 

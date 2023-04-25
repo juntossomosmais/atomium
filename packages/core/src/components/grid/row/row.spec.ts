@@ -1,19 +1,19 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { AtoRow } from './row'
+import { AtomRow } from './row'
 
-describe('AtoRow', () => {
+describe('AtomRow', () => {
   it('should render an at-row element', async () => {
     const page = await newSpecPage({
-      components: [AtoRow],
-      html: '<ato-row></ato-row>',
+      components: [AtomRow],
+      html: '<atom-row></atom-row>',
     })
 
     expect(page.root).toEqualHtml(`
-      <ato-row>
+      <atom-row>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </ato-row>
+      </atom-row>
     `)
   })
 })

@@ -15,7 +15,7 @@ npm i @juntossomosmais/atomium
 ```jsx
 import '@juntossomosmais/atomium/core.css'
 
-import { AtoButton } from '@juntossomosmais/atomium/react'
+import { AtomButton } from '@juntossomosmais/atomium/react'
 
-<AtoButton>Click me</AtoButton>
+<AtomButton>Click me</AtomButton>
 ```

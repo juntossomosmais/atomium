@@ -1,11 +1,11 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { AtoButton } from './button'
+import { AtomButton } from './button'
 
-describe('AtoButton', () => {
+describe('AtomButton', () => {
   it('should render an ion-button element', async () => {
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: '<ato-button></ato-button>',
+      components: [AtomButton],
+      html: '<atom-button></atom-button>',
     })
 
     expect(page.root.shadowRoot.querySelector('ion-button')).toBeTruthy()
@@ -13,8 +13,8 @@ describe('AtoButton', () => {
 
   it('should set color prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: '<ato-button color="primary"></ato-button>',
+      components: [AtomButton],
+      html: '<atom-button color="primary"></atom-button>',
     })
 
     expect(page.rootInstance.color).toBe('primary')
@@ -22,8 +22,8 @@ describe('AtoButton', () => {
 
   it('should set fill prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: '<ato-button fill="outline"></ato-button>',
+      components: [AtomButton],
+      html: '<atom-button fill="outline"></atom-button>',
     })
 
     expect(page.rootInstance.fill).toBe('outline')
@@ -31,8 +31,8 @@ describe('AtoButton', () => {
 
   it('should set size prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: '<ato-button size="small"></ato-button>',
+      components: [AtomButton],
+      html: '<atom-button size="small"></atom-button>',
     })
 
     expect(page.rootInstance.size).toBe('small')
@@ -40,8 +40,8 @@ describe('AtoButton', () => {
 
   it('should set disabled prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: '<ato-button disabled></ato-button>',
+      components: [AtomButton],
+      html: '<atom-button disabled></atom-button>',
     })
 
     expect(page.rootInstance.disabled).toBe(true)
@@ -49,8 +49,8 @@ describe('AtoButton', () => {
 
   it('should set type prop correctly', async () => {
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: '<ato-button type="submit"></ato-button>',
+      components: [AtomButton],
+      html: '<atom-button type="submit"></atom-button>',
     })
 
     expect(page.rootInstance.type).toBe('submit')
@@ -59,28 +59,28 @@ describe('AtoButton', () => {
     const labelText = 'Click me'
 
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: `<ato-button>${labelText}</ato-button>`,
+      components: [AtomButton],
+      html: `<atom-button>${labelText}</atom-button>`,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ato-button>
+      <atom-button>
         <mock:shadow-root>
           <ion-button color="primary" fill="solid" type="button">
             <slot></slot>
           </ion-button>
         </mock:shadow-root>
         ${labelText}
-      </ato-button>
+      </atom-button>
     `)
   })
 
   it('emits atoClick event on button click', async () => {
     const page = await newSpecPage({
-      components: [AtoButton],
-      html: '<ato-button>Click</ato-button>',
+      components: [AtomButton],
+      html: '<atom-button>Click</atom-button>',
     })
 
     await page.waitForChanges()
@@ -88,10 +88,10 @@ describe('AtoButton', () => {
     const buttonEl = page.root.shadowRoot.querySelector('ion-button')
     const spy = jest.fn()
 
-    page.root.addEventListener('atoClick', spy)
+    page.root.addEventListener('atomClick', spy)
     buttonEl.click()
 
-    page.root.dispatchEvent(new CustomEvent('atoClick'))
+    page.root.dispatchEvent(new CustomEvent('atomClick'))
 
     expect(spy).toHaveBeenCalled()
   })

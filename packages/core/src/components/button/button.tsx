@@ -2,11 +2,11 @@ import { Mode } from '@ionic/core'
 import { Component, Event, EventEmitter, h, Prop } from '@stencil/core'
 
 @Component({
-  tag: 'ato-button',
+  tag: 'atom-button',
   styleUrl: 'button.scss',
   shadow: true,
 })
-export class AtoButton {
+export class AtomButton {
   @Prop() color: 'primary' | 'secondary' = 'primary'
   @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
   @Prop() size: 'small' | 'default' | 'large' = 'default'
@@ -16,10 +16,10 @@ export class AtoButton {
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
   @Prop() mode: Mode = 'md'
 
-  @Event() atoClick: EventEmitter
+  @Event() atomClick: EventEmitter
 
   private handleClick = () => {
-    this.atoClick.emit()
+    this.atomClick.emit()
   }
 
   render() {

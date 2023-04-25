@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Mode, TextFieldTypes } from "@ionic/core";
 export { Mode, TextFieldTypes } from "@ionic/core";
 export namespace Components {
-    interface AtoButton {
+    interface AtomButton {
         "color": 'primary' | 'secondary';
         "disabled"?: boolean;
         "expand"?: 'block' | 'full';
@@ -18,7 +18,7 @@ export namespace Components {
         "size": 'small' | 'default' | 'large';
         "type": 'submit' | 'reset' | 'button';
     }
-    interface AtoCol {
+    interface AtomCol {
         "offset"?: string;
         "offsetLg"?: string;
         "offsetMd"?: string;
@@ -30,10 +30,10 @@ export namespace Components {
         "sizeMd"?: string;
         "sizeSm"?: string;
     }
-    interface AtoGrid {
+    interface AtomGrid {
         "fixed"?: boolean;
     }
-    interface AtoInput {
+    interface AtomInput {
         "accept"?: string;
         "autofocus": boolean;
         "clearInput": boolean;
@@ -62,9 +62,9 @@ export namespace Components {
         "type": TextFieldTypes;
         "value": string;
     }
-    interface AtoRow {
+    interface AtomRow {
     }
-    interface AtoSelect {
+    interface AtomSelect {
         "cancelText"?: string;
         "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
@@ -85,77 +85,77 @@ export namespace Components {
         "size"?: 'small' | 'large';
     }
 }
-export interface AtoButtonCustomEvent<T> extends CustomEvent<T> {
+export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLAtoButtonElement;
+    target: HTMLAtomButtonElement;
 }
-export interface AtoInputCustomEvent<T> extends CustomEvent<T> {
+export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLAtoInputElement;
+    target: HTMLAtomInputElement;
 }
-export interface AtoSelectCustomEvent<T> extends CustomEvent<T> {
+export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLAtoSelectElement;
+    target: HTMLAtomSelectElement;
 }
 declare global {
-    interface HTMLAtoButtonElement extends Components.AtoButton, HTMLStencilElement {
+    interface HTMLAtomButtonElement extends Components.AtomButton, HTMLStencilElement {
     }
-    var HTMLAtoButtonElement: {
-        prototype: HTMLAtoButtonElement;
-        new (): HTMLAtoButtonElement;
+    var HTMLAtomButtonElement: {
+        prototype: HTMLAtomButtonElement;
+        new (): HTMLAtomButtonElement;
     };
-    interface HTMLAtoColElement extends Components.AtoCol, HTMLStencilElement {
+    interface HTMLAtomColElement extends Components.AtomCol, HTMLStencilElement {
     }
-    var HTMLAtoColElement: {
-        prototype: HTMLAtoColElement;
-        new (): HTMLAtoColElement;
+    var HTMLAtomColElement: {
+        prototype: HTMLAtomColElement;
+        new (): HTMLAtomColElement;
     };
-    interface HTMLAtoGridElement extends Components.AtoGrid, HTMLStencilElement {
+    interface HTMLAtomGridElement extends Components.AtomGrid, HTMLStencilElement {
     }
-    var HTMLAtoGridElement: {
-        prototype: HTMLAtoGridElement;
-        new (): HTMLAtoGridElement;
+    var HTMLAtomGridElement: {
+        prototype: HTMLAtomGridElement;
+        new (): HTMLAtomGridElement;
     };
-    interface HTMLAtoInputElement extends Components.AtoInput, HTMLStencilElement {
+    interface HTMLAtomInputElement extends Components.AtomInput, HTMLStencilElement {
     }
-    var HTMLAtoInputElement: {
-        prototype: HTMLAtoInputElement;
-        new (): HTMLAtoInputElement;
+    var HTMLAtomInputElement: {
+        prototype: HTMLAtomInputElement;
+        new (): HTMLAtomInputElement;
     };
-    interface HTMLAtoRowElement extends Components.AtoRow, HTMLStencilElement {
+    interface HTMLAtomRowElement extends Components.AtomRow, HTMLStencilElement {
     }
-    var HTMLAtoRowElement: {
-        prototype: HTMLAtoRowElement;
-        new (): HTMLAtoRowElement;
+    var HTMLAtomRowElement: {
+        prototype: HTMLAtomRowElement;
+        new (): HTMLAtomRowElement;
     };
-    interface HTMLAtoSelectElement extends Components.AtoSelect, HTMLStencilElement {
+    interface HTMLAtomSelectElement extends Components.AtomSelect, HTMLStencilElement {
     }
-    var HTMLAtoSelectElement: {
-        prototype: HTMLAtoSelectElement;
-        new (): HTMLAtoSelectElement;
+    var HTMLAtomSelectElement: {
+        prototype: HTMLAtomSelectElement;
+        new (): HTMLAtomSelectElement;
     };
     interface HTMLElementTagNameMap {
-        "ato-button": HTMLAtoButtonElement;
-        "ato-col": HTMLAtoColElement;
-        "ato-grid": HTMLAtoGridElement;
-        "ato-input": HTMLAtoInputElement;
-        "ato-row": HTMLAtoRowElement;
-        "ato-select": HTMLAtoSelectElement;
+        "atom-button": HTMLAtomButtonElement;
+        "atom-col": HTMLAtomColElement;
+        "atom-grid": HTMLAtomGridElement;
+        "atom-input": HTMLAtomInputElement;
+        "atom-row": HTMLAtomRowElement;
+        "atom-select": HTMLAtomSelectElement;
     }
 }
 declare namespace LocalJSX {
-    interface AtoButton {
+    interface AtomButton {
         "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
         "expand"?: 'block' | 'full';
         "fill"?: 'clear' | 'outline' | 'solid';
         "mode"?: Mode;
-        "onAtoClick"?: (event: AtoButtonCustomEvent<any>) => void;
+        "onAtomClick"?: (event: AtomButtonCustomEvent<any>) => void;
         "shape"?: 'round';
         "size"?: 'small' | 'default' | 'large';
         "type"?: 'submit' | 'reset' | 'button';
     }
-    interface AtoCol {
+    interface AtomCol {
         "offset"?: string;
         "offsetLg"?: string;
         "offsetMd"?: string;
@@ -167,10 +167,10 @@ declare namespace LocalJSX {
         "sizeMd"?: string;
         "sizeSm"?: string;
     }
-    interface AtoGrid {
+    interface AtomGrid {
         "fixed"?: boolean;
     }
-    interface AtoInput {
+    interface AtomInput {
         "accept"?: string;
         "autofocus"?: boolean;
         "clearInput"?: boolean;
@@ -193,18 +193,18 @@ declare namespace LocalJSX {
         "mode"?: Mode;
         "multiple"?: boolean;
         "name"?: string;
-        "onAtoBlur"?: (event: AtoInputCustomEvent<void>) => void;
-        "onAtoChange"?: (event: AtoInputCustomEvent<string>) => void;
-        "onAtoFocus"?: (event: AtoInputCustomEvent<void>) => void;
+        "onAtomBlur"?: (event: AtomInputCustomEvent<void>) => void;
+        "onAtomChange"?: (event: AtomInputCustomEvent<string>) => void;
+        "onAtomFocus"?: (event: AtomInputCustomEvent<void>) => void;
         "pattern"?: string;
         "placeholder"?: string;
         "required"?: boolean;
         "type"?: TextFieldTypes;
         "value"?: string;
     }
-    interface AtoRow {
+    interface AtomRow {
     }
-    interface AtoSelect {
+    interface AtomSelect {
         "cancelText"?: string;
         "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
@@ -215,11 +215,11 @@ declare namespace LocalJSX {
         "multiple"?: boolean;
         "name"?: string;
         "okText"?: string;
-        "onAtoBlur"?: (event: AtoSelectCustomEvent<void>) => void;
-        "onAtoCancel"?: (event: AtoSelectCustomEvent<void>) => void;
-        "onAtoChange"?: (event: AtoSelectCustomEvent<string>) => void;
-        "onAtoDimiss"?: (event: AtoSelectCustomEvent<void>) => void;
-        "onAtoFocus"?: (event: AtoSelectCustomEvent<void>) => void;
+        "onAtomBlur"?: (event: AtomSelectCustomEvent<void>) => void;
+        "onAtomCancel"?: (event: AtomSelectCustomEvent<void>) => void;
+        "onAtomChange"?: (event: AtomSelectCustomEvent<string>) => void;
+        "onAtomDimiss"?: (event: AtomSelectCustomEvent<void>) => void;
+        "onAtomFocus"?: (event: AtomSelectCustomEvent<void>) => void;
         "options"?: Array<{
     value: string
     selected?: boolean
@@ -230,24 +230,24 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'large';
     }
     interface IntrinsicElements {
-        "ato-button": AtoButton;
-        "ato-col": AtoCol;
-        "ato-grid": AtoGrid;
-        "ato-input": AtoInput;
-        "ato-row": AtoRow;
-        "ato-select": AtoSelect;
+        "atom-button": AtomButton;
+        "atom-col": AtomCol;
+        "atom-grid": AtomGrid;
+        "atom-input": AtomInput;
+        "atom-row": AtomRow;
+        "atom-select": AtomSelect;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ato-button": LocalJSX.AtoButton & JSXBase.HTMLAttributes<HTMLAtoButtonElement>;
-            "ato-col": LocalJSX.AtoCol & JSXBase.HTMLAttributes<HTMLAtoColElement>;
-            "ato-grid": LocalJSX.AtoGrid & JSXBase.HTMLAttributes<HTMLAtoGridElement>;
-            "ato-input": LocalJSX.AtoInput & JSXBase.HTMLAttributes<HTMLAtoInputElement>;
-            "ato-row": LocalJSX.AtoRow & JSXBase.HTMLAttributes<HTMLAtoRowElement>;
-            "ato-select": LocalJSX.AtoSelect & JSXBase.HTMLAttributes<HTMLAtoSelectElement>;
+            "atom-button": LocalJSX.AtomButton & JSXBase.HTMLAttributes<HTMLAtomButtonElement>;
+            "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
+            "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
+            "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
+            "atom-row": LocalJSX.AtomRow & JSXBase.HTMLAttributes<HTMLAtomRowElement>;
+            "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
         }
     }
 }
