@@ -6,7 +6,7 @@ import { AtoSelect } from './select'
 type argsSelect = AtoSelect
 
 export default {
-  title: 'Ionic Components/Select',
+  title: 'Components/Select',
   parameters: {
     actions: {
       handles: ['atoChange', 'atoFocus', 'atoBlur'],

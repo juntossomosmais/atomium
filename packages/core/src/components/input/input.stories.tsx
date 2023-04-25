@@ -6,7 +6,7 @@ import { AtoInput } from './input'
 type argsInput = AtoInput
 
 export default {
-  title: 'Ionic Components/Input',
+  title: 'Components/Input',
   parameters: {
     actions: {
       handles: ['atoChange', 'atoFocus', 'atoBlur'],
