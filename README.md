@@ -6,10 +6,9 @@
 
 | Project | Package                                                                                                 | Version                                                                                                                                                                                            | Documentation                         |
 | ------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| Core    | [`@juntossomosmais/atomium`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium)               | [![version](https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json)](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium)          | [README](./packages/core/README.md)   |
-| React   | [`@juntossomosmais/atomium/react`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium)         | [![version](https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json)](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium)          | [README](./packages/react/README.md)  |
-| Tokens  | [`@juntossomosmais/atomium-tokens`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | [![version](https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Ftokens%2Fpackage.json)](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | [README](./packages/tokens/README.md) |
-| Vue     | [`@juntossomosmais/atomium/vue`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium)           | [![version](https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json)](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium)          | [README](./packages/vue/README.md)    |
+| Core | [`@juntossomosmais/atomium`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/core/README.md)   |
+| React | [`@juntossomosmais/atomium/react`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/react/README.md)  |
+| Tokens | [`@juntossomosmais/atomium-tokens`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | <img src="https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Ftokens%2Fpackage.json" alt="version"> | [README](./packages/tokens/README.md) |
 
 ## About
 
@@ -55,4 +54,4 @@ npm run storybook:build
 
 ## Contributing
 
-All contribuitions needs to follow code patters of our [Frontend Guideline](https://github.com/juntossomosmais/frontend-guideline)
+All contribuitions needs to follow code patters of our [Front-end Guideline](https://github.com/juntossomosmais/frontend-guideline)
