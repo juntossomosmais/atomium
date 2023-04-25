@@ -23,7 +23,7 @@
     "prepare": "husky install",
     "react:build": "cd packages/react && npm run build",
     "start": "nx run-many --target=start",
-    "test": "nx run atomium:test",
+    "test": "nx run @juntossomosmais/atomium:test",
     "tokens:build": "nx build @juntossomosmais/atomium-tokens",
     "tokens:publish": "npm run tokens:build && nx run @juntossomosmais/atomium-tokens:publish",
     "vue:build": "cd packages/vue && npm run build"
