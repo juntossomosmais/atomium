@@ -1,0 +1,24 @@
+import { Color } from '@ionic/core'
+import { Component, Prop, h } from '@stencil/core'
+
+export const CDN_URL = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg'
+
+@Component({
+  tag: 'atom-icon',
+  shadow: true,
+})
+export class AtomIcon {
+  @Prop() icon?: string
+  @Prop() color?: Color
+  @Prop() size?: 'small' | 'large'
+
+  render() {
+    return (
+      <ion-icon
+        icon={`${CDN_URL}/${this.icon}.svg`}
+        color={this.color}
+        size={this.size}
+      />
+    )
+  }
+}
