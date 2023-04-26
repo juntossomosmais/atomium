@@ -19,3 +19,5 @@ import { AtomButton } from '@juntossomosmais/atomium/react'
 
 <AtomButton>Click me</AtomButton>
 ```
+
+You could check the React components transpiled of Stencil in [React Stories](https://juntossomosmais.github.io/atomium/?path=/docs/react_introduction--docs)
