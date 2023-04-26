@@ -35,6 +35,12 @@ npm i
 npm start
 ```
 
+If you want to run React Stories locally, you need to run the following command before `npm start`:
+
+```bash
+npm run docs-react:start
+```
+
 ### Running Tests
 
 ```bash
