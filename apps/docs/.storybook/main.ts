@@ -32,7 +32,7 @@ const config = {
     return {
       react: {
         title: 'React Library',
-        url: 'juntossomosmais.github.io/atomium/react',
+        url: 'react',
         expanded: false,
       },
     }
