@@ -1,0 +1,8 @@
+{
+  "name": "@atomium/docs-react",
+  "private": true,
+  "scripts": {
+    "start": "storybook dev -p 7006 --no-open",
+    "build": "storybook build -o ../docs/storybook-static/react"
+  }
+}
