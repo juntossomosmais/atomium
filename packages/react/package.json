@@ -7,6 +7,7 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
+    "start": "tsc -p . --watch",
     "build": "tsc -p . && npx copyfiles --flat ./package.json ../core/react"
   }
 }
