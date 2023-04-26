@@ -1,0 +1,9 @@
+.sbdocs-content p,
+.sbdocs-content li {
+  font: var(--text-body-medium);
+  letter-spacing: var(--text-body-medium-letter);
+}
+
+.sbdocs-a {
+  color: var(--color-brand-secondary-regular)!important;
+}
