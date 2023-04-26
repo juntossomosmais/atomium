@@ -22,6 +22,6 @@ import '@juntossomosmais/atomium-tokens/tokens.css'
 }
 ```
 
-You should see all the tokens in the [Tokens section of the Storybook](?path=/docs/tokens-colors--docs)
+You should see all the tokens in the [Tokens section of the Storybook](https://juntossomosmais.github.io/atomium/?path=/docs/tokens-colors--docs)
 
 
