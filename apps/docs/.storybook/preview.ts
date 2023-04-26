@@ -1,47 +1,19 @@
 import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 
-import DocumentationTemplate from './DocumentationTemplate.mdx'
+import { CustomViewports } from '@atomium/storybook-utils/custom-viewports'
+import DocumentationTemplate from '@atomium/storybook-utils/DocumentationTemplate.mdx'
+
+import '@atomium/storybook-utils/preview.css'
 
 import '@juntossomosmais/atomium-tokens/tokens.css'
 import '@juntossomosmais/atomium/dist/core/core.css'
 
 defineCustomElements()
 
-const customViewports = {
-  small: {
-    name: 'Small',
-    styles: {
-      height: '600px',
-      width: '576px',
-    },
-  },
-  medium: {
-    name: 'Medium',
-    styles: {
-      height: '600px',
-      width: '768px',
-    },
-  },
-  large: {
-    name: 'Large',
-    styles: {
-      height: '600px',
-      width: '992px',
-    },
-  },
-  xlarge: {
-    name: 'Extra Large',
-    styles: {
-      height: '600px',
-      width: '1200px',
-    },
-  },
-}
-
 const preview = {
   parameters: {
     viewport: {
-      viewports: customViewports,
+      viewports: CustomViewports,
     },
     actions: { argTypesRegex: '^atom.*' },
     docs: {
