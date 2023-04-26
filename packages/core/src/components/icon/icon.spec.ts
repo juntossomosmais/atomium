@@ -1,6 +1,8 @@
 import { newSpecPage } from '@stencil/core/testing'
 
-import { AtomIcon, CDN_URL } from './icon'
+import { AtomIcon } from './icon'
+
+const URL_MOCK = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg'
 
 describe('atom-icon', () => {
   it('should render ion-icon element', async () => {
@@ -18,7 +20,7 @@ describe('atom-icon', () => {
     expect(page.root).toEqualHtml(`
       <atom-icon color="primary" icon="heart" size="large">
         <mock:shadow-root>
-          <ion-icon color="primary" icon="${CDN_URL}/heart.svg" size="large"></ion-icon>
+          <ion-icon color="primary" icon="${URL_MOCK}/heart.svg" size="large"></ion-icon>
         </mock:shadow-root>
       </atom-icon>
     `)
