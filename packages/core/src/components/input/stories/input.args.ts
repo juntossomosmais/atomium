@@ -1,12 +1,6 @@
 import { withActions } from '@storybook/addon-actions/decorator'
-import { Meta, StoryObj } from '@storybook/html'
 
-import { AtomInput } from './input'
-
-type argsInput = AtomInput
-
-export default {
-  title: 'Components/Input',
+export const InputStoryArgs = {
   parameters: {
     actions: {
       handles: ['atomChange', 'atomFocus', 'atomBlur'],
@@ -69,40 +63,16 @@ export default {
       ],
     },
   },
-} as Meta<argsInput>
-
-type Story = StoryObj<argsInput>
-
-const createInput = (args: argsInput) => {
-  return `
-<atom-input
-  label="${args.label}"
-  label-placement="${args.labelPlacement}"
-  fill="${args.fill}"
-  color="${args.color}"
-  mode="${args.mode}"
-  disabled="${args.disabled}"
-  placeholder="${args.placeholder}"
-  type="${args.type}"
-  clear-on-edit="${args.clearOnEdit}"
-  pattern="${args.pattern}"
-  required="${args.required}"
-  inputmode="${args.inputmode}"
-/>
-  `
 }
 
-export const Default: Story = {
-  render: (args) => createInput(args),
-  args: {
-    label: 'Example input',
-    labelPlacement: 'floating',
-    fill: 'outline',
-    color: undefined,
-    mode: 'md',
-    disabled: false,
-    placeholder: 'Placeholder',
-    clearInput: false,
-    clearOnEdit: false,
-  },
+export const InputComponentArgs = {
+  label: 'Example input',
+  labelPlacement: 'floating',
+  fill: 'outline',
+  color: undefined,
+  mode: 'md',
+  disabled: false,
+  placeholder: 'Placeholder',
+  clearInput: false,
+  clearOnEdit: false,
 }

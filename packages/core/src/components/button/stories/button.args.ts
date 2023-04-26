@@ -1,14 +1,6 @@
 import { withActions } from '@storybook/addon-actions/decorator'
-import { Meta, StoryObj } from '@storybook/html'
 
-import { AtomButton } from './button'
-
-type argsButton = AtomButton & {
-  label: string
-}
-
-export default {
-  title: 'Components/Button',
+export const ButtonStoryArgs = {
   parameters: {
     actions: {
       handles: ['atomClick'],
@@ -64,62 +56,16 @@ export default {
       description: 'Emitted when the button is clicked.',
     },
   },
-} as Meta<argsButton>
-
-type Story = StoryObj<argsButton>
-
-const createButton = (args: argsButton) => {
-  return `
-<atom-button
-  color="${args.color}"
-  fill="${args.fill}"
-  shape="${args.shape}"
-  expand="${args.expand}"
-  size="${args.size}"
-  disabled="${args.disabled}"
-  type="${args.type}"
-  mode="${args.mode}"
->
-  ${args.label}
-</atom-button>
-  `
 }
 
-export const Default: Story = {
-  render: (args) => createButton(args),
-  args: {
-    color: 'primary',
-    fill: 'solid',
-    shape: 'round',
-    size: undefined,
-    expand: undefined,
-    disabled: false,
-    type: 'button',
-    mode: 'md',
-    label: 'Button',
-  },
-}
-
-export const Secondary: Story = {
-  render: (args) => createButton(args),
-  args: {
-    ...Default.args,
-    color: 'secondary',
-  },
-}
-
-export const Outline: Story = {
-  render: (args) => createButton(args),
-  args: {
-    ...Default.args,
-    fill: 'outline',
-  },
-}
-
-export const Clear: Story = {
-  render: (args) => createButton(args),
-  args: {
-    ...Default.args,
-    fill: 'clear',
-  },
+export const ButtonComponentArgs = {
+  color: 'primary',
+  fill: 'solid',
+  shape: 'round',
+  size: undefined,
+  expand: undefined,
+  disabled: false,
+  type: 'button',
+  mode: 'md',
+  label: 'Button',
 }
