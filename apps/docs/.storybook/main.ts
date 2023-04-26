@@ -1,7 +1,7 @@
-module.exports = {
+const config = {
   stories: [
     '../stories/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../../../packages/core/src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../../../packages/core/src/**/*.core.stories.@(js|jsx|ts|tsx|mdx)',
     '../../../packages/tokens/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   addons: [
@@ -20,4 +20,23 @@ module.exports = {
   docs: {
     autodocs: true,
   },
+  refs: (config, { configType }) => {
+    if (configType === 'DEVELOPMENT') {
+      return {
+        react: {
+          title: 'React (localhost:7006)',
+          url: 'http://localhost:7006',
+        },
+      }
+    }
+    return {
+      react: {
+        title: 'React Library',
+        url: 'juntossomosmais.github.io/atomium/react',
+        expanded: false,
+      },
+    }
+  },
 }
+
+export default config
