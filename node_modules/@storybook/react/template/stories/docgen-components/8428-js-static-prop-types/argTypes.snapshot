@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 8428-js-static-prop-types 1`] = `
+Object {
+  "test": Object {
+    "control": Object {
+      "type": "text",
+    },
+    "description": "Please work...",
+    "name": "test",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "string",
+      },
+    },
+    "type": Object {
+      "name": "string",
+      "required": false,
+    },
+  },
+}
+`;

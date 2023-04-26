@@ -1,0 +1,69 @@
+{
+  "name": "stylelint-scss",
+  "description": "A collection of SCSS-specific rules for Stylelint",
+  "version": "4.6.0",
+  "author": "Krister Kari",
+  "repository": "stylelint-scss/stylelint-scss",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "peerDependencies": {
+    "stylelint": "^14.5.1 || ^15.0.0"
+  },
+  "dependencies": {
+    "dlv": "^1.1.3",
+    "postcss-media-query-parser": "^0.2.3",
+    "postcss-resolve-nested-selector": "^0.1.1",
+    "postcss-selector-parser": "^6.0.11",
+    "postcss-value-parser": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "babel-plugin-istanbul": "^6.1.1",
+    "babel-preset-jest": "^29.5.0",
+    "eslint": "^8.36.0",
+    "github-contributors-list": "^1.2.5",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "jest-cli": "^29.5.0",
+    "jest-preset-stylelint": "^6.1.0",
+    "lint-staged": "^13.2.0",
+    "np": "^7.6.4",
+    "postcss": "^8.4.21",
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.6",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "stylelint": "^15.3.0"
+  },
+  "files": [
+    "dist/**/*.js",
+    "!**/__tests__/**"
+  ],
+  "keywords": [
+    "css",
+    "csslint",
+    "lint",
+    "linter",
+    "scss",
+    "stylelint",
+    "stylelint-plugin"
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "babel src --out-dir dist",
+    "lint": "eslint . --ignore-path .gitignore",
+    "prettify": "prettier --write \"src/**/*.js\"",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run lint",
+    "release": "np",
+    "jest": "jest",
+    "test": "npm run jest -- --coverage",
+    "watch": "npm run jest -- --watch",
+    "test-rule": "npm run jest",
+    "test-util": "npm run jest",
+    "generate-contributors-list": "githubcontrib --owner stylelint-scss --repo stylelint-scss --cols 6 --sortOrder desc --filter greenkeeper[bot],dependabot[bot] --showlogin true --imagesize 80 --format html",
+    "prepare": "husky install"
+  }
+}

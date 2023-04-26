@@ -1,0 +1,365 @@
+import React, { ReactNode, Component, ReactElement, FC } from 'react';
+import { API_Provider, Addon_Types, API_Collection, API_Panels, API_StateMerger, API_Notification, API_Settings, API_LoadedRefData, StoryId, API_HashEntry, API_LeafEntry, API_PreparedStoryIndex, API_StoryEntry, Args, API_IndexHash, API_ComposedRef, API_DocsEntry, API_Refs, API_SetRefData, API_ComposedRefUpdate, API_Layout, API_UI, API_PanelPositions, API_Versions, API_UnknownEntries, API_Version, Globals, GlobalTypes, Addon_Collection, Addon_Type, Addon_Config, API_ProviderData, API_OptionsData, Parameters, ArgTypes } from '@storybook/types';
+export { Addon_Type as Addon, API_ComponentEntry as ComponentEntry, API_ComposedRef as ComposedRef, API_DocsEntry as DocsEntry, API_GroupEntry as GroupEntry, API_HashEntry as HashEntry, API_IndexHash as IndexHash, API_LeafEntry as LeafEntry, API_Refs as Refs, API_RootEntry as RootEntry, API_IndexHash as StoriesHash, API_StoryEntry as StoryEntry, Addon_TypesEnum as types } from '@storybook/types';
+import { NavigateOptions, RouterData } from '@storybook/router';
+import { Listener, Channel } from '@storybook/channels';
+export { Listener as ChannelListener } from '@storybook/channels';
+import { toId } from '@storybook/csf';
+import { ThemeVars } from '@storybook/theming';
+
+type GetState = () => State;
+type SetState = (a: any, b: any) => any;
+interface Upstream {
+    getState: GetState;
+    setState: SetState;
+}
+type Patch = Partial<State>;
+type InputFnPatch = (s: State) => Patch;
+type InputPatch = Patch | InputFnPatch;
+interface Options {
+    persistence: 'none' | 'session' | string;
+}
+type CallBack = (s: State) => void;
+declare class Store {
+    upstreamGetState: GetState;
+    upstreamSetState: SetState;
+    constructor({ setState, getState }: Upstream);
+    getInitialState(base: State): any;
+    getState(): State;
+    setState(inputPatch: InputPatch, options?: Options): Promise<State>;
+    setState(inputPatch: InputPatch, callback?: CallBack, options?: Options): Promise<State>;
+}
+
+interface SubAPI$c {
+    renderPreview?: API_Provider<API>['renderPreview'];
+}
+
+interface SubAPI$b {
+    getElements: <T>(type: Addon_Types) => API_Collection<T>;
+    getPanels: () => API_Panels;
+    getStoryPanels: () => API_Panels;
+    getSelectedPanel: () => string;
+    setSelectedPanel: (panelName: string) => void;
+    setAddonState<S>(addonId: string, newStateOrMerger: S | API_StateMerger<S>, options?: Options): Promise<S>;
+    getAddonState<S>(addonId: string): S;
+}
+
+interface SubAPI$a {
+    getChannel: () => API_Provider<API>['channel'];
+    on: (type: string, cb: Listener) => () => void;
+    off: (type: string, cb: Listener) => void;
+    emit: (type: string, ...args: any[]) => void;
+    once: (type: string, cb: Listener) => void;
+    collapseAll: () => void;
+    expandAll: () => void;
+}
+
+interface SubState$9 {
+    notifications: API_Notification[];
+}
+interface SubAPI$9 {
+    addNotification: (notification: API_Notification) => void;
+    clearNotification: (id: string) => void;
+}
+
+interface SubAPI$8 {
+    changeSettingsTab: (tab: string) => void;
+    closeSettings: () => void;
+    isSettingsScreenActive: () => boolean;
+    navigateToSettingsPage: (path: string) => Promise<void>;
+}
+interface SubState$8 {
+    settings: API_Settings;
+}
+
+interface SubAPI$7 {
+    releaseNotesVersion: () => string;
+    setDidViewReleaseNotes: () => void;
+    showReleaseNotesOnLaunch: () => boolean;
+}
+interface SubState$7 {
+    releaseNotesViewed: string[];
+}
+
+type Direction = -1 | 1;
+type ParameterName = string;
+type ViewMode = 'story' | 'info' | 'settings' | string | undefined;
+type StoryUpdate = Partial<Pick<API_StoryEntry, 'prepared' | 'parameters' | 'initialArgs' | 'argTypes' | 'args'>>;
+type DocsUpdate = Partial<Pick<API_DocsEntry, 'prepared' | 'parameters'>>;
+interface SubState$6 extends API_LoadedRefData {
+    storyId: StoryId;
+    viewMode: ViewMode;
+}
+interface SubAPI$6 {
+    storyId: typeof toId;
+    resolveStory: (storyId: StoryId, refsId?: string) => API_HashEntry;
+    selectFirstStory: () => void;
+    selectStory: (kindOrId?: string, story?: string, obj?: {
+        ref?: string;
+        viewMode?: ViewMode;
+    }) => void;
+    getCurrentStoryData: () => API_LeafEntry;
+    setIndex: (index: API_PreparedStoryIndex) => Promise<void>;
+    jumpToComponent: (direction: Direction) => void;
+    jumpToStory: (direction: Direction) => void;
+    getData: (storyId: StoryId, refId?: string) => API_LeafEntry;
+    isPrepared: (storyId: StoryId, refId?: string) => boolean;
+    getParameters: (storyId: StoryId | {
+        storyId: StoryId;
+        refId: string;
+    }, parameterName?: ParameterName) => API_StoryEntry['parameters'] | any;
+    getCurrentParameter<S>(parameterName?: ParameterName): S;
+    updateStoryArgs(story: API_StoryEntry, newArgs: Args): void;
+    resetStoryArgs: (story: API_StoryEntry, argNames?: string[]) => void;
+    findLeafEntry(index: API_IndexHash, storyId: StoryId): API_LeafEntry;
+    findLeafStoryId(index: API_IndexHash, storyId: StoryId): StoryId;
+    findSiblingStoryId(storyId: StoryId, index: API_IndexHash, direction: Direction, toSiblingGroup: boolean): StoryId;
+    fetchIndex: () => Promise<void>;
+    updateStory: (storyId: StoryId, update: StoryUpdate, ref?: API_ComposedRef) => Promise<void>;
+    updateDocs: (storyId: StoryId, update: DocsUpdate, ref?: API_ComposedRef) => Promise<void>;
+    setPreviewInitialized: (ref?: API_ComposedRef) => Promise<void>;
+}
+
+interface SubState$5 {
+    refs: API_Refs;
+}
+interface SubAPI$5 {
+    findRef: (source: string) => API_ComposedRef;
+    setRef: (id: string, data: API_SetRefData, ready?: boolean) => void;
+    updateRef: (id: string, ref: API_ComposedRefUpdate) => void;
+    getRefs: () => API_Refs;
+    checkRef: (ref: API_SetRefData) => Promise<void>;
+    changeRefVersion: (id: string, url: string) => void;
+    changeRefState: (id: string, previewInitialized: boolean) => void;
+}
+
+interface SubState$4 {
+    layout: API_Layout;
+    ui: API_UI;
+    selectedPanel: string | undefined;
+    theme: ThemeVars;
+}
+interface SubAPI$4 {
+    toggleFullscreen: (toggled?: boolean) => void;
+    togglePanel: (toggled?: boolean) => void;
+    togglePanelPosition: (position?: API_PanelPositions) => void;
+    toggleNav: (toggled?: boolean) => void;
+    toggleToolbar: (toggled?: boolean) => void;
+    setOptions: (options: any) => void;
+}
+
+declare const isMacLike: () => boolean;
+declare const controlOrMetaSymbol: () => "⌘" | "ctrl";
+declare const controlOrMetaKey: () => "meta" | "control";
+declare const optionOrAltSymbol: () => "⌥" | "alt";
+declare const isShortcutTaken: (arr1: string[], arr2: string[]) => boolean;
+type KeyboardEventLike = Pick<KeyboardEvent, 'altKey' | 'ctrlKey' | 'metaKey' | 'shiftKey' | 'key' | 'code' | 'keyCode' | 'preventDefault'>;
+declare const eventToShortcut: (e: KeyboardEventLike) => (string | string[])[] | null;
+declare const shortcutMatchesShortcut: (inputShortcut: (string | string[])[], shortcut: API_KeyCollection) => boolean;
+declare const eventMatchesShortcut: (e: KeyboardEventLike, shortcut: API_KeyCollection) => boolean;
+declare const keyToSymbol: (key: string) => string;
+declare const shortcutToHumanString: (shortcut: API_KeyCollection) => string;
+
+interface SubState$3 {
+    shortcuts: API_Shortcuts;
+}
+interface SubAPI$3 {
+    getShortcutKeys(): API_Shortcuts;
+    getDefaultShortcuts(): API_Shortcuts | API_AddonShortcutDefaults;
+    getAddonsShortcuts(): API_AddonShortcuts;
+    getAddonsShortcutLabels(): API_AddonShortcutLabels;
+    getAddonsShortcutDefaults(): API_AddonShortcutDefaults;
+    setShortcuts(shortcuts: API_Shortcuts): Promise<API_Shortcuts>;
+    setShortcut(action: API_Action, value: API_KeyCollection): Promise<API_KeyCollection>;
+    setAddonShortcut(addon: string, shortcut: API_AddonShortcut): Promise<API_AddonShortcut>;
+    restoreAllDefaultShortcuts(): Promise<API_Shortcuts>;
+    restoreDefaultShortcut(action: API_Action): Promise<API_KeyCollection>;
+    handleKeydownEvent(event: KeyboardEventLike): void;
+    handleShortcutFeature(feature: API_Action): void;
+}
+type API_KeyCollection = string[];
+interface API_Shortcuts {
+    fullScreen: API_KeyCollection;
+    togglePanel: API_KeyCollection;
+    panelPosition: API_KeyCollection;
+    toggleNav: API_KeyCollection;
+    toolbar: API_KeyCollection;
+    search: API_KeyCollection;
+    focusNav: API_KeyCollection;
+    focusIframe: API_KeyCollection;
+    focusPanel: API_KeyCollection;
+    prevComponent: API_KeyCollection;
+    nextComponent: API_KeyCollection;
+    prevStory: API_KeyCollection;
+    nextStory: API_KeyCollection;
+    shortcutsPage: API_KeyCollection;
+    aboutPage: API_KeyCollection;
+    escape: API_KeyCollection;
+    collapseAll: API_KeyCollection;
+    expandAll: API_KeyCollection;
+    remount: API_KeyCollection;
+}
+type API_Action = keyof API_Shortcuts;
+interface API_AddonShortcut {
+    label: string;
+    defaultShortcut: API_KeyCollection;
+    actionName: string;
+    showInMenu?: boolean;
+    action: (...args: any[]) => any;
+}
+type API_AddonShortcuts = Record<string, API_AddonShortcut>;
+type API_AddonShortcutLabels = Record<string, string>;
+type API_AddonShortcutDefaults = Record<string, API_KeyCollection>;
+
+interface SubState$2 {
+    customQueryParams: QueryParams;
+}
+interface QueryParams {
+    [key: string]: string | null;
+}
+interface SubAPI$2 {
+    navigateUrl: (url: string, options: NavigateOptions) => void;
+    getQueryParam: (key: string) => string | undefined;
+    getUrlState: () => {
+        queryParams: QueryParams;
+        path: string;
+        viewMode?: string;
+        storyId?: string;
+        url: string;
+    };
+    setQueryParams: (input: QueryParams) => void;
+}
+
+interface SubState$1 {
+    versions: API_Versions & API_UnknownEntries;
+    lastVersionCheck: number;
+    dismissedVersionNotification: undefined | string;
+}
+interface SubAPI$1 {
+    getCurrentVersion: () => API_Version;
+    getLatestVersion: () => API_Version;
+    versionUpdateAvailable: () => boolean;
+}
+
+interface SubState {
+    globals?: Globals;
+    globalTypes?: GlobalTypes;
+}
+interface SubAPI {
+    getGlobals: () => Globals;
+    getGlobalTypes: () => GlobalTypes;
+    updateGlobals: (newGlobals: Globals) => void;
+}
+
+declare const _default: <TObj = any>(a: TObj, b: Partial<TObj>) => TObj & Partial<TObj>;
+
+declare function mockChannel(): Channel;
+
+declare class AddonStore {
+    constructor();
+    private loaders;
+    private elements;
+    private config;
+    private channel;
+    private serverChannel;
+    private promise;
+    private resolve;
+    getChannel: () => Channel;
+    getServerChannel: () => Channel;
+    ready: () => Promise<Channel>;
+    hasChannel: () => boolean;
+    hasServerChannel: () => boolean;
+    setChannel: (channel: Channel) => void;
+    setServerChannel: (channel: Channel) => void;
+    getElements: (type: Addon_Types) => Addon_Collection;
+    addPanel: (name: string, options: Addon_Type) => void;
+    add: (name: string, addon: Addon_Type) => void;
+    setConfig: (value: Addon_Config) => void;
+    getConfig: () => Addon_Config;
+    register: (name: string, registerCallback: (api: API) => void) => void;
+    loadAddons: (api: any) => void;
+}
+declare const addons: AddonStore;
+
+declare const ActiveTabs: {
+    SIDEBAR: "sidebar";
+    CANVAS: "canvas";
+    ADDONS: "addons";
+};
+
+declare const ManagerContext: React.Context<{
+    api: API;
+    state: State;
+}>;
+type ModuleArgs = RouterData & API_ProviderData<API> & {
+    mode?: 'production' | 'development';
+    state: State;
+    fullAPI: API;
+    store: Store;
+};
+type State = SubState$4 & SubState$6 & SubState$5 & SubState$9 & SubState$1 & SubState$2 & SubState$3 & SubState$7 & SubState$8 & SubState & RouterData & API_OptionsData & DeprecatedState & Other;
+type API = SubAPI$b & SubAPI$a & SubAPI$c & SubAPI$6 & SubAPI$5 & SubAPI & SubAPI$4 & SubAPI$9 & SubAPI$3 & SubAPI$7 & SubAPI$8 & SubAPI$1 & SubAPI$2 & Other;
+interface DeprecatedState {
+    /**
+     * @deprecated use index
+     */
+    storiesHash: API_IndexHash;
+    /**
+     * @deprecated use previewInitialized
+     */
+    storiesConfigured: boolean;
+    /**
+     * @deprecated use indexError
+     */
+    storiesFailed?: Error;
+}
+interface Other {
+    [key: string]: any;
+}
+interface Combo {
+    api: API;
+    state: State;
+}
+type ManagerProviderProps = RouterData & API_ProviderData<API> & {
+    children: ReactNode | ((props: Combo) => ReactNode);
+};
+declare const combineParameters: (...parameterSets: Parameters[]) => any;
+interface ModuleWithInit<APIType = unknown, StateType = unknown> {
+    init: () => void | Promise<void>;
+    api: APIType;
+    state: StateType;
+}
+type ModuleWithoutInit<APIType = unknown, StateType = unknown> = Omit<ModuleWithInit<APIType, StateType>, 'init'>;
+type ModuleFn<APIType = unknown, StateType = unknown, HasInit = false> = (m: ModuleArgs, options?: any) => HasInit extends true ? ModuleWithInit<APIType, StateType> : ModuleWithoutInit<APIType, StateType>;
+declare class ManagerProvider extends Component<ManagerProviderProps, State> {
+    api: API;
+    modules: (ModuleWithInit | ModuleWithoutInit)[];
+    static displayName: string;
+    constructor(props: ManagerProviderProps);
+    static getDerivedStateFromProps(props: ManagerProviderProps, state: State): State;
+    shouldComponentUpdate(nextProps: ManagerProviderProps, nextState: State): boolean;
+    initModules: () => void;
+    render(): JSX.Element;
+}
+interface ManagerConsumerProps<P = unknown> {
+    filter?: (combo: Combo) => P;
+    children: FC<P> | ReactNode;
+}
+declare function ManagerConsumer<P = Combo>({ filter, children, }: ManagerConsumerProps<P>): ReactElement;
+declare function useStorybookState(): State;
+declare function useStorybookApi(): API;
+
+interface API_EventMap {
+    [eventId: string]: Listener;
+}
+declare const useChannel: (eventMap: API_EventMap, deps?: any[]) => (type: string, ...args: any[]) => void;
+declare function useStoryPrepared(storyId?: StoryId): boolean;
+declare function useParameter<S>(parameterKey: string, defaultValue?: S): S;
+declare function useSharedState<S>(stateId: string, defaultState?: S): [S, (newStateOrMerger: S | API_StateMerger<S>, options?: Options) => void];
+declare function useAddonState<S>(addonId: string, defaultState?: S): [S, (newStateOrMerger: S | API_StateMerger<S>, options?: Options) => void];
+declare function useArgs(): [Args, (newArgs: Args) => void, (argNames?: string[]) => void];
+declare function useGlobals(): [Args, (newGlobals: Args) => void];
+declare function useGlobalTypes(): ArgTypes;
+declare function useArgTypes(): ArgTypes;
+
+export { API, API_EventMap, ActiveTabs, AddonStore, Combo, ManagerConsumer as Consumer, KeyboardEventLike, ManagerContext, ManagerProviderProps, ModuleArgs, ModuleFn, ManagerProvider as Provider, State, Options as StoreOptions, addons, combineParameters, controlOrMetaKey, controlOrMetaSymbol, eventMatchesShortcut, eventToShortcut, isMacLike, isShortcutTaken, keyToSymbol, _default as merge, mockChannel, optionOrAltSymbol, shortcutMatchesShortcut, shortcutToHumanString, useAddonState, useArgTypes, useArgs, useChannel, useGlobalTypes, useGlobals, useParameter, useSharedState, useStoryPrepared, useStorybookApi, useStorybookState };

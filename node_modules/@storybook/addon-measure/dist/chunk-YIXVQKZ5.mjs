@@ -1,0 +1,1 @@
+var ADDON_ID="storybook/measure-addon",TOOL_ID=`${ADDON_ID}/tool`,PARAM_KEY="measureEnabled",EVENTS={RESULT:`${ADDON_ID}/result`,REQUEST:`${ADDON_ID}/request`,CLEAR:`${ADDON_ID}/clear`};export{ADDON_ID,TOOL_ID,PARAM_KEY};

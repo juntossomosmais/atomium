@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 8140-js-prop-types-oneof 1`] = `
+Object {
+  "blank": Object {
+    "control": Object {
+      "type": "boolean",
+    },
+    "description": "No background or border if static alert",
+    "name": "blank",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "bool",
+      },
+    },
+    "type": Object {
+      "name": "boolean",
+      "required": false,
+    },
+  },
+  "icon": Object {
+    "control": Object {
+      "type": "text",
+    },
+    "description": "Allows icon override, accepts material icon name",
+    "name": "icon",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "string",
+      },
+    },
+    "type": Object {
+      "name": "string",
+      "required": false,
+    },
+  },
+  "message": Object {
+    "control": Object {
+      "type": "text",
+    },
+    "description": "",
+    "name": "message",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "string",
+      },
+    },
+    "type": Object {
+      "name": "string",
+      "required": true,
+    },
+  },
+  "mode": Object {
+    "control": Object {
+      "type": "radio",
+    },
+    "description": "",
+    "name": "mode",
+    "options": Array [
+      "static",
+      "timed",
+    ],
+    "table": Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'static'",
+      },
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "'static' | 'timed'",
+      },
+    },
+    "type": Object {
+      "name": "enum",
+      "required": false,
+      "value": Array [
+        "static",
+        "timed",
+      ],
+    },
+  },
+  "type": Object {
+    "control": Object {
+      "type": "radio",
+    },
+    "description": "",
+    "name": "type",
+    "options": Array [
+      "success",
+      "warning",
+      "error",
+      "primary",
+    ],
+    "table": Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'warning'",
+      },
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "'success' | 'warning' | 'error' | 'primary'",
+      },
+    },
+    "type": Object {
+      "name": "enum",
+      "required": false,
+      "value": Array [
+        "success",
+        "warning",
+        "error",
+        "primary",
+      ],
+    },
+  },
+}
+`;

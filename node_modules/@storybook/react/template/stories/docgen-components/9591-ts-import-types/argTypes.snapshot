@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 9591-ts-import-types 1`] = `
+Object {
+  "other": Object {
+    "control": Object {
+      "type": "number",
+    },
+    "description": "",
+    "name": "other",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "number",
+      },
+    },
+    "type": Object {
+      "name": "number",
+      "required": false,
+    },
+  },
+}
+`;

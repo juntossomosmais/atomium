@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties ts-function-component-inline-defaults 1`] = `
+"import React from 'react';
+import { imported } from '../imported';
+const local = 'local-value';
+var GlobalNames;
+
+(function (GlobalNames) {
+  GlobalNames[\\"top\\"] = \\"top\\";
+  GlobalNames[\\"left\\"] = \\"left\\";
+})(GlobalNames || (GlobalNames = {}));
+
+/**
+ * A component that renders its props
+ */
+export const PropsWriter = ({
+  numberOptional = 1,
+  stringOptional = 'stringOptional',
+  booleanOptional = false,
+  arrayOptional = ['array', 'optional'],
+  objectOptional = {
+    object: 'optional'
+  },
+  functionOptional = () => 'foo',
+  dateOptional = new Date('20 Jan 1983'),
+  localReference = local,
+  importedReference = imported,
+  globalReference = Date,
+  stringGlobalName = 'top',
+  unionGlobalName = 'top',
+  // If we use this default value, controls will try and render it in a JSON object editor
+  // which leads to a circular value error.
+  // unionGlobalNameMixed = 'top',
+  enumGlobalName = 'top'
+}) => /*#__PURE__*/React.createElement(\\"pre\\", null, JSON.stringify({
+  numberOptional,
+  stringOptional,
+  booleanOptional,
+  arrayOptional,
+  objectOptional,
+  functionOptional,
+  dateOptional,
+  localReference,
+  importedReference,
+  globalReference,
+  stringGlobalName,
+  unionGlobalName,
+  // unionGlobalNameMixed,
+  enumGlobalName
+}));
+export const component = PropsWriter;
+PropsWriter.__docgenInfo = {
+  \\"description\\": \\"A component that renders its props\\",
+  \\"methods\\": [],
+  \\"displayName\\": \\"PropsWriter\\",
+  \\"props\\": {
+    \\"numberOptional\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"1\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"stringOptional\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"'stringOptional'\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"booleanOptional\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"false\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"arrayOptional\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"['array', 'optional']\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"objectOptional\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"{ object: 'optional' }\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"functionOptional\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"() => 'foo'\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"dateOptional\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"new Date('20 Jan 1983')\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"localReference\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"'local-value'\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"importedReference\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"imported\\",
+        \\"computed\\": true
+      },
+      \\"required\\": false
+    },
+    \\"globalReference\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"Date\\",
+        \\"computed\\": true
+      },
+      \\"required\\": false
+    },
+    \\"stringGlobalName\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"'top'\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"unionGlobalName\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"'top'\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    },
+    \\"enumGlobalName\\": {
+      \\"defaultValue\\": {
+        \\"value\\": \\"'top'\\",
+        \\"computed\\": false
+      },
+      \\"required\\": false
+    }
+  }
+};"
+`;

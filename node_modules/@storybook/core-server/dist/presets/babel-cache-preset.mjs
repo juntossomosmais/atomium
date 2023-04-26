@@ -1,0 +1,1 @@
+import"../chunk-GYZG6JM4.mjs";import{resolvePathInStorybookCache}from"@storybook/core-common";var extend=babelConfig=>({cacheDirectory:resolvePathInStorybookCache("babel"),...babelConfig}),babel=extend;export{babel};

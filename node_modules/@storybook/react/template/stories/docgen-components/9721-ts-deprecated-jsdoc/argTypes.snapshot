@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 9721-ts-deprecated-jsdoc 1`] = `
+Object {
+  "size": Object {
+    "control": Object {
+      "type": "object",
+    },
+    "description": "The size (replaces width)",
+    "name": "size",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "signature",
+      },
+    },
+    "type": Object {
+      "name": "object",
+      "raw": "{ width: number; height: number }",
+      "required": true,
+      "value": Object {
+        "height": Object {
+          "name": "number",
+        },
+        "width": Object {
+          "name": "number",
+        },
+      },
+    },
+  },
+}
+`;

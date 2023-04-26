@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 9764-ts-extend-props 1`] = `
+Object {
+  "checked": Object {
+    "control": Object {
+      "type": "boolean",
+    },
+    "description": "",
+    "name": "checked",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "boolean",
+      },
+    },
+    "type": Object {
+      "name": "boolean",
+      "required": false,
+    },
+  },
+  "defaultChecked": Object {
+    "control": Object {
+      "type": "boolean",
+    },
+    "description": "",
+    "name": "defaultChecked",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "boolean",
+      },
+    },
+    "type": Object {
+      "name": "boolean",
+      "required": false,
+    },
+  },
+  "value": Object {
+    "control": Object {
+      "type": "object",
+    },
+    "description": "The input content value",
+    "name": "value",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "union",
+      },
+    },
+    "type": Object {
+      "name": "union",
+      "raw": "string | number",
+      "required": false,
+      "value": Array [
+        Object {
+          "name": "string",
+        },
+        Object {
+          "name": "number",
+        },
+      ],
+    },
+  },
+}
+`;

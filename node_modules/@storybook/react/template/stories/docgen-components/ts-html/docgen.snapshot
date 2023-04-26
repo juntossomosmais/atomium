@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties ts-html 1`] = `
+"import React from 'react';
+export const TypeScriptHtmlComponent = () => /*#__PURE__*/React.createElement(\\"div\\", null, \\"My HTML component\\");
+export const component = TypeScriptHtmlComponent;
+TypeScriptHtmlComponent.__docgenInfo = {
+  \\"description\\": \\"\\",
+  \\"methods\\": [],
+  \\"displayName\\": \\"TypeScriptHtmlComponent\\"
+};"
+`;

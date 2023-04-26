@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 8894-9511-ts-forward-ref 1`] = `
+Object {
+  "disabled": Object {
+    "control": Object {
+      "type": "object",
+    },
+    "description": undefined,
+    "name": "disabled",
+    "table": Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "false",
+      },
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    "type": Object {
+      "required": false,
+    },
+  },
+  "variant": Object {
+    "control": Object {
+      "type": "object",
+    },
+    "description": undefined,
+    "name": "variant",
+    "table": Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'small'",
+      },
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    "type": Object {
+      "required": false,
+    },
+  },
+}
+`;

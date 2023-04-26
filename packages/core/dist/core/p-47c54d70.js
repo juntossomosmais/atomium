@@ -1,0 +1,5 @@
+/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ */
+const t=()=>{document.addEventListener("backbutton",(()=>{}))};const n=()=>{const t=document;let n=false;t.addEventListener("backbutton",(()=>{if(n){return}let e=0;let o=[];const c=new CustomEvent("ionBackButton",{bubbles:false,detail:{register(t,n){o.push({priority:t,handler:n,id:e++})}}});t.dispatchEvent(c);const i=async t=>{try{if(t===null||t===void 0?void 0:t.handler){const n=t.handler(s);if(n!=null){await n}}}catch(t){console.error(t)}};const s=()=>{if(o.length>0){let t={priority:Number.MIN_SAFE_INTEGER,handler:()=>undefined,id:-1};o.forEach((n=>{if(n.priority>=t.priority){t=n}}));n=true;o=o.filter((n=>n.id!==t.id));i(t).then((()=>n=false))}};s()}))};const e=100;const o=99;export{o as MENU_BACK_BUTTON_PRIORITY,e as OVERLAY_BACK_BUTTON_PRIORITY,t as blockHardwareBackButton,n as startHardwareBackButton};
+//# sourceMappingURL=p-47c54d70.js.map

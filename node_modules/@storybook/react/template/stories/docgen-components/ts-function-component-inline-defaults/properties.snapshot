@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties ts-function-component-inline-defaults 1`] = `
+Object {
+  "rows": Array [
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "1",
+      },
+      "description": undefined,
+      "name": "numberOptional",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'stringOptional'",
+      },
+      "description": undefined,
+      "name": "stringOptional",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "false",
+      },
+      "description": undefined,
+      "name": "booleanOptional",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "['array', 'optional']",
+      },
+      "description": undefined,
+      "name": "arrayOptional",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "{ object: 'optional' }",
+      },
+      "description": undefined,
+      "name": "objectOptional",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "() => 'foo'",
+      },
+      "description": undefined,
+      "name": "functionOptional",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "new Date('20 Jan 1983')",
+      },
+      "description": undefined,
+      "name": "dateOptional",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'local-value'",
+      },
+      "description": undefined,
+      "name": "localReference",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "imported",
+      },
+      "description": undefined,
+      "name": "importedReference",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "Date",
+      },
+      "description": undefined,
+      "name": "globalReference",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'top'",
+      },
+      "description": undefined,
+      "name": "stringGlobalName",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'top'",
+      },
+      "description": undefined,
+      "name": "unionGlobalName",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+    Object {
+      "defaultValue": Object {
+        "detail": undefined,
+        "summary": "'top'",
+      },
+      "description": undefined,
+      "name": "enumGlobalName",
+      "required": false,
+      "type": Object {
+        "detail": undefined,
+        "summary": "unknown",
+      },
+    },
+  ],
+}
+`;

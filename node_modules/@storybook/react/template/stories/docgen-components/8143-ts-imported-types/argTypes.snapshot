@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 8143-ts-imported-types 1`] = `
+Object {
+  "bar": Object {
+    "control": Object {
+      "type": "object",
+    },
+    "description": "",
+    "name": "bar",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "Foo['bar']",
+      },
+    },
+    "type": Object {
+      "name": "other",
+      "raw": "Foo['bar']",
+      "required": true,
+      "value": "Foo['bar']",
+    },
+  },
+}
+`;

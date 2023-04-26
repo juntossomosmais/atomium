@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react component properties 9586-js-react-memo 1`] = `
+Object {
+  "label": Object {
+    "control": Object {
+      "type": "text",
+    },
+    "description": "",
+    "name": "label",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "string",
+      },
+    },
+    "type": Object {
+      "name": "string",
+      "required": true,
+    },
+  },
+  "onClick": Object {
+    "description": "",
+    "name": "onClick",
+    "table": Object {
+      "defaultValue": null,
+      "jsDocTags": undefined,
+      "type": Object {
+        "detail": undefined,
+        "summary": "func",
+      },
+    },
+    "type": Object {
+      "name": "function",
+      "required": true,
+    },
+  },
+}
+`;

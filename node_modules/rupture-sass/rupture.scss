@@ -1,0 +1,381 @@
+@use "sass:math";
+$base-font-size: 16px !default;
+$rasterise-media-queries: false !default;
+$rupture: ( rasterise-media-queries: $rasterise-media-queries, mobile-cutoff: 400px, desktop-cutoff: 1050px, hd-cutoff: 1800px, enable-em-breakpoints: false, base-font-size: $base-font-size, anti-overlap: false, density-queries: 'dppx' 'webkit' 'moz' 'dpi', retina-density: 1.5, use-device-width: false);
+$rupture: map-merge($rupture, ( scale: 0 map-get($rupture, mobile-cutoff) 600px 800px map-get($rupture, desktop-cutoff) map-get($rupture, hd-cutoff), scale-names: 'xs' 's' 'm' 'l' 'xl' 'hd'));
+@function _to-length($number, $unit) {
+  $strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
+  $units: 1px 1cm 1mm 1% 1ch 1pica 1in 1em 1rem 1pt 1pc 1ex 1vw 1vh 1vmin 1vmax;
+  $index: index($strings, $unit);
+  @if not $index {
+    @warn "Unknown unit `#{$unit}`.";
+    @return false;
+  }
+  @return $number * nth($units, $index);
+}
+
+@function _number($value) {
+  @if type-of($value)=='number' {
+    @return $value;
+  }
+  @else if type-of($value) !='string' {
+    $_: log('Value for `to-number` should be a number or a string.');
+  }
+  $result: 0;
+  $digits: 0;
+  $minus: str-slice($value, 1, 1)=='-';
+  $numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+  @for $i from if($minus, 2, 1) through str-length($value) {
+    $character: str-slice($value, $i, $i);
+    @if not (index(map-keys($numbers), $character) or $character=='.') {
+      @return _to-length(if($minus, -$result, $result), str-slice($value, $i))
+    }
+    @if $character=='.' {
+      $digits: 1;
+    }
+    @else if $digits==0 {
+      $result: $result * 10 + map-get($numbers, $character);
+    }
+    @else {
+      $digits: $digits * 10;
+      $result: $result + math.div(map-get($numbers, $character), $digits);
+    }
+  }
+  @return if($minus, -$result, $result);
+  ;
+}
+
+@function _strip-units($number) {
+  $number: _number($number);
+  @return math.div($number, $number * 0 + 1);
+}
+
+@function _is-string($val) {
+  @return type-of($val)=='string';
+}
+
+@function _get-scale-number($scale-name) {
+  @each $list-item in map-get($rupture, scale-names) {
+    @if ($list-item==$scale-name) {
+      @return index(map-get($rupture, scale-names), $list-item);
+    }
+  }
+  @return false;
+}
+
+@function _convert-to($to-unit, $value, $context: map-get($rupture, base-font-size)) {
+  $from-unit: unit(_number($value));
+  @if ($to-unit==$from-unit) {
+    @return $value;
+  }
+  @if ($to-unit=='em' or $to-unit=='rem') {
+    @if ($from-unit=='em' or $from-unit=='rem') {
+      @return $value;
+    }
+    @return "#{math.div(_strip-units($value), _strip-units($context))}#{$to-unit}";
+  }
+  @if ($to-unit=='px') {
+    @return "#{_strip-units($value) * _strip-units($context)}px";
+  }
+}
+
+@function _on-scale($n) {
+  @return unit(_number($n))=='';
+}
+
+@function _larger-than-scale($n) {
+  @return ($n >=(length(map-get($rupture, scale)))) and _on-scale($n);
+}
+
+@function _is-zero($n) {
+  @return n==0;
+}
+
+@function _overlap-shift($anti-overlap, $n) {
+  $shift-unit: unit(_number($n));
+  @if not $anti-overlap {
+    $anti-overlap: 0px;
+  }
+  @if ($anti-overlap==true) {
+    $anti-overlap: 1px;
+  }
+  @if (length($anti-overlap)==1) {
+    @return _convert-to($shift-unit, $anti-overlap);
+  }
+  @each $val in $anti-overlap {
+    @if (unit(_number($val))==$shift-unit) {
+      @return $val;
+    }
+  }
+}
+
+@function _add($var1, $var2) {
+  @return _number($var1)+_number($var2);
+}
+
+@function _adjust-overlap($anti-overlap, $n, $side: 'min') {
+  $_shift: _overlap-shift($anti-overlap, $n);
+  @if ($side=='min' and _strip-units($_shift) > 0) or ($side=='max' and _strip-units($_shift) < 0) {
+    $n: _add($n, $_shift);
+  }
+  @return $n;
+}
+
+@function _density-queries($density) {
+  @if ($density=='retina') {
+    $density: map-get($rupture, retina-density);
+  }
+  $queries: ();
+  @each $query in map-get($rupture, density-queries) {
+    @if $query=='webkit' {
+      $queries: append($queries, '(-webkit_min-device-pixel-ratio: #{$density})');
+    }
+    @else if $query=='moz' {
+      $queries: append($queries, '(min--moz-device-pixel-ratio: #{$density})');
+    }
+    @else if $query=='o' {
+      $queries: append($queries, '(-o-min-device-pixel-ratio: #{$density}/1)');
+    }
+    @else if $query=='ratio' {
+      $queries: append($queries, '(min-device-pixel-ratio: #{$density})');
+    }
+    @else if $query=='dpi' {
+      $queries: append($queries, '(min-resolution: #{round($density * 96)}dpi)');
+    }
+    @else if $query=='dppx' {
+      $queries: append($queries, '(min-resolution: #{$density}dppx)');
+    }
+  }
+  @return $queries;
+}
+
+@mixin create-fallback-class($selected, $class) {
+  @at-root #{$class} #{$selected} {
+    @content;
+  }
+}
+
+@mixin between($min, $max, $anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  $selected: &;
+  $initial_min: $min;
+  $initial_max: $max;
+  @if _is-string($min) {
+    $min: _get-scale-number($min);
+  }
+  @if _is-string($max) {
+    $max: _get-scale-number($max);
+  }
+  $_min: if(_is-zero($min) or (not _on-scale($min)), $min, nth(map-get($rupture, scale), $min));
+  $_max: if(_is-string($initial_max) and _on-scale($max), nth(map-get($rupture, scale), $max + 1), $max);
+  @if (map-get($rupture, rasterise-media-queries)) {
+    @if not ($density or $_max or $orientation) {
+      @content;
+    }
+  }
+  @else {
+    $condition: 'only screen';
+    $use-device-width: if($use-device-width, 'device-', '');
+    @if not (_strip-units($_min)==0) {
+      @if (map-get($rupture, enable-em-breakpoints)) {
+        $_min: _convert-to('em', $_min);
+      }
+      $_min: _adjust-overlap($anti-overlap, $_min, $side: 'min');
+      $condition: $condition+' and (min-'+$use-device-width+'width: #{$_min})';
+    }
+    @if not (_larger-than-scale($max)) {
+      @if (map-get($rupture, enable-em-breakpoints)) {
+        $_max: _convert-to('em', $_max);
+      }
+      $_max: _adjust-overlap($anti-overlap, $_max, $side: 'max');
+      $condition: $condition+' and (max-'+$use-device-width+'width: #{$_max})';
+    }
+    @if $orientation {
+      $condition: $condition+' and (orientation: #{$orientation})';
+    }
+    @if $density {
+      $conditions: ();
+      @each $query in _density-queries($density) {
+        $conditions: append($conditions, $condition + ' and #{$query}', comma);
+      }
+      $condition: $conditions;
+    }
+    @media #{$condition} {
+      @content;
+    }
+  }
+  @if $fallback-class {
+    @include create-fallback-class($selected, $fallback-class) {
+      @content;
+    }
+  }
+}
+
+@mixin at($scale-point, $anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  @include between($scale-point, $scale-point, $anti-overlap, $density, $orientation, $use-device-width, $fallback-class) {
+    @content;
+  }
+}
+
+@mixin from-width($scale-point, $anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  @include between($scale-point, length(map-get($rupture, scale)), $anti-overlap, $density, $orientation, $use-device-width, $fallback-class) {
+    @content;
+  }
+}
+
+@mixin above($args...) {
+  @include from-width($args...) {
+    @content;
+  }
+}
+
+@mixin from($args...) {
+  @include from-width($args...) {
+    @content;
+  }
+}
+
+@mixin to-width($scale-point, $anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  @include between(1, $scale-point, $anti-overlap, $density, $orientation, $use-device-width, $fallback-class) {
+    @content;
+  }
+}
+
+@mixin below($args...) {
+  @include to-width($args...) {
+    @content;
+  }
+}
+
+@mixin to($args...) {
+  @include to-width($args...) {
+    @content;
+  }
+}
+
+@mixin mobile($anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  @include below(map-get($rupture, mobile-cutoff), $anti-overlap, $density, $orientation, $use-device-width, $fallback-class) {
+    @content;
+  }
+}
+
+@mixin tablet($anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  @include between(map-get($rupture, mobile-cutoff), map-get($rupture, desktop-cutoff), $anti-overlap, $density, $orientation, $use-device-width, $fallback-class) {
+    @content;
+  }
+}
+
+@mixin desktop($anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  @include above(map-get($rupture, desktop-cutoff), $anti-overlap, $density, $orientation, $use-device-width, $fallback-class) {
+    @content;
+  }
+}
+
+@mixin hd($anti-overlap: map-get($rupture, anti-overlap), $density: null, $orientation: null, $use-device-width: map-get($rupture, use-device-width), $fallback-class: null) {
+  @include above(map-get($rupture, hd-cutoff), $anti-overlap, $density, $orientation, $use-device-width, $fallback-class) {
+    @content;
+  }
+}
+
+@mixin density($density, $fallback-class: null, $orientation: null) {
+  $selected: &;
+  @if not map-get($rupture, rasterise-media-queries) {
+    $conditions: ();
+    @each $query in _density-queries($density) {
+      $condition: 'only screen and #{$query}';
+      @if $orientation {
+        $condition: $condition+' and (orientation: #{$orientation})';
+      }
+      $conditions: append($conditions, $condition, comma);
+    }
+    $condition: $conditions;
+    @media #{$conditions} {
+      @content;
+    }
+    @if $fallback-class {
+      @include create-fallback-class($selected, $fallback-class) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin pixel-ratio($args...) {
+  @include density($args...) {
+    @content;
+  }
+}
+
+@mixin retina($orientation: null, $fallback-class: null) {
+  @include density('retina', $fallback-class, $orientation) {
+    @content;
+  }
+  ;
+}
+
+@mixin landscape($density: null, $fallback-class: null) {
+  $selected: &;
+  @if not map-get($rupture, rasterise-media-queries) {
+    @if $density {
+      @include pixel-ratio($density, $fallback-class, $orientation: landscape) {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and (orientation: landscape) {
+        @content;
+      }
+      @if $fallback-class {
+        @include create-fallback-class($selected, $fallback-class) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin portrait($density: null, $fallback-class: null) {
+  $selected: &;
+  @if not map-get($rupture, rasterise-media-queries) {
+    @if $density {
+      @include pixel-ratio($density, $fallback-class, $orientation: portrait) {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and (orientation: portrait) {
+        @content;
+      }
+      @if $fallback-class {
+        @include create-fallback-class($selected, $fallback-class) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin rupture-hover($density: null, $orientation: null, $fallback-class: null) {
+  $condition: 'only screen and (hover: hover)';
+  @media #{$condition} {
+    @content;
+  }
+}
+
+@mixin hover($args...) {
+  @include rupture-hover($args...) {
+    @content;
+  }
+}
+
+@mixin rupture-touch($density: null, $orientation: null, $fallback-class: null) {
+  $condition: 'only screen and (hover: none)';
+  @media #{$condition} {
+    @content;
+  }
+}
+
+@mixin touch($args...) {
+  @include rupture-touch($args...) {
+    @content;
+  }
+}
