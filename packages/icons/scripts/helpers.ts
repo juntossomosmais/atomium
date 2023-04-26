@@ -27,3 +27,12 @@ export const writeSvgFile = (
     'utf-8'
   )
 }
+
+export const writeTypeDefinitionFile = (
+  svgFiles: string[],
+  outputPath = getCurrentDirPath()
+) => {
+  const types = svgFiles.map((file) => `'${path.basename(file, '.svg')}'`)
+  const typeDef = `export type IconProps = ${types.join(' | ')};\n`
+  fs.writeFileSync(path.join(outputPath, '..', 'index.d.ts'), typeDef)
+}
