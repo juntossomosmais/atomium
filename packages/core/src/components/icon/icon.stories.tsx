@@ -6,7 +6,7 @@ import { AtomIcon } from './icon'
 type argsIcon = AtomIcon
 
 export default {
-  title: 'Ionic Components/Icon',
+  title: 'Components/Icon',
   decorators: [withActions],
   argTypes: {
     icon: {
