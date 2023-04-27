@@ -1,1 +1,0 @@
-{"version":3,"file":"isCompatible.js","sourceRoot":"","sources":["../../src/helpers/isCompatible.ts"],"names":[],"mappings":";;AAAA,sDAAgD;AAGnC,QAAA,YAAY,GAAG,UAC1B,EAAsB,EACtB,SAAiB;QADf,wBAAS;IACX,0BAAA,EAAA,iBAAiB;IAEjB,IAAI,SAAS,KAAK,SAAS,EAAE;QAC3B,IAAI,SAAS,EAAE;YACb,oBAAM,CAAC,IAAI,CACT,wGAA0G,CAC3G,CAAC;SACH;QACD,OAAO,KAAK,CAAC;KACd;IACD,OAAO,IAAI,CAAC;AACd,CAAC,CAAC"}
