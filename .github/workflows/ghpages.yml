@@ -62,6 +62,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: apps/docs/storybook-static
-          target-folder: docs
           clean-exclude: pr-preview/
           force: false
