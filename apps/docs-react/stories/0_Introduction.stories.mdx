@@ -15,13 +15,7 @@ There is a problem to render the code of [React's components outputed by Stencil
 Example, in [Button component](?path=/docs/react_components-button--docs):
 
 ```jsx
-<forwardRef
-  color="primary"
-  fill="solid"
-  mode="md"
-  shape="round"
-  type="button"
->
+<forwardRef color="primary" fill="solid" mode="md" shape="round" type="button">
   Button
 </forwardRef>
 ```
@@ -29,15 +23,9 @@ Example, in [Button component](?path=/docs/react_components-button--docs):
 The code above is not shown correctly in the stories, but it is correct in the source code:
 
 ```jsx
-<AtoButton
-  color="primary"
-  fill="solid"
-  mode="md"
-  shape="round"
-  type="button"
->
+<AtomButton color="primary" fill="solid" mode="md" shape="round" type="button">
   Button
-</AtoButton>
+</AtomButton>
 ```
 
 Just keep in mind that when check the code of the components inside Storybook
