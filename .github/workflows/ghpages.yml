@@ -9,6 +9,7 @@ on:
       - '**.tsx'
       - '**.scss'
       - '**.mdx'
+      - '**.md'
 
 permissions:
   contents: write
