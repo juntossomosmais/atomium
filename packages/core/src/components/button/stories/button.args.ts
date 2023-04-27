@@ -59,7 +59,7 @@ export const ButtonStoryArgs = {
 }
 
 export const ButtonComponentArgs = {
-  color: 'primary',
+  color: 'secondary',
   fill: 'solid',
   shape: 'round',
   size: undefined,
