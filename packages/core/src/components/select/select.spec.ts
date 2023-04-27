@@ -68,7 +68,7 @@ describe('AtomSelect', () => {
     `)
   })
 
-  it('emits atoChange event on select change', async () => {
+  it('emits atomChange event on select change', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: '<atom-select />',
@@ -81,11 +81,11 @@ describe('AtomSelect', () => {
     const spy = jest.fn()
     const selectValue = 'Option 2'
 
-    page.root.addEventListener('atoChange', spy)
+    page.root.addEventListener('atomChange', spy)
     selectEl.value = selectValue
 
     page.root.dispatchEvent(
-      new CustomEvent('atoChange', { detail: { value: selectValue } })
+      new CustomEvent('atomChange', { detail: { value: selectValue } })
     )
 
     expect(spy).toHaveBeenCalled()

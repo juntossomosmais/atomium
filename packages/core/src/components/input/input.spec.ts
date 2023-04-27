@@ -36,7 +36,7 @@ describe('AtomInput', () => {
     `)
   })
 
-  it('emits atoChange event on input change', async () => {
+  it('emits atomChange event on input change', async () => {
     const page = await newSpecPage({
       components: [AtomInput],
       html: '<atom-input />',
@@ -58,7 +58,7 @@ describe('AtomInput', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it('emits atoFocus event on input focus', async () => {
+  it('emits atomFocus event on input focus', async () => {
     const page = await newSpecPage({
       components: [AtomInput],
       html: '<atom-input />',
@@ -77,7 +77,7 @@ describe('AtomInput', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it('emits atoBlur event on input blur', async () => {
+  it('emits atomBlur event on input blur', async () => {
     const page = await newSpecPage({
       components: [AtomInput],
       html: '<atom-input />',
