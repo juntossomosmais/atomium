@@ -1,2 +1,0 @@
-import{r,h as s}from"./p-ca167607.js";const t=class{constructor(s){r(this,s);this.fixed=undefined}render(){return s("ion-grid",{fixed:this.fixed},s("slot",null))}};export{t as A};
-//# sourceMappingURL=p-7281ec17.js.map
