@@ -68,7 +68,7 @@
     "babel-loader": "^9.1.2",
     "babel-plugin-transform-scss": "^1.2.0",
     "copyfiles": "^2.4.1",
-    "eslint": "^8.34.0",
+    "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
     "eslint-import-resolver-typescript": "^3.5.3",
