@@ -97,7 +97,11 @@ export class AtomSelect {
           onIonFocus={this.handleFocus}
         >
           {this.options.map((option) => (
-            <ion-select-option value={option.value} disabled={option.disabled}>
+            <ion-select-option
+              value={option.value}
+              disabled={option.disabled}
+              key={option.value}
+            >
               {option.value}
             </ion-select-option>
           ))}
