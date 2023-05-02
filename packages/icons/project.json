@@ -1,4 +1,4 @@
 {
-  "name": "icons",
+  "name": "@juntossomosmais/atomium-icons",
   "$schema": "../../node_modules/nx/schemas/project-schema.json"
 }
