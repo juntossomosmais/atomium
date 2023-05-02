@@ -48,11 +48,11 @@ describe('AtomInput', () => {
     const spy = jest.fn()
     const inputValue = 'Test input change'
 
-    page.root.addEventListener('atomChange', spy)
+    page.root.addEventListener('ionChange', spy)
     inputEl.value = inputValue
 
     page.root.dispatchEvent(
-      new CustomEvent('atomChange', { detail: { value: inputValue } })
+      new CustomEvent('ionChange', { detail: { value: inputValue } })
     )
 
     expect(spy).toHaveBeenCalled()
@@ -69,10 +69,10 @@ describe('AtomInput', () => {
     const inputEl = page.root.shadowRoot.querySelector('ion-input')
     const spy = jest.fn()
 
-    page.root.addEventListener('atomFocus', spy)
+    page.root.addEventListener('ionFocus', spy)
     inputEl.focus()
 
-    page.root.dispatchEvent(new CustomEvent('atomFocus'))
+    page.root.dispatchEvent(new CustomEvent('ionFocus'))
 
     expect(spy).toHaveBeenCalled()
   })
@@ -88,11 +88,38 @@ describe('AtomInput', () => {
     const inputEl = page.root.shadowRoot.querySelector('ion-input')
     const spy = jest.fn()
 
-    page.root.addEventListener('atomBlur', spy)
+    page.root.addEventListener('ionBlur', spy)
     inputEl.blur()
 
-    page.root.dispatchEvent(new CustomEvent('atomBlur'))
+    page.root.dispatchEvent(new CustomEvent('ionBlur'))
 
     expect(spy).toHaveBeenCalled()
+  })
+
+  it('should remove all event listeners on disconnect', async () => {
+    const page = await newSpecPage({
+      components: [AtomInput],
+      html: '<atom-input />',
+    })
+
+    await page.waitForChanges()
+
+    const inputEl = page.root.shadowRoot.querySelector('ion-input')
+    const handleChange = jest.fn()
+    const handleBlur = jest.fn()
+    const handleFocus = jest.fn()
+
+    inputEl.addEventListener('ionChange', handleChange)
+    inputEl.addEventListener('ionInput', handleChange)
+    inputEl.addEventListener('ionBlur', handleBlur)
+    inputEl.addEventListener('ionFocus', handleFocus)
+
+    page.root.shadowRoot.removeChild(inputEl)
+
+    await page.waitForChanges()
+
+    expect(handleChange).not.toHaveBeenCalled()
+    expect(handleBlur).not.toHaveBeenCalled()
+    expect(handleFocus).not.toHaveBeenCalled()
   })
 })
