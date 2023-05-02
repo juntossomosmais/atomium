@@ -1,5 +1,20 @@
 # Atomium
 
+<p>
+  <img
+    alt="Build Status"
+    src="https://img.shields.io/github/actions/workflow/status/juntossomosmais/atomium/sonarcloud-scan.yml"
+  />
+  <img
+    alt="Quality Gate Status"
+    src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_atomium&metric=alert_status&token=bfb97543424e2dcfef3b6e1ae1fcf6116c73ea77"
+  />
+  <img
+    alt="Coverage"
+    src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_atomium&metric=coverage&token=bfb97543424e2dcfef3b6e1ae1fcf6116c73ea77"
+  />
+</p>
+
 > Atomium is an internal design system for [Juntos Somos Mais](https://juntossomosmais.com.br/), using Web Components
 
 **!important**, as it's an internal design system, we don't accept external suggestions to change or add new components
