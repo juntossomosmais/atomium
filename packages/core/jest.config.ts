@@ -9,4 +9,19 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/(?!@ionic|@stencil|@capacitor)'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  collectCoverage: true,
+  coverageReporters: ['lcov'],
+  coveragePathIgnorePatterns: ['/node_modules/'],
+  collectCoverageFrom: [
+    'src/components/**/*.{js,jsx,ts,tsx}',
+    '!src/**/stories/**',
+    '!src/**/*.mock.ts',
+    '!src/**/*.spec.ts',
+  ],
+  coverageThreshold: {
+    global: {
+      lines: 80,
+      statements: 80,
+    },
+  },
 }
