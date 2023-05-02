@@ -40,12 +40,16 @@ export class AtomSelect {
     this.selectEl.addEventListener('ionChange', this.handleChange)
     this.selectEl.addEventListener('ionBlur', this.handleBlur)
     this.selectEl.addEventListener('ionFocus', this.handleFocus)
+    this.selectEl.addEventListener('ionCancel', this.handleCancel)
+    this.selectEl.addEventListener('ionDimiss', this.handleDimiss)
   }
 
   disconnectedCallback() {
     this.selectEl.removeEventListener('ionChange', this.handleChange)
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.selectEl.removeEventListener('ionFocus', this.handleFocus)
+    this.selectEl.removeEventListener('ionCancel', this.handleCancel)
+    this.selectEl.removeEventListener('ionDimiss', this.handleDimiss)
   }
 
   private handleChange = (event: CustomEvent<{ value: string }>) => {
