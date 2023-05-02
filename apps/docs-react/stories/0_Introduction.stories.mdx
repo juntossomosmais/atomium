@@ -10,18 +10,12 @@ The target of this stories is run Atomium's web components in React environment 
 
 **!important**
 
-There is a problem to render the code of [React's components outputed by Stencil in Storybook](https://github.com/storybookjs/storybook/issues/8881), so the code of the components is not shown correctly in the stories.
+There is a problem to render the code of [React's components outputed by Stencil in Storybook](https://github.com/storybookjs/storybook/issues/22287), so the code of the components is not shown correctly in the stories.
 
 Example, in [Button component](?path=/docs/react_components-button--docs):
 
 ```jsx
-<forwardRef
-  color="primary"
-  fill="solid"
-  mode="md"
-  shape="round"
-  type="button"
->
+<forwardRef color="primary" fill="solid" mode="md" shape="round" type="button">
   Button
 </forwardRef>
 ```
@@ -29,15 +23,9 @@ Example, in [Button component](?path=/docs/react_components-button--docs):
 The code above is not shown correctly in the stories, but it is correct in the source code:
 
 ```jsx
-<AtoButton
-  color="primary"
-  fill="solid"
-  mode="md"
-  shape="round"
-  type="button"
->
+<AtomButton color="primary" fill="solid" mode="md" shape="round" type="button">
   Button
-</AtoButton>
+</AtomButton>
 ```
 
 Just keep in mind that when check the code of the components inside Storybook

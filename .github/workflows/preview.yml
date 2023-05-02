@@ -1,28 +1,25 @@
-name: Publish on GitHub Pages
+name: Deploy PR Previews
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
     paths:
       - '**.ts'
       - '**.tsx'
       - '**.scss'
       - '**.mdx'
-      - '**.md'
-
-permissions:
-  contents: write
 
 jobs:
-  ghpages:
-    concurrency: ghpages-${{ github.ref }}
-    runs-on: ubuntu-latest
+  deploy-preview:
+    concurrency: preview-${{ github.ref }}
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -58,9 +55,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish Storybook 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy preview 🚀
+        uses: rossjrw/pr-preview-action@v1
         with:
-          folder: apps/docs/storybook-static
-          clean-exclude: pr-preview/
-          force: false
+          source-dir: apps/docs/storybook-static
+

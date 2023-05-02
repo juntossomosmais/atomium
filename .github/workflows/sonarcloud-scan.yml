@@ -1,23 +1,15 @@
-name: Publish on GitHub Pages
+name: SonarCloud Scan
 
 on:
   push:
     branches:
       - main
-    paths:
-      - '**.ts'
-      - '**.tsx'
-      - '**.scss'
-      - '**.mdx'
-      - '**.md'
-
-permissions:
-  contents: write
 
 jobs:
-  ghpages:
+  sonarcloud:
     concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -49,18 +41,16 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - name: Install dependencies
+      - name: Install dependencies and build libs 🔧
         run: npm ci --legacy-peer-deps
-
-      - name: Build Docs 📚
-        run: npm run docs:build
         continue-on-error: false
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish Storybook 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: apps/docs/storybook-static
-          clean-exclude: pr-preview/
-          force: false
+      - name: Run Tests 🧪
+        run: npm run test:ci
+        continue-on-error: false
+
+      - name: SonarCloud Scan 🚨
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

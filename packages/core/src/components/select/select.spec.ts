@@ -68,7 +68,7 @@ describe('AtomSelect', () => {
     `)
   })
 
-  it('emits atoChange event on select change', async () => {
+  it('emits atomChange event on select change', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: '<atom-select />',
@@ -81,12 +81,84 @@ describe('AtomSelect', () => {
     const spy = jest.fn()
     const selectValue = 'Option 2'
 
-    page.root.addEventListener('atoChange', spy)
+    page.root.addEventListener('ionChange', spy)
     selectEl.value = selectValue
 
     page.root.dispatchEvent(
-      new CustomEvent('atoChange', { detail: { value: selectValue } })
+      new CustomEvent('ionChange', { detail: { value: selectValue } })
     )
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('emits atomFocus event on select focus', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    await page.waitForChanges()
+
+    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const spy = jest.fn()
+
+    page.root.addEventListener('ionFocus', spy)
+    selectEl.focus()
+
+    page.root.dispatchEvent(new CustomEvent('ionFocus'))
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('emits atomBlur event on select blur', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    await page.waitForChanges()
+
+    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const spy = jest.fn()
+
+    page.root.addEventListener('ionBlur', spy)
+    selectEl.blur()
+
+    page.root.dispatchEvent(new CustomEvent('ionBlur'))
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('emits atomCancel event on select cancel', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    await page.waitForChanges()
+
+    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const spy = jest.fn()
+
+    page.root.addEventListener('ionCancel', spy)
+    page.root.dispatchEvent(new CustomEvent('ionCancel'))
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('emits atomDimiss event on select dimiss', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    await page.waitForChanges()
+
+    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const spy = jest.fn()
+
+    page.root.addEventListener('ionDimiss', spy)
+    page.root.dispatchEvent(new CustomEvent('ionDimiss'))
 
     expect(spy).toHaveBeenCalled()
   })
