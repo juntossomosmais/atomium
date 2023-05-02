@@ -41,7 +41,7 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@ionic/core": "^7.0.1",
     "@nrwl/cli": "15.9.2",
-    "@nrwl/eslint-plugin-nx": "^15.7.1",
+    "@nrwl/eslint-plugin-nx": "^16.0.1",
     "@nrwl/storybook": "^15.9.2",
     "@nrwl/workspace": "15.9.2",
     "@stencil/react-output-target": "^0.4.0",
