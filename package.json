@@ -26,6 +26,7 @@
     "react:build": "cd packages/react && npm run build",
     "start": "nx run-many --target=start --maxParallel=10 --exclude=@atomium/docs-react",
     "test": "nx run @juntossomosmais/atomium:test",
+    "test:ci": "nx run @juntossomosmais/atomium:test:ci",
     "tokens:build": "nx build @juntossomosmais/atomium-tokens",
     "tokens:publish": "npm run tokens:build && nx run @juntossomosmais/atomium-tokens:publish"
   },
