@@ -1,5 +1,0 @@
-/*!
- * (C) Ionic http://ionicframework.com - MIT License
- */
-
-/*!__STENCIL_STATIC_IMPORT_SWITCH__*/
