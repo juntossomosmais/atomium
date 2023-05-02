@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  sonarcloud:
+  build-and-test:
     concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
 
