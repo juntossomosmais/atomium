@@ -1,0 +1,12 @@
+{
+  "name": "@juntossomosmais/atomium-icons",
+  "private": true,
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc && node dist/scripts/build.js"
+  }
+}
