@@ -1,3 +1,47 @@
 :host {
   display: inline-block;
 }
+
+:host(.expand-block),
+:host(.expand-full) {
+  display: block;
+}
+
+.atom-button {
+  text-transform: inherit;
+
+  &[size='default'] {
+    font: var(--button-medium);
+    height: var(--spacing-xxxxlarge);
+    letter-spacing: var(--button-medium--letter);
+  }
+
+  &[size='small'] {
+    font: var(--button-small);
+    height: var(--spacing-xxxlarge);
+    letter-spacing: var(--button-small--letter);
+  }
+
+  &[size='large'] {
+    font: var(--button-large);
+    height: var(--spacing-giant);
+    letter-spacing: var(--button-large--letter);
+  }
+
+  &.is-loading {
+    &::part(native) {
+      cursor: inherit;
+    }
+
+    .slot {
+      visibility: hidden;
+    }
+  }
+}
+
+.loading {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

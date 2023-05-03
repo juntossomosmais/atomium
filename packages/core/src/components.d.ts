@@ -11,11 +11,15 @@ export namespace Components {
     interface AtomButton {
         "color": 'primary' | 'secondary';
         "disabled"?: boolean;
+        "download"?: string;
         "expand"?: 'block' | 'full';
         "fill": 'clear' | 'outline' | 'solid';
+        "href"?: string;
+        "loading"?: boolean;
         "mode": Mode;
-        "shape"?: 'round';
+        "rel"?: string;
         "size": 'small' | 'default' | 'large';
+        "target"?: string;
         "type": 'submit' | 'reset' | 'button';
     }
     interface AtomCol {
@@ -159,12 +163,16 @@ declare namespace LocalJSX {
     interface AtomButton {
         "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
+        "download"?: string;
         "expand"?: 'block' | 'full';
         "fill"?: 'clear' | 'outline' | 'solid';
+        "href"?: string;
+        "loading"?: boolean;
         "mode"?: Mode;
         "onAtomClick"?: (event: AtomButtonCustomEvent<any>) => void;
-        "shape"?: 'round';
+        "rel"?: string;
         "size"?: 'small' | 'default' | 'large';
+        "target"?: string;
         "type"?: 'submit' | 'reset' | 'button';
     }
     interface AtomCol {
