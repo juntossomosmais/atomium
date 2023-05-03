@@ -8,7 +8,7 @@ describe('AtomButton', () => {
       html: '<atom-button></atom-button>',
     })
 
-    expect(page.root.shadowRoot.querySelector('ion-button')).toBeTruthy()
+    expect(page.root?.shadowRoot?.querySelector('ion-button')).toBeTruthy()
   })
 
   it('renders with all props', async () => {
@@ -59,6 +59,40 @@ describe('AtomButton', () => {
     `)
   })
 
+  it('change color to "medium" when disabled', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<atom-button disabled="true"></atom-button>',
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root?.shadowRoot).toEqualHtml(`
+      <ion-button class="atom-button" color="medium" disabled="" fill="solid" mode="md" shape="round" size="default" type="button">
+        <span class="slot">
+          <slot></slot>
+        </span>
+      </ion-button>
+    `)
+  })
+
+  it('remove shape "round" when expand is "full"', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<atom-button expand="full"></atom-button>',
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root?.shadowRoot).toEqualHtml(`
+      <ion-button class="atom-button" color="primary" expand="full" fill="solid" mode="md" size="default" type="button">
+        <span class="slot">
+          <slot></slot>
+        </span>
+      </ion-button>
+    `)
+  })
+
   it('emits atoClick event on button click', async () => {
     const page = await newSpecPage({
       components: [AtomButton],
@@ -67,13 +101,13 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
 
-    const buttonEl = page.root.shadowRoot.querySelector('ion-button')
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
     const spy = jest.fn()
 
-    page.root.addEventListener('atomClick', spy)
-    buttonEl.click()
+    page.root?.addEventListener('atomClick', spy)
+    buttonEl?.click()
 
-    page.root.dispatchEvent(new CustomEvent('atomClick'))
+    page.root?.dispatchEvent(new CustomEvent('atomClick'))
 
     expect(spy).toHaveBeenCalled()
   })
