@@ -15,40 +15,65 @@ export const ButtonStoryArgs = {
     color: {
       control: 'select',
       options: ['primary', 'secondary'],
+      defaultValue: { summary: 'primary' },
       description: "The color to use from your application's color palette.",
     },
     fill: {
       control: 'select',
       options: ['solid', 'clear', 'outline'],
-      description: 'The fill style to use.',
-    },
-    shape: {
-      control: 'select',
-      options: ['none', 'round'],
-      description: 'The shape of the button.',
+      defaultValue: { summary: 'solid' },
+      description:
+        'Set to `"clear"` for a transparent button that resembles a flat button, to `"outline"` for a transparent button with a border, or to `"solid"` for a button with a filled background. The default fill is "solid" except inside of a toolbar, where the default is `"clear"`.',
     },
     expand: {
       control: 'select',
       options: ['none', 'block', 'full'],
-      description: 'Expands the button to fill its parent container.',
+      description:
+        'Set to `"block"` for a full-width button or to `"full"` for a full-width button with square corners and no left or right borders.',
     },
     size: {
       control: 'select',
       options: ['small', 'default', 'large'],
+      defaultValue: { summary: 'default' },
       description: 'The size of the button.',
     },
     disabled: {
       control: 'boolean',
       description: 'If `true`, the user cannot interact with the button.',
     },
+    loading: {
+      control: 'boolean',
+      description: 'If `true`, the button will be show a loading indicator.',
+    },
+    href: {
+      control: 'text',
+      description:
+        'Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.',
+    },
+    rel: {
+      control: 'text',
+      description:
+        'The relationship of the linked URL as space-separated link types.',
+    },
+    target: {
+      control: 'text',
+      description:
+        'Specifies where to display the linked URL. Only applies when an href is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.',
+    },
+    download: {
+      control: 'text',
+      description: 'This attribute instructs browsers to download a URL.',
+    },
     type: {
       control: 'select',
-      options: ['submit', 'reset', 'button'],
+      options: ['none', 'submit', 'reset', 'button'],
+      defaultValue: { summary: 'button' },
       description: 'The type of the button.',
     },
     mode: {
       control: 'select',
       options: ['md', 'ios'],
+      defaultValue: { summary: 'md' },
       description: 'The mode determines which platform styles to use.',
     },
     atoClick: {
@@ -59,13 +84,17 @@ export const ButtonStoryArgs = {
 }
 
 export const ButtonComponentArgs = {
+  label: 'Button',
   color: 'primary',
   fill: 'solid',
-  shape: 'round',
-  size: undefined,
-  expand: undefined,
-  disabled: false,
+  size: 'default',
   type: 'button',
   mode: 'md',
-  label: 'Button',
+  expand: undefined,
+  disabled: false,
+  loading: false,
+  href: undefined,
+  rel: undefined,
+  target: undefined,
+  download: undefined,
 }

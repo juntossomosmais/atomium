@@ -1,5 +1,5 @@
-import { h } from '@stencil/core'
 import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
 
 import { AtomButton } from '@juntossomosmais/atomium/react'
 
@@ -15,18 +15,22 @@ const createButton = (args) => (
   <AtomButton
     color={args.color}
     fill={args.fill}
-    shape={args.shape}
-    expand={args.expand}
     size={args.size}
     disabled={args.disabled}
+    loading={args.loading}
     type={args.type}
     mode={args.mode}
+    expand={args.expand}
+    href={args.href}
+    rel={args.rel}
+    target={args.target}
+    download={args.download}
   >
     {args.label}
   </AtomButton>
 )
 
-export const Default: StoryObj = {
+export const Primary: StoryObj = {
   render: (args) => createButton(args),
   args: {
     ...ButtonComponentArgs,
@@ -36,23 +40,17 @@ export const Default: StoryObj = {
 export const Secondary: StoryObj = {
   render: (args) => createButton(args),
   args: {
-    ...Default.args,
+    ...Primary.args,
     color: 'secondary',
-  },
-}
-
-export const Outline: StoryObj = {
-  render: (args) => createButton(args),
-  args: {
-    ...Default.args,
     fill: 'outline',
   },
 }
 
-export const Clear: StoryObj = {
+export const Text: StoryObj = {
   render: (args) => createButton(args),
   args: {
-    ...Default.args,
+    ...Primary.args,
+    color: 'secondary',
     fill: 'clear',
   },
 }
