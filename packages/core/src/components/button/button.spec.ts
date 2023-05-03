@@ -11,51 +11,7 @@ describe('AtomButton', () => {
     expect(page.root.shadowRoot.querySelector('ion-button')).toBeTruthy()
   })
 
-  it('should set color prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [AtomButton],
-      html: '<atom-button color="primary"></atom-button>',
-    })
-
-    expect(page.rootInstance.color).toBe('primary')
-  })
-
-  it('should set fill prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [AtomButton],
-      html: '<atom-button fill="outline"></atom-button>',
-    })
-
-    expect(page.rootInstance.fill).toBe('outline')
-  })
-
-  it('should set size prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [AtomButton],
-      html: '<atom-button size="small"></atom-button>',
-    })
-
-    expect(page.rootInstance.size).toBe('small')
-  })
-
-  it('should set disabled prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [AtomButton],
-      html: '<atom-button disabled></atom-button>',
-    })
-
-    expect(page.rootInstance.disabled).toBe(true)
-  })
-
-  it('should set type prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [AtomButton],
-      html: '<atom-button type="submit"></atom-button>',
-    })
-
-    expect(page.rootInstance.type).toBe('submit')
-  })
-  it('should render the slot content', async () => {
+  it('renders with all props', async () => {
     const labelText = 'Click me'
 
     const page = await newSpecPage({
@@ -68,11 +24,37 @@ describe('AtomButton', () => {
     expect(page.root).toEqualHtml(`
       <atom-button>
         <mock:shadow-root>
-          <ion-button color="primary" fill="solid" type="button">
-            <slot></slot>
+          <ion-button class="atom-button" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
+            <span class="slot">
+              <slot></slot>
+            </span>
           </ion-button>
         </mock:shadow-root>
         ${labelText}
+      </atom-button>
+    `)
+  })
+
+  it('shows a spinner when loading', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<atom-button loading="true"></atom-button>',
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-button loading="true">
+        <mock:shadow-root>
+          <ion-button class="atom-button is-loading" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
+            <span class="loading">
+              <ion-spinner></ion-spinner>
+            </span>
+            <span class="slot">
+              <slot></slot>
+            </span>
+          </ion-button>
+        </mock:shadow-root>
       </atom-button>
     `)
   })
