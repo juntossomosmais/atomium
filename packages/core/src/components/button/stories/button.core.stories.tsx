@@ -18,10 +18,6 @@ const createButton = (args) => {
   loading="${args.loading}"
   type="${args.type}"
   mode="${args.mode}"
-  href="${args.href}"
-  rel="${args.rel}"
-  target="${args.target}"
-  download="${args.download}"
 >
   ${args.label}
 </atom-button>

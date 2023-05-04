@@ -21,10 +21,6 @@ const createButton = (args) => (
     type={args.type}
     mode={args.mode}
     expand={args.expand}
-    href={args.href}
-    rel={args.rel}
-    target={args.target}
-    download={args.download}
   >
     {args.label}
   </AtomButton>

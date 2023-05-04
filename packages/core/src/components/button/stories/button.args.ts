@@ -45,22 +45,18 @@ export const ButtonStoryArgs = {
       description: 'If `true`, the button will be show a loading indicator.',
     },
     href: {
-      control: 'text',
       description:
         'Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.',
     },
     rel: {
-      control: 'text',
       description:
         'The relationship of the linked URL as space-separated link types.',
     },
     target: {
-      control: 'text',
       description:
         'Specifies where to display the linked URL. Only applies when an href is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.',
     },
     download: {
-      control: 'text',
       description: 'This attribute instructs browsers to download a URL.',
     },
     type: {
@@ -92,8 +88,4 @@ export const ButtonComponentArgs = {
   expand: undefined,
   disabled: false,
   loading: false,
-  href: undefined,
-  rel: undefined,
-  target: undefined,
-  download: undefined,
 }
