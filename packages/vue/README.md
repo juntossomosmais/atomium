@@ -28,6 +28,7 @@ applyPolyfills().then(() => defineCustomElements(window))
 ```
 
 ## Vue 2
+
 For Vue 2, a configuration is need in order to avoid the warning about unknown component. Add the below code to your Vue initialization:
 ```
 Vue.config.ignoredElements = [
