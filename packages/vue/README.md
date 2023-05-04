@@ -26,3 +26,14 @@ applyPolyfills().then(() => defineCustomElements(window))
 
 <atom-button>Click me</atom-button>
 ```
+
+## Vue 2
+
+For Vue 2, a configuration is need in order to avoid the warning about unknown component. Add the below code to your Vue initialization:
+```
+Vue.config.ignoredElements = [
+  /^atom-/
+]
+```
+
+The setting is explained at the [Vue docs](https://v2.vuejs.org/v2/api/#ignoredElements), the same doc exists for [Vue 3](https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue), but no worries, Stencil integrations just handle everything.
