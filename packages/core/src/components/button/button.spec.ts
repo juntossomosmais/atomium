@@ -59,6 +59,26 @@ describe('AtomButton', () => {
     `)
   })
 
+  it('change spinner color when fill is not solid', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<atom-button fill="outline" loading="true"></atom-button>',
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root?.shadowRoot).toEqualHtml(`
+      <ion-button class="atom-button is-loading" color="primary" fill="outline" mode="md" shape="round" size="default" type="button">
+        <span class="loading">
+          <ion-spinner color="primary"></ion-spinner>
+        </span>
+        <span class="slot">
+          <slot></slot>
+        </span>
+      </ion-button>
+    `)
+  })
+
   it('change color to "medium" when disabled', async () => {
     const page = await newSpecPage({
       components: [AtomButton],
