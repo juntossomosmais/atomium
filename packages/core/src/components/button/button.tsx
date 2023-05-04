@@ -54,7 +54,7 @@ export class AtomButton {
         >
           {this.loading && (
             <span class="loading">
-              <ion-spinner />
+              <ion-spinner color={this.color} />
             </span>
           )}
           <span class="slot">
