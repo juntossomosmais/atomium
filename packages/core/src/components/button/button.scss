@@ -13,19 +13,19 @@
   &[size='default'] {
     font: var(--button-medium);
     height: var(--spacing-xxxxlarge);
-    letter-spacing: var(--button-medium--letter);
+    letter-spacing: var(--button-medium-letter);
   }
 
   &[size='small'] {
     font: var(--button-small);
     height: var(--spacing-xxxlarge);
-    letter-spacing: var(--button-small--letter);
+    letter-spacing: var(--button-small-letter);
   }
 
   &[size='large'] {
     font: var(--button-large);
     height: var(--spacing-giant);
-    letter-spacing: var(--button-large--letter);
+    letter-spacing: var(--button-large-letter);
   }
 
   &.is-loading {
