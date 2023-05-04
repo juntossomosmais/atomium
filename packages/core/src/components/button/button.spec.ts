@@ -48,7 +48,7 @@ describe('AtomButton', () => {
         <mock:shadow-root>
           <ion-button class="atom-button is-loading" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
             <span class="loading">
-              <ion-spinner color="primary"></ion-spinner>
+              <ion-spinner color="light"></ion-spinner>
             </span>
             <span class="slot">
               <slot></slot>
