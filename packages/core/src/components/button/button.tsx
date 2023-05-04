@@ -42,7 +42,7 @@ export class AtomButton {
           fill={this.fill}
           size={this.size}
           expand={this.expand}
-          shape={'round'}
+          shape="round"
           disabled={this.disabled}
           type={this.type}
           mode={this.mode}
