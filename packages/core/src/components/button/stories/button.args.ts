@@ -71,8 +71,8 @@ export const ButtonStoryArgs = {
       defaultValue: { summary: 'md' },
       description: 'The mode determines which platform styles to use.',
     },
-    atoClick: {
-      action: 'atoClick',
+    atomClick: {
+      action: 'atomClick',
       description: 'Emitted when the button is clicked.',
     },
   },
