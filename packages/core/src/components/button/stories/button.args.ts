@@ -27,9 +27,8 @@ export const ButtonStoryArgs = {
     },
     expand: {
       control: 'select',
-      options: ['none', 'block', 'full'],
-      description:
-        'Set to `"block"` for a full-width button or to `"full"` for a full-width button with square corners and no left or right borders.',
+      options: ['none', 'block'],
+      description: 'Set to `"block"` for a full-width button.',
     },
     size: {
       control: 'select',

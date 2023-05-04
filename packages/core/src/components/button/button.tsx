@@ -10,7 +10,7 @@ export class AtomButton {
   @Prop() color: 'primary' | 'secondary' = 'primary'
   @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
   @Prop() size: 'small' | 'default' | 'large' = 'default'
-  @Prop() expand?: 'block' | 'full'
+  @Prop() expand?: 'block'
   @Prop() disabled?: boolean
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
   @Prop() mode: Mode = 'md'
@@ -42,7 +42,7 @@ export class AtomButton {
           fill={this.fill}
           size={this.size}
           expand={this.expand}
-          shape={this.expand === 'full' ? undefined : 'round'}
+          shape={'round'}
           disabled={this.disabled}
           type={this.type}
           mode={this.mode}

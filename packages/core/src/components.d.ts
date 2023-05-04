@@ -12,7 +12,7 @@ export namespace Components {
         "color": 'primary' | 'secondary';
         "disabled"?: boolean;
         "download"?: string;
-        "expand"?: 'block' | 'full';
+        "expand"?: 'block';
         "fill": 'clear' | 'outline' | 'solid';
         "href"?: string;
         "loading"?: boolean;
@@ -164,7 +164,7 @@ declare namespace LocalJSX {
         "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
         "download"?: string;
-        "expand"?: 'block' | 'full';
+        "expand"?: 'block';
         "fill"?: 'clear' | 'outline' | 'solid';
         "href"?: string;
         "loading"?: boolean;

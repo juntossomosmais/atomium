@@ -76,23 +76,6 @@ describe('AtomButton', () => {
     `)
   })
 
-  it('remove shape "round" when expand is "full"', async () => {
-    const page = await newSpecPage({
-      components: [AtomButton],
-      html: '<atom-button expand="full"></atom-button>',
-    })
-
-    await page.waitForChanges()
-
-    expect(page.root?.shadowRoot).toEqualHtml(`
-      <ion-button class="atom-button" color="primary" expand="full" fill="solid" mode="md" size="default" type="button">
-        <span class="slot">
-          <slot></slot>
-        </span>
-      </ion-button>
-    `)
-  })
-
   it('emits atoClick event on button click', async () => {
     const page = await newSpecPage({
       components: [AtomButton],
