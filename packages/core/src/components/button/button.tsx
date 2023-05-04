@@ -38,7 +38,7 @@ export class AtomButton {
             [`atom-button`]: true,
             [`is-loading`]: this.loading,
           }}
-          color={this.disabled ? 'medium' : this.color}
+          color={this.disabled && !this.loading ? 'medium' : this.color}
           fill={this.fill}
           size={this.size}
           expand={this.expand}
