@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.0-alpha.7](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.6...atomium-v0.1.0-alpha.7) (2023-05-05)
+
+
+### Features
+
+* add button component ([#82](https://github.com/juntossomosmais/atomium/issues/82)) ([f04cbed](https://github.com/juntossomosmais/atomium/commit/f04cbed73c5e7a6e81d1e004d43e6a7b33a66deb))
+* **core:** add `icon` component ([#57](https://github.com/juntossomosmais/atomium/issues/57)) ([7698cc5](https://github.com/juntossomosmais/atomium/commit/7698cc5abd28d009f5620afb7ae8af058edea00c))
+* **core:** add new handle of example ([d5c43da](https://github.com/juntossomosmais/atomium/commit/d5c43dab89668a732342780270238610f33f1d6f))
+
+
+### Bug Fixes
+
+* **core:** add key on map to example element ([491db01](https://github.com/juntossomosmais/atomium/commit/491db01c4c4c4cda2219bc36092555e60eb28ac6))
+* **core:** storybook folder icon component ([7b3bc40](https://github.com/juntossomosmais/atomium/commit/7b3bc40d3d9372cf94598dccfeabc281006286dc))
+* exports in icon component ([1fdcc3b](https://github.com/juntossomosmais/atomium/commit/1fdcc3bb7bb1185a6ee8e5e91634bca6ede88d64))
+
 ## [0.1.0-alpha.6](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.5...atomium-v0.1.0-alpha.6) (2023-04-25)
 
 

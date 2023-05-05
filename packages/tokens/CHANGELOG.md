@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.7](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.6...atomium-tokens-v0.1.0-alpha.7) (2023-05-05)
+
+
+### Features
+
+* **tokens:** add typography of button small ([516b1b6](https://github.com/juntossomosmais/atomium/commit/516b1b6c909ade8d4388ce06ee6852925e11fcda))
+
 ## [0.1.0-alpha.6](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.2...atomium-tokens-v0.1.0-alpha.6) (2023-04-25)
 
 
