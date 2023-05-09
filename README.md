@@ -73,6 +73,12 @@ npm run tokens:build
 npm run storybook:build
 ```
 
+### Syntax Highlighting
+
+To enable syntax highlighting in your editor, you need to install the following extensions:
+
+- [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html)
+
 ## Contributing
 
 All contributions must follow the code patterns of our [Front-end Guideline](https://github.com/juntossomosmais/frontend-guideline)
