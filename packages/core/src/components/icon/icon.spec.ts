@@ -18,7 +18,7 @@ describe('atom-icon', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-icon color="primary" icon="heart" size="large">
+      <atom-icon aria-hidden="true" color="primary" icon="heart" size="large">
         <mock:shadow-root>
           <ion-icon color="primary" icon="${URL_MOCK}/heart.svg" size="large"></ion-icon>
         </mock:shadow-root>
