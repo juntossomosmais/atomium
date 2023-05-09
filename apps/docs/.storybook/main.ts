@@ -14,11 +14,14 @@ const config = {
     '@storybook/addon-mdx-gfm',
   ],
   framework: {
-    name: '@storybook/html-webpack5',
+    name: '@storybook/web-components-webpack5',
     options: {},
   },
   docs: {
     autodocs: true,
+    source: {
+      language: 'html',
+    },
   },
   refs: (config, { configType }) => {
     if (configType === 'DEVELOPMENT') {
