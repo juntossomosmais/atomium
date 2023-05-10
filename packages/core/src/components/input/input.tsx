@@ -75,12 +75,12 @@ export class AtomInput {
 
   @Method()
   async setFocus() {
-    this.inputEl.setFocus()
+    await this.inputEl.setFocus()
   }
 
   @Method()
   async setInputEl(inputEl: HTMLIonInputElement) {
-    this.inputEl = inputEl
+    this._inputEl = inputEl
   }
 
   @Method() async getInputElement() {
