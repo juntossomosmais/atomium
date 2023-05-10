@@ -1,3 +1,100 @@
-:host(.ion-button) {
-  display: inline-block;
+:host {
+  --icon-color: var(--color-neutral-regular);
+  --icon-size: var(--spacing-xxxxlarge);
+  display: block;
+  position: relative;
+}
+
+.atom-input {
+  &[color='primary'] {
+    --highlight-color-focused: var(--color-brand-primary-regular);
+    --icon-color: var(--color-brand-primary-regular);
+  }
+
+  &[color='secondary'] {
+    --highlight-color-focused: var(--color-brand-secondary-regular);
+  }
+
+  &[color='danger'] {
+    --highlight-color-focused: var(--color-contextual-error-regular);
+  }
+
+  &[color='success'] {
+    --highlight-color-focused: var(--color-contextual-success-regular);
+  }
+
+  &.input-fill-solid {
+    &.has-focus {
+      --background: var(--color-neutral-light-5);
+    }
+  }
+
+  &.input-disabled {
+    &:hover,
+    & {
+      --background: var(--color-neutral-light-2);
+      --color: var(--color-neutral-black);
+      --placeholder-color: var(--color-neutral-black);
+      opacity: 0.55;
+    }
+  }
+
+  &.input-shape-round {
+    --border-radius: 8px;
+  }
+
+  &.has-icon {
+    --padding-start: var(--icon-size);
+    z-index: var(--zindex-10);
+  }
+
+  &.has-readonly {
+    --highlight-color-focused: var(--color-neutral-regular);
+
+    label,
+    input {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.atom-password-icon,
+.atom-icon {
+  color: var(--icon-color);
+  position: absolute;
+  top: calc(50% + 2px);
+  z-index: var(--zindex-100);
+
+  .has-focus + & {
+    &.atom-color--primary {
+      --icon-color: var(--color-brand-primary-regular);
+    }
+
+    &.atom-color--secondary {
+      --icon-color: var(--color-brand-secondary-regular);
+    }
+
+    &.atom-color--danger {
+      --icon-color: var(--color-contextual-error-regular);
+    }
+
+    &.atom-color--success {
+      --icon-color: var(--color-contextual-success-regular);
+    }
+  }
+
+  .input-disabled + & {
+    opacity: 0.55;
+  }
+}
+
+.atom-icon {
+  left: calc(var(--icon-size) / 2);
+  transform: translate(-50%, -50%);
+}
+
+.atom-password-icon {
+  cursor: pointer;
+  right: var(--spacing-base);
+  transform: translateY(-50%);
 }
