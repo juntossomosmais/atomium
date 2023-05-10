@@ -1,5 +1,5 @@
-import { h } from '@stencil/core'
 import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
 
 import { AtomCol, AtomGrid, AtomRow } from '@juntossomosmais/atomium/react'
 
@@ -11,7 +11,7 @@ export default {
   ...GridStoryArgs,
 } as Meta
 
-const createGrid = (args) => (
+const createGrid = () => (
   <div>
     <AtomGrid>
       <AtomRow>
@@ -54,5 +54,5 @@ const createGrid = (args) => (
 )
 
 export const Default: StoryObj = {
-  render: (args) => createGrid(args),
+  render: () => createGrid(),
 }
