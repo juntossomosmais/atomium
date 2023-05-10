@@ -11,7 +11,7 @@ describe('AtomInput', () => {
     expect(page.root).toEqualHtml(`
       <atom-input value="test">
         <mock:shadow-root>
-          <ion-input class="ion-input" fill="outline" inputmode="none" labelplacement="floating" mode="md" type="text" value="test"></ion-input>
+          <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="text" value="test"></ion-input>
         </mock:shadow-root>
       </atom-input>
     `)
@@ -27,16 +27,72 @@ describe('AtomInput', () => {
         <atom-input ${props} />
       `,
     })
+
     expect(page.root).toEqualHtml(`
       <atom-input ${props}>
         <mock:shadow-root>
-          <ion-input autofocus="" class="ion-input" color="secondary" disabled="" fill="outline inputmode=" inputmode="none" label="Password" labelplacement="fixed" mode="ios" multiple="" name="password" pattern="[A-Za-z]{3}" placeholder="Enter password" required="" type="password" value="test"></ion-input>
+          <ion-input autocomplete="off" autofocus="" class="atom-input" color="secondary" disabled="" fill="outline inputmode=" label="Password" labelplacement="fixed" mode="ios" multiple="" name="password" pattern="[A-Za-z]{3}" placeholder="Enter password" required="" shape="round" type="password" value="test"></ion-input>
         </mock:shadow-root>
       </atom-input>
     `)
   })
 
-  it('emits atomChange event on input change', async () => {
+  it('render with icon', async () => {
+    const page = await newSpecPage({
+      components: [AtomInput],
+      html: `
+        <atom-input icon="person" />
+      `,
+    })
+
+    expect(page.root).toEqualHtml(`
+      <atom-input icon="person">
+        <mock:shadow-root>
+          <ion-input autocomplete="off" class="atom-input has-icon" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="text"></ion-input>
+          <atom-icon class="atom-color--secondary atom-icon" icon="person"></atom-icon>
+        </mock:shadow-root>
+      </atom-input>
+    `)
+  })
+
+  it('render with togglePassword and show/hide password', async () => {
+    const page = await newSpecPage({
+      components: [AtomInput],
+      html: `
+        <atom-input type="password" password-toggle="true" />
+      `,
+    })
+
+    await page.waitForChanges()
+    const togglePasswordEl = page.root?.shadowRoot?.querySelector(
+      '.atom-password-icon'
+    )
+
+    expect(page.rootInstance.type).toBe('password')
+    expect(page.root).toEqualHtml(`
+      <atom-input type="password" password-toggle="true">
+        <mock:shadow-root>
+          <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="password"></ion-input>
+          <atom-icon class="atom-color--secondary atom-password-icon" icon="eye"></atom-icon>
+        </mock:shadow-root>
+      </atom-input>
+    `)
+
+    togglePasswordEl?.dispatchEvent(new Event('click'))
+    await page.waitForChanges()
+
+    expect(page.rootInstance.type).toBe('text')
+    expect(page.root).toEqualHtml(`
+      <atom-input type="password" password-toggle="true">
+        <mock:shadow-root>
+          <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="text"></ion-input>
+          <atom-icon class="atom-color--secondary atom-password-icon" icon="eye-off"></atom-icon>
+        </mock:shadow-root>
+      </atom-input>
+    `)
+  })
+
+  it('emits atomChange event on input change and atomInput event during input', async () => {
     const page = await newSpecPage({
       components: [AtomInput],
       html: '<atom-input />',
@@ -44,18 +100,29 @@ describe('AtomInput', () => {
 
     await page.waitForChanges()
 
-    const inputEl = page.root.shadowRoot.querySelector('ion-input')
-    const spy = jest.fn()
+    const inputEl = page.root?.shadowRoot?.querySelector('ion-input')
     const inputValue = 'Test input change'
+    const spy = jest.fn()
 
-    page.root.addEventListener('ionChange', spy)
-    inputEl.value = inputValue
+    page.root?.addEventListener('ionChange', spy)
+    page.root?.addEventListener('ionInput', spy)
 
-    page.root.dispatchEvent(
+    if (inputEl) {
+      inputEl.value = inputValue
+      inputEl.dispatchEvent(new Event('ionChange'))
+      inputEl.dispatchEvent(new Event('ionInput'))
+    }
+
+    page.root?.dispatchEvent(
       new CustomEvent('ionChange', { detail: { value: inputValue } })
     )
 
+    page.root?.dispatchEvent(
+      new CustomEvent('ionInput', { detail: { value: inputValue } })
+    )
+
     expect(spy).toHaveBeenCalled()
+    expect(spy.mock.calls[0][0].detail.value).toEqual(inputValue)
   })
 
   it('emits atomFocus event on input focus', async () => {
@@ -66,13 +133,16 @@ describe('AtomInput', () => {
 
     await page.waitForChanges()
 
-    const inputEl = page.root.shadowRoot.querySelector('ion-input')
+    const inputEl = page.root?.shadowRoot?.querySelector('ion-input')
     const spy = jest.fn()
 
-    page.root.addEventListener('ionFocus', spy)
-    inputEl.focus()
+    page.root?.addEventListener('ionFocus', spy)
 
-    page.root.dispatchEvent(new CustomEvent('ionFocus'))
+    if (inputEl) {
+      inputEl.dispatchEvent(new Event('ionFocus'))
+    }
+
+    page.root?.dispatchEvent(new CustomEvent('ionFocus'))
 
     expect(spy).toHaveBeenCalled()
   })
@@ -85,13 +155,16 @@ describe('AtomInput', () => {
 
     await page.waitForChanges()
 
-    const inputEl = page.root.shadowRoot.querySelector('ion-input')
+    const inputEl = page.root?.shadowRoot?.querySelector('ion-input')
     const spy = jest.fn()
 
-    page.root.addEventListener('ionBlur', spy)
-    inputEl.blur()
+    page.root?.addEventListener('ionBlur', spy)
 
-    page.root.dispatchEvent(new CustomEvent('ionBlur'))
+    if (inputEl) {
+      inputEl.dispatchEvent(new Event('ionBlur'))
+    }
+
+    page.root?.dispatchEvent(new CustomEvent('ionBlur'))
 
     expect(spy).toHaveBeenCalled()
   })
@@ -104,22 +177,67 @@ describe('AtomInput', () => {
 
     await page.waitForChanges()
 
-    const inputEl = page.root.shadowRoot.querySelector('ion-input')
+    const inputEl = page.root?.shadowRoot?.querySelector('ion-input')
     const handleChange = jest.fn()
+    const handleInput = jest.fn()
     const handleBlur = jest.fn()
     const handleFocus = jest.fn()
 
-    inputEl.addEventListener('ionChange', handleChange)
-    inputEl.addEventListener('ionInput', handleChange)
-    inputEl.addEventListener('ionBlur', handleBlur)
-    inputEl.addEventListener('ionFocus', handleFocus)
+    if (inputEl) {
+      inputEl.addEventListener('ionChange', handleChange)
+      inputEl.addEventListener('ionInput', handleInput)
+      inputEl.addEventListener('ionBlur', handleBlur)
+      inputEl.addEventListener('ionFocus', handleFocus)
 
-    page.root.shadowRoot.removeChild(inputEl)
+      page.root?.shadowRoot?.removeChild(inputEl)
+      page.rootInstance.disconnectedCallback()
+    }
 
     await page.waitForChanges()
 
     expect(handleChange).not.toHaveBeenCalled()
+    expect(handleInput).not.toHaveBeenCalled()
     expect(handleBlur).not.toHaveBeenCalled()
     expect(handleFocus).not.toHaveBeenCalled()
+  })
+
+  it('calls setFocus method correctly', async () => {
+    const page = await newSpecPage({
+      components: [AtomInput],
+      html: `<atom-input></atom-input>`,
+    })
+
+    await page.waitForChanges()
+
+    const mockInputEl = Object.assign(document.createElement('ion-input'), {
+      setFocus: jest.fn(),
+      getInputElement: () => document.createElement('input'),
+    })
+
+    const component = page.rootInstance
+    component.inputEl = mockInputEl
+
+    await component.setFocus()
+
+    expect(mockInputEl.setFocus).toHaveBeenCalled()
+  })
+
+  it('returns the correct input element', async () => {
+    const page = await newSpecPage({
+      components: [AtomInput],
+      html: '<atom-input></atom-input>',
+    })
+
+    await page.waitForChanges()
+
+    const inputEl = {
+      getInputElement: jest.fn(() => document.createElement('input')),
+    }
+
+    page.rootInstance.setInputEl(inputEl)
+    const returnedInputElement = await page.rootInstance.getInputElement()
+
+    expect(returnedInputElement).toBeInstanceOf(HTMLInputElement)
+    expect(inputEl.getInputElement).toHaveBeenCalled()
   })
 })
