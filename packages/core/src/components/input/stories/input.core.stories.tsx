@@ -1,4 +1,6 @@
-import { Meta, StoryObj } from '@storybook/html'
+import { Meta, StoryObj } from '@storybook/web-components'
+
+import { html } from 'lit'
 
 import { InputComponentArgs, InputStoryArgs } from './input.args'
 
@@ -8,27 +10,116 @@ export default {
 } as Meta
 
 const createInput = (args) => {
-  return `
-<atom-input
-  label=${args.label}
-  label-placement=${args.labelPlacement}
-  fill=${args.fill}
-  color=${args.color}
-  mode=${args.mode}
-  disabled=${args.disabled}
-  placeholder=${args.placeholder}
-  type=${args.type}
-  clear-on-edit=${args.clearOnEdit}
-  pattern=${args.pattern}
-  required=${args.required}
-  inputmode=${args.inputmode}
-/>
-`
+  return html`
+    <atom-input
+      label="Example Input"
+      placeholder="Placeholder Text"
+      clear-input=${args.clearInput}
+      color=${args.color}
+      disabled=${args.disabled}
+      fill=${args.fill}
+      label-placement=${args.labelPlacement}
+      mode=${args.mode}
+      readonly=${args.readonly}
+      shape=${args.shape}
+      type=${args.type}
+      password-toggle=${args.passwordToggle}
+    ></atom-input>
+  `
 }
 
 export const Default: StoryObj = {
   render: (args) => createInput(args),
   args: {
     ...InputComponentArgs,
+  },
+}
+
+export const Password: StoryObj = {
+  render: (args) => createInput(args),
+  args: {
+    ...InputComponentArgs,
+    type: 'password',
+    passwordToggle: true,
+  },
+}
+
+export const Disabled: StoryObj = {
+  render: (args) => createInput(args),
+  args: {
+    ...InputComponentArgs,
+    disabled: true,
+  },
+}
+
+export const InputIcon: StoryObj = {
+  render: (args) => html`
+    <atom-input
+      label="Example Input with Icon"
+      placeholder="Placeholder Text"
+      clear-input=${args.clearInput}
+      color=${args.color}
+      disabled=${args.disabled}
+      fill=${args.fill}
+      label-placement=${args.labelPlacement}
+      mode=${args.mode}
+      readonly=${args.readonly}
+      shape=${args.shape}
+      type=${args.type}
+      icon=${args.icon}
+    /></atom-input>
+  `,
+  args: {
+    ...InputComponentArgs,
+    icon: 'search',
+  },
+}
+
+export const HelperText: StoryObj = {
+  render: () => html`
+    <atom-input
+      label="Example Input"
+      placeholder="Placeholder Text"
+      helper-text="This is an example of helper text"
+    /></atom-input>
+  `,
+}
+
+export const ErrorText: StoryObj = {
+  render: () => html`
+    <atom-input
+      class="atom-input--error-example"
+      label="Email"
+      placeholder="Enter a valid email"
+      helper-text="Example: atomium@juntossomosmais.com.br"
+      error-text="Invalid email"
+      type="email"
+    ></atom-input>
+
+    <script>
+      ;(function () {
+        const inputEl = document.querySelector('.atom-input--error-example')
+        inputEl.addEventListener('atomChange', function (ev) {
+          validate(ev.target.value)
+        })
+
+        function validateEmail(email) {
+          return email.match(/[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/)
+        }
+
+        function validate(value) {
+          const hasError = value !== '' && !validateEmail(value)
+          inputEl.setAttribute('has-error', hasError)
+        }
+      })()
+    </script>
+  `,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'To check this behavior working you need to look the [canvas of component](/story/components-input--error-text)',
+      },
+    },
   },
 }
