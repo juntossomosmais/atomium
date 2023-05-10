@@ -1,5 +1,5 @@
-import { h } from '@stencil/core'
 import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
 
 import { AtomIcon } from '@juntossomosmais/atomium/react'
 
