@@ -80,7 +80,7 @@ export namespace Components {
         "required": boolean;
         "setFocus": () => Promise<void>;
         "setInputEl": (inputEl: HTMLIonInputElement) => Promise<void>;
-        "shape"?: 'round' | undefined;
+        "shape": 'round' | undefined;
         "step"?: string;
         "type": TextFieldTypes;
         "value"?: string;

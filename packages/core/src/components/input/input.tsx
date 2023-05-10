@@ -42,7 +42,7 @@ export class AtomInput {
   @Prop() pattern?: string
   @Prop() multiple = false
   @Prop() autocomplete?: 'on' | 'off' = 'off'
-  @Prop() shape?: 'round' | undefined = 'round'
+  @Prop() shape: 'round' | undefined = 'round'
   @Prop() readonly = false
   @Prop() clearOnEdit = false
   @Prop() clearInput = false
