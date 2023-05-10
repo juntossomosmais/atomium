@@ -1,6 +1,6 @@
 :host {
-  --icon-color: var(--color-neutral-regular);
-  --icon-size: var(--spacing-xxxxlarge);
+  --atom-icon-color: var(--color-neutral-regular);
+  --atom-icon-grid: var(--spacing-xxxxlarge);
   display: block;
   position: relative;
 }
@@ -8,7 +8,7 @@
 .atom-input {
   &[color='primary'] {
     --highlight-color-focused: var(--color-brand-primary-regular);
-    --icon-color: var(--color-brand-primary-regular);
+    --atom-icon-color: var(--color-brand-primary-regular);
   }
 
   &[color='secondary'] {
@@ -44,7 +44,7 @@
   }
 
   &.has-icon {
-    --padding-start: var(--icon-size);
+    --padding-start: var(--atom-icon-grid);
     z-index: var(--zindex-10);
   }
 
@@ -60,26 +60,26 @@
 
 .atom-password-icon,
 .atom-icon {
-  color: var(--icon-color);
+  color: var(--atom-icon-color);
   position: absolute;
   top: calc(50% + 2px);
   z-index: var(--zindex-100);
 
   .has-focus + & {
     &.atom-color--primary {
-      --icon-color: var(--color-brand-primary-regular);
+      --atom-icon-color: var(--color-brand-primary-regular);
     }
 
     &.atom-color--secondary {
-      --icon-color: var(--color-brand-secondary-regular);
+      --atom-icon-color: var(--color-brand-secondary-regular);
     }
 
     &.atom-color--danger {
-      --icon-color: var(--color-contextual-error-regular);
+      --atom-icon-color: var(--color-contextual-error-regular);
     }
 
     &.atom-color--success {
-      --icon-color: var(--color-contextual-success-regular);
+      --atom-icon-color: var(--color-contextual-success-regular);
     }
   }
 
@@ -89,7 +89,7 @@
 }
 
 .atom-icon {
-  left: calc(var(--icon-size) / 2);
+  left: calc(var(--atom-icon-grid) / 2);
   transform: translate(-50%, -50%);
 }
 
