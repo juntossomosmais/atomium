@@ -70,7 +70,7 @@ export const HelperText: StoryObj = {
   },
 }
 
-export const ErrorText: StoryObj = {
+export const ErrorState: StoryObj = {
   render: () => {
     const [hasError, setHasError] = React.useState(false)
 

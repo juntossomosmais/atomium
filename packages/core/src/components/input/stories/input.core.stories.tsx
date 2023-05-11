@@ -71,7 +71,7 @@ export const HelperText: StoryObj = {
   },
 }
 
-export const ErrorText: StoryObj = {
+export const ErrorState: StoryObj = {
   render: () => html`
     <atom-input
       class="atom-input--error-example"
