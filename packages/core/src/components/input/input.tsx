@@ -177,16 +177,20 @@ export class AtomInput {
           ></atom-icon>
         )}
         {this.passwordToggle && (
-          <atom-icon
-            class={{
-              [`atom-password-icon`]: true,
-              [`atom-color--${this.color}`]: true,
-            }}
-            icon={this.type === 'password' ? 'eye' : 'eye-off'}
+          <button
+            class="atom-password-icon"
+            type="button"
             onClick={() => {
               this.type = this.type === 'password' ? 'text' : 'password'
             }}
-          ></atom-icon>
+          >
+            <atom-icon
+              class={{
+                [`atom-color--${this.color}`]: true,
+              }}
+              icon={this.type === 'password' ? 'eye' : 'eye-off'}
+            ></atom-icon>
+          </button>
         )}
       </Host>
     )
