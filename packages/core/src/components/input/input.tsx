@@ -130,10 +130,10 @@ export class AtomInput {
         <ion-input
           ref={(el) => (this.inputEl = el as HTMLIonInputElement)}
           class={{
-            [`atom-input`]: true,
-            [`ion-invalid ion-touched`]: this.hasError,
-            [`has-icon`]: !!this.icon,
-            [`has-readonly`]: this.readonly,
+            'atom-input': true,
+            'ion-invalid ion-touched': this.hasError,
+            'has-icon': !!this.icon,
+            'has-readonly': this.readonly,
           }}
           autocomplete={this.autocomplete}
           autofocus={this.autofocus}
