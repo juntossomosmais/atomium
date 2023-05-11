@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color, Mode, TextFieldTypes } from "@ionic/core";
+import { IonTypes } from "@ionic/core/dist/types/components";
 export { Color, Mode, TextFieldTypes } from "@ionic/core";
+export { IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomButton {
         "color": 'primary' | 'secondary';
@@ -83,7 +85,7 @@ export namespace Components {
         "shape": 'round' | undefined;
         "step"?: string;
         "type": TextFieldTypes;
-        "value"?: string;
+        "value"?: IonTypes.IonInput['value'];
     }
     interface AtomRow {
     }
@@ -251,7 +253,7 @@ declare namespace LocalJSX {
         "shape"?: 'round' | undefined;
         "step"?: string;
         "type"?: TextFieldTypes;
-        "value"?: string;
+        "value"?: IonTypes.IonInput['value'];
     }
     interface AtomRow {
     }

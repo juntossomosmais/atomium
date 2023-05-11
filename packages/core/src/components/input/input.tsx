@@ -1,4 +1,5 @@
 import { Mode, TextFieldTypes } from '@ionic/core'
+import { JSX as IonTypes } from '@ionic/core/dist/types/components'
 import {
   Component,
   Element,
@@ -22,7 +23,7 @@ export class AtomInput {
   @Prop() placeholder?: string
   @Prop() color?: 'primary' | 'secondary' | 'danger' | 'success' = 'secondary'
   @Prop() labelPlacement?: 'stacked' | 'floating' = 'floating'
-  @Prop({ mutable: true, reflect: true }) value?: string
+  @Prop({ mutable: true, reflect: true }) value?: IonTypes.IonInput['value']
   @Prop() helperText?: string
   @Prop() errorText?: string
   @Prop() hasError = false
@@ -101,16 +102,16 @@ export class AtomInput {
     this.inputEl.removeEventListener('ionFocus', this.handleFocus)
   }
 
-  private handleChange = (event: any) => {
+  private handleChange: IonTypes.IonInput['onIonChange'] = (event) => {
     const value = event.target.value
     this.value = value
-    this.atomChange.emit(value)
+    this.atomChange.emit(String(value))
   }
 
-  private handleInput = (event: any) => {
+  private handleInput: IonTypes.IonInput['onIonInput'] = (event) => {
     const value = event.target.value
     this.value = value
-    this.atomInput.emit(value)
+    this.atomInput.emit(String(value))
   }
 
   private handleBlur = () => {
