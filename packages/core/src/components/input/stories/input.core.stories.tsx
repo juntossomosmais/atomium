@@ -24,6 +24,7 @@ const createInput = (args) => {
       shape=${args.shape}
       type=${args.type}
       password-toggle=${args.passwordToggle}
+      value=${args.value}
     ></atom-input>
   `
 }

@@ -24,6 +24,7 @@ const createInput = (args) => (
     shape={args.shape}
     type={args.type}
     passwordToggle={args.passwordToggle}
+    value={args.value}
   />
 )
 

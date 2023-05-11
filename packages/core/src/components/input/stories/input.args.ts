@@ -125,6 +125,13 @@ export const InputStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    value: {
+      control: 'text',
+      description: 'The value of native input',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     label: {
       description: 'The label of the input',
       table: {
