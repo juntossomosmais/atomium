@@ -53,22 +53,7 @@ export const Password: StoryObj = {
 }
 
 export const InputIcon: StoryObj = {
-  render: (args: any) => (
-    <AtomInput
-      label="Example Input with Icon"
-      placeholder="Placeholder Text"
-      clearInput={args.clearInput}
-      color={args.color}
-      disabled={args.disabled}
-      fill={args.fill}
-      labelPlacement={args.labelPlacement}
-      mode={args.mode}
-      readonly={args.readonly}
-      type={args.type}
-      shape={args.shape}
-      icon={args.icon}
-    />
-  ),
+  render: (args) => createInput(args),
   args: {
     ...InputComponentArgs,
     icon: 'search',

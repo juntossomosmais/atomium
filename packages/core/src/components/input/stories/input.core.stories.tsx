@@ -25,6 +25,7 @@ const createInput = (args) => {
       type=${args.type}
       password-toggle=${args.passwordToggle}
       value=${args.value}
+      icon=${args.icon}
     ></atom-input>
   `
 }
@@ -54,22 +55,7 @@ export const Disabled: StoryObj = {
 }
 
 export const InputIcon: StoryObj = {
-  render: (args) => html`
-    <atom-input
-      label="Example Input with Icon"
-      placeholder="Placeholder Text"
-      clear-input=${args.clearInput}
-      color=${args.color}
-      disabled=${args.disabled}
-      fill=${args.fill}
-      label-placement=${args.labelPlacement}
-      mode=${args.mode}
-      readonly=${args.readonly}
-      shape=${args.shape}
-      type=${args.type}
-      icon=${args.icon}
-    /></atom-input>
-  `,
+  render: (args) => createInput(args),
   args: {
     ...InputComponentArgs,
     icon: 'search',
