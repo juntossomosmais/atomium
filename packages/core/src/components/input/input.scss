@@ -73,15 +73,16 @@
   input::-webkit-clear-button,
   input::-webkit-search-decoration,
   input::-webkit-search-cancel-button {
-    right: 5px;
+    $webkit-fine-alignment: 5px;
+    right: $webkit-fine-alignment;
     top: 0;
   }
 
   .input-clear-icon {
+    height: 100%;
     padding: 0;
     right: var(--spacing-base);
-    top: calc(50% + 2px);
-    transform: translateY(-50%);
+    top: 0;
   }
 }
 
