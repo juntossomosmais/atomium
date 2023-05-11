@@ -26,6 +26,7 @@ const createInput = (args) => {
       password-toggle=${args.passwordToggle}
       value=${args.value}
       icon=${args.icon}
+      helper-text=${args.helperText}
     ></atom-input>
   `
 }
@@ -63,13 +64,11 @@ export const InputIcon: StoryObj = {
 }
 
 export const HelperText: StoryObj = {
-  render: () => html`
-    <atom-input
-      label="Example Input"
-      placeholder="Placeholder Text"
-      helper-text="This is an example of helper text"
-    /></atom-input>
-  `,
+  render: (args) => createInput(args),
+  args: {
+    ...InputComponentArgs,
+    helperText: 'This is a helper text example',
+  },
 }
 
 export const ErrorText: StoryObj = {

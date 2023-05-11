@@ -132,6 +132,13 @@ export const InputStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    helperText: {
+      control: 'text',
+      description: 'The helper text of the input',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     label: {
       description: 'The label of the input',
       table: {
@@ -140,12 +147,6 @@ export const InputStoryArgs = {
     },
     placeholder: {
       description: 'The placeholder of the input',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    helperText: {
-      description: 'The helper text of the input',
       table: {
         category: Category.PROPERTIES,
       },
