@@ -176,7 +176,7 @@ export class AtomInput {
             icon={this.icon}
           ></atom-icon>
         )}
-        {this.passwordToggle && (
+        {this.passwordToggle && this.value && (
           <button
             class="atom-password-icon"
             type="button"
