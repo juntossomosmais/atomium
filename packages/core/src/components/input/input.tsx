@@ -21,7 +21,7 @@ export class AtomInput {
 
   @Prop() label?: string
   @Prop() placeholder?: string
-  @Prop() color?: 'primary' | 'secondary' | 'danger' | 'success' = 'secondary'
+  @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
   @Prop() labelPlacement?: 'stacked' | 'floating' = 'floating'
   @Prop({ mutable: true, reflect: true }) value?: IonTypes.IonInput['value']
   @Prop() helperText?: string

@@ -49,7 +49,7 @@ export namespace Components {
         "autofocus": boolean;
         "clearInput": boolean;
         "clearOnEdit": boolean;
-        "color"?: 'primary' | 'secondary' | 'danger' | 'success';
+        "color"?: 'primary' | 'secondary' | 'danger';
         "counter": boolean;
         "disabled": boolean;
         "errorText"?: string;
@@ -216,7 +216,7 @@ declare namespace LocalJSX {
         "autofocus"?: boolean;
         "clearInput"?: boolean;
         "clearOnEdit"?: boolean;
-        "color"?: 'primary' | 'secondary' | 'danger' | 'success';
+        "color"?: 'primary' | 'secondary' | 'danger';
         "counter"?: boolean;
         "disabled"?: boolean;
         "errorText"?: string;
