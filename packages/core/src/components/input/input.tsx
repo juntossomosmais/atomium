@@ -188,7 +188,7 @@ export class AtomInput {
               class={{
                 [`atom-color--${this.color}`]: true,
               }}
-              icon={this.type === 'password' ? 'eye' : 'eye-off'}
+              icon={this.type === 'password' ? 'eye-off' : 'eye'}
             ></atom-icon>
           </button>
         )}
