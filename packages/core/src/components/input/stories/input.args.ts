@@ -27,7 +27,7 @@ export const InputStoryArgs = {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'danger', 'success'],
+      options: ['primary', 'secondary', 'danger'],
       defaultValue: { summary: 'secondary' },
       description: "The color to use from your application's color palette.",
       table: {
