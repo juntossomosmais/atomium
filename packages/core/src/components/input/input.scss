@@ -1,6 +1,7 @@
 :host {
   --atom-icon-color: var(--color-neutral-regular);
   --atom-icon-grid: var(--spacing-xxxxlarge);
+  --atom-button-icon-size: 30px;
   display: block;
   position: relative;
 }
@@ -61,14 +62,34 @@
   input::-webkit-clear-button,
   input::-webkit-search-decoration,
   input::-webkit-search-cancel-button,
-  ion-icon {
+  .input-clear-icon {
+    color: var(--atom-icon-color);
     cursor: pointer;
+    position: absolute;
+    z-index: var(--zindex-100);
+  }
+
+  input::-webkit-calendar-picker-indicator,
+  input::-webkit-clear-button,
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button {
+    right: 5px;
+    top: 0;
+  }
+
+  .input-clear-icon {
+    padding: 0;
+    right: var(--spacing-base);
+    top: calc(50% + 2px);
+    transform: translateY(-50%);
   }
 }
 
 .atom-password-icon,
 .atom-icon {
   color: var(--atom-icon-color);
+  cursor: pointer;
+  font-size: 16px;
   position: absolute;
   top: calc(50% + 2px);
   z-index: var(--zindex-100);
@@ -102,7 +123,12 @@
 }
 
 .atom-password-icon {
+  background: transparent;
+  border: 0;
   cursor: pointer;
+  height: var(--atom-button-icon-size);
+  outline: none;
   right: var(--spacing-base);
   transform: translateY(-50%);
+  width: var(--atom-button-icon-size);
 }
