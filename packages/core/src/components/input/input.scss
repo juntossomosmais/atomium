@@ -57,6 +57,10 @@
     }
   }
 
+  input::-webkit-calendar-picker-indicator,
+  input::-webkit-clear-button,
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button,
   ion-icon {
     cursor: pointer;
   }
