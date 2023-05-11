@@ -64,15 +64,22 @@ describe('AtomInput', () => {
     })
 
     await page.waitForChanges()
-    const togglePasswordEl = page.root?.shadowRoot?.querySelector(
-      '.atom-password-icon'
-    )
 
-    expect(page.rootInstance.type).toBe('password')
     expect(page.root).toEqualHtml(`
       <atom-input type="password" password-toggle="true">
         <mock:shadow-root>
           <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="password"></ion-input>
+        </mock:shadow-root>
+      </atom-input>
+    `)
+
+    page.rootInstance.value = 'test'
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-input type="password" password-toggle="true" value="test">
+        <mock:shadow-root>
+          <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="password" value="test"></ion-input>
           <button class="atom-password-icon" type="button">
             <atom-icon class="atom-color--secondary" icon="eye-off"></atom-icon>
           </button>
@@ -80,14 +87,16 @@ describe('AtomInput', () => {
       </atom-input>
     `)
 
+    const togglePasswordEl = page.root?.shadowRoot?.querySelector(
+      '.atom-password-icon'
+    )
     togglePasswordEl?.dispatchEvent(new Event('click'))
     await page.waitForChanges()
 
-    expect(page.rootInstance.type).toBe('text')
     expect(page.root).toEqualHtml(`
-      <atom-input type="password" password-toggle="true">
+      <atom-input type="password" password-toggle="true" value="test">
         <mock:shadow-root>
-          <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="text"></ion-input>
+          <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="text" value="test"></ion-input>
           <button class="atom-password-icon" type="button">
             <atom-icon class="atom-color--secondary" icon="eye"></atom-icon>
           </button>
