@@ -73,7 +73,9 @@ describe('AtomInput', () => {
       <atom-input type="password" password-toggle="true">
         <mock:shadow-root>
           <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="password"></ion-input>
-          <atom-icon class="atom-color--secondary atom-password-icon" icon="eye"></atom-icon>
+          <button class="atom-password-icon" type="button">
+            <atom-icon class="atom-color--secondary" icon="eye"></atom-icon>
+          </button>
         </mock:shadow-root>
       </atom-input>
     `)
@@ -86,7 +88,9 @@ describe('AtomInput', () => {
       <atom-input type="password" password-toggle="true">
         <mock:shadow-root>
           <ion-input autocomplete="off" class="atom-input" color="secondary" fill="solid" labelplacement="floating" mode="md" shape="round" type="text"></ion-input>
-          <atom-icon class="atom-color--secondary atom-password-icon" icon="eye-off"></atom-icon>
+          <button class="atom-password-icon" type="button">
+            <atom-icon class="atom-color--secondary" icon="eye-off"></atom-icon>
+          </button>
         </mock:shadow-root>
       </atom-input>
     `)
