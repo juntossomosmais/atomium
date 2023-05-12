@@ -1,3 +1,135 @@
-:host(.ion-button) {
-  display: inline-block;
+:host {
+  --atom-icon-color: var(--color-neutral-regular);
+  --atom-icon-grid: var(--spacing-xxxxlarge);
+  --atom-button-icon-size: 30px;
+  display: block;
+  position: relative;
+}
+
+.atom-input {
+  &[color='primary'] {
+    --highlight-color-focused: var(--color-brand-primary-regular);
+    --atom-icon-color: var(--color-brand-primary-regular);
+  }
+
+  &[color='secondary'] {
+    --highlight-color-focused: var(--color-brand-secondary-regular);
+  }
+
+  &[color='danger'] {
+    --highlight-color-focused: var(--color-contextual-error-regular);
+  }
+
+  &[color='success'] {
+    --highlight-color-focused: var(--color-contextual-success-regular);
+  }
+
+  &.input-fill-solid {
+    &.has-focus {
+      --background: var(--color-neutral-light-5);
+    }
+  }
+
+  &.input-disabled {
+    &:hover,
+    & {
+      --background: var(--color-neutral-light-2);
+      --color: var(--color-neutral-black);
+      --placeholder-color: var(--color-neutral-black);
+      opacity: 0.55;
+    }
+  }
+
+  &.input-shape-round {
+    --border-radius: 8px;
+  }
+
+  &.has-icon {
+    --padding-start: var(--atom-icon-grid);
+    z-index: var(--zindex-10);
+  }
+
+  &.has-readonly {
+    --highlight-color-focused: var(--color-neutral-regular);
+
+    label,
+    input {
+      cursor: not-allowed;
+    }
+  }
+
+  input::-webkit-calendar-picker-indicator,
+  input::-webkit-clear-button,
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button,
+  .input-clear-icon {
+    color: var(--atom-icon-color);
+    cursor: pointer;
+    position: absolute;
+    z-index: var(--zindex-100);
+  }
+
+  input::-webkit-calendar-picker-indicator,
+  input::-webkit-clear-button,
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button {
+    $webkit-fine-alignment: 5px;
+    right: $webkit-fine-alignment;
+    top: 0;
+  }
+
+  .input-clear-icon {
+    height: 100%;
+    padding: 0;
+    right: var(--spacing-base);
+    top: 0;
+  }
+}
+
+.atom-password-icon,
+.atom-icon {
+  color: var(--atom-icon-color);
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  top: calc(50% + 2px);
+  z-index: var(--zindex-100);
+
+  .has-focus + & {
+    &.atom-color--primary {
+      --atom-icon-color: var(--color-brand-primary-regular);
+    }
+
+    &.atom-color--secondary {
+      --atom-icon-color: var(--color-brand-secondary-regular);
+    }
+
+    &.atom-color--danger {
+      --atom-icon-color: var(--color-contextual-error-regular);
+    }
+
+    &.atom-color--success {
+      --atom-icon-color: var(--color-contextual-success-regular);
+    }
+  }
+
+  .input-disabled + & {
+    opacity: 0.55;
+  }
+}
+
+.atom-icon {
+  left: calc(var(--atom-icon-grid) / 2);
+  transform: translate(-50%, -50%);
+}
+
+.atom-password-icon {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  height: var(--atom-button-icon-size);
+  outline: none;
+  right: var(--spacing-base);
+  transform: translateY(-50%);
+  width: var(--atom-button-icon-size);
 }

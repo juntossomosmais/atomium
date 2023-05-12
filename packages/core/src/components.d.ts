@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color, Mode, TextFieldTypes } from "@ionic/core";
+import { IonTypes } from "@ionic/core/dist/types/components";
 export { Color, Mode, TextFieldTypes } from "@ionic/core";
+export { IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomButton {
         "color": 'primary' | 'secondary';
@@ -43,13 +45,19 @@ export namespace Components {
         "size"?: 'small' | 'large';
     }
     interface AtomInput {
-        "accept"?: string;
+        "autocomplete"?: 'on' | 'off';
         "autofocus": boolean;
         "clearInput": boolean;
         "clearOnEdit": boolean;
-        "color"?: 'primary' | 'secondary';
+        "color"?: 'primary' | 'secondary' | 'danger';
+        "counter": boolean;
         "disabled": boolean;
+        "errorText"?: string;
         "fill": 'solid' | 'outline';
+        "getInputElement": () => Promise<HTMLInputElement>;
+        "hasError": boolean;
+        "helperText"?: string;
+        "icon"?: string;
         "inputmode"?: | 'none'
     | 'text'
     | 'tel'
@@ -59,17 +67,25 @@ export namespace Components {
     | 'decimal'
     | 'search';
         "label"?: string;
-        "labelPlacement"?: 'fixed' | 'stacked' | 'floating';
+        "labelPlacement"?: 'stacked' | 'floating';
+        "max"?: string | number;
         "maxlength"?: number;
+        "min"?: string | number;
         "minlength"?: number;
         "mode": Mode;
         "multiple": boolean;
         "name"?: string;
+        "passwordToggle": boolean;
         "pattern"?: string;
         "placeholder"?: string;
+        "readonly": boolean;
         "required": boolean;
+        "setFocus": () => Promise<void>;
+        "setInputEl": (inputEl: HTMLIonInputElement) => Promise<void>;
+        "shape": 'round' | undefined;
+        "step"?: string;
         "type": TextFieldTypes;
-        "value": string;
+        "value"?: IonTypes.IonInput['value'];
     }
     interface AtomRow {
     }
@@ -196,13 +212,18 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'large';
     }
     interface AtomInput {
-        "accept"?: string;
+        "autocomplete"?: 'on' | 'off';
         "autofocus"?: boolean;
         "clearInput"?: boolean;
         "clearOnEdit"?: boolean;
-        "color"?: 'primary' | 'secondary';
+        "color"?: 'primary' | 'secondary' | 'danger';
+        "counter"?: boolean;
         "disabled"?: boolean;
+        "errorText"?: string;
         "fill"?: 'solid' | 'outline';
+        "hasError"?: boolean;
+        "helperText"?: string;
+        "icon"?: string;
         "inputmode"?: | 'none'
     | 'text'
     | 'tel'
@@ -212,8 +233,10 @@ declare namespace LocalJSX {
     | 'decimal'
     | 'search';
         "label"?: string;
-        "labelPlacement"?: 'fixed' | 'stacked' | 'floating';
+        "labelPlacement"?: 'stacked' | 'floating';
+        "max"?: string | number;
         "maxlength"?: number;
+        "min"?: string | number;
         "minlength"?: number;
         "mode"?: Mode;
         "multiple"?: boolean;
@@ -221,11 +244,16 @@ declare namespace LocalJSX {
         "onAtomBlur"?: (event: AtomInputCustomEvent<void>) => void;
         "onAtomChange"?: (event: AtomInputCustomEvent<string>) => void;
         "onAtomFocus"?: (event: AtomInputCustomEvent<void>) => void;
+        "onAtomInput"?: (event: AtomInputCustomEvent<string>) => void;
+        "passwordToggle"?: boolean;
         "pattern"?: string;
         "placeholder"?: string;
+        "readonly"?: boolean;
         "required"?: boolean;
+        "shape"?: 'round' | undefined;
+        "step"?: string;
         "type"?: TextFieldTypes;
-        "value"?: string;
+        "value"?: IonTypes.IonInput['value'];
     }
     interface AtomRow {
     }
