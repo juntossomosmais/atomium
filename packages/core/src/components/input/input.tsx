@@ -1,5 +1,15 @@
 import { Mode, TextFieldTypes } from '@ionic/core'
-import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
+import { JSX as IonTypes } from '@ionic/core/dist/types/components'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Method,
+  Prop,
+  h,
+} from '@stencil/core'
 
 @Component({
   tag: 'atom-input',
@@ -7,25 +17,38 @@ import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
   shadow: true,
 })
 export class AtomInput {
-  @Element() inputEl!: HTMLInputElement
+  @Element() element!: HTMLElement
 
-  @Prop() color?: 'primary' | 'secondary'
-  @Prop() value: string
-  @Prop() type: TextFieldTypes = 'text'
+  @Prop() label?: string
   @Prop() placeholder?: string
+  @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
+  @Prop() labelPlacement?: 'stacked' | 'floating' = 'floating'
+  @Prop({ mutable: true, reflect: true }) value?: IonTypes.IonInput['value']
+  @Prop() helperText?: string
+  @Prop() errorText?: string
+  @Prop() hasError = false
+  @Prop({ mutable: true }) type: TextFieldTypes = 'text'
+  @Prop() counter = false
   @Prop() name?: string
   @Prop() minlength?: number
   @Prop() maxlength?: number
   @Prop() disabled = false
   @Prop() required = false
   @Prop() mode: Mode = 'md'
-  @Prop() fill: 'solid' | 'outline' = 'outline'
+  @Prop() fill: 'solid' | 'outline' = 'solid'
+  @Prop() max?: string | number
+  @Prop() min?: string | number
+  @Prop() step?: string
   @Prop() autofocus = false
   @Prop() pattern?: string
-  @Prop() accept?: string
   @Prop() multiple = false
+  @Prop() autocomplete?: 'on' | 'off' = 'off'
+  @Prop() shape: 'round' | undefined = 'round'
+  @Prop() readonly = false
   @Prop() clearOnEdit = false
   @Prop() clearInput = false
+  @Prop() icon?: string
+  @Prop() passwordToggle = false
   @Prop() inputmode?:
     | 'none'
     | 'text'
@@ -34,31 +57,61 @@ export class AtomInput {
     | 'email'
     | 'numeric'
     | 'decimal'
-    | 'search' = 'none'
-
-  @Prop() labelPlacement?: 'fixed' | 'stacked' | 'floating' = 'floating'
-  @Prop() label?: string
+    | 'search'
 
   @Event() atomFocus!: EventEmitter<void>
   @Event() atomBlur!: EventEmitter<void>
-  @Event({ bubbles: true, composed: true }) atomChange!: EventEmitter<string>
+  @Event() atomChange!: EventEmitter<string>
+  @Event() atomInput!: EventEmitter<string>
+
+  private _inputEl!: HTMLIonInputElement
+
+  get inputEl(): HTMLIonInputElement {
+    return this._inputEl
+  }
+
+  set inputEl(value: HTMLIonInputElement) {
+    this._inputEl = value
+  }
+
+  @Method()
+  async setFocus() {
+    await this.inputEl.setFocus()
+  }
+
+  @Method()
+  async setInputEl(inputEl: HTMLIonInputElement) {
+    this._inputEl = inputEl
+  }
+
+  @Method() async getInputElement() {
+    return this.inputEl.getInputElement()
+  }
 
   componentDidLoad() {
     this.inputEl.addEventListener('ionChange', this.handleChange)
-    this.inputEl.addEventListener('ionInput', this.handleChange)
+    this.inputEl.addEventListener('ionInput', this.handleInput)
     this.inputEl.addEventListener('ionBlur', this.handleBlur)
     this.inputEl.addEventListener('ionFocus', this.handleFocus)
   }
 
   disconnectedCallback() {
     this.inputEl.removeEventListener('ionChange', this.handleChange)
-    this.inputEl.removeEventListener('ionInput', this.handleChange)
+    this.inputEl.removeEventListener('ionInput', this.handleInput)
     this.inputEl.removeEventListener('ionBlur', this.handleBlur)
     this.inputEl.removeEventListener('ionFocus', this.handleFocus)
   }
 
-  private handleChange = (event: any) => {
-    this.atomChange.emit(event.detail.value)
+  private handleChange: IonTypes.IonInput['onIonChange'] = (event) => {
+    const value = event.target.value
+    this.value = value
+    this.atomChange.emit(String(value))
+  }
+
+  private handleInput: IonTypes.IonInput['onIonInput'] = (event) => {
+    const value = event.target.value
+    this.value = value
+    this.atomInput.emit(String(value))
   }
 
   private handleBlur = () => {
@@ -73,32 +126,73 @@ export class AtomInput {
 
   render(): JSX.Element {
     return (
-      <ion-input
-        class="ion-input"
-        label={this.label}
-        labelPlacement={this.labelPlacement}
-        value={this.value}
-        type={this.type}
-        placeholder={this.placeholder}
-        name={this.name}
-        minlength={this.minlength}
-        maxlength={this.maxlength}
-        disabled={this.disabled}
-        required={this.required}
-        color={this.color}
-        mode={this.mode}
-        fill={this.fill}
-        autofocus={this.autofocus}
-        pattern={this.pattern}
-        inputmode={this.inputmode}
-        multiple={this.multiple}
-        clearInput={this.clearInput}
-        clearOnEdit={this.clearOnEdit}
-        onIonChange={this.handleChange}
-        onIonInput={this.handleChange}
-        onIonBlur={this.handleBlur}
-        onIonFocus={this.handleFocus}
-      />
+      <Host>
+        <ion-input
+          ref={(el) => (this.inputEl = el as HTMLIonInputElement)}
+          class={{
+            'atom-input': true,
+            'ion-invalid ion-touched': this.hasError,
+            'has-icon': !!this.icon,
+            'has-readonly': this.readonly,
+          }}
+          autocomplete={this.autocomplete}
+          autofocus={this.autofocus}
+          clearInput={this.clearInput}
+          clearOnEdit={this.clearOnEdit}
+          color={this.color}
+          disabled={this.disabled}
+          errorText={this.errorText}
+          fill={this.fill}
+          helperText={this.helperText}
+          inputmode={this.inputmode}
+          label={this.label}
+          labelPlacement={this.labelPlacement}
+          max={this.max}
+          maxlength={this.maxlength}
+          min={this.min}
+          minlength={this.minlength}
+          mode={this.mode}
+          multiple={this.multiple}
+          name={this.name}
+          pattern={this.pattern}
+          placeholder={this.placeholder}
+          readonly={this.readonly}
+          required={this.required}
+          shape={this.shape}
+          step={this.step}
+          type={this.type}
+          value={this.value}
+          onIonChange={this.handleChange}
+          onIonInput={this.handleInput}
+          onIonBlur={this.handleBlur}
+          onIonFocus={this.handleFocus}
+        />
+        {this.icon && (
+          <atom-icon
+            class={{
+              [`atom-icon`]: true,
+              [`atom-color--${this.color}`]: true,
+            }}
+            icon={this.icon}
+          ></atom-icon>
+        )}
+        {this.passwordToggle && this.value && (
+          <button
+            class="atom-password-icon"
+            type="button"
+            onClick={() => {
+              this.type = this.type === 'password' ? 'text' : 'password'
+            }}
+          >
+            <atom-icon
+              class={{
+                [`atom-color--${this.color}`]: true,
+              }}
+              icon={this.type === 'password' ? 'eye-off' : 'eye'}
+            ></atom-icon>
+          </button>
+        )}
+      </Host>
     )
   }
 }
