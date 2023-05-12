@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Docs/Architecture Decision Records/ADR 0005: Why this Concept and Architeture?" />
+
+# ADR 0005: Why this Concept and Architecture?
+
+🗓️ 2023-03 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
+
+## Context
+
+We need to create new components and modify existing Ionic components for use in our projects.
+
+## Decision Drivers
+
+- We need to create wrappers to facilitate the reuse of modified Ionic components.
+- We need to create new components for our projects.
+- We need to use CSS variables as tokens to ensure consistency across projects.
+- We will only create new components if the Ionic components do not meet our needs.
+- We will only create a component once and use it across all projects.
+- We need a way to create new components and modify Ionic components without changing the Ionic codebase.
+
+## Decision
+
+We have had positive experiences using our old Design System called [Venice](https://github.com/juntossomosmais/venice), but in the past (2020), we encountered issues using Web Components in our projects. As a result, we decided to create React and Vue components separately and share the CSS code using the monorepo.
+
+Another positive experience we had was using Material Design System across our projects. We typically used [Vuetify](https://vuetifyjs.com/) for Vue and [Material UI](https://material-ui.com/) for React, but we modified the components separately in each project, in the other words, we create the same components a lot of times.
+
+In 2023, we are using [Stencil](https://stenciljs.com/) to create the Web Components and [Ionic](https://ionicframework.com/) as our UI framework using Material Design. We will follow the same concept and architecture used in Venice for our new Design System.
+
+The new Design System will allow us to create a library of reusable components, which will make it easier to maintain consistency across all of our projects. We will create wrappers to make it easier to reuse modified Ionic components, and we will create new components as needed.
+
+If the Ionic components do not solve our problems, we will create new components, but only when necessary. We will be able to create new components and modify the Ionic components without changing the Ionic codebase. This will allow us to make changes as needed without introducing unnecessary complexity.
+
+To ensure consistency we will use tokens with CSS variables that can be shared across projects.
+
+Overall, we believe that this architecture and approach will enable us to create a flexible, scalable, and consistent Design System that will serve us well for years to come.
