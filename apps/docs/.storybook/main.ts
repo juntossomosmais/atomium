@@ -1,6 +1,6 @@
 const config = {
   stories: [
-    '../stories/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
     '../../../packages/core/src/**/*.core.stories.@(js|jsx|ts|tsx|mdx)',
     '../../../packages/tokens/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
