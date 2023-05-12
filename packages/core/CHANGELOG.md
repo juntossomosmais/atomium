@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.0-alpha.8](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.7...atomium-v0.1.0-alpha.8) (2023-05-12)
+
+
+### Features
+
+* add input component ([#119](https://github.com/juntossomosmais/atomium/issues/119)) ([1221222](https://github.com/juntossomosmais/atomium/commit/122122250cf2b3f25fd95b2bc66a2ad4d6d7488a))
+* **core:** add aria-hidden as default to improve acessibility ([fad62b6](https://github.com/juntossomosmais/atomium/commit/fad62b66f2479fdd2d19e66a1e6ced7be6551f91))
+* **core:** add css to icons ([e0848bf](https://github.com/juntossomosmais/atomium/commit/e0848bf850ca4449a7ff084e07c85c8a4d43f1cd))
+
 ## [0.1.0-alpha.7](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.6...atomium-v0.1.0-alpha.7) (2023-05-05)
 
 
