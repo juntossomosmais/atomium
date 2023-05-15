@@ -73,6 +73,20 @@ npm run tokens:build
 npm run storybook:build
 ```
 
+## Stories Documentation
+
+We are using [Storybook](https://storybook.js.org/) to document our components.
+
+### Writing Stories
+
+Components stories are written in `packages/core/**/*.core.mdx` files to Web Components version and `packages/core/**/*.react.mdx` files to React version and are automatically loaded by Storybook. You also can using a shared file called `packages/**/*.args.ts` to share the same args between Web Components and React version.
+
+Tokens stories are written in `packages/tokens/**/*.mdx` files.
+
+General documentation is written in `apps/docs/**/*.mdx` files.
+
+These files are written in [MDX](https://mdxjs.com/).
+
 ### Syntax Highlighting
 
 To enable syntax highlighting in your editor, you need to install the following extensions:
