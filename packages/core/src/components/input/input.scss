@@ -20,10 +20,6 @@
     --highlight-color-focused: var(--color-contextual-error-regular);
   }
 
-  &[color='success'] {
-    --highlight-color-focused: var(--color-contextual-success-regular);
-  }
-
   &.input-fill-solid {
     &.has-focus {
       --background: var(--color-neutral-light-5);
@@ -106,10 +102,6 @@
 
     &.atom-color--danger {
       --atom-icon-color: var(--color-contextual-error-regular);
-    }
-
-    &.atom-color--success {
-      --atom-icon-color: var(--color-contextual-success-regular);
     }
   }
 
