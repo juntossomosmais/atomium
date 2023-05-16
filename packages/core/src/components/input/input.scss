@@ -2,11 +2,14 @@
   --atom-icon-color: var(--color-neutral-regular);
   --atom-icon-grid: var(--spacing-xxxxlarge);
   --atom-button-icon-size: 30px;
+  --atom-input-min-height: 57px;
   display: block;
   position: relative;
 }
 
 .atom-input {
+  min-height: var(--atom-input-min-height);
+
   &[color='primary'] {
     --highlight-color-focused: var(--color-brand-primary-regular);
     --atom-icon-color: var(--color-brand-primary-regular);
@@ -88,7 +91,7 @@
   cursor: pointer;
   font-size: 16px;
   position: absolute;
-  top: calc(50% + 2px);
+  top: calc((var(--atom-input-min-height) / 2) + 2px);
   z-index: var(--zindex-100);
 
   .has-focus + & {
