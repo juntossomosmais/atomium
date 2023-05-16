@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.0-alpha.8](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.8...atomium-v0.1.0-alpha.8) (2023-05-16)
+
+
+### Features
+
+* **core:** define default gray color ([6501133](https://github.com/juntossomosmais/atomium/commit/65011330673fc05a1bbe5cd9b97e29eac8cd2f77))
+
+
+### Bug Fixes
+
+* **core:** improve icon position when helper text is active ([5e2668e](https://github.com/juntossomosmais/atomium/commit/5e2668e74164bcf7ab2def5448e025cedb600ce3))
+* **core:** remove unused success color ([fad9c66](https://github.com/juntossomosmais/atomium/commit/fad9c66dd07364d4b74da475c596d0449de6eef8))
+
 ## [0.1.0-alpha.8](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.7...atomium-v0.1.0-alpha.8) (2023-05-12)
 
 
