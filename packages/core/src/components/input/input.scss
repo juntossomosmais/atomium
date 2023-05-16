@@ -8,6 +8,7 @@
 }
 
 .atom-input {
+  --ion-color-step-550: --color-neutral-light-1;
   min-height: var(--atom-input-min-height);
 
   &[color='primary'] {
