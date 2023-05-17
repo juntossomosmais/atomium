@@ -56,6 +56,10 @@
     input {
       cursor: not-allowed;
     }
+
+    .input-highlight.sc-ion-input-md {
+      height: 1px;
+    }
   }
 
   input::-webkit-calendar-picker-indicator,
