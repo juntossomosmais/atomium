@@ -261,21 +261,21 @@ describe('AtomSelect', () => {
 
     await page.waitForChanges()
 
-    const inputEl = page.root?.shadowRoot?.querySelector('ion-select')
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const handleChange = jest.fn()
     const handleDimiss = jest.fn()
     const handleBlur = jest.fn()
     const handleFocus = jest.fn()
     const handleCancel = jest.fn()
 
-    if (inputEl) {
-      inputEl.addEventListener('ionChange', handleChange)
-      inputEl.addEventListener('ionCancel', handleCancel)
-      inputEl.addEventListener('ionCancel', handleDimiss)
-      inputEl.addEventListener('ionBlur', handleBlur)
-      inputEl.addEventListener('ionFocus', handleFocus)
+    if (selectEl) {
+      selectEl.addEventListener('ionChange', handleChange)
+      selectEl.addEventListener('ionCancel', handleCancel)
+      selectEl.addEventListener('ionCancel', handleDimiss)
+      selectEl.addEventListener('ionBlur', handleBlur)
+      selectEl.addEventListener('ionFocus', handleFocus)
 
-      page.root?.shadowRoot?.removeChild(inputEl)
+      page.root?.shadowRoot?.removeChild(selectEl)
       page.rootInstance.disconnectedCallback()
     }
 
