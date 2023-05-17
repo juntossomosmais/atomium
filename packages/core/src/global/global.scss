@@ -59,3 +59,18 @@
   --ion-grid-column-padding: var(--spacing-base);
   --ion-grid-column-padding-sm: var(--spacing-xsmall);
 }
+
+/* Set default colors of ion-checkbox when is inside ion-select because Ionic have a bug in ion-select using with multiple and secondary color
+Issue: https://github.com/ionic-team/ionic-framework/issues/27500
+*/
+
+.select-popover {
+  .item-checkbox-checked {
+    --color: var(--text-color);
+  }
+
+  ion-checkbox {
+    --checkbox-background-checked: var(--color-neutral-light-1);
+    --border-color-checked: var(--color-neutral-light-1);
+  }
+}
