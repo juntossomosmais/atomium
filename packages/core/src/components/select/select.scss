@@ -100,7 +100,7 @@
 }
 
 .select-bottom {
-  /* Just copy the styles from 'input-bottom' of Ionic */
+  /* Just copy the same styles from 'input-bottom' of Ionic to keep the consistency, because `ion-select` don't have helper-text (https://ionicframework.com/docs/api/input#helper--error-text */
   display: flex;
   font-size: 12px;
   justify-content: space-between;
