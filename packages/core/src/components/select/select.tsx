@@ -118,6 +118,9 @@ export class AtomSelect {
           onIonBlur={this.handleBlur}
           onIonFocus={this.handleFocus}
           onIonCancel={this.handleCancel}
+          interfaceOptions={{
+            cssClass: `atom-select-color-${this.color}`,
+          }}
         >
           {this.options.map((option) => (
             <ion-select-option

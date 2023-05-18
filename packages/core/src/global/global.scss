@@ -60,7 +60,7 @@
   --ion-grid-column-padding-sm: var(--spacing-xsmall);
 }
 
-/* Set default colors of ion-checkbox when is inside ion-select because Ionic have a bug in ion-select using with multiple and secondary color
+/* Set default colors of ion-checkbox when is inside ion-select because Ionic don't catch the color of ion-select
 Issue: https://github.com/ionic-team/ionic-framework/issues/27500
 */
 
@@ -72,5 +72,27 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
   ion-checkbox {
     --checkbox-background-checked: var(--color-neutral-light-1);
     --border-color-checked: var(--color-neutral-light-1);
+  }
+
+  &.atom-select-color-primary {
+    .item-checkbox-checked {
+      --color: var(--color-brand-primary-regular);
+    }
+
+    ion-checkbox {
+      --checkbox-background-checked: var(--color-brand-primary-regular);
+      --border-color-checked: var(--color-brand-primary-regular);
+    }
+  }
+
+  &.atom-select-color-secondary {
+    .item-checkbox-checked {
+      --color: var(--color-brand-secondary-regular);
+    }
+
+    ion-checkbox {
+      --checkbox-background-checked: var(--color-brand-secondary-regular);
+      --border-color-checked: var(--color-brand-secondary-regular);
+    }
   }
 }
