@@ -103,6 +103,37 @@ To enable syntax highlighting in your editor, you need to install the following 
 
 - [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html)
 
+## Local test using NPM Link
+
+To locally test Atomium using NPM Link, follow the steps below:
+
+Build the Atomium libraries by running the following command in the root directory of the Atomium project
+
+```bash
+npm run core:build
+```
+
+Link the Atomium libraries by navigating to the `node_modules/@juntossomosmais/atomium` directory
+
+```bash
+cd node_modules/@juntossomosmais/atomium
+npm link
+```
+
+Import Atomium into your project by linking it using NPM Link. Navigate to your project's directory and run the following command
+
+```bash
+npm link @juntossomosmais/atomium
+```
+
+This will create a symbolic link between your project and the locally built Atomium libraries.
+
+Now you can use the imported Atomium components in your project and test them locally.
+
+Make sure to revert these changes and remove the NPM Link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed version of Atomium in your project.
+
+By following these steps, you can easily test and verify any customizations or modifications you have made to Atomium locally using NPM Link.
+
 ## Contributing
 
 All contributions must follow the code patterns of our [Front-end Guideline](https://github.com/juntossomosmais/frontend-guideline)
