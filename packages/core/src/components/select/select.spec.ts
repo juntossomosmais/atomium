@@ -162,7 +162,7 @@ describe('AtomSelect', () => {
     }
 
     expect(spy).toHaveBeenCalled()
-    expect(spy.mock.calls[0][0].detail).toEqual(selectValue)
+    expect(spy).toBeCalledWith(expect.objectContaining({ detail: selectValue }))
   })
 
   it('emits atomFocus event on select focus', async () => {
