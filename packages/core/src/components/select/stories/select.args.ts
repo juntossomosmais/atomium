@@ -143,10 +143,10 @@ export const SelectStoryArgs = {
         category: Category.EVENTS,
       },
     },
-    atomDimiss: {
-      action: 'atomDimiss',
+    atomDismiss: {
+      action: 'atomDismiss',
       description:
-        'Emitted when the select has dimiss. Only applies when the select interface is "action-sheet".',
+        'Emitted when the select has dismiss. Only applies when the select interface is "action-sheet".',
       table: {
         category: Category.EVENTS,
       },
