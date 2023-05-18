@@ -272,7 +272,7 @@ declare namespace LocalJSX {
         "onAtomBlur"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomCancel"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomChange"?: (event: AtomSelectCustomEvent<string>) => void;
-        "onAtomDimiss"?: (event: AtomSelectCustomEvent<void>) => void;
+        "onAtomDismiss"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomFocus"?: (event: AtomSelectCustomEvent<void>) => void;
         "options"?: Array<{
     id: string

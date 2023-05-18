@@ -43,7 +43,7 @@ export class AtomSelect {
   @Event() atomBlur!: EventEmitter<void>
   @Event() atomCancel!: EventEmitter<void>
   @Event() atomChange!: EventEmitter<string>
-  @Event() atomDimiss!: EventEmitter<void>
+  @Event() atomDismiss!: EventEmitter<void>
   @Event() atomFocus!: EventEmitter<void>
 
   componentDidLoad() {
@@ -51,7 +51,7 @@ export class AtomSelect {
     this.selectEl.addEventListener('ionBlur', this.handleBlur)
     this.selectEl.addEventListener('ionFocus', this.handleFocus)
     this.selectEl.addEventListener('ionCancel', this.handleCancel)
-    this.selectEl.addEventListener('ionDimiss', this.handleDimiss)
+    this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
   }
 
   disconnectedCallback() {
@@ -59,7 +59,7 @@ export class AtomSelect {
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.selectEl.removeEventListener('ionFocus', this.handleFocus)
     this.selectEl.removeEventListener('ionCancel', this.handleCancel)
-    this.selectEl.removeEventListener('ionDimiss', this.handleDimiss)
+    this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
   }
 
   private handleChange: IonTypes.IonSelect['onIonChange'] = (event) => {
@@ -82,9 +82,9 @@ export class AtomSelect {
     this.atomFocus.emit()
   }
 
-  private handleDimiss = () => {
-    this.selectEl.removeEventListener('ionDimiss', this.handleDimiss)
-    this.atomDimiss.emit()
+  private handleDismiss = () => {
+    this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
+    this.atomDismiss.emit()
   }
 
   render(): JSX.Element {

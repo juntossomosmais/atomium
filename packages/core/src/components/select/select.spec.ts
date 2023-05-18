@@ -231,7 +231,7 @@ describe('AtomSelect', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it('emits atomDimiss event on select dimiss', async () => {
+  it('emits atomDismiss event on select dismiss', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: '<atom-select />',
@@ -242,13 +242,13 @@ describe('AtomSelect', () => {
     const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const spy = jest.fn()
 
-    page.root?.addEventListener('ionDimiss', spy)
+    page.root?.addEventListener('ionDismiss', spy)
 
     if (selectEl) {
-      selectEl.dispatchEvent(new Event('ionDimiss'))
+      selectEl.dispatchEvent(new Event('ionDismiss'))
     }
 
-    page.root?.dispatchEvent(new CustomEvent('ionDimiss'))
+    page.root?.dispatchEvent(new CustomEvent('ionDismiss'))
 
     expect(spy).toHaveBeenCalled()
   })
@@ -263,7 +263,7 @@ describe('AtomSelect', () => {
 
     const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const handleChange = jest.fn()
-    const handleDimiss = jest.fn()
+    const handleDismiss = jest.fn()
     const handleBlur = jest.fn()
     const handleFocus = jest.fn()
     const handleCancel = jest.fn()
@@ -271,7 +271,7 @@ describe('AtomSelect', () => {
     if (selectEl) {
       selectEl.addEventListener('ionChange', handleChange)
       selectEl.addEventListener('ionCancel', handleCancel)
-      selectEl.addEventListener('ionCancel', handleDimiss)
+      selectEl.addEventListener('ionCancel', handleDismiss)
       selectEl.addEventListener('ionBlur', handleBlur)
       selectEl.addEventListener('ionFocus', handleFocus)
 
@@ -283,7 +283,7 @@ describe('AtomSelect', () => {
 
     expect(handleChange).not.toHaveBeenCalled()
     expect(handleCancel).not.toHaveBeenCalled()
-    expect(handleDimiss).not.toHaveBeenCalled()
+    expect(handleDismiss).not.toHaveBeenCalled()
     expect(handleBlur).not.toHaveBeenCalled()
     expect(handleFocus).not.toHaveBeenCalled()
   })
