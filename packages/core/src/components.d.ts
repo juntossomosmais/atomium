@@ -90,24 +90,25 @@ export namespace Components {
     interface AtomRow {
     }
     interface AtomSelect {
-        "cancelText"?: string;
-        "color"?: 'primary' | 'secondary';
+        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
-        "interface"?: 'popover' | 'action-sheet';
+        "errorText"?: string;
+        "fill": 'solid' | 'outline';
+        "helperText"?: string;
+        "icon"?: string;
         "label"?: string;
-        "labelPlacement"?: 'fixed' | 'stacked';
         "mode": Mode;
         "multiple"?: boolean;
         "name": string;
-        "okText"?: string;
         "options": Array<{
+    id: string
     value: string
     selected?: boolean
     disabled?: boolean
   }>;
-        "overlayDismiss"?: boolean;
         "placeholder": string;
-        "size"?: 'small' | 'large';
+        "readonly"?: boolean;
+        "value"?: IonTypes.IonSelect['value'];
     }
 }
 export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
@@ -258,29 +259,30 @@ declare namespace LocalJSX {
     interface AtomRow {
     }
     interface AtomSelect {
-        "cancelText"?: string;
-        "color"?: 'primary' | 'secondary';
+        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
-        "interface"?: 'popover' | 'action-sheet';
+        "errorText"?: string;
+        "fill"?: 'solid' | 'outline';
+        "helperText"?: string;
+        "icon"?: string;
         "label"?: string;
-        "labelPlacement"?: 'fixed' | 'stacked';
         "mode"?: Mode;
         "multiple"?: boolean;
         "name"?: string;
-        "okText"?: string;
         "onAtomBlur"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomCancel"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomChange"?: (event: AtomSelectCustomEvent<string>) => void;
-        "onAtomDimiss"?: (event: AtomSelectCustomEvent<void>) => void;
+        "onAtomDismiss"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomFocus"?: (event: AtomSelectCustomEvent<void>) => void;
         "options"?: Array<{
+    id: string
     value: string
     selected?: boolean
     disabled?: boolean
   }>;
-        "overlayDismiss"?: boolean;
         "placeholder"?: string;
-        "size"?: 'small' | 'large';
+        "readonly"?: boolean;
+        "value"?: IonTypes.IonSelect['value'];
     }
     interface IntrinsicElements {
         "atom-button": AtomButton;
