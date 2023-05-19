@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.9](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.9...atomium-v0.1.0-alpha.9) (2023-05-19)
+
+
+### Features
+
+* add select component ([#124](https://github.com/juntossomosmais/atomium/issues/124)) ([547cdb9](https://github.com/juntossomosmais/atomium/commit/547cdb98df3e9d5076098229389918639b646cb8))
+
 ## [0.1.0-alpha.9](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.8...atomium-v0.1.0-alpha.9) (2023-05-17)
 
 
