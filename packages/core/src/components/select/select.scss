@@ -1,3 +1,118 @@
 :host {
+  --atom-icon-color: var(--color-neutral-regular);
+  --atom-icon-grid: var(--spacing-xxxxlarge);
+  --atom-button-icon-size: 30px;
+  --atom-select-min-height: 57px;
   display: block;
+  position: relative;
+}
+
+:host(.has-readonly) {
+  &::after {
+    bottom: 0;
+    content: '';
+    cursor: not-allowed;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: var(--zindex-10);
+  }
+}
+
+.atom-select {
+  --ion-color-step-550: --color-neutral-light-1;
+  min-height: var(--atom-select-min-height);
+
+  &[color='primary'] {
+    --highlight-color-focused: var(--color-brand-primary-regular);
+    --atom-icon-color: var(--color-brand-primary-regular);
+  }
+
+  &[color='secondary'] {
+    --highlight-color-focused: var(--color-brand-secondary-regular);
+  }
+
+  &[color='danger'] {
+    --highlight-color-focused: var(--color-contextual-error-regular);
+  }
+
+  &.has-error {
+    --border-color: var(--color-contextual-error-regular);
+    --placeholder-color: var(--text-color);
+    color: var(--color-contextual-error-regular);
+  }
+
+  &.select-fill-solid {
+    &.select-expanded {
+      --background: var(--color-neutral-light-5);
+    }
+  }
+
+  &.select-disabled {
+    &:hover,
+    & {
+      --background: var(--color-neutral-light-2);
+      --color: var(--color-neutral-black);
+      --placeholder-color: var(--color-neutral-black);
+      opacity: 0.55;
+    }
+  }
+
+  &.select-shape-round {
+    --border-radius: 8px;
+  }
+
+  &.has-icon {
+    --padding-start: var(--atom-icon-grid);
+    z-index: var(--zindex-10);
+  }
+}
+
+.atom-icon {
+  color: var(--atom-icon-color);
+  cursor: pointer;
+  font-size: 16px;
+  left: calc(var(--atom-icon-grid) / 2);
+  position: absolute;
+  top: calc((var(--atom-select-min-height) / 2) + 2px);
+  transform: translate(-50%, -50%);
+  z-index: var(--zindex-100);
+
+  .select-expanded + & {
+    &.atom-color--primary {
+      --atom-icon-color: var(--color-brand-primary-regular);
+    }
+
+    &.atom-color--secondary {
+      --atom-icon-color: var(--color-brand-secondary-regular);
+    }
+
+    &.atom-color--danger,
+    &.has-error {
+      --atom-icon-color: var(--color-contextual-error-regular);
+    }
+  }
+
+  .select-disabled + & {
+    opacity: 0.55;
+  }
+}
+
+.select-bottom {
+  /* Just copy the same styles from 'input-bottom' of Ionic to keep the consistency, because `ion-select` don't have helper-text (https://ionicframework.com/docs/api/input#helper--error-text */
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  padding-inline-end: var(--spacing-base);
+  padding-inline-start: var(--spacing-base);
+  padding-top: 5px;
+
+  .helper-text {
+    color: var(--color-neutral-regular);
+  }
+
+  .error-text {
+    color: var(--color-contextual-error-regular);
+  }
 }

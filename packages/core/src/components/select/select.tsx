@@ -1,5 +1,15 @@
 import { Mode } from '@ionic/core'
-import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
+import { JSX as IonTypes } from '@ionic/core/dist/types/components'
+
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core'
 
 @Component({
   tag: 'atom-select',
@@ -9,22 +19,22 @@ import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 export class AtomSelect {
   @Element() selectEl!: HTMLIonSelectElement
 
-  @Prop() color?: 'primary' | 'secondary'
+  @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
   @Prop() name: string
-  @Prop() interface?: 'popover' | 'action-sheet' = 'popover'
   @Prop() placeholder: string
-  @Prop() cancelText?: string
-  @Prop() okText?: string
   @Prop() disabled?: boolean
   @Prop() multiple?: boolean
-  @Prop() size?: 'small' | 'large'
+  @Prop() fill: 'solid' | 'outline' = 'solid'
   @Prop() mode: Mode = 'md'
-  @Prop() overlayDismiss?: boolean
-
   @Prop() label?: string
-  @Prop() labelPlacement?: 'fixed' | 'stacked' = 'stacked'
+  @Prop() icon?: string
+  @Prop() helperText?: string
+  @Prop() errorText?: string
+  @Prop() readonly?: boolean
+  @Prop({ mutable: true, reflect: true }) value?: IonTypes.IonSelect['value']
 
   @Prop({ mutable: true }) options: Array<{
+    id: string
     value: string
     selected?: boolean
     disabled?: boolean
@@ -32,8 +42,8 @@ export class AtomSelect {
 
   @Event() atomBlur!: EventEmitter<void>
   @Event() atomCancel!: EventEmitter<void>
-  @Event({ bubbles: true, composed: true }) atomChange!: EventEmitter<string>
-  @Event() atomDimiss!: EventEmitter<void>
+  @Event() atomChange!: EventEmitter<string>
+  @Event() atomDismiss!: EventEmitter<void>
   @Event() atomFocus!: EventEmitter<void>
 
   componentDidLoad() {
@@ -41,7 +51,7 @@ export class AtomSelect {
     this.selectEl.addEventListener('ionBlur', this.handleBlur)
     this.selectEl.addEventListener('ionFocus', this.handleFocus)
     this.selectEl.addEventListener('ionCancel', this.handleCancel)
-    this.selectEl.addEventListener('ionDimiss', this.handleDimiss)
+    this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
   }
 
   disconnectedCallback() {
@@ -49,11 +59,12 @@ export class AtomSelect {
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.selectEl.removeEventListener('ionFocus', this.handleFocus)
     this.selectEl.removeEventListener('ionCancel', this.handleCancel)
-    this.selectEl.removeEventListener('ionDimiss', this.handleDimiss)
+    this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
   }
 
-  private handleChange = (event: CustomEvent<{ value: string }>) => {
-    this.atomChange.emit(event.detail.value)
+  private handleChange: IonTypes.IonSelect['onIonChange'] = (event) => {
+    this.value = event.detail.value
+    this.atomChange.emit(this.value)
   }
 
   private handleCancel = () => {
@@ -71,42 +82,74 @@ export class AtomSelect {
     this.atomFocus.emit()
   }
 
-  private handleDimiss = () => {
-    this.selectEl.removeEventListener('ionDimiss', this.handleDimiss)
-    this.atomDimiss.emit()
+  private handleDismiss = () => {
+    this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
+    this.atomDismiss.emit()
   }
 
   render(): JSX.Element {
     return (
-      <ion-item>
+      <Host
+        class={{
+          'has-readonly': !!this.readonly,
+        }}
+      >
         <ion-select
+          class={{
+            'atom-select': true,
+            'has-icon': !!this.icon,
+            'has-error': !!this.errorText,
+            'has-readonly': !!this.readonly,
+          }}
           name={this.name}
           label={this.label}
-          label-placement={this.labelPlacement}
-          interface={this.interface}
+          label-placement="stacked"
+          interface="popover"
+          shape="round"
+          fill={this.fill}
           placeholder={this.placeholder}
-          cancel-text={this.cancelText}
-          ok-text={this.okText}
           disabled={this.disabled}
           multiple={this.multiple}
           color={this.color}
           mode={this.mode}
-          overlay-dismiss={this.overlayDismiss}
+          tabindex={this.readonly && '-1'}
+          aria-disabled={this.readonly}
           onIonChange={this.handleChange}
           onIonBlur={this.handleBlur}
           onIonFocus={this.handleFocus}
+          onIonCancel={this.handleCancel}
+          interfaceOptions={{
+            cssClass: `atom-select-color-${this.color}`,
+          }}
         >
           {this.options.map((option) => (
             <ion-select-option
               value={option.value}
               disabled={option.disabled}
-              key={option.value}
+              key={option.id}
             >
               {option.value}
             </ion-select-option>
           ))}
         </ion-select>
-      </ion-item>
+        {(this.helperText || this.errorText) && (
+          <div class="select-bottom">
+            {!this.errorText && (
+              <div class="helper-text">{this.helperText}</div>
+            )}
+            {this.errorText && <div class="error-text">{this.errorText}</div>}
+          </div>
+        )}
+        {this.icon && (
+          <atom-icon
+            class={{
+              [`atom-icon`]: true,
+              [`atom-color--${this.color}`]: true,
+            }}
+            icon={this.icon}
+          ></atom-icon>
+        )}
+      </Host>
     )
   }
 }

@@ -1,47 +1,166 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 
+import { Category } from '@atomium/storybook-utils/enums/table'
+
 export const SelectStoryArgs = {
   parameters: {
+    docs: {
+      description: {
+        component:
+          'Wrapper of Ionic Select component. Read the [Ionic documentation](https://ionicframework.com/docs/api/select) for more information about the available properties and possibilities.',
+      },
+    },
     actions: {
-      handles: ['atomChange', 'atomFocus', 'atomBlur'],
+      handles: [
+        'atomChange',
+        'atomFocus',
+        'atomBlur',
+        'atomCancel',
+        'atomDismiss',
+      ],
     },
   },
   decorators: [withActions],
   argTypes: {
     label: {
       control: 'text',
+      description: 'The label of the select',
+      table: {
+        category: Category.PROPERTIES,
+      },
     },
-    labelPlacement: {
-      control: 'select',
-      options: ['stacked', 'fixed'],
-    },
-    interface: {
-      control: 'select',
-      options: ['popover', 'action-sheet'],
+    placeholder: {
+      control: 'text',
+      description: 'The placeholder of the select',
+      table: {
+        category: Category.PROPERTIES,
+      },
     },
     color: {
       control: 'select',
-      options: ['default', 'primary', 'secondary'],
+      options: ['primary', 'secondary', 'danger'],
+      defaultValue: { summary: 'secondary' },
+      description: "The color to use from your application's color palette.",
+      table: {
+        category: Category.PROPERTIES,
+      },
     },
     multiple: {
       control: 'boolean',
-    },
-    mode: {
-      control: 'select',
-      options: ['ios', 'md'],
+      defaultValue: { summary: false },
+      description: 'If true, the user can select multiple values at once.',
+      table: {
+        category: Category.PROPERTIES,
+      },
     },
     disabled: {
       control: 'boolean',
+      defaultValue: { summary: 'false' },
+      description: 'If `true`, the user cannot interact with the select.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    readonly: {
+      control: 'boolean',
+      defaultValue: { summary: 'false' },
+      description: 'If `true`, the user cannot modify the value.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    icon: {
+      control: 'text',
+      description: 'The icon of the select',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    helperText: {
+      control: 'text',
+      description: 'The helper text of the select',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    value: {
+      description: 'The value of native select',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    errorText: {
+      description: 'The error text of the select',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    fill: {
+      control: 'select',
+      options: ['outline', 'solid'],
+      defaultValue: { summary: 'solid' },
+      description: 'The fill type of the select',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    mode: {
+      control: 'select',
+      options: ['md', 'ios'],
+      defaultValue: { summary: 'md' },
+      description: 'The mode determines which platform styles to use.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    atomChange: {
+      action: 'atomChange',
+      description:
+        'Emitted when the value has changed. This is the main event to listen to if you are doing any manual form validation.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    atomFocus: {
+      action: 'atomFocus',
+      description: 'Emitted when the select has focus.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    atomBlur: {
+      action: 'atomBlur',
+      description: 'Emitted when the select has blur.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    atomCancel: {
+      action: 'atomCancel',
+      description:
+        'Emitted when the select has cancel. Only applies when the select interface is "action-sheet".',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    atomDismiss: {
+      action: 'atomDismiss',
+      description:
+        'Emitted when the select has dismiss. Only applies when the select interface is "action-sheet".',
+      table: {
+        category: Category.EVENTS,
+      },
     },
   },
 }
 
 export const SelectComponentArgs = {
-  interface: 'popover',
-  color: undefined,
-  mode: 'md',
+  color: 'secondary',
   disabled: false,
+  readonly: false,
   multiple: false,
-  label: 'Select',
-  labelPlacement: 'stacked',
+  label: 'Select example',
+  placeholder: 'Select an option',
+  mode: 'md',
+  fill: 'solid',
 }

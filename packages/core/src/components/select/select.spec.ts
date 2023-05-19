@@ -8,31 +8,39 @@ const optionsMock = [
 ]
 
 describe('AtomSelect', () => {
-  it('should render an ion-select element', async () => {
+  it('should render with default values', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: '<atom-select />',
     })
 
-    expect(page.root.shadowRoot.querySelector('ion-select')).toBeTruthy()
+    page.rootInstance.options = optionsMock
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-select>
+        <mock:shadow-root>
+          <ion-select class="atom-select" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round">
+            <ion-select-option value="apple">apple</ion-select-option>
+            <ion-select-option value="banana" disabled>banana</ion-select-option>
+            <ion-select-option value="orange">orange</ion-select-option>
+          </ion-select>
+        </mock:shadow-root>
+      </atom-select>
+    `)
   })
   it('renders with all props', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: `<atom-select
         name="test"
-        interface="action-sheet"
+        label="Select a fruit"
         placeholder="Select an option"
-        cancel-text="Cancel"
-        ok-text="OK"
+        color="primary"
+        mode="ios"
+        fill="outline"
         disabled
         multiple
-        size="large"
-        color="secondary"
-        mode="ios"
-        overlay-dismiss
-        label="Select a fruit"
-        label-placement="stacked"
       ></atom-select>`,
     })
 
@@ -40,29 +48,92 @@ describe('AtomSelect', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-select
-        name="test"
-        interface="action-sheet"
-        placeholder="Select an option"
-        cancel-text="Cancel"
-        ok-text="OK"
-        disabled
-        multiple
-        size="large"
-        color="secondary"
-        mode="ios"
-        overlay-dismiss
-        label="Select a fruit"
-        label-placement="stacked"
-      >
+      <atom-select color="primary" disabled="" fill="outline" label="Select a fruit" mode="ios" multiple="" name="test" placeholder="Select an option">
         <mock:shadow-root>
-          <ion-item>
-            <ion-select cancel-text="Cancel" color="secondary" disabled="" interface="action-sheet" label="Select a fruit" label-placement="stacked" mode="ios" multiple="" name="test" ok-text="OK" overlay-dismiss="" placeholder="Select an option">
-              <ion-select-option value="apple">apple</ion-select-option>
-              <ion-select-option value="banana" disabled>banana</ion-select-option>
-              <ion-select-option value="orange">orange</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <ion-select class="atom-select" color="primary" disabled="" fill="outline" interface="popover" label="Select a fruit" label-placement="stacked" mode="ios" multiple="" name="test" placeholder="Select an option" shape="round">
+            <ion-select-option value="apple">apple</ion-select-option>
+            <ion-select-option value="banana" disabled>banana</ion-select-option>
+            <ion-select-option value="orange">orange</ion-select-option>
+          </ion-select>
+        </mock:shadow-root>
+      </atom-select>
+    `)
+  })
+
+  it('render with icon', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: `
+        <atom-select icon="person" />
+      `,
+    })
+
+    page.rootInstance.options = optionsMock
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-select icon="person">
+        <mock:shadow-root>
+          <ion-select class="atom-select has-icon" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round">
+            <ion-select-option value="apple">apple</ion-select-option>
+            <ion-select-option disabled="" value="banana">banana</ion-select-option>
+            <ion-select-option value="orange">orange</ion-select-option>
+          </ion-select>
+          <atom-icon class="atom-color--secondary atom-icon" icon="person"></atom-icon>
+        </mock:shadow-root>
+      </atom-select>
+    `)
+  })
+
+  it('render with helper text', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: `
+        <atom-select helper-text="Helper text" />
+      `,
+    })
+
+    page.rootInstance.options = optionsMock
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-select helper-text="Helper text">
+        <mock:shadow-root>
+          <ion-select class="atom-select" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round">
+            <ion-select-option value="apple">apple</ion-select-option>
+            <ion-select-option disabled="" value="banana">banana</ion-select-option>
+            <ion-select-option value="orange">orange</ion-select-option>
+          </ion-select>
+          <div class="select-bottom">
+            <div class="helper-text">Helper text</div>
+          </div>
+        </mock:shadow-root>
+      </atom-select>
+    `)
+  })
+
+  it('render with error text and do not shows helper text', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: `
+        <atom-select error-text="Error text" helper-text="Helper text" />
+      `,
+    })
+
+    page.rootInstance.options = optionsMock
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-select error-text="Error text" helper-text="Helper text">
+        <mock:shadow-root>
+          <ion-select class="atom-select has-error" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round">
+            <ion-select-option value="apple">apple</ion-select-option>
+            <ion-select-option disabled="" value="banana">banana</ion-select-option>
+            <ion-select-option value="orange">orange</ion-select-option>
+          </ion-select>
+          <div class="select-bottom">
+            <div class="error-text">Error text</div>
+          </div>
         </mock:shadow-root>
       </atom-select>
     `)
@@ -74,21 +145,24 @@ describe('AtomSelect', () => {
       html: '<atom-select />',
     })
 
-    page.rootInstance.options = optionsMock
     await page.waitForChanges()
 
-    const selectEl = page.root.shadowRoot.querySelector('ion-select')
-    const spy = jest.fn()
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const selectValue = 'Option 2'
+    const spy = jest.fn()
 
-    page.root.addEventListener('ionChange', spy)
-    selectEl.value = selectValue
+    page.root?.addEventListener('atomChange', spy)
 
-    page.root.dispatchEvent(
-      new CustomEvent('ionChange', { detail: { value: selectValue } })
-    )
+    const customEvent = new CustomEvent('ionChange', {
+      detail: { value: selectValue },
+    })
+
+    if (selectEl) {
+      selectEl.dispatchEvent(customEvent)
+    }
 
     expect(spy).toHaveBeenCalled()
+    expect(spy).toBeCalledWith(expect.objectContaining({ detail: selectValue }))
   })
 
   it('emits atomFocus event on select focus', async () => {
@@ -99,13 +173,16 @@ describe('AtomSelect', () => {
 
     await page.waitForChanges()
 
-    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const spy = jest.fn()
 
-    page.root.addEventListener('ionFocus', spy)
-    selectEl.focus()
+    page.root?.addEventListener('ionFocus', spy)
 
-    page.root.dispatchEvent(new CustomEvent('ionFocus'))
+    if (selectEl) {
+      selectEl.dispatchEvent(new Event('ionFocus'))
+    }
+
+    page.root?.dispatchEvent(new CustomEvent('ionFocus'))
 
     expect(spy).toHaveBeenCalled()
   })
@@ -118,13 +195,16 @@ describe('AtomSelect', () => {
 
     await page.waitForChanges()
 
-    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const spy = jest.fn()
 
-    page.root.addEventListener('ionBlur', spy)
-    selectEl.blur()
+    page.root?.addEventListener('ionBlur', spy)
 
-    page.root.dispatchEvent(new CustomEvent('ionBlur'))
+    if (selectEl) {
+      selectEl.dispatchEvent(new Event('ionBlur'))
+    }
+
+    page.root?.dispatchEvent(new CustomEvent('ionBlur'))
 
     expect(spy).toHaveBeenCalled()
   })
@@ -137,16 +217,21 @@ describe('AtomSelect', () => {
 
     await page.waitForChanges()
 
-    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const spy = jest.fn()
 
-    page.root.addEventListener('ionCancel', spy)
-    page.root.dispatchEvent(new CustomEvent('ionCancel'))
+    page.root?.addEventListener('ionCancel', spy)
+
+    if (selectEl) {
+      selectEl.dispatchEvent(new Event('ionCancel'))
+    }
+
+    page.root?.dispatchEvent(new CustomEvent('ionCancel'))
 
     expect(spy).toHaveBeenCalled()
   })
 
-  it('emits atomDimiss event on select dimiss', async () => {
+  it('emits atomDismiss event on select dismiss', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: '<atom-select />',
@@ -154,12 +239,52 @@ describe('AtomSelect', () => {
 
     await page.waitForChanges()
 
-    const selectEl = page.root.shadowRoot.querySelector('ion-select')
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const spy = jest.fn()
 
-    page.root.addEventListener('ionDimiss', spy)
-    page.root.dispatchEvent(new CustomEvent('ionDimiss'))
+    page.root?.addEventListener('ionDismiss', spy)
+
+    if (selectEl) {
+      selectEl.dispatchEvent(new Event('ionDismiss'))
+    }
+
+    page.root?.dispatchEvent(new CustomEvent('ionDismiss'))
 
     expect(spy).toHaveBeenCalled()
+  })
+
+  it('should remove all event listeners on disconnect', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    await page.waitForChanges()
+
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
+    const handleChange = jest.fn()
+    const handleDismiss = jest.fn()
+    const handleBlur = jest.fn()
+    const handleFocus = jest.fn()
+    const handleCancel = jest.fn()
+
+    if (selectEl) {
+      selectEl.addEventListener('ionChange', handleChange)
+      selectEl.addEventListener('ionCancel', handleCancel)
+      selectEl.addEventListener('ionCancel', handleDismiss)
+      selectEl.addEventListener('ionBlur', handleBlur)
+      selectEl.addEventListener('ionFocus', handleFocus)
+
+      page.root?.shadowRoot?.removeChild(selectEl)
+      page.rootInstance.disconnectedCallback()
+    }
+
+    await page.waitForChanges()
+
+    expect(handleChange).not.toHaveBeenCalled()
+    expect(handleCancel).not.toHaveBeenCalled()
+    expect(handleDismiss).not.toHaveBeenCalled()
+    expect(handleBlur).not.toHaveBeenCalled()
+    expect(handleFocus).not.toHaveBeenCalled()
   })
 })
