@@ -203,9 +203,23 @@ export const InputStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    counterFormatter: {
+      description:
+        'Function that accepts a current value of the input, and returns the string to be displayed in the input counter. Note that the returned string must contain the current value within it somewhere, otherwise the counter will not update as the user types. `(inputLength: number, maxLength: number) => string | undefined`',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     clearOnEdit: {
       description:
         'If `true`, the value will be cleared after focus upon edit. Defaults to true when type is "password", false for all other types.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    enterKeyHint: {
+      description:
+        'A hint to the browser for which enter key to display. Possible values: "enter", "done", "go", "next", "previous", "search", and "send".',
       table: {
         category: Category.PROPERTIES,
       },
@@ -226,6 +240,13 @@ export const InputStoryArgs = {
     inputmode: {
       description:
         'A hint to the browser for which keyboard to display. Accepts the following values: - `none` - `text` - `tel` - `url` - `email` - `numeric` - `decimal` - `search`',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    debounce: {
+      description:
+        'The amount of time, in milliseconds, to wait to trigger the `atomChange` event after each keystroke.',
       table: {
         category: Category.PROPERTIES,
       },
