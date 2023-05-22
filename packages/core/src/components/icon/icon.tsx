@@ -9,8 +9,8 @@ const CDN_URL = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg'
   shadow: true,
 })
 export class AtomIcon {
-  @Prop() icon?: string
   @Prop() color?: Color
+  @Prop() icon?: string
   @Prop() size?: 'small' | 'large'
 
   render(): JSX.Element {
