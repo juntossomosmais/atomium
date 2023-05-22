@@ -19,36 +19,18 @@ import {
 export class AtomInput {
   @Element() element!: HTMLElement
 
-  @Prop() label?: string
-  @Prop() placeholder?: string
-  @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
-  @Prop() labelPlacement?: 'stacked' | 'floating' = 'floating'
-  @Prop({ mutable: true, reflect: true }) value?: IonTypes.IonInput['value']
-  @Prop() helperText?: string
-  @Prop() errorText?: string
-  @Prop() hasError = false
-  @Prop({ mutable: true }) type: TextFieldTypes = 'text'
-  @Prop() counter = false
-  @Prop() name?: string
-  @Prop() minlength?: number
-  @Prop() maxlength?: number
-  @Prop() disabled = false
-  @Prop() required = false
-  @Prop() mode: Mode = 'md'
-  @Prop() fill: 'solid' | 'outline' = 'solid'
-  @Prop() max?: string | number
-  @Prop() min?: string | number
-  @Prop() step?: string
-  @Prop() autofocus = false
-  @Prop() pattern?: string
-  @Prop() multiple = false
   @Prop() autocomplete?: 'on' | 'off' = 'off'
-  @Prop() shape: 'round' | undefined = 'round'
-  @Prop() readonly = false
-  @Prop() clearOnEdit = false
+  @Prop() autofocus = false
   @Prop() clearInput = false
+  @Prop() clearOnEdit = false
+  @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
+  @Prop() counter = false
+  @Prop() disabled = false
+  @Prop() errorText?: string
+  @Prop() fill: 'solid' | 'outline' = 'solid'
+  @Prop() hasError = false
+  @Prop() helperText?: string
   @Prop() icon?: string
-  @Prop() passwordToggle = false
   @Prop() inputmode?:
     | 'none'
     | 'text'
@@ -58,6 +40,24 @@ export class AtomInput {
     | 'numeric'
     | 'decimal'
     | 'search'
+  @Prop() label?: string
+  @Prop() labelPlacement?: 'stacked' | 'floating' = 'floating'
+  @Prop() max?: string | number
+  @Prop() maxlength?: number
+  @Prop() min?: string | number
+  @Prop() minlength?: number
+  @Prop() mode: Mode = 'md'
+  @Prop() multiple = false
+  @Prop() name?: string
+  @Prop() passwordToggle = false
+  @Prop() pattern?: string
+  @Prop() placeholder?: string
+  @Prop() readonly = false
+  @Prop() required = false
+  @Prop() shape: 'round' | undefined = 'round'
+  @Prop() step?: string
+  @Prop({ mutable: true }) type: TextFieldTypes = 'text'
+  @Prop({ mutable: true, reflect: true }) value?: IonTypes.IonInput['value']
 
   @Event() atomFocus!: EventEmitter<void>
   @Event() atomBlur!: EventEmitter<void>
