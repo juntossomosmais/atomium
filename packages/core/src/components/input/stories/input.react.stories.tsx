@@ -37,20 +37,20 @@ export const Default: StoryObj = {
   },
 }
 
-export const Disabled: StoryObj = {
-  render: (args) => createInput(args),
-  args: {
-    ...InputComponentArgs,
-    disabled: true,
-  },
-}
-
 export const Password: StoryObj = {
   render: (args) => createInput(args),
   args: {
     ...InputComponentArgs,
     type: 'password',
     passwordToggle: true,
+  },
+}
+
+export const Disabled: StoryObj = {
+  render: (args) => createInput(args),
+  args: {
+    ...InputComponentArgs,
+    disabled: true,
   },
 }
 
