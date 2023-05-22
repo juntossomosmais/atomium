@@ -8,17 +8,17 @@ import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core'
 })
 export class AtomButton {
   @Prop() color: 'primary' | 'secondary' = 'primary'
-  @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
-  @Prop() size: 'small' | 'default' | 'large' = 'default'
-  @Prop() expand?: 'block'
   @Prop() disabled?: boolean
-  @Prop() type: 'submit' | 'reset' | 'button' = 'button'
-  @Prop() mode: Mode = 'md'
-  @Prop() loading?: boolean
-  @Prop() href?: string
-  @Prop() rel?: string
-  @Prop() target?: string
   @Prop() download?: string
+  @Prop() expand?: 'block'
+  @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
+  @Prop() href?: string
+  @Prop() loading?: boolean
+  @Prop() mode: Mode = 'md'
+  @Prop() rel?: string
+  @Prop() size: 'small' | 'default' | 'large' = 'default'
+  @Prop() target?: string
+  @Prop() type: 'submit' | 'reset' | 'button' = 'button'
 
   @Event() atomClick: EventEmitter
 
