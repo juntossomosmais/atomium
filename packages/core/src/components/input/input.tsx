@@ -25,7 +25,20 @@ export class AtomInput {
   @Prop() clearOnEdit = false
   @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
   @Prop() counter = false
+  @Prop() counterFormatter?: (
+    inputLength: number,
+    maxLength: number
+  ) => string | undefined
+  @Prop() debounce: number
   @Prop() disabled = false
+  @Prop() enterKeyHint?:
+    | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send'
   @Prop() errorText?: string
   @Prop() fill: 'solid' | 'outline' = 'solid'
   @Prop() hasError = false
@@ -140,7 +153,11 @@ export class AtomInput {
           clearInput={this.clearInput}
           clearOnEdit={this.clearOnEdit}
           color={this.color}
+          counter={this.counter}
+          counterFormatter={this.counterFormatter}
+          debounce={this.debounce}
           disabled={this.disabled}
+          enterKeyHint={this.enterKeyHint}
           errorText={this.errorText}
           fill={this.fill}
           helperText={this.helperText}
