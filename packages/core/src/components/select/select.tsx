@@ -20,16 +20,16 @@ export class AtomSelect {
   @Element() selectEl!: HTMLIonSelectElement
 
   @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
+  @Prop() disabled?: boolean
+  @Prop() errorText?: string
+  @Prop() fill: 'solid' | 'outline' = 'solid'
+  @Prop() helperText?: string
+  @Prop() icon?: string
+  @Prop() label?: string
+  @Prop() mode: Mode = 'md'
+  @Prop() multiple?: boolean
   @Prop() name: string
   @Prop() placeholder: string
-  @Prop() disabled?: boolean
-  @Prop() multiple?: boolean
-  @Prop() fill: 'solid' | 'outline' = 'solid'
-  @Prop() mode: Mode = 'md'
-  @Prop() label?: string
-  @Prop() icon?: string
-  @Prop() helperText?: string
-  @Prop() errorText?: string
   @Prop() readonly?: boolean
   @Prop({ mutable: true, reflect: true }) value?: IonTypes.IonSelect['value']
 
