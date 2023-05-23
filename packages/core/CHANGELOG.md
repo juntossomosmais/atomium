@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.10](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.10...atomium-v0.1.0-alpha.10) (2023-05-23)
+
+
+### Features
+
+* **input:** add more props ([79d57bf](https://github.com/juntossomosmais/atomium/commit/79d57bfc5a5b4a382c8572ed1aa719d1322332e0))
+
 ## [0.1.0-alpha.10](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.9...atomium-v0.1.0-alpha.10) (2023-05-19)
 
 
