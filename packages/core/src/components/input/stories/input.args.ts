@@ -218,6 +218,7 @@ export const InputStoryArgs = {
       },
     },
     enterKeyHint: {
+      defaultValue: { summary: 'enter' },
       description:
         'A hint to the browser for which enter key to display. Possible values: "enter", "done", "go", "next", "previous", "search", and "send".',
       table: {
