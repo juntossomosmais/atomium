@@ -20,13 +20,13 @@ export class AtomCol {
 
   componentDidLoad() {
     const ionCol = document.createElement('ion-col')
+    const childNodes = this.element.childNodes
+
     Array.from(this.element.attributes).forEach((attr) => {
       ionCol.setAttribute(attr.name.replace('ato', 'ion'), attr.value)
     })
-    for (let i = this.element.childNodes.length - 1; i >= 0; i--) {
-      const child = this.element.removeChild(this.element.childNodes[i])
-      ionCol.appendChild(child)
-    }
+    Array.from(childNodes).forEach((child) => ionCol.appendChild(child))
+
     this.element.parentNode.replaceChild(ionCol, this.element)
   }
 
