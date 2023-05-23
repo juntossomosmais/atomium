@@ -123,9 +123,9 @@ export namespace Components {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomTextarea {
+        "autoGrow": boolean;
         "autocomplete"?: 'on' | 'off';
         "autofocus": boolean;
-        "autogrow": boolean;
         "clearOnEdit": boolean;
         "color"?: 'primary' | 'secondary' | 'danger';
         "cols"?: number;
@@ -136,7 +136,7 @@ export namespace Components {
   ) => string | undefined;
         "debounce": number;
         "disabled": boolean;
-        "enterKeyHint"?: | 'enter'
+        "enterKeyHint": | 'enter'
     | 'done'
     | 'go'
     | 'next'
@@ -167,9 +167,9 @@ export namespace Components {
         "placeholder"?: string;
         "readonly": boolean;
         "required": boolean;
-        "rows"?: number;
+        "rows": number;
         "setFocus": () => Promise<void>;
-        "setTextareaEl": (textareaEl: HTMLIonTextareaElement) => Promise<void>;
+        "setInputEl": (textareaEl: HTMLIonTextareaElement) => Promise<void>;
         "shape": 'round' | undefined;
         "step"?: string;
         "value"?: IonTypes.IonTextarea['value'];
@@ -373,9 +373,9 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomTextarea {
+        "autoGrow"?: boolean;
         "autocomplete"?: 'on' | 'off';
         "autofocus"?: boolean;
-        "autogrow"?: boolean;
         "clearOnEdit"?: boolean;
         "color"?: 'primary' | 'secondary' | 'danger';
         "cols"?: number;
