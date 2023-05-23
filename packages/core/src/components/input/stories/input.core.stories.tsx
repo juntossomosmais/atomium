@@ -12,7 +12,7 @@ export default {
 const createInput = (args) => {
   return html`
     <atom-input
-      label="Example Input"
+      label="Label example"
       placeholder="Placeholder Text"
       clear-input=${args.clearInput}
       color=${args.color}
