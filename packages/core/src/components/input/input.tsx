@@ -31,14 +31,14 @@ export class AtomInput {
   ) => string | undefined
   @Prop() debounce: number
   @Prop() disabled = false
-  @Prop() enterKeyHint?:
+  @Prop() enterKeyHint:
     | 'enter'
     | 'done'
     | 'go'
     | 'next'
     | 'previous'
     | 'search'
-    | 'send'
+    | 'send' = 'enter'
   @Prop() errorText?: string
   @Prop() fill: 'solid' | 'outline' = 'solid'
   @Prop() hasError = false
@@ -53,6 +53,7 @@ export class AtomInput {
     | 'numeric'
     | 'decimal'
     | 'search'
+
   @Prop() label?: string
   @Prop() labelPlacement?: 'stacked' | 'floating' = 'floating'
   @Prop() max?: string | number
