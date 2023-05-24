@@ -19,6 +19,9 @@ export class AtomCol {
   @Element() private element!: HTMLElement
 
   componentDidLoad() {
+    // Create a new <ion-col> element to replace the current <atom-col> element
+    // This transformation is needed to change the tag from <atom-col> to <ion-col>
+    // in order to align with the desired component structure and styling framework.
     const ionCol = document.createElement('ion-col')
     const childNodes = this.element.childNodes
 
