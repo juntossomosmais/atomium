@@ -269,7 +269,6 @@ export const TextareaComponentArgs = {
   shape: 'round',
   rows: 4,
   mode: 'md',
-  type: 'text',
   disabled: false,
   readonly: false,
   autoGrow: false,
