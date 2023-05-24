@@ -92,4 +92,25 @@ describe('AtomCol', () => {
       <ion-col push="12">1</ion-col>
     `)
   })
+
+  it('should render elements in sequence', async () => {
+    const page = await newSpecPage({
+      components: [AtomCol],
+      html: `
+        <atom-col push="12">
+          <span>1</span>
+          <span>2</span>
+        </atom-col>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <ion-col push="12">
+        <span>1</span>
+        <span>2</span>
+      </ion-col>
+    `)
+  })
 })
