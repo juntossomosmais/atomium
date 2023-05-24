@@ -41,7 +41,7 @@
   }
 
   &.input-shape-round {
-    --border-radius: 8px;
+    --border-radius: var(--border-radius-medium);
   }
 
   &.has-icon {
