@@ -8,7 +8,7 @@
 }
 
 .atom-textarea {
-  --ion-color-step-550: --color-neutral-light-1;
+  --ion-color-step-550: var(--color-neutral-light-1);
   min-height: var(--atom-textarea-min-height);
 
   &[color='primary'] {
