@@ -23,14 +23,14 @@ export class AtomCol {
     // This transformation is needed to change the tag from <atom-col> to <ion-col>
     // in order to align with the desired component structure and styling framework.
     const ionCol = document.createElement('ion-col')
-    const childNodes = this.element.childNodes
+    const atomCol = this.element
 
-    Array.from(this.element.attributes).forEach((attr) => {
+    Array.from(atomCol.attributes).forEach((attr) => {
       ionCol.setAttribute(attr.name.replace('ato', 'ion'), attr.value)
     })
-    Array.from(childNodes).forEach((child) => ionCol.appendChild(child))
+    Array.from(atomCol.childNodes).forEach((child) => ionCol.appendChild(child))
 
-    this.element.parentNode.replaceChild(ionCol, this.element)
+    atomCol.parentNode.replaceChild(ionCol, atomCol)
   }
 
   render() {
