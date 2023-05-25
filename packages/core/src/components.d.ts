@@ -20,6 +20,7 @@ export namespace Components {
         "loading"?: boolean;
         "mode": Mode;
         "rel"?: string;
+        "shape"?: 'round' | 'circle';
         "size": 'small' | 'default' | 'large';
         "target"?: string;
         "type": 'submit' | 'reset' | 'button';
@@ -264,6 +265,7 @@ declare namespace LocalJSX {
         "mode"?: Mode;
         "onAtomClick"?: (event: AtomButtonCustomEvent<any>) => void;
         "rel"?: string;
+        "shape"?: 'round' | 'circle';
         "size"?: 'small' | 'default' | 'large';
         "target"?: string;
         "type"?: 'submit' | 'reset' | 'button';

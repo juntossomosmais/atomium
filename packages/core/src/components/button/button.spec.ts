@@ -96,6 +96,23 @@ describe('AtomButton', () => {
     `)
   })
 
+  it('change shape to "circle"', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<atom-button shape="circle"></atom-button>',
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root?.shadowRoot).toEqualHtml(`
+      <ion-button class="atom-button is-circle" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
+        <span class="slot">
+          <slot></slot>
+        </span>
+      </ion-button>
+    `)
+  })
+
   it('emits atoClick event on button click', async () => {
     const page = await newSpecPage({
       components: [AtomButton],

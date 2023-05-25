@@ -103,6 +103,14 @@ export const ButtonStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    shape: {
+      control: 'select',
+      options: ['round', 'circle'],
+      description: 'The shape of the button.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     mode: {
       control: 'select',
       options: ['md', 'ios'],
