@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.0-alpha.11](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.10...atomium-v0.1.0-alpha.11) (2023-05-25)
+
+
+### Features
+
+* **core:** add Button shape circle ([#133](https://github.com/juntossomosmais/atomium/issues/133)) ([671c6d8](https://github.com/juntossomosmais/atomium/commit/671c6d8109d43f72874cfb0f90725b0e7acca6a0))
+* **input:** add more props ([79d57bf](https://github.com/juntossomosmais/atomium/commit/79d57bfc5a5b4a382c8572ed1aa719d1322332e0))
+
+
+### Bug Fixes
+
+* **core:** grid column load elements logic ([#131](https://github.com/juntossomosmais/atomium/issues/131)) ([be9e789](https://github.com/juntossomosmais/atomium/commit/be9e789d5e85ca668ebda1ffc796548f6c739133))
+
 ## [0.1.0-alpha.10](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.9...atomium-v0.1.0-alpha.10) (2023-05-19)
 
 

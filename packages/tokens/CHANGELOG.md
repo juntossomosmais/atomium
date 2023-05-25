@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.11](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.7...atomium-tokens-v0.1.0-alpha.11) (2023-05-25)
+
+
+### Features
+
+* **tokens:** add --border-radius-medium ([eb9447e](https://github.com/juntossomosmais/atomium/commit/eb9447e4981c4d7f1df2d4d6a5930087fab15de9))
+
 ## [0.1.0-alpha.7](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.6...atomium-tokens-v0.1.0-alpha.7) (2023-05-05)
 
 
