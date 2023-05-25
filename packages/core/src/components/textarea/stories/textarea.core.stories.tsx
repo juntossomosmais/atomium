@@ -110,7 +110,7 @@ export const WithCounter: StoryObj = {
       label="Counter example"
       placeholder="Start typing..."
       counter="true"
-      maxlength="200"
+      maxlength="300"
     ></atom-textarea>
 
     <script>
@@ -119,7 +119,7 @@ export const WithCounter: StoryObj = {
           '.atom-textarea--counter-example'
         )
         customTextarea.counterFormatter = (inputLength, maxLength) =>
-          maxLength - inputLength + ' characters remaining'
+          inputLength + '/300'
       })()
     </script>
   `,

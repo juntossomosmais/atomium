@@ -99,9 +99,9 @@ export const WithCounter: StoryObj = {
         label="Counter example"
         placeholder="Start typing..."
         counter={true}
-        maxlength={200}
+        maxlength={300}
         counterFormatter={(inputLength: number, maxLength: number) =>
-          `${inputLength}/${maxLength} characters remaining`
+          `${inputLength}/300`
         }
       />
     )
