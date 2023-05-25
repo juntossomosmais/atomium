@@ -19,15 +19,18 @@ export class AtomCol {
   @Element() private element!: HTMLElement
 
   componentDidLoad() {
+    // Create a new <ion-col> element to replace the current <atom-col> element
+    // This transformation is needed to change the tag from <atom-col> to <ion-col>
+    // in order to align with the desired component structure and styling framework.
     const ionCol = document.createElement('ion-col')
-    Array.from(this.element.attributes).forEach((attr) => {
+    const atomCol = this.element
+
+    Array.from(atomCol.attributes).forEach((attr) => {
       ionCol.setAttribute(attr.name.replace('ato', 'ion'), attr.value)
     })
-    for (let i = this.element.childNodes.length - 1; i >= 0; i--) {
-      const child = this.element.removeChild(this.element.childNodes[i])
-      ionCol.appendChild(child)
-    }
-    this.element.parentNode.replaceChild(ionCol, this.element)
+    Array.from(atomCol.childNodes).forEach((child) => ionCol.appendChild(child))
+
+    atomCol.parentNode.replaceChild(ionCol, atomCol)
   }
 
   render() {
