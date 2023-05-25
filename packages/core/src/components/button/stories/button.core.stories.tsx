@@ -20,6 +20,7 @@ const createButton = (args) => {
       loading="${args.loading}"
       type="${args.type}"
       mode="${args.mode}"
+      shape="${args.shape}"
     >
       ${args.label}
     </atom-button>
@@ -48,5 +49,29 @@ export const Text: StoryObj = {
     ...Primary.args,
     color: 'secondary',
     fill: 'clear',
+  },
+}
+
+export const CircleButton: StoryObj = {
+  render: (args) => html`
+    <atom-button
+      color="${args.color}"
+      fill="${args.fill}"
+      expand="${args.expand}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}"
+      mode="${args.mode}"
+      shape="${args.shape}"
+    >
+      <atom-icon icon="heart"></atom-icon>
+    </atom-button>
+  `,
+  args: {
+    ...Primary.args,
+    color: 'secondary',
+    fill: 'outline',
+    shape: 'circle',
   },
 }
