@@ -115,11 +115,14 @@ export const WithCounter: StoryObj = {
 
     <script>
       ;(function () {
-        const customTextarea = document.querySelector(
-          '.atom-textarea--counter-example'
-        )
-        customTextarea.counterFormatter = (inputLength, maxLength) =>
-          inputLength + '/300'
+        const formatter =  () => {
+          const customTextarea = document.querySelector(
+            '.atom-textarea--counter-example'
+          )
+          customTextarea.counterFormatter = (inputLength, maxLength) =>
+            inputLength + '/300'
+        })
+        formatter()
       })()
     </script>
   `,
