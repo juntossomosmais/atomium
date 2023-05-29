@@ -55,7 +55,7 @@ export const GridStoryArgs = {
 export const GridCSS = `
   .col {
     background-color: var(--color-neutral-light-1);
-    border: solid 1px var(--color-neutral-white);
+    margin-bottom: 16px;
     color: var(--color-neutral-white);
     text-align: center;
   }
