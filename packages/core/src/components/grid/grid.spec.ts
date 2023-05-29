@@ -8,7 +8,7 @@ describe('AtoGrid', () => {
       html: '<atom-grid></atom-grid>',
     })
 
-    expect(page.root.querySelector('ion-grid')).toBeTruthy()
+    expect(page.root?.shadowRoot?.querySelector('ion-grid')).toBeTruthy()
   })
 
   it('should set fixed prop correctly', async () => {
@@ -29,16 +29,23 @@ describe('AtoGrid', () => {
 
     expect(page.root).toEqualHtml(`
       <atom-grid fixed="true">
-        <ion-grid fixed="">
-          <atom-row>
-            <atom-col>1</atom-col>
-            <atom-col>2</atom-col>
-            <atom-col>3</atom-col>
-          </atom-row>
-          <atom-grid>
-            <ion-grid></ion-grid>
-          </atom-grid>
-        </ion-grid>
+        <mock:shadow-root>
+          <ion-grid class="atom-grid" fixed="">
+            <slot></slot>
+          </ion-grid>
+        </mock:shadow-root>
+        <atom-row>
+          <atom-col>1</atom-col>
+          <atom-col>2</atom-col>
+          <atom-col>3</atom-col>
+        </atom-row>
+        <atom-grid>
+          <mock:shadow-root>
+            <ion-grid class="atom-grid">
+              <slot></slot>
+            </ion-grid>
+          </mock:shadow-root>
+        </atom-grid>
       </atom-grid>
     `)
   })
