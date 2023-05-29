@@ -12,10 +12,20 @@ on:
       - '**.mdx'
       - '**.scss'
       - '**.properties'
+      - '**.json'
 
   pull_request:
     branches:
       - main
+    paths:
+      - '**.ts'
+      - '**.tsx'
+      - '**.js'
+      - '**.scss'
+      - '**.mdx'
+      - '**.scss'
+      - '**.properties'
+      - '**.json'
 
 jobs:
   build-and-test:
