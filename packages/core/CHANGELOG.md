@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.0-alpha.12](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.11...atomium-v0.1.0-alpha.12) (2023-05-29)
+
+
+### Features
+
+* **core:** add textarea component ([#132](https://github.com/juntossomosmais/atomium/issues/132)) ([d0124db](https://github.com/juntossomosmais/atomium/commit/d0124dbc1c9fa86ac111e01df33ad4313c1ce5a9))
+* **icon:** add display-flex to improve vertical icon position ([e6a45b7](https://github.com/juntossomosmais/atomium/commit/e6a45b76a1fdd03fea2e9e810afaa67e6cee1f13))
+* **tokens:** add rgb colors ([030738e](https://github.com/juntossomosmais/atomium/commit/030738e098a1b08f340db2c97847512c72abf4b3))
+
 ## [0.1.0-alpha.11](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.10...atomium-v0.1.0-alpha.11) (2023-05-25)
 
 

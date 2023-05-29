@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.12](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.11...atomium-tokens-v0.1.0-alpha.12) (2023-05-29)
+
+
+### Features
+
+* **tokens:** add rgb colors ([030738e](https://github.com/juntossomosmais/atomium/commit/030738e098a1b08f340db2c97847512c72abf4b3))
+
 ## [0.1.0-alpha.11](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.7...atomium-tokens-v0.1.0-alpha.11) (2023-05-25)
 
 
