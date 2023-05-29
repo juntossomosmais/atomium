@@ -4,14 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**.ts'
-      - '**.tsx'
-      - '**.js'
-      - '**.scss'
-      - '**.mdx'
-      - '**.scss'
-      - '**.properties'
 
   pull_request:
     branches:
