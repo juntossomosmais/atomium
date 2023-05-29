@@ -1,0 +1,9 @@
+:host {
+  box-sizing: border-box;
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  min-height: 1px; // Prevent columns from collapsing when empty
+  position: relative;
+  width: 100%;
+}
