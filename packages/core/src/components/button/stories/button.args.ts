@@ -13,9 +13,6 @@ export const ButtonStoryArgs = {
     label: {
       control: 'text',
       description: 'The label of the button',
-      table: {
-        category: Category.PROPERTIES,
-      },
     },
     color: {
       control: 'select',
@@ -99,6 +96,14 @@ export const ButtonStoryArgs = {
       options: ['none', 'submit', 'reset', 'button'],
       defaultValue: { summary: 'button' },
       description: 'The type of the button.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    shape: {
+      control: 'select',
+      options: ['round', 'circle'],
+      description: 'The shape of the button.',
       table: {
         category: Category.PROPERTIES,
       },

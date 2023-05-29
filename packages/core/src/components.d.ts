@@ -20,6 +20,7 @@ export namespace Components {
         "loading"?: boolean;
         "mode": Mode;
         "rel"?: string;
+        "shape"?: 'round' | 'circle';
         "size": 'small' | 'default' | 'large';
         "target"?: string;
         "type": 'submit' | 'reset' | 'button';
@@ -122,6 +123,59 @@ export namespace Components {
         "readonly"?: boolean;
         "value"?: IonTypes.IonSelect['value'];
     }
+    interface AtomTextarea {
+        "autoGrow": boolean;
+        "autocomplete"?: 'on' | 'off';
+        "autofocus": boolean;
+        "clearOnEdit": boolean;
+        "color"?: 'primary' | 'secondary' | 'danger';
+        "cols"?: number;
+        "counter": boolean;
+        "counterFormatter"?: (
+    inputLength: number,
+    maxLength: number
+  ) => string | undefined;
+        "debounce": number;
+        "disabled": boolean;
+        "enterKeyHint": | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send';
+        "errorText"?: string;
+        "fill": 'solid' | 'outline';
+        "getInputElement": () => Promise<HTMLTextAreaElement>;
+        "hasError": boolean;
+        "helperText"?: string;
+        "icon"?: string;
+        "inputmode"?: | 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
+        "label"?: string;
+        "labelPlacement"?: 'stacked' | 'floating';
+        "maxlength"?: number;
+        "minlength"?: number;
+        "mode": Mode;
+        "name"?: string;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly": boolean;
+        "required": boolean;
+        "rows": number;
+        "setFocus": () => Promise<void>;
+        "setInputEl": (textareaEl: HTMLIonTextareaElement) => Promise<void>;
+        "shape": 'round' | undefined;
+        "step"?: string;
+        "value"?: IonTypes.IonTextarea['value'];
+        "wrap"?: 'hard' | 'soft' | 'off';
+    }
 }
 export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -134,6 +188,10 @@ export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
 export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomSelectElement;
+}
+export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomTextareaElement;
 }
 declare global {
     interface HTMLAtomButtonElement extends Components.AtomButton, HTMLStencilElement {
@@ -178,6 +236,12 @@ declare global {
         prototype: HTMLAtomSelectElement;
         new (): HTMLAtomSelectElement;
     };
+    interface HTMLAtomTextareaElement extends Components.AtomTextarea, HTMLStencilElement {
+    }
+    var HTMLAtomTextareaElement: {
+        prototype: HTMLAtomTextareaElement;
+        new (): HTMLAtomTextareaElement;
+    };
     interface HTMLElementTagNameMap {
         "atom-button": HTMLAtomButtonElement;
         "atom-col": HTMLAtomColElement;
@@ -186,6 +250,7 @@ declare global {
         "atom-input": HTMLAtomInputElement;
         "atom-row": HTMLAtomRowElement;
         "atom-select": HTMLAtomSelectElement;
+        "atom-textarea": HTMLAtomTextareaElement;
     }
 }
 declare namespace LocalJSX {
@@ -200,6 +265,7 @@ declare namespace LocalJSX {
         "mode"?: Mode;
         "onAtomClick"?: (event: AtomButtonCustomEvent<any>) => void;
         "rel"?: string;
+        "shape"?: 'round' | 'circle';
         "size"?: 'small' | 'default' | 'large';
         "target"?: string;
         "type"?: 'submit' | 'reset' | 'button';
@@ -308,6 +374,60 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
         "value"?: IonTypes.IonSelect['value'];
     }
+    interface AtomTextarea {
+        "autoGrow"?: boolean;
+        "autocomplete"?: 'on' | 'off';
+        "autofocus"?: boolean;
+        "clearOnEdit"?: boolean;
+        "color"?: 'primary' | 'secondary' | 'danger';
+        "cols"?: number;
+        "counter"?: boolean;
+        "counterFormatter"?: (
+    inputLength: number,
+    maxLength: number
+  ) => string | undefined;
+        "debounce"?: number;
+        "disabled"?: boolean;
+        "enterKeyHint"?: | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send';
+        "errorText"?: string;
+        "fill"?: 'solid' | 'outline';
+        "hasError"?: boolean;
+        "helperText"?: string;
+        "icon"?: string;
+        "inputmode"?: | 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
+        "label"?: string;
+        "labelPlacement"?: 'stacked' | 'floating';
+        "maxlength"?: number;
+        "minlength"?: number;
+        "mode"?: Mode;
+        "name"?: string;
+        "onAtomBlur"?: (event: AtomTextareaCustomEvent<void>) => void;
+        "onAtomChange"?: (event: AtomTextareaCustomEvent<string>) => void;
+        "onAtomFocus"?: (event: AtomTextareaCustomEvent<void>) => void;
+        "onAtomInput"?: (event: AtomTextareaCustomEvent<string>) => void;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
+        "rows"?: number;
+        "shape"?: 'round' | undefined;
+        "step"?: string;
+        "value"?: IonTypes.IonTextarea['value'];
+        "wrap"?: 'hard' | 'soft' | 'off';
+    }
     interface IntrinsicElements {
         "atom-button": AtomButton;
         "atom-col": AtomCol;
@@ -316,6 +436,7 @@ declare namespace LocalJSX {
         "atom-input": AtomInput;
         "atom-row": AtomRow;
         "atom-select": AtomSelect;
+        "atom-textarea": AtomTextarea;
     }
 }
 export { LocalJSX as JSX };
@@ -329,6 +450,7 @@ declare module "@stencil/core" {
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
             "atom-row": LocalJSX.AtomRow & JSXBase.HTMLAttributes<HTMLAtomRowElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
+            "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
         }
     }
 }

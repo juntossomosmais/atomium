@@ -12,6 +12,7 @@ export class AtomButton {
   @Prop() download?: string
   @Prop() expand?: 'block'
   @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
+  @Prop() shape?: 'round' | 'circle' = 'round'
   @Prop() href?: string
   @Prop() loading?: boolean
   @Prop() mode: Mode = 'md'
@@ -37,6 +38,7 @@ export class AtomButton {
           class={{
             [`atom-button`]: true,
             [`is-loading`]: this.loading,
+            [`is-circle`]: this.shape === 'circle',
           }}
           color={this.disabled && !this.loading ? 'medium' : this.color}
           fill={this.fill}
