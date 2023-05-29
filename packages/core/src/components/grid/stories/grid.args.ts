@@ -49,6 +49,21 @@ export const GridStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    '--grid-gap': {
+      description:
+        'Defines the space between the elements in a row of the Grid system',
+      defaultValue: { summary: 'var(--spacing-base)' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--grid-columns': {
+      description: 'Defines the number of columns of the Grid system',
+      defaultValue: { summary: '12' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
   },
 }
 
