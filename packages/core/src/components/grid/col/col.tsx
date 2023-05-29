@@ -1,5 +1,6 @@
 // This file is a copy of the original Ionic source code with the exception of gap logic
-// link: https://github.com/ionic-team/ionic-framework/blob/main/core/src/components/col/col.tsx
+// Link: https://github.com/ionic-team/ionic-framework/blob/main/core/src/components/col/col.tsx
+// You could read our ADR for this: apps/docs/stories/architecture-decision-records/0008-why-do-we-need-grids.stories.mdx
 
 import {
   Component,
