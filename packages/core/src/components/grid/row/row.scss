@@ -1,4 +1,5 @@
 :host {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--grid-gap);
 }
