@@ -8,7 +8,7 @@
   --color: var(--color-neutral-regular);
   border: 1px solid transparent;
   margin: 0;
-  padding: 6px 12px;
+  padding: var(--spacing-xxsmall) var(--spacing-small);
   transition-duration: var(--transition-duration);
   transition-property: background-color, color;
   will-change: background-color;
