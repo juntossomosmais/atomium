@@ -13,9 +13,6 @@ export const ButtonStoryArgs = {
     label: {
       control: 'text',
       description: 'The label of the button',
-      table: {
-        category: Category.PROPERTIES,
-      },
     },
     color: {
       control: 'select',
