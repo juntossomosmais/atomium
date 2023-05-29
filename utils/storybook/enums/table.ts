@@ -1,6 +1,6 @@
 export enum Category {
-  PROPERTIES = 'Properties',
+  CSS_CUSTOM_PROPERTIES = 'CSS Custom Properties',
   EVENTS = 'Events',
   METHODS = 'Methods',
-  CSS_CUSTOM_PROPERTIES = 'CSS Custom Properties',
+  PROPERTIES = 'Properties',
 }
