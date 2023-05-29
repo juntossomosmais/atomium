@@ -1,0 +1,22 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Docs/Architecture Decision Records/ADR 0008: Why do we need Grids" />
+
+# Why do we need Grids
+
+🗓️ 2023-05 · ✍️ [@mauriciomutte](https://twitter.com/mauriciomutte)
+
+## Context
+
+In order to achieve greater consistency in our layouts, we recognize the importance of incorporating a grid system. It is crucial for us to utilize a grid system that is both user-friendly and easily comprehensible. This document aims to highlight the significance of grids within our design system.
+
+## Problems
+
+Initially, we considered using the grid system provided by Ionic. However, we encountered two issues with this approach:
+
+1. **Default padding within the grid system items:** The presence of padding by default is problematic as it does not align with our layout requirements. Consequently, we are compelled to extensively use the !important CSS declaration to override this behavior.
+2. **Inadequate spacing implementation:** Instead of using padding, we prefer to utilize the gap property for spacing between items. Unfortunately, integrating gap within the grid system resulted in a broken layout. This issue arises because the gap property adds to the width of the item, necessitating the use of calc to subtract the gap value from the item's width.
+
+## Decision
+
+We decided to internalize the `Col` component of Ionic Grid system and add our own calc to subtract the `gap` from the `width` of the item. So we can continue using gap to without breaking our current layout patterns.
