@@ -19,4 +19,4 @@ Initially, we considered using the [grid system provided by Ionic](https://ionic
 
 ## Decision
 
-We decided to internalize the `Col` component of Ionic Grid system and add our own calc to subtract the `gap` from the `width` of the item. So we can continue using gap to without breaking our current layout patterns.
+We decided to internalize the `Col` component of Ionic Grid system and [add our own calc to subtract the `gap` from the `width` of the item](packages/core/src/components/grid/col/col.tsx). This allows us to retain the complete code of Ionic's component while still using the gap property without breaking our current layout patterns.
