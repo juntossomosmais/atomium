@@ -15,7 +15,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip>
         <mock:shadow-root>
-          <ion-chip class="atom-chip">
+          <ion-chip class="atom-chip" tabindex="1">
             <slot></slot>
           </ion-chip>
         </mock:shadow-root>
@@ -35,7 +35,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip activated>
         <mock:shadow-root>
-          <ion-chip class="atom-chip has-activated">
+          <ion-chip class="atom-chip has-activated" tabindex="1">
             <slot></slot>
           </ion-chip>
         </mock:shadow-root>
@@ -54,7 +54,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip icon="people">
         <mock:shadow-root>
-          <ion-chip class="atom-chip">
+          <ion-chip class="atom-chip" tabindex="1">
             <atom-icon class="atom-icon" icon="people"></atom-icon>
             <slot></slot>
           </ion-chip>
@@ -74,7 +74,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip close>
         <mock:shadow-root>
-          <ion-chip class="atom-chip">
+          <ion-chip class="atom-chip" tabindex="1">
             <slot></slot>
             <atom-icon class="atom-close" icon="close"></atom-icon>
           </ion-chip>
