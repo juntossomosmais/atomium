@@ -113,7 +113,7 @@ describe('AtomButton', () => {
     `)
   })
 
-  it('emits atoClick event on button click', async () => {
+  it('emits atomClick event on button click', async () => {
     const page = await newSpecPage({
       components: [AtomButton],
       html: '<atom-button>Click</atom-button>',

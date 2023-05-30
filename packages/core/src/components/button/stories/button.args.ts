@@ -7,6 +7,12 @@ export const ButtonStoryArgs = {
     actions: {
       handles: ['atomClick'],
     },
+    docs: {
+      description: {
+        component:
+          'Wrapper of Ionic Button component. Read the [Ionic documentation](https://ionicframework.com/docs/api/button) for more information about the available properties and possibilities.',
+      },
+    },
   },
   decorators: [withActions],
   argTypes: {
