@@ -2,7 +2,7 @@ import { newSpecPage } from '@stencil/core/testing'
 import { AtomChip } from './chip'
 
 describe('AtomChip', () => {
-  it('renders with default props', async () => {
+  it('should renders with default props', async () => {
     const labelText = 'Click me'
 
     const page = await newSpecPage({
@@ -24,7 +24,7 @@ describe('AtomChip', () => {
     `)
   })
 
-  it('add "has-activated" class when activated prop is true', async () => {
+  it('should add "has-activated" class when activated prop is true', async () => {
     const page = await newSpecPage({
       components: [AtomChip],
       html: `<atom-chip activated></atom-chip>`,
@@ -43,7 +43,7 @@ describe('AtomChip', () => {
     `)
   })
 
-  it('add icon when icon prop is set', async () => {
+  it('should add icon when icon prop is set', async () => {
     const page = await newSpecPage({
       components: [AtomChip],
       html: `<atom-chip icon="people"></atom-chip>`,
@@ -63,7 +63,7 @@ describe('AtomChip', () => {
     `)
   })
 
-  it('add close button when close prop is true', async () => {
+  it('should add close button when close prop is true', async () => {
     const page = await newSpecPage({
       components: [AtomChip],
       html: `<atom-chip close></atom-chip>`,
