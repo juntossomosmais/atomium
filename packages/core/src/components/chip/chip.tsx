@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Event, EventEmitter, Prop, h } from '@stencil/core'
 
 @Component({
   tag: 'atom-chip',
@@ -13,6 +13,12 @@ export class AtomChip {
   @Prop() icon?: string
   @Prop() close = false
 
+  @Event() atomClick: EventEmitter
+
+  private handleClick = () => {
+    this.atomClick.emit()
+  }
+
   render() {
     return (
       <ion-chip
@@ -22,6 +28,7 @@ export class AtomChip {
         }}
         disabled={this.disabled}
         tabIndex={1}
+        onClick={this.handleClick}
       >
         {this.icon && (
           <atom-icon
