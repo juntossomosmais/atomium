@@ -56,12 +56,12 @@ export const ChipStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-  },
-  atomClick: {
-    action: 'atomClick',
-    description: 'Emitted when the chip is clicked.',
-    table: {
-      category: 'Events',
+    atomClick: {
+      action: 'atomClick',
+      description: 'Emitted when the chip is clicked.',
+      table: {
+        category: 'Events',
+      },
     },
   },
 }
