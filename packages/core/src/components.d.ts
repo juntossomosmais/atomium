@@ -25,6 +25,14 @@ export namespace Components {
         "target"?: string;
         "type": 'submit' | 'reset' | 'button';
     }
+    interface AtomChip {
+        "activated": boolean;
+        "close": boolean;
+        "disabled": boolean;
+        "icon"?: string;
+        "mode": 'ios' | 'md';
+        "outline": boolean;
+    }
     interface AtomCol {
         "offset"?: string;
         "offsetLg"?: string;
@@ -181,6 +189,10 @@ export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomButtonElement;
 }
+export interface AtomChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomChipElement;
+}
 export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomInputElement;
@@ -199,6 +211,12 @@ declare global {
     var HTMLAtomButtonElement: {
         prototype: HTMLAtomButtonElement;
         new (): HTMLAtomButtonElement;
+    };
+    interface HTMLAtomChipElement extends Components.AtomChip, HTMLStencilElement {
+    }
+    var HTMLAtomChipElement: {
+        prototype: HTMLAtomChipElement;
+        new (): HTMLAtomChipElement;
     };
     interface HTMLAtomColElement extends Components.AtomCol, HTMLStencilElement {
     }
@@ -244,6 +262,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "atom-button": HTMLAtomButtonElement;
+        "atom-chip": HTMLAtomChipElement;
         "atom-col": HTMLAtomColElement;
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
@@ -269,6 +288,15 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'default' | 'large';
         "target"?: string;
         "type"?: 'submit' | 'reset' | 'button';
+    }
+    interface AtomChip {
+        "activated"?: boolean;
+        "close"?: boolean;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "mode"?: 'ios' | 'md';
+        "onAtomClick"?: (event: AtomChipCustomEvent<any>) => void;
+        "outline"?: boolean;
     }
     interface AtomCol {
         "offset"?: string;
@@ -430,6 +458,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "atom-button": AtomButton;
+        "atom-chip": AtomChip;
         "atom-col": AtomCol;
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
@@ -444,6 +473,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "atom-button": LocalJSX.AtomButton & JSXBase.HTMLAttributes<HTMLAtomButtonElement>;
+            "atom-chip": LocalJSX.AtomChip & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
             "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;

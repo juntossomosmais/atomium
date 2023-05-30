@@ -1,0 +1,59 @@
+:host {
+  --icon-size: var(--spacing-base);
+  display: inline-flex;
+}
+
+.atom-chip {
+  --background: var(--color-neutral-light-5);
+  --color: var(--color-neutral-regular);
+  border: 1px solid transparent;
+  margin: 0;
+  padding: var(--spacing-xxsmall) var(--spacing-small);
+  transition-duration: var(--transition-duration);
+  transition-property: background-color, color;
+  will-change: background-color;
+
+  &:hover {
+    --background: var(--color-neutral-light-4);
+  }
+
+  &.chip-disabled {
+    --background: var(--color-neutral-light-5);
+    --color: var(--color-neutral-light-2);
+    opacity: 1;
+  }
+
+  &:focus {
+    border-color: var(--color-neutral-light-3);
+  }
+
+  &.has-activated {
+    --background: var(--color-brand-secondary-light-2);
+    --color: var(--color-brand-secondary-dark-1);
+
+    &:hover {
+      --background: var(--color-brand-secondary-light-1);
+      --color: var(--color-neutral-white);
+    }
+
+    &:focus {
+      border-color: var(--color-brand-secondary-regular);
+    }
+  }
+
+  .atom-icon {
+    font-size: var(--icon-size);
+
+    &:not(:last-child) {
+      margin-right: var(--spacing-xsmall);
+    }
+  }
+
+  .atom-close {
+    font-size: var(--icon-size);
+
+    &:not(:first-child) {
+      margin-left: var(--spacing-xsmall);
+    }
+  }
+}
