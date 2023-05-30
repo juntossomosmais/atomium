@@ -69,6 +69,7 @@
   --ion-grid-padding: 0;
   --ion-grid-column-padding: var(--spacing-base);
   --ion-grid-column-padding-sm: var(--spacing-xsmall);
+  --ion-grid-columns: var(--grid-columns);
 }
 
 /* Set default colors of ion-checkbox when is inside ion-select because Ionic don't catch the color of ion-select

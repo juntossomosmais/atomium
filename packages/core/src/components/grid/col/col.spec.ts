@@ -11,7 +11,12 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col size="12">1</ion-col>
+      <atom-col size="12" style="flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        1
+      </atom-col>
     `)
   })
 
@@ -24,7 +29,12 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col offset="12">1</ion-col>
+      <atom-col offset="12" style="margin-left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        1
+      </atom-col>
     `)
   })
 
@@ -37,7 +47,12 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col offset="12" size="12">1</ion-col>
+      <atom-col offset="12" size="12" style="margin-left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        1
+      </atom-col>
     `)
   })
 
@@ -50,7 +65,12 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col size-sm="12" sizesm="12">1</ion-col>
+      <atom-col size-sm="12">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        1
+      </atom-col>
     `)
   })
 
@@ -63,7 +83,12 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col offset-sm="12" offsetsm="12">1</ion-col>
+      <atom-col offset-sm="12">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        1
+      </atom-col>
     `)
   })
 
@@ -76,7 +101,12 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col pull="12">1</ion-col>
+      <atom-col pull="12" style="right: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        1
+      </atom-col>
     `)
   })
 
@@ -89,7 +119,12 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col push="12">1</ion-col>
+      <atom-col push="12" style="left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        1
+      </atom-col>
     `)
   })
 
@@ -107,10 +142,13 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <ion-col push="12">
+      <atom-col push="12" style="left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
         <span>1</span>
         <span>2</span>
-      </ion-col>
+      </atom-col>
     `)
   })
 })

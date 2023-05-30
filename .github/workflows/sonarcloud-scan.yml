@@ -12,6 +12,7 @@ on:
       - '**.mdx'
       - '**.scss'
       - '**.properties'
+      - '**.json'
 
   pull_request:
     branches:
