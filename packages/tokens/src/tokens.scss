@@ -16,6 +16,11 @@
   --spacing-giant: 64px;
   --spacing-xgiant: 80px;
 
+  /* Grid
+  * ------------------------- */
+  --grid-gap: var(--spacing-base);
+  --grid-columns: 12;
+
   /* Colors
   * ------------------------- */
   --color-neutral-black: #000;
@@ -205,6 +210,10 @@
     --text-overline-letter: 0.014em;
     --text-badge: var(--font-weight-bold) 10px/16px var(--font-family);
     --text-badge-letter: 0.0004em;
+
+    /* Grid
+    * ------------------------- */
+    --grid-gap: var(--spacing-xsmall);
   }
 }
 
