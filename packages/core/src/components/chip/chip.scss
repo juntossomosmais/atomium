@@ -1,5 +1,5 @@
 :host {
-  --icon-size: 16px;
+  --icon-size: var(--spacing-base);
   display: inline-flex;
 }
 
