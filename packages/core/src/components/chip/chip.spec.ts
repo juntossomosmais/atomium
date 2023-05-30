@@ -82,4 +82,25 @@ describe('AtomChip', () => {
       </atom-chip>
     `)
   })
+
+  it('emits atomClick event on chip click', async () => {
+    const page = await newSpecPage({
+      components: [AtomChip],
+      html: '<atom-chip>Click</atom-chip>',
+    })
+
+    await page.waitForChanges()
+
+    const chipEl = page.root?.shadowRoot?.querySelector(
+      'ion-chip'
+    ) as HTMLElement
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomClick', spy)
+    chipEl?.click()
+
+    page.root?.dispatchEvent(new CustomEvent('atomClick'))
+
+    expect(spy).toHaveBeenCalled()
+  })
 })
