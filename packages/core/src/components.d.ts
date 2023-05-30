@@ -189,6 +189,10 @@ export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomButtonElement;
 }
+export interface AtomChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomChipElement;
+}
 export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomInputElement;
@@ -291,6 +295,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "icon"?: string;
         "mode"?: 'ios' | 'md';
+        "onAtomClick"?: (event: AtomChipCustomEvent<any>) => void;
         "outline"?: boolean;
     }
     interface AtomCol {
