@@ -5,6 +5,9 @@ import { Category } from '@atomium/storybook-utils/enums/table'
 export const ChipStoryArgs = {
   decorators: [withActions],
   parameters: {
+    actions: {
+      handles: ['atomClick'],
+    },
     docs: {
       description: {
         component:
@@ -52,6 +55,13 @@ export const ChipStoryArgs = {
       table: {
         category: Category.PROPERTIES,
       },
+    },
+  },
+  atomClick: {
+    action: 'atomClick',
+    description: 'Emitted when the chip is clicked.',
+    table: {
+      category: 'Events',
     },
   },
 }
