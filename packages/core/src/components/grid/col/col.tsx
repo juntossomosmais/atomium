@@ -103,7 +103,7 @@ export class AtomCol {
         ? 'auto'
         : // If CSS supports variables we should use the grid columns var
         SUPPORTS_VARS
-        ? `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap))`
+        ? `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100%)`
         : // Convert the columns to a percentage by dividing by the total number
           // of columns (12) and then multiplying by 100
           (columns / 12) * 100 + '%'
@@ -127,7 +127,7 @@ export class AtomCol {
     // 12 we can position the column, else default to auto
     const amount = SUPPORTS_VARS
       ? // If CSS supports variables we should use the grid columns var
-        `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap))`
+        `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100%)`
       : // Convert the columns to a percentage by dividing by the total number
       // of columns (12) and then multiplying by 100
       columns > 0 && columns < 12

@@ -1,9 +1,9 @@
 :host {
   box-sizing: border-box;
-  flex-basis: 0;
+  flex-basis: auto;
   flex-grow: 1;
-  max-width: 100%;
   min-height: 1px; // Prevent columns from collapsing when empty
+  padding: calc(var(--grid-gap) / 2);
   position: relative;
   width: 100%;
 }
