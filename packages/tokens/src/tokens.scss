@@ -158,12 +158,6 @@
   --zindex-overlay: 10000;
   --transition-duration: 0.25s;
 
-  @include below(medium) {
-    /* Grid
-    * ------------------------- */
-    --grid-gap: var(--spacing-xsmall);
-  }
-
   @include below(small) {
     /* Typography
     * ------------------------- */
@@ -216,6 +210,10 @@
     --text-overline-letter: 0.014em;
     --text-badge: var(--font-weight-bold) 10px/16px var(--font-family);
     --text-badge-letter: 0.0004em;
+
+    /* Grid
+    * ------------------------- */
+    --grid-gap: var(--spacing-xsmall);
   }
 }
 
