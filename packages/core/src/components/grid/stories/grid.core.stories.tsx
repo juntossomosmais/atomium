@@ -9,7 +9,6 @@ export default {
   ...GridStoryArgs,
 } as Meta
 
-// @TODO: Improve all examples
 export const Default: StoryObj = {
   render: () => html`
     <atom-grid>
