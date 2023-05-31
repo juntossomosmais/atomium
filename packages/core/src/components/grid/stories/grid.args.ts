@@ -8,7 +8,7 @@ export const GridStoryArgs = {
     docs: {
       description: {
         component:
-          'Wrapper of the [Ionic Grid](https://ionicframework.com/docs/api/grid) component.',
+          'Wrapper of the **[Ionic Grid](https://ionicframework.com/docs/api/grid)** component. Read the Ionic documentation for more information about the available properties and possibilities.<br><br>In our custom implementation, we have simplified the Ionic grid system by introducing the `AtomGrid` component. This component acts as a wrapper for the grid, eliminating the need for using the `ion-row` component directly. Instead, we can directly use the `atom-grid` and `atom-col` components to create our grid layout. This approach streamlines the structure and usage of the grid system, making it more intuitive and efficient for developers.',
       },
     },
   },
@@ -53,13 +53,6 @@ export const GridStoryArgs = {
       description:
         'Defines the space between the elements in a row of the Grid system. For screens below `medium` size, the gap value will be `var(--spacing-xsmall)`.',
       defaultValue: { summary: 'var(--spacing-base)' },
-      table: {
-        category: Category.CSS_CUSTOM_PROPERTIES,
-      },
-    },
-    '--grid-columns': {
-      description: 'Defines the number of columns of the Grid system.',
-      defaultValue: { summary: '12' },
       table: {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
