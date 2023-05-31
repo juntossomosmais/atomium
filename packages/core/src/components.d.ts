@@ -108,8 +108,6 @@ export namespace Components {
         "type": TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
-    interface AtomRow {
-    }
     interface AtomSelect {
         "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
@@ -242,12 +240,6 @@ declare global {
         prototype: HTMLAtomInputElement;
         new (): HTMLAtomInputElement;
     };
-    interface HTMLAtomRowElement extends Components.AtomRow, HTMLStencilElement {
-    }
-    var HTMLAtomRowElement: {
-        prototype: HTMLAtomRowElement;
-        new (): HTMLAtomRowElement;
-    };
     interface HTMLAtomSelectElement extends Components.AtomSelect, HTMLStencilElement {
     }
     var HTMLAtomSelectElement: {
@@ -267,7 +259,6 @@ declare global {
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
-        "atom-row": HTMLAtomRowElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-textarea": HTMLAtomTextareaElement;
     }
@@ -374,8 +365,6 @@ declare namespace LocalJSX {
         "type"?: TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
-    interface AtomRow {
-    }
     interface AtomSelect {
         "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
@@ -463,7 +452,6 @@ declare namespace LocalJSX {
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
-        "atom-row": AtomRow;
         "atom-select": AtomSelect;
         "atom-textarea": AtomTextarea;
     }
@@ -478,7 +466,6 @@ declare module "@stencil/core" {
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
-            "atom-row": LocalJSX.AtomRow & JSXBase.HTMLAttributes<HTMLAtomRowElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
         }
