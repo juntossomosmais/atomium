@@ -15,23 +15,26 @@ export const Default: StoryObj = {
   render: () => (
     <div>
       <AtomGrid>
-        <AtomCol className="col" size="6" sizeMd="8">
-          <div>size=6 & sizeMd=8</div>
+        <AtomCol class="col" size="8">
+          <div>size=8</div>
         </AtomCol>
-        <AtomCol className="col" size="6" sizeMd="4">
+        <AtomCol class="col" size="6" sizeMd="4">
           <div>size=6 & sizeMd=4</div>
         </AtomCol>
-        <AtomCol className="col" size="6" sizeMd="4">
-          <div>size=6 & sizeMd=4</div>
+        <AtomCol class="col" size="4" sizeMd="4">
+          <div>size=4 & sizeMd=4</div>
         </AtomCol>
-        <AtomCol className="col" size="6" sizeMd="8">
-          <div>size=6 & sizeMd=8</div>
+        <AtomCol class="col" size="8" sizeMd="6">
+          <div>size=8 & sizeMd=6</div>
         </AtomCol>
-        <AtomCol className="col" size="6" sizeMd="8">
-          <div>size=6 & sizeMd=8</div>
+        <AtomCol class="col" size="8" sizeMd="10">
+          <div>size=8 & sizeMd=10</div>
         </AtomCol>
-        <AtomCol className="col" size="6" sizeMd="4">
-          <div>size=6 & sizeMd=4</div>
+        <AtomCol class="col" size="8" sizeMd="10">
+          <div>size=8 & sizeMd=10</div>
+        </AtomCol>
+        <AtomCol class="col" size="8" sizeMd="6">
+          <div>size=8 & sizeMd=6</div>
         </AtomCol>
       </AtomGrid>
 
@@ -113,10 +116,10 @@ export const PushAndPull: StoryObj = {
       </p>
 
       <AtomGrid>
-        <AtomCol className="col" push="4">
+        <AtomCol className="col" push="4" size="4">
           <div>1</div>
         </AtomCol>
-        <AtomCol className="col" pull="4">
+        <AtomCol className="col" pull="4" size="4">
           <div>2</div>
         </AtomCol>
         <AtomCol className="col">

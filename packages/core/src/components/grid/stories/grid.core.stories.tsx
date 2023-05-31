@@ -12,23 +12,26 @@ export default {
 export const Default: StoryObj = {
   render: () => html`
     <atom-grid>
-      <atom-col class="col" size="6" size-md="8">
-        <div>size=6 & size-md=8</div>
+      <atom-col class="col" size="8">
+        <div>size=8</div>
       </atom-col>
       <atom-col class="col" size="6" size-md="4">
         <div>size=6 & size-md=4</div>
       </atom-col>
-      <atom-col class="col" size="6" size-md="4">
-        <div>size=6 & size-md=4</div>
+      <atom-col class="col" size="4" size-md="4">
+        <div>size=4 & size-md=4</div>
       </atom-col>
-      <atom-col class="col" size="6" size-md="8">
-        <div>size=6 & size-md=8</div>
+      <atom-col class="col" size="8" size-md="6">
+        <div>size=8 & size-md=6</div>
       </atom-col>
-      <atom-col class="col" size="6" size-md="8">
-        <div>size=6 & size-md=8</div>
+      <atom-col class="col" size="8" size-md="10">
+        <div>size=8 & size-md=10</div>
       </atom-col>
-      <atom-col class="col" size="6" size-md="4">
-        <div>size=6 & size-md=4</div>
+      <atom-col class="col" size="8" size-md="10">
+        <div>size=8 & size-md=10</div>
+      </atom-col>
+      <atom-col class="col" size="8" size-md="6">
+        <div>size=8 & size-md=6</div>
       </atom-col>
     </atom-grid>
 
@@ -106,10 +109,10 @@ export const PushAndPull: StoryObj = {
     </p>
 
     <atom-grid>
-      <atom-col class="col" push="4">
+      <atom-col class="col" push="4" size="4">
         <div>1</div>
       </atom-col>
-      <atom-col class="col" pull="4">
+      <atom-col class="col" pull="4" size="4">
         <div>2</div>
       </atom-col>
       <atom-col class="col">
