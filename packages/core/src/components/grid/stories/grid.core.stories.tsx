@@ -9,40 +9,84 @@ export default {
   ...GridStoryArgs,
 } as Meta
 
+// @TODO: Improve all examples
 export const Default: StoryObj = {
   render: () => html`
     <atom-grid>
-      <atom-row>
-        <atom-col class="col">1</atom-col>
-        <atom-col class="col" size="8" size-sm="10">2</atom-col>
-        <atom-col class="col">3</atom-col>
-      </atom-row>
+      <atom-col class="col" size="6" size-md="8">
+        <div>size=6 & size-md=8</div>
+      </atom-col>
+      <atom-col class="col" size="6" size-md="4">
+        <div>size=6 & size-md=4</div>
+      </atom-col>
+
+      <atom-col class="col" size="6" size-md="4">
+        <div>size=6 & size-md=4</div>
+      </atom-col>
+      <atom-col class="col" size="6" size-md="8">
+        <div>size=6 & size-md=8</div>
+      </atom-col>
+
+      <atom-col class="col" size="6" size-md="8">
+        <div>size=6 & size-md=8</div>
+      </atom-col>
+      <atom-col class="col" size="6" size-md="4">
+        <div>size=6 & size-md=4</div>
+      </atom-col>
     </atom-grid>
+
+    <style>
+      ${GridCSS}
+    </style>
+  `,
+}
+
+// @TODO: Add offset example
+export const Offset: StoryObj = {
+  render: () => html`
     <atom-grid>
-      <atom-row>
-        <atom-col class="col">1</atom-col>
-        <atom-col class="col">2</atom-col>
-        <atom-col class="col">3</atom-col>
-        <atom-col class="col">4</atom-col>
-        <atom-col class="col">5</atom-col>
-        <atom-col class="col">6</atom-col>
-      </atom-row>
+      <atom-col class="col" size="6" size-md="8">
+        <div>size=6 & size-md=8</div>
+      </atom-col>
+      <atom-col class="col" size="6" size-md="4">
+        <div>size=6 & size-md=4</div>
+      </atom-col>
     </atom-grid>
+
+    <style>
+      ${GridCSS}
+    </style>
+  `,
+}
+
+// @TODO: Add Pull example
+export const Pull: StoryObj = {
+  render: () => html`
     <atom-grid>
-      <atom-row>
-        <atom-col class="col">1</atom-col>
-        <atom-col class="col">2</atom-col>
-        <atom-col class="col">3</atom-col>
-        <atom-col class="col">4</atom-col>
-        <atom-col class="col">5</atom-col>
-        <atom-col class="col">6</atom-col>
-        <atom-col class="col">7</atom-col>
-        <atom-col class="col">8</atom-col>
-        <atom-col class="col">9</atom-col>
-        <atom-col class="col">10</atom-col>
-        <atom-col class="col">11</atom-col>
-        <atom-col class="col">12</atom-col>
-      </atom-row>
+      <atom-col class="col" size="6" size-md="8">
+        <div>size=6 & size-md=8</div>
+      </atom-col>
+      <atom-col class="col" size="6" size-md="4">
+        <div>size=6 & size-md=4</div>
+      </atom-col>
+    </atom-grid>
+
+    <style>
+      ${GridCSS}
+    </style>
+  `,
+}
+
+// @TODO: Add Push example
+export const Push: StoryObj = {
+  render: () => html`
+    <atom-grid>
+      <atom-col class="col" size="6" size-md="8">
+        <div>size=6 & size-md=8</div>
+      </atom-col>
+      <atom-col class="col" size="6" size-md="4">
+        <div>size=6 & size-md=4</div>
+      </atom-col>
     </atom-grid>
 
     <style>

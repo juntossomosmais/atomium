@@ -68,10 +68,14 @@ export const GridStoryArgs = {
 }
 
 export const GridCSS = `
-  .col {
-    background-color: var(--color-neutral-light-1);
-    margin-bottom: 16px;
-    color: var(--color-neutral-white);
+  .col > div {
+    box-shadow:
+      0px 2px 1px -1px var(--color-neutral-light-3),
+      0px 1px 2px 0px var(--color-neutral-light-4),
+      0px 1px 3px 0px var(--color-neutral-light-4);
+    border-radius: var(--border-radius);
+    color: var(--color-neutral-light-2);
+    padding: var(--spacing-xsmall);
     text-align: center;
   }
 `
