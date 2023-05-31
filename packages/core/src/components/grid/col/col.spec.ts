@@ -5,18 +5,24 @@ describe('AtomCol', () => {
   it('should set size prop correctly', async () => {
     const page = await newSpecPage({
       components: [AtomCol],
-      html: `<atom-col size="12">1</atom-col>`,
+      html: `
+      <atom-col size="12">
+        <span>1</span>
+        <span>2</span>
+      </atom-col>
+      `,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-col size="12" style="flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-        1
-      </atom-col>
+    <atom-col size="12" style="flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100%); width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%); max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      <span>1</span>
+      <span>2</span>
+    </atom-col>
     `)
   })
 
@@ -29,7 +35,7 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-col offset="12" style="margin-left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+      <atom-col offset="12" style="margin-left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
@@ -47,7 +53,7 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-col offset="12" size="12" style="margin-left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap)); max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+      <atom-col offset="12" size="12" style="margin-left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%); flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100%); width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%); max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
@@ -101,7 +107,7 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-col pull="12" style="right: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+      <atom-col pull="12" style="right: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
@@ -119,35 +125,11 @@ describe('AtomCol', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-col push="12" style="left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
+      <atom-col push="12" style="left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
         1
-      </atom-col>
-    `)
-  })
-
-  it('should render elements in sequence', async () => {
-    const page = await newSpecPage({
-      components: [AtomCol],
-      html: `
-        <atom-col push="12">
-          <span>1</span>
-          <span>2</span>
-        </atom-col>
-      `,
-    })
-
-    await page.waitForChanges()
-
-    expect(page.root).toEqualHtml(`
-      <atom-col push="12" style="left: calc(calc(12 / var(--ion-grid-columns, 12)) * 100% - var(--grid-gap));">
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-        <span>1</span>
-        <span>2</span>
       </atom-col>
     `)
   })

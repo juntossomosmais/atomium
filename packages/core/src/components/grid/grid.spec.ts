@@ -16,11 +16,9 @@ describe('AtoGrid', () => {
       components: [AtomGrid],
       html: `
         <atom-grid fixed="true">
-          <atom-row>
-            <atom-col>1</atom-col>
-            <atom-col>2</atom-col>
-            <atom-col>3</atom-col>
-          </atom-row>
+          <atom-col>1</atom-col>
+          <atom-col>2</atom-col>
+          <atom-col>3</atom-col>
         <atom-grid>
       `,
     })
@@ -34,11 +32,9 @@ describe('AtoGrid', () => {
             <slot></slot>
           </ion-grid>
         </mock:shadow-root>
-        <atom-row>
-          <atom-col>1</atom-col>
-          <atom-col>2</atom-col>
-          <atom-col>3</atom-col>
-        </atom-row>
+        <atom-col>1</atom-col>
+        <atom-col>2</atom-col>
+        <atom-col>3</atom-col>
         <atom-grid>
           <mock:shadow-root>
             <ion-grid class="atom-grid">
