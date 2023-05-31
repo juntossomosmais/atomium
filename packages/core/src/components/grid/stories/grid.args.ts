@@ -51,14 +51,14 @@ export const GridStoryArgs = {
     },
     '--grid-gap': {
       description:
-        'Defines the space between the elements in a row of the Grid system',
+        'Defines the space between the elements in a row of the Grid system. For screens below `medium` size, the gap value will be `var(--spacing-xsmall)`.',
       defaultValue: { summary: 'var(--spacing-base)' },
       table: {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
     },
     '--grid-columns': {
-      description: 'Defines the number of columns of the Grid system',
+      description: 'Defines the number of columns of the Grid system.',
       defaultValue: { summary: '12' },
       table: {
         category: Category.CSS_CUSTOM_PROPERTIES,
