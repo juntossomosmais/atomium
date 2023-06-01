@@ -49,7 +49,7 @@
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/sass": "^3.0.3",
     "@stencil/vue-output-target": "^0.7.0",
-    "@storybook/addon-a11y": "^7.0.1",
+    "@storybook/addon-a11y": "^7.0.18",
     "@storybook/addon-docs": "^7.0.18",
     "@storybook/addon-essentials": "^7.0.1",
     "@storybook/addon-mdx-gfm": "^7.0.18",
