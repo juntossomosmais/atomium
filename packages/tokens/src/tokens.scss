@@ -19,7 +19,7 @@
   /* Grid
   * ------------------------- */
   --grid-gap: var(--spacing-base);
-  --grid-columns: 12;
+  --grid-columns: 16;
 
   /* Colors
   * ------------------------- */
@@ -136,7 +136,7 @@
 
   /* Screens
   * ------------------------- */
-  --screen-xs: 360px;
+  --screen-xs: 576px;
   --screen-sm: 768px;
   --screen-md: 992px;
   --screen-lg: 1280px;
@@ -144,7 +144,7 @@
   --screen-fhd: 1920px;
   --screen-2k: 2048px;
   --screen-4k: 3840px;
-  --screen-max-container: 1140px;
+  --screen-max-container: 1136px;
 
   /* Misc
   * ------------------------- */
@@ -158,7 +158,7 @@
   --zindex-overlay: 10000;
   --transition-duration: 0.25s;
 
-  @include below(mobile) {
+  @include below(small) {
     /* Typography
     * ------------------------- */
     --title-giant: var(--font-weight-bold) 30px/40px var(--font-family);

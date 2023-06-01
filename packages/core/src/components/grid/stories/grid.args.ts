@@ -8,7 +8,7 @@ export const GridStoryArgs = {
     docs: {
       description: {
         component:
-          'Wrapper of the [Ionic Grid](https://ionicframework.com/docs/api/grid) component.',
+          'Wrapper of the [Ionic Grid](https://ionicframework.com/docs/api/grid) component. Read the Ionic documentation for more information about the available properties and possibilities.<br><br>In our custom implementation, we have simplified the Ionic grid system by introducing the `AtomGrid` component. This component acts as a wrapper for the grid, eliminating the need for using the `ion-row` component directly. Instead, we can directly use the `atom-grid` and `atom-col` components to create our grid layout. This approach streamlines the structure and usage of the grid system, making it more intuitive and efficient for developers.<br><br>The default number of columns in the grid is `16`, but this can be changed by setting the `--grid-columns` CSS custom property. The default gap between the columns is `var(--spacing-base)` and `var(--spacing-xs)` in small screens, but this can be changed by setting the `--grid-gap` CSS custom property.<br><br>You could check our default tokens values for the grid system in the [tokens/grid](/docs/tokens-grid--docs) section.',
       },
     },
   },
@@ -51,15 +51,8 @@ export const GridStoryArgs = {
     },
     '--grid-gap': {
       description:
-        'Defines the space between the elements in a row of the Grid system',
+        'Defines the space between the elements in a row of the Grid system. For screens below `medium` size, the gap value will be `var(--spacing-xsmall)`.',
       defaultValue: { summary: 'var(--spacing-base)' },
-      table: {
-        category: Category.CSS_CUSTOM_PROPERTIES,
-      },
-    },
-    '--grid-columns': {
-      description: 'Defines the number of columns of the Grid system',
-      defaultValue: { summary: '12' },
       table: {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
@@ -68,10 +61,14 @@ export const GridStoryArgs = {
 }
 
 export const GridCSS = `
-  .col {
-    background-color: var(--color-neutral-light-1);
-    margin-bottom: 16px;
-    color: var(--color-neutral-white);
+  .col > div {
+    box-shadow:
+      0px 2px 1px -1px var(--color-neutral-light-3),
+      0px 1px 2px 0px var(--color-neutral-light-4),
+      0px 1px 3px 0px var(--color-neutral-light-4);
+    border-radius: var(--border-radius);
+    color: var(--color-neutral-light-2);
+    padding: var(--spacing-xsmall);
     text-align: center;
   }
 `

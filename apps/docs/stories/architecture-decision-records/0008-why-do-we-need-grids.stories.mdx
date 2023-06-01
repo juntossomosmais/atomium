@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs'
 
 # Why do we need Grids
 
-🗓️ 2023-05 · ✍️ [@mauriciomutte](https://twitter.com/mauriciomutte)
+🗓️ 2023-05 · ✍️ [@mauriciomutte](https://twitter.com/mauriciomutte) and [@felipefialho](https://twitter.com/felipefialho_)
 
 ## Context
 
@@ -19,4 +19,6 @@ Initially, we considered using the [grid system provided by Ionic](https://ionic
 
 ## Decision
 
-We decided to internalize the `Col` component of Ionic Grid system and [add our own calc to subtract the `gap` from the `width` of the item](packages/core/src/components/grid/col/col.tsx). This allows us to retain the complete code of Ionic's component while still using the gap property without breaking our current layout patterns.
+We decided to internalize the `Col` component of Ionic Grid system and use `padding` instead of `gap` for spacing between items and add an negative margin to the `Grid` component to compensate the padding.
+
+Another decision is remove the `Row` component and use just the `Grid` as wrapper component instead.
