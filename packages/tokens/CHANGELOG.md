@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.0-alpha.14](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.11...atomium-tokens-v0.1.0-alpha.14) (2023-06-01)
+
+
+### Features
+
+* **core:** add column gap to grid ([#135](https://github.com/juntossomosmais/atomium/issues/135)) ([9353aaf](https://github.com/juntossomosmais/atomium/commit/9353aafa50d91edb76a60e441cdcf514124a4986))
+* **tokens:** add rgb colors ([030738e](https://github.com/juntossomosmais/atomium/commit/030738e098a1b08f340db2c97847512c72abf4b3))
+
+
+### Bug Fixes
+
+* grid component gap spacing ([#141](https://github.com/juntossomosmais/atomium/issues/141)) ([da760d6](https://github.com/juntossomosmais/atomium/commit/da760d61060c85ca28ca173b495077008da62188))
+
 ## [0.1.0-alpha.11](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.7...atomium-tokens-v0.1.0-alpha.11) (2023-05-25)
 
 
