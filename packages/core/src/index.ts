@@ -1,5 +1,7 @@
 export { AtomButton } from './components/button/button'
+export { AtomChip } from './components/chip/chip'
 export { AtomCol, AtomGrid } from './components/grid'
 export { AtomIcon } from './components/icon/icon'
 export { AtomInput } from './components/input/input'
 export { AtomSelect } from './components/select/select'
+export { AtomTextarea } from './components/textarea/textarea'
