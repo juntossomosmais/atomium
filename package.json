@@ -41,7 +41,7 @@
     "@babel/preset-typescript": "^7.21.4",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
-    "@ionic/core": "^7.0.1",
+    "@ionic/core": "^7.0.10",
     "@nrwl/cli": "15.9.2",
     "@nrwl/eslint-plugin-nx": "^16.0.1",
     "@nrwl/storybook": "^15.9.2",
