@@ -1,18 +1,25 @@
-import { withActions } from '@storybook/addon-actions/decorator'
-
 import { Category } from '@atomium/storybook-utils/enums/table'
 
 export const IconStoryArgs = {
-  decorators: [withActions],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Wrapper of Ionic Icon component. Read the [Ionic documentation](https://ionicframework.com/docs/api/icon) for more information about the available properties and possibilities.',
+      },
+    },
+  },
   argTypes: {
     icon: {
       control: 'text',
+      description: 'The name of the icon to use.',
       table: {
         category: Category.PROPERTIES,
       },
     },
     color: {
       control: 'select',
+      description: 'The color to use from your application palette.',
       options: [
         'primary',
         'secondary',
@@ -30,6 +37,7 @@ export const IconStoryArgs = {
     },
     size: {
       control: 'select',
+      description: 'The size of the icon.',
       options: ['small', 'large'],
       table: {
         category: Category.PROPERTIES,
