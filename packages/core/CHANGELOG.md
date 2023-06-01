@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.0-alpha.14](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.11...atomium-v0.1.0-alpha.14) (2023-06-01)
+
+
+### Features
+
+* **core:** add chip component ([#136](https://github.com/juntossomosmais/atomium/issues/136)) ([264fb5b](https://github.com/juntossomosmais/atomium/commit/264fb5b9cc45c2eb0ae6f08830fd11b106d02bae))
+* **core:** add column gap to grid ([#135](https://github.com/juntossomosmais/atomium/issues/135)) ([9353aaf](https://github.com/juntossomosmais/atomium/commit/9353aafa50d91edb76a60e441cdcf514124a4986))
+* **core:** add textarea component ([#132](https://github.com/juntossomosmais/atomium/issues/132)) ([d0124db](https://github.com/juntossomosmais/atomium/commit/d0124dbc1c9fa86ac111e01df33ad4313c1ce5a9))
+* **icon:** add display-flex to improve vertical icon position ([e6a45b7](https://github.com/juntossomosmais/atomium/commit/e6a45b76a1fdd03fea2e9e810afaa67e6cee1f13))
+* **tokens:** add rgb colors ([030738e](https://github.com/juntossomosmais/atomium/commit/030738e098a1b08f340db2c97847512c72abf4b3))
+
+
+### Bug Fixes
+
+* grid component gap spacing ([#141](https://github.com/juntossomosmais/atomium/issues/141)) ([da760d6](https://github.com/juntossomosmais/atomium/commit/da760d61060c85ca28ca173b495077008da62188))
+
 ## [0.1.0-alpha.11](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.10...atomium-v0.1.0-alpha.11) (2023-05-25)
 
 
