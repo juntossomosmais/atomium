@@ -14,7 +14,7 @@
 
 ### Bug Fixes
 
-* grid component gap spacing ([#141](https://github.com/juntossomosmais/atomium/issues/141)) ([da760d6](https://github.com/juntossomosmais/atomium/commit/da760d61060c85ca28ca173b495077008da62188))
+* **grid:** fix grid component gap spacing ([#141](https://github.com/juntossomosmais/atomium/issues/141)) ([da760d6](https://github.com/juntossomosmais/atomium/commit/da760d61060c85ca28ca173b495077008da62188))
 
 ## [0.1.0-alpha.11](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.10...atomium-v0.1.0-alpha.11) (2023-05-25)
 
