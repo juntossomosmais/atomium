@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from '@stencil/core'
+import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core'
 
 @Component({
   tag: 'atom-alert',
@@ -13,6 +13,12 @@ export class AtomAlert {
   @Prop() messageText?: string
   @Prop() close = false
 
+  @Event() atomClose: EventEmitter
+
+  private handleClose = () => {
+    this.atomClose.emit()
+  }
+
   render(): JSX.Element {
     return (
       <Host role="alert">
@@ -22,24 +28,34 @@ export class AtomAlert {
             [`atom-color--${this.color}`]: true,
           }}
         >
-          {this.icon && (
-            <atom-icon
-              class={{
-                [`atom-icon`]: true,
-              }}
-              icon={this.icon}
-            ></atom-icon>
-          )}
           <div class="atom-body">
-            {this.messageTitle && <p class="atom-title">{this.messageTitle}</p>}
-            {this.messageText && <p class="atom-message">{this.messageText}</p>}
+            {this.icon && (
+              <atom-icon
+                class={{
+                  [`atom-icon`]: true,
+                }}
+                icon={this.icon}
+              ></atom-icon>
+            )}
+            <div class="atom-content">
+              {this.messageTitle && (
+                <p class="atom-title">{this.messageTitle}</p>
+              )}
+              {this.messageText && (
+                <p class="atom-message">{this.messageText}</p>
+              )}
+            </div>
           </div>
           <slot></slot>
           <div class="atom-actions">
             <slot name="actions"></slot>
           </div>
           {this.close && (
-            <button class="atom-close" aria-label="Close">
+            <button
+              class="atom-close"
+              aria-label="Close"
+              onClick={this.handleClose}
+            >
               <atom-icon icon="close"></atom-icon>
             </button>
           )}

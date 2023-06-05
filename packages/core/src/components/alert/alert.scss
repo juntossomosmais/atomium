@@ -55,6 +55,11 @@
   }
 }
 
+.atom-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .atom-title {
   font-weight: var(--font-weight-bold);
   margin: 0;
@@ -92,13 +97,21 @@
 .atom-close {
   background: transparent;
   border: 0;
-  color: var(--color-neutral-light-3);
+  color: var(--color-neutral-light-2);
   cursor: pointer;
   font-size: var(--icon-size);
+  height: var(--close-size);
   margin: 0;
+  opacity: 0.8;
   padding: 0;
   position: absolute;
   right: 0;
-  top: var(--spacing-base);
+  top: 0;
+  transition: opacity var(--transition-duration);
   width: var(--close-size);
+  will-change: opacity;
+
+  &:hover {
+    opacity: 1;
+  }
 }

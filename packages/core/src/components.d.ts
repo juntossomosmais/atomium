@@ -190,6 +190,10 @@ export namespace Components {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
 }
+export interface AtomAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomAlertElement;
+}
 export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomButtonElement;
@@ -284,6 +288,7 @@ declare namespace LocalJSX {
         "icon"?: string;
         "messageText"?: string;
         "messageTitle"?: string;
+        "onAtomClose"?: (event: AtomAlertCustomEvent<any>) => void;
     }
     interface AtomButton {
         "color"?: 'primary' | 'secondary';
