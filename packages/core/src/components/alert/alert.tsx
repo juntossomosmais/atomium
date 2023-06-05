@@ -50,6 +50,7 @@ export class AtomAlert {
               class="atom-close"
               aria-label="Close"
               onClick={this.handleClose}
+              type="button"
             >
               <atom-icon icon="close"></atom-icon>
             </button>
