@@ -52,7 +52,6 @@
     "@storybook/addon-a11y": "^7.0.1",
     "@storybook/addon-docs": "^7.0.1",
     "@storybook/addon-essentials": "^7.0.1",
-    "@storybook/addon-mdx-gfm": "^7.0.2",
     "@storybook/addons": "^7.0.1",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^7.0.7",
