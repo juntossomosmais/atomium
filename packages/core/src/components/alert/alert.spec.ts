@@ -162,7 +162,7 @@ describe('AtomAlert', () => {
             <div class="atom-actions">
               <slot name="actions"></slot>
             </div>
-            <button aria-label="Close" class="atom-close">
+            <button aria-label="Close" class="atom-close" type="button">
                <atom-icon icon="close"></atom-icon>
             </button>
           </div>
