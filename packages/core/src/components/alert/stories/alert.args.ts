@@ -1,11 +1,17 @@
+import { withActions } from '@storybook/addon-actions/decorator'
+
 import { Category } from '@atomium/storybook-utils/enums/table'
 
 export const AlertStoryArgs = {
+  decorators: [withActions],
   parameters: {
+    actions: {
+      handles: ['atomClose'],
+    },
     docs: {
       description: {
         component:
-          'Alerts are used to provide feedback to the user about the status of a task or process. Alerts can be used to notify the user about information or errors, success or warnings, or to confirm an action.',
+          'Alerts are used to provide feedback to the user about the status of a task or process. Alerts can be used to notify the user about information or errors, success or warnings, or to confirm an action. <br> <br> You could pass a slot named `actions` to add buttons to the alert.',
       },
     },
   },
@@ -51,7 +57,13 @@ export const AlertStoryArgs = {
     actions: {
       description: 'Slot name to pass in action buttons.',
       table: {
-        //category: Category.SLOTS,
+        category: Category.SLOTS,
+      },
+    },
+    onClose: {
+      description: 'Event emitted when the alert is closed.',
+      table: {
+        category: Category.EVENTS,
       },
     },
   },
@@ -66,6 +78,6 @@ export const AlertComponentArgs = {
 
 export const AlertCSS = `
   .action-link {
-    color: var(--color-brand-secondary-regular);
+    color: var(--color-brand-secondary-dark-1);
   }
 `

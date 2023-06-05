@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
+import { AtomAlert } from '@juntossomosmais/atomium/react'
+
 import { AlertCSS, AlertComponentArgs, AlertStoryArgs } from './alert.args'
 
 export default {
@@ -10,7 +12,7 @@ export default {
 
 const createAlert = (args) => (
   <div>
-    <atom-alert
+    <AtomAlert
       message-title={args.messageTitle}
       message-text={args.messageText}
       icon={args.icon}
@@ -22,7 +24,7 @@ const createAlert = (args) => (
           Action link
         </a>
       </div>
-    </atom-alert>
+    </AtomAlert>
 
     <style>{AlertCSS}</style>
   </div>
@@ -32,5 +34,41 @@ export const Default: StoryObj = {
   render: (args) => createAlert(args),
   args: {
     ...AlertComponentArgs,
+  },
+}
+
+export const Info: StoryObj = {
+  render: (args) => createAlert(args),
+  args: {
+    ...AlertComponentArgs,
+    color: 'info',
+    icon: 'people',
+  },
+}
+
+export const Success: StoryObj = {
+  render: (args) => createAlert(args),
+  args: {
+    ...AlertComponentArgs,
+    color: 'success',
+    icon: 'heart',
+  },
+}
+
+export const Warning: StoryObj = {
+  render: (args) => createAlert(args),
+  args: {
+    ...AlertComponentArgs,
+    color: 'warning',
+    icon: 'warning',
+  },
+}
+
+export const Danger: StoryObj = {
+  render: (args) => createAlert(args),
+  args: {
+    ...AlertComponentArgs,
+    color: 'danger',
+    icon: 'people',
   },
 }
