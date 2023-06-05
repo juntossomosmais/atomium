@@ -10,6 +10,13 @@ import { IonTypes } from "@ionic/core/dist/types/components";
 export { Color, Mode, TextFieldTypes } from "@ionic/core";
 export { IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
+    interface AtomAlert {
+        "close": boolean;
+        "color"?: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
+        "icon"?: string;
+        "messageText"?: string;
+        "messageTitle"?: string;
+    }
     interface AtomButton {
         "color": 'primary' | 'secondary';
         "disabled"?: boolean;
@@ -204,6 +211,12 @@ export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
     target: HTMLAtomTextareaElement;
 }
 declare global {
+    interface HTMLAtomAlertElement extends Components.AtomAlert, HTMLStencilElement {
+    }
+    var HTMLAtomAlertElement: {
+        prototype: HTMLAtomAlertElement;
+        new (): HTMLAtomAlertElement;
+    };
     interface HTMLAtomButtonElement extends Components.AtomButton, HTMLStencilElement {
     }
     var HTMLAtomButtonElement: {
@@ -253,6 +266,7 @@ declare global {
         new (): HTMLAtomTextareaElement;
     };
     interface HTMLElementTagNameMap {
+        "atom-alert": HTMLAtomAlertElement;
         "atom-button": HTMLAtomButtonElement;
         "atom-chip": HTMLAtomChipElement;
         "atom-col": HTMLAtomColElement;
@@ -264,6 +278,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface AtomAlert {
+        "close"?: boolean;
+        "color"?: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
+        "icon"?: string;
+        "messageText"?: string;
+        "messageTitle"?: string;
+    }
     interface AtomButton {
         "color"?: 'primary' | 'secondary';
         "disabled"?: boolean;
@@ -446,6 +467,7 @@ declare namespace LocalJSX {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface IntrinsicElements {
+        "atom-alert": AtomAlert;
         "atom-button": AtomButton;
         "atom-chip": AtomChip;
         "atom-col": AtomCol;
@@ -460,6 +482,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "atom-alert": LocalJSX.AtomAlert & JSXBase.HTMLAttributes<HTMLAtomAlertElement>;
             "atom-button": LocalJSX.AtomButton & JSXBase.HTMLAttributes<HTMLAtomButtonElement>;
             "atom-chip": LocalJSX.AtomChip & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
             "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;

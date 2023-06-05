@@ -1,0 +1,104 @@
+@import '~@atomium/scss-utils/index';
+
+:host {
+  --close-size: var(--spacing-xxxlarge);
+  --icon-size: var(--spacing-medium);
+  display: block;
+}
+
+.atom-alert {
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  font: var(--text-body-medium);
+  letter-spacing: var(--text-body-medium-letter);
+  padding: var(--spacing-base);
+  padding-right: var(--close-size);
+  position: relative;
+
+  @include above(medium) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &.atom-color--success {
+    background-color: var(--color-contextual-success-light-2);
+    border-color: var(--color-contextual-success-dark-1);
+    color: var(--color-contextual-success-dark-1);
+  }
+
+  &.atom-color--info {
+    background-color: var(--color-contextual-info-light-2);
+    border-color: var(--color-contextual-info-dark-1);
+    color: var(--color-contextual-info-dark-1);
+  }
+
+  &.atom-color--warning {
+    background-color: var(--color-contextual-warning-light-2);
+    border-color: var(--color-contextual-warning-dark-1);
+    color: var(--color-contextual-warning-dark-1);
+  }
+
+  &.atom-color--danger {
+    background-color: var(--color-contextual-error-light-2);
+    border-color: var(--color-contextual-error-dark-1);
+    color: var(--color-contextual-error-dark-1);
+  }
+
+  &.atom-color--neutral {
+    background-color: var(--color-neutral-light-5);
+    border-color: var(--color-neutral-light-1);
+    color: var(--color-neutral-light-1);
+
+    .atom-icon {
+      color: var(--color-brand-primary-regular);
+    }
+  }
+}
+
+.atom-title {
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-xsmall);
+  }
+}
+
+.atom-message {
+  margin: 0;
+
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-xsmall);
+  }
+}
+
+.atom-actions {
+  margin-left: auto;
+  margin-right: var(--spacing-xsmall);
+
+  @include below(small) {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--spacing-xsmall);
+  }
+}
+
+.atom-icon {
+  font-size: var(--icon-size);
+  margin-right: var(--spacing-xsmall);
+  margin-top: 2px;
+}
+
+.atom-close {
+  background: transparent;
+  border: 0;
+  color: var(--color-neutral-light-3);
+  cursor: pointer;
+  font-size: var(--icon-size);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: var(--spacing-base);
+  width: var(--close-size);
+}
