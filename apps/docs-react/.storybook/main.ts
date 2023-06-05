@@ -10,7 +10,6 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/theming',
-    '@storybook/addon-mdx-gfm',
   ],
   framework: {
     name: '@storybook/react-webpack5',
