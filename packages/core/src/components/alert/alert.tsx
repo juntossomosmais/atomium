@@ -30,12 +30,7 @@ export class AtomAlert {
         >
           <div class="atom-body">
             {this.icon && (
-              <atom-icon
-                class={{
-                  [`atom-icon`]: true,
-                }}
-                icon={this.icon}
-              ></atom-icon>
+              <atom-icon class="atom-icon" icon={this.icon}></atom-icon>
             )}
             <div class="atom-content">
               {this.messageTitle && (
