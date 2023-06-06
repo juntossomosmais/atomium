@@ -139,7 +139,7 @@ describe('AtomAlert', () => {
     expect(page.root).toEqualHtml(`
       <atom-alert close="true" message-title="${messageTitle}" message-text="${messageText}" role="alert">
           <mock:shadow-root>
-            <div class="atom-alert atom-color--neutral">
+            <div class="atom-alert atom-color--neutral has-close">
               <div class="atom-body">
                 <div class="atom-content">
                 <p class="atom-title">

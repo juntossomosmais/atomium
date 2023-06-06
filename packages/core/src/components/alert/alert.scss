@@ -7,13 +7,16 @@
 }
 
 .atom-alert {
-  border: 1px solid transparent;
   border-radius: var(--border-radius);
+  border: 1px solid transparent;
   font: var(--text-body-medium);
   letter-spacing: var(--text-body-medium-letter);
   padding: var(--spacing-base);
-  padding-right: var(--close-size);
   position: relative;
+
+  &.has-close {
+    padding-right: var(--close-size);
+  }
 
   @include above(medium) {
     display: flex;

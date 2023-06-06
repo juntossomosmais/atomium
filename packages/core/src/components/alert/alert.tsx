@@ -32,6 +32,7 @@ export class AtomAlert {
           class={{
             [`atom-alert`]: true,
             [`atom-color--${this.color}`]: true,
+            [`has-close`]: this.close,
           }}
         >
           <div class="atom-body">
