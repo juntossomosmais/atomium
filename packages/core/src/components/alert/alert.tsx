@@ -25,7 +25,7 @@ export class AtomAlert {
     this.atomAction.emit()
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Host role="alert">
         <div
