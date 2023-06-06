@@ -16,7 +16,6 @@ const createAlertColor = (color: string) => {
             <p class="atom-message">
               Alert text
             </p>
-            <slot></slot>
           </div>
         </div>
       </div>
@@ -121,7 +120,6 @@ describe('AtomAlert', () => {
                 <p class="atom-message">
                   Alert text
                 </p>
-                <slot></slot>
               </div>
             </div>
           </div>
@@ -150,7 +148,6 @@ describe('AtomAlert', () => {
                 <p class="atom-message">
                   Alert text
                 </p>
-                <slot></slot>
               </div>
             </div>
             <button aria-label="Close" class="atom-close" type="button">
@@ -182,7 +179,6 @@ describe('AtomAlert', () => {
               <p class="atom-message">
                 Alert text
               </p>
-              <slot></slot>
             </div>
           </div>
           <div class="atom-actions">

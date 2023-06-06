@@ -45,7 +45,6 @@ export class AtomAlert {
               {this.messageText && (
                 <p class="atom-message" innerHTML={this.messageText}></p>
               )}
-              <slot></slot>
             </div>
           </div>
           {this.actionText && (

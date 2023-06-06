@@ -61,12 +61,6 @@ export const AlertStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    slot: {
-      description: 'Slot to pass content inside the alert.',
-      table: {
-        category: Category.SLOTS,
-      },
-    },
     atomAction: {
       description: 'Event emitted when the action button is clicked.',
       table: {
