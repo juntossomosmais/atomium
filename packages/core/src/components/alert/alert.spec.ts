@@ -16,11 +16,8 @@ const createAlertColor = (color: string) => {
             <p class="atom-message">
               Alert text
             </p>
+            <slot></slot>
           </div>
-        </div>
-        <slot></slot>
-        <div class="atom-actions">
-          <slot name="actions"></slot>
         </div>
       </div>
     </mock:shadow-root>
@@ -124,11 +121,8 @@ describe('AtomAlert', () => {
                 <p class="atom-message">
                   Alert text
                 </p>
+                <slot></slot>
               </div>
-            </div>
-            <slot></slot>
-            <div class="atom-actions">
-              <slot name="actions"></slot>
             </div>
           </div>
         </mock:shadow-root>
@@ -156,14 +150,11 @@ describe('AtomAlert', () => {
                 <p class="atom-message">
                   Alert text
                 </p>
+                <slot></slot>
               </div>
             </div>
-            <slot></slot>
-            <div class="atom-actions">
-              <slot name="actions"></slot>
-            </div>
             <button aria-label="Close" class="atom-close" type="button">
-               <atom-icon icon="close"></atom-icon>
+              <atom-icon icon="close"></atom-icon>
             </button>
           </div>
         </mock:shadow-root>
@@ -171,16 +162,16 @@ describe('AtomAlert', () => {
     `)
   })
 
-  it('should add actions slot when actions prop is set', async () => {
+  it('should add actions "action-text" prop is set', async () => {
     const page = await newSpecPage({
       components: [AtomAlert],
-      html: `<atom-alert message-title="${messageTitle}" message-text="${messageText}"><button slot="actions">Action</button></atom-alert>`,
+      html: `<atom-alert message-title="${messageTitle}" message-text="${messageText}" action-text="Action example"></atom-alert>`,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert message-title="${messageTitle}" message-text="${messageText}" role="alert">
+      <atom-alert action-text="Action example" message-title="${messageTitle}" message-text="${messageText}" role="alert">
         <mock:shadow-root>
           <div class="atom-alert atom-color--neutral">
             <div class="atom-body">
@@ -191,19 +182,39 @@ describe('AtomAlert', () => {
               <p class="atom-message">
                 Alert text
               </p>
+              <slot></slot>
             </div>
           </div>
-          <slot></slot>
           <div class="atom-actions">
-            <slot name="actions"></slot>
+            <button class="atom-actions__button" type="button">
+              Action example
+            </button>
           </div>
         </div>
       </mock:shadow-root>
-      <button slot="actions">
-        Action
-      </button>
     </atom-alert>
     `)
+  })
+
+  it('should emit atomAction event on action button click', async () => {
+    const page = await newSpecPage({
+      components: [AtomAlert],
+      html: '<atom-alert action-text="Action example"></atom-alert>',
+    })
+
+    await page.waitForChanges()
+
+    const alertActionEl = page.root?.shadowRoot?.querySelector(
+      '.atom-actions__button'
+    ) as HTMLElement
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomAction', spy)
+    alertActionEl?.click()
+
+    page.root?.dispatchEvent(new CustomEvent('atomAction'))
+
+    expect(spy).toHaveBeenCalled()
   })
 
   it('emits atomClose event on alert close click', async () => {
