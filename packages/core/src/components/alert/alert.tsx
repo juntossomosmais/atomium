@@ -11,12 +11,18 @@ export class AtomAlert {
   @Prop() icon?: string
   @Prop() messageTitle?: string
   @Prop() messageText?: string
+  @Prop() actionText?: string
   @Prop() close = false
 
   @Event() atomClose: EventEmitter
+  @Event() atomAction: EventEmitter
 
   private handleClose = () => {
     this.atomClose.emit()
+  }
+
+  private handleAction = () => {
+    this.atomAction.emit()
   }
 
   render(): JSX.Element {
@@ -39,12 +45,20 @@ export class AtomAlert {
               {this.messageText && (
                 <p class="atom-message">{this.messageText}</p>
               )}
+              <slot></slot>
             </div>
           </div>
-          <slot></slot>
-          <div class="atom-actions">
-            <slot name="actions"></slot>
-          </div>
+          {this.actionText && (
+            <div class="atom-actions">
+              <button
+                class="atom-actions__button"
+                type="button"
+                onClick={this.handleAction}
+              >
+                {this.actionText}
+              </button>
+            </div>
+          )}
           {this.close && (
             <button
               class="atom-close"
