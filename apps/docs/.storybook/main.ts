@@ -11,6 +11,7 @@ const config = {
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/theming',
+    '@storybook/addon-mdx-gfm',
   ],
   framework: {
     name: '@storybook/web-components-webpack5',
