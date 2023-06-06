@@ -6,7 +6,7 @@
 packages/react/src/components
 packages/vue/src/components
 packages/**/coverage
-components.d.ts
+packages/**/components.d.ts
 packages/core/react
 packages/core/vue
 packages/core/core.css
