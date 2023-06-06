@@ -1,25 +1,7 @@
-import { Meta, Markdown } from '@storybook/addon-docs/blocks'
+import { Meta, Markdown } from '@storybook/addon-docs'
+
+import README from './2_Spacing.md?raw'
 
 <Meta title="Tokens/Spacings" />
 
-<Markdown>
-# Spacings
-
-All spacings are defined as `--spacing-*` CSS variables.
-
-| Size | Variable                   |  
-| ---- | -------------------------- |  
-| 4px  | `var(--spacing-xxsmall)`   |  
-| 8px  | `var(--spacing-xsmall)`    |  
-| 12px | `var(--spacing-small)`     |  
-| 16px | `var(--spacing-base)`      |  
-| 20px | `var(--spacing-medium)`    |  
-| 24px | `var(--spacing-large)`     |  
-| 28px | `var(--spacing-xlarge)`    |  
-| 32px | `var(--spacing-xxlarge)`   |  
-| 40px | `var(--spacing-xxxlarge)`  |  
-| 48px | `var(--spacing-xxxxlarge)` |  
-| 64px | `var(--spacing-giant)`     |  
-| 80px | `var(--spacing-xgiant)`    |  
-
-  </Markdown>
+<Markdown>{README}</Markdown>
