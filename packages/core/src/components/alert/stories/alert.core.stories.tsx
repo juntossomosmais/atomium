@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/web-components'
 
 import { html } from 'lit'
 
-import { AlertCSS, AlertComponentArgs, AlertStoryArgs } from './alert.args'
+import { AlertComponentArgs, AlertStoryArgs } from './alert.args'
 
 export default {
   title: 'Components/Alert',
@@ -17,15 +17,9 @@ const createAlert = (args) => {
       icon=${args.icon}
       color=${args.color}
       close=${args.close}
+      action-text=${args.actionText}
     >
-      <div slot="actions">
-        <a class="action-link" href="#" title="Action link">Action link</a>
-      </div>
     </atom-alert>
-
-    <style>
-      ${AlertCSS}
-    </style>
   `
 }
 

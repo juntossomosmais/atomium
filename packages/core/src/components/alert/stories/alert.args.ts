@@ -6,7 +6,7 @@ export const AlertStoryArgs = {
   decorators: [withActions],
   parameters: {
     actions: {
-      handles: ['atomClose'],
+      handles: ['atomClose', 'atomAction'],
     },
     docs: {
       description: {
@@ -26,6 +26,13 @@ export const AlertStoryArgs = {
     messageText: {
       control: 'text',
       description: 'The text message of the alert.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    actionText: {
+      control: 'text',
+      description: 'The text of the action button.',
       table: {
         category: Category.PROPERTIES,
       },
@@ -54,13 +61,19 @@ export const AlertStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    actions: {
-      description: 'Slot name to pass in action buttons.',
+    slot: {
+      description: 'Slot to pass content inside the alert.',
       table: {
         category: Category.SLOTS,
       },
     },
-    onClose: {
+    atomAction: {
+      description: 'Event emitted when the action button is clicked.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    atomClose: {
       description: 'Event emitted when the alert is closed.',
       table: {
         category: Category.EVENTS,
@@ -74,10 +87,5 @@ export const AlertComponentArgs = {
   close: true,
   messageTitle: 'Title example of alert',
   messageText: 'Nice message example',
+  actionText: 'Action example',
 }
-
-export const AlertCSS = `
-  .action-link {
-    color: var(--color-brand-secondary-dark-1);
-  }
-`

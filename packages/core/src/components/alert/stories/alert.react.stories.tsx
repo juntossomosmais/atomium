@@ -3,7 +3,7 @@ import React from 'react'
 
 import { AtomAlert } from '@juntossomosmais/atomium/react'
 
-import { AlertCSS, AlertComponentArgs, AlertStoryArgs } from './alert.args'
+import { AlertComponentArgs, AlertStoryArgs } from './alert.args'
 
 export default {
   title: 'Components/Alert',
@@ -15,18 +15,11 @@ const createAlert = (args) => (
     <AtomAlert
       message-title={args.messageTitle}
       message-text={args.messageText}
+      action-text={args.actionText}
       icon={args.icon}
       color={args.color}
       close={args.close}
-    >
-      <div slot="actions">
-        <a className="action-link" href="#" title="Action link">
-          Action link
-        </a>
-      </div>
-    </AtomAlert>
-
-    <style>{AlertCSS}</style>
+    ></AtomAlert>
   </div>
 )
 
