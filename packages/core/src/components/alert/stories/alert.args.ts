@@ -11,7 +11,7 @@ export const AlertStoryArgs = {
     docs: {
       description: {
         component:
-          'Alerts are used to provide feedback to the user about the status of a task or process. Alerts can be used to notify the user about information or errors, success or warnings, or to confirm an action. <br> <br> You could pass a slot named `actions` to add buttons to the alert.',
+          'Alerts are used to provide feedback to the user about the status of a task or process. Alerts can be used to notify the user about information or errors, success or warnings, or to confirm an action.',
       },
     },
   },
