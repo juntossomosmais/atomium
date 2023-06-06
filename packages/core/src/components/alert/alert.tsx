@@ -40,10 +40,10 @@ export class AtomAlert {
             )}
             <div class="atom-content">
               {this.messageTitle && (
-                <p class="atom-title">{this.messageTitle}</p>
+                <p class="atom-title" innerHTML={this.messageTitle}></p>
               )}
               {this.messageText && (
-                <p class="atom-message">{this.messageText}</p>
+                <p class="atom-message" innerHTML={this.messageText}></p>
               )}
               <slot></slot>
             </div>
