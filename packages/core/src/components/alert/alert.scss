@@ -21,6 +21,7 @@
   @include above(medium) {
     display: flex;
     flex-wrap: wrap;
+    gap: var(--spacing-xsmall);
   }
 
   &.atom-color--success {
@@ -60,7 +61,11 @@
 
 .atom-body {
   display: flex;
-  flex-wrap: wrap;
+  gap: var(--spacing-xsmall);
+}
+
+.atom-content {
+  flex-basis: content;
 }
 
 .atom-title {
@@ -110,9 +115,9 @@
 
 .atom-icon {
   font-size: var(--icon-size);
-  margin-right: var(--spacing-xsmall);
   /* @todo(icons): re-evaluate this when finalizing the icon package */
   margin-top: 2px;
+  width: var(--spacing-medium);
 }
 
 .atom-close {
