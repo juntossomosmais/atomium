@@ -10,12 +10,12 @@ const createAlertColor = (color: string) => {
       <div class="atom-alert atom-color--${color}">
         <div class="atom-body">
           <div class="atom-content">
-            <p class="atom-title">
+            <div class="atom-title">
               Alert title
-            </p>
-            <p class="atom-message">
+            </div>
+            <div class="atom-message">
               Alert text
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -114,12 +114,12 @@ describe('AtomAlert', () => {
               <div class="atom-body">
                 <atom-icon class="atom-icon" icon="alert"></atom-icon>
                 <div class="atom-content">
-                <p class="atom-title">
+                <div class="atom-title">
                   Alert title
-                </p>
-                <p class="atom-message">
+                </div>
+                <div class="atom-message">
                   Alert text
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -142,12 +142,12 @@ describe('AtomAlert', () => {
             <div class="atom-alert atom-color--neutral has-close">
               <div class="atom-body">
                 <div class="atom-content">
-                <p class="atom-title">
+                <div class="atom-title">
                   Alert title
-                </p>
-                <p class="atom-message">
+                </div>
+                <div class="atom-message">
                   Alert text
-                </p>
+                </div>
               </div>
             </div>
             <button aria-label="Close" class="atom-close" type="button">
@@ -173,12 +173,12 @@ describe('AtomAlert', () => {
           <div class="atom-alert atom-color--neutral">
             <div class="atom-body">
               <div class="atom-content">
-              <p class="atom-title">
+              <div class="atom-title">
                 Alert title
-              </p>
-              <p class="atom-message">
+              </div>
+              <div class="atom-message">
                 Alert text
-              </p>
+              </div>
             </div>
           </div>
           <div class="atom-actions">
