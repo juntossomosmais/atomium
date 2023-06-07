@@ -15,23 +15,25 @@ export const config: Config = {
   globalScript: 'src/global/global.ts',
   globalStyle: 'src/global/global.scss',
   outputTargets: [
+    vueOutputTarget({
+      componentCorePackage: '@juntossomosmais/atomium',
+      proxiesFile: '../vue/src/components/index.ts',
+      includeDefineCustomElements: true,
+      includePolyfills: true,
+    }),
+    reactOutputTarget({
+      componentCorePackage: '@juntossomosmais/atomium',
+      proxiesFile: '../react/src/components/index.ts',
+      includeDefineCustomElements: true,
+      includePolyfills: true,
+    }),
     {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
-    vueOutputTarget({
-      componentCorePackage: '@juntossomosmais/atomium/dist',
-      proxiesFile: '../vue/src/components/index.ts',
-      includeDefineCustomElements: true,
-      loaderDir: '../loader',
-      includePolyfills: true,
-    }),
-    reactOutputTarget({
-      componentCorePackage: '@juntossomosmais/atomium/dist',
-      proxiesFile: '../react/src/components/index.ts',
-      includeDefineCustomElements: true,
-      loaderDir: '../loader',
-      includePolyfills: true,
-    }),
+    {
+      type: 'dist-custom-elements',
+      generateTypeDeclarations: true,
+    },
   ] as OutputTargetCustom[],
 }
