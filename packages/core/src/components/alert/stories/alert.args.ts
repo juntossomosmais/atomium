@@ -18,14 +18,16 @@ export const AlertStoryArgs = {
   argTypes: {
     messageTitle: {
       control: 'text',
-      description: 'The title of the alert.',
+      description:
+        'The title of the alert, this property accepts HTML strings.',
       table: {
         category: Category.PROPERTIES,
       },
     },
     messageText: {
       control: 'text',
-      description: 'The text message of the alert.',
+      description:
+        'The text message of the alert, this property accepts HTML strings.',
       table: {
         category: Category.PROPERTIES,
       },
