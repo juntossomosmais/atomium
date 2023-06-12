@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.0-alpha.15](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.14...atomium-v0.1.0-alpha.15) (2023-06-12)
+
+
+### Features
+
+* **alert:** create new component ([#152](https://github.com/juntossomosmais/atomium/issues/152)) ([f362e95](https://github.com/juntossomosmais/atomium/commit/f362e95ee9249c1400a9e5200568b1ba032e53d6))
+
+
+### Bug Fixes
+
+* adjust stencil output configs ([#154](https://github.com/juntossomosmais/atomium/issues/154)) ([5267123](https://github.com/juntossomosmais/atomium/commit/52671231ffb3828626e7a9e0589647a09d2d08c9))
+
 ## [0.1.0-alpha.14](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.11...atomium-v0.1.0-alpha.14) (2023-06-01)
 
 
