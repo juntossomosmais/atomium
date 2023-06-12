@@ -2,12 +2,18 @@
   "name": "@juntossomosmais/atomium-react",
   "description": "React transpiled for Atomium",
   "private": true,
-  "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "start": "tsc -p . --watch",
-    "build": "tsc -p . && npx copyfiles --flat ./package.json ../core/react"
+    "build": "npm run compile && npm run copy",
+    "compile": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc --module commonjs --outDir ../core/react/dist/cjs --declarationDir ../core/react/dist/types",
+    "build:esm": "tsc --module es6 --outDir ../core/react/dist/esm --declarationDir ../core/react/dist/types",
+    "copy": "npx copyfiles --flat ./package.json ../core/react"
   }
 }
