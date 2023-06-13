@@ -13,7 +13,8 @@ import {
 } from '@stencil/core'
 
 const win = typeof (window as any) !== 'undefined' ? (window as any) : undefined
-const SUPPORTS_VARS = win && !!win?.CSS?.supports('--a: 0')
+const SUPPORTS_VARS =
+  win && !!(win.CSS && win.CSS.supports && win.CSS.supports('--a: 0'))
 const BREAKPOINTS = ['', 'xs', 'sm', 'md', 'lg', 'xl']
 
 const SIZE_TO_MEDIA: any = {
