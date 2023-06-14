@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.16](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.15...atomium-v0.1.0-alpha.16) (2023-06-14)
+
+
+### Bug Fixes
+
+* **col:** grid col internal error ([#156](https://github.com/juntossomosmais/atomium/issues/156)) ([e15bd41](https://github.com/juntossomosmais/atomium/commit/e15bd4110e4026da707b2cbb2e31876b0f911af0))
+
 ## [0.1.0-alpha.15](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.14...atomium-v0.1.0-alpha.15) (2023-06-12)
 
 
