@@ -23,7 +23,8 @@ function extractTokensFromCss(cssContent: string, prefix: string) {
         )
         .join('')
 
-      return (tokens[variableCamelCase] = value.trim())
+      tokens[variableCamelCase] = value.trim()
+      return ''
     }
   )
 
