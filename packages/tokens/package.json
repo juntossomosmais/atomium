@@ -15,7 +15,8 @@
     "access": "public"
   },
   "exports": {
-    "./*": "./dist/*"
+    "./*": "./dist/*",
+    ".": "./dist/index.d.ts"
   },
   "scripts": {
     "start": "rollup -c -w",
