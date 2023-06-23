@@ -35,7 +35,7 @@ function generateJavaScriptFile(tokens, outputFilePath) {
   fs.writeFileSync(outputFilePath, jsCode, 'utf8')
 }
 
-function processCssFileByTokenPrefix(cssFilePath = TOKENS_DIR, prefix) {
+function processCssFileByTokenPrefix(cssFilePath, prefix) {
   const cssContent = fs.readFileSync(cssFilePath, 'utf8')
   const tokens = extractTokensFromCss(cssContent, prefix)
 
