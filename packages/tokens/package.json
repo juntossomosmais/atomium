@@ -1,6 +1,6 @@
 {
   "name": "@juntossomosmais/atomium-tokens",
-  "version": "0.1.0-alpha.17",
+  "version": "0.1.0-alpha.18",
   "description": "Tokens and variables for Atomium",
   "access": "public",
   "type": "module",
