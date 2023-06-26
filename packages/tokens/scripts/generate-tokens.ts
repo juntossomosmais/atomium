@@ -46,7 +46,7 @@ function processCssFileByTokenPrefix(cssFilePath: string, prefix: string) {
   const cssContent = fs.readFileSync(cssFilePath, 'utf8')
   const tokens = extractTokensFromCss(cssContent, prefix)
 
-  const outputFileName = `${prefix}.js`
+  const outputFileName = `${prefix}.ts`
   const outputFilePath = path.join(OUTPUT_DIR, outputFileName)
 
   generateJavaScriptFile(tokens, outputFilePath)
