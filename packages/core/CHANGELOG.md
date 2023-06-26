@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.17](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.16...atomium-v0.1.0-alpha.17) (2023-06-26)
+
+
+### Features
+
+* **tokens:** script to generate token value ([#158](https://github.com/juntossomosmais/atomium/issues/158)) ([c14725d](https://github.com/juntossomosmais/atomium/commit/c14725da9b463f966fae5bd0a72ceb6ecc5da804))
+
 ## [0.1.0-alpha.16](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.15...atomium-v0.1.0-alpha.16) (2023-06-14)
 
 
