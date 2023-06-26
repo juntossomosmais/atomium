@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.18](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.17...atomium-tokens-v0.1.0-alpha.18) (2023-06-26)
+
+
+### Bug Fixes
+
+* **tokens:** generate tokens files with ts instead js ([#160](https://github.com/juntossomosmais/atomium/issues/160)) ([c90193c](https://github.com/juntossomosmais/atomium/commit/c90193c48a26f1591d47f3ffa89c1433ba1342dc))
+
 ## [0.1.0-alpha.17](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.14...atomium-tokens-v0.1.0-alpha.17) (2023-06-26)
 
 
