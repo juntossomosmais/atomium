@@ -3,6 +3,8 @@
   "version": "0.1.0-alpha.14",
   "description": "Tokens and variables for Atomium",
   "access": "public",
+  "type": "module",
+  "main": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/juntossomosmais/atomium.git",
@@ -13,11 +15,12 @@
     "access": "public"
   },
   "exports": {
-    "./*": "./dist/*"
+    "./*": "./dist/*",
+    ".": "./dist/index.d.ts"
   },
   "scripts": {
     "start": "rollup -c -w",
-    "build": "rollup -c",
+    "build": "rollup -c && tsc && node dist/scripts/generate-tokens.js",
     "publish-library": "npm publish --access public"
   },
   "files": [
