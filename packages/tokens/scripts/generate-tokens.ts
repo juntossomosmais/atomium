@@ -4,7 +4,8 @@ import { fileURLToPath } from 'url'
 
 const CURRENT_DIR = path.dirname(fileURLToPath(import.meta.url))
 const TOKENS_DIR = path.resolve(CURRENT_DIR, '../tokens.css')
-const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../')
+const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../src')
+const OUTPUT_TOKENS_DIR = `${OUTPUT_DIR}/tokens`
 
 const prefixes = ['color', 'spacing', 'screen']
 const exportStatements: Array<string> = []
@@ -47,16 +48,20 @@ function processCssFileByTokenPrefix(cssFilePath: string, prefix: string) {
   const tokens = extractTokensFromCss(cssContent, prefix)
 
   const outputFileName = `${prefix}.ts`
-  const outputFilePath = path.join(OUTPUT_DIR, outputFileName)
+  const outputFilePath = path.join(OUTPUT_TOKENS_DIR, outputFileName)
 
   generateJavaScriptFile(tokens, outputFilePath)
   exportStatements.push(`export * from './${prefix}';`)
 }
 
 function generateIndexFile() {
-  const outputFileName = 'index.d.ts'
-  const outputFilePath = path.join(OUTPUT_DIR, outputFileName)
+  const outputFileName = 'index.ts'
+  const outputFilePath = path.join(OUTPUT_TOKENS_DIR, outputFileName)
   fs.writeFileSync(outputFilePath, exportStatements.join('\n'), 'utf8')
+}
+
+if (!fs.existsSync(OUTPUT_TOKENS_DIR)) {
+  fs.mkdirSync(OUTPUT_TOKENS_DIR)
 }
 
 prefixes.forEach((prefix) => {
