@@ -4,7 +4,7 @@
   "description": "Tokens and variables for Atomium",
   "access": "public",
   "type": "module",
-  "main": "dist/src/tokens/index.d.ts",
+  "main": "dist/src/tokens/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/juntossomosmais/atomium.git",
@@ -16,7 +16,7 @@
   },
   "exports": {
     "./*": "./dist/*",
-    ".": "./dist/src/tokens/index.d.ts"
+    ".": "./dist/src/tokens/index.js"
   },
   "scripts": {
     "start": "rollup -c -w",
