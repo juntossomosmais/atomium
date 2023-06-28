@@ -1,14 +1,6 @@
 name: Deploy PR Previews
 
-permissions:
-  actions: write
-  checks: read
-  contents: read
-  deployments: read
-  issues: write
-  packages: write
-  pages: write
-  pull-requests: write
+permissions: write-all
 
 on:
   pull_request:
