@@ -7,6 +7,7 @@ permissions:
   deployments: read
   issues: write
   packages: write
+  pages: write
   pull-requests: write
 
 on:
