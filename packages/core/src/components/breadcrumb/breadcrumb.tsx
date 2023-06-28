@@ -25,7 +25,7 @@ export class AtomBreadcrumb {
               key={item.text}
             >
               <span title={item.title}>{item.text}</span>
-              <atom-icon icon="caret-forward-outline" slot="separator" />
+              <atom-icon icon="caret-forward-sharp" slot="separator" />
             </ion-breadcrumb>
           ))}
         </ion-breadcrumbs>

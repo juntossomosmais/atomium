@@ -38,19 +38,19 @@ describe('atom-breadcrumb', () => {
               <span title="Go to first level">
                 First level
               </span>
-              <atom-icon icon="caret-forward-outline" slot="separator"></atom-icon>
+              <atom-icon icon="caret-forward-sharp" slot="separator"></atom-icon>
             </ion-breadcrumb>
             <ion-breadcrumb class="atom-breadcrumb">
               <span title="Go to intermediary level">
                 Intermediary level
               </span>
-              <atom-icon icon="caret-forward-outline" slot="separator"></atom-icon>
+              <atom-icon icon="caret-forward-sharp" slot="separator"></atom-icon>
             </ion-breadcrumb>
             <ion-breadcrumb class="atom-breadcrumb">
               <span title="This is the current level">
                 Current level
               </span>
-              <atom-icon icon="caret-forward-outline" slot="separator"></atom-icon>
+              <atom-icon icon="caret-forward-sharp" slot="separator"></atom-icon>
             </ion-breadcrumb>
           </ion-breadcrumbs>
         </mock:shadow-root>
