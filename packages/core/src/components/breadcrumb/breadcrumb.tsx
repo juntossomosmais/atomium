@@ -19,7 +19,11 @@ export class AtomBreadcrumb {
       <Host>
         <ion-breadcrumbs>
           {this.items.map((item) => (
-            <ion-breadcrumb class="atom-breadcrumb" onClick={item.redirect}>
+            <ion-breadcrumb
+              class="atom-breadcrumb"
+              onClick={item.redirect}
+              key={item.text}
+            >
               <span title={item.title}>{item.text}</span>
               <atom-icon icon="caret-forward-outline" slot="separator" />
             </ion-breadcrumb>
