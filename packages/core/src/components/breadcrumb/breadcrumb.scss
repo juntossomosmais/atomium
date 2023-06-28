@@ -1,0 +1,21 @@
+.atom-breadcrumb {
+  --color: var(--color-brand-secondary-regular);
+  --color-active: var(--color-neutral-regular);
+  font: var(--text-body-small);
+  letter-spacing: var(--text-body-small-letter);
+
+  &:not(:last-of-type) {
+    &::part(native) {
+      cursor: pointer;
+    }
+  }
+
+  &::part(native) {
+    padding: 0;
+  }
+
+  &::part(separator) {
+    color: var(--color-neutral-regular);
+    margin-inline: var(--spacing-xxsmall);
+  }
+}
