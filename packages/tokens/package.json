@@ -24,8 +24,9 @@
   },
   "scripts": {
     "start": "rollup -c -w",
+    "build:css": "rollup -c",
     "build:gen-tokens": "npx babel ./scripts/generate-tokens.ts --out-file ./dist/scripts/generate-tokens.js && node ./dist/scripts/generate-tokens.js",
-    "build": "rollup -c && npm run build:gen-tokens && rollup -c rollup.tokens.config.mjs && tsc --module commonjs",
+    "build": "npm run build:css && npm run build:gen-tokens && rollup -c rollup.tokens.config.mjs && tsc && rimraf dist/scripts",
     "publish-library": "npm publish --access public"
   },
   "files": [
