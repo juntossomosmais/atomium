@@ -2,13 +2,13 @@ import fs from 'fs'
 import path from 'path'
 
 const CURRENT_DIR = __dirname
-const TOKENS_DIR = path.resolve(CURRENT_DIR, '../tokens.css')
-const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../')
+export const TOKENS_DIR = path.resolve(CURRENT_DIR, '../tokens.css')
+export const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../')
 
 const prefixes = ['color', 'spacing', 'screen']
 const tokens: Record<string, string> = {}
 
-function extractTokensFromCss(cssContent: string, prefix: string) {
+export function extractTokensFromCss(cssContent: string, prefix: string) {
   const cssVariablePattern = new RegExp(`--(${prefix}[\\w-]+):\\s*([^;]+)`, 'g')
 
   cssContent.replace(
@@ -27,7 +27,7 @@ function extractTokensFromCss(cssContent: string, prefix: string) {
   )
 }
 
-function generateJavaScriptFile(outputFilePath: string) {
+export function generateJavaScriptFile(outputFilePath: string) {
   const jsCode = Object.entries(tokens)
     .map(([variable, value]) => `export const ${variable} = '${value}';`)
     .join('\n')
@@ -46,4 +46,4 @@ function processCssFileByTokenPrefix(cssFilePath: string) {
   generateJavaScriptFile(outputFilePath)
 }
 
-processCssFileByTokenPrefix(TOKENS_DIR)
+export const generateTokens = processCssFileByTokenPrefix(TOKENS_DIR)
