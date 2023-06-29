@@ -1,5 +1,7 @@
 name: Deploy PR Previews
 
+permissions: write-all
+
 on:
   pull_request:
     types:
@@ -59,4 +61,3 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: apps/docs/storybook-static
-
