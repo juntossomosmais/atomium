@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "rollup -c -w",
-    "build": "rollup -c && tsc && node dist/scripts/generate-tokens.js && tsc --outDir dist",
+    "build": "rollup -c && tsc && node dist/scripts/generate-tokens.js && rollup ./index.ts --sourcemap true -o dist/index.js -f cjs",
     "publish-library": "npm publish --access public"
   },
   "files": [

@@ -7,7 +7,7 @@ const TOKENS_DIR = path.resolve(CURRENT_DIR, '../tokens.css')
 const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../')
 
 const prefixes = ['color', 'spacing', 'screen']
-const tokens = []
+const tokens: Record<string, string> = {}
 
 function extractTokensFromCss(cssContent: string, prefix: string) {
   const cssVariablePattern = new RegExp(`--(${prefix}[\\w-]+):\\s*([^;]+)`, 'g')
