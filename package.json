@@ -46,6 +46,7 @@
     "@nrwl/cli": "15.9.2",
     "@nrwl/eslint-plugin-nx": "^16.0.1",
     "@nrwl/workspace": "15.9.2",
+    "@rollup/plugin-typescript": "^11.1.2",
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/sass": "^3.0.3",
     "@stencil/vue-output-target": "^0.7.0",

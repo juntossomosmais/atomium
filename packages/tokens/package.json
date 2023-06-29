@@ -3,9 +3,9 @@
   "version": "0.1.0-alpha.18",
   "description": "Tokens and variables for Atomium",
   "access": "public",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/juntossomosmais/atomium.git",
@@ -18,16 +18,14 @@
   "exports": {
     "./*": "./dist/*",
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
     "start": "rollup -c -w",
     "build:gen-tokens": "npx babel ./scripts/generate-tokens.ts --out-file ./dist/scripts/generate-tokens.js && node ./dist/scripts/generate-tokens.js",
-    "build:cjs": "tsc --module commonjs --outDir ./dist/cjs --declarationDir ./dist/types",
-    "build:esm": "tsc --module es6 --outDir ./dist/esm --declarationDir ./dist/types",
-    "build": "rollup -c && npm run build:gen-tokens && npm run build:cjs && npm run build:esm",
+    "build": "rollup -c && npm run build:gen-tokens && rollup -c rollup.tokens.config.mjs && tsc --module commonjs",
     "publish-library": "npm publish --access public"
   },
   "files": [
