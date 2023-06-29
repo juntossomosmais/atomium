@@ -1,8 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { fileURLToPath } from 'url'
 
-const CURRENT_DIR = path.dirname(fileURLToPath(import.meta.url))
+const CURRENT_DIR = __dirname
 const TOKENS_DIR = path.resolve(CURRENT_DIR, '../tokens.css')
 const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../')
 
