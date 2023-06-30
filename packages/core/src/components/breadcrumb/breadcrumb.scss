@@ -7,6 +7,10 @@
   &:not(:last-of-type) {
     &::part(native) {
       cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
