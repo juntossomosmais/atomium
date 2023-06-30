@@ -3,8 +3,9 @@
   "version": "0.1.0-alpha.18",
   "description": "Tokens and variables for Atomium",
   "access": "public",
-  "type": "module",
-  "main": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/juntossomosmais/atomium.git",
@@ -16,12 +17,18 @@
   },
   "exports": {
     "./*": "./dist/*",
-    ".": "./dist/index.d.ts"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
   },
   "scripts": {
     "start": "rollup -c -w",
-    "build": "rollup -c && tsc && node dist/scripts/generate-tokens.js",
-    "publish-library": "npm publish --access public"
+    "build:css": "rollup -c",
+    "build:gen-tokens": "npx babel ./scripts/generate-tokens.ts --out-file ./dist/scripts/generate-tokens.js && node ./dist/scripts/generate-tokens.js",
+    "build": "npm run build:css && npm run build:gen-tokens && rollup -c rollup.tokens.config.mjs && tsc --module commonjs && rimraf dist/scripts",
+    "publish-library": "npm publish --access public",
+    "test": "jest"
   },
   "files": [
     "dist"
