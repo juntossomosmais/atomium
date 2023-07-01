@@ -32,7 +32,7 @@
     "tokens:publish": "npm run tokens:build && nx run @juntossomosmais/atomium-tokens:publish"
   },
   "dependencies": {
-    "@stencil/core": "^3.2.1"
+    "@stencil/core": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.5",
