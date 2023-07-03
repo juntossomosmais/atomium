@@ -19,7 +19,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build-and-test-core:
     concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
 
@@ -67,3 +67,56 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: packages/core/
+
+  build-and-test-token:
+    concurrency: ghpages-${{ github.ref }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: List the state of node modules
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        continue-on-error: true
+        run: npm list
+
+      - name: Install dependencies and build libs 🔧
+        run: npm ci --legacy-peer-deps
+        continue-on-error: false
+
+      - name: Run Tests 🧪
+        run: npm run test:ci
+        continue-on-error: false
+
+      - name: SonarCloud Scan 🚨
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: packages/tokens/
