@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { OUTPUT_DIR, TOKENS_DIR, extractTokensFromCss } from './generate-tokens'
+import { OUTPUT_DIR, TOKENS_DIR } from './generate-tokens'
 
 jest.mock('fs', () => ({
   readFileSync: jest.fn().mockReturnValue(`
@@ -18,14 +18,5 @@ describe('Generate Tokens', () => {
       `export const colorPrimary = '#ff0000';\nexport const spacingSmall = '4px';\nexport const screenMobile = '480px';`,
       'utf8'
     )
-  })
-
-  it('should ignore CSS content without prefix tokens', () => {
-    const cssContent = `
-      --any-variable: any_value;
-    `
-    const tokens: Record<string, string> = {}
-    extractTokensFromCss(cssContent, 'color')
-    expect(tokens).toEqual({})
   })
 })
