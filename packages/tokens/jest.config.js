@@ -7,5 +7,18 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js'],
   collectCoverage: true,
   coverageReporters: ['lcov'],
-  collectCoverageFrom: ['scripts/*.ts', '!scripts/*.spec.ts'],
+  coveragePathIgnorePatterns: ['/node_modules/'],
+  collectCoverageFrom: [
+    'scripts/*.ts',
+    '!scripts/*.spec.ts',
+    '!src/**/stories/**',
+    '!src/**/*.mock.ts',
+    '!src/**/*.spec.ts',
+  ],
+  coverageThreshold: {
+    global: {
+      lines: 80,
+      statements: 80,
+    },
+  },
 }
