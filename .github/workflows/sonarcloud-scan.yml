@@ -63,9 +63,22 @@ jobs:
         continue-on-error: false
 
   sonar-scan-core:
+    concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: SonarCloud Scan - Core 🚨
         uses: sonarsource/sonarcloud-github-action@master
         env:
@@ -73,15 +86,3 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: packages/core/
-
-  sonar-scan-token:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: SonarCloud Scan - Token 🚨
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          projectBaseDir: packages/tokens/
