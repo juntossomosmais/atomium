@@ -65,6 +65,7 @@ jobs:
   sonar-scan-core:
     concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
+    needs: build-and-test
 
     steps:
       - name: Checkout Repository
