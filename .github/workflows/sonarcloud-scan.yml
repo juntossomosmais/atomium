@@ -63,11 +63,17 @@ jobs:
         continue-on-error: false
 
       - name: SonarCloud Scan - Core 🚨
-        uses: ./.github/workflows/sonar-scan.yml
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: packages/core/
 
       - name: SonarCloud Scan - Tokens 🚨
-        uses: ./.github/workflows/sonar-scan.yml
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: packages/tokens/
