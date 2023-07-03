@@ -20,6 +20,6 @@
 
   &::part(separator) {
     color: var(--color-neutral-regular);
-    margin-inline: var(--spacing-xxsmall);
+    margin: 0 var(--spacing-xxsmall);
   }
 }
