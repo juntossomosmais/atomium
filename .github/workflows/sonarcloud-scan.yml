@@ -62,7 +62,18 @@ jobs:
         run: npm run test:ci
         continue-on-error: false
 
+      - name: Check coverage directory - Core
+        run: |
+          chmod +x check-coverage.sh
+          ./check-coverage.sh packages/core
+
+      - name: Check coverage directory - Tokens
+        run: |
+          chmod +x check-coverage.sh
+          ./check-coverage.sh packages/tokens
+
       - name: SonarCloud Scan - Core 🚨
+        if: env.COVERAGE_CORE == 'true'
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
@@ -71,6 +82,7 @@ jobs:
           projectBaseDir: packages/core/
 
       - name: SonarCloud Scan - Tokens 🚨
+        if: env.COVERAGE_TOKENS == 'true'
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
