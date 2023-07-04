@@ -65,14 +65,14 @@ jobs:
       - name: Check coverage directory - Core
         id: check_coverage_core
         run: |
-          chmod +x ./check-coverage.js
-          node ./check-coverage.js --module core
+          chmod +x ./.github/workflows/check-coverage.js
+          node ./.github/workflows/check-coverage.js --module core
 
       - name: Check coverage directory - Tokens
         id: check_coverage_tokens
         run: |
-          chmod +x ./check-coverage.js
-          node ./check-coverage.js --module tokens
+          chmod +x ./.github/workflows/check-coverage.js
+          node ./.github/workflows/check-coverage.js --module tokens
 
       - name: SonarCloud Scan - Core 🚨
         if: env.COVERAGE_CORE == 'true'
