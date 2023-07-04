@@ -1,12 +1,12 @@
 import { create } from '@storybook/theming'
 
-const $blue = 'rgb(0, 127, 216)'
-const $grayDark = 'rgb(33, 33, 33)'
-const $orange = 'rgb(255, 125, 0)'
+const $blue = 'rgb(0 127 216)'
+const $grayDark = 'rgb(33 33 33)'
+const $orange = 'rgb(255 125 0)'
 const $transparent = 'transparent'
-const $white = 'rgb(255, 255, 255, .9)'
-const $white2 = 'rgb(255, 255, 255, .8)'
-const $white3 = 'rgb(240, 240, 240, .9)'
+const $white = 'rgb(255 255 255 / 0.9)'
+const $white2 = 'rgb(255 255 255 / 0.8)'
+const $white3 = 'rgb(240 240 240 / 0.9)'
 
 const $colorPrimary = $blue
 const $colorSecondary = $orange
