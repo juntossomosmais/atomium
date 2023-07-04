@@ -65,12 +65,12 @@ jobs:
       - name: Check coverage directory - Core
         run: |
           chmod +x ./.github/workflows/check-coverage.sh
-          node ./.github/workflows/check-coverage.sh packages/core
+          ./.github/workflows/check-coverage.sh packages/core
 
       - name: Check coverage directory - Tokens
         run: |
           chmod +x ./.github/workflows/check-coverage.sh
-          node ./.github/workflows/check-coverage.sh packages/tokens
+          ./.github/workflows/check-coverage.sh packages/tokens
 
       - name: SonarCloud Scan - Core 🚨
         if: env.COVERAGE_CORE == 'true'
