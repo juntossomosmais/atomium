@@ -2,7 +2,7 @@
 
 directory=$1
 
-if [ -d "$directory/coverage" ]; then
+if [ -d "packages/$directory/coverage" ]; then
   echo "Coverage directory exists for $directory."
   echo "COVERAGE_$directory=true" >> $GITHUB_ENV
 else
