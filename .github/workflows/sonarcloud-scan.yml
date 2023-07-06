@@ -58,8 +58,19 @@ jobs:
         run: npm ci --legacy-peer-deps
         continue-on-error: false
 
+      - name: Define test script to run
+        id: define-script
+        run: |
+          if [[ "${{ github.event_name }}" == 'push' ]]; then
+            echo "::set-output name=testScriptToRun::test:ci-merge"
+            echo "We gonna run test:ci-merge to you"
+          elif [[ "${{ github.event_name }}" == 'pull_request' ]]; then
+            echo "::set-output name=testScriptToRun::test:ci"
+            echo "We gonna run test:ci to you"
+          fi
+
       - name: Run Tests 🧪
-        run: npm run test:ci
+        run: npm run ${{ steps.define-script.outputs.testScriptToRun }}
         continue-on-error: false
 
       - name: Check coverage directory - Core

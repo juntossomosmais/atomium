@@ -28,6 +28,7 @@
     "start": "nx run-many --target=start --maxParallel=10 --exclude=@atomium/docs-react",
     "test": "nx run @juntossomosmais/atomium:test",
     "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel",
+    "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel",
     "tokens:build": "nx build @juntossomosmais/atomium-tokens",
     "tokens:publish": "npm run tokens:build && nx run @juntossomosmais/atomium-tokens:publish"
   },
