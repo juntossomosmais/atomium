@@ -5,7 +5,7 @@ const CURRENT_DIR = __dirname
 export const TOKENS_DIR = path.resolve(CURRENT_DIR, '../tokens.css')
 export const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../')
 
-const prefixes = ['color', 'spacing', 'screen']
+const variablePrefixes = ['color', 'spacing', 'screen']
 const tokens: Record<string, string> = {}
 
 export function extractTokensFromCss(cssContent: string, prefix: string) {
@@ -38,7 +38,7 @@ export function generateJavaScriptFile(outputFilePath: string) {
 function processCssFileByTokenPrefix(cssFilePath: string) {
   const cssContent = fs.readFileSync(cssFilePath, 'utf8')
 
-  prefixes.forEach((prefix) => extractTokensFromCss(cssContent, prefix))
+  variablePrefixes.forEach((prefix) => extractTokensFromCss(cssContent, prefix))
 
   const outputFileName = 'index.ts'
   const outputFilePath = path.join(OUTPUT_DIR, outputFileName)
