@@ -100,7 +100,7 @@
     "rupture-sass": "^1.0.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
-    "storybook": "^7.0.2",
+    "storybook": "^7.0.24",
     "stylelint": "^15.1.0",
     "stylelint-config-recommended": "^12.0.0",
     "stylelint-order": "^6.0.2",
