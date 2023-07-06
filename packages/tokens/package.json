@@ -28,6 +28,7 @@
     "build:gen-tokens": "npx babel ./scripts/generate-tokens.ts --out-file ./dist/scripts/generate-tokens.js && node ./dist/scripts/generate-tokens.js",
     "build": "npm run build:css && npm run build:gen-tokens && rollup -c rollup.tokens.config.mjs && tsc --module commonjs && rimraf dist/scripts",
     "publish-library": "npm publish --access public",
+    "test:ci": "jest --coverage --no-cache --updateSnapshot --ci",
     "test": "jest"
   },
   "files": [
