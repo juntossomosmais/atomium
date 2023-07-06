@@ -182,6 +182,15 @@ export namespace Components {
         "value"?: IonTypes.IonTextarea['value'];
         "wrap"?: 'hard' | 'soft' | 'off';
     }
+    interface AtomUploadArea {
+        "accept"?: string;
+        "disabled": boolean;
+        "icon"?: string;
+        "id": string;
+        "itemToUpload": string;
+        "multiple": boolean;
+        "setInputEl": (inputEl: HTMLInputElement) => Promise<void>;
+    }
 }
 export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -202,6 +211,10 @@ export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
 export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomTextareaElement;
+}
+export interface AtomUploadAreaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomUploadAreaElement;
 }
 declare global {
     interface HTMLAtomButtonElement extends Components.AtomButton, HTMLStencilElement {
@@ -252,6 +265,12 @@ declare global {
         prototype: HTMLAtomTextareaElement;
         new (): HTMLAtomTextareaElement;
     };
+    interface HTMLAtomUploadAreaElement extends Components.AtomUploadArea, HTMLStencilElement {
+    }
+    var HTMLAtomUploadAreaElement: {
+        prototype: HTMLAtomUploadAreaElement;
+        new (): HTMLAtomUploadAreaElement;
+    };
     interface HTMLElementTagNameMap {
         "atom-button": HTMLAtomButtonElement;
         "atom-chip": HTMLAtomChipElement;
@@ -261,6 +280,7 @@ declare global {
         "atom-input": HTMLAtomInputElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-textarea": HTMLAtomTextareaElement;
+        "atom-upload-area": HTMLAtomUploadAreaElement;
     }
 }
 declare namespace LocalJSX {
@@ -445,6 +465,16 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonTextarea['value'];
         "wrap"?: 'hard' | 'soft' | 'off';
     }
+    interface AtomUploadArea {
+        "accept"?: string;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "id"?: string;
+        "itemToUpload"?: string;
+        "multiple"?: boolean;
+        "onAtomChange"?: (event: AtomUploadAreaCustomEvent<ChangeEvent>) => void;
+        "onAtomInput"?: (event: AtomUploadAreaCustomEvent<InputEvent>) => void;
+    }
     interface IntrinsicElements {
         "atom-button": AtomButton;
         "atom-chip": AtomChip;
@@ -454,6 +484,7 @@ declare namespace LocalJSX {
         "atom-input": AtomInput;
         "atom-select": AtomSelect;
         "atom-textarea": AtomTextarea;
+        "atom-upload-area": AtomUploadArea;
     }
 }
 export { LocalJSX as JSX };
@@ -468,6 +499,7 @@ declare module "@stencil/core" {
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
+            "atom-upload-area": LocalJSX.AtomUploadArea & JSXBase.HTMLAttributes<HTMLAtomUploadAreaElement>;
         }
     }
 }
