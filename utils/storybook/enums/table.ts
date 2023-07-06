@@ -3,4 +3,5 @@ export enum Category {
   EVENTS = 'Events',
   METHODS = 'Methods',
   PROPERTIES = 'Properties',
+  SLOTS = 'Slots',
 }

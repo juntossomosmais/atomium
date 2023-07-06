@@ -2,18 +2,8 @@
 // Link: https://github.com/ionic-team/ionic-framework/blob/main/core/src/components/col/col.tsx
 // You could read our ADR for this: apps/docs/stories/architecture-decision-records/0008-why-do-we-need-grids.stories.mdx
 
-import {
-  Component,
-  Element,
-  forceUpdate,
-  h,
-  Host,
-  Listen,
-  Prop,
-} from '@stencil/core'
+import { Component, forceUpdate, h, Host, Listen, Prop } from '@stencil/core'
 
-const win = typeof (window as any) !== 'undefined' ? (window as any) : undefined
-const SUPPORTS_VARS = win && !!win?.CSS?.supports('--a: 0')
 const BREAKPOINTS = ['', 'xs', 'sm', 'md', 'lg', 'xl']
 
 const SIZE_TO_MEDIA: any = {
@@ -54,8 +44,6 @@ export class AtomCol {
   @Prop() offsetLg?: string
   @Prop() push?: string
   @Prop() pull?: string
-
-  @Element() private element!: HTMLElement
 
   @Listen('resize', { target: 'window' })
   onResize() {
@@ -101,12 +89,7 @@ export class AtomCol {
     const colSize =
       columns === 'auto'
         ? 'auto'
-        : // If CSS supports variables we should use the grid columns var
-        SUPPORTS_VARS
-        ? `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100%)`
-        : // Convert the columns to a percentage by dividing by the total number
-          // of columns (12) and then multiplying by 100
-          (columns / 12) * 100 + '%'
+        : `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100%)`
 
     return {
       flex: `0 0 ${colSize}`,
@@ -125,44 +108,32 @@ export class AtomCol {
 
     // If the number of columns passed are greater than 0 and less than
     // 12 we can position the column, else default to auto
-    const amount = SUPPORTS_VARS
-      ? // If CSS supports variables we should use the grid columns var
-        `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100%)`
-      : // Convert the columns to a percentage by dividing by the total number
-      // of columns (12) and then multiplying by 100
-      columns > 0 && columns < 12
-      ? (columns / 12) * 100 + '%'
-      : 'auto'
+    const amount = `calc(calc(${columns} / var(--ion-grid-columns, 12)) * 100%)`
 
     return {
       [modifier]: amount,
     }
   }
 
-  private calculateOffset(isRTL: boolean) {
-    return this.calculatePosition(
-      'offset',
-      isRTL ? 'margin-right' : 'margin-left'
-    )
+  private calculateOffset() {
+    return this.calculatePosition('offset', 'margin-left')
   }
 
-  private calculatePull(isRTL: boolean) {
-    return this.calculatePosition('pull', isRTL ? 'left' : 'right')
+  private calculatePull() {
+    return this.calculatePosition('pull', 'right')
   }
 
-  private calculatePush(isRTL: boolean) {
-    return this.calculatePosition('push', isRTL ? 'right' : 'left')
+  private calculatePush() {
+    return this.calculatePosition('push', 'left')
   }
 
   render() {
-    const isRTL = document.dir === 'rtl'
-
     return (
       <Host
         style={{
-          ...this.calculateOffset(isRTL),
-          ...this.calculatePull(isRTL),
-          ...this.calculatePush(isRTL),
+          ...this.calculateOffset(),
+          ...this.calculatePull(),
+          ...this.calculatePush(),
           ...this.calculateSize(),
         }}
       >

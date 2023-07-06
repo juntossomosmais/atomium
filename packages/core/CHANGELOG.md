@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.1.0-alpha.17](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.16...atomium-v0.1.0-alpha.17) (2023-06-26)
+
+
+### Features
+
+* **tokens:** script to generate token value ([#158](https://github.com/juntossomosmais/atomium/issues/158)) ([c14725d](https://github.com/juntossomosmais/atomium/commit/c14725da9b463f966fae5bd0a72ceb6ecc5da804))
+
+## [0.1.0-alpha.16](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.15...atomium-v0.1.0-alpha.16) (2023-06-14)
+
+
+### Bug Fixes
+
+* **col:** grid col internal error ([#156](https://github.com/juntossomosmais/atomium/issues/156)) ([e15bd41](https://github.com/juntossomosmais/atomium/commit/e15bd4110e4026da707b2cbb2e31876b0f911af0))
+
+## [0.1.0-alpha.15](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.14...atomium-v0.1.0-alpha.15) (2023-06-12)
+
+
+### Features
+
+* **alert:** create new component ([#152](https://github.com/juntossomosmais/atomium/issues/152)) ([f362e95](https://github.com/juntossomosmais/atomium/commit/f362e95ee9249c1400a9e5200568b1ba032e53d6))
+
+
+### Bug Fixes
+
+* adjust stencil output configs ([#154](https://github.com/juntossomosmais/atomium/issues/154)) ([5267123](https://github.com/juntossomosmais/atomium/commit/52671231ffb3828626e7a9e0589647a09d2d08c9))
+
 ## [0.1.0-alpha.14](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.11...atomium-v0.1.0-alpha.14) (2023-06-01)
 
 

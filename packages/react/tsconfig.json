@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "../core/react/dist",
+    "outDir": "dist",
     "lib": ["dom", "es2015"],
-    "module": "es2015",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "target": "es2015",
@@ -12,8 +12,20 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "declarationDir": "../core/react/dist/types"
+    "declarationDir": "dist/types",
+    "allowUnreachableCode": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "sourceMap": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"],
+  "compileOnSave": false,
+  "buildOnSave": false
 }
