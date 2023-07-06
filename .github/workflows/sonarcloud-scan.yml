@@ -62,10 +62,10 @@ jobs:
         id: define-script
         run: |
           if [[ "${{ github.event_name }}" == 'push' ]]; then
-            echo "testScriptToRun=test:ci-merge" >> $GITHUB_OUTPUT"
+            echo "testScriptToRun=test:ci-merge" >> $GITHUB_OUTPUT
             echo "We gonna run test:ci-merge to you"
           elif [[ "${{ github.event_name }}" == 'pull_request' ]]; then
-            echo "testScriptToRun=test:ci" >> $GITHUB_OUTPUT"
+            echo "testScriptToRun=test:ci" >> $GITHUB_OUTPUT
             echo "We gonna run test:ci to you"
           fi
 
