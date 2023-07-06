@@ -49,7 +49,7 @@
     "@rollup/plugin-typescript": "^11.1.2",
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/sass": "^3.0.3",
-    "@stencil/vue-output-target": "^0.7.0",
+    "@stencil/vue-output-target": "^0.8.6",
     "@storybook/addon-a11y": "^7.0.1",
     "@storybook/addon-docs": "^7.0.1",
     "@storybook/addon-essentials": "^7.0.1",
