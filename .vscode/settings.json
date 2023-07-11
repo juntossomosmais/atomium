@@ -7,5 +7,6 @@
     "source.organizeImports": true,
     "source.sortMembers": true
   },
-  "editor.formatOnPaste": false
+  "editor.formatOnPaste": false,
+  "stylelint.validate": ["css", "scss"]
 }
