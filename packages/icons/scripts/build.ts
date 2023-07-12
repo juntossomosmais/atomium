@@ -4,7 +4,7 @@ import { optimize } from 'svgo'
 import {
   getCurrentDirPath,
   readSvg,
-  readSvgDirectory,
+  readSvgDirectories,
   writeSvgFile,
   writeTypeDefinitionFile,
 } from './helpers.js'
@@ -12,37 +12,36 @@ import {
 const ICONS_DIR = path.resolve(getCurrentDirPath(), '../../svg')
 const DIST_DIR = path.resolve(getCurrentDirPath(), '../svg')
 
+function optimizeSvg(path: string, svg: string) {
+  const config = [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          convertShapeToPath: false,
+          mergePaths: false,
+          removeViewBox: false,
+        },
+      },
+    },
+  ]
+  const optimizedSvg = optimize(svg, { path, plugins: config })
+  return optimizedSvg.data
+}
+
 function build() {
-  const svgFiles = readSvgDirectory(ICONS_DIR)
+  const files = readSvgDirectories(ICONS_DIR)
 
   console.log(`Optimizing SVGs...`)
-
-  for (const svgFile of svgFiles) {
-    const pathFile = path.join(ICONS_DIR, svgFile)
-    const content = readSvg(pathFile)
-
-    const optimizedFile = optimize(content, {
-      path: pathFile,
-      plugins: [
-        {
-          name: 'preset-default',
-          params: {
-            overrides: {
-              convertShapeToPath: false,
-              mergePaths: false,
-              removeViewBox: false,
-            },
-          },
-        },
-      ],
-    }).data
-
-    writeSvgFile(DIST_DIR, svgFile, optimizedFile)
+  for (const file of files) {
+    const basename = path.basename(file)
+    const content = readSvg(file)
+    const optimizedFile = optimizeSvg(file, content)
+    writeSvgFile(DIST_DIR, basename, optimizedFile)
   }
 
   console.log(`Generating types...`)
-
-  writeTypeDefinitionFile(svgFiles)
+  writeTypeDefinitionFile(files, DIST_DIR)
 }
 
 build()
