@@ -46,4 +46,4 @@ function processCssFileByTokenPrefix(cssFilePath: string) {
   generateJavaScriptFile(outputFilePath)
 }
 
-export const generateTokens = processCssFileByTokenPrefix(TOKENS_DIR)
+processCssFileByTokenPrefix(TOKENS_DIR)
