@@ -5,10 +5,13 @@ import { fileURLToPath } from 'url'
 export const getCurrentDirPath = (currentUrl = import.meta.url) =>
   path.dirname(fileURLToPath(currentUrl))
 
+const ICONS_DIR = path.resolve(getCurrentDirPath(), '../../svg')
+const DIST_DIR = path.resolve(getCurrentDirPath(), '../svg')
+
 export const readSvg = (path: string) => fs.readFileSync(path, 'utf-8')
 
 export const readSvgDirectories = (
-  directory: string,
+  directory = ICONS_DIR,
   fileExtension = '.svg'
 ) => {
   const allSvgFiles: string[] = []
@@ -32,9 +35,9 @@ export const readSvgDirectories = (
 }
 
 export const writeSvgFile = (
-  outputDirectory: string,
   fileName: string,
-  content: string
+  content: string,
+  outputDirectory = DIST_DIR
 ) => {
   if (!fs.existsSync(outputDirectory)) {
     fs.mkdirSync(outputDirectory)

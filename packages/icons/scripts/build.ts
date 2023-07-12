@@ -1,16 +1,7 @@
 import path from 'path'
 import { optimize } from 'svgo'
 
-import {
-  getCurrentDirPath,
-  readSvg,
-  readSvgDirectories,
-  writeSvgFile,
-  writeTypeDefinitionFile,
-} from './helpers.js'
-
-const ICONS_DIR = path.resolve(getCurrentDirPath(), '../../svg')
-const DIST_DIR = path.resolve(getCurrentDirPath(), '../svg')
+import { readSvg, readSvgDirectories, writeSvgFile } from './helpers.js'
 
 function optimizeSvg(path: string, svg: string) {
   const config = [
@@ -30,18 +21,15 @@ function optimizeSvg(path: string, svg: string) {
 }
 
 function build() {
-  const files = readSvgDirectories(ICONS_DIR)
+  const files = readSvgDirectories()
 
   console.log(`Optimizing SVGs...`)
   for (const file of files) {
     const basename = path.basename(file)
     const content = readSvg(file)
     const optimizedFile = optimizeSvg(file, content)
-    writeSvgFile(DIST_DIR, basename, optimizedFile)
+    writeSvgFile(basename, optimizedFile)
   }
-
-  console.log(`Generating types...`)
-  writeTypeDefinitionFile(files, DIST_DIR)
 }
 
 build()
