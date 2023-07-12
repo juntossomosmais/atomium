@@ -1,6 +1,8 @@
 import { Color } from '@ionic/core'
 import { Component, Host, Prop, h } from '@stencil/core'
 
+import { IconProps } from '../../icons'
+
 // @note: this is a temporary solution using sandbox until we have a proper CDN for our icons
 const CDN_URL = 'https://d2kfdqa8kiizgt.cloudfront.net/atomium/icons'
 
@@ -11,7 +13,7 @@ const CDN_URL = 'https://d2kfdqa8kiizgt.cloudfront.net/atomium/icons'
 })
 export class AtomIcon {
   @Prop() color?: Color
-  @Prop() icon?: string
+  @Prop() icon?: IconProps
   @Prop() size?: 'small' | 'large'
 
   render(): JSX.Element {

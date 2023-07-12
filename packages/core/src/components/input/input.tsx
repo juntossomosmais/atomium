@@ -11,6 +11,8 @@ import {
   h,
 } from '@stencil/core'
 
+import { IconProps } from '../../icons'
+
 @Component({
   tag: 'atom-input',
   styleUrl: 'input.scss',
@@ -43,7 +45,7 @@ export class AtomInput {
   @Prop() fill: 'solid' | 'outline' = 'solid'
   @Prop() hasError = false
   @Prop() helperText?: string
-  @Prop() icon?: string
+  @Prop() icon?: IconProps
   @Prop() inputmode?:
     | 'none'
     | 'text'
