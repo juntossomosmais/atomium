@@ -52,7 +52,7 @@ export const WithIcon: StoryObj = {
   render: (args) => createChip(args),
   args: {
     ...ChipComponentArgs,
-    icon: 'checkmark',
+    icon: 'check',
   },
 }
 

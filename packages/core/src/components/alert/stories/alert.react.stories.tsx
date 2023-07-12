@@ -35,7 +35,7 @@ export const Info: StoryObj = {
   args: {
     ...AlertComponentArgs,
     color: 'info',
-    icon: 'people',
+    icon: 'account-multiple',
   },
 }
 
@@ -53,7 +53,7 @@ export const Warning: StoryObj = {
   args: {
     ...AlertComponentArgs,
     color: 'warning',
-    icon: 'warning',
+    icon: 'alert',
   },
 }
 
@@ -62,6 +62,6 @@ export const Danger: StoryObj = {
   args: {
     ...AlertComponentArgs,
     color: 'danger',
-    icon: 'people',
+    icon: 'account-multiple',
   },
 }
