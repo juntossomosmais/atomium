@@ -11,6 +11,7 @@ packages/tokens/index.ts
 packages/core/react
 packages/core/vue
 packages/core/core.css
+packages/core/src/icons.d.ts
 storybook-static
 dist
 tmp
