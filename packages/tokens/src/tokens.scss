@@ -41,40 +41,58 @@
   --color-neutral-white-rgb: 255 255 255;
 
   --color-brand-primary-dark-1: #b85000;
+  --color-brand-primary-dark-1-rgb: 184 80 0;
   --color-brand-primary-regular: #ed6700;
   --color-brand-primary-regular-rgb: 237 103 0;
   --color-brand-primary-light-1: #ff913d;
+  --color-brand-primary-light-1-rgb: 255 145 61;
   --color-brand-primary-light-2: #fff3eb;
+  --color-brand-primary-light-2-rgb: 255 243 235;
 
   --color-brand-secondary-dark-1: #12579b;
+  --color-brand-secondary-dark-1-rgb: 18 87 155;
   --color-brand-secondary-regular: #1976d2;
   --color-brand-secondary-regular-rgb: 25 118 210;
   --color-brand-secondary-light-1: #4a9ff2;
+  --color-brand-secondary-light-1-rgb: 74 159 242;
   --color-brand-secondary-light-2: #e4f0fc;
+  --color-brand-secondary-light-2-rgb: 228 240 252;
 
   --color-contextual-error-dark-1: #b60000;
+  --color-contextual-error-dark-1-rgb: 182 0 0;
   --color-contextual-error-regular: #d60000;
   --color-contextual-error-regular-rgb: 214 0 0;
   --color-contextual-error-light-1: #ff0a0a;
+  --color-contextual-error-light-1-rgb: 255 10 10;
   --color-contextual-error-light-2: #ffebeb;
+  --color-contextual-error-light-2-rgb: 255 235 235;
 
   --color-contextual-success-dark-1: #106105;
+  --color-contextual-success-dark-1-rgb: 16 97 5;
   --color-contextual-success-regular: #168806;
   --color-contextual-success-regular-rgb: 22 136 6;
   --color-contextual-success-light-1: #26b413;
+  --color-contextual-success-light-1-rgb: 38 180 19;
   --color-contextual-success-light-2: #e4ffe0;
+  --color-contextual-success-light-2-rgb: 228 255 224;
 
   --color-contextual-warning-dark-1: #856900;
+  --color-contextual-warning-dark-1-rgb: 133 105 0;
   --color-contextual-warning-regular: #ffc900;
   --color-contextual-warning-regular-rgb: 255 201 0;
   --color-contextual-warning-light-1: #ffda52;
+  --color-contextual-warning-light-1-rgb: 255 218 82;
   --color-contextual-warning-light-2: #fff4cc;
+  --color-contextual-warning-light-2-rgb: 255 244 204;
 
   --color-contextual-info-dark-1: #0a6171;
+  --color-contextual-info-dark-1-rgb: 10 97 113;
   --color-contextual-info-regular: #0d8296;
   --color-contextual-info-regular-rgb: 13 130 150;
   --color-contextual-info-light-1: #10a2bc;
+  --color-contextual-info-light-1-rgb: 16 162 188;
   --color-contextual-info-light-2: #e3f9fd;
+  --color-contextual-info-light-2-rgb: 227 249 253;
 
   /* Fonts
   * ------------------------- */
@@ -139,7 +157,7 @@
   --screen-xs: 576px;
   --screen-sm: 768px;
   --screen-md: 992px;
-  --screen-lg: 1280px;
+  --screen-lg: 1200px;
   --screen-xlg: 1440px;
   --screen-fhd: 1920px;
   --screen-2k: 2048px;
