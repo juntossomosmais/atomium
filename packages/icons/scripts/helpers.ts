@@ -7,10 +7,29 @@ export const getCurrentDirPath = (currentUrl = import.meta.url) =>
 
 export const readSvg = (path: string) => fs.readFileSync(path, 'utf-8')
 
-export const readSvgDirectory = (directory: string, fileExtension = '.svg') =>
-  fs
-    .readdirSync(directory)
-    .filter((file) => path.extname(file) === fileExtension)
+export const readSvgDirectories = (
+  directory: string,
+  fileExtension = '.svg'
+) => {
+  const allSvgFiles: string[] = []
+
+  const folders = fs.readdirSync(directory).filter((folder) => {
+    return fs.lstatSync(path.join(directory, folder)).isDirectory()
+  })
+
+  for (const folder of folders) {
+    const folderPath = path.join(directory, folder)
+    const files = fs.readdirSync(folderPath)
+
+    for (const file of files) {
+      if (path.extname(file) !== fileExtension) continue
+      const filePath = path.join(folderPath, file)
+      allSvgFiles.push(filePath)
+    }
+  }
+
+  return allSvgFiles
+}
 
 export const writeSvgFile = (
   outputDirectory: string,
