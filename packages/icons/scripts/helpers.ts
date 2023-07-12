@@ -52,6 +52,6 @@ export const writeTypeDefinitionFile = (
   outputPath = getCurrentDirPath()
 ) => {
   const types = svgFiles.map((file) => `'${path.basename(file, '.svg')}'`)
-  const typeDef = `export type IconProps = ${types.join(' | ')};\n`
-  fs.writeFileSync(path.join(outputPath, '..', 'index.d.ts'), typeDef)
+  const typeDef = `export type IconProps = ${types.join('\n | ')};`
+  fs.writeFileSync(path.join(outputPath, '..', 'icons.d.ts'), typeDef)
 }
