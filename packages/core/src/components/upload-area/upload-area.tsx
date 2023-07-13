@@ -1,5 +1,7 @@
+import { InputChangeEventDetail } from '@ionic/core'
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   Host,
@@ -14,14 +16,15 @@ import {
   shadow: true,
 })
 export class AtomUploadArea {
+  @Element() host: HTMLElement
+
   @Prop() itemToUpload: string = 'o arquivo'
   @Prop() icon?: string
   @Prop() multiple = false
   @Prop() disabled = false
   @Prop() accept?: string
-  @Prop() id: string
 
-  @Event() atomChange!: EventEmitter<ChangeEvent>
+  @Event() atomChange!: EventEmitter<InputChangeEventDetail>
   @Event() atomInput!: EventEmitter<InputEvent>
 
   private _inputEl!: HTMLInputElement
@@ -30,6 +33,10 @@ export class AtomUploadArea {
 
   get inputEl(): HTMLInputElement {
     return this._inputEl
+  }
+
+  get id(): string {
+    return this.host.getAttribute('id')
   }
 
   set inputEl(value: HTMLInputElement) {
@@ -41,13 +48,13 @@ export class AtomUploadArea {
     this._inputEl = inputEl
   }
 
-  onChange(event: ChangeEvent) {
+  onChange(event) {
     event.preventDefault()
     event.stopPropagation()
     console.dir((event.target as HTMLInputElement).files)
     console.dir(this.inputEl)
-    this.atomInput.emit(event as unknown as InputEvent)
-    this.atomChange.emit(event)
+    // this.atomInput.emit(event as unknown as InputEvent)
+    // this.atomChange.emit(event)
   }
   onClick() {
     console.dir(this.inputEl)

@@ -38,6 +38,8 @@ It is built using a variety of powerful technologies, including:
 
 ## Getting Started
 
+Don't forget to configure your `.npmrc`
+
 ### Installation
 
 ```bash
@@ -82,6 +84,17 @@ npm run storybook:build
 * `packages/tokens`: Contains the design tokens for Atomium, where all the tokens are defined.
 * `packages/icons`: Contains the icons used in Atomium, where all the icons are stored.
 * `utils/**`: Contains utility modules used throughout the project, providing various helper functions and tools.
+
+### Creating component
+
+To generate a new component
+
+```sh
+$ cd packages/core
+$ npm run generate 
+# follow the instructions from stencil CLI
+
+```
 
 ## Stories Documentation
 
