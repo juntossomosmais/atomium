@@ -30,6 +30,7 @@ function build() {
             overrides: {
               convertShapeToPath: false,
               mergePaths: false,
+              removeViewBox: false,
             },
           },
         },

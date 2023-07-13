@@ -58,12 +58,45 @@ jobs:
         run: npm ci --legacy-peer-deps
         continue-on-error: false
 
+      - name: Define test script to run
+        id: define-script
+        run: |
+          if [[ "${{ github.event_name }}" == 'push' ]]; then
+            echo "testScriptToRun=test:ci-merge" >> $GITHUB_OUTPUT
+            echo "We gonna run test:ci-merge to you"
+          elif [[ "${{ github.event_name }}" == 'pull_request' ]]; then
+            echo "testScriptToRun=test:ci" >> $GITHUB_OUTPUT
+            echo "We gonna run test:ci to you"
+          fi
+
       - name: Run Tests 🧪
-        run: npm run test:ci
+        run: npm run ${{ steps.define-script.outputs.testScriptToRun }}
         continue-on-error: false
 
-      - name: SonarCloud Scan 🚨
+      - name: Check coverage directory - Core
+        run: |
+          chmod +x ./.github/workflows/check-coverage.sh
+          ./.github/workflows/check-coverage.sh core
+
+      - name: Check coverage directory - Tokens
+        run: |
+          chmod +x ./.github/workflows/check-coverage.sh
+          ./.github/workflows/check-coverage.sh tokens
+
+      - name: SonarCloud Scan - Core 🚨
+        if: env.COVERAGE_CORE == 'true'
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: packages/core/
+
+      - name: SonarCloud Scan - Tokens 🚨
+        if: env.COVERAGE_TOKENS == 'true'
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_GHPAGES }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: packages/tokens/

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0-alpha.19](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.18...atomium-tokens-v0.1.0-alpha.19) (2023-07-04)
+
+
+### Features
+
+* change RGB to modern notation ([#164](https://github.com/juntossomosmais/atomium/issues/164)) ([5577282](https://github.com/juntossomosmais/atomium/commit/5577282d319982a9ebcec57cba80db1a166c9158))
+* **tokens:** compile ts files into js map on generate tokens script ([#162](https://github.com/juntossomosmais/atomium/issues/162)) ([d5fd754](https://github.com/juntossomosmais/atomium/commit/d5fd7543ceb65f4b27234f8559276a2238328b86))
+
 ## [0.1.0-alpha.18](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.17...atomium-tokens-v0.1.0-alpha.18) (2023-06-26)
 
 
