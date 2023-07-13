@@ -15,22 +15,22 @@
     "utils/*"
   ],
   "scripts": {
-    "core:build": "nx build @juntossomosmais/atomium && npm run react:build",
-    "docs:build": "nx build @atomium/docs && nx build @atomium/docs-react",
-    "docs-react:start": "nx run @atomium/docs-react:start",
-    "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c  ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
+    "core:build": "npx nx build @juntossomosmais/atomium && npm run react:build",
+    "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
+    "docs-react:start": "npx nx run @atomium/docs-react:start",
+    "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
-    "icons:build": "nx build @juntossomosmais/atomium-icons",
-    "postinstall": "npx husky install & nx build @juntossomosmais/atomium:prebuild && npm run icons:build && npm run core:build && npm run tokens:build",
+    "icons:build": "npx nx build @juntossomosmais/atomium-icons",
+    "postinstall": "npx husky install & npx nx build @juntossomosmais/atomium:prebuild && npm run icons:build && npm run core:build && npm run tokens:build",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "react:build": "cd packages/react && npm run build",
-    "start": "nx run-many --target=start --maxParallel=10 --exclude=@atomium/docs-react",
-    "test": "nx run @juntossomosmais/atomium:test",
+    "start": "npx nx run-many --target=start --maxParallel=10 --exclude=@atomium/docs-react",
+    "test": "npx nx run @juntossomosmais/atomium:test",
     "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel",
     "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel",
-    "tokens:build": "nx build @juntossomosmais/atomium-tokens",
-    "tokens:publish": "npm run tokens:build && nx run @juntossomosmais/atomium-tokens:publish"
+    "tokens:build": "npx nx build @juntossomosmais/atomium-tokens",
+    "tokens:publish": "npm run tokens:build && npx nx run @juntossomosmais/atomium-tokens:publish"
   },
   "dependencies": {
     "@stencil/core": "^3.2.1"
