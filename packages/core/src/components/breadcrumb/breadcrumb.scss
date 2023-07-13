@@ -1,3 +1,11 @@
+.atom-breadcrumbs {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
 .atom-breadcrumb {
   --color: var(--color-brand-secondary-regular);
   --color-active: var(--color-neutral-regular);
@@ -12,6 +20,13 @@
         text-decoration: underline;
       }
     }
+
+    .atom-breadcrumb__text {
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   &::part(native) {
@@ -21,5 +36,23 @@
   &::part(separator) {
     color: var(--color-neutral-regular);
     margin: 0 var(--spacing-xxsmall);
+  }
+}
+
+.atom-button__back {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-brand-secondary-regular);
+  cursor: pointer;
+  display: flex;
+  font: var(--text-link-small);
+  gap: var(--spacing-xsmall);
+  letter-spacing: var(--text-link-small-letter);
+  padding: 0;
+  text-decoration: underline;
+
+  @media screen and (min-width: 768px) {
+    display: none;
   }
 }

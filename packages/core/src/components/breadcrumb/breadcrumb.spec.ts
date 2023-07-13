@@ -20,7 +20,7 @@ const breadcrumbItemsMock = [
 ]
 
 describe('atom-breadcrumb', () => {
-  it('should render breadcrumb items correctly', async () => {
+  it('should render breadcrumb items and mobile back button correctly', async () => {
     const page = await newSpecPage({
       components: [AtomBreadcrumb],
       html: `<atom-breadcrumb />`,
@@ -33,22 +33,52 @@ describe('atom-breadcrumb', () => {
     expect(page.root).toEqualHtml(`
       <atom-breadcrumb>
         <mock:shadow-root>
-          <ion-breadcrumbs>
+          <button class="atom-button__back" type="button">
+            <atom-icon icon="arrow-back-outline" size="small"></atom-icon>
+            Voltar
+          </button>
+          <ion-breadcrumbs class="atom-breadcrumbs">
             <ion-breadcrumb class="atom-breadcrumb">
-              <span title="Go to first level">
+              <span class="atom-breadcrumb__text" title="Go to first level">
                 First level
               </span>
               <atom-icon icon="caret-forward-sharp" slot="separator"></atom-icon>
             </ion-breadcrumb>
             <ion-breadcrumb class="atom-breadcrumb">
-              <span title="Go to intermediary level">
+              <span class="atom-breadcrumb__text" title="Go to intermediary level">
                 Intermediary level
               </span>
               <atom-icon icon="caret-forward-sharp" slot="separator"></atom-icon>
             </ion-breadcrumb>
             <ion-breadcrumb class="atom-breadcrumb">
-              <span title="This is the current level">
+              <span class="atom-breadcrumb__text" title="This is the current level">
                 Current level
+              </span>
+              <atom-icon icon="caret-forward-sharp" slot="separator"></atom-icon>
+            </ion-breadcrumb>
+          </ion-breadcrumbs>
+        </mock:shadow-root>
+      </atom-breadcrumb>
+    `)
+  })
+
+  it('should not render mobile back button when only one breadcrumb item is sent as prop', async () => {
+    const page = await newSpecPage({
+      components: [AtomBreadcrumb],
+      html: `<atom-breadcrumb />`,
+    })
+
+    page.rootInstance.items = [breadcrumbItemsMock[0]]
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-breadcrumb>
+        <mock:shadow-root>
+          <ion-breadcrumbs class="atom-breadcrumbs">
+            <ion-breadcrumb class="atom-breadcrumb">
+              <span class="atom-breadcrumb__text" title="Go to first level">
+                First level
               </span>
               <atom-icon icon="caret-forward-sharp" slot="separator"></atom-icon>
             </ion-breadcrumb>
