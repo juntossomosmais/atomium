@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.0-alpha.20](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.19...atomium-tokens-v0.1.0-alpha.20) (2023-07-13)
+
+
+### Features
+
+* **tokens:** add rgb tokens ([#181](https://github.com/juntossomosmais/atomium/issues/181)) ([80d49d4](https://github.com/juntossomosmais/atomium/commit/80d49d4449841cc093e35955bdf94a06c601e2d2))
+
+
+### Bug Fixes
+
+* **tokens:** remove variable not used to remove sonar bug ([#180](https://github.com/juntossomosmais/atomium/issues/180)) ([017e834](https://github.com/juntossomosmais/atomium/commit/017e834ba2704643cb16537b2d50b9765402ccc6))
+
 ## [0.1.0-alpha.19](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.18...atomium-tokens-v0.1.0-alpha.19) (2023-07-04)
 
 
