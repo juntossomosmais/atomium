@@ -1,6 +1,6 @@
 @import '~@atomium/scss-utils/index';
 
-:root {
+:root, ::backdrop {
   /* Spacings
   * ------------------------- */
   --spacing-xxsmall: 4px;
