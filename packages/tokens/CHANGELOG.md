@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.21](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.20...atomium-tokens-v0.1.0-alpha.21) (2023-07-14)
+
+
+### Features
+
+* **tokens:** add variables to backdrop  ([#184](https://github.com/juntossomosmais/atomium/issues/184)) ([f091e17](https://github.com/juntossomosmais/atomium/commit/f091e1733e2d27ecdad4600ed01c16593b884048))
+
 ## [0.1.0-alpha.20](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.19...atomium-tokens-v0.1.0-alpha.20) (2023-07-13)
 
 
