@@ -26,6 +26,7 @@ export class AtomButton {
       <Host
         class={{
           [`expand-${this.expand}`]: !!this.expand,
+          [`is-disabled`]: this.disabled,
         }}
       >
         <ion-button
