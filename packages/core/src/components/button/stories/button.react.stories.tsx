@@ -74,3 +74,11 @@ export const CircleButton: StoryObj = {
     shape: 'circle',
   },
 }
+
+export const Disabled: StoryObj = {
+  render: (args) => createButton(args),
+  args: {
+    ...Primary.args,
+    disabled: true,
+  },
+}
