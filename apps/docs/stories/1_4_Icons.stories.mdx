@@ -1,0 +1,27 @@
+import { Meta, Title, IconGallery, IconItem } from '@storybook/blocks'
+
+import { mdiIconsList, customIconsList } from '../utils/icon-list'
+
+<Meta title="Getting Started/Icons" />
+
+# Icons Library
+
+## Custom Icons
+
+<IconGallery>
+  {customIconsList?.map((icon) => (
+    <IconItem name={icon}>
+      <atom-icon icon={icon}></atom-icon>
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Material Design Icons
+
+<IconGallery>
+  {mdiIconsList?.map((icon) => (
+    <IconItem name={icon}>
+      <atom-icon icon={icon}></atom-icon>
+    </IconItem>
+  ))}
+</IconGallery>
