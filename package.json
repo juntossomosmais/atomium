@@ -7,7 +7,7 @@
   "engines": {
     "yarn": "please-use-npm",
     "npm": ">=8.x",
-    "node": ">=16.x"
+    "node": ">=18.16.0"
   },
   "workspaces": [
     "apps/*",
