@@ -28,6 +28,7 @@ export class AtomButton {
           [`expand-${this.expand}`]: !!this.expand,
           [`is-disabled`]: this.disabled,
         }}
+        disabled={this.disabled || null}
       >
         <ion-button
           class={{
