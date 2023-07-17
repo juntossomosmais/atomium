@@ -1,33 +1,24 @@
 {
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "packages"
+  },
   "extends": "@nrwl/workspace/presets/core.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "atomium-ds",
   "affected": {
     "defaultBase": "main"
   },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.json": "*",
-    "tsconfig.base.json": "*",
-    "nx.json": "*"
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test"
+        ]
       }
-    }
-  },
-  "targetDefaults": {
-    "build": {
-      "dependsOn": ["^build"]
     }
   },
   "pluginsConfig": {
@@ -35,8 +26,17 @@
       "analyzeSourceFiles": true
     }
   },
-  "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "packages"
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/tsconfig.base.json",
+      "{workspaceRoot}/nx.json"
+    ],
+    "production": [
+      "default"
+    ]
   }
 }
