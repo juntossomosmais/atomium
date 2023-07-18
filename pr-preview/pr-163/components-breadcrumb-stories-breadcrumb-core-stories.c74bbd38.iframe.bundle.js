@@ -3,24 +3,26 @@
 
     <script>
       ;(function () {
-        const atomBreadcrumb = document.querySelector('atom-breadcrumb')
+        const breadcrumbsElements = document.querySelectorAll('atom-breadcrumb')
 
-        atomBreadcrumb.items = [
-          {
-            text: 'First level',
-            title: 'Go to first level',
-            redirect: () => console.log('/first'),
-          },
-          {
-            text: 'Intermediary level',
-            title: 'Go to intermediary level',
-            redirect: () => console.log('/intermediary'),
-          },
-          {
-            text: 'Current level',
-            title: 'This is the current level',
-          },
-        ]
+        breadcrumbsElements.forEach((atomBreadcrumb) => {
+          atomBreadcrumb.items = [
+            {
+              text: 'First level',
+              title: 'Go to first level',
+              redirect: () => console.log('/first'),
+            },
+            {
+              text: 'Intermediary level',
+              title: 'Go to intermediary level',
+              redirect: () => console.log('/intermediary'),
+            },
+            {
+              text: 'Current level',
+              title: 'This is the current level',
+            },
+          ]
+        })
       })()
     </script>
   `};Default.parameters={...Default.parameters,docs:{...Default.parameters?.docs,source:{originalSource:"{\n  render: () => createBreadcrumb()\n}",...Default.parameters?.docs?.source}}};const __namedExportsOrder=["Default"]},"../../utils/storybook/enums/table.ts":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.d(__webpack_exports__,{W:()=>Category});let Category=function(Category){return Category.CSS_CUSTOM_PROPERTIES="CSS Custom Properties",Category.EVENTS="Events",Category.METHODS="Methods",Category.PROPERTIES="Properties",Category.SLOTS="Slots",Category}({})}}]);
