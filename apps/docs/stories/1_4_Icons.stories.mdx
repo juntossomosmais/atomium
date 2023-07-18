@@ -8,22 +8,24 @@ import { mdiIconsList, customIconsList } from '../utils/icon-list'
 
 The icons library is a collection of icons that can be used in your components. It is based on the [Material Design Icons](https://materialdesignicons.com/) library. But we can also add our own custom icons.
 
-## Custom Icons
+<details class="icon-gallery">
+  <summary>Custom Icons</summary>
+  <IconGallery>
+    {customIconsList?.map((icon) => (
+      <IconItem name={icon}>
+        <atom-icon icon={icon}></atom-icon>
+      </IconItem>
+    ))}
+  </IconGallery>
+</details>
 
-<IconGallery>
-  {customIconsList?.map((icon) => (
-    <IconItem name={icon}>
-      <atom-icon icon={icon}></atom-icon>
-    </IconItem>
-  ))}
-</IconGallery>
-
-## Material Design Icons
-
-<IconGallery>
-  {mdiIconsList?.map((icon) => (
-    <IconItem name={icon}>
-      <atom-icon icon={icon}></atom-icon>
-    </IconItem>
-  ))}
-</IconGallery>
+<details class="icon-gallery">
+  <summary>Material Design Icons</summary>
+  <IconGallery>
+    {mdiIconsList?.map((icon) => (
+      <IconItem name={icon}>
+        <atom-icon icon={icon}></atom-icon>
+      </IconItem>
+    ))}
+  </IconGallery>
+</details>
