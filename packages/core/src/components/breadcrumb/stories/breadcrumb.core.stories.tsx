@@ -15,24 +15,26 @@ const createBreadcrumb = () => {
 
     <script>
       ;(function () {
-        const atomBreadcrumb = document.querySelector('atom-breadcrumb')
+        const breadcrumbsElements = document.querySelectorAll('atom-breadcrumb')
 
-        atomBreadcrumb.items = [
-          {
-            text: 'First level',
-            title: 'Go to first level',
-            redirect: () => console.log('/first'),
-          },
-          {
-            text: 'Intermediary level',
-            title: 'Go to intermediary level',
-            redirect: () => console.log('/intermediary'),
-          },
-          {
-            text: 'Current level',
-            title: 'This is the current level',
-          },
-        ]
+        breadcrumbsElements.forEach((atomBreadcrumb) => {
+          atomBreadcrumb.items = [
+            {
+              text: 'First level',
+              title: 'Go to first level',
+              redirect: () => console.log('/first'),
+            },
+            {
+              text: 'Intermediary level',
+              title: 'Go to intermediary level',
+              redirect: () => console.log('/intermediary'),
+            },
+            {
+              text: 'Current level',
+              title: 'This is the current level',
+            },
+          ]
+        })
       })()
     </script>
   `
