@@ -41,15 +41,15 @@ describe('AtomTextarea', () => {
     const page = await newSpecPage({
       components: [AtomTextarea],
       html: `
-        <atom-textarea icon="person" />
+        <atom-textarea icon="account-multiple" />
       `,
     })
 
     expect(page.root).toEqualHtml(`
-      <atom-textarea icon="person">
+      <atom-textarea icon="account-multiple">
         <mock:shadow-root>
           <ion-textarea class="atom-textarea has-icon" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" rows="4" shape="round"></ion-textarea>
-          <atom-icon class="atom-color--secondary atom-icon" icon="person"></atom-icon>
+          <atom-icon class="atom-color--secondary atom-icon" icon="account-multiple"></atom-icon>
         </mock:shadow-root>
       </atom-textarea>
     `)

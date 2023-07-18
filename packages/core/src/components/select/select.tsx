@@ -1,6 +1,5 @@
 import { Mode } from '@ionic/core'
 import { JSX as IonTypes } from '@ionic/core/dist/types/components'
-
 import {
   Component,
   Element,
@@ -10,6 +9,8 @@ import {
   Prop,
   h,
 } from '@stencil/core'
+
+import { IconProps } from '../../icons'
 
 @Component({
   tag: 'atom-select',
@@ -24,7 +25,7 @@ export class AtomSelect {
   @Prop() errorText?: string
   @Prop() fill: 'solid' | 'outline' = 'solid'
   @Prop() helperText?: string
-  @Prop() icon?: string
+  @Prop() icon?: IconProps
   @Prop() label?: string
   @Prop() mode: Mode = 'md'
   @Prop() multiple?: boolean
