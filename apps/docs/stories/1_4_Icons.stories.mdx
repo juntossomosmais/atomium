@@ -1,6 +1,6 @@
 import { Meta, Title, IconGallery, IconItem } from '@storybook/blocks'
 
-import { mdiIconsList, customIconsList } from '../utils/icon-list'
+import { iconList } from '../utils/icon-list'
 
 <Meta title="Getting Started/Icons" />
 
@@ -11,7 +11,7 @@ The icons library is a collection of icons that can be used in your components. 
 <details class="icon-gallery">
   <summary>Custom Icons</summary>
   <IconGallery>
-    {customIconsList?.map((icon) => (
+    {iconList.custom.map((icon) => (
       <IconItem name={icon}>
         <atom-icon icon={icon}></atom-icon>
       </IconItem>
@@ -22,7 +22,7 @@ The icons library is a collection of icons that can be used in your components. 
 <details class="icon-gallery">
   <summary>Material Design Icons</summary>
   <IconGallery>
-    {mdiIconsList?.map((icon) => (
+    {iconList.mdi?.map((icon) => (
       <IconItem name={icon}>
         <atom-icon icon={icon}></atom-icon>
       </IconItem>

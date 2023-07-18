@@ -58,3 +58,27 @@ export const writeTypeDefinitionFile = (
   const typeDef = `export type IconProps = ${types.join('\n | ')};`
   fs.writeFileSync(path.join(outputPath, '..', 'icons.d.ts'), typeDef)
 }
+
+export const writeListFile = (
+  svgFiles: string[],
+  outputPath = getCurrentDirPath()
+) => {
+  const list = svgFiles.reduce((acc, file) => {
+    const category = path.basename(path.dirname(file))
+    const name = path.basename(file, '.svg')
+
+    if (!acc[category]) {
+      acc[category] = []
+    }
+
+    acc[category].push(name)
+
+    return acc
+  }, {} as Record<'custom' | 'mdi', string[]>)
+
+  const output = `export const iconList = ${JSON.stringify(list)}`
+  fs.writeFileSync(
+    path.join(outputPath, '../../../..', 'apps/docs/utils', 'icon-list.ts'),
+    output
+  )
+}
