@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.22](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.17...atomium-v0.1.0-alpha.22) (2023-07-17)
+
+
+### Bug Fixes
+
+* **button:** remove atom click and avoid native click when disabled ([#186](https://github.com/juntossomosmais/atomium/issues/186)) ([bef58a0](https://github.com/juntossomosmais/atomium/commit/bef58a048d68d282c674f23b8da9caeb61259dbd))
+
 ## [0.1.0-alpha.17](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.16...atomium-v0.1.0-alpha.17) (2023-06-26)
 
 

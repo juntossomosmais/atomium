@@ -5,7 +5,7 @@ import { Category } from '@atomium/storybook-utils/enums/table'
 export const ButtonStoryArgs = {
   parameters: {
     actions: {
-      handles: ['atomClick'],
+      handles: ['click'],
     },
     docs: {
       description: {
@@ -121,13 +121,6 @@ export const ButtonStoryArgs = {
       description: 'The mode determines which platform styles to use.',
       table: {
         category: Category.PROPERTIES,
-      },
-    },
-    atomClick: {
-      action: 'atomClick',
-      description: 'Emitted when the button is clicked.',
-      table: {
-        category: 'Events',
       },
     },
   },
