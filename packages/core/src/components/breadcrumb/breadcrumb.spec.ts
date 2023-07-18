@@ -35,7 +35,7 @@ describe('atom-breadcrumb', () => {
         <mock:shadow-root>
           <button class="atom-button__back" type="button">
             <atom-icon icon="arrow-back-outline" size="small"></atom-icon>
-            Voltar
+            Voltar para Intermediary level
           </button>
           <ion-breadcrumbs class="atom-breadcrumbs">
             <ion-breadcrumb class="atom-breadcrumb">

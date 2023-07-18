@@ -15,16 +15,18 @@ export class AtomBreadcrumb {
   @Prop({ mutable: true }) items: BreadcrumbItemProp[] = []
 
   render() {
+    const prevItem = this.items[this.items.length - 2]
+
     return (
       <Host>
         {this.items.length > 1 && (
           <button
             class="atom-button__back"
             type="button"
-            onClick={this.items[this.items.length - 2].redirect}
+            onClick={prevItem.redirect}
           >
             <atom-icon icon="arrow-back-outline" size="small" />
-            Voltar
+            Voltar para {prevItem.text}
           </button>
         )}
 
