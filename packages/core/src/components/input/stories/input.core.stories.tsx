@@ -59,7 +59,7 @@ export const InputIcon: StoryObj = {
   render: (args) => createInput(args),
   args: {
     ...InputComponentArgs,
-    icon: 'search',
+    icon: 'magnify',
   },
 }
 

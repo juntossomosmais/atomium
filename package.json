@@ -15,12 +15,13 @@
     "utils/*"
   ],
   "scripts": {
-    "core:build": "npx nx build @juntossomosmais/atomium && npm run react:build",
+    "core:build": "npm run icons:generate-types && npx nx build @juntossomosmais/atomium && npm run react:build",
     "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
     "docs-react:start": "npx nx run @atomium/docs-react:start",
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
     "icons:build": "npx nx build @juntossomosmais/atomium-icons",
+    "icons:generate-types": "cd packages/icons && npm run generate:types",
     "postinstall": "npx husky install & npx nx build @juntossomosmais/atomium:prebuild && npm run icons:build && npm run core:build && npm run tokens:build",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
