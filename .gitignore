@@ -16,6 +16,7 @@ storybook-static
 dist
 tmp
 /out-tsc
+.stencil
 
 # dependencies
 node_modules
