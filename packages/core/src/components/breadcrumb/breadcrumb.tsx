@@ -25,7 +25,7 @@ export class AtomBreadcrumb {
             type="button"
             onClick={prevItem.redirect}
           >
-            <atom-icon icon="arrow-back-outline" size="small" />
+            <atom-icon icon="west" size="small" />
             Voltar para {prevItem.text}
           </button>
         )}
@@ -40,7 +40,7 @@ export class AtomBreadcrumb {
               <span class="atom-breadcrumb__text" title={item.title}>
                 {item.text}
               </span>
-              <atom-icon icon="caret-forward-sharp" slot="separator" />
+              <atom-icon icon="arrow-right" slot="separator" />
             </ion-breadcrumb>
           ))}
         </ion-breadcrumbs>
