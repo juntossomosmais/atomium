@@ -2,7 +2,7 @@ import { newSpecPage } from '@stencil/core/testing'
 
 import { AtomIcon } from './icon'
 
-const URL_MOCK = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/svg'
+const URL_MOCK = 'https://d2kfdqa8kiizgt.cloudfront.net/atomium/icons'
 
 describe('atom-icon', () => {
   it('should render ion-icon element', async () => {

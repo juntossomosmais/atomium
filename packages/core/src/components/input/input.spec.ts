@@ -41,15 +41,15 @@ describe('AtomInput', () => {
     const page = await newSpecPage({
       components: [AtomInput],
       html: `
-        <atom-input icon="person" />
+        <atom-input icon="account-multiple" />
       `,
     })
 
     expect(page.root).toEqualHtml(`
-      <atom-input icon="person">
+      <atom-input icon="account-multiple">
         <mock:shadow-root>
           <ion-input autocomplete="off" class="atom-input has-icon" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="text"></ion-input>
-          <atom-icon class="atom-color--secondary atom-icon" icon="person"></atom-icon>
+          <atom-icon class="atom-color--secondary atom-icon" icon="account-multiple"></atom-icon>
         </mock:shadow-root>
       </atom-input>
     `)

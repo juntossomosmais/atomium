@@ -51,7 +51,7 @@ export const TextareaIcon: StoryObj = {
   render: (args) => createTextarea(args),
   args: {
     ...TextareaComponentArgs,
-    icon: 'people',
+    icon: 'account-multiple',
   },
 }
 

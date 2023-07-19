@@ -11,6 +11,8 @@ import {
   h,
 } from '@stencil/core'
 
+import { IconProps } from '../../icons'
+
 @Component({
   tag: 'atom-textarea',
   styleUrl: 'textarea.scss',
@@ -44,7 +46,7 @@ export class AtomTextarea {
   @Prop() fill: 'solid' | 'outline' = 'solid'
   @Prop() hasError = false
   @Prop() helperText?: string
-  @Prop() icon?: string
+  @Prop() icon?: IconProps
   @Prop() inputmode?:
     | 'none'
     | 'text'

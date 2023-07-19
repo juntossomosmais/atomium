@@ -64,7 +64,7 @@ describe('AtomSelect', () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: `
-        <atom-select icon="person" />
+        <atom-select icon="account-multiple" />
       `,
     })
 
@@ -72,14 +72,14 @@ describe('AtomSelect', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-select icon="person">
+      <atom-select icon="account-multiple">
         <mock:shadow-root>
           <ion-select class="atom-select has-icon" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round">
             <ion-select-option value="apple">apple</ion-select-option>
             <ion-select-option disabled="" value="banana">banana</ion-select-option>
             <ion-select-option value="orange">orange</ion-select-option>
           </ion-select>
-          <atom-icon class="atom-color--secondary atom-icon" icon="person"></atom-icon>
+          <atom-icon class="atom-color--secondary atom-icon" icon="account-multiple"></atom-icon>
         </mock:shadow-root>
       </atom-select>
     `)
