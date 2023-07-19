@@ -63,22 +63,26 @@ export const writeListFile = (
   svgFiles: string[],
   outputPath = getCurrentDirPath()
 ) => {
-  const list = svgFiles.reduce((acc, file) => {
-    const category = path.basename(path.dirname(file))
-    const name = path.basename(file, '.svg')
+  const list = svgFiles.reduce(
+    (acc, file) => {
+      const category = path.basename(path.dirname(file))
+      const name = path.basename(file, '.svg')
 
-    if (!acc[category]) {
-      acc[category] = []
-    }
+      if (!acc[category]) {
+        acc[category] = []
+      }
 
-    acc[category].push(name)
+      acc[category].push(name)
 
-    return acc
-  }, {} as Record<'custom' | 'mdi', string[]>)
-
-  const output = `export const iconList = ${JSON.stringify(list)}`
-  fs.writeFileSync(
-    path.join(outputPath, '../../../..', 'apps/docs/utils', 'icon-list.ts'),
-    output
+      return acc
+    },
+    {} as Record<'custom' | 'mdi', string[]>
   )
+
+  const output = [
+    '// THIS FILE IS GENERATED AUTOMATICALLY DO NOT EDIT MANUALLY\n\n',
+    `export const iconsList = ${JSON.stringify(list, null, 2)}`,
+  ]
+
+  fs.writeFileSync(path.join(outputPath, '../..', 'index.ts'), output.join(''))
 }
