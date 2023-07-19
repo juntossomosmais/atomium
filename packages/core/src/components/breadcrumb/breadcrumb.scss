@@ -1,0 +1,60 @@
+@import '~@atomium/scss-utils/index';
+
+.atom-breadcrumbs {
+  display: none;
+
+  @include above(medium) {
+    display: flex;
+  }
+}
+
+.atom-breadcrumb {
+  --color: var(--color-brand-secondary-regular);
+  --color-active: var(--color-neutral-regular);
+  font: var(--text-body-small);
+  letter-spacing: var(--text-body-small-letter);
+
+  &:not(:last-of-type) {
+    &::part(native) {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .atom-breadcrumb__text {
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &::part(native) {
+    padding: 0;
+  }
+
+  &::part(separator) {
+    color: var(--color-neutral-regular);
+    margin: 0 var(--spacing-xxsmall);
+  }
+}
+
+.atom-button__back {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-brand-secondary-regular);
+  cursor: pointer;
+  display: flex;
+  font: var(--text-link-small);
+  gap: var(--spacing-xsmall);
+  letter-spacing: var(--text-link-small-letter);
+  padding: 0;
+  text-decoration: underline;
+
+  @include above(medium) {
+    display: none;
+  }
+}
