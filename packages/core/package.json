@@ -47,6 +47,16 @@
             "target": "generate:types"
           }
         ]
+      },
+      "start": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium-icons"
+            ],
+            "target": "generate:types"
+          }
+        ]
       }
     }
   }
