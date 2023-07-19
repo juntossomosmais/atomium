@@ -22,7 +22,7 @@
     "lint:styles": "stylelint '**/*.scss'",
     "icons:build": "npx nx build @juntossomosmais/atomium-icons",
     "icons:generate-types": "cd packages/icons && npm run generate:types",
-    "postinstall": "npx husky install & npx nx build @juntossomosmais/atomium:prebuild && npm run icons:build && npm run core:build && npm run tokens:build",
+    "postinstall": "npx nx build @juntossomosmais/atomium:prebuild && npm run icons:build && npm run core:build && npm run tokens:build",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "react:build": "cd packages/react && npm run build",
