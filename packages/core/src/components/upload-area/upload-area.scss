@@ -9,9 +9,18 @@
     width: var(--spacing-xxxlarge);
   }
 
-  &__message {
+  &__message,
+  &__fake-clicker {
+    font: var(--text-body-medium);
+    letter-spacing: var(--text-body-medium -letter);
     margin: 0;
     padding: var(--spacing-base) 0 0;
+  }
+
+  &__fake-clicker {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-brand-secondary-regular);
+    text-decoration: underline;
   }
 
   &__wrapper {
@@ -25,6 +34,17 @@
     text-align: center;
     transition: background 300ms ease, outline 300ms ease;
     will-change: background, outline;
+
+    &--disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      background-color: var(--color-neutral-light-4);
+      color: var(--color-neutral-light-2);
+
+      .atom-upload-area__fake-clicker {
+        color: var(--color-neutral-light-2);
+      }
+    }
 
     &:hover,
     &--dragging {
