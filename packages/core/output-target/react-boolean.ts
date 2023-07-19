@@ -6,14 +6,13 @@ import {
 } from '@stencil/core/internal'
 import fs from 'fs'
 import path from 'path'
-
 interface IReactBooleanOutputTargetOptions {
   attachPropsFile: string
 }
 
 const messages = {
   start: 'generate react boolean fix started',
-  finish: 'generate react boolean utils fix finished',
+  finish: 'generate react boolean fix finished',
 }
 
 const runReactBooleanFixOutputTarget = async (
@@ -48,26 +47,17 @@ export const reactBooleanFixOutputTarget = (
   ) => {
     const timespan = buildCtx.createTimeSpan(messages.start, true)
 
+    // Wait for react finished to start boolean fix.
     await new Promise((resolve) => {
       compilerCtx.events.on('buildLog', (log) => {
         if (
-          log.messages.findIndex(
-            (elm) => elm.includes('generate react-library finished') // Wait for react-library finished to start boolean fix.
+          log.messages.findIndex((elm) =>
+            elm.includes('generate react-library finished')
           ) !== -1
         ) {
           resolve(true)
         }
       })
-    })
-
-    compilerCtx.events.on('buildLog', (log) => {
-      if (
-        log.messages.findIndex(
-          (elm) => elm.includes('build finished, watching for changes...') // When "watching" mode
-        ) !== -1
-      ) {
-        runReactBooleanFixOutputTarget(outputTarget)
-      }
     })
 
     await runReactBooleanFixOutputTarget(outputTarget)
