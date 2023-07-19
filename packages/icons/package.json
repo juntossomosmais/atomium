@@ -3,12 +3,28 @@
   "private": true,
   "type": "module",
   "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "tsc && node dist/scripts/build.js && npm run generate:types",
-    "generate:types": "node dist/scripts/generate-types.js && npm run copy",
+    "compile": "tsc",
+    "build": "npx nx exec -- node dist/scripts/build.js",
+    "generate:types": "npx nx exec -- node dist/scripts/generate-types.js && npm run compile && npm run copy",
     "copy": "npx copyfiles --flat ./dist/icons.d.ts ../core/src"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          "compile"
+        ]
+      },
+      "generate:types": {
+        "dependsOn": [
+          "compile"
+        ]
+      }
+    }
   }
 }
