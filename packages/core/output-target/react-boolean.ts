@@ -1,3 +1,8 @@
+/**
+ * You can read about the need for this file at ADR.
+ * Link: https://juntossomosmais.github.io/atomium/?path=/docs/docs-architecture-decision-records-adr-0010-why-do-we-need-react-fix--docs
+ */
+
 import {
   BuildCtx,
   CompilerCtx,
@@ -6,6 +11,7 @@ import {
 } from '@stencil/core/internal'
 import fs from 'fs'
 import path from 'path'
+
 interface IReactBooleanOutputTargetOptions {
   attachPropsFile: string
 }
