@@ -15,17 +15,19 @@
 
     <script>
       ;(function () {
-        const selectEl = document.querySelector('atom-select')
+        const atomSelectElements = document.querySelectorAll('atom-select')
 
-        selectEl.options = [
-          { id: '1', value: 'Red', disabled: false },
-          { id: '2', value: 'Green', disabled: false },
-          { id: '3', value: 'Blue', disabled: false },
-          { id: '4', value: 'Disabled example', disabled: true },
-        ]
+        atomSelectElements.forEach((atomSelect) => {
+          atomSelect.options = [
+            { id: '1', value: 'Red', disabled: false },
+            { id: '2', value: 'Green', disabled: false },
+            { id: '3', value: 'Blue', disabled: false },
+            { id: '4', value: 'Disabled example', disabled: true },
+          ]
 
-        selectEl.addEventListener('atomChange', (event) => {
-          console.log('atomChange', event)
+          atomSelect.addEventListener('atomChange', (event) => {
+            console.log('atomChange', event)
+          })
         })
       })()
     </script>
