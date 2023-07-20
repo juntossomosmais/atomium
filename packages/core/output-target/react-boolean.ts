@@ -53,14 +53,14 @@ export const reactBooleanFixOutputTarget = (
   ) => {
     const timespan = buildCtx.createTimeSpan(messages.start, true)
 
-    // Wait for react finished to start boolean fix.
     await new Promise((resolve) => {
       compilerCtx.events.on('buildLog', (log) => {
-        if (
-          log.messages.findIndex((elm) =>
-            elm.includes('generate react-library finished')
+        const isFinishedTranspileReact =
+          log.messages.findIndex((message) =>
+            message.includes('generate react-library finished')
           ) !== -1
-        ) {
+
+        if (isFinishedTranspileReact) {
           resolve(true)
         }
       })
