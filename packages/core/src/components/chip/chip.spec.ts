@@ -46,16 +46,16 @@ describe('AtomChip', () => {
   it('should add icon when icon prop is set', async () => {
     const page = await newSpecPage({
       components: [AtomChip],
-      html: `<atom-chip icon="people"></atom-chip>`,
+      html: `<atom-chip icon="account-multiple"></atom-chip>`,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-chip icon="people">
+      <atom-chip icon="account-multiple">
         <mock:shadow-root>
           <ion-chip class="atom-chip" tabindex="1">
-            <atom-icon class="atom-icon" icon="people"></atom-icon>
+            <atom-icon class="atom-icon" icon="account-multiple"></atom-icon>
             <slot></slot>
           </ion-chip>
         </mock:shadow-root>

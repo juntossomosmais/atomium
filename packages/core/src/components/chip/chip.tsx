@@ -1,5 +1,7 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core'
 
+import { IconProps } from '../../icons'
+
 @Component({
   tag: 'atom-chip',
   styleUrl: 'chip.scss',
@@ -10,7 +12,7 @@ export class AtomChip {
   @Prop() activated = false
   @Prop() outline = false
   @Prop() mode: 'ios' | 'md' = 'md'
-  @Prop() icon?: string
+  @Prop() icon?: IconProps
   @Prop() close = false
 
   @Event() atomClick: EventEmitter

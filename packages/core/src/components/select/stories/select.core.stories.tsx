@@ -65,7 +65,7 @@ export const SelectIcon: StoryObj = {
   render: (args) => createSelect(args),
   args: {
     ...SelectComponentArgs,
-    icon: 'people',
+    icon: 'account-multiple',
   },
 }
 

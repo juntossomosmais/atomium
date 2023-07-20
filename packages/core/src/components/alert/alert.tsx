@@ -1,5 +1,7 @@
 import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core'
 
+import { IconProps } from '../../icons'
+
 @Component({
   tag: 'atom-alert',
   styleUrl: 'alert.scss',
@@ -8,7 +10,7 @@ import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core'
 export class AtomAlert {
   @Prop() color?: 'info' | 'success' | 'warning' | 'danger' | 'neutral' =
     'neutral'
-  @Prop() icon?: string
+  @Prop() icon?: IconProps
   @Prop() messageTitle?: string
   @Prop() messageText?: string
   @Prop() actionText?: string
