@@ -18,7 +18,6 @@ module.exports = {
     '!src/**/stories/**',
     '!src/**/*.mock.ts',
     '!src/**/*.spec.ts',
-    '!output-target/**/*.spec.ts',
   ],
   coverageThreshold: {
     global: {
