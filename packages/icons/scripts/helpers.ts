@@ -1,12 +1,9 @@
 import fs from 'fs'
 import path from 'path'
-import { fileURLToPath } from 'url'
 
-export const getCurrentDirPath = (currentUrl = import.meta.url) =>
-  path.dirname(fileURLToPath(currentUrl))
-
-const ICONS_DIR = path.resolve(getCurrentDirPath(), '../../svg')
-const DIST_DIR = path.resolve(getCurrentDirPath(), '../svg')
+const CURRENT_DIR = __dirname
+const ICONS_DIR = path.resolve(CURRENT_DIR, '../../svg')
+const DIST_DIR = path.resolve(CURRENT_DIR, '../svg')
 
 export const readSvg = (path: string) => fs.readFileSync(path, 'utf-8')
 
@@ -52,17 +49,14 @@ export const writeSvgFile = (
 
 export const writeTypeDefinitionFile = (
   svgFiles: string[],
-  outputPath = getCurrentDirPath()
+  outputPath = CURRENT_DIR
 ) => {
   const types = svgFiles.map((file) => `'${path.basename(file, '.svg')}'`)
   const typeDef = `export type IconProps = ${types.join('\n | ')};`
   fs.writeFileSync(path.join(outputPath, '..', 'icons.d.ts'), typeDef)
 }
 
-export const writeListFile = (
-  svgFiles: string[],
-  outputPath = getCurrentDirPath()
-) => {
+export const writeListFile = (svgFiles: string[], outputPath = CURRENT_DIR) => {
   const list = svgFiles.reduce(
     (acc, file) => {
       const category = path.basename(path.dirname(file))
