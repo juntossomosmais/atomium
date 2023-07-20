@@ -17,8 +17,8 @@ interface IReactBooleanOutputTargetOptions {
 }
 
 const messages = {
-  start: 'generate react boolean fix started',
-  finish: 'generate react boolean fix finished',
+  start: 'Generating fix for react boolean',
+  finish: 'Generate fix for react boolean finished',
 }
 
 const runReactBooleanFixOutputTarget = async (
@@ -35,7 +35,13 @@ const runReactBooleanFixOutputTarget = async (
 
   attachPropsContent = attachPropsContent.replace(
     "if (propType === 'string') {",
-    "if (propType === 'boolean') { if (newProps[name] === true) { node.setAttribute(camelToDashCase(name), ''); } else { node.removeAttribute(camelToDashCase(name)); } } else if (propType === 'string') {"
+    `if (propType === 'boolean') { 
+      if (newProps[name] === true) { 
+        node.setAttribute(camelToDashCase(name), ''); 
+      } else { 
+        node.removeAttribute(camelToDashCase(name)); 
+      } 
+    } else if (propType === 'string') {`
   )
 
   await fs.promises.writeFile(attachPropsFilePath, attachPropsContent)
