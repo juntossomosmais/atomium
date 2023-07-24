@@ -1,6 +1,13 @@
 # Atomium - Icons
 
-This directory contains the collection of icons used in the Atomium design system.
+> This directory contains the collection of icons used in the Atomium design system.
+
+## Table of Contents
+
+- [Usage](#usage)
+- [Adding a New Icon](#adding-a-new-icon)
+- [How it works](#how-it-works)
+- [Benefits of Using a CDN for Icons](#benefits-of-using-a-cdn-for-icons)
 
 ## Usage
 
