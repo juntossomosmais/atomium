@@ -20,6 +20,7 @@ on:
 
 jobs:
   build-and-test:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
 
