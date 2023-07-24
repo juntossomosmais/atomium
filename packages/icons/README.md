@@ -1,7 +1,5 @@
 # Atomium - Icons
 
-> 🚧  **This is a work in progress** 🚧
-
 This directory contains the collection of icons used in the Atomium design system.
 
 ## Usage
