@@ -4,6 +4,7 @@ import { sass } from '@stencil/sass'
 
 import { reactOutputTarget } from '@stencil/react-output-target'
 import { vueOutputTarget } from '@stencil/vue-output-target'
+import { reactBooleanFixOutputTarget } from './output-target/react-boolean'
 
 export const config: Config = {
   namespace: 'core',
@@ -122,6 +123,10 @@ export const config: Config = {
         'ion-toggle',
         'ion-toolbar',
       ],
+    }),
+    reactBooleanFixOutputTarget({
+      attachPropsFile:
+        '../../react/src/components/react-component-lib/utils/attachProps.ts',
     }),
     {
       type: 'dist',
