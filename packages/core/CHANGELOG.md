@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.0-alpha.24](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.23...atomium-v0.1.0-alpha.24) (2023-07-25)
+
+
+### Features
+
+* **docs:** create get started icons documentation ([#188](https://github.com/juntossomosmais/atomium/issues/188)) ([118bded](https://github.com/juntossomosmais/atomium/commit/118bded74f222d0f9be168a59c7bfdeb8999ba2a))
+
+
+### Bug Fixes
+
+* **react:** remove attribute when is "false" ([#190](https://github.com/juntossomosmais/atomium/issues/190)) ([373d16e](https://github.com/juntossomosmais/atomium/commit/373d16ec097471f7a98450fe2742e9e4493492cf))
+
 ## [0.1.0-alpha.23](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.22...atomium-v0.1.0-alpha.23) (2023-07-24)
 
 
