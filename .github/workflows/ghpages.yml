@@ -16,9 +16,10 @@ permissions:
 
 jobs:
   ghpages:
-    if: ${{ github.actor != 'github-actions[bot]' }}
     concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, 'chore:') }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
