@@ -35,5 +35,29 @@
     "generate": "stencil generate",
     "prebuild": "npx mkdirp react && npx mkdirp vue && cd > core.css",
     "publish-library": "npm publish --access public"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium-icons"
+            ],
+            "target": "generate:types"
+          }
+        ]
+      },
+      "start": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium-icons"
+            ],
+            "target": "generate:types"
+          }
+        ]
+      }
+    }
   }
 }
