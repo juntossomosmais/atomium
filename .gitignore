@@ -8,6 +8,7 @@ packages/vue/src/components
 packages/**/coverage
 packages/**/components.d.ts
 packages/tokens/index.ts
+packages/icons/index.ts
 packages/core/react
 packages/core/vue
 packages/core/core.css

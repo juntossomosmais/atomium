@@ -4,5 +4,29 @@
   "scripts": {
     "start": "storybook dev -p 6006",
     "build": "storybook build"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium-icons"
+            ],
+            "target": "generate:types"
+          }
+        ]
+      },
+      "start": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium-icons"
+            ],
+            "target": "generate:types"
+          }
+        ]
+      }
+    }
   }
 }
