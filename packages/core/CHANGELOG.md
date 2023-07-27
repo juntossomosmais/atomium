@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-alpha.25](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.24...atomium-v0.1.0-alpha.25) (2023-07-26)
+
+
+### Features
+
+* **icons:** add backward compatibility mdi icons ([#201](https://github.com/juntossomosmais/atomium/issues/201)) ([9e1c9fe](https://github.com/juntossomosmais/atomium/commit/9e1c9fe3d05377f69891f7b0cd9b4d09469f98a8))
+
 ## [0.1.0-alpha.24](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.23...atomium-v0.1.0-alpha.24) (2023-07-25)
 
 

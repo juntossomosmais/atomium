@@ -34,7 +34,7 @@ describe('atom-breadcrumb', () => {
       <atom-breadcrumb>
         <mock:shadow-root>
           <button class="atom-button__back" type="button">
-            <atom-icon icon="west" size="small"></atom-icon>
+            <atom-icon icon="arrow-left" size="small"></atom-icon>
             Voltar para Intermediary level
           </button>
           <ion-breadcrumbs class="atom-breadcrumbs">
@@ -42,19 +42,19 @@ describe('atom-breadcrumb', () => {
               <span class="atom-breadcrumb__text" title="Go to first level">
                 First level
               </span>
-              <atom-icon icon="arrow-right" slot="separator"></atom-icon>
+              <atom-icon icon="menu-right" slot="separator"></atom-icon>
             </ion-breadcrumb>
             <ion-breadcrumb class="atom-breadcrumb">
               <span class="atom-breadcrumb__text" title="Go to intermediary level">
                 Intermediary level
               </span>
-              <atom-icon icon="arrow-right" slot="separator"></atom-icon>
+              <atom-icon icon="menu-right" slot="separator"></atom-icon>
             </ion-breadcrumb>
             <ion-breadcrumb class="atom-breadcrumb">
               <span class="atom-breadcrumb__text" title="This is the current level">
                 Current level
               </span>
-              <atom-icon icon="arrow-right" slot="separator"></atom-icon>
+              <atom-icon icon="menu-right" slot="separator"></atom-icon>
             </ion-breadcrumb>
           </ion-breadcrumbs>
         </mock:shadow-root>
@@ -80,7 +80,7 @@ describe('atom-breadcrumb', () => {
               <span class="atom-breadcrumb__text" title="Go to first level">
                 First level
               </span>
-              <atom-icon icon="arrow-right" slot="separator"></atom-icon>
+              <atom-icon icon="menu-right" slot="separator"></atom-icon>
             </ion-breadcrumb>
           </ion-breadcrumbs>
         </mock:shadow-root>
