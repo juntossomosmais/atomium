@@ -40,7 +40,7 @@ export class AtomButton {
           size={this.size}
           expand={this.expand}
           shape="round"
-          disabled={this.disabled}
+          disabled={this.disabled || this.loading}
           type={this.type}
           mode={this.mode}
           href={this.href}

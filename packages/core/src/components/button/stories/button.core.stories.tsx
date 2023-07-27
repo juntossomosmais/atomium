@@ -83,3 +83,25 @@ export const Disabled: StoryObj = {
     disabled: true,
   },
 }
+
+export const IconAndText: StoryObj = {
+  render: (args) => html`
+    <atom-button
+      color="${args.color}"
+      fill="${args.fill}"
+      expand="${args.expand}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}"
+      mode="${args.mode}"
+      shape="${args.shape}"
+    >
+      <atom-icon icon="heart"></atom-icon>
+      ${args.label}
+    </atom-button>
+  `,
+  args: {
+    ...Primary.args,
+  },
+}

@@ -64,6 +64,11 @@
       visibility: hidden;
     }
   }
+
+  .slot {
+    display: flex;
+    gap: var(--spacing-xsmall);
+  }
 }
 
 .loading {
