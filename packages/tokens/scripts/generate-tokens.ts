@@ -35,6 +35,62 @@ export function generateJavaScriptFile(outputFilePath: string) {
   fs.writeFileSync(outputFilePath, jsCode, 'utf8')
 }
 
+export function generateJsonFile(cssContent: string) {
+  const spacingRegex = /--spacing-(\w+):\s*([\d\w.#]+);/g
+  const colorRegex =
+    /--color-((?:neutral|brand|contextual)-\w+(?:-\w+)*)(?:-(rgb))?:\s*(#(?:[a-fA-F0-9]{3}){1,2})?;?/g
+  const zIndexRegex = /--zindex-(\w+):\s*([\d]+);/g
+
+  function extractValues(css: string, regex: RegExp) {
+    const values: Record<string, string> = {}
+    let match
+    while ((match = regex.exec(css)) !== null) {
+      const [, name, value] = match
+      values[name] = value
+    }
+    return values
+  }
+
+  function extractColorValues(css: string, regex: RegExp) {
+    const values: Record<string, string> = {}
+    let match
+    while ((match = regex.exec(css)) !== null) {
+      const [, name, rgb, value] = match
+      values[name] = rgb ? `rgb(${value})` : value
+    }
+    return values
+  }
+
+  const spacingValues = extractValues(cssContent, spacingRegex)
+  const zIndexValues = extractValues(cssContent, zIndexRegex)
+  const colorValues = extractColorValues(cssContent, colorRegex)
+
+  const spacingOutput = Object.fromEntries(
+    Object.entries(spacingValues).map(([name, value]) => [
+      `spacing-${name}`,
+      value,
+    ])
+  )
+  const colorOutput = Object.fromEntries(
+    Object.entries(colorValues).map(([name, value]) => [`color-${name}`, value])
+  )
+  const zIndexOutput = Object.fromEntries(
+    Object.entries(zIndexValues).map(([name, value]) => [
+      `zindex-${name}`,
+      value,
+    ])
+  )
+  const output = {
+    ...spacingOutput,
+    ...colorOutput,
+    ...zIndexOutput,
+  }
+
+  const jsonOutputFileName = 'tokens.json'
+  const jsonOutputFilePath = path.join(`${OUTPUT_DIR}/dist`, jsonOutputFileName)
+  fs.writeFileSync(jsonOutputFilePath, JSON.stringify(output, null, 2), 'utf8')
+}
+
 function processCssFileByTokenPrefix(cssFilePath: string) {
   const cssContent = fs.readFileSync(cssFilePath, 'utf8')
 
@@ -44,6 +100,7 @@ function processCssFileByTokenPrefix(cssFilePath: string) {
   const outputFilePath = path.join(OUTPUT_DIR, outputFileName)
 
   generateJavaScriptFile(outputFilePath)
+  generateJsonFile(cssContent)
 }
 
 processCssFileByTokenPrefix(TOKENS_DIR)
