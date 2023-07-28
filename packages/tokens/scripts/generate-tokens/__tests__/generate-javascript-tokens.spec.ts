@@ -1,12 +1,11 @@
 import fs from 'fs'
-import path from 'path'
 
+import { TOKENS_DIR } from '..'
 import {
   OUTPUT_DIR,
-  TOKENS_DIR,
   extractTokensFromCss,
-  generateJsonFile,
-} from './generate-tokens'
+  generateJsTokensFromCssFile,
+} from '../generate-javascript-tokens'
 
 jest.mock('fs', () => ({
   readFileSync: jest.fn().mockReturnValue(`
@@ -17,12 +16,13 @@ jest.mock('fs', () => ({
   writeFileSync: jest.fn(),
 }))
 
-describe('Generate Tokens', () => {
-  afterEach(() => {
+describe('Generate JavaScript tokens', () => {
+  beforeEach(() => {
     jest.clearAllMocks()
   })
 
   it('should extract tokens from CSS content', () => {
+    generateJsTokensFromCssFile(TOKENS_DIR)
     expect(fs.readFileSync).toHaveBeenCalledWith(TOKENS_DIR, 'utf8')
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       `${OUTPUT_DIR}/index.ts`,
@@ -38,24 +38,5 @@ describe('Generate Tokens', () => {
     const tokens: Record<string, string> = {}
     extractTokensFromCss(cssContent, 'color')
     expect(tokens).toEqual({})
-  })
-
-  it('should generate JSON file with tokens', () => {
-    generateJsonFile(`
-      --color-neutral-black: #000;
-      --color-contextual-success-dark-1: #106105;
-      --color-brand-primary-dark-1: #b85000;
-      --color-neutral-black-rgb: 0 0 0;
-      --spacing-small: 4px;
-      --zindex-1: 1;
-    `)
-
-    const expectedTokens = `{\n  "spacing-small\": \"4px\",\n  "color-neutral-black\": \"#000\",\n  "color-contextual-success-dark-1\": \"#106105\",\n  "color-brand-primary-dark-1\": \"#b85000\",\n  "zindex-1\": \"1\"\n}`
-
-    expect(fs.writeFileSync).toHaveBeenCalledWith(
-      path.join(__dirname, '../../dist/tokens.json'),
-      expectedTokens,
-      'utf8'
-    )
   })
 })
