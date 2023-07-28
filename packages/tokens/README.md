@@ -43,7 +43,7 @@ primary: tokens.colorBrandPrimaryDark1;
 
 #### Json
 
-We also provide a **JSON** file with tokens of **zindex**, **colors** and **spacings**. It is useful for using to compare tokens in Stylelint, for example.
+We also provide a **JSON** file with tokens. It is useful for using to compare tokens in Stylelint, for example.
 
 ```js
 import tokens from '@juntossomosmais/atomium-tokens/tokens.json'
