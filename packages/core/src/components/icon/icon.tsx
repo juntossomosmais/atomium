@@ -3,7 +3,8 @@ import { Component, Host, Prop, h } from '@stencil/core'
 
 import { IconProps } from '../../icons'
 
-const CDN_URL = 'https://cdn.juntossomosmais.com.br/atomium/icons'
+// @note: this is a temporary solution using sandbox until we have a proper CDN for our icons
+const CDN_URL = 'https://d2kfdqa8kiizgt.cloudfront.net/atomium/icons'
 
 @Component({
   tag: 'atom-icon',
