@@ -14,7 +14,7 @@ jest.mock('fs', () => ({
     --color-contextual-success-dark-1: #106105;
     --color-brand-primary-dark-1: #b85000;
     --spacing-small: 4px;
-    --z-index-1: 1;
+    --zindex-1: 1;
   `),
   writeFileSync: jest.fn(),
 }))
@@ -27,7 +27,7 @@ describe('Generate tokens.json', () => {
   it('should generate JSON file with tokens', () => {
     generateJsonTokensFromCssFile(TOKENS_DIR)
 
-    const expectedTokens = `{\n  "color-neutral-black\": \"#000\",\n  "color-contextual-success-dark-1\": \"#106105\",\n  "color-brand-primary-dark-1\": \"#b85000\",\n  "spacing-small\": \"4px\",\n  "z-index-1\": \"1\"\n}`
+    const expectedTokens = `{\n  "color-neutral-black\": \"#000\",\n  "color-contextual-success-dark-1\": \"#106105\",\n  "color-brand-primary-dark-1\": \"#b85000\",\n  "spacing-small\": \"4px\",\n  "zindex-1\": \"1\"\n}`
 
     expect(fs.readFileSync).toHaveBeenCalledWith(TOKENS_DIR, 'utf8')
     expect(fs.writeFileSync).toHaveBeenCalledWith(

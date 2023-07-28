@@ -10,7 +10,7 @@ const variablePrefixes = [
   'screen',
   'font',
   'border',
-  'z-index',
+  'zindex',
   'transition',
 ]
 const tokens: Record<string, string> = {}
