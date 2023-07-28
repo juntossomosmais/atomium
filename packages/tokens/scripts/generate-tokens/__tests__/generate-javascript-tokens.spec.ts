@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-import { TOKENS_DIR } from '..'
+import { TOKENS_DIR, variablePrefixes } from '..'
 import {
   OUTPUT_DIR,
   extractTokensFromCss,
@@ -22,7 +22,7 @@ describe('Generate JavaScript tokens', () => {
   })
 
   it('should extract tokens from CSS content', () => {
-    generateJsTokensFromCssFile(TOKENS_DIR)
+    generateJsTokensFromCssFile(TOKENS_DIR, variablePrefixes)
     expect(fs.readFileSync).toHaveBeenCalledWith(TOKENS_DIR, 'utf8')
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       `${OUTPUT_DIR}/index.ts`,

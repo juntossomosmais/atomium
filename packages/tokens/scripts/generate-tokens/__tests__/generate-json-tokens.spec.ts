@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { TOKENS_DIR } from '..'
+import { TOKENS_DIR, variablePrefixes } from '..'
 import {
   OUTPUT_DIR,
   extractTokensFromCss,
@@ -25,7 +25,7 @@ describe('Generate tokens.json', () => {
   })
 
   it('should generate JSON file with tokens', () => {
-    generateJsonTokensFromCssFile(TOKENS_DIR)
+    generateJsonTokensFromCssFile(TOKENS_DIR, variablePrefixes)
 
     const expectedTokens = `{\n  "color-neutral-black\": \"#000\",\n  "color-contextual-success-dark-1\": \"#106105\",\n  "color-brand-primary-dark-1\": \"#b85000\",\n  "spacing-small\": \"4px\",\n  "zindex-1\": \"1\"\n}`
 

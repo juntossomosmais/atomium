@@ -6,5 +6,15 @@ import { generateJsonTokensFromCssFile } from './generate-json-tokens'
 const CURRENT_DIR = __dirname
 export const TOKENS_DIR = path.resolve(CURRENT_DIR, '../../dist/tokens.css')
 
-generateJsTokensFromCssFile(TOKENS_DIR)
-generateJsonTokensFromCssFile(TOKENS_DIR)
+export const variablePrefixes = [
+  'color',
+  'spacing',
+  'screen',
+  'font',
+  'border',
+  'zindex',
+  'transition',
+]
+
+generateJsTokensFromCssFile(TOKENS_DIR, variablePrefixes)
+generateJsonTokensFromCssFile(TOKENS_DIR, variablePrefixes)

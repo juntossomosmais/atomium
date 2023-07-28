@@ -4,15 +4,6 @@ import path from 'path'
 const CURRENT_DIR = __dirname
 export const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../dist')
 
-const variablePrefixes = [
-  'color',
-  'spacing',
-  'screen',
-  'font',
-  'border',
-  'zindex',
-  'transition',
-]
 const tokens: Record<string, string> = {}
 
 export function extractTokensFromCss(cssContent: string, prefix: string) {
@@ -37,7 +28,10 @@ export function generateJsonFile(outputFilePath: string) {
   fs.writeFileSync(outputFilePath, jsonOutput, 'utf8')
 }
 
-export function generateJsonTokensFromCssFile(cssFilePath: string) {
+export function generateJsonTokensFromCssFile(
+  cssFilePath: string,
+  variablePrefixes: string[]
+) {
   const cssContent = fs.readFileSync(cssFilePath, 'utf8')
 
   variablePrefixes.forEach((prefix) => extractTokensFromCss(cssContent, prefix))
