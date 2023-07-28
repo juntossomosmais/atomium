@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0-alpha.26](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.25...atomium-v0.1.0-alpha.26) (2023-07-28)
+
+
+### Bug Fixes
+
+* **button:** improve style when icon and text and remove click when loading ([#204](https://github.com/juntossomosmais/atomium/issues/204)) ([587946d](https://github.com/juntossomosmais/atomium/commit/587946db892dc20f612339063cee266934dc59fd))
+* **icon:** use cdn test ([#208](https://github.com/juntossomosmais/atomium/issues/208)) ([199e075](https://github.com/juntossomosmais/atomium/commit/199e075199d5720f958451c4fecdb7f22f61cd80))
+
 ## [0.1.0-alpha.25](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.24...atomium-v0.1.0-alpha.25) (2023-07-26)
 
 
