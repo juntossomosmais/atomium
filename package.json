@@ -36,7 +36,6 @@
     "@stencil/core": "^4.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.22.9",
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
