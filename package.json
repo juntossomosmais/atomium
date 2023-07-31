@@ -15,7 +15,7 @@
     "utils/*"
   ],
   "scripts": {
-    "build": "npx nx run-many --target=build --maxParallel=10 --exclude=@atomium/docs-react,@atomium/docs",
+    "build": "npm run core:build && npm run react:build && npm run icons:build && npm run tokens:build",
     "core:build": "npx nx build @juntossomosmais/atomium && npm run react:build",
     "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
     "docs-react:start": "npx nx run @atomium/docs-react:start",
