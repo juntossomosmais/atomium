@@ -15,8 +15,6 @@
 
 > Atomium is an internal design system for [Juntos Somos Mais](https://juntossomosmais.com.br/), using Web Components
 
-**!important**, as it's an internal design system, we don't accept external suggestions to change or add new components
-
 | Project | Package                                                                                                 | Version                                                                                                                                                                                            | Documentation                         |
 | ------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | Core | [`@juntossomosmais/atomium`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/core/README.md)   |
@@ -134,4 +132,6 @@ By following these steps, you can easily test and verify any customizations or m
 
 ## Contributing
 
-All contributions must follow the code patterns of our [Front-end Guideline](https://github.com/juntossomosmais/frontend-guideline)
+**!important**, as it's an internal design system, we don't accept external suggestions to change or add new components.
+
+We only accept contributions from **Juntos Somos Mais** members, but you could like our project and use it as a reference to build your own design system.
