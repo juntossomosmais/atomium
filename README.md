@@ -40,6 +40,7 @@ It is built using a variety of powerful technologies, including:
 
 ```bash
 npm i
+npm run build
 ```
 
 ### Running Storybook and Stencil
@@ -64,8 +65,7 @@ npm test
 
 ```bash
 ## Build Libs
-npm run core:build
-npm run tokens:build
+npm run build
 
 ## Build Storybook
 npm run storybook:build
