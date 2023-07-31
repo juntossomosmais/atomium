@@ -1,5 +1,68 @@
 # Changelog
 
+## [1.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.0...atomium-v1.0.0) (2023-07-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* change prefix ato to atom
+
+### Features
+
+* add button component ([#82](https://github.com/juntossomosmais/atomium/issues/82)) ([f04cbed](https://github.com/juntossomosmais/atomium/commit/f04cbed73c5e7a6e81d1e004d43e6a7b33a66deb))
+* add input component ([#119](https://github.com/juntossomosmais/atomium/issues/119)) ([1221222](https://github.com/juntossomosmais/atomium/commit/122122250cf2b3f25fd95b2bc66a2ad4d6d7488a))
+* add select component ([#124](https://github.com/juntossomosmais/atomium/issues/124)) ([547cdb9](https://github.com/juntossomosmais/atomium/commit/547cdb98df3e9d5076098229389918639b646cb8))
+* **alert:** create new component ([#152](https://github.com/juntossomosmais/atomium/issues/152)) ([f362e95](https://github.com/juntossomosmais/atomium/commit/f362e95ee9249c1400a9e5200568b1ba032e53d6))
+* **breadcrumb:** create new component ([#163](https://github.com/juntossomosmais/atomium/issues/163)) ([2ca49a0](https://github.com/juntossomosmais/atomium/commit/2ca49a0cf7f518a23c1393e0541a0034e0835874))
+* change prefix ato to atom ([f1e87f0](https://github.com/juntossomosmais/atomium/commit/f1e87f0c0ec6d6c5c9e01fcb1b8133b096a35345))
+* **core:** add `icon` component ([#57](https://github.com/juntossomosmais/atomium/issues/57)) ([7698cc5](https://github.com/juntossomosmais/atomium/commit/7698cc5abd28d009f5620afb7ae8af058edea00c))
+* **core:** add aria-hidden as default to improve acessibility ([fad62b6](https://github.com/juntossomosmais/atomium/commit/fad62b66f2479fdd2d19e66a1e6ced7be6551f91))
+* **core:** add Button shape circle ([#133](https://github.com/juntossomosmais/atomium/issues/133)) ([671c6d8](https://github.com/juntossomosmais/atomium/commit/671c6d8109d43f72874cfb0f90725b0e7acca6a0))
+* **core:** add chip component ([#136](https://github.com/juntossomosmais/atomium/issues/136)) ([264fb5b](https://github.com/juntossomosmais/atomium/commit/264fb5b9cc45c2eb0ae6f08830fd11b106d02bae))
+* **core:** add column gap to grid ([#135](https://github.com/juntossomosmais/atomium/issues/135)) ([9353aaf](https://github.com/juntossomosmais/atomium/commit/9353aafa50d91edb76a60e441cdcf514124a4986))
+* **core:** add css to icons ([e0848bf](https://github.com/juntossomosmais/atomium/commit/e0848bf850ca4449a7ff084e07c85c8a4d43f1cd))
+* **core:** add new handle of example ([d5c43da](https://github.com/juntossomosmais/atomium/commit/d5c43dab89668a732342780270238610f33f1d6f))
+* **core:** add textarea component ([#132](https://github.com/juntossomosmais/atomium/issues/132)) ([d0124db](https://github.com/juntossomosmais/atomium/commit/d0124dbc1c9fa86ac111e01df33ad4313c1ce5a9))
+* **core:** add vue files to output ([dfb7ffc](https://github.com/juntossomosmais/atomium/commit/dfb7ffc1e6924654919eea5fd6b35782d241033a))
+* **core:** define default gray color ([6501133](https://github.com/juntossomosmais/atomium/commit/65011330673fc05a1bbe5cd9b97e29eac8cd2f77))
+* **core:** improve lib output ([6272c99](https://github.com/juntossomosmais/atomium/commit/6272c99085182705645c031ffc446466364faacd))
+* **core:** update react and loader configs ([2a5ab06](https://github.com/juntossomosmais/atomium/commit/2a5ab064c2eee9ed84072d32f05f1f2c9f555012))
+* **core:** use just type 'dist' to output ([c8faae0](https://github.com/juntossomosmais/atomium/commit/c8faae04a4410ee68718960efe94785a373d7a4c))
+* **docs:** create get started icons documentation ([#188](https://github.com/juntossomosmais/atomium/issues/188)) ([118bded](https://github.com/juntossomosmais/atomium/commit/118bded74f222d0f9be168a59c7bfdeb8999ba2a))
+* **icon:** add display-flex to improve vertical icon position ([e6a45b7](https://github.com/juntossomosmais/atomium/commit/e6a45b76a1fdd03fea2e9e810afaa67e6cee1f13))
+* **icons:** add backward compatibility mdi icons ([#201](https://github.com/juntossomosmais/atomium/issues/201)) ([9e1c9fe](https://github.com/juntossomosmais/atomium/commit/9e1c9fe3d05377f69891f7b0cd9b4d09469f98a8))
+* **icons:** implement `svg` icons new structure with types ([#182](https://github.com/juntossomosmais/atomium/issues/182)) ([c399917](https://github.com/juntossomosmais/atomium/commit/c399917589f4f72a6e2ff3302f1dcc099d8f7200))
+* **input:** add more props ([79d57bf](https://github.com/juntossomosmais/atomium/commit/79d57bfc5a5b4a382c8572ed1aa719d1322332e0))
+* **tokens:** add rgb colors ([030738e](https://github.com/juntossomosmais/atomium/commit/030738e098a1b08f340db2c97847512c72abf4b3))
+* **tokens:** script to generate token value ([#158](https://github.com/juntossomosmais/atomium/issues/158)) ([c14725d](https://github.com/juntossomosmais/atomium/commit/c14725da9b463f966fae5bd0a72ceb6ecc5da804))
+* **vue:** add vue3 output to atomium ([3ab47a1](https://github.com/juntossomosmais/atomium/commit/3ab47a1d5bebca13e85b257cf272838e0d3172de))
+
+
+### Bug Fixes
+
+* adjust stencil output configs ([#154](https://github.com/juntossomosmais/atomium/issues/154)) ([5267123](https://github.com/juntossomosmais/atomium/commit/52671231ffb3828626e7a9e0589647a09d2d08c9))
+* **button:** improve style when icon and text and remove click when loading ([#204](https://github.com/juntossomosmais/atomium/issues/204)) ([587946d](https://github.com/juntossomosmais/atomium/commit/587946db892dc20f612339063cee266934dc59fd))
+* **button:** remove atom click and avoid native click when disabled ([#186](https://github.com/juntossomosmais/atomium/issues/186)) ([bef58a0](https://github.com/juntossomosmais/atomium/commit/bef58a048d68d282c674f23b8da9caeb61259dbd))
+* **col:** grid col internal error ([#156](https://github.com/juntossomosmais/atomium/issues/156)) ([e15bd41](https://github.com/juntossomosmais/atomium/commit/e15bd4110e4026da707b2cbb2e31876b0f911af0))
+* **core:** add key on map to example element ([491db01](https://github.com/juntossomosmais/atomium/commit/491db01c4c4c4cda2219bc36092555e60eb28ac6))
+* **core:** grid column load elements logic ([#131](https://github.com/juntossomosmais/atomium/issues/131)) ([be9e789](https://github.com/juntossomosmais/atomium/commit/be9e789d5e85ca668ebda1ffc796548f6c739133))
+* **core:** improve icon position when helper text is active ([5e2668e](https://github.com/juntossomosmais/atomium/commit/5e2668e74164bcf7ab2def5448e025cedb600ce3))
+* **core:** remove extra border on focus when has readonly ([d74249d](https://github.com/juntossomosmais/atomium/commit/d74249df1901f67e5f4d1161a7e06d03858f6e17))
+* **core:** remove unused success color ([fad9c66](https://github.com/juntossomosmais/atomium/commit/fad9c66dd07364d4b74da475c596d0449de6eef8))
+* **core:** storybook folder icon component ([7b3bc40](https://github.com/juntossomosmais/atomium/commit/7b3bc40d3d9372cf94598dccfeabc281006286dc))
+* create core.css during prebuild ([ebc9414](https://github.com/juntossomosmais/atomium/commit/ebc941481f2155bfbec5f654677ad7034d01e0a8))
+* exports in icon component ([1fdcc3b](https://github.com/juntossomosmais/atomium/commit/1fdcc3bb7bb1185a6ee8e5e91634bca6ede88d64))
+* grid component gap spacing ([#141](https://github.com/juntossomosmais/atomium/issues/141)) ([da760d6](https://github.com/juntossomosmais/atomium/commit/da760d61060c85ca28ca173b495077008da62188))
+* **icon:** use cdn test ([#208](https://github.com/juntossomosmais/atomium/issues/208)) ([199e075](https://github.com/juntossomosmais/atomium/commit/199e075199d5720f958451c4fecdb7f22f61cd80))
+* **react:** remove attribute when is "false" ([#190](https://github.com/juntossomosmais/atomium/issues/190)) ([373d16e](https://github.com/juntossomosmais/atomium/commit/373d16ec097471f7a98450fe2742e9e4493492cf))
+* **select:** use querySelectorAll to get all atom-select elements ([#191](https://github.com/juntossomosmais/atomium/issues/191)) ([a4caa1b](https://github.com/juntossomosmais/atomium/commit/a4caa1b4821216ae35f6747dfa2c9b6cfa16bea5))
+* use types from component class in stories file ([16f493c](https://github.com/juntossomosmais/atomium/commit/16f493c9b5d2017942a1eae26bc163fe1ee7458d))
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([6efe939](https://github.com/juntossomosmais/atomium/commit/6efe93990da3adf75a8fc4cae928cb303d0f8123))
+
 ## [1.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.26...atomium-v1.0.0) (2023-07-31)
 
 
