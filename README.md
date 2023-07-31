@@ -1,17 +1,15 @@
 # Atomium
 
 <p>
-  <img
-    alt="Build Status"
-    src="https://img.shields.io/github/actions/workflow/status/juntossomosmais/atomium/sonarcloud-scan.yml"
-  />
-  <img
-    alt="Quality Gate Status"
-    src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_atomium&metric=alert_status&token=bfb97543424e2dcfef3b6e1ae1fcf6116c73ea77"
-  />
+  <a href="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml">
+    <img
+      alt="Release Status"
+      src="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml/badge.svg"
+    />
+  </a>
   <img
     alt="Coverage"
-    src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_atomium&metric=coverage&token=bfb97543424e2dcfef3b6e1ae1fcf6116c73ea77"
+    src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_atomium_core&metric=coverage&token=e53244a1ea46d45209292ff36bf9e5a1748105ce"
   />
 </p>
 
