@@ -124,9 +124,7 @@ npm link @juntossomosmais/atomium
 
 This will create a symbolic link between your project and the locally built Atomium libraries.
 
-Now you can use the imported Atomium components in your project and test them locally.
-
-Make sure to revert these changes and remove the NPM Link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed version of Atomium in your project.
+Now you can use the imported Atomium components in your project and test them locally. Make sure to revert these changes and remove the NPM Link when you're done testing to avoid any conflicts or unexpected behavior with the actual installed version of Atomium in your project.
 
 By following these steps, you can easily test and verify any customizations or modifications you have made to Atomium locally using NPM Link.
 
