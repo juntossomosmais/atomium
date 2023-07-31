@@ -1,5 +1,11 @@
 import fs from 'fs'
-import { OUTPUT_DIR, TOKENS_DIR, extractTokensFromCss } from './generate-tokens'
+
+import { TOKENS_DIR, variablePrefixes } from '..'
+import {
+  OUTPUT_DIR,
+  extractTokensFromCss,
+  generateJsTokensFromCssFile,
+} from '../generate-javascript-tokens'
 
 jest.mock('fs', () => ({
   readFileSync: jest.fn().mockReturnValue(`
@@ -10,8 +16,13 @@ jest.mock('fs', () => ({
   writeFileSync: jest.fn(),
 }))
 
-describe('Generate Tokens', () => {
+describe('Generate JavaScript tokens', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('should extract tokens from CSS content', () => {
+    generateJsTokensFromCssFile(TOKENS_DIR, variablePrefixes)
     expect(fs.readFileSync).toHaveBeenCalledWith(TOKENS_DIR, 'utf8')
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       `${OUTPUT_DIR}/index.ts`,

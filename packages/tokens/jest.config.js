@@ -9,8 +9,8 @@ module.exports = {
   coverageReporters: ['lcov'],
   coveragePathIgnorePatterns: ['/node_modules/'],
   collectCoverageFrom: [
-    'scripts/*.ts',
-    '!scripts/*.spec.ts',
+    'scripts/**/*.ts',
+    '!scripts/**/*.spec.ts',
     '!src/**/stories/**',
     '!src/**/*.mock.ts',
     '!src/**/*.spec.ts',
