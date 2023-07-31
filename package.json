@@ -15,13 +15,14 @@
     "utils/*"
   ],
   "scripts": {
+    "build": "npx nx run-many --target=build --maxParallel=10 --exclude=@atomium/docs-react,@atomium/docs",
     "core:build": "npx nx build @juntossomosmais/atomium && npm run react:build",
     "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
     "docs-react:start": "npx nx run @atomium/docs-react:start",
     "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
     "lint:styles": "stylelint '**/*.scss'",
     "icons:build": "npx nx build @juntossomosmais/atomium-icons",
-    "postinstall": "npx nx build @juntossomosmais/atomium:prebuild && npm run icons:build && npm run core:build && npm run tokens:build",
+    "postinstall": "npx nx build @juntossomosmais/atomium:prebuild",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
     "react:build": "cd packages/react && npm run build",
