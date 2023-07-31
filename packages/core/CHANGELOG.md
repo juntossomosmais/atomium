@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.26...atomium-v1.0.0) (2023-07-31)
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([6efe939](https://github.com/juntossomosmais/atomium/commit/6efe93990da3adf75a8fc4cae928cb303d0f8123))
+
 ## [0.1.0-alpha.26](https://github.com/juntossomosmais/atomium/compare/atomium-v0.1.0-alpha.25...atomium-v0.1.0-alpha.26) (2023-07-28)
 
 
