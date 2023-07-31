@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.21...atomium-tokens-v1.0.0) (2023-07-31)
+
+
+### Features
+
+* **tokens:** add function to generate json file ([#206](https://github.com/juntossomosmais/atomium/issues/206)) ([89328fa](https://github.com/juntossomosmais/atomium/commit/89328fac3805e8a2f9edd543d09cef093201cf03))
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([6efe939](https://github.com/juntossomosmais/atomium/commit/6efe93990da3adf75a8fc4cae928cb303d0f8123))
+
 ## [0.1.0-alpha.21](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v0.1.0-alpha.20...atomium-tokens-v0.1.0-alpha.21) (2023-07-14)
 
 
