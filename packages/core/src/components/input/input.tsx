@@ -16,7 +16,7 @@ import { IconProps } from '../../icons'
 @Component({
   tag: 'atom-input',
   styleUrl: 'input.scss',
-  shadow: true,
+  scoped: true,
 })
 export class AtomInput {
   @Element() element!: HTMLElement
