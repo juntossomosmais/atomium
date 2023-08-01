@@ -234,6 +234,8 @@ export const InputStoryArgs = {
     },
     required: {
       description: 'If `true`, the input is required.',
+      control: 'boolean',
+      defaultValue: { summary: 'false' },
       table: {
         category: Category.PROPERTIES,
       },

@@ -12,6 +12,7 @@ export default {
 const createInput = (args) => {
   return html`
     <atom-input
+      ${args.required ? `required` : ''}
       label="Label example"
       placeholder="Placeholder Text"
       clear-input=${args.clearInput}
@@ -27,6 +28,7 @@ const createInput = (args) => {
       value=${args.value}
       icon=${args.icon}
       helper-text=${args.helperText}
+      type=${args.type}
     ></atom-input>
   `
 }
@@ -79,6 +81,7 @@ export const ErrorState: StoryObj = {
       placeholder="Enter a valid email"
       helper-text="Example: atomium@juntossomosmais.com.br"
       error-text="Invalid email"
+      value="invalid-email"
       type="email"
     ></atom-input>
 
