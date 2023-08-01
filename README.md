@@ -13,7 +13,7 @@
   />
 </p>
 
-> Atomium is an internal design system for [Juntos Somos Mais](https://juntossomosmais.com.br/), using Web Components
+> Atomium is an internal design system for [Juntos Somos Mais](https://juntossomosmais.com.br/), using Web Components. See working at [https://juntossomosmais.github.io/atomium/](https://juntossomosmais.github.io/atomium/)
 
 | Project | Package                                                                                                 | Version                                                                                                                                                                                            | Documentation                         |
 | ------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
