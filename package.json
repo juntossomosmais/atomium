@@ -83,7 +83,7 @@
     "eslint-plugin-sonarjs": "^0.19.0",
     "husky": "^8.0.3",
     "jest": "^27.0.3",
-    "jest-cli": "^27.4.5",
+    "jest-cli": "^29.6.2",
     "lint-staged": "^13.2.3",
     "lit": "^2.7.6",
     "node-sass": "^9.0.0",
