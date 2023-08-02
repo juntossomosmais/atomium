@@ -1,19 +1,21 @@
-# Atomium
-
 ![atomium-readme](https://github.com/juntossomosmais/atomium/assets/3603793/7e01fa6a-d1ab-4730-a6d4-3410e2dfd80d)
 
-<p>
-  <a href="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml">
+<div align="center">
+  <h1>Atomium - Design System</h1>
+  <p>
+    <a href="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml">
+      <img
+        alt="Release Status"
+        src="https://img.shields.io/github/actions/workflow/status/juntossomosmais/atomium/release-and-publish-packages.yml?label=Release%20Status"
+      />
+    </a>
     <img
-      alt="Release Status"
-      src="https://img.shields.io/github/actions/workflow/status/juntossomosmais/atomium/release-and-publish-packages.yml?label=Release%20Status"
+      alt="Coverage"
+      src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_atomium_core&metric=coverage&token=e53244a1ea46d45209292ff36bf9e5a1748105ce"
     />
-  </a>
-  <img
-    alt="Coverage"
-    src="https://sonarcloud.io/api/project_badges/measure?project=juntossomosmais_atomium_core&metric=coverage&token=e53244a1ea46d45209292ff36bf9e5a1748105ce"
-  />
-</p>
+  </p>
+  <br />
+</div>
 
 > Atomium is an internal design system for [Juntos Somos Mais](https://juntossomosmais.com.br/), using Web Components
 
