@@ -1,4 +1,4 @@
-![atomium-readme](https://github.com/juntossomosmais/atomium/assets/3603793/7e01fa6a-d1ab-4730-a6d4-3410e2dfd80d)
+![atomium-readme](https://github.com/juntossomosmais/atomium/assets/3603793/fb180815-7bd7-45f7-ad14-bd1677079931)
 
 <div align="center">
   <h1>Atomium - Design System</h1>
