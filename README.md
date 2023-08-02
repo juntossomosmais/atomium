@@ -1,6 +1,6 @@
 # Atomium
 
-![atomium-readme](https://github.com/juntossomosmais/venice/assets/3603793/d94ac0ba-e147-405e-83ce-205bfce6b68c)
+![atomium-readme](https://github.com/juntossomosmais/atomium/assets/3603793/7e01fa6a-d1ab-4730-a6d4-3410e2dfd80d)
 
 <p>
   <a href="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml">
