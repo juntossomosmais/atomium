@@ -1,5 +1,7 @@
 # Atomium
 
+![atomium-readme](https://github.com/juntossomosmais/venice/assets/3603793/d94ac0ba-e147-405e-83ce-205bfce6b68c)
+
 <p>
   <a href="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml">
     <img
