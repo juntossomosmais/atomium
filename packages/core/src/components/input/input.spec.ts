@@ -8,13 +8,9 @@ describe('AtomInput', () => {
       components: [AtomInput],
       html: `<atom-input value="test"></atom-input>`,
     })
-    expect(page.root).toEqualHtml(`
-      <atom-input value="test">
-        <mock:shadow-root>
-          <ion-input autocomplete="off" class="atom-input" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="text" value="test"></ion-input>
-        </mock:shadow-root>
-      </atom-input>
-    `)
+    expect(page.root).toEqualHtml(
+      `<atom-input value="test"><ion-input class="atom-input" autocomplete="off" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="text" value="test"></ion-input></atom-input>`
+    )
   })
 
   it('renders with custom props', async () => {
@@ -30,9 +26,7 @@ describe('AtomInput', () => {
 
     expect(page.root).toEqualHtml(`
       <atom-input ${props}>
-        <mock:shadow-root>
           <ion-input autocomplete="off" autofocus="" class="atom-input" color="secondary"  disabled="" enterkeyhint="enter" fill="outline inputmode=" label="Password" labelplacement="fixed" mode="ios" multiple="" name="password" pattern="[A-Za-z]{3}" placeholder="Enter password" required="" shape="round" type="password" value="test"></ion-input>
-        </mock:shadow-root>
       </atom-input>
     `)
   })
@@ -47,10 +41,8 @@ describe('AtomInput', () => {
 
     expect(page.root).toEqualHtml(`
       <atom-input icon="account-multiple">
-        <mock:shadow-root>
           <ion-input autocomplete="off" class="atom-input has-icon" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="text"></ion-input>
           <atom-icon class="atom-color--secondary atom-icon" icon="account-multiple"></atom-icon>
-        </mock:shadow-root>
       </atom-input>
     `)
   })
@@ -64,28 +56,16 @@ describe('AtomInput', () => {
     })
 
     await page.waitForChanges()
-
-    expect(page.root).toEqualHtml(`
-      <atom-input type="password" password-toggle="true">
-        <mock:shadow-root>
-          <ion-input autocomplete="off" class="atom-input" color="secondary"  enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="password"></ion-input>
-        </mock:shadow-root>
-      </atom-input>
-    `)
+    expect(page.root).toEqualHtml(
+      `<atom-input type="password" password-toggle="true"><ion-input class="atom-input" autocomplete="off" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="password"></ion-input></atom-input>`
+    )
 
     page.rootInstance.value = 'test'
     await page.waitForChanges()
 
-    expect(page.root).toEqualHtml(`
-      <atom-input type="password" password-toggle="true" value="test">
-        <mock:shadow-root>
-          <ion-input autocomplete="off" class="atom-input" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="password" value="test"></ion-input>
-          <button class="atom-password-icon" type="button">
-            <atom-icon class="atom-color--secondary" icon="eye-off"></atom-icon>
-          </button>
-        </mock:shadow-root>
-      </atom-input>
-    `)
+    expect(page.root).toEqualHtml(
+      `<atom-input type="password" password-toggle="true" value="test"><ion-input class="atom-input" autocomplete="off" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="password" value="test"></ion-input><button class="atom-password-icon" type="button"><atom-icon class="atom-color--secondary" icon="eye-off"></atom-icon></button></atom-input>`
+    )
 
     const togglePasswordEl = page.root?.shadowRoot?.querySelector(
       '.atom-password-icon'
@@ -93,16 +73,9 @@ describe('AtomInput', () => {
     togglePasswordEl?.dispatchEvent(new Event('click'))
     await page.waitForChanges()
 
-    expect(page.root).toEqualHtml(`
-      <atom-input type="password" password-toggle="true" value="test">
-        <mock:shadow-root>
-          <ion-input autocomplete="off" class="atom-input" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="text" value="test"></ion-input>
-          <button class="atom-password-icon" type="button">
-            <atom-icon class="atom-color--secondary" icon="eye"></atom-icon>
-          </button>
-        </mock:shadow-root>
-      </atom-input>
-    `)
+    expect(page.root).toEqualHtml(
+      ` <atom-input type="password" password-toggle="true" value="test"><ion-input class="atom-input" autocomplete="off" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="password" value="test"></ion-input><button class="atom-password-icon" type="button"><atom-icon class="atom-color--secondary" icon="eye-off"></atom-icon></button></atom-input>`
+    )
   })
 
   it('emits atomChange event on input change and atomInput event during input', async () => {
