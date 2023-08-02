@@ -4,7 +4,7 @@
   <a href="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml">
     <img
       alt="Release Status"
-      src="https://github.com/juntossomosmais/atomium/actions/workflows/release-and-publish-packages.yml/badge.svg"
+      src="https://img.shields.io/github/actions/workflow/status/juntossomosmais/atomium/release-and-publish-packages.yml?label=Release%20Status"
     />
   </a>
   <img
@@ -13,13 +13,13 @@
   />
 </p>
 
-> Atomium is an internal design system for [Juntos Somos Mais](https://juntossomosmais.com.br/), using Web Components. See working at [https://juntossomosmais.github.io/atomium/](https://juntossomosmais.github.io/atomium/)
+> Atomium is an internal design system for [Juntos Somos Mais](https://juntossomosmais.com.br/), using Web Components
 
 | Project | Package                                                                                                 | Version                                                                                                                                                                                            | Documentation                         |
 | ------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| Core | [`@juntossomosmais/atomium`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/core/README.md)   |
-| React | [`@juntossomosmais/atomium/react`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/react/README.md)  |
-| Tokens | [`@juntossomosmais/atomium-tokens`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | <img src="https://img.shields.io/github/package-json/v/:juntossomosmais/:atomium?filename=packages%2Ftokens%2Fpackage.json" alt="version"> | [README](./packages/tokens/README.md) |
+| Core | [`@juntossomosmais/atomium`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/core/README.md)   |
+| React | [`@juntossomosmais/atomium/react`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/react/README.md)  |
+| Tokens | [`@juntossomosmais/atomium-tokens`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Ftokens%2Fpackage.json" alt="version"> | [README](./packages/tokens/README.md) |
 
 ## About
 
