@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.0...atomium-v1.0.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* input validity ([#223](https://github.com/juntossomosmais/atomium/issues/223)) ([c14fe81](https://github.com/juntossomosmais/atomium/commit/c14fe816bf709e0f65b54dc0b7f4d0cd9ef0f1c5))
+
 ## [1.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.0...atomium-v1.0.0) (2023-07-31)
 
 
