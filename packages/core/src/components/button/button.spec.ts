@@ -131,4 +131,49 @@ describe('AtomButton', () => {
 
     expect(spy).toHaveBeenCalled()
   })
+
+  it('should submit button call parent form requestSubmit', async () => {
+    // TODO - form from test are being show as MockHTMLElement instead of HTMLFormElement
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="submit">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+    const formEl = (page.body.querySelector('form') as HTMLFormElement) || {
+      requestSubmit: jest.fn,
+      addEventListener: jest.fn,
+    }
+    const eventListenerSpy = jest.fn()
+    jest.spyOn(formEl, 'requestSubmit')
+
+    formEl.addEventListener('submit', eventListenerSpy)
+
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
+    buttonEl?.click()
+
+    expect(eventListenerSpy).toHaveBeenCalled()
+    expect(formEl.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('should submit button call parent form reset', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="reset">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+    const formEl = (page.body.querySelector('form') as HTMLFormElement) || {
+      reset: jest.fn,
+      addEventListener: jest.fn,
+    }
+    jest.spyOn(formEl, 'reset')
+
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
+    buttonEl?.click()
+
+    expect(formEl.reset).toHaveBeenCalled()
+  })
 })

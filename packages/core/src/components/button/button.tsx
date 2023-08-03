@@ -78,7 +78,7 @@ export class AtomButton {
           rel={this.rel}
           target={this.target}
           download={this.download}
-          onClick={this.handleClick}
+          onClick={this.handleClick.bind(this)}
         >
           {this.loading && (
             <span class="loading">
