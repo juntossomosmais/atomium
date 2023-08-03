@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.0.0...atomium-tokens-v1.0.0) (2023-08-03)
+
+
+### Features
+
+* change output to tokens.css ([76aac3f](https://github.com/juntossomosmais/atomium/commit/76aac3f2fc120f8f979db2c92c66e425428edc14))
+* change RGB to modern notation ([#164](https://github.com/juntossomosmais/atomium/issues/164)) ([07fe89c](https://github.com/juntossomosmais/atomium/commit/07fe89c9eed055e1a952729bc448215ae4dd76a1))
+* **core:** add column gap to grid ([#135](https://github.com/juntossomosmais/atomium/issues/135)) ([6910773](https://github.com/juntossomosmais/atomium/commit/6910773aa1c719c841aea0a5775799b7b886c18c))
+* **tokens:** add --border-radius-medium ([e291707](https://github.com/juntossomosmais/atomium/commit/e291707cb94af57ae08b079f3bf988e82464db15))
+* **tokens:** add function to generate json file ([#206](https://github.com/juntossomosmais/atomium/issues/206)) ([758ed45](https://github.com/juntossomosmais/atomium/commit/758ed4581be0c289c33daf95c344f0fc6e1b0eab))
+* **tokens:** add package to build tokens ([fae5794](https://github.com/juntossomosmais/atomium/commit/fae57947887b5809b1e294413ac152bf6e010db8))
+* **tokens:** add rgb colors ([39608e6](https://github.com/juntossomosmais/atomium/commit/39608e64ff285683e15ee3ee59e6fa3cf2599a5c))
+* **tokens:** add rgb tokens ([#181](https://github.com/juntossomosmais/atomium/issues/181)) ([2c0f26c](https://github.com/juntossomosmais/atomium/commit/2c0f26c6beca5b64706e8a0bd58f800457b8a17c))
+* **tokens:** add typography of button small ([ee2c223](https://github.com/juntossomosmais/atomium/commit/ee2c2239f04d42a4cd2a34db53e222e4c8a95d0f))
+* **tokens:** add utility-class to typography ([26515cf](https://github.com/juntossomosmais/atomium/commit/26515cf6cf4d9145c53e280768681b9d6fac34df))
+* **tokens:** add variables to backdrop  ([#184](https://github.com/juntossomosmais/atomium/issues/184)) ([0e77312](https://github.com/juntossomosmais/atomium/commit/0e773120f04623e72d036ba4c21ef8edb92331b5))
+* **tokens:** compile ts files into js map on generate tokens script ([#162](https://github.com/juntossomosmais/atomium/issues/162)) ([f454660](https://github.com/juntossomosmais/atomium/commit/f4546604d822ac319ed550903f68d5dc5367a126))
+* **tokens:** script to generate token value ([#158](https://github.com/juntossomosmais/atomium/issues/158)) ([2a2d48e](https://github.com/juntossomosmais/atomium/commit/2a2d48eafdcbae67f181a76e02f708739cd390ca))
+* update all tokens and remove old tokens for venice ([f71f0e9](https://github.com/juntossomosmais/atomium/commit/f71f0e9a06eed2578f25f585f3033c1aa72e0f48))
+
+
+### Bug Fixes
+
+* grid component gap spacing ([#141](https://github.com/juntossomosmais/atomium/issues/141)) ([bf792a9](https://github.com/juntossomosmais/atomium/commit/bf792a9e95cfda13e364d8bb802fc05c7e429564))
+* **tokens:** generate tokens files with ts instead js ([#160](https://github.com/juntossomosmais/atomium/issues/160)) ([9a5dc43](https://github.com/juntossomosmais/atomium/commit/9a5dc436c7673b4089610e3dc644d5b82d1e4710))
+* **tokens:** remove variable not used to remove sonar bug ([#180](https://github.com/juntossomosmais/atomium/issues/180)) ([0f8b076](https://github.com/juntossomosmais/atomium/commit/0f8b076c4f0cf60dae3c83a3ab9d880a0e948230))
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([8e0bce8](https://github.com/juntossomosmais/atomium/commit/8e0bce8004776b22c2515297875699d3051c8c4f))
+
 ## [1.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.0.0...atomium-tokens-v1.0.0) (2023-07-31)
 
 
