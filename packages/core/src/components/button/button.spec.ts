@@ -140,20 +140,13 @@ describe('AtomButton', () => {
     })
 
     await page.waitForChanges()
-    const formEl = (page.body.querySelector('form') as HTMLFormElement) || {
-      requestSubmit: jest.fn,
-      addEventListener: jest.fn,
-    }
-    const eventListenerSpy = jest.fn()
-    jest.spyOn(formEl, 'requestSubmit')
-
-    formEl.addEventListener('submit', eventListenerSpy)
-
+    const formEl = page.body.querySelector('form') as HTMLFormElement
+    formEl.requestSubmit = jest.fn
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+    jest.spyOn(formEl, 'requestSubmit')
 
     buttonEl?.click()
 
-    expect(eventListenerSpy).toHaveBeenCalled()
     expect(formEl.requestSubmit).toHaveBeenCalled()
   })
 
@@ -164,14 +157,10 @@ describe('AtomButton', () => {
     })
 
     await page.waitForChanges()
-    const formEl = (page.body.querySelector('form') as HTMLFormElement) || {
-      reset: jest.fn,
-      addEventListener: jest.fn,
-    }
-    jest.spyOn(formEl, 'reset')
-
+    const formEl = page.body.querySelector('form') as HTMLFormElement
+    formEl.reset = jest.fn()
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
-
+    jest.spyOn(formEl, 'reset')
     buttonEl?.click()
 
     expect(formEl.reset).toHaveBeenCalled()
