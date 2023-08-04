@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.1...atomium-v1.0.2) (2023-08-04)
+
+
+### Bug Fixes
+
+* add extra option to apply use on vite ([#232](https://github.com/juntossomosmais/atomium/issues/232)) ([64a3a56](https://github.com/juntossomosmais/atomium/commit/64a3a566b6c4ea399edded4637019623e47a2aaa))
+* button-form-functions ([#230](https://github.com/juntossomosmais/atomium/issues/230)) ([71624da](https://github.com/juntossomosmais/atomium/commit/71624da3f3706842a12759b772bb4321eafbfa79))
+
 ## [1.0.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.0...atomium-v1.0.1) (2023-08-02)
 
 
