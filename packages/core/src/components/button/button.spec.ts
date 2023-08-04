@@ -165,4 +165,20 @@ describe('AtomButton', () => {
 
     expect(formEl.reset).toHaveBeenCalled()
   })
+
+  it('should not call form reset if button is disabled', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="reset" disabled>Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+    const formEl = page.body.querySelector('form') as HTMLFormElement
+    formEl.reset = jest.fn()
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+    jest.spyOn(formEl, 'reset')
+    buttonEl?.click()
+
+    expect(formEl.reset).not.toHaveBeenCalled()
+  })
 })
