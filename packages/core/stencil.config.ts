@@ -13,6 +13,9 @@ export const config: Config = {
       injectGlobalPaths: ['../../node_modules/@ionic/core/css/core.css'],
     }),
   ],
+  extras: {
+    enableImportInjection: true,
+  },
   globalScript: 'src/global/global.ts',
   globalStyle: 'src/global/global.scss',
   outputTargets: [
