@@ -1,5 +1,13 @@
 import { Mode } from '@ionic/core'
-import { Component, Host, Prop, h } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core'
 
 @Component({
   tag: 'atom-button',
@@ -20,6 +28,29 @@ export class AtomButton {
   @Prop() size: 'small' | 'default' | 'large' = 'default'
   @Prop() target?: string
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
+
+  @Event() click: EventEmitter
+
+  @Element() element: HTMLElement
+
+  formFunctions = {
+    reset: 'reset',
+    submit: 'requestSubmit',
+  }
+
+  private handleClick = (event) => {
+    event.preventDefault()
+
+    if (this.loading || this.disabled) return
+    if (this.type === 'button') {
+      return this.click.emit(event)
+    } else {
+      const form = this.element.closest('form')
+      if (form) {
+        return form[this.formFunctions[this.type]]()
+      }
+    }
+  }
 
   render() {
     return (
@@ -47,6 +78,7 @@ export class AtomButton {
           rel={this.rel}
           target={this.target}
           download={this.download}
+          onClick={this.handleClick.bind(this)}
         >
           {this.loading && (
             <span class="loading">

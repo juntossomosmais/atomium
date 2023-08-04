@@ -131,4 +131,53 @@ describe('AtomButton', () => {
 
     expect(spy).toHaveBeenCalled()
   })
+
+  it('should submit button call parent form requestSubmit', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="submit">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+    const formEl = page.body.querySelector('form') as HTMLFormElement
+    formEl.requestSubmit = jest.fn
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+    jest.spyOn(formEl, 'requestSubmit')
+
+    buttonEl?.click()
+
+    expect(formEl.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('should submit button call parent form reset', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="reset">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+    const formEl = page.body.querySelector('form') as HTMLFormElement
+    formEl.reset = jest.fn()
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+    jest.spyOn(formEl, 'reset')
+    buttonEl?.click()
+
+    expect(formEl.reset).toHaveBeenCalled()
+  })
+
+  it('should not call form reset if button is disabled', async () => {
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="reset" disabled>Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+    const formEl = page.body.querySelector('form') as HTMLFormElement
+    formEl.reset = jest.fn()
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+    jest.spyOn(formEl, 'reset')
+    buttonEl?.click()
+
+    expect(formEl.reset).not.toHaveBeenCalled()
+  })
 })
