@@ -133,7 +133,6 @@ describe('AtomButton', () => {
   })
 
   it('should submit button call parent form requestSubmit', async () => {
-    // TODO - form from test are being show as MockHTMLElement instead of HTMLFormElement
     const page = await newSpecPage({
       components: [AtomButton],
       html: '<form><atom-button type="submit">Click</atom-button></form>',
