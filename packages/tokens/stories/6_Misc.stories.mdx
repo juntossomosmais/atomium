@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks'
+import { Box, BoxList } from './components/Box.jsx'
 
 <Meta title="Tokens/Misc" />
 
@@ -12,14 +13,23 @@ The default `border-radius`
 | ----- | ----------------------------- |
 | 4px   | `var(--border-radius)`        |
 | 8px   | `var(--border-radius-medium)` |
+| 12px  | `var(--border-radius-large)`  |
+| 50%   | `var(--border-radius-full)`   |
+
+<BoxList>
+  <Box borderRadius="var(--border-radius)" />
+  <Box borderRadius="var(--border-radius-medium)" />
+  <Box borderRadius="var(--border-radius-large)" />
+  <Box borderRadius="var(--border-radius-full)" />
+</BoxList>
 
 ## transition-duration
 
 The default `transition-duration` for all transitions
 
-| value | Variable                            |
-| ----- | ----------------------------------- |
-| 0.25s | `var(--transition-duration: 0.25s)` |
+| value | Variable                     |
+| ----- | ---------------------------- |
+| 0.25s | `var(--transition-duration)` |
 
 ## z-index
 
