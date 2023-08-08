@@ -34,7 +34,8 @@
     "tokens:publish": "npm run tokens:build && npx nx run @juntossomosmais/atomium-tokens:publish"
   },
   "dependencies": {
-    "@stencil/core": "^4.0.3"
+    "@stencil/core": "^4.0.3",
+    "swiper": "^10.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
