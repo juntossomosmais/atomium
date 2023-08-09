@@ -50,9 +50,10 @@ export class AtomCarousel {
   spaceBetween?: number = 0
   @Prop({ mutable: true }) speed?: number
 
-  // injectStyles is needed in order to overwrite css by class inside shadow root with ::part
+  // If you need more info please read the ADR 0012 at Caveat sections
   private injectStyles = ['.swiper-button-disabled { opacity: 0 !important}']
 
+  // If you need more info please read the ADR 0013
   private convertChildren() {
     this.swiperEl.innerHTML = this.host.innerHTML.replace(
       /atom-carousel-item/g,
