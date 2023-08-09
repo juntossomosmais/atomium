@@ -25,3 +25,6 @@ The [Swiper](https://swiperjs.com/)  was the only option considered.
 ## Decision
 We have decided to use Swiper as our Carousel component library, once it match our requirements and we have a previous knowledge, doing a internal wrapper to maintain the Atomium signature.
 
+
+## Caveats
+An important point to keep in mind is the need of use the [injectStyles](https://swiperjs.com/element#injecting-styles) from Swiper if it is needed to overwrite or add new styles to inside of Swiper Element Shadow Dom.
