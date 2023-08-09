@@ -3,15 +3,16 @@ import { Box, BoxList } from './components/Box.jsx'
 
 <Meta title="Tokens/Elevation" />
 
-# Box
+# Elevation
 
-The default elevation levels to be used with `box-shadow`.
+Elevation indicates how far the interface elements are from the surface and determines how their shadow appears. In the Juntos Design System, we use 8 elevation levels, each number (dp) corresponds to its relative distance above the surface.
 
-## Values
+## Variants
+
+To get a more natural shadow effect, we use overlapping of two or more shadows on each token. Elevation values range from 0 to 8dp, as shown in the table below:
 
 | Value                                                                                                 | Variable             |
 | ----------------------------------------------------------------------------------------------------- | -------------------- |
-| 0px 0px 0px rgba(0, 0, 0, 0)                                                                          | `var(--elevation-0)` |
 | 0px 1px 1px rgba(0, 0, 0, 0.14)                                                                       | `var(--elevation-1)` |
 | 0px 1px 5px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.14)                                      | `var(--elevation-2)` |
 | 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 2px 4px rgba(0, 0, 0, 0.2)     | `var(--elevation-3)` |
@@ -21,16 +22,26 @@ The default elevation levels to be used with `box-shadow`.
 | 0px 8px 38px rgba(0, 0, 0, 0.12), 0px 20px 31px rgba(0, 0, 0, 0.14), 0px 10px 13px rgba(0, 0, 0, 0.2) | `var(--elevation-7)` |
 | 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2) | `var(--elevation-8)` |
 
-## Visual Representation
+## Usage
+
+Differences in elevations help show where one surface ends and another begins, separating different parts of the interface into identifiable components. In addition to bringing hierarchy to the interface, it is also used to emphasize interactions.
+
+This token must be used with `box-shadow` CSS property or `filter` property with `drop-shadow`.
+
+## Examples
+
+```CSS
+box-shadow: var(--elevation-2);
+filter: drop-shadow(var(--elevation-8));
+```
 
 <BoxList>
-  <Box elevation="var(--elevation-0)" />
-  <Box elevation="var(--elevation-1)" />
-  <Box elevation="var(--elevation-2)" />
-  <Box elevation="var(--elevation-3)" />
-  <Box elevation="var(--elevation-4)" />
-  <Box elevation="var(--elevation-5)" />
-  <Box elevation="var(--elevation-6)" />
-  <Box elevation="var(--elevation-7)" />
-  <Box elevation="var(--elevation-8)" />
+  <Box elevation="--elevation-1" />
+  <Box elevation="--elevation-2" />
+  <Box elevation="--elevation-3" />
+  <Box elevation="--elevation-4" />
+  <Box elevation="--elevation-5" />
+  <Box elevation="--elevation-6" />
+  <Box elevation="--elevation-7" />
+  <Box elevation="--elevation-8" />
 </BoxList>
