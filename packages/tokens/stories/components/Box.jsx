@@ -13,7 +13,7 @@ export const Box = ({ elevation, borderRadius }) => {
           padding: 'var(--spacing-base)',
           width: 'var(--spacing-xgiant)',
           font: 'var(--text-badge)',
-          fontWeight: 'var(--font-weight-regular)	',
+          fontWeight: 'var(--font-weight-regular)',
           justifyContent: 'center',
           alignItems: 'center',
           textAlign: 'center',
