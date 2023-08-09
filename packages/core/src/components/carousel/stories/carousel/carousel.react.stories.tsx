@@ -63,12 +63,19 @@ export const Default: StoryObj = {
     ),
 }
 
+export const DisabledPagination: StoryObj = {
+  render: () =>
+    createComponent(
+      { pagination: false, slidesPerView: 3, spaceBetween: 40 },
+      'item-default'
+    ),
+}
 export const LoopAndAutoplay: StoryObj = {
   render: () =>
     createComponent(
       {
-        pagination: true,
-        navigation: true,
+        pagination: false,
+        navigation: false,
         loop: true,
         autoplay: true,
         speed: 100,

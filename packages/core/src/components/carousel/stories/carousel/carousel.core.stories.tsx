@@ -26,6 +26,13 @@ const createComponent = (args, itemClass: string) => {
       ? `slides-per-view="${args.slidesPerView}"`
       : ''
   } 
+  ${
+    args.paginationType !== undefined
+      ? `pagination-type="${args.paginationType}"`
+      : ''
+  } 
+
+  
   ${args.loop !== undefined ? `loop="${args.loop}"` : ''} 
   ${args.autoplay !== undefined ? `autoplay="${args.autoplay}"` : ''} 
   ${args.speed !== undefined ? `speed="${args.speed}"` : ''} >
@@ -49,7 +56,12 @@ const createComponent = (args, itemClass: string) => {
 export const Default: StoryObj = {
   render: () =>
     createComponent(
-      { pagination: true, slidesPerView: 3, spaceBetween: 40 },
+      {
+        pagination: true,
+        slidesPerView: 3,
+        spaceBetween: 40,
+        paginationClickable: true,
+      },
       'item-default'
     ),
 }
@@ -68,6 +80,9 @@ export const LoopAndAutoplay: StoryObj = {
         loop: true,
         autoplay: true,
         speed: 100,
+        pagination: false,
+        navigation: false,
+        paginationClickable: true,
       },
       'item-loop'
     ),
