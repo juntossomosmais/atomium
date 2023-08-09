@@ -43,13 +43,17 @@ export class AtomCarousel {
   @Prop({ mutable: true })
   paginationType?: PaginationOptions['type'] = 'bullets'
   @Prop({ mutable: true })
-  slidesPerGroup?: number = 1
+  slidesPerGroup?: number | string = 1
   @Prop({ mutable: true })
-  slidesPerView?: number = 1
+  slidesPerView?: number | string = 1
   @Prop({ mutable: true })
   spaceBetween?: number = 0
   @Prop({ mutable: true }) speed?: number
-  convertChildren() {
+
+  // injectStyles is needed in order to overwrite css by class inside shadow root with ::part
+  private injectStyles = ['.swiper-button-disabled { opacity: 0 !important}']
+
+  private convertChildren() {
     this.swiperEl.innerHTML = this.host.innerHTML.replace(
       /atom-carousel-item/g,
       'swiper-slide'
@@ -79,6 +83,7 @@ export class AtomCarousel {
     return (
       <Host>
         <swiper-container
+          class="atom-carousel"
           pagination={this.pagination}
           pagination-clickable={this.pagination && this.paginationClickable}
           pagination-type={this.pagination && this.paginationType}
@@ -91,6 +96,7 @@ export class AtomCarousel {
           free-mode={this.freeMode}
           autoplay={this.autoplay}
           autoplay-delay={this.autoplayDelay}
+          injectStyles={this.injectStyles}
         ></swiper-container>
       </Host>
     )

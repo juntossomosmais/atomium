@@ -12,13 +12,10 @@
   padding: var(--spacing-small);
   transition:
     border var(--transition-duration),
-    box-shadow var(--transition-duration);
+    box-shadow var(--transition-duration),
+    opacity var(--transition-duration);
   width: var(--spacing-medium);
   will-change: border, box-shadow;
-
-  :not([aria-disabled='true']) {
-    pointer-events: all;
-  }
 
   &:hover {
     border-color: var(--color-brand-secondary-dark-1);
