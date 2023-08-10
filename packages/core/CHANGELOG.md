@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.2...atomium-v1.1.0) (2023-08-10)
+
+
+### Features
+
+* carousel component ([#235](https://github.com/juntossomosmais/atomium/issues/235)) ([91d3368](https://github.com/juntossomosmais/atomium/commit/91d33687318d6842f577509bf6d0587c6ac4c340))
+
 ## [1.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.1...atomium-v1.0.2) (2023-08-04)
 
 
