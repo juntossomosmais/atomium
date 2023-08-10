@@ -6,9 +6,13 @@ export default {
   title: 'Components/Carousel',
   ...CarouselStoryArgs,
 } as Meta
+let carouselStoryId = 0
+
 const createComponent = (args, itemClass: string) => {
+  carouselStoryId++
   return `
   <atom-carousel 
+  id="carousel-${carouselStoryId}"
   ${args.pagination !== undefined ? `pagination="${args.pagination}"` : ''} 
   ${args.navigation !== undefined ? `navigation="${args.navigation}"` : ''} 
   ${
@@ -50,6 +54,20 @@ const createComponent = (args, itemClass: string) => {
         </div>
       </atom-carousel-item>
   </atom-carousel>
+  <script>
+  const  atomCarousel${carouselStoryId} = document.querySelector('atom-carousel#carousel-${carouselStoryId}');
+    atomCarousel${carouselStoryId}.addEventListener('atomChange',(event)=>{
+  console.log('atomChange', event)
+    })
+    atomCarousel${carouselStoryId}.addEventListener('atomClickPrev',(event)=>{
+      console.log('atomClickPrev', event)
+
+    })
+    atomCarousel${carouselStoryId}.addEventListener('atomClickNext',(event)=>{
+      console.log('atomClickNext', event)
+
+    })
+  </script>
   `
 }
 

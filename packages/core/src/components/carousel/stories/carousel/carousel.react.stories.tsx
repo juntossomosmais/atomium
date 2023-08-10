@@ -12,7 +12,12 @@ export default {
 } as Meta
 
 const createComponent = (args, itemClass) => (
-  <AtomCarousel {...args}>
+  <AtomCarousel
+    {...args}
+    onAtomChange={(event) => console.log('onAtomChange', event)}
+    atomClickPrev={(event) => console.log('atomClickPrev', event)}
+    atomClickNext={(event) => console.log('atomClickNext', event)}
+  >
     <AtomCarouselItem>
       <div className={itemClass}>Slide 1</div>
     </AtomCarouselItem>
