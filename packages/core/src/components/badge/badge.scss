@@ -1,0 +1,11 @@
+:host {
+  display: inline-block;
+}
+
+.atom-badge {
+  border-radius: var(--spacing-base);
+  color: red;
+  height: var(--spacing-base);
+  padding: 0px 5px 0px 5px;
+  width: 500px;
+}
