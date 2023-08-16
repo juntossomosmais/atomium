@@ -43,7 +43,7 @@ export const Warning: StoryObj = {
   render: (args) => createBadge(args),
   args: {
     ...Primary.args,
-    type: 'warming',
+    type: 'warning',
   },
 }
 

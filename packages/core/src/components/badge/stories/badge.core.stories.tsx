@@ -29,6 +29,14 @@ export const Secondary: StoryObj = {
   },
 }
 
+export const Tertiary: StoryObj = {
+  render: (args) => createBadge(args),
+  args: {
+    ...Primary.args,
+    type: 'tertiary',
+  },
+}
+
 export const Success: StoryObj = {
   render: (args) => createBadge(args),
   args: {
@@ -41,7 +49,7 @@ export const Warning: StoryObj = {
   render: (args) => createBadge(args),
   args: {
     ...Primary.args,
-    type: 'warming',
+    type: 'warning',
   },
 }
 
@@ -66,13 +74,5 @@ export const Dark: StoryObj = {
   args: {
     ...Primary.args,
     type: 'dark',
-  },
-}
-
-export const Purple: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'purple',
   },
 }

@@ -9,17 +9,19 @@ export class AtomBadge {
   @Prop() type:
     | 'primary'
     | 'secondary'
+    | 'tertiary'
     | 'success'
     | 'warning'
     | 'danger'
     | 'light'
-    | 'dark'
-    | 'purple' = 'primary'
+    | 'dark' = 'primary'
 
   render() {
     return (
       <Host>
-        <ion-badge color={this.type}>11</ion-badge>
+        <ion-badge color={this.type} class="atom-badge">
+          <slot></slot>
+        </ion-badge>
       </Host>
     )
   }

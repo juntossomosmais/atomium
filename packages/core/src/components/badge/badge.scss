@@ -4,8 +4,24 @@
 
 .atom-badge {
   border-radius: var(--spacing-base);
-  color: red;
-  height: var(--spacing-base);
-  padding: 0px 5px 0px 5px;
-  width: 500px;
+  color: var(--color-neutral-white);
+  font-size: 16px;
+  padding: var(--spacing-xxsmall) var(--spacing-xsmall);
+
+  &[color='warning'] {
+    background-color: var(--color-contextual-warning-regular);
+  }
+
+  &[color='danger'] {
+    background-color: var(--color-contextual-error-regular);
+  }
+
+  &[color='light'] {
+    background-color: var(--color-neutral-light-3);
+    color: var(--color-neutral-light-2);
+  }
+
+  &[color='dark'] {
+    background-color: var(--color-neutral-regular);
+  }
 }

@@ -17,12 +17,12 @@ export const BadgeStoryArgs = {
       options: [
         'primary',
         'secondary',
+        'tertiary',
         'success',
         'warning',
         'danger',
         'light',
         'dark',
-        'purple',
       ],
       defaultValue: { summary: 'primary' },
       description:
