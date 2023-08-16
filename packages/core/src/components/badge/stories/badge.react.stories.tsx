@@ -71,10 +71,10 @@ export const Dark: StoryObj = {
   },
 }
 
-export const Purple: StoryObj = {
+export const Tertiary: StoryObj = {
   render: (args) => createBadge(args),
   args: {
     ...Primary.args,
-    type: 'purple',
+    type: 'tertiary',
   },
 }
