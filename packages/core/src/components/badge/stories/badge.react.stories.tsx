@@ -6,7 +6,7 @@ import { AtomBadge } from '@juntossomosmais/atomium/react'
 import { BadgeStoryArgs } from './badge.args'
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Badge',
   component: AtomBadge,
   ...BadgeStoryArgs,
 } as Meta
