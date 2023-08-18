@@ -28,9 +28,9 @@ export const BadgeStoryArgs = {
       description:
         'The type of the badge, the component will receive the color according to its type.',
     },
-    children: {
+    label: {
       control: 'text',
-      description: 'The content of the badge',
+      description: 'The label of the badge',
     },
   },
 }

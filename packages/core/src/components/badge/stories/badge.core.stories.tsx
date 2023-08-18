@@ -10,14 +10,14 @@ export default {
 } as Meta
 
 const createBadge = (args) => {
-  return html` <atom-badge type="${args.type}"> ${args.children} </atom-badge> `
+  return html` <atom-badge type="${args.type}"> ${args.label} </atom-badge> `
 }
 
 export const Primary: StoryObj = {
   render: (args) => createBadge(args),
   args: {
     type: 'primary',
-    children: 'Badge',
+    label: 'Badge',
   },
 }
 
