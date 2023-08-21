@@ -61,11 +61,11 @@ export const Danger: StoryObj = {
   },
 }
 
-export const Light: StoryObj = {
+export const Neutral: StoryObj = {
   render: (args) => createBadge(args),
   args: {
     ...Primary.args,
-    type: 'light',
+    type: 'neutral',
   },
 }
 

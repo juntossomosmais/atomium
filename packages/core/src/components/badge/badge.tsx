@@ -13,7 +13,7 @@ export class AtomBadge {
     | 'success'
     | 'warning'
     | 'danger'
-    | 'light'
+    | 'neutral'
     | 'dark' = 'primary'
 
   render() {

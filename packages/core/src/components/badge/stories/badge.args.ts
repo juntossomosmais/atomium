@@ -21,7 +21,7 @@ export const BadgeStoryArgs = {
         'success',
         'warning',
         'danger',
-        'light',
+        'neutral',
         'dark',
       ],
       defaultValue: { summary: 'primary' },
