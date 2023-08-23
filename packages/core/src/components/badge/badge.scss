@@ -1,9 +1,9 @@
 .atom-badge {
-  border-radius: var(--spacing-base);
+  border-radius: var(--border-radius-medium);
   color: var(--color-neutral-white);
   font: var(--text-badge);
   letter-spacing: var(--text-badge-letter);
-  padding: var(--spacing-xxsmall) var(--spacing-xsmall);
+  padding: 0 var(--spacing-xxsmall);
 
   &[color='warning'] {
     background-color: var(--color-contextual-warning-regular);
