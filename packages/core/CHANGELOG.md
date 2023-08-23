@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.1.0...atomium-v1.1.1) (2023-08-23)
+
+
+### Bug Fixes
+
+* **icon:** use jsm cdn ([#240](https://github.com/juntossomosmais/atomium/issues/240)) ([e98339e](https://github.com/juntossomosmais/atomium/commit/e98339e71e2d1ac2f93d8163e5f1d4e43d0662c0))
+
 ## [1.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.0.2...atomium-v1.1.0) (2023-08-10)
 
 
