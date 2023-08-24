@@ -1,0 +1,29 @@
+.atom-badge {
+  border-radius: var(--border-radius-medium);
+  color: var(--color-neutral-white);
+  font: var(--text-badge);
+  letter-spacing: var(--text-badge-letter);
+  padding: 0 var(--spacing-xxsmall);
+
+  &[color='warning'] {
+    background-color: var(--color-contextual-warning-regular);
+    color: var(--color-neutral-regular);
+  }
+
+  &[color='danger'] {
+    background-color: var(--color-contextual-error-regular);
+  }
+
+  &[color='info'] {
+    background-color: var(--color-contextual-info-regular);
+  }
+
+  &[color='neutral'] {
+    background-color: var(--color-neutral-light-3);
+    color: var(--color-neutral-regular);
+  }
+
+  &[color='dark'] {
+    background-color: var(--color-neutral-regular);
+  }
+}
