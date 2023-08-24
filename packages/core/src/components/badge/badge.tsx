@@ -9,7 +9,7 @@ export class AtomBadge {
   @Prop() type:
     | 'primary'
     | 'secondary'
-    | 'tertiary'
+    | 'info'
     | 'success'
     | 'warning'
     | 'danger'

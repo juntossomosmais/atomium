@@ -7,15 +7,20 @@
 
   &[color='warning'] {
     background-color: var(--color-contextual-warning-regular);
+    color: var(--color-neutral-regular);
   }
 
   &[color='danger'] {
     background-color: var(--color-contextual-error-regular);
   }
 
+  &[color='info'] {
+    background-color: var(--color-contextual-info-regular);
+  }
+
   &[color='neutral'] {
     background-color: var(--color-neutral-light-3);
-    color: var(--color-neutral-light-2);
+    color: var(--color-neutral-regular);
   }
 
   &[color='dark'] {

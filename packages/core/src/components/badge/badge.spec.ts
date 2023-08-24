@@ -56,18 +56,18 @@ describe('atom-badge', () => {
     `)
   })
 
-  it('should add "ion-color-tertiary" class when type prop is tertiary', async () => {
+  it('should add "ion-color-info" class when type prop is info', async () => {
     const page = await newSpecPage({
       components: [AtomBadge],
-      html: `<atom-badge type='tertiary'>Badge</atom-badge>`,
+      html: `<atom-badge type='info'>Badge</atom-badge>`,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-badge type='tertiary'>
+      <atom-badge type='info'>
         <mock:shadow-root>
-        <ion-badge color='tertiary' class="atom-badge">
+        <ion-badge color='info' class="atom-badge">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>

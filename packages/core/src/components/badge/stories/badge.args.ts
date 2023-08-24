@@ -17,7 +17,7 @@ export const BadgeStoryArgs = {
       options: [
         'primary',
         'secondary',
-        'tertiary',
+        'info',
         'success',
         'warning',
         'danger',
