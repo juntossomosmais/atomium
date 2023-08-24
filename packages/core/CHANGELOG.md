@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.1.1...atomium-v1.2.0) (2023-08-24)
+
+
+### Features
+
+* create badge component ([#239](https://github.com/juntossomosmais/atomium/issues/239)) ([b50ff41](https://github.com/juntossomosmais/atomium/commit/b50ff413c8db52091be1a99288e70acf52ed38e2))
+
 ## [1.1.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.1.0...atomium-v1.1.1) (2023-08-23)
 
 
