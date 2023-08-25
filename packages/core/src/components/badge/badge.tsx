@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Host, Prop, h } from '@stencil/core'
 
 @Component({
   tag: 'atom-badge',
@@ -18,9 +18,11 @@ export class AtomBadge {
 
   render() {
     return (
-      <ion-badge color={this.type} class="atom-badge">
-        <slot />
-      </ion-badge>
+      <Host>
+        <ion-badge color={this.type} class="atom-badge">
+          <slot />
+        </ion-badge>
+      </Host>
     )
   }
 }
