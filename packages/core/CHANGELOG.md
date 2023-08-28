@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.0...atomium-v1.2.1) (2023-08-28)
+
+
+### Bug Fixes
+
+* use line-height in badge ([#244](https://github.com/juntossomosmais/atomium/issues/244)) ([d073c2b](https://github.com/juntossomosmais/atomium/commit/d073c2bf70c957df93f0672548d6fbcf1f284a14))
+
 ## [1.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.1.1...atomium-v1.2.0) (2023-08-24)
 
 
