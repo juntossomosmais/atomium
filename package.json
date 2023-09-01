@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@stencil/core": "^4.0.3",
-    "swiper": "^10.1.0"
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
