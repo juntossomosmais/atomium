@@ -45,9 +45,9 @@ const createComponent = (args, itemClass) => (
     <AtomCarouselItem lazy={true}>
       <div className={itemClass}>
         <img
-          loading="lazy"
-          width="100%"
-          src="https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png"
+          loading='lazy'
+          width='100%'
+          src='https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png'
         />
       </div>
     </AtomCarouselItem>

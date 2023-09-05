@@ -104,9 +104,9 @@ export class AtomSelect {
           }}
           name={this.name}
           label={this.label}
-          label-placement="stacked"
-          interface="popover"
-          shape="round"
+          label-placement='stacked'
+          interface='popover'
+          shape='round'
           fill={this.fill}
           placeholder={this.placeholder}
           disabled={this.disabled}
@@ -134,11 +134,11 @@ export class AtomSelect {
           ))}
         </ion-select>
         {(this.helperText || this.errorText) && (
-          <div class="select-bottom">
+          <div class='select-bottom'>
             {!this.errorText && (
-              <div class="helper-text">{this.helperText}</div>
+              <div class='helper-text'>{this.helperText}</div>
             )}
-            {this.errorText && <div class="error-text">{this.errorText}</div>}
+            {this.errorText && <div class='error-text'>{this.errorText}</div>}
           </div>
         )}
         {this.icon && (

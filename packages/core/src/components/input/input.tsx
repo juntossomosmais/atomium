@@ -198,8 +198,8 @@ export class AtomInput {
         )}
         {this.passwordToggle && this.value && (
           <button
-            class="atom-password-icon"
-            type="button"
+            class='atom-password-icon'
+            type='button'
             onClick={() => {
               this.type = this.type === 'password' ? 'text' : 'password'
             }}

@@ -50,8 +50,8 @@
   }
 
   &.select-disabled {
-    &:hover,
-    & {
+    &,
+    &:hover {
       --background: var(--color-neutral-light-2);
       --color: var(--color-neutral-black);
       --placeholder-color: var(--color-neutral-black);
@@ -72,7 +72,7 @@
 .atom-icon {
   color: var(--atom-icon-color);
   cursor: pointer;
-  font-size: 16px;
+  font-size: var(--spacing-base);
   left: calc(var(--atom-icon-grid) / 2);
   position: absolute;
   top: calc((var(--atom-select-min-height) / 2) + 2px);
@@ -102,7 +102,7 @@
 .select-bottom {
   /* Just copy the same styles from 'input-bottom' of Ionic to keep the consistency, because `ion-select` don't have helper-text (https://ionicframework.com/docs/api/input#helper--error-text */
   display: flex;
-  font-size: 12px;
+  font-size: var(--spacing-small);
   justify-content: space-between;
   padding-inline-end: var(--spacing-base);
   padding-inline-start: var(--spacing-base);

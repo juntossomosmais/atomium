@@ -21,26 +21,26 @@ export class AtomBreadcrumb {
       <Host>
         {this.items.length > 1 && (
           <button
-            class="atom-button__back"
-            type="button"
+            class='atom-button__back'
+            type='button'
             onClick={prevItem.redirect}
           >
-            <atom-icon icon="arrow-left" size="small" />
+            <atom-icon icon='arrow-left' size='small' />
             Voltar para {prevItem.text}
           </button>
         )}
 
-        <ion-breadcrumbs class="atom-breadcrumbs">
+        <ion-breadcrumbs class='atom-breadcrumbs'>
           {this.items.map((item) => (
             <ion-breadcrumb
-              class="atom-breadcrumb"
+              class='atom-breadcrumb'
               onClick={item.redirect}
               key={item.text}
             >
-              <span class="atom-breadcrumb__text" title={item.title}>
+              <span class='atom-breadcrumb__text' title={item.title}>
                 {item.text}
               </span>
-              <atom-icon icon="menu-right" slot="separator" />
+              <atom-icon icon='menu-right' slot='separator' />
             </ion-breadcrumb>
           ))}
         </ion-breadcrumbs>

@@ -12,8 +12,8 @@ export default {
 
 const createTextarea = (args) => (
   <AtomTextarea
-    label="Example Textarea"
-    placeholder="Placeholder Text"
+    label='Example Textarea'
+    placeholder='Placeholder Text'
     color={args.color}
     disabled={args.disabled}
     fill={args.fill}
@@ -80,11 +80,11 @@ export const ErrorState: StoryObj = {
 
     return (
       <AtomTextarea
-        label="Email"
-        placeholder="Enter a valid email"
-        helperText="Example: atomium@juntossomosmais.com.br"
-        errorText="Invalid email"
-        type="email"
+        label='Email'
+        placeholder='Enter a valid email'
+        helperText='Example: atomium@juntossomosmais.com.br'
+        errorText='Invalid email'
+        type='email'
         onAtomChange={(ev) => validate(ev.target.value)}
         hasError={hasError}
       />
@@ -96,8 +96,8 @@ export const WithCounter: StoryObj = {
   render: () => {
     return (
       <AtomTextarea
-        label="Counter example"
-        placeholder="Start typing..."
+        label='Counter example'
+        placeholder='Start typing...'
         counter={true}
         maxlength={300}
         counterFormatter={(inputLength: number, maxLength: number) =>

@@ -1,3 +1,4 @@
 {
-  "extends": ["@juntossomosmais/linters/stylelint.config.scss.js"]
+  "extends": ["@juntossomosmais/linters/stylelint.config.scss.js"],
+  "ignoreFiles": ["utils/scss/**"]
 }
