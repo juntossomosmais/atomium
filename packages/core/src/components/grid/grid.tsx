@@ -10,7 +10,7 @@ export class AtomGrid {
 
   render() {
     return (
-      <ion-grid fixed={this.fixed} class="atom-grid">
+      <ion-grid fixed={this.fixed} class='atom-grid'>
         <slot />
       </ion-grid>
     )

@@ -15,25 +15,25 @@ export const Default: StoryObj = {
   render: () => (
     <div>
       <AtomGrid>
-        <AtomCol class="col" size="8">
+        <AtomCol class='col' size='8'>
           <div>size=8</div>
         </AtomCol>
-        <AtomCol class="col" size="6" sizeMd="4">
+        <AtomCol class='col' size='6' sizeMd='4'>
           <div>size=6 & sizeMd=4</div>
         </AtomCol>
-        <AtomCol class="col" size="4" sizeMd="4">
+        <AtomCol class='col' size='4' sizeMd='4'>
           <div>size=4 & sizeMd=4</div>
         </AtomCol>
-        <AtomCol class="col" size="8" sizeMd="6">
+        <AtomCol class='col' size='8' sizeMd='6'>
           <div>size=8 & sizeMd=6</div>
         </AtomCol>
-        <AtomCol class="col" size="8" sizeMd="10">
+        <AtomCol class='col' size='8' sizeMd='10'>
           <div>size=8 & sizeMd=10</div>
         </AtomCol>
-        <AtomCol class="col" size="8" sizeMd="10">
+        <AtomCol class='col' size='8' sizeMd='10'>
           <div>size=8 & sizeMd=10</div>
         </AtomCol>
-        <AtomCol class="col" size="8" sizeMd="6">
+        <AtomCol class='col' size='8' sizeMd='6'>
           <div>size=8 & sizeMd=6</div>
         </AtomCol>
       </AtomGrid>
@@ -47,22 +47,22 @@ export const AutoSize: StoryObj = {
   render: () => (
     <div>
       <AtomGrid>
-        <AtomCol className="col" size="auto">
+        <AtomCol className='col' size='auto'>
           <div>size=auto</div>
         </AtomCol>
-        <AtomCol className="col" size="auto">
+        <AtomCol className='col' size='auto'>
           <div>size=auto</div>
         </AtomCol>
-        <AtomCol className="col">
+        <AtomCol className='col'>
           <div>default</div>
         </AtomCol>
-        <AtomCol className="col">
+        <AtomCol className='col'>
           <div>default</div>
         </AtomCol>
-        <AtomCol className="col" size="auto">
+        <AtomCol className='col' size='auto'>
           <div>size=auto</div>
         </AtomCol>
-        <AtomCol className="col" size="auto">
+        <AtomCol className='col' size='auto'>
           <div>size=auto</div>
         </AtomCol>
       </AtomGrid>
@@ -79,13 +79,13 @@ export const Offset: StoryObj = {
         <b>Column 2</b> has <code>offset</code> set to <code>"3"</code>
       </p>
       <AtomGrid>
-        <AtomCol className="col" size="3">
+        <AtomCol className='col' size='3'>
           <div>1</div>
         </AtomCol>
-        <AtomCol className="col" offset="3">
+        <AtomCol className='col' offset='3'>
           <div>2</div>
         </AtomCol>
-        <AtomCol className="col">
+        <AtomCol className='col'>
           <div>3</div>
         </AtomCol>
       </AtomGrid>
@@ -94,10 +94,10 @@ export const Offset: StoryObj = {
         <b>Column 1</b> has <code>offset</code> set to <code>"4"</code>
       </p>
       <AtomGrid>
-        <AtomCol className="col" size="2" offset="4">
+        <AtomCol className='col' size='2' offset='4'>
           <div>1</div>
         </AtomCol>
-        <AtomCol className="col" size="2">
+        <AtomCol className='col' size='2'>
           <div>2</div>
         </AtomCol>
       </AtomGrid>
@@ -116,13 +116,13 @@ export const PushAndPull: StoryObj = {
       </p>
 
       <AtomGrid>
-        <AtomCol className="col" push="4" size="4">
+        <AtomCol className='col' push='4' size='4'>
           <div>1</div>
         </AtomCol>
-        <AtomCol className="col" pull="4" size="4">
+        <AtomCol className='col' pull='4' size='4'>
           <div>2</div>
         </AtomCol>
-        <AtomCol className="col">
+        <AtomCol className='col'>
           <div>3</div>
         </AtomCol>
       </AtomGrid>

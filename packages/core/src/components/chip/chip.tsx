@@ -46,7 +46,7 @@ export class AtomChip {
             class={{
               [`atom-close`]: true,
             }}
-            icon="close"
+            icon='close'
           ></atom-icon>
         )}
       </ion-chip>
