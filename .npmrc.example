@@ -1,4 +1,4 @@
-//npm.pkg.github.com/:_authToken=TOKEN
+//npm.pkg.github.com/:_authToken=<your-github-token-here>
 @juntossomosmais:registry=https://npm.pkg.github.com
 
 engine-strict = true
