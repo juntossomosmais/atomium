@@ -111,7 +111,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npx prettier --check",
+      "npx prettier --write",
       "npm run lint:pre-commit"
     ],
     "*.scss": [
