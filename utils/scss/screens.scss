@@ -1,13 +1,13 @@
 @import '~rupture-sass/rupture';
 
-$screen-xs: 576px; // xExtra small screen / phone
-$screen-sm: 768px; // Extra small screen / phone
-$screen-md: 992px; // Small screen / tablet
+$screen-xs: var(--screen-xs); // xExtra small screen / phone
+$screen-sm: var(--screen-sm); // Extra small screen / phone
+$screen-md: var(--screen-md); // Small screen / tablet
 $screen-lg: 1280px; // Medium screen / desktop
-$screen-xlg: 1440px; // Extra Large screen / wide desktop
-$screen-fhd: 1920px; // Full HD resolution
-$screen-2k: 2048px; // 2K resolution
-$screen-4k: 3840px; // 4K resolution
+$screen-xlg: var(--screen-xlg); // Extra Large screen / wide desktop
+$screen-fhd: var(--screen-fhd); // Full HD resolution
+$screen-2k: var(--screen-2k); // 2K resolution
+$screen-4k: var(--screen-4k); // 4K resolution
 
 $rupture: map-merge(
   $rupture,

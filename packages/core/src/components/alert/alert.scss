@@ -6,6 +6,13 @@
   display: block;
 }
 
+.atom-icon {
+  font-size: var(--icon-size);
+  /* @todo(icons): re-evaluate this when finalizing the icon package */
+  margin-top: 2px;
+  width: var(--spacing-medium);
+}
+
 .atom-alert {
   border: 1px solid transparent;
   border-radius: var(--border-radius);
@@ -111,13 +118,6 @@
       color: var(--color-brand-secondary-dark-1);
     }
   }
-}
-
-.atom-icon {
-  font-size: var(--icon-size);
-  /* @todo(icons): re-evaluate this when finalizing the icon package */
-  margin-top: 2px;
-  width: var(--spacing-medium);
 }
 
 .atom-close {

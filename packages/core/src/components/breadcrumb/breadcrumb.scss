@@ -14,6 +14,10 @@
   font: var(--text-body-small);
   letter-spacing: var(--text-body-small-letter);
 
+  &::part(native) {
+    padding: 0;
+  }
+
   &:not(:last-of-type) {
     &::part(native) {
       cursor: pointer;
@@ -29,10 +33,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-  }
-
-  &::part(native) {
-    padding: 0;
   }
 
   &::part(separator) {
