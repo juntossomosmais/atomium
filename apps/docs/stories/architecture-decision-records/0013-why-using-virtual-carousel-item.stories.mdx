@@ -1,20 +1,23 @@
 import { Meta } from '@storybook/addon-docs'
 
-<Meta title="Docs/Architecture Decision Records/ADR 0013: Why using a virtual carousel item" />
+<Meta title='Docs/Architecture Decision Records/ADR 0013: Why using a virtual carousel item' />
 
 # ADR 0013: Why using a virtual carousel item
 
 🗓️ 2023-08 · ✍️ [@schirrel](https://github.com/schirrel), [@MayaraRMA](https://github.com/MayaraRMA), [@tassioFront](https://github.com/tassioFront) and [@felipefialho](https://twitter.com/felipefialho_)
 
 ## Context
+
 Wrapping up Swiper HTMLElements as Atomium element.
 
 ## Problems
+
 When creating `<atom-carousel>` and its items `<atom-carousel-item>`, the HTML three place the `<atom-carousel-item>` inside `<swiper-element>`, but the swiper needs its children to be `<swiper-slide>`.
 
 Then we need to convert each `atom-carousel-item` into `swiper-slide`.
 
 ## Considered Options
+
 To convert the inner `<atom-carousel-item>` to `<swiper-slide>`, and we have two options:
 
 1. Create and `atom-carousel-item` component and inside itself creating the `<swiper-slide>` component on parent and them self deleting from parent.
@@ -26,14 +29,15 @@ To convert the inner `<atom-carousel-item>` to `<swiper-slide>`, and we have two
 - Performance
 
 ### Performance
-We had performed a test with both approach using 9 items inside the Carousel:
-- With children `atom-carousel-item` doing the conversion, it took _0.50ms_
-- With parent `atom-carousel` doing the conversion, it took  _0.20ms_
 
+We had performed a test with both approach using 9 items inside the Carousel:
+
+- With children `atom-carousel-item` doing the conversion, it took _0.50ms_
+- With parent `atom-carousel` doing the conversion, it took _0.20ms_
 
 ### Complexity
-Taking in consideration the complexity of both codes, not only the parent's conversion approach was using less code but take also avoid us to create a component only to destruct itself. This also avoid the have one more file to maintain, build, test and also to be on final bundle.
 
+Taking in consideration the complexity of both codes, not only the parent's conversion approach was using less code but take also avoid us to create a component only to destruct itself. This also avoid the have one more file to maintain, build, test and also to be on final bundle.
 
 ## Decision
 

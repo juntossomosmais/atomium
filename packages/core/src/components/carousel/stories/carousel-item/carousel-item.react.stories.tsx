@@ -21,9 +21,9 @@ export const Lazy: StoryObj = {
     <AtomCarouselItem lazy={true}>
       <div>
         <img
-          loading="lazy"
-          width="100%"
-          src="https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png"
+          loading='lazy'
+          width='100%'
+          src='https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png'
         />
       </div>
     </AtomCarouselItem>

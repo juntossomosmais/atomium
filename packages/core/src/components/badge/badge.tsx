@@ -19,7 +19,7 @@ export class AtomBadge {
   render() {
     return (
       <Host>
-        <ion-badge color={this.type} class="atom-badge">
+        <ion-badge color={this.type} class='atom-badge'>
           <slot />
         </ion-badge>
       </Host>

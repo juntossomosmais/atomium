@@ -38,6 +38,16 @@ It is built using a variety of powerful technologies, including:
 
 ## Getting Started
 
+Clone the repository via `ssh`
+
+```sh
+git clone git@github.com:juntossomosmais/atomium.git
+```
+
+Copy `.npmrc.example` to `.npmrc`.
+
+Replace `<your-github-token-here>` in the `.npmrc` file with your [GitHub PAT](https://github.com/settings/tokens). Your PAT should have following scopes: `repo` and `write:packages`.
+
 ### Installation
 
 ```bash
