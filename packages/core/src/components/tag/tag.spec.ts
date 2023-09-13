@@ -31,6 +31,7 @@ describe('atom-tag', () => {
     expect(atomTag).toBe('atom-tag')
     expect(atomTagLabel).toBe(tagLabel)
   })
+
   it('should render atom-tag with icon', async () => {
     const mockedIcon = 'heart'
     const atomTag = await setup('success', mockedIcon)
