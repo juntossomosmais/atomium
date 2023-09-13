@@ -40,6 +40,7 @@ describe('atom-tag', () => {
     <slot></slot>
   </ion-badge>`)
   })
+
   it('should render atom-tag success', async () => {
     const mockedType: AtomTag['type'] = 'success'
     const atomTag = await setup(mockedType)
@@ -48,6 +49,7 @@ describe('atom-tag', () => {
     <slot></slot>
   </ion-badge>`)
   })
+
   it('should render atom-tag danger', async () => {
     const mockedType: AtomTag['type'] = 'danger'
     const atomTag = await setup(mockedType)
@@ -56,6 +58,7 @@ describe('atom-tag', () => {
     <slot></slot>
   </ion-badge>`)
   })
+
   it('should render atom-tag warning', async () => {
     const mockedType: AtomTag['type'] = 'warning'
     const atomTag = await setup(mockedType)
@@ -64,6 +67,7 @@ describe('atom-tag', () => {
     <slot></slot>
   </ion-badge>`)
   })
+
   it('should render atom-tag dark', async () => {
     const mockedType: AtomTag['type'] = 'dark'
     const atomTag = await setup(mockedType)
@@ -72,6 +76,7 @@ describe('atom-tag', () => {
     <slot></slot>
   </ion-badge>`)
   })
+
   it('should render atom-tag light', async () => {
     const mockedType: AtomTag['type'] = 'light'
     const atomTag = await setup(mockedType)
@@ -80,6 +85,7 @@ describe('atom-tag', () => {
     <slot></slot>
   </ion-badge>`)
   })
+
   it('should render atom-tag neutral', async () => {
     const mockedType: AtomTag['type'] = 'neutral'
     const atomTag = await setup(mockedType)
