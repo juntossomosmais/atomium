@@ -53,7 +53,7 @@ export const Warning: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'warning',
-    label: 'Em andamento',
+    label: 'Em Andamento',
   },
 }
 
@@ -61,7 +61,7 @@ export const WarningWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'warning',
-    label: 'Em andamento',
+    label: 'Em Andamento',
     icon: 'timer-outline',
   },
 }
@@ -70,7 +70,7 @@ export const Dark: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'dark',
-    label: 'Mais resgatados',
+    label: 'Mais Resgatados',
   },
 }
 
@@ -78,7 +78,7 @@ export const DarkWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'dark',
-    label: 'Mais resgatados',
+    label: 'Mais Resgatados',
     icon: 'wallet-giftcard',
   },
 }
@@ -87,7 +87,7 @@ export const Light: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'light',
-    label: 'Mais pontos',
+    label: 'Mais Pontos',
   },
 }
 
@@ -95,7 +95,7 @@ export const LightWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'light',
-    label: 'Mais pontos',
+    label: 'Mais Pontos',
     icon: 'plus-thick',
   },
 }
