@@ -7,13 +7,13 @@ import { IconProps } from '../../icons'
   shadow: true,
 })
 export class AtomTag {
-  @Prop() type: 'success' | 'danger' | 'warning' | 'dark' | 'light' | 'neutral'
+  @Prop() color: 'success' | 'danger' | 'warning' | 'dark' | 'light' | 'neutral'
   @Prop() icon?: IconProps
 
   render() {
     return (
       <Host>
-        <ion-badge color={this.type} class='atom-tag'>
+        <ion-badge color={this.color} class='atom-tag'>
           {this.icon && (
             <atom-icon class='atom-icon' icon={this.icon}></atom-icon>
           )}

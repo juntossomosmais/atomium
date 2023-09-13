@@ -11,14 +11,16 @@ export default {
 
 const createTag = (args) => {
   return html`
-    <atom-tag type="${args.type}" icon="${args.icon}"> ${args.label} </atom-tag>
+    <atom-tag color="${args.color}" icon="${args.icon}">
+      ${args.label}
+    </atom-tag>
   `
 }
 
 export const Success: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'success',
+    color: 'success',
     label: 'Promotion',
   },
 }
@@ -26,7 +28,7 @@ export const Success: StoryObj = {
 export const SuccessWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'success',
+    color: 'success',
     label: 'Promotion',
     icon: 'tag',
   },
@@ -35,7 +37,7 @@ export const SuccessWithIcon: StoryObj = {
 export const Danger: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'danger',
+    color: 'danger',
     label: 'Canceled',
   },
 }
@@ -43,7 +45,7 @@ export const Danger: StoryObj = {
 export const DangerWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'danger',
+    color: 'danger',
     label: 'Canceled',
     icon: 'close-circle-outline',
   },
@@ -52,7 +54,7 @@ export const DangerWithIcon: StoryObj = {
 export const Warning: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'warning',
+    color: 'warning',
     label: 'In Progress',
   },
 }
@@ -60,7 +62,7 @@ export const Warning: StoryObj = {
 export const WarningWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'warning',
+    color: 'warning',
     label: 'In Progress',
     icon: 'timer-outline',
   },
@@ -69,7 +71,7 @@ export const WarningWithIcon: StoryObj = {
 export const Dark: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'dark',
+    color: 'dark',
     label: 'Most rescued',
   },
 }
@@ -77,7 +79,7 @@ export const Dark: StoryObj = {
 export const DarkWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'dark',
+    color: 'dark',
     label: 'Most rescued',
     icon: 'wallet-giftcard',
   },
@@ -86,7 +88,7 @@ export const DarkWithIcon: StoryObj = {
 export const Light: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'light',
+    color: 'light',
     label: 'More Points',
   },
 }
@@ -94,7 +96,7 @@ export const Light: StoryObj = {
 export const LightWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
-    type: 'light',
+    color: 'light',
     label: 'More Points',
     icon: 'plus-thick',
   },

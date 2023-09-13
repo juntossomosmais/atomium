@@ -12,7 +12,7 @@ export const TagStoryArgs = {
     },
   },
   argTypes: {
-    type: {
+    color: {
       control: 'select',
       options: ['success', 'warning', 'danger', 'neutral', 'dark', 'light'],
       defaultValue: { summary: 'success' },

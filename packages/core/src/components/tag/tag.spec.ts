@@ -3,12 +3,12 @@ import { newSpecPage } from '@stencil/core/testing'
 import { IconProps } from '../../icons'
 import { AtomTag } from './tag'
 
-const setup = async (color: AtomTag['type'], icon?: IconProps) => {
+const setup = async (color: AtomTag['color'], icon?: IconProps) => {
   const currentIcon = icon && `icon=${icon}`
 
   const page = await newSpecPage({
     components: [AtomTag],
-    html: `<atom-tag type=${color} ${currentIcon}>Tag</atom-tag>`,
+    html: `<atom-tag color=${color} ${currentIcon}>Tag</atom-tag>`,
   })
 
   await page.waitForChanges()
@@ -21,7 +21,7 @@ describe('atom-tag', () => {
     const tagLabel = 'Tag Test Label'
     const page = await newSpecPage({
       components: [AtomTag],
-      html: `<atom-tag type='success'>${tagLabel}</atom-tag>`,
+      html: `<atom-tag color='success'>${tagLabel}</atom-tag>`,
     })
 
     await page.waitForChanges()
@@ -42,7 +42,7 @@ describe('atom-tag', () => {
   })
 
   it('should render atom-tag success', async () => {
-    const mockedType: AtomTag['type'] = 'success'
+    const mockedType: AtomTag['color'] = 'success'
     const atomTag = await setup(mockedType)
     expect(atomTag)
       .toEqualHtml(`<ion-badge class="atom-tag" color=${mockedType}>
@@ -51,7 +51,7 @@ describe('atom-tag', () => {
   })
 
   it('should render atom-tag danger', async () => {
-    const mockedType: AtomTag['type'] = 'danger'
+    const mockedType: AtomTag['color'] = 'danger'
     const atomTag = await setup(mockedType)
     expect(atomTag)
       .toEqualHtml(`<ion-badge class="atom-tag" color=${mockedType}>
@@ -60,7 +60,7 @@ describe('atom-tag', () => {
   })
 
   it('should render atom-tag warning', async () => {
-    const mockedType: AtomTag['type'] = 'warning'
+    const mockedType: AtomTag['color'] = 'warning'
     const atomTag = await setup(mockedType)
     expect(atomTag)
       .toEqualHtml(`<ion-badge class="atom-tag" color=${mockedType}>
@@ -69,7 +69,7 @@ describe('atom-tag', () => {
   })
 
   it('should render atom-tag dark', async () => {
-    const mockedType: AtomTag['type'] = 'dark'
+    const mockedType: AtomTag['color'] = 'dark'
     const atomTag = await setup(mockedType)
     expect(atomTag)
       .toEqualHtml(`<ion-badge class="atom-tag" color=${mockedType}>
@@ -78,7 +78,7 @@ describe('atom-tag', () => {
   })
 
   it('should render atom-tag light', async () => {
-    const mockedType: AtomTag['type'] = 'light'
+    const mockedType: AtomTag['color'] = 'light'
     const atomTag = await setup(mockedType)
     expect(atomTag)
       .toEqualHtml(`<ion-badge class="atom-tag" color=${mockedType}>
@@ -87,7 +87,7 @@ describe('atom-tag', () => {
   })
 
   it('should render atom-tag neutral', async () => {
-    const mockedType: AtomTag['type'] = 'neutral'
+    const mockedType: AtomTag['color'] = 'neutral'
     const atomTag = await setup(mockedType)
     expect(atomTag)
       .toEqualHtml(`<ion-badge class="atom-tag" color=${mockedType}>
