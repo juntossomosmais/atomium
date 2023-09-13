@@ -27,5 +27,13 @@ export const TagStoryArgs = {
       control: 'text',
       description: 'The label of the tag',
     },
+    customBackgroundColor: {
+      control: 'text',
+      description: 'The background color',
+    },
+    customTextColor: {
+      control: 'text',
+      description: 'The text and icon (if exists) color',
+    },
   },
 }

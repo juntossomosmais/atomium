@@ -11,7 +11,12 @@ export default {
 
 const createTag = (args) => {
   return html`
-    <atom-tag color="${args.color}" icon="${args.icon}">
+    <atom-tag
+      color="${args.color}"
+      icon="${args.icon}"
+      custom-background-color="${args?.customBackgroundColor}"
+      custom-text-color="${args?.customTextColor}"
+    >
       ${args.label}
     </atom-tag>
   `
@@ -99,5 +104,15 @@ export const LightWithIcon: StoryObj = {
     color: 'light',
     label: 'More Points',
     icon: 'plus-thick',
+  },
+}
+
+export const CustomColor: StoryObj = {
+  render: (args) => createTag(args),
+  args: {
+    label: 'Most Loved',
+    icon: 'heart',
+    customBackgroundColor: '#a006fa',
+    customTextColor: '#00ff95',
   },
 }
