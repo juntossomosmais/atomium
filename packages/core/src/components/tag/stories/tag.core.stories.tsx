@@ -19,7 +19,7 @@ export const Success: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'success',
-    label: 'Promoção',
+    label: 'Promotion',
   },
 }
 
@@ -27,7 +27,7 @@ export const SuccessWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'success',
-    label: 'Promoção',
+    label: 'Promotion',
     icon: 'tag',
   },
 }
@@ -36,7 +36,7 @@ export const Danger: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'danger',
-    label: 'Cancelado',
+    label: 'Canceled',
   },
 }
 
@@ -44,7 +44,7 @@ export const DangerWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'danger',
-    label: 'Cancelado',
+    label: 'Canceled',
     icon: 'close-circle-outline',
   },
 }
@@ -53,7 +53,7 @@ export const Warning: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'warning',
-    label: 'Em Andamento',
+    label: 'In Progress',
   },
 }
 
@@ -61,7 +61,7 @@ export const WarningWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'warning',
-    label: 'Em Andamento',
+    label: 'In Progress',
     icon: 'timer-outline',
   },
 }
@@ -70,7 +70,7 @@ export const Dark: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'dark',
-    label: 'Mais Resgatados',
+    label: 'Most rescued',
   },
 }
 
@@ -78,7 +78,7 @@ export const DarkWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'dark',
-    label: 'Mais Resgatados',
+    label: 'Most rescued',
     icon: 'wallet-giftcard',
   },
 }
@@ -87,7 +87,7 @@ export const Light: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'light',
-    label: 'Mais Pontos',
+    label: 'More Points',
   },
 }
 
@@ -95,7 +95,7 @@ export const LightWithIcon: StoryObj = {
   render: (args) => createTag(args),
   args: {
     type: 'light',
-    label: 'Mais Pontos',
+    label: 'More Points',
     icon: 'plus-thick',
   },
 }
