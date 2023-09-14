@@ -13,7 +13,7 @@ export class AtomCarouselItem {
   // If you need more info please read the ADR 0013
   componentDidLoad() {
     const parentSwiperContainer = this.host.parentElement.querySelector('swiper-container')
-    const swiperSlide =this.host.querySelector('swiper-slide')
+    const swiperSlide = this.host.querySelector('swiper-slide')
     parentSwiperContainer.appendChild(swiperSlide.cloneNode(true))
     this.host.parentElement.removeChild(this.host)
   }
