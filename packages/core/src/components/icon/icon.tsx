@@ -17,7 +17,7 @@ export class AtomIcon {
 
   render(): JSX.Element {
     return (
-      <Host aria-hidden="true">
+      <Host aria-hidden='true'>
         <ion-icon
           icon={`${CDN_URL}/${this.icon}.svg`}
           color={this.color}

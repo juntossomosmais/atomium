@@ -94,7 +94,7 @@
 .atom-icon {
   color: var(--atom-icon-color);
   cursor: pointer;
-  font-size: 16px;
+  font-size: var(--spacing-base);
   position: absolute;
   top: calc((var(--atom-input-min-height) / 2) + 2px);
   z-index: var(--zindex-100);

@@ -12,8 +12,8 @@ export default {
 
 const createInput = (args) => (
   <AtomInput
-    label="Label example"
-    placeholder="Placeholder Text"
+    label='Label example'
+    placeholder='Placeholder Text'
     clearInput={args.clearInput}
     color={args.color}
     disabled={args.disabled}
@@ -88,11 +88,11 @@ export const ErrorState: StoryObj = {
 
     return (
       <AtomInput
-        label="Email"
-        placeholder="Enter a valid email"
-        helperText="Example: atomium@juntossomosmais.com.br"
-        errorText="Invalid email"
-        type="email"
+        label='Email'
+        placeholder='Enter a valid email'
+        helperText='Example: atomium@juntossomosmais.com.br'
+        errorText='Invalid email'
+        type='email'
         onAtomChange={(ev) => validate(ev.target.value)}
         hasError={hasError}
       />

@@ -69,7 +69,7 @@ export class AtomCarousel {
     return (
       <Host>
         <swiper-container
-          class="atom-carousel"
+          class='atom-carousel'
           pagination={this.pagination}
           pagination-clickable={this.pagination && this.paginationClickable}
           pagination-type={this.pagination && this.paginationType}

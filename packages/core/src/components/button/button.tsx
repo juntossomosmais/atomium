@@ -70,7 +70,7 @@ export class AtomButton {
           fill={this.fill}
           size={this.size}
           expand={this.expand}
-          shape="round"
+          shape='round'
           disabled={this.disabled || this.loading}
           type={this.type}
           mode={this.mode}
@@ -81,13 +81,13 @@ export class AtomButton {
           onClick={this.handleClick.bind(this)}
         >
           {this.loading && (
-            <span class="loading">
+            <span class='loading'>
               <ion-spinner
                 color={this.fill === 'solid' ? 'light' : this.color}
               />
             </span>
           )}
-          <span class="slot">
+          <span class='slot'>
             <slot />
           </span>
         </ion-button>

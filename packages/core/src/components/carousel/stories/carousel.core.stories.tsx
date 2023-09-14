@@ -11,34 +11,34 @@ let carouselStoryId = 0
 const createComponent = (args, itemClass: string) => {
   carouselStoryId++
   return `
-  <atom-carousel 
+  <atom-carousel
   id="carousel-${carouselStoryId}"
-  ${args.pagination !== undefined ? `pagination="${args.pagination}"` : ''} 
-  ${args.navigation !== undefined ? `navigation="${args.navigation}"` : ''} 
+  ${args.pagination !== undefined ? `pagination="${args.pagination}"` : ''}
+  ${args.navigation !== undefined ? `navigation="${args.navigation}"` : ''}
   ${
     args.paginationClickable !== undefined
       ? `pagination-clickable="${args.paginationClickable}"`
       : ''
-  } 
+  }
   ${
     args.spaceBetween !== undefined
       ? `space-between="${args.spaceBetween}"`
       : ''
-  } 
+  }
   ${
     args.slidesPerView !== undefined
       ? `slides-per-view="${args.slidesPerView}"`
       : ''
-  } 
+  }
   ${
     args.paginationType !== undefined
       ? `pagination-type="${args.paginationType}"`
       : ''
-  } 
+  }
 
-  
-  ${args.loop !== undefined ? `loop="${args.loop}"` : ''} 
-  ${args.autoplay !== undefined ? `autoplay="${args.autoplay}"` : ''} 
+
+  ${args.loop !== undefined ? `loop="${args.loop}"` : ''}
+  ${args.autoplay !== undefined ? `autoplay="${args.autoplay}"` : ''}
   ${args.speed !== undefined ? `speed="${args.speed}"` : ''} >
     <atom-carousel-item ><div class="${itemClass}">Slide 1</div></atom-carousel-item>
       <atom-carousel-item><div class="${itemClass}">Slide 2</div></atom-carousel-item>

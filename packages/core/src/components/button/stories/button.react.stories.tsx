@@ -64,7 +64,7 @@ export const CircleButton: StoryObj = {
       expand={args.expand}
       shape={args.shape}
     >
-      <AtomIcon icon="heart" />
+      <AtomIcon icon='heart' />
     </AtomButton>
   ),
   args: {
@@ -96,7 +96,7 @@ export const IconAndText: StoryObj = {
       expand={args.expand}
       shape={args.shape}
     >
-      <AtomIcon icon="heart" />
+      <AtomIcon icon='heart' />
       {args.label}
     </AtomButton>
   ),

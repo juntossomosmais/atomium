@@ -9,10 +9,9 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "eslint:recommended",
-    "prettier"
+    "eslint:recommended"
   ],
-  "plugins": ["prettier", "jest", "import", "@typescript-eslint", "sonarjs"],
+  "plugins": ["jest", "import", "@typescript-eslint", "sonarjs"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -20,7 +19,6 @@
     }
   },
   "rules": {
-    "prettier/prettier": "error",
     "prefer-const": "error",
     "semi": ["error", "never"],
     "@typescript-eslint/no-unused-vars": "error",

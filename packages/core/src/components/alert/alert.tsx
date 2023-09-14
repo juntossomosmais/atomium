@@ -29,7 +29,7 @@ export class AtomAlert {
 
   render() {
     return (
-      <Host role="alert">
+      <Host role='alert'>
         <div
           class={{
             [`atom-alert`]: true,
@@ -37,24 +37,24 @@ export class AtomAlert {
             [`has-close`]: this.close,
           }}
         >
-          <div class="atom-body">
+          <div class='atom-body'>
             {this.icon && (
-              <atom-icon class="atom-icon" icon={this.icon}></atom-icon>
+              <atom-icon class='atom-icon' icon={this.icon}></atom-icon>
             )}
-            <div class="atom-content">
+            <div class='atom-content'>
               {this.messageTitle && (
-                <div class="atom-title" innerHTML={this.messageTitle}></div>
+                <div class='atom-title' innerHTML={this.messageTitle}></div>
               )}
               {this.messageText && (
-                <div class="atom-message" innerHTML={this.messageText}></div>
+                <div class='atom-message' innerHTML={this.messageText}></div>
               )}
             </div>
           </div>
           {this.actionText && (
-            <div class="atom-actions">
+            <div class='atom-actions'>
               <button
-                class="atom-actions__button"
-                type="button"
+                class='atom-actions__button'
+                type='button'
                 onClick={this.handleAction}
               >
                 {this.actionText}
@@ -63,12 +63,12 @@ export class AtomAlert {
           )}
           {this.close && (
             <button
-              class="atom-close"
-              aria-label="Close"
+              class='atom-close'
+              aria-label='Close'
               onClick={this.handleClose}
-              type="button"
+              type='button'
             >
-              <atom-icon icon="close"></atom-icon>
+              <atom-icon icon='close'></atom-icon>
             </button>
           )}
         </div>
