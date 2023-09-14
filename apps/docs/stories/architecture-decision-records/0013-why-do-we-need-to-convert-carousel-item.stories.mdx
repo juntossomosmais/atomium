@@ -71,6 +71,7 @@ Taking in consideration the complexity of both codes, not only the parent's conv
 ### Compatibility
 
 This subject was in fact the decision maker, even tho the performance of the first approach took half of the time, when it came to compatibility we discovered why.
+
 For simples cases, such static card, plain text or image showcases, no difference between both, but when we started to use with complex components, that had to deal with framework functions such reactivity we face a bigger issue. The HTMLString conversion component loose _"connections "_ with the inner content. So it just became a plain HTML String copy, instead of a state and object reference.
 When using `.innerHTML.replace` our components lost its ability to re-render once loading is ready, update values and even trigger framework events.
 When using `appendChild` behavior, we copy the whole HTMLElement and its props, functions, children, and every memory reference we had. And working as needed and expected.
