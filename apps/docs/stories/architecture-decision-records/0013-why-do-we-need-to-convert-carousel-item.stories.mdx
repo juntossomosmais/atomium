@@ -42,18 +42,18 @@ Both codes shows same complexibility:
 First approach - parent conversion :
 
 ```js
-  private convertChildren() {
-    this.swiperEl.innerHTML = this.host.innerHTML.replace(
-      /atom-carousel-item/g,
-      'swiper-slide'
-    )
-    let idx = 0
-    while (idx < this.host.children.length) {
-      if (this.host.children[idx].outerHTML.indexOf('atom-carousel-item') > -1)
-        this.host.removeChild(this.host.children[idx])
-      else idx++
-    }
+private convertChildren() {
+  this.swiperEl.innerHTML = this.host.innerHTML.replace(
+    /atom-carousel-item/g,
+    'swiper-slide'
+  )
+  let idx = 0
+  while (idx < this.host.children.length) {
+    if (this.host.children[idx].outerHTML.indexOf('atom-carousel-item') > -1)
+      this.host.removeChild(this.host.children[idx])
+    else idx++
   }
+}
 ```
 
 Second approach - child conversion:
