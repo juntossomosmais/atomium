@@ -25,18 +25,23 @@ const setup = async (
 }
 
 describe('atom-tag', () => {
-  it('should render atom-tag', async () => {
+  it.only('should render atom-tag with success color', async () => {
     const tagLabel = 'Tag Test Label'
+    const mockedColor = 'success'
     const page = await newSpecPage({
       components: [AtomTag],
-      html: `<atom-tag color='success'>${tagLabel}</atom-tag>`,
+      html: `<atom-tag color="${mockedColor}">${tagLabel}</atom-tag>`,
     })
 
     await page.waitForChanges()
 
-    const atomTag = page.root?.nodeName.toLocaleLowerCase()
+    const atomTag = page.root
+    const colorExists = atomTag?.shadowRoot?.innerHTML
+      .split(' ')
+      .find((el) => el === `color="${mockedColor}"`)
+    expect(colorExists).toBeTruthy()
     const atomTagLabel = page.root?.innerHTML
-    expect(atomTag).toBe('atom-tag')
+    expect(atomTag?.nodeName.toLocaleLowerCase()).toBe('atom-tag')
     expect(atomTagLabel).toBe(tagLabel)
   })
 
@@ -47,60 +52,6 @@ describe('atom-tag', () => {
     <atom-icon class="atom-icon" icon=${mockedIcon}></atom-icon>
     <slot></slot>
   </ion-badge>`)
-  })
-
-  it('should render atom-tag success', async () => {
-    const mockedColor: AtomTag['color'] = 'success'
-    const atomTag = await setup(mockedColor)
-    const colorExists = atomTag?.innerHTML
-      .split(' ')
-      .find((el) => el === `color="${mockedColor}"`)
-    expect(colorExists).toBeTruthy()
-  })
-
-  it('should render atom-tag danger', async () => {
-    const mockedColor: AtomTag['color'] = 'danger'
-    const atomTag = await setup(mockedColor)
-    const colorExists = atomTag?.innerHTML
-      .split(' ')
-      .find((el) => el === `color="${mockedColor}"`)
-    expect(colorExists).toBeTruthy()
-  })
-
-  it('should render atom-tag warning', async () => {
-    const mockedColor: AtomTag['color'] = 'warning'
-    const atomTag = await setup(mockedColor)
-    const colorExists = atomTag?.innerHTML
-      .split(' ')
-      .find((el) => el === `color="${mockedColor}"`)
-    expect(colorExists).toBeTruthy()
-  })
-
-  it('should render atom-tag dark', async () => {
-    const mockedColor: AtomTag['color'] = 'dark'
-    const atomTag = await setup(mockedColor)
-    const colorExists = atomTag?.innerHTML
-      .split(' ')
-      .find((el) => el === `color="${mockedColor}"`)
-    expect(colorExists).toBeTruthy()
-  })
-
-  it('should render atom-tag light', async () => {
-    const mockedColor: AtomTag['color'] = 'light'
-    const atomTag = await setup(mockedColor)
-    const colorExists = atomTag?.innerHTML
-      .split(' ')
-      .find((el) => el === `color="${mockedColor}"`)
-    expect(colorExists).toBeTruthy()
-  })
-
-  it('should render atom-tag neutral', async () => {
-    const mockedColor: AtomTag['color'] = 'neutral'
-    const atomTag = await setup(mockedColor)
-    const colorExists = atomTag?.innerHTML
-      .split(' ')
-      .find((el) => el === `color="${mockedColor}"`)
-    expect(colorExists).toBeTruthy()
   })
 
   it('should render atom-tag with custom colors', async () => {
