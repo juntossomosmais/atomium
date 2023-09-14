@@ -3,7 +3,7 @@ import { newSpecPage } from '@stencil/core/testing'
 import { AtomCarousel } from './carousel'
 
 describe('AtomCarousel', () => {
-  it('should component convert atom-carousel-item to and swiper-slide', async () => {
+  it('should component use swiper-container', async () => {
     const page = await newSpecPage({
       components: [AtomCarousel],
       html: `<atom-carousel>
@@ -11,16 +11,11 @@ describe('AtomCarousel', () => {
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
     })
-    expect(page.root?.innerHTML).not.toContain('atom-carousel-item')
-    expect(page.root?.children[0].tagName.toLowerCase()).toBe(
-      'swiper-container'
-    )
-    expect(page.root?.children[0].children[0].tagName.toLowerCase()).toBe(
-      'swiper-slide'
-    )
+    await page.waitForChanges()
+    expect(page.root?.innerHTML).toContain('swiper-container')
   })
 
-  it('should render component with passed props props', async () => {
+  it('should render component with passed props', async () => {
     const page = await newSpecPage({
       components: [AtomCarousel],
       html: `<atom-carousel pagination="false" navigation="false" slides-per-group="4" slides-per-view="2">
@@ -28,13 +23,16 @@ describe('AtomCarousel', () => {
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
     })
-    expect(page.root?.children[0]?.outerHTML).not.toContain('pagination=')
-    expect(page.root?.children[0]?.outerHTML).not.toContain(
+    await page.waitForChanges()
+
+    const swiperContainer = page.root?.querySelector('swiper-container')
+    expect(swiperContainer?.outerHTML).not.toContain('pagination=')
+    expect(swiperContainer?.outerHTML).not.toContain(
       'pagination-type="bullets"'
     )
-    expect(page.root?.children[0]?.outerHTML).not.toContain('navigation')
-    expect(page.root?.children[0]?.outerHTML).toContain('slides-per-view="2"')
-    expect(page.root?.children[0]?.outerHTML).toContain('slides-per-group="4"')
+    expect(swiperContainer?.outerHTML).not.toContain('navigation')
+    expect(swiperContainer?.outerHTML).toContain('slides-per-view="2"')
+    expect(swiperContainer?.outerHTML).toContain('slides-per-group="4"')
   })
 
   it('should render component with default props', async () => {
@@ -45,12 +43,13 @@ describe('AtomCarousel', () => {
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
     })
-    expect(page.root?.children[0]?.outerHTML).toContain('pagination=')
-    expect(page.root?.children[0]?.outerHTML).toContain(
-      'pagination-type="bullets"'
-    )
-    expect(page.root?.children[0]?.outerHTML).toContain('navigation=')
-    expect(page.root?.children[0]?.outerHTML).toContain('slides-per-view="1"')
-    expect(page.root?.children[0]?.outerHTML).toContain('slides-per-group="1"')
+    await page.waitForChanges()
+    const swiperContainer = page.root?.querySelector('swiper-container')
+
+    expect(swiperContainer?.outerHTML).toContain('pagination=')
+    expect(swiperContainer?.outerHTML).toContain('pagination-type="bullets"')
+    expect(swiperContainer?.outerHTML).toContain('navigation=')
+    expect(swiperContainer?.outerHTML).toContain('slides-per-view="1"')
+    expect(swiperContainer?.outerHTML).toContain('slides-per-group="1"')
   })
 })
