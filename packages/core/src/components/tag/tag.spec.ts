@@ -3,12 +3,20 @@ import { newSpecPage } from '@stencil/core/testing'
 import { IconProps } from '../../icons'
 import { AtomTag } from './tag'
 
-const setup = async (color: AtomTag['color'], icon?: IconProps) => {
+const setup = async (
+  color?: AtomTag['color'],
+  icon?: IconProps,
+  backgroundColor?: string,
+  textColor?: string
+) => {
   const currentIcon = icon && `icon=${icon}`
+  const customBackgroundColor =
+    backgroundColor && `custom-background-color=${backgroundColor}`
+  const customTextColor = textColor && `custom-text-color=${textColor}`
 
   const page = await newSpecPage({
     components: [AtomTag],
-    html: `<atom-tag color=${color} ${currentIcon}>Tag</atom-tag>`,
+    html: `<atom-tag color=${color} ${currentIcon} ${customTextColor} ${customBackgroundColor}>Tag</atom-tag>`,
   })
 
   await page.waitForChanges()
@@ -93,5 +101,24 @@ describe('atom-tag', () => {
       .split(' ')
       .find((el) => el === `color="${mockedColor}"`)
     expect(colorExists).toBeTruthy()
+  })
+
+  it('should render atom-tag with custom colors', async () => {
+    const mockedBackgroundColor = '#a006fa'
+    const mockedTextColor = '#00ff95'
+
+    const customColors = `background-color: ${mockedBackgroundColor}; color: ${mockedTextColor};`
+
+    const atomTag = await setup(
+      undefined,
+      undefined,
+      mockedBackgroundColor,
+      mockedTextColor
+    )
+
+    const customColorsExists = atomTag?.innerHTML.includes(
+      `style="${customColors}"`
+    )
+    expect(customColorsExists).toBeTruthy()
   })
 })
