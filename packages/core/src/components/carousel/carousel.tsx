@@ -53,19 +53,6 @@ export class AtomCarousel {
   // If you need more info please read the ADR 0012 at Caveat sections
   private injectStyles = ['.swiper-button-disabled { opacity: 0 !important}']
 
-  // If you need more info please read the ADR 0013
-  private convertChildren() {
-    this.swiperEl.innerHTML = this.host.innerHTML.replace(
-      /atom-carousel-item/g,
-      'swiper-slide'
-    )
-    let idx = 0
-    while (idx < this.host.children.length) {
-      if (this.host.children[idx].outerHTML.indexOf('atom-carousel-item') > -1)
-        this.host.removeChild(this.host.children[idx])
-      else idx++
-    }
-  }
   componentDidLoad() {
     this.swiperEl = this.host.querySelector('swiper-container')
     this.swiperEl.swiper?.on('slideChange', () => {
@@ -77,8 +64,6 @@ export class AtomCarousel {
     this.swiperEl.swiper?.on('navigationNext', () => {
       this.atomClickNext.emit()
     })
-
-    this.convertChildren()
   }
   render() {
     return (
