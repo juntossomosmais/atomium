@@ -45,7 +45,7 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.6.6",
     "@ionic/core": "^7.3.2",
-    "@juntossomosmais/linters": "^0.7.0",
+    "@juntossomosmais/linters": "^0.10.0",
     "@nrwl/eslint-plugin-nx": "^16.7.4",
     "@nrwl/workspace": "16.6.0",
     "@rollup/plugin-typescript": "^11.1.2",
