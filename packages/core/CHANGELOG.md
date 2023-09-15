@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.2...atomium-v1.2.3) (2023-09-15)
+
+
+### Bug Fixes
+
+* **carouse-item:** using the swiperSlide itself instead of clone  ([#265](https://github.com/juntossomosmais/atomium/issues/265)) ([7154757](https://github.com/juntossomosmais/atomium/commit/7154757df20bfba046700612f8699bb413ffbd00))
+
 ## [1.2.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.1...atomium-v1.2.2) (2023-09-15)
 
 
