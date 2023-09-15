@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.1...atomium-v1.2.2) (2023-09-15)
+
+
+### Bug Fixes
+
+* carousel convertion ([#263](https://github.com/juntossomosmais/atomium/issues/263)) ([a662740](https://github.com/juntossomosmais/atomium/commit/a662740ca4fb936bb12e76088143d7a60b6ecba0))
+
 ## [1.2.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.0...atomium-v1.2.1) (2023-08-28)
 
 
