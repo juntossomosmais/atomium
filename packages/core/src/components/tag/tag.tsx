@@ -9,8 +9,8 @@ import { IconProps } from '../../icons'
 export class AtomTag {
   @Prop() color: 'success' | 'danger' | 'warning' | 'dark' | 'light' | 'neutral'
   @Prop() icon?: IconProps
-  @Prop() customBackgroundColor: string
-  @Prop() customTextColor: string
+  @Prop() customBackgroundColor?: string
+  @Prop() customTextColor?: string
 
   getColor(color: string) {
     const colorFromCssVar = getComputedStyle(
