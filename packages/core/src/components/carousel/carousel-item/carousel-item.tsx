@@ -10,7 +10,6 @@ export class AtomCarouselItem {
 
   @Element() host!: HTMLElement
 
-  // If you need more info please read the ADR 0013
   componentDidLoad() {
     const parentSwiperContainer = this.host.parentElement.querySelector('swiper-container')
     const swiperSlide = this.host.querySelector('swiper-slide')
