@@ -21,11 +21,11 @@ const setup = async (
 
   await page.waitForChanges()
 
-  return page.root?.shadowRoot
+  return page
 }
 
 describe('atom-tag', () => {
-  it.only('should render atom-tag with success color', async () => {
+  it('should render atom-tag with success color', async () => {
     const tagLabel = 'Tag Test Label'
     const mockedColor = 'success'
     const page = await newSpecPage({
@@ -47,8 +47,9 @@ describe('atom-tag', () => {
 
   it('should render atom-tag with icon', async () => {
     const mockedIcon = 'heart'
-    const atomTag = await setup('success', mockedIcon)
-    expect(atomTag).toEqualHtml(`<ion-badge class="atom-tag" color="success">
+    const pageRoot = await setup('success', mockedIcon)
+    expect(pageRoot?.root?.shadowRoot)
+      .toEqualHtml(`<ion-badge class="atom-tag" color="success">
     <atom-icon class="atom-icon" icon=${mockedIcon}></atom-icon>
     <slot></slot>
   </ion-badge>`)
@@ -60,14 +61,14 @@ describe('atom-tag', () => {
 
     const customColors = `background-color: ${mockedBackgroundColor}; color: ${mockedTextColor};`
 
-    const atomTag = await setup(
+    const page = await setup(
       undefined,
       undefined,
       mockedBackgroundColor,
       mockedTextColor
     )
 
-    const customColorsExists = atomTag?.innerHTML.includes(
+    const customColorsExists = page?.root?.shadowRoot?.innerHTML.includes(
       `style="${customColors}"`
     )
     expect(customColorsExists).toBeTruthy()

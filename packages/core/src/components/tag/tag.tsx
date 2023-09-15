@@ -12,14 +12,24 @@ export class AtomTag {
   @Prop() customBackgroundColor: string
   @Prop() customTextColor: string
 
+  getColor(color: string) {
+    const colorFromCssVar = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue(color)
+
+    if (colorFromCssVar.length > 0) return colorFromCssVar
+
+    return color
+  }
+
   render() {
     return (
       <Host>
         <ion-badge
           color={this.color}
           style={{
-            backgroundColor: this.customBackgroundColor,
-            color: this.customTextColor,
+            backgroundColor: this.getColor(this.customBackgroundColor),
+            color: this.getColor(this.customTextColor),
           }}
           class='atom-tag'
         >
