@@ -80,3 +80,7 @@ When using `appendChild` behavior, we copy the whole HTMLElement and its props, 
 ## Decision
 
 Once a perfect work alongside with frameworks such React and Vue is one of the most important requirement, we decided to go with child conversion in order to ensure compatibility.
+
+### Alert
+
+Because of the need of `transport` atom-carousel-item to inside `swiper-slide` to achieve framework compatibility we loose the lazy property. At our case is not a problem because swiper-slide's lazy property only add a loading spinner while image loads.
