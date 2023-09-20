@@ -73,6 +73,23 @@ export const WarningWithIcon: StoryObj = {
   },
 }
 
+export const Info: StoryObj = {
+  render: (args) => createTag(args),
+  args: {
+    color: 'info',
+    label: 'Partial Delivery',
+  },
+}
+
+export const InfoWithIcon: StoryObj = {
+  render: (args) => createTag(args),
+  args: {
+    color: 'info',
+    label: 'Partial Delivery',
+    icon: 'truck',
+  },
+}
+
 export const Dark: StoryObj = {
   render: (args) => createTag(args),
   args: {
