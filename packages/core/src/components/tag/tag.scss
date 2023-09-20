@@ -26,11 +26,11 @@
   }
 
   &[color='neutral'] {
-    background-color: var(--color-contextual-info-regular);
+    background-color: var(--color-contextual-info-light-1);
   }
 
   &[color='info'] {
-    background-color: var(--color-brand-secondary-regular);
+    background-color: var(--color-contextual-info-light-1);
   }
 
   &[color='dark'] {
