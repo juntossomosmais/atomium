@@ -13,6 +13,11 @@ describe('AtomCarousel', () => {
     })
     await page.waitForChanges()
     expect(page.root?.innerHTML).toContain('swiper-container')
+    const swiperContainer = page.root?.querySelector('swiper-container')
+    expect(swiperContainer?.outerHTML).toContain(
+      'touch-start-prevent-default="false"'
+    )
+    expect(swiperContainer?.outerHTML).toContain('class="atom-carousel"')
   })
 
   it('should render component with passed props', async () => {
