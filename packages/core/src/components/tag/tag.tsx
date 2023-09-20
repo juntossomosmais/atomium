@@ -7,7 +7,14 @@ import { IconProps } from '../../icons'
   shadow: true,
 })
 export class AtomTag {
-  @Prop() color: 'success' | 'danger' | 'warning' | 'dark' | 'light' | 'neutral'
+  @Prop() color:
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'dark'
+    | 'light'
+    | 'neutral'
   @Prop() icon?: IconProps
   @Prop() customBackgroundColor?: string
   @Prop() customTextColor?: string
