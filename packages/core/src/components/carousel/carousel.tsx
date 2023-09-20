@@ -83,6 +83,7 @@ export class AtomCarousel {
           autoplay={this.autoplay}
           autoplay-delay={this.autoplayDelay}
           injectStyles={this.injectStyles}
+          touch-start-prevent-default='false'
         ></swiper-container>
       </Host>
     )
