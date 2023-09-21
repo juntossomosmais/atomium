@@ -1,0 +1,50 @@
+:host {
+  --icon-size: var(--spacing-small);
+  --atom-tag-height: 10px;
+  line-height: 0;
+}
+
+.atom-tag {
+  align-items: center;
+  border: solid 1px transparent;
+  color: var(--color-neutral-white);
+  display: flex;
+  font: var(--text-caption-focused);
+  height: var(--atom-tag-height);
+  justify-content: center;
+  letter-spacing: var(--text-caption-focused-letter);
+  padding: var(--spacing-xxsmall) var(--spacing-xsmall);
+  width: fit-content;
+
+  &[color='warning'] {
+    background-color: var(--color-contextual-warning-regular);
+    color: var(--color-neutral-regular);
+  }
+
+  &[color='danger'] {
+    background-color: var(--color-contextual-error-regular);
+  }
+
+  &[color='neutral'] {
+    background-color: var(--color-contextual-info-regular);
+  }
+
+  &[color='info'] {
+    background-color: var(--color-contextual-info-regular);
+  }
+
+  &[color='dark'] {
+    background-color: var(--color-neutral-regular);
+  }
+
+  &[color='light'] {
+    background-color: var(--color-neutral-light-5);
+    border: 1px solid var(--color-neutral-light-3);
+    color: var(--color-neutral-regular);
+  }
+}
+
+.atom-icon {
+  font-size: var(--icon-size);
+  margin-right: var(--spacing-xxsmall);
+}
