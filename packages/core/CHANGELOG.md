@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.3...atomium-v1.3.0) (2023-09-21)
+
+
+### Features
+
+* add tag component ([#261](https://github.com/juntossomosmais/atomium/issues/261)) ([11e8d3b](https://github.com/juntossomosmais/atomium/commit/11e8d3b59714eff3710f78cc0c7ebf6a64629ec1))
+
+
+### Bug Fixes
+
+* **carousel:** add touch-start-prevent-default as default prop ([#267](https://github.com/juntossomosmais/atomium/issues/267)) ([a53ec06](https://github.com/juntossomosmais/atomium/commit/a53ec06ce690910999dc6f5dfc5415d74efdfe05))
+
 ## [1.2.3](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.2...atomium-v1.2.3) (2023-09-15)
 
 
