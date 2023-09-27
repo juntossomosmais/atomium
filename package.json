@@ -19,7 +19,6 @@
     "core:build": "npx nx build @juntossomosmais/atomium && npm run react:build",
     "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
     "docs-react:start": "npx nx run @atomium/docs-react:start",
-    "lint:styles": "stylelint '**/*.scss'",
     "icons:build": "npx nx build @juntossomosmais/atomium-icons",
     "postinstall": "npx nx build @juntossomosmais/atomium:prebuild",
     "pre-commit": "git rev-parse -q --no-revs --verify MERGE_HEAD || lint-staged",
@@ -113,7 +112,7 @@
       "eslint --cache --fix"
     ],
     "*.scss": [
-      "npm run lint:styles"
+      "stylelint --fix"
     ]
   }
 }
