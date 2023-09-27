@@ -7,7 +7,6 @@ coverage
 .prettierrc.js
 **/*.d.ts
 packages/core/output-target
-packages/core/**/stories
 packages/core/loader
 packages/core/react
 packages/core/vue
