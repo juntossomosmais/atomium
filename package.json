@@ -19,11 +19,9 @@
     "core:build": "npx nx build @juntossomosmais/atomium && npm run react:build",
     "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
     "docs-react:start": "npx nx run @atomium/docs-react:start",
-    "lint:pre-commit": "eslint --resolve-plugins-relative-to . -c ./.eslintrc.json $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
-    "lint:styles": "stylelint '**/*.scss'",
     "icons:build": "npx nx build @juntossomosmais/atomium-icons",
     "postinstall": "npx nx build @juntossomosmais/atomium:prebuild",
-    "pre-commit": "lint-staged",
+    "pre-commit": "git rev-parse -q --no-revs --verify MERGE_HEAD || lint-staged",
     "prepare": "husky install",
     "react:build": "cd packages/react && npm run build",
     "start": "npx nx run-many --target=start --maxParallel=10 --exclude=@atomium/docs-react",
@@ -45,7 +43,7 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.6.6",
     "@ionic/core": "^7.3.2",
-    "@juntossomosmais/linters": "^0.10.0",
+    "@juntossomosmais/linters": "^0.13.0",
     "@nrwl/eslint-plugin-nx": "^16.7.4",
     "@nrwl/workspace": "16.6.0",
     "@rollup/plugin-typescript": "^11.1.2",
@@ -76,9 +74,8 @@
     "copyfiles": "^2.4.1",
     "eslint": "^8.45.0",
     "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
-    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jest": "^27.2.3",
     "eslint-plugin-sonarjs": "^0.19.0",
     "husky": "^8.0.3",
     "jest": "^27.0.3",
@@ -111,11 +108,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "npm run lint:pre-commit"
+      "prettier --write",
+      "eslint --cache --fix"
     ],
     "*.scss": [
-      "npm run lint:styles"
+      "stylelint --fix"
     ]
   }
 }
