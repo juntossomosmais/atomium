@@ -4,7 +4,6 @@ module.exports = {
   ...baseConfig,
   root: true,
   settings: {
-    ...baseConfig.settings,
     'import/resolver': {
       typescript: {
         project: './tsconfig.base.json',
