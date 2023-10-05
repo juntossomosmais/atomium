@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.3.0...atomium-v1.3.1) (2023-10-05)
+
+
+### Bug Fixes
+
+* **core:** add stop propagation to avoid button to emit event twice ([#281](https://github.com/juntossomosmais/atomium/issues/281)) ([dd874ae](https://github.com/juntossomosmais/atomium/commit/dd874ae5238c39003a9a1e0eef656ceb2cac4138))
+
 ## [1.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.2.3...atomium-v1.3.0) (2023-09-21)
 
 
