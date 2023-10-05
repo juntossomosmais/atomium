@@ -33,13 +33,14 @@ export class AtomButton {
 
   @Element() element: HTMLElement
 
-  formFunctions = {
+  private formFunctions = {
     reset: 'reset',
     submit: 'requestSubmit',
   }
 
   private handleClick = (event) => {
     event.preventDefault()
+    event.stopPropagation()
 
     if (this.loading || this.disabled) return
     if (this.type === 'button') {
