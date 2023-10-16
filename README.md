@@ -80,7 +80,7 @@ npm test
 npm run build
 
 ## Build Storybook
-npm run storybook:build
+npm run docs:build
 ```
 
 ## Main folder structure
