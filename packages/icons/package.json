@@ -9,7 +9,7 @@
   "scripts": {
     "compile": "tsc",
     "build": "npx nx exec -- node dist/scripts/build.js",
-    "generate:types": "npx nx exec -- node dist/scripts/generate-types.js && npm run compile && npm run copy",
+    "generate-types": "npx nx exec -- node dist/scripts/generate-types.js && npm run compile && npm run copy",
     "copy": "npx copyfiles --flat ./dist/icons.d.ts ../core/src",
     "test:ci": "jest --coverage --no-cache --updateSnapshot --ci",
     "test": "jest --maxWorkers=50%"
@@ -17,11 +17,6 @@
   "nx": {
     "targets": {
       "build": {
-        "dependsOn": [
-          "compile"
-        ]
-      },
-      "generate:types": {
         "dependsOn": [
           "compile"
         ]
