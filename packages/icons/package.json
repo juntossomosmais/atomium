@@ -20,6 +20,11 @@
         "dependsOn": [
           "compile"
         ]
+      },
+      "generate-types": {
+        "dependsOn": [
+          "compile"
+        ]
       }
     }
   }
