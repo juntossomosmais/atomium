@@ -23,7 +23,9 @@ export const readSvgDirectories = (
 
     for (const file of files) {
       if (path.extname(file) !== fileExtension) continue
+
       const filePath = path.join(folderPath, file)
+
       allSvgFiles.push(filePath)
     }
   }
@@ -52,7 +54,8 @@ export const writeTypeDefinitionFile = (
   outputPath = CURRENT_DIR
 ) => {
   const types = svgFiles.map((file) => `'${path.basename(file, '.svg')}'`)
-  const typeDef = `export type IconProps = ${types.join('\n | ')};`
+  const typeDef = `export type IconProps =\n  | ${types.join('\n  | ')}\n`
+
   fs.writeFileSync(path.join(outputPath, '..', 'icons.d.ts'), typeDef)
 }
 
