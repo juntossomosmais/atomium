@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.3.1...atomium-v1.4.0) (2023-10-17)
+
+
+### Features
+
+* **icons:** add lock-open-outline icon ([2f1814d](https://github.com/juntossomosmais/atomium/commit/2f1814d14ffb50d41c9e1230d5e12063e07199a9))
+
 ## [1.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.3.0...atomium-v1.3.1) (2023-10-05)
 
 
