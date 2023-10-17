@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.4.0...atomium-v1.5.0) (2023-10-17)
+
+
+### Features
+
+* add tag component ([#261](https://github.com/juntossomosmais/atomium/issues/261)) ([11e8d3b](https://github.com/juntossomosmais/atomium/commit/11e8d3b59714eff3710f78cc0c7ebf6a64629ec1))
+* carousel component ([#235](https://github.com/juntossomosmais/atomium/issues/235)) ([91d3368](https://github.com/juntossomosmais/atomium/commit/91d33687318d6842f577509bf6d0587c6ac4c340))
+* create badge component ([#239](https://github.com/juntossomosmais/atomium/issues/239)) ([b50ff41](https://github.com/juntossomosmais/atomium/commit/b50ff413c8db52091be1a99288e70acf52ed38e2))
+
+
+### Bug Fixes
+
+* add extra option to apply use on vite ([#232](https://github.com/juntossomosmais/atomium/issues/232)) ([64a3a56](https://github.com/juntossomosmais/atomium/commit/64a3a566b6c4ea399edded4637019623e47a2aaa))
+* button-form-functions ([#230](https://github.com/juntossomosmais/atomium/issues/230)) ([71624da](https://github.com/juntossomosmais/atomium/commit/71624da3f3706842a12759b772bb4321eafbfa79))
+* **carouse-item:** using the swiperSlide itself instead of clone  ([#265](https://github.com/juntossomosmais/atomium/issues/265)) ([7154757](https://github.com/juntossomosmais/atomium/commit/7154757df20bfba046700612f8699bb413ffbd00))
+* carousel convertion ([#263](https://github.com/juntossomosmais/atomium/issues/263)) ([a662740](https://github.com/juntossomosmais/atomium/commit/a662740ca4fb936bb12e76088143d7a60b6ecba0))
+* **carousel:** add touch-start-prevent-default as default prop ([#267](https://github.com/juntossomosmais/atomium/issues/267)) ([a53ec06](https://github.com/juntossomosmais/atomium/commit/a53ec06ce690910999dc6f5dfc5415d74efdfe05))
+* **core:** add stop propagation to avoid button to emit event twice ([#281](https://github.com/juntossomosmais/atomium/issues/281)) ([dd874ae](https://github.com/juntossomosmais/atomium/commit/dd874ae5238c39003a9a1e0eef656ceb2cac4138))
+* **icon:** use jsm cdn ([#240](https://github.com/juntossomosmais/atomium/issues/240)) ([e98339e](https://github.com/juntossomosmais/atomium/commit/e98339e71e2d1ac2f93d8163e5f1d4e43d0662c0))
+* use line-height in badge ([#244](https://github.com/juntossomosmais/atomium/issues/244)) ([d073c2b](https://github.com/juntossomosmais/atomium/commit/d073c2bf70c957df93f0672548d6fbcf1f284a14))
+
 ## [1.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.3.0...atomium-v1.3.1) (2023-10-05)
 
 
