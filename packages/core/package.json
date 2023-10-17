@@ -44,7 +44,7 @@
             "projects": [
               "@juntossomosmais/atomium-icons"
             ],
-            "target": "generate:types"
+            "target": "generate-types"
           }
         ]
       },
@@ -54,7 +54,7 @@
             "projects": [
               "@juntossomosmais/atomium-icons"
             ],
-            "target": "generate:types"
+            "target": "generate-types"
           }
         ]
       }
