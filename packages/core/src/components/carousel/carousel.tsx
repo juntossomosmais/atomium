@@ -41,18 +41,32 @@ export class AtomCarousel {
   @Prop({ mutable: true })
   paginationClickable?: boolean
   @Prop({ mutable: true })
-  paginationType?: PaginationOptions['type'] = 'bullets'
+  paginationType?: PaginationOptions['type'] | 'thumbnails' = 'bullets'
   @Prop({ mutable: true })
   slidesPerGroup?: number | string = 1
   @Prop({ mutable: true })
   slidesPerView?: number | string = 1
   @Prop({ mutable: true })
   spaceBetween?: number = 0
-  @Prop({ mutable: true }) speed?: number
+  @Prop({ mutable: true })
+  speed?: number
+  @Prop({ mutable: true })
+  thumbnailImages?: string = ''
 
   // If you need more info please read the ADR 0012 at Caveat sections
-  private injectStyles = ['.swiper-button-disabled { opacity: 0 !important}']
-
+  private injectStyles = [
+    '.swiper-button-disabled { opacity: 0 !important}',
+  ]
+  componentWillLoad() {
+    if(this.paginationType === 'thumbnails'){
+      this.injectStyles = [
+        ...this.injectStyles,
+        '.atom-carousel__thumbnails { width: var(--spacing-giant); height: var(--spacing-giant); border-radius: var(--border-radius-medium); object-fit: contain; }',
+        '.swiper-pagination-bullet { width: var(--spacing-giant); height: var(--spacing-giant); border-radius: var(--border-radius-medium); background: var(--color-neutral-white); border: 1px solid var(--color-neutral-light-2);}',
+        '.swiper { padding-bottom: var(--spacing-giant); }',
+      ]
+    }
+  }
   componentDidLoad() {
     this.swiperEl = this.host.querySelector('swiper-container')
     this.swiperEl.swiper?.on('slideChange', () => {
@@ -64,15 +78,32 @@ export class AtomCarousel {
     this.swiperEl.swiper?.on('navigationNext', () => {
       this.atomClickNext.emit()
     })
+    let params: { pagination: PaginationOptions } = {
+      pagination: {
+        clickable: this.paginationClickable,
+      },
+    }
+
+    if(this.paginationType === 'thumbnails') {
+      const urls = this.thumbnailImages.split(',')
+
+      params = {
+        pagination: {
+          ...params.pagination,
+          renderBullet: (index, className) => {
+            return `<span class="${className}"><img class="atom-carousel__thumbnails" src="${urls[index]}" /></span>`
+          }
+        },
+      }
+    }
+
+    Object.assign(this.swiperEl, params)
   }
   render() {
     return (
       <Host>
         <swiper-container
           class='atom-carousel'
-          pagination={this.pagination}
-          pagination-clickable={this.pagination && this.paginationClickable}
-          pagination-type={this.pagination && this.paginationType}
           navigation={this.navigation}
           space-between={this.spaceBetween}
           loop={this.loop}
