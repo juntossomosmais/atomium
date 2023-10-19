@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.4.0...atomium-v1.5.0) (2023-10-19)
+
+
+### Features
+
+* **icons:** add jsm icon ([#292](https://github.com/juntossomosmais/atomium/issues/292)) ([c09f2c4](https://github.com/juntossomosmais/atomium/commit/c09f2c4db1bae4d39a428319dcb97259ddb58f2b))
+
 ## [1.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.3.1...atomium-v1.4.0) (2023-10-17)
 
 
