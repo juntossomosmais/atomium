@@ -1,4 +1,6 @@
 export type IconProps =
+  | 'jsm-outline'
+  | 'jsm'
   | 'professional-plus'
   | 'account-box-multiple-outline'
   | 'account-box-multiple'
