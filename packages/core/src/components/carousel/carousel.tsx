@@ -8,8 +8,9 @@ import {
   h,
 } from '@stencil/core'
 import 'swiper/swiper-element-bundle.js'
-
 import { AutoplayOptions, PaginationOptions, Swiper } from 'swiper/types'
+
+import { renderThumbs } from '../../utils/renderThumbs'
 
 interface SwiperElement extends HTMLElement {
   swiper: Swiper
@@ -56,17 +57,9 @@ export class AtomCarousel {
   // If you need more info please read the ADR 0012 at Caveat sections
   private injectStyles = [
     '.swiper-button-disabled { opacity: 0 !important}',
+    '.swiper-pagination-custom { display: flex; justify-content: center; column-gap: var(--spacing-base); } ',
   ]
-  componentWillLoad() {
-    if(this.paginationType === 'thumbnails'){
-      this.injectStyles = [
-        ...this.injectStyles,
-        '.atom-carousel__thumbnails { width: var(--spacing-giant); height: var(--spacing-giant); border-radius: var(--border-radius-medium); object-fit: contain; }',
-        '.swiper-pagination-bullet { width: var(--spacing-giant); height: var(--spacing-giant); border-radius: var(--border-radius-medium); background: var(--color-neutral-white); border: 1px solid var(--color-neutral-light-2);}',
-        '.swiper { padding-bottom: var(--spacing-giant); }',
-      ]
-    }
-  }
+
   componentDidLoad() {
     this.swiperEl = this.host.querySelector('swiper-container')
     this.swiperEl.swiper?.on('slideChange', () => {
@@ -78,21 +71,22 @@ export class AtomCarousel {
     this.swiperEl.swiper?.on('navigationNext', () => {
       this.atomClickNext.emit()
     })
-    let params: { pagination: PaginationOptions } = {
+    let params: { pagination: object } = this.pagination && {
       pagination: {
+        type: this.paginationType,
         clickable: this.paginationClickable,
       },
     }
 
-    if(this.paginationType === 'thumbnails') {
+    if (this.paginationType === 'thumbnails') {
       const urls = this.thumbnailImages.split(',')
 
       params = {
         pagination: {
           ...params.pagination,
-          renderBullet: (index, className) => {
-            return `<span class="${className}"><img class="atom-carousel__thumbnails" src="${urls[index]}" /></span>`
-          }
+          type: 'custom',
+          renderCustom: (_swiper, current, total) =>
+            renderThumbs(current, total, urls),
         },
       }
     }
