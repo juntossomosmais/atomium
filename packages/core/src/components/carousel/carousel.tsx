@@ -71,6 +71,7 @@ export class AtomCarousel {
     this.swiperEl.swiper?.on('navigationNext', () => {
       this.atomClickNext.emit()
     })
+
     let params: { pagination: object } = this.pagination && {
       pagination: {
         type: this.paginationType,

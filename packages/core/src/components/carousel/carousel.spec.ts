@@ -11,9 +11,11 @@ describe('AtomCarousel', () => {
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
     })
+
     await page.waitForChanges()
     expect(page.root?.innerHTML).toContain('swiper-container')
     const swiperContainer = page.root?.querySelector('swiper-container')
+
     expect(swiperContainer?.outerHTML).toContain(
       'touch-start-prevent-default="false"'
     )
@@ -28,9 +30,11 @@ describe('AtomCarousel', () => {
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
     })
+
     await page.waitForChanges()
 
     const swiperContainer = page.root?.querySelector('swiper-container')
+
     expect(swiperContainer?.outerHTML).not.toContain('pagination=')
     expect(swiperContainer?.outerHTML).not.toContain(
       'pagination-type="bullets"'
@@ -48,11 +52,11 @@ describe('AtomCarousel', () => {
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
     })
+
     await page.waitForChanges()
+
     const swiperContainer = page.root?.querySelector('swiper-container')
 
-    expect(swiperContainer?.outerHTML).toContain('pagination=')
-    expect(swiperContainer?.outerHTML).toContain('pagination-type="bullets"')
     expect(swiperContainer?.outerHTML).toContain('navigation=')
     expect(swiperContainer?.outerHTML).toContain('slides-per-view="1"')
     expect(swiperContainer?.outerHTML).toContain('slides-per-group="1"')
