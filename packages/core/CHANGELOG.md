@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.5.0...atomium-v1.6.0) (2023-10-23)
+
+
+### Features
+
+* **core:** add white color to button component ([#297](https://github.com/juntossomosmais/atomium/issues/297)) ([cfa8d40](https://github.com/juntossomosmais/atomium/commit/cfa8d4063f992277cf5a2d794b2c4ec23aaebc30))
+* **icons:** add icon cash-back and leader-board ([#296](https://github.com/juntossomosmais/atomium/issues/296)) ([efb273b](https://github.com/juntossomosmais/atomium/commit/efb273b34d4501851b9d934ebc343336eaedcdf8))
+
+
+### Bug Fixes
+
+* **tokens:** change default danger token ([#291](https://github.com/juntossomosmais/atomium/issues/291)) ([1a3ff93](https://github.com/juntossomosmais/atomium/commit/1a3ff93244011838d17135ff45d2338f4f660855))
+
 ## [1.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.4.0...atomium-v1.5.0) (2023-10-19)
 
 
