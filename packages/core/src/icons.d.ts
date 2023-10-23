@@ -1,6 +1,8 @@
 export type IconProps =
+  | 'cash-back'
   | 'jsm-outline'
   | 'jsm'
+  | 'leader-board'
   | 'professional-plus'
   | 'account-box-multiple-outline'
   | 'account-box-multiple'
