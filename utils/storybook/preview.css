@@ -9,3 +9,7 @@
 .sbdocs-a {
   color: var(--color-brand-secondary-regular) !important;
 }
+
+.theme-dark {
+  background-color: var(--color-neutral-black);
+}
