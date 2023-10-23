@@ -15,7 +15,7 @@ import {
   shadow: true,
 })
 export class AtomButton {
-  @Prop() color: 'primary' | 'secondary' = 'primary'
+  @Prop() color: 'primary' | 'secondary' | 'white' = 'primary'
   @Prop() disabled?: boolean
   @Prop() download?: string
   @Prop() expand?: 'block'
@@ -43,10 +43,12 @@ export class AtomButton {
     event.stopPropagation()
 
     if (this.loading || this.disabled) return
+
     if (this.type === 'button') {
       return this.click.emit(event)
     } else {
       const form = this.element.closest('form')
+
       if (form) {
         return form[this.formFunctions[this.type]]()
       }
