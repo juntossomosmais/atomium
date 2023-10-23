@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
 import { ButtonComponentArgs, ButtonStoryArgs } from './button.args'
@@ -9,21 +8,23 @@ export default {
   ...ButtonStoryArgs,
 } as Meta
 
-const createButton = (args) => {
+const createButton = (args, themeColor = 'light') => {
   return html`
-    <atom-button
-      color="${args.color}"
-      fill="${args.fill}"
-      expand="${args.expand}"
-      size="${args.size}"
-      disabled="${args.disabled}"
-      loading="${args.loading}"
-      type="${args.type}"
-      mode="${args.mode}"
-      shape="${args.shape}"
-    >
-      ${args.label}
-    </atom-button>
+    <div class="theme-${themeColor}">
+      <atom-button
+        color="${args.color}"
+        fill="${args.fill}"
+        expand="${args.expand}"
+        size="${args.size}"
+        disabled="${args.disabled}"
+        loading="${args.loading}"
+        type="${args.type}"
+        mode="${args.mode}"
+        shape="${args.shape}"
+      >
+        ${args.label}
+      </atom-button>
+    </div>
   `
 }
 
@@ -39,6 +40,15 @@ export const Secondary: StoryObj = {
   args: {
     ...Primary.args,
     color: 'secondary',
+    fill: 'outline',
+  },
+}
+
+export const White: StoryObj = {
+  render: (args) => createButton(args, 'dark'),
+  args: {
+    ...Primary.args,
+    color: 'white',
     fill: 'outline',
   },
 }
