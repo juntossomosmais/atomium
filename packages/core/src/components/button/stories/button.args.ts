@@ -1,6 +1,5 @@
-import { withActions } from '@storybook/addon-actions/decorator'
-
 import { Category } from '@atomium/storybook-utils/enums/table'
+import { withActions } from '@storybook/addon-actions/decorator'
 
 export const ButtonStoryArgs = {
   parameters: {
@@ -22,7 +21,7 @@ export const ButtonStoryArgs = {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'white'],
       defaultValue: { summary: 'primary' },
       description: "The color to use from your application's color palette.",
       table: {

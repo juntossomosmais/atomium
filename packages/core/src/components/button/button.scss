@@ -14,6 +14,11 @@
 .atom-button {
   text-transform: inherit;
 
+  &[color='white'] {
+    --ion-color-base: var(--color-neutral-white);
+    --ion-color-contrast: var(--color-neutral-black);
+  }
+
   &[size='default'] {
     --button-size: var(--spacing-xxxxlarge);
     font: var(--button-medium);

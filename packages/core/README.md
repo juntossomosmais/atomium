@@ -10,7 +10,7 @@ This is the Web Components implementation of the Atomium design system to be use
 npm i @juntossomosmais/atomium
 ```
 
-### Basic Usage
+### Basic usage example
 
 ```jsx
 import '@juntossomosmais/atomium/core.css'
@@ -24,5 +24,4 @@ applyPolyfills().then(() => defineCustomElements(window))
 
 <atom-button>Click me</atom-button>
 ```
-
 

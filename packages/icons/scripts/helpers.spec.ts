@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+
 import {
   readSvgDirectories,
   writeListFile,
@@ -12,6 +13,7 @@ const MOCK_SVG_DIR = path.resolve(__dirname, './__mocks__/svg')
 describe('readSvgDirectories', () => {
   it('should return an array of all SVG files in the specified directory', () => {
     const svgFiles = readSvgDirectories(MOCK_SVG_DIR)
+
     expect(svgFiles).toHaveLength(2)
     expect(svgFiles).toContain(path.join(MOCK_SVG_DIR, 'custom/icon.svg'))
     expect(svgFiles).toContain(path.join(MOCK_SVG_DIR, 'mdi/icon.svg'))
@@ -22,6 +24,7 @@ describe('writeSvgFile', () => {
   it('should mock the fs.writeFileSync function', () => {
     jest.mock('fs')
     const mockWriteFileSync = jest.fn()
+
     fs.writeFileSync = mockWriteFileSync
 
     const fileName = 'test.svg'
@@ -42,14 +45,15 @@ describe('writeTypeDefinitionFile', () => {
   it('should write the type definition file for the specified SVG files', () => {
     jest.mock('fs')
     const mockWriteFileSync = jest.fn()
+
     fs.writeFileSync = mockWriteFileSync
 
     const svgFiles = ['./svg/custom/customIcon.svg', './svg/mdi/mdiIcon.svg']
     const outputPath = './'
-    const output = `export type IconProps = ${[
+    const output = `export type IconProps =\n  | ${[
       `'customIcon'`,
       `'mdiIcon'`,
-    ].join('\n | ')};`
+    ].join('\n  | ')}\n`
 
     writeTypeDefinitionFile(svgFiles, outputPath)
 
@@ -61,6 +65,7 @@ describe('writeListFile', () => {
   it('should mock the fs.writeFileSync function', () => {
     jest.mock('fs')
     const mockWriteFileSync = jest.fn()
+
     fs.writeFileSync = mockWriteFileSync
 
     const svgFiles = ['./svg/custom/icon.svg', './svg/mdi/icon.svg']
