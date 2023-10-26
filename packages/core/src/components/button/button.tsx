@@ -29,7 +29,7 @@ export class AtomButton {
   @Prop() target?: string
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
 
-  @Event() atomClick: EventEmitter
+  @Event() click: EventEmitter
 
   @Element() element: HTMLElement
 
@@ -45,7 +45,7 @@ export class AtomButton {
     if (this.loading || this.disabled) return
 
     if (this.type === 'button') {
-      return this.atomClick.emit(event)
+      return this.click.emit(event)
     } else {
       const form = this.element.closest('form')
 

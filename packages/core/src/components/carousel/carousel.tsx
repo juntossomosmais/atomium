@@ -72,9 +72,10 @@ export class AtomCarousel {
       this.atomClickNext.emit()
     })
 
-    let params: { pagination: object } = this.pagination && {
+    let params: { pagination: PaginationOptions } = this.pagination && {
       pagination: {
-        type: this.paginationType,
+        type:
+          this.paginationType === 'thumbnails' ? 'custom' : this.paginationType,
         clickable: this.paginationClickable,
       },
     }
@@ -85,7 +86,6 @@ export class AtomCarousel {
       params = {
         pagination: {
           ...params.pagination,
-          type: 'custom',
           renderCustom: (_swiper, current, total) =>
             renderThumbs(current, total, urls),
         },

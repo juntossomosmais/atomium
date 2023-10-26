@@ -10,6 +10,7 @@ let carouselStoryId = 0
 
 const createComponent = (args, itemClass: string) => {
   carouselStoryId++
+
   return `
   <atom-carousel
   id="carousel-${carouselStoryId}"

@@ -2,10 +2,10 @@ export function renderThumbs(
   current: number,
   total: number,
   urls: Array<string>
-) {
+): string {
   const thumbs = []
 
-  if (!urls.length) return []
+  if (!urls.length) return ''
 
   for (let i = 0; i < total; i++) {
     const span = document.createElement('span')
