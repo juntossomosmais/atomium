@@ -41,7 +41,7 @@
     "@babel/preset-env": "^7.22.14",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@commitlint/cli": "^17.7.1",
+    "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^17.6.6",
     "@ionic/core": "^7.4.2",
     "@juntossomosmais/linters": "^0.15.0",
