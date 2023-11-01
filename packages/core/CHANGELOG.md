@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.6.0...atomium-v1.7.0) (2023-11-01)
+
+
+### Features
+
+* add icon svg ([#308](https://github.com/juntossomosmais/atomium/issues/308)) ([61ef420](https://github.com/juntossomosmais/atomium/commit/61ef420d436b695f7d02cc52ff69adeeb59faecd))
+
 ## [1.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.5.0...atomium-v1.6.0) (2023-10-23)
 
 
