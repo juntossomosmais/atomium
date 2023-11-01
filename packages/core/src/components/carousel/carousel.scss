@@ -40,6 +40,12 @@
   width: var(--spacing-giant);
 }
 
+::part(thumb-youtube-icon) {
+  color: red;
+  font-size: 30pt;
+  position: absolute;
+}
+
 ::part(thumb-active) {
   border: 1px solid var(--color-neutral-light-2);
 }

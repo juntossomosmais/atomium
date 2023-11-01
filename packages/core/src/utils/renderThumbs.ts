@@ -15,6 +15,16 @@ export function renderThumbs(
     img.setAttribute('alt', `Slide ${i + 1}`)
     img.setAttribute('part', 'thumb-img')
 
+    if (urls[i].includes('ytimg')) {
+      const youtubeIcon = document.createElement('atom-icon')
+
+      youtubeIcon.classList.add('youtube-icon')
+      youtubeIcon.setAttribute('icon', 'play-circle')
+      youtubeIcon.setAttribute('part', 'thumb-youtube-icon')
+
+      span.appendChild(youtubeIcon)
+    }
+
     span.appendChild(img)
 
     span.classList.add('swiper-pagination-thumb', 'swiper-pagination-bullet')
