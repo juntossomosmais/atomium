@@ -152,3 +152,4 @@ export type IconProps =
   | 'upload'
   | 'wallet-giftcard'
   | 'whatsapp'
+  | 'youtube'
