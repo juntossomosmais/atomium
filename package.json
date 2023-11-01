@@ -62,7 +62,7 @@
     "@storybook/theming": "^7.0.27",
     "@storybook/web-components": "^7.4.0",
     "@storybook/web-components-webpack5": "^7.1.1",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.1.4",
     "@types/jest": "^27.0.3",
     "@types/node": "^20.8.0",
     "@types/react": "^18.2.21",
