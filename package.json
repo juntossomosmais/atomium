@@ -20,6 +20,7 @@
     "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
     "docs-react:start": "npx nx run @atomium/docs-react:start",
     "icons:build": "npx nx build @juntossomosmais/atomium-icons",
+    "icons:generate-types": "npx nx generate-types @juntossomosmais/atomium-icons",
     "postinstall": "npx nx build @juntossomosmais/atomium:prebuild",
     "pre-commit": "git rev-parse -q --no-revs --verify MERGE_HEAD || lint-staged",
     "prepare": "husky install",

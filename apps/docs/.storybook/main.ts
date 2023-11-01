@@ -1,4 +1,6 @@
-const config = {
+import type { StorybookConfig } from '@storybook/web-components-webpack5'
+
+const config: StorybookConfig = {
   stories: [
     '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
     '../../../packages/core/src/**/*.core.stories.@(js|jsx|ts|tsx|mdx)',
@@ -13,15 +15,13 @@ const config = {
     '@storybook/theming',
     '@storybook/addon-mdx-gfm',
   ],
+  staticDirs: ['../../../packages/icons/svg'],
   framework: {
     name: '@storybook/web-components-webpack5',
     options: {},
   },
   docs: {
     autodocs: true,
-    source: {
-      language: 'html',
-    },
   },
   refs: (config, { configType }) => {
     if (configType === 'DEVELOPMENT') {

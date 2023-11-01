@@ -15,7 +15,7 @@ import {
   shadow: true,
 })
 export class AtomButton {
-  @Prop() color: 'primary' | 'secondary' = 'primary'
+  @Prop() color: 'primary' | 'secondary' | 'white' = 'primary'
   @Prop() disabled?: boolean
   @Prop() download?: string
   @Prop() expand?: 'block'
