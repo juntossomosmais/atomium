@@ -4,12 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**.ts'
-      - '**.tsx'
-      - '**.scss'
-      - '**.mdx'
-      - '**.md'
 
 permissions:
   contents: write
