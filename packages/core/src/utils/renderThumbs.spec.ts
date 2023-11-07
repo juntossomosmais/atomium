@@ -15,7 +15,7 @@ describe('renderThumbs', () => {
     const current = 1
     const total = 0
     const urls: string[] = []
-    const expected: string[] = []
+    const expected: string = ''
     const result = renderThumbs(current, total, urls)
 
     expect(result).toEqual(expected)

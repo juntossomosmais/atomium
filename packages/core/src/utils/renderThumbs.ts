@@ -19,7 +19,7 @@ export function renderThumbs(
       const youtubeIcon = document.createElement('atom-icon')
 
       youtubeIcon.classList.add('youtube-icon')
-      youtubeIcon.setAttribute('icon', 'play-circle')
+      youtubeIcon.setAttribute('icon', 'youtube')
       youtubeIcon.setAttribute('part', 'thumb-youtube-icon')
 
       span.appendChild(youtubeIcon)
