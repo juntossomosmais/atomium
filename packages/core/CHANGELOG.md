@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.7.0...atomium-v1.7.1) (2023-11-08)
+
+
+### Bug Fixes
+
+* **core:** add --debug to test issue on stencil ([a5b4463](https://github.com/juntossomosmais/atomium/commit/a5b4463bbde3ac5ca7be97e06d277d3e0f510401))
+
 ## [1.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.6.0...atomium-v1.7.0) (2023-11-01)
 
 
