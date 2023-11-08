@@ -27,7 +27,7 @@
     "core.css"
   ],
   "scripts": {
-    "build": "stencil build && npx copyfiles --flat ./dist/core/core.css ./",
+    "build": "stencil build --debug && npx copyfiles --flat ./dist/core/core.css ./",
     "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:ci": "stencil test --spec --coverage --no-cache --updateSnapshot --ci",
