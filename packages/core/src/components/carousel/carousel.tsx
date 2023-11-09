@@ -83,7 +83,7 @@ export class AtomCarousel {
     }
 
     if (this.paginationType === 'thumbnails') {
-      const urls = this.thumbnailImages.split(',')
+      const urls = !this.thumbnailImages ? [] : this.thumbnailImages.split(',')
 
       params = {
         pagination: {

@@ -6,7 +6,7 @@ describe('renderThumbs', () => {
     const total = 1
     const urls = ['example/image1.jpg']
     const expected = `<span class=\"swiper-pagination-thumb swiper-pagination-bullet swiper-pagination-thumb-active swiper-pagination-bullet-active\" part=\"thumb thumb-active\"><img src=\"example/image1.jpg\" alt=\"Slide 1\" part=\"thumb-img\"></span>`
-    const result = renderThumbs(current, total, urls)
+    const result = renderThumbs(current, total, urls, false)
 
     expect(result).toEqual(expected)
   })
@@ -16,7 +16,7 @@ describe('renderThumbs', () => {
     const total = 0
     const urls: string[] = []
     const expected: string = ''
-    const result = renderThumbs(current, total, urls)
+    const result = renderThumbs(current, total, urls, false)
 
     expect(result).toEqual(expected)
   })
@@ -26,7 +26,7 @@ describe('renderThumbs', () => {
     const total = 1
     const urls = ['example/image1.jpg']
     const expected = `<span class=\"swiper-pagination-thumb swiper-pagination-bullet swiper-pagination-thumb-active swiper-pagination-bullet-active\" part=\"thumb thumb-active\"><img src=\"example/image1.jpg\" alt=\"Slide 1\" part=\"thumb-img\"></span>`
-    const result = renderThumbs(current, total, urls)
+    const result = renderThumbs(current, total, urls, false)
 
     expect(result.length).toEqual(expected.length)
   })
