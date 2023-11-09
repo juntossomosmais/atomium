@@ -17,6 +17,7 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
+          release-type: node
           command: manifest
           monorepo-tags: true
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -68,18 +69,14 @@ jobs:
 
       - name: Build and publish Core
         if: ${{ steps.release.outputs['packages/core--release_created'] }}
-        run: |
-          npm run core:build
-          npx nx run @juntossomosmais/atomium:publish-library
+        run: npx nx run @juntossomosmais/atomium:publish-library
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and publish Tokens
         if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
-        run: |
-          npm run tokens:build
-          npx nx run @juntossomosmais/atomium-tokens:publish-library
+        run: npx nx run @juntossomosmais/atomium-tokens:publish-library
         continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

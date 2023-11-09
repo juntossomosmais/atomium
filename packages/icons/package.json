@@ -18,12 +18,8 @@
     "targets": {
       "build": {
         "dependsOn": [
-          "compile"
-        ]
-      },
-      "generate-types": {
-        "dependsOn": [
-          "compile"
+          "compile",
+          "generate-types"
         ]
       }
     }

@@ -25,12 +25,26 @@
   "scripts": {
     "start": "rollup -c -w",
     "build:css": "rollup -c",
-    "build": "npm run build:css && ts-node ./scripts/generate-tokens/index.ts && rollup -c rollup.tokens.config.mjs && tsc --module commonjs",
+    "build": "ts-node ./scripts/generate-tokens/index.ts && rollup -c rollup.tokens.config.mjs && tsc --module commonjs",
     "publish-library": "npm publish --access public",
     "test:ci": "jest --coverage --no-cache --updateSnapshot --ci",
     "test": "jest"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          "build:css"
+        ]
+      },
+      "publish-library": {
+        "dependsOn": [
+          "build"
+        ]
+      }
+    }
+  }
 }

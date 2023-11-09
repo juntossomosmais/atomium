@@ -15,5 +15,19 @@
     "build:cjs": "tsc --module commonjs --outDir ../core/react/dist/cjs --declarationDir ../core/react/dist/types",
     "build:esm": "tsc --module es6 --outDir ../core/react/dist/esm --declarationDir ../core/react/dist/types",
     "copy": "npx copyfiles --flat ./package.json ../core/react"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium"
+            ],
+            "target": "build"
+          }
+        ]
+      }
+    }
   }
 }
