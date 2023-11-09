@@ -57,6 +57,17 @@
             "target": "generate-types"
           }
         ]
+      },
+      "publish-library": {
+        "dependsOn": [
+          "build",
+          {
+            "projects": [
+              "@juntossomosmais/atomium-react"
+            ],
+            "target": "build"
+          }
+        ]
       }
     }
   }
