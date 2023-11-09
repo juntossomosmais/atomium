@@ -53,6 +53,8 @@ export class AtomCarousel {
   speed?: number
   @Prop({ mutable: true })
   thumbnailImages?: string = ''
+  @Prop({ mutable: true })
+  videoIcons?: boolean = false
 
   // If you need more info please read the ADR 0012 at Caveat sections
   private injectStyles = [
@@ -87,7 +89,7 @@ export class AtomCarousel {
         pagination: {
           ...params.pagination,
           renderCustom: (_swiper, current, total) =>
-            renderThumbs(current, total, urls),
+            renderThumbs(current, total, urls, this.videoIcons),
         },
       }
     }

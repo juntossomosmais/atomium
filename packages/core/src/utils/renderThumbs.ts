@@ -1,7 +1,8 @@
 export function renderThumbs(
   current: number,
   total: number,
-  urls: Array<string>
+  urls: Array<string>,
+  videoIcons: boolean
 ): string {
   const thumbs = []
 
@@ -15,7 +16,7 @@ export function renderThumbs(
     img.setAttribute('alt', `Slide ${i + 1}`)
     img.setAttribute('part', 'thumb-img')
 
-    if (urls[i].includes('ytimg')) {
+    if (urls[i].includes('ytimg') && videoIcons) {
       const youtubeIcon = document.createElement('atom-icon')
 
       youtubeIcon.classList.add('youtube-icon')

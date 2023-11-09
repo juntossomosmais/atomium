@@ -114,6 +114,14 @@ export const CarouselStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    videoIcons: {
+      description:
+        'If true, renders a youtube icon on top of the thumbnail image, when the image is a youtube thumbnail',
+      defaultValue: { summary: false },
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     atomChange: {
       action: 'atomChange',
       description: 'Emitted when the visible item changes.',
