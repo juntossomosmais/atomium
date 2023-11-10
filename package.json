@@ -15,8 +15,8 @@
     "utils/*"
   ],
   "scripts": {
-    "build": "nx run-many --target=build --parallel --projects=@juntossomosmais/*",
-    "docs:build": "nx run-many --target=build --parallel --projects=@atomium/docs*",
+    "build": "nx build @juntossomosmais/atomium && nx build @juntossomosmais/atomium-react",
+    "docs:build": "nx build @atomium/docs && nx build @atomium/docs-react",
     "docs-react:start": "nx run @atomium/docs-react:start",
     "icons:build": "nx build @juntossomosmais/atomium-icons",
     "postinstall": "nx build @juntossomosmais/atomium:prebuild",

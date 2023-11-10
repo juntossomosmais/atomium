@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "tsc -p . --watch",
-    "build": "npm run compile && npm run copy",
+    "build": "nx build @juntossomosmais/atomium && npm run compile && npm run copy",
     "compile": "npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc --module commonjs --outDir ../core/react/dist/cjs --declarationDir ../core/react/dist/types",
     "build:esm": "tsc --module es6 --outDir ../core/react/dist/esm --declarationDir ../core/react/dist/types",
