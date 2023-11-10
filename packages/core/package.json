@@ -40,22 +40,19 @@
     "targets": {
       "build": {
         "dependsOn": [
+          "build",
           {
             "projects": [
-              "@juntossomosmais/atomium-icons"
+              "@juntossomosmais/atomium-icons",
+              "@juntossomosmais/atomium-tokens"
             ],
-            "target": "generate-types"
+            "target": "build"
           }
         ]
       },
       "start": {
         "dependsOn": [
-          {
-            "projects": [
-              "@juntossomosmais/atomium-icons"
-            ],
-            "target": "generate-types"
-          }
+          "build"
         ]
       },
       "publish-library": {
