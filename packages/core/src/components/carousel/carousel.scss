@@ -37,13 +37,17 @@
   justify-content: center;
   opacity: 1;
   padding: var(--spacing-xxsmall);
+  position: relative;
   width: var(--spacing-giant);
 }
 
 ::part(thumb-youtube-icon) {
-  color: red;
-  font-size: 30pt;
+  color: var(--color-contextual-error-regular);
+  font-size: var(--spacing-xxlarge);
+  left: 50%;
   position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 ::part(thumb-active) {

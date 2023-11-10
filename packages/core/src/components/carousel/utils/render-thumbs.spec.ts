@@ -1,4 +1,4 @@
-import { renderThumbs } from './renderThumbs'
+import { renderThumbs } from './render-thumbs'
 
 describe('renderThumbs', () => {
   it('should return an array of thumbnail URLs', () => {

@@ -10,7 +10,7 @@ import {
 import 'swiper/swiper-element-bundle.js'
 import { AutoplayOptions, PaginationOptions, Swiper } from 'swiper/types'
 
-import { renderThumbs } from '../../utils/renderThumbs'
+import { renderThumbs } from './utils/render-thumbs'
 
 interface SwiperElement extends HTMLElement {
   swiper: Swiper
