@@ -14,6 +14,12 @@
               "@juntossomosmais/atomium-icons"
             ],
             "target": "generate-types"
+          },
+          {
+            "projects": [
+              "@juntossomosmais/atomium"
+            ],
+            "target": "build"
           }
         ]
       },

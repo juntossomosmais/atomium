@@ -15,22 +15,18 @@
     "utils/*"
   ],
   "scripts": {
-    "build": "npm run core:build && npm run react:build && npm run icons:build && npm run tokens:build",
-    "core:build": "npx nx build @juntossomosmais/atomium && npm run react:build",
-    "docs:build": "npx nx build @atomium/docs && npx nx build @atomium/docs-react",
-    "docs-react:start": "npx nx run @atomium/docs-react:start",
-    "icons:build": "npx nx build @juntossomosmais/atomium-icons",
-    "icons:generate-types": "npx nx generate-types @juntossomosmais/atomium-icons",
-    "postinstall": "npx nx build @juntossomosmais/atomium:prebuild",
+    "build": "nx run-many --target=build --parallel --projects=@juntossomosmais/*",
+    "docs:build": "nx run-many --target=build --parallel --projects=@atomium/docs*",
+    "docs-react:start": "nx run @atomium/docs-react:start",
+    "icons:build": "nx build @juntossomosmais/atomium-icons",
+    "postinstall": "nx build @juntossomosmais/atomium:prebuild",
     "pre-commit": "git rev-parse -q --no-revs --verify MERGE_HEAD || lint-staged",
     "prepare": "husky install",
-    "react:build": "cd packages/react && npm run build",
-    "start": "npx nx run-many --target=start --maxParallel=10 --exclude=@atomium/docs-react",
-    "test": "npx nx run @juntossomosmais/atomium:test",
-    "test:ci": "npx nx affected --target=test:ci --base=origin/main --parallel",
-    "test:ci-merge": "npx nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel",
-    "tokens:build": "npx nx build @juntossomosmais/atomium-tokens",
-    "tokens:publish": "npm run tokens:build && npx nx run @juntossomosmais/atomium-tokens:publish"
+    "start": "nx run-many --target=start --maxParallel=10 --projects=@juntossomosmais/*,@atomium/docs",
+    "test": "nx run @juntossomosmais/atomium:test",
+    "test:ci": "nx affected --target=test:ci --base=origin/main --parallel",
+    "test:ci-merge": "nx affected --target=test:ci --base=origin/main~1 --head=origin/main --parallel",
+    "tokens:build": "nx build @juntossomosmais/atomium-tokens"
   },
   "dependencies": {
     "@ionic/core": "^7.5.2",

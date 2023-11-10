@@ -53,12 +53,6 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Build Libs 📦
-        run: npm run build
-        continue-on-error: false
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build Docs 📚
         run: npm run docs:build
         continue-on-error: false
