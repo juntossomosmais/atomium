@@ -11,12 +11,6 @@
         "dependsOn": [
           {
             "projects": [
-              "@juntossomosmais/atomium-icons"
-            ],
-            "target": "generate-types"
-          },
-          {
-            "projects": [
               "@juntossomosmais/atomium"
             ],
             "target": "build"
@@ -27,9 +21,9 @@
         "dependsOn": [
           {
             "projects": [
-              "@juntossomosmais/atomium-icons"
+              "@juntossomosmais/atomium"
             ],
-            "target": "generate-types"
+            "target": "build"
           }
         ]
       }
