@@ -27,6 +27,16 @@
             "target": "build"
           }
         ]
+      },
+      "start": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium"
+            ],
+            "target": "build"
+          }
+        ]
       }
     }
   }
