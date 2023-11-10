@@ -4,5 +4,19 @@
   "scripts": {
     "start": "storybook dev -p 7006 --no-open",
     "build": "storybook build -o ../docs/storybook-static/react"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium-react"
+            ],
+            "target": "build"
+          }
+        ]
+      }
+    }
   }
 }
