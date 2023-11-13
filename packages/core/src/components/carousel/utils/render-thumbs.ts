@@ -6,7 +6,7 @@ export function renderThumbs(
 ): string {
   const thumbs = []
 
-  if (!urls.length) return ''
+  if (!urls?.length) return ''
 
   for (let i = 0; i < total; i++) {
     const span = document.createElement('span')
