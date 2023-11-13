@@ -37,7 +37,7 @@
     "targets": {
       "build": {
         "dependsOn": [
-          "build"
+          "build:css"
         ]
       },
       "publish-library": {
