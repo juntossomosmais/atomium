@@ -4,6 +4,7 @@ export type IconProps =
   | 'jsm'
   | 'leader-board'
   | 'professional-plus'
+  | 'wallet-giftcard-custom'
   | 'account-box-multiple-outline'
   | 'account-box-multiple'
   | 'account-box-outline'
