@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 
-import { CarouselStoryArgs } from './carouse.args'
+import { CarouselStoryArgs } from './carousel.args'
 import './style.css'
 export default {
   title: 'Components/Carousel',
