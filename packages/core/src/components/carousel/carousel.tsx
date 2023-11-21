@@ -8,8 +8,9 @@ import {
   h,
 } from '@stencil/core'
 import 'swiper/swiper-element-bundle.js'
-
 import { AutoplayOptions, PaginationOptions, Swiper } from 'swiper/types'
+
+import { renderThumbs } from './utils/render-thumbs'
 
 interface SwiperElement extends HTMLElement {
   swiper: Swiper
@@ -41,17 +42,25 @@ export class AtomCarousel {
   @Prop({ mutable: true })
   paginationClickable?: boolean
   @Prop({ mutable: true })
-  paginationType?: PaginationOptions['type'] = 'bullets'
+  paginationType?: PaginationOptions['type'] | 'thumbnails' = 'bullets'
   @Prop({ mutable: true })
   slidesPerGroup?: number | string = 1
   @Prop({ mutable: true })
   slidesPerView?: number | string = 1
   @Prop({ mutable: true })
   spaceBetween?: number = 0
-  @Prop({ mutable: true }) speed?: number
+  @Prop({ mutable: true })
+  speed?: number
+  @Prop({ mutable: true })
+  thumbnailImages?: string = ''
+  @Prop({ mutable: true })
+  videoIcons?: boolean = false
 
   // If you need more info please read the ADR 0012 at Caveat sections
-  private injectStyles = ['.swiper-button-disabled { opacity: 0 !important}']
+  private injectStyles = [
+    '.swiper-button-disabled { opacity: 0 !important}',
+    '.swiper-pagination-custom { display: flex; justify-content: center; column-gap: var(--spacing-base); } ',
+  ]
 
   componentDidLoad() {
     this.swiperEl = this.host.querySelector('swiper-container')
@@ -64,15 +73,34 @@ export class AtomCarousel {
     this.swiperEl.swiper?.on('navigationNext', () => {
       this.atomClickNext.emit()
     })
+
+    let params: { pagination: PaginationOptions } = this.pagination && {
+      pagination: {
+        type:
+          this.paginationType === 'thumbnails' ? 'custom' : this.paginationType,
+        clickable: this.paginationClickable,
+      },
+    }
+
+    if (this.paginationType === 'thumbnails') {
+      const urls = this.thumbnailImages ? this.thumbnailImages.split(',') : []
+
+      params = {
+        pagination: {
+          ...params.pagination,
+          renderCustom: (_swiper, current, total) =>
+            renderThumbs(current, total, urls, this.videoIcons),
+        },
+      }
+    }
+
+    Object.assign(this.swiperEl, params)
   }
   render() {
     return (
       <Host>
         <swiper-container
           class='atom-carousel'
-          pagination={this.pagination}
-          pagination-clickable={this.pagination && this.paginationClickable}
-          pagination-type={this.pagination && this.paginationType}
           navigation={this.navigation}
           space-between={this.spaceBetween}
           loop={this.loop}

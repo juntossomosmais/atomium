@@ -21,3 +21,46 @@
     border-color: var(--color-brand-secondary-dark-1);
   }
 }
+
+::part(container) {
+  padding-bottom: var(--spacing-giant);
+}
+
+::part(thumb) {
+  align-items: center;
+  background: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-light-4);
+  border-radius: var(--border-radius-medium);
+  cursor: pointer;
+  display: inline-flex;
+  height: var(--spacing-giant);
+  justify-content: center;
+  opacity: 1;
+  padding: var(--spacing-xxsmall);
+  position: relative;
+  width: var(--spacing-giant);
+}
+
+::part(thumb-youtube-icon) {
+  color: var(--color-contextual-error-regular);
+  font-size: var(--spacing-xxlarge);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::part(thumb-active) {
+  border: 1px solid var(--color-neutral-light-2);
+}
+
+::part(thumb-img) {
+  max-width: 100%;
+}
+
+.atom-carousel__thumbnails {
+  border-radius: var(--border-radius-medium);
+  height: var(--spacing-giant);
+  object-fit: contain;
+  width: var(--spacing-giant);
+}

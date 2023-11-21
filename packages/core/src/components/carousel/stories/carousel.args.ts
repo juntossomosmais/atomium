@@ -1,6 +1,5 @@
-import { withActions } from '@storybook/addon-actions/decorator'
-
 import { Category } from '@atomium/storybook-utils/enums/table'
+import { withActions } from '@storybook/addon-actions/decorator'
 
 export const CarouselStoryArgs = {
   decorators: [withActions],
@@ -68,9 +67,9 @@ export const CarouselStoryArgs = {
       },
     },
     paginationType: {
-      options: ['bullets', 'fraction', 'progressbar', 'custom'],
+      options: ['bullets', 'fraction', 'progressbar', 'custom', 'thumbnails'],
       description:
-        ' String with type of pagination. Types: `bullets`, `fraction`, `progressbar` or `custom`.',
+        ' String with type of pagination. Types: `bullets`, `fraction`, `thumbnails`, `progressbar` or `custom`.',
       defaultValue: { summary: 'bullets' },
       table: {
         category: Category.PROPERTIES,
@@ -103,6 +102,22 @@ export const CarouselStoryArgs = {
     speed: {
       description: 'Duration of transition between slides (in ms)',
       defaultValue: { summary: 300 },
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    thumbnailImages: {
+      description:
+        'String of images URLs to be used as thumbnails splited by comma',
+      defaultValue: { summary: '' },
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    videoIcons: {
+      description:
+        'If true, renders a youtube icon on top of the thumbnail image, when the image is a youtube thumbnail',
+      defaultValue: { summary: false },
       table: {
         category: Category.PROPERTIES,
       },

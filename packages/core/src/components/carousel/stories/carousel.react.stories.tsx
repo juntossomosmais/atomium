@@ -1,9 +1,9 @@
+import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
-import { CarouselStoryArgs } from './carouse.args'
+import { CarouselStoryArgs } from './carousel.args'
 
-import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/react'
 import './style.css'
 
 export default {

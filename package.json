@@ -31,7 +31,7 @@
   "dependencies": {
     "@ionic/core": "^7.5.2",
     "@stencil/core": "^4.3.0",
-    "swiper": "^10.2.0"
+    "swiper": "^11.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
