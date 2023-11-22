@@ -29,8 +29,10 @@ jobs:
 
       - name: Create .npmrc
         run: |
-          echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
+          @juntossomosmais:registry=https://npm.pkg.github.com" > ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache node modules
         id: cache-npm
