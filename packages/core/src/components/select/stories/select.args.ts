@@ -1,6 +1,5 @@
-import { withActions } from '@storybook/addon-actions/decorator'
-
 import { Category } from '@atomium/storybook-utils/enums/table'
+import { withActions } from '@storybook/addon-actions/decorator'
 
 export const SelectStoryArgs = {
   parameters: {
@@ -84,6 +83,7 @@ export const SelectStoryArgs = {
       },
     },
     value: {
+      control: 'text',
       description: 'The value of native select',
       table: {
         category: Category.PROPERTIES,

@@ -1,7 +1,6 @@
+import { AtomSelect } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
-
-import { AtomSelect } from '@juntossomosmais/atomium/react'
 
 import { SelectComponentArgs, SelectStoryArgs } from './select.args'
 
@@ -24,6 +23,7 @@ const createSelect = (args) => (
     error-text={args.errorText}
     icon={args.icon}
     mode={args.mode}
+    value={args.value}
     options={[
       { id: '1', value: 'Red', disabled: false },
       { id: '2', value: 'Green', disabled: false },

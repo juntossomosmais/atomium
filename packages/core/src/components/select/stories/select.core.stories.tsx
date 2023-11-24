@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
 import { SelectComponentArgs, SelectStoryArgs } from './select.args'
@@ -19,6 +18,7 @@ const createSelect = (args) => {
       readonly=${args.readonly}
       multiple=${args.multiple}
       label=${args.label}
+      value=${args.value}
       helper-text=${args.helperText}
       error-text=${args.errorText}
       icon=${args.icon}

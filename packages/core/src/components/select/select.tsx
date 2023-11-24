@@ -113,6 +113,7 @@ export class AtomSelect {
           multiple={this.multiple}
           color={this.color}
           mode={this.mode}
+          value={this.value}
           tabindex={this.readonly && '-1'}
           aria-disabled={this.readonly}
           onIonChange={this.handleChange}
