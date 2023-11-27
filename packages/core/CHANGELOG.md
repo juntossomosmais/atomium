@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.7.1...atomium-v1.8.0) (2023-11-27)
+
+
+### Features
+
+* create custom render and pre load validations ([#290](https://github.com/juntossomosmais/atomium/issues/290)) ([83c7a2c](https://github.com/juntossomosmais/atomium/commit/83c7a2c7e8007fd393761806eff327d58b89072f))
+* **icons:** add custom wallet icon ([#313](https://github.com/juntossomosmais/atomium/issues/313)) ([f020b61](https://github.com/juntossomosmais/atomium/commit/f020b612afe6386b8b96b04790a8a70199fc4eaa))
+
+
+### Bug Fixes
+
+* **atom-select:** add possibility to pass default value ([#316](https://github.com/juntossomosmais/atomium/issues/316)) ([c647479](https://github.com/juntossomosmais/atomium/commit/c647479d1ae8df25794664f5bb9fdd89345b3ea3))
+* **core:** add specificity to input border-radius class ([#315](https://github.com/juntossomosmais/atomium/issues/315)) ([86ccdb3](https://github.com/juntossomosmais/atomium/commit/86ccdb3361b49c99223d5341f120c5e6e28e6641))
+
 ## [1.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.7.0...atomium-v1.7.1) (2023-11-08)
 
 
