@@ -1,7 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing'
+
 import { AtomSelect } from './select'
 
-const optionsMock = [
+const optionsMock: {
+  value: string
+  selected?: boolean
+  disabled?: boolean
+  label?: string
+}[] = [
   { value: 'apple', selected: true },
   { value: 'banana', disabled: true },
   { value: 'orange' },
@@ -29,6 +35,56 @@ describe('AtomSelect', () => {
       </atom-select>
     `)
   })
+
+  it('should render with selected value', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select value="apple" />',
+    })
+
+    page.rootInstance.options = optionsMock
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-select value="apple">
+        <mock:shadow-root>
+          <ion-select class="atom-select" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round" value="apple">
+            <ion-select-option value="apple">apple</ion-select-option>
+            <ion-select-option value="banana" disabled>banana</ion-select-option>
+            <ion-select-option value="orange">orange</ion-select-option>
+          </ion-select>
+        </mock:shadow-root>
+      </atom-select>
+    `)
+  })
+
+  it('should render with custom label', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    const withLabel = {
+      value: 'apple',
+      label: 'fake apple',
+    }
+
+    page.rootInstance.options = [withLabel, ...optionsMock.slice(1)]
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-select >
+        <mock:shadow-root>
+          <ion-select class="atom-select" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round">
+            <ion-select-option value="apple">fake apple</ion-select-option>
+            <ion-select-option value="banana" disabled>banana</ion-select-option>
+            <ion-select-option value="orange">orange</ion-select-option>
+          </ion-select>
+        </mock:shadow-root>
+      </atom-select>
+    `)
+  })
+
   it('renders with all props', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],

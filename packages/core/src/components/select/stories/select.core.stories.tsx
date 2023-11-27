@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
 import { SelectComponentArgs, SelectStoryArgs } from './select.args'
@@ -19,6 +18,7 @@ const createSelect = (args) => {
       readonly=${args.readonly}
       multiple=${args.multiple}
       label=${args.label}
+      value=${args.value}
       helper-text=${args.helperText}
       error-text=${args.errorText}
       icon=${args.icon}
@@ -34,7 +34,13 @@ const createSelect = (args) => {
             { id: '1', value: 'Red', disabled: false },
             { id: '2', value: 'Green', disabled: false },
             { id: '3', value: 'Blue', disabled: false },
-            { id: '4', value: 'Disabled example', disabled: true },
+            {
+              id: '4',
+              value: 'nice_blue',
+              disabled: false,
+              label: 'Nice Blue',
+            },
+            { id: '5', value: 'Disabled example', disabled: true },
           ]
 
           atomSelect.addEventListener('atomChange', (event) => {

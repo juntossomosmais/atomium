@@ -37,6 +37,7 @@ export class AtomSelect {
   @Prop({ mutable: true }) options: Array<{
     id: string
     value: string
+    label?: string
     selected?: boolean
     disabled?: boolean
   }> = []
@@ -113,6 +114,7 @@ export class AtomSelect {
           multiple={this.multiple}
           color={this.color}
           mode={this.mode}
+          value={this.value}
           tabindex={this.readonly && '-1'}
           aria-disabled={this.readonly}
           onIonChange={this.handleChange}
@@ -129,7 +131,7 @@ export class AtomSelect {
               disabled={option.disabled}
               key={option.id}
             >
-              {option.value}
+              {option?.label || option.value}
             </ion-select-option>
           ))}
         </ion-select>
