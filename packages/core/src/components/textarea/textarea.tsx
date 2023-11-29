@@ -8,6 +8,7 @@ import {
   Host,
   Method,
   Prop,
+  Watch,
   h,
 } from '@stencil/core'
 
@@ -116,14 +117,21 @@ export class AtomTextarea {
     this.textareaEl.removeEventListener('ionFocus', this.handleFocus)
   }
 
+  @Watch('value')
+  watchValueHandler(newValue: string) {
+    this.atomChange.emit(String(newValue))
+  }
+
   private handleChange: IonTypes.IonTextarea['onIonChange'] = (event) => {
     const value = event.target.value
+
     this.value = value
     this.atomChange.emit(String(value))
   }
 
   private handleInput: IonTypes.IonTextarea['onIonInput'] = (event) => {
     const value = event.target.value
+
     this.value = value
     this.atomInput.emit(String(value))
   }
