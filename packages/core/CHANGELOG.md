@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.8.0...atomium-v1.8.1) (2023-11-30)
+
+
+### Bug Fixes
+
+* **core:** add watch decorator for value prop ([#317](https://github.com/juntossomosmais/atomium/issues/317)) ([fe1a753](https://github.com/juntossomosmais/atomium/commit/fe1a753f05f92a2aeae3d2ebe84ee31357ffde1c))
+
 ## [1.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.7.1...atomium-v1.8.0) (2023-11-27)
 
 
