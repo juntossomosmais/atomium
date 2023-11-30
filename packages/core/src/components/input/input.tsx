@@ -8,6 +8,7 @@ import {
   Host,
   Method,
   Prop,
+  Watch,
   h,
 } from '@stencil/core'
 
@@ -120,12 +121,19 @@ export class AtomInput {
 
   private handleChange: IonTypes.IonInput['onIonChange'] = (event) => {
     const value = event.target.value
+
     this.value = value
     this.atomChange.emit(String(value))
   }
 
+  @Watch('value')
+  watchValueHandler(newValue: string) {
+    this.atomChange.emit(String(newValue))
+  }
+
   private handleInput: IonTypes.IonInput['onIonInput'] = (event) => {
     const value = event.target.value
+
     this.value = value
     this.atomInput.emit(String(value))
   }
@@ -144,7 +152,7 @@ export class AtomInput {
     return (
       <Host>
         <ion-input
-          ref={(el) => (this.inputEl = el as HTMLIonInputElement)}
+          ref={(el) => (this.inputEl = el)}
           class={{
             'atom-input': true,
             'ion-invalid ion-touched': this.hasError,
