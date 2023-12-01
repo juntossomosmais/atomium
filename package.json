@@ -48,7 +48,7 @@
     "@stencil/sass": "^3.0.4",
     "@stencil/vue-output-target": "^0.8.6",
     "@storybook/addon-a11y": "^7.4.5",
-    "@storybook/addon-docs": "^7.0.27",
+    "@storybook/addon-docs": "^7.6.2",
     "@storybook/addon-essentials": "^7.0.27",
     "@storybook/addon-mdx-gfm": "^7.5.2",
     "@storybook/addons": "^7.5.2",
