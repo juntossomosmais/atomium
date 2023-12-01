@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
-    "@babel/preset-env": "^7.22.14",
+    "@babel/preset-env": "^7.23.5",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.23.2",
     "@commitlint/cli": "^18.2.0",
