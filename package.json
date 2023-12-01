@@ -38,7 +38,7 @@
     "@babel/preset-env": "^7.22.14",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.23.2",
-    "@commitlint/cli": "^18.2.0",
+    "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^17.6.6",
     "@juntossomosmais/linters": "^0.15.0",
     "@nrwl/eslint-plugin-nx": "^16.7.4",
