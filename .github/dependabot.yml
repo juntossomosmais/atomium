@@ -5,6 +5,5 @@ updates:
     schedule:
       interval: monthly
       time: '06:00'
-    open-pull-requests-limit: 10
     rebase-strategy: 'disabled'
     target-branch: main
