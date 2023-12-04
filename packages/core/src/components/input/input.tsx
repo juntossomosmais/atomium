@@ -8,7 +8,6 @@ import {
   Host,
   Method,
   Prop,
-  Watch,
   h,
 } from '@stencil/core'
 
@@ -105,20 +104,6 @@ export class AtomInput {
     return this.inputEl.getInputElement()
   }
 
-  componentDidLoad() {
-    this.inputEl.addEventListener('ionChange', this.handleChange)
-    this.inputEl.addEventListener('ionInput', this.handleInput)
-    this.inputEl.addEventListener('ionBlur', this.handleBlur)
-    this.inputEl.addEventListener('ionFocus', this.handleFocus)
-  }
-
-  disconnectedCallback() {
-    this.inputEl.removeEventListener('ionChange', this.handleChange)
-    this.inputEl.removeEventListener('ionInput', this.handleInput)
-    this.inputEl.removeEventListener('ionBlur', this.handleBlur)
-    this.inputEl.removeEventListener('ionFocus', this.handleFocus)
-  }
-
   private handleChange: IonTypes.IonInput['onIonChange'] = (event) => {
     const value = event.target.value
 
@@ -126,16 +111,11 @@ export class AtomInput {
     this.atomChange.emit(String(value))
   }
 
-  @Watch('value')
-  watchValueHandler(newValue: string) {
-    this.atomChange.emit(String(newValue))
-  }
-
   private handleInput: IonTypes.IonInput['onIonInput'] = (event) => {
     const value = event.target.value
 
     this.value = value
-    this.atomInput.emit(String(value))
+    this.atomChange.emit(String(value))
   }
 
   private handleBlur = () => {
