@@ -48,6 +48,14 @@ export class AtomSelect {
   @Event() atomDismiss!: EventEmitter<void>
   @Event() atomFocus!: EventEmitter<void>
 
+  componentDidLoad() {
+    this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
+  }
+
+  disconnectedCallback() {
+    this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
+  }
+
   private handleChange: IonTypes.IonSelect['onIonChange'] = (event) => {
     this.value = event.detail.value
     this.atomChange.emit(this.value)

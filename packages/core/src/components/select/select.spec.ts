@@ -308,4 +308,27 @@ describe('AtomSelect', () => {
 
     expect(spy).toHaveBeenCalled()
   })
+
+  it('should remove all event listeners on disconnect', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    await page.waitForChanges()
+
+    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
+    const handleDismiss = jest.fn()
+
+    if (selectEl) {
+      selectEl.addEventListener('ionCancel', handleDismiss)
+
+      page.root?.shadowRoot?.removeChild(selectEl)
+      page.rootInstance.disconnectedCallback()
+    }
+
+    await page.waitForChanges()
+
+    expect(handleDismiss).not.toHaveBeenCalled()
+  })
 })
