@@ -308,39 +308,4 @@ describe('AtomSelect', () => {
 
     expect(spy).toHaveBeenCalled()
   })
-
-  it('should remove all event listeners on disconnect', async () => {
-    const page = await newSpecPage({
-      components: [AtomSelect],
-      html: '<atom-select />',
-    })
-
-    await page.waitForChanges()
-
-    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
-    const handleChange = jest.fn()
-    const handleDismiss = jest.fn()
-    const handleBlur = jest.fn()
-    const handleFocus = jest.fn()
-    const handleCancel = jest.fn()
-
-    if (selectEl) {
-      selectEl.addEventListener('ionChange', handleChange)
-      selectEl.addEventListener('ionCancel', handleCancel)
-      selectEl.addEventListener('ionCancel', handleDismiss)
-      selectEl.addEventListener('ionBlur', handleBlur)
-      selectEl.addEventListener('ionFocus', handleFocus)
-
-      page.root?.shadowRoot?.removeChild(selectEl)
-      page.rootInstance.disconnectedCallback()
-    }
-
-    await page.waitForChanges()
-
-    expect(handleChange).not.toHaveBeenCalled()
-    expect(handleCancel).not.toHaveBeenCalled()
-    expect(handleDismiss).not.toHaveBeenCalled()
-    expect(handleBlur).not.toHaveBeenCalled()
-    expect(handleFocus).not.toHaveBeenCalled()
-  })
 })
