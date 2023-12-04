@@ -115,7 +115,7 @@ export class AtomInput {
     const value = event.target.value
 
     this.value = value
-    this.atomChange.emit(String(value))
+    this.atomInput.emit(String(value))
   }
 
   private handleBlur = () => {
