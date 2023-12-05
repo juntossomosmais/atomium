@@ -13,9 +13,13 @@
 
 .atom-button {
   text-transform: inherit;
-
   &[color='white'] {
     --ion-color-base: var(--color-neutral-white);
+    --ion-color-contrast: var(--color-neutral-black);
+  }
+
+  &[color='white'][fill='clear'] {
+    --ion-color-base: var(--color-neutral-black);
     --ion-color-contrast: var(--color-neutral-black);
   }
 
