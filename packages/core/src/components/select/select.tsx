@@ -49,18 +49,10 @@ export class AtomSelect {
   @Event() atomFocus!: EventEmitter<void>
 
   componentDidLoad() {
-    this.selectEl.addEventListener('ionChange', this.handleChange)
-    this.selectEl.addEventListener('ionBlur', this.handleBlur)
-    this.selectEl.addEventListener('ionFocus', this.handleFocus)
-    this.selectEl.addEventListener('ionCancel', this.handleCancel)
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
   }
 
   disconnectedCallback() {
-    this.selectEl.removeEventListener('ionChange', this.handleChange)
-    this.selectEl.removeEventListener('ionBlur', this.handleBlur)
-    this.selectEl.removeEventListener('ionFocus', this.handleFocus)
-    this.selectEl.removeEventListener('ionCancel', this.handleCancel)
     this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
   }
 

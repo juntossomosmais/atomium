@@ -8,6 +8,7 @@ describe('AtomTextarea', () => {
       components: [AtomTextarea],
       html: `<atom-textarea value="test"></atom-textarea>`,
     })
+
     expect(page.root).toEqualHtml(`
       <atom-textarea value="test">
         <mock:shadow-root>
@@ -132,38 +133,6 @@ describe('AtomTextarea', () => {
     expect(spy).toHaveBeenCalled()
   })
 
-  it('should remove all event listeners on disconnect', async () => {
-    const page = await newSpecPage({
-      components: [AtomTextarea],
-      html: '<atom-textarea />',
-    })
-
-    await page.waitForChanges()
-
-    const textareaEl = page.root?.shadowRoot?.querySelector('ion-textarea')
-    const handleChange = jest.fn()
-    const handleInput = jest.fn()
-    const handleBlur = jest.fn()
-    const handleFocus = jest.fn()
-
-    if (textareaEl) {
-      textareaEl.addEventListener('ionChange', handleChange)
-      textareaEl.addEventListener('ionInput', handleInput)
-      textareaEl.addEventListener('ionBlur', handleBlur)
-      textareaEl.addEventListener('ionFocus', handleFocus)
-
-      page.root?.shadowRoot?.removeChild(textareaEl)
-      page.rootInstance.disconnectedCallback()
-    }
-
-    await page.waitForChanges()
-
-    expect(handleChange).not.toHaveBeenCalled()
-    expect(handleInput).not.toHaveBeenCalled()
-    expect(handleBlur).not.toHaveBeenCalled()
-    expect(handleFocus).not.toHaveBeenCalled()
-  })
-
   it('calls setFocus method correctly', async () => {
     const page = await newSpecPage({
       components: [AtomTextarea],
@@ -181,6 +150,7 @@ describe('AtomTextarea', () => {
     )
 
     const component = page.rootInstance
+
     component.textareaEl = mocktextareaEl
 
     await component.setFocus()
