@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.8.1...atomium-v1.8.2) (2023-12-05)
+
+
+### Bug Fixes
+
+* adjust white color in fill clear ([#348](https://github.com/juntossomosmais/atomium/issues/348)) ([83727a0](https://github.com/juntossomosmais/atomium/commit/83727a0ce3eacfa7727d8febabce1679256bb85c))
+* **core:** add more specific has-icon class ([#350](https://github.com/juntossomosmais/atomium/issues/350)) ([2f12eab](https://github.com/juntossomosmais/atomium/commit/2f12eab4963fabe79912c49b02f99dcdd2afbe09))
+* **core:** remove lifecycle methods from inputs ([#330](https://github.com/juntossomosmais/atomium/issues/330)) ([ca8ae09](https://github.com/juntossomosmais/atomium/commit/ca8ae090f272f5250a3ffb0aa0a90151e723e9c5))
+
 ## [1.8.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.8.0...atomium-v1.8.1) (2023-11-30)
 
 
