@@ -42,6 +42,10 @@
 
   &.input-fill-outline.input-shape-round.sc-ion-input-md-h {
     --border-radius: var(--border-radius-medium);
+
+    &.has-icon {
+      --padding-start: var(--atom-icon-grid);
+    }
   }
 
   &.has-icon {
