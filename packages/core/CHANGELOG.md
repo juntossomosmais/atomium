@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.8.2...atomium-v1.9.0) (2023-12-06)
+
+
+### Features
+
+* **icons:** add new icons for select ([#351](https://github.com/juntossomosmais/atomium/issues/351)) ([ed4dedd](https://github.com/juntossomosmais/atomium/commit/ed4dedd2fbb77efdc7e15682fd3be5896a6375a4))
+
 ## [1.8.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.8.1...atomium-v1.8.2) (2023-12-05)
 
 
