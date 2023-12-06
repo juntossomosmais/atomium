@@ -58,11 +58,13 @@ export namespace Components {
         "navigation"?: boolean;
         "pagination"?: boolean;
         "paginationClickable"?: boolean;
-        "paginationType"?: PaginationOptions['type'];
+        "paginationType"?: PaginationOptions['type'] | 'thumbnails';
         "slidesPerGroup"?: number | string;
         "slidesPerView"?: number | string;
         "spaceBetween"?: number;
         "speed"?: number;
+        "thumbnailImages"?: string;
+        "videoIcons"?: boolean;
     }
     interface AtomCarouselItem {
     }
@@ -163,6 +165,7 @@ export namespace Components {
         "options": Array<{
     id: string
     value: string
+    label?: string
     selected?: boolean
     disabled?: boolean
   }>;
@@ -501,11 +504,13 @@ declare namespace LocalJSX {
         "onAtomClickPrev"?: (event: AtomCarouselCustomEvent<string>) => void;
         "pagination"?: boolean;
         "paginationClickable"?: boolean;
-        "paginationType"?: PaginationOptions['type'];
+        "paginationType"?: PaginationOptions['type'] | 'thumbnails';
         "slidesPerGroup"?: number | string;
         "slidesPerView"?: number | string;
         "spaceBetween"?: number;
         "speed"?: number;
+        "thumbnailImages"?: string;
+        "videoIcons"?: boolean;
     }
     interface AtomCarouselItem {
     }
@@ -613,6 +618,7 @@ declare namespace LocalJSX {
         "options"?: Array<{
     id: string
     value: string
+    label?: string
     selected?: boolean
     disabled?: boolean
   }>;
