@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.9.0...atomium-v1.9.1) (2023-12-07)
+
+
+### Bug Fixes
+
+* **core:** remove debug flag ([ab1f83f](https://github.com/juntossomosmais/atomium/commit/ab1f83fe40bae5a95547d30207b877cd447d0419))
+
 ## [1.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.8.2...atomium-v1.9.0) (2023-12-06)
 
 
