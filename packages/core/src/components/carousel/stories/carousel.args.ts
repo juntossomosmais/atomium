@@ -30,6 +30,15 @@ export const CarouselStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    centerInsufficientSlides: {
+      description:
+        'When enabled it center slides if the amount of slides less than slidesPerView',
+      defaultValue: { summary: false },
+
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     freeMode: {
       description: 'Set to `true` to enable free mode functionality',
       defaultValue: { summary: false },

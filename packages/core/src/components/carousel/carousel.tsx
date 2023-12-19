@@ -32,6 +32,8 @@ export class AtomCarousel {
   @Prop({ mutable: true })
   autoplayDelay?: AutoplayOptions['delay']
   @Prop({ mutable: true })
+  centerInsufficientSlides?: boolean = false
+  @Prop({ mutable: true })
   freeMode?: boolean
   @Prop({ mutable: true })
   loop?: boolean
@@ -112,6 +114,7 @@ export class AtomCarousel {
           autoplay-delay={this.autoplayDelay}
           injectStyles={this.injectStyles}
           touch-start-prevent-default='false'
+          center-insufficient-slides={this.centerInsufficientSlides}
         ></swiper-container>
       </Host>
     )
