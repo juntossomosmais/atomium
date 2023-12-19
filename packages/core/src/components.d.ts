@@ -53,6 +53,7 @@ export namespace Components {
     interface AtomCarousel {
         "autoplay"?: boolean;
         "autoplayDelay"?: AutoplayOptions['delay'];
+        "centerInsufficientSlides"?: boolean;
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;
@@ -496,6 +497,7 @@ declare namespace LocalJSX {
     interface AtomCarousel {
         "autoplay"?: boolean;
         "autoplayDelay"?: AutoplayOptions['delay'];
+        "centerInsufficientSlides"?: boolean;
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;
