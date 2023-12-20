@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.9.1...atomium-v1.10.0) (2023-12-20)
+
+
+### Features
+
+* new prop to center corousel component ([#356](https://github.com/juntossomosmais/atomium/issues/356)) ([e4e10a9](https://github.com/juntossomosmais/atomium/commit/e4e10a944f700afda7d6eedf3bbb49219310d56c))
+
 ## [1.9.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.9.0...atomium-v1.9.1) (2023-12-07)
 
 
