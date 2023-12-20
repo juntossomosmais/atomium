@@ -55,6 +55,8 @@ npm i
 npm run build
 ```
 
+If you get errors about unresolved dependencies, you may need to run `npm i --legacy-peer-deps` instead.
+
 ### Running Storybook and Stencil
 
 ```bash
