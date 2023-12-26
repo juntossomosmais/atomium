@@ -55,6 +55,7 @@ export type IconProps =
   | 'close'
   | 'cloud-upload-outline'
   | 'cloud-upload'
+  | 'compare-arrows'
   | 'content-copy'
   | 'credit-card-outline'
   | 'credit-card'
