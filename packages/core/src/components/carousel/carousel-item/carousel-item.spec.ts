@@ -1,6 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing'
 
 import { AtomCarousel } from '../carousel'
+
 import { AtomCarouselItem } from './carousel-item'
 
 describe('AtomCarouselItem', () => {
@@ -12,6 +13,7 @@ describe('AtomCarouselItem', () => {
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
     })
+
     await page.waitForChanges()
     expect(page.root?.innerHTML).not.toContain('<atom-carousel-ite')
     expect(page.root?.innerHTML).toContain('<swiper-slide')

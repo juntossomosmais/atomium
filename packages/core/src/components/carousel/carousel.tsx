@@ -66,6 +66,18 @@ export class AtomCarousel {
 
   componentDidLoad() {
     this.swiperEl = this.host.querySelector('swiper-container')
+
+    const children = this.host.querySelectorAll('atom-carousel-item')
+
+    children.forEach((child) => {
+      const slide = child.querySelector('swiper-slide')
+
+      if (slide) {
+        this.swiperEl.appendChild(slide)
+        this.host.removeChild(child)
+      }
+    })
+
     this.swiperEl.swiper?.on('slideChange', () => {
       this.atomChange.emit()
     })
