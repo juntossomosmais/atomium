@@ -29,7 +29,7 @@
     "tokens:build": "nx build @juntossomosmais/atomium-tokens"
   },
   "dependencies": {
-    "@ionic/core": "^7.5.7",
+    "@ionic/core": "^7.6.2",
     "@stencil/core": "^4.8.1",
     "swiper": "^11.0.3"
   },
