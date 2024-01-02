@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.10.0...atomium-v1.11.0) (2024-01-02)
+
+
+### Features
+
+* **icons:** add compare arrows icon ([#358](https://github.com/juntossomosmais/atomium/issues/358)) ([f45c3a5](https://github.com/juntossomosmais/atomium/commit/f45c3a50d5289722ed3de1b569eb887d1743be62))
+
+
+### Bug Fixes
+
+* **core:** carousel slides order render ([#360](https://github.com/juntossomosmais/atomium/issues/360)) ([fe08197](https://github.com/juntossomosmais/atomium/commit/fe0819753139ff6c4c4bf46e3ae1c9f5de65470d))
+
 ## [1.10.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.9.1...atomium-v1.10.0) (2023-12-20)
 
 
