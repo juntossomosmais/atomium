@@ -22,8 +22,9 @@
   }
 }
 
-::part(container) {
-  padding-bottom: var(--spacing-giant);
+::part(pagination) {
+  margin-top: var(--spacing-large);
+  position: unset;
 }
 
 ::part(thumb) {
