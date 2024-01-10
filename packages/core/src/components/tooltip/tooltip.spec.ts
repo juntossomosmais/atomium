@@ -1,0 +1,110 @@
+import { newSpecPage } from '@stencil/core/testing'
+
+import { AtomTooltip } from './tooltip'
+
+describe('AtomTooltip', () => {
+  const createTooltip = (id: string) => `
+      <button id="${id}" aria-describedby="${id}--tooltip">Hover</button>
+      <atom-tooltip id="${id}--tooltip" element="${id}" action="hover">John Doe</atom-tooltip>
+    `
+
+  const hoverTooltip = createTooltip('hover')
+
+  it.each(['mouseenter', 'focus'])(
+    'should open tooltip when %s target element',
+    async (event) => {
+      const page = await newSpecPage({
+        components: [AtomTooltip],
+        html: hoverTooltip,
+      })
+
+      expect(page.root).toEqualHtml(`
+      <atom-tooltip action=\"hover\" class=\"atom-tooltip\" data-popper-placement=\"bottom\" data-popper-reference-hidden element=\"hover\" id=\"hover--tooltip\" role=\"tooltip\" style=\"position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);\">
+        John Doe
+        <div class="atom-tooltip__arrow" data-popper-arrow></div>
+      </atom-tooltip>
+    `)
+
+      const element = page.body.querySelector('#hover')
+
+      element?.dispatchEvent(new Event(event))
+
+      await page.waitForChanges()
+
+      expect(page.root).toHaveClass('open')
+    }
+  )
+
+  it.each(['mouseleave', 'blur'])(
+    'should close tooptip when %s from target element',
+    async (event) => {
+      const page = await newSpecPage({
+        components: [AtomTooltip],
+        html: hoverTooltip,
+      })
+
+      const element = page.body.querySelector('#hover')
+
+      element?.dispatchEvent(new Event('mouseenter'))
+
+      await page.waitForChanges()
+
+      expect(page.root).toHaveClass('open')
+
+      element?.dispatchEvent(new Event(event))
+
+      await page.waitForChanges()
+
+      expect(page.root).not.toHaveClass('open')
+    }
+  )
+
+  it('should attach events correctly when have two instances for component', async () => {
+    const elements = [createTooltip('hover-1'), createTooltip('hover-2')]
+
+    const page = await newSpecPage({
+      components: [AtomTooltip],
+      html: elements.join('\n'),
+    })
+
+    const element = page.body.querySelector('#hover-1')
+
+    element?.dispatchEvent(new Event('mouseenter'))
+
+    await page.waitForChanges()
+
+    expect(page.body.querySelector('#hover-1--tooltip')).toHaveClass('open')
+    expect(page.body.querySelector('#hover-2--tooltip')).not.toHaveClass('open')
+  })
+
+  it('should untach events correctly when have two instances for component', async () => {
+    const elements = [createTooltip('hover-1'), createTooltip('hover-2')]
+
+    const page = await newSpecPage({
+      components: [AtomTooltip],
+      html: elements.join('\n'),
+    })
+
+    const element = page.body.querySelector('#hover-1')
+
+    element?.dispatchEvent(new Event('mouseenter'))
+
+    await page.waitForChanges()
+
+    expect(page.body.querySelector('#hover-1--tooltip')).toHaveClass('open')
+
+    const tooltipToBeRemoved = page.body.querySelector('#hover-2--tooltip')
+
+    tooltipToBeRemoved?.remove()
+
+    await page.waitForChanges()
+
+    expect(page.body.querySelector('#hover-2--tooltip')).toBeNull()
+
+    element?.dispatchEvent(new Event('mouseleave'))
+
+    await page.waitForChanges()
+
+    expect(page.body.querySelector('#hover-1--tooltip')).not.toHaveClass('open')
+  })
+})

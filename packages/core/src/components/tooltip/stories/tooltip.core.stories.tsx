@@ -10,8 +10,15 @@ export default {
 
 const createTooltip = (args) => {
   return html`
-    <div id="atomium-element">Atomium</div>
-    <atom-tooltip element="${args.element}" action="${args.action}">
+    <atom-button
+      fill="clear"
+      id="${args.element}"
+      aria-describedby="atomium-tooltip"
+    >
+      <atom-icon size="large" icon="information-outline" />
+    </atom-button>
+
+    <atom-tooltip id="atomium-tooltip" element="${args.element}">
       Hello world!
     </atom-tooltip>
   `

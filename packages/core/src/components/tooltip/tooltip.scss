@@ -1,0 +1,54 @@
+.atom-tooltip {
+  background: #333;
+  border-radius: var(--border-radius);
+  color: white;
+  display: none;
+  font-size: 13px;
+  font-weight: bold;
+  padding: var(--spacing-xxsmall) var(--spacing-xsmall);
+
+  &__arrow {
+    background: inherit;
+    height: var(--spacing-xsmall);
+    position: absolute;
+    visibility: hidden;
+    width: var(--spacing-xsmall);
+
+
+    &::before {
+      background: inherit;
+      content: '';
+      height: var(--spacing-xsmall);
+      position: absolute;
+      transform: rotate(45deg);
+      visibility: visible;
+      width: var(--spacing-xsmall);
+    }
+  }
+
+  &.open {
+    display: block;
+  }
+
+  &[data-popper-placement^='top'] > &__arrow {
+    bottom: -4px;
+  }
+
+  &[data-popper-placement^='bottom'] > &__arrow {
+    top: -4px;
+  }
+
+  &[data-popper-placement^='left'] > &__arrow {
+    right: -4px;
+  }
+
+  &[data-popper-placement^='right'] > &__arrow {
+    left: -4px;
+  }
+}
+
+
+
+
+
+
