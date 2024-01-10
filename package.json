@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@ionic/core": "^7.6.2",
+    "@popperjs/core": "^2.11.8",
     "@stencil/core": "^4.9.0",
     "swiper": "^11.0.3"
   },
