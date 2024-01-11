@@ -3,30 +3,38 @@ import { html } from 'lit'
 
 import { TooltipComponentArgs, TooltipStoryArgs } from './tooltip.args'
 
-export default {
-  title: 'Components/Tooltip',
-  ...TooltipStoryArgs,
-} as Meta
-
 const createTooltip = (args) => {
   return html`
     <atom-button
-      fill="clear"
+      fill="solid"
+      size="large"
       id="${args.element}"
-      aria-describedby="atomium-tooltip"
+      aria-describedby="atom-tooltip"
     >
-      <atom-icon size="large" icon="information-outline" />
+      Hover
     </atom-button>
 
-    <atom-tooltip id="atomium-tooltip" element="${args.element}">
-      Hello world!
+    <atom-tooltip
+      id="atom-tooltip"
+      placement="${args.placement}"
+      element="${args.element}"
+    >
+      Tooltip
     </atom-tooltip>
   `
 }
+
+export default {
+  title: 'Components/Tooltip',
+  component: 'atom-tooltip',
+  ...TooltipStoryArgs,
+} as Meta
 
 export const Default: StoryObj = {
   render: (args) => createTooltip(args),
   args: {
     ...TooltipComponentArgs,
+    element: 'elementId',
+    placement: 'auto',
   },
 }

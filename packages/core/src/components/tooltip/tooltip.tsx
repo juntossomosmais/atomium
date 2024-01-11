@@ -1,12 +1,11 @@
 import { createPopper } from '@popperjs/core'
-import { Component, Element, Host, Prop, State, h } from '@stencil/core'
+import { Component, Element, Host, Prop, State, Watch, h } from '@stencil/core'
 
 @Component({
   tag: 'atom-tooltip',
   styleUrl: 'tooltip.scss',
 })
 export class AtomTooltip {
-  private _selectorElement: Element = null
   private _popperInstance: ReturnType<typeof createPopper> = null
   private _eventsToShow = ['mouseenter', 'focus']
   private _eventsToHide = ['mouseleave', 'blur']
@@ -16,12 +15,34 @@ export class AtomTooltip {
   @State() open: boolean = false
 
   @Prop() element: string
+  @Prop() placement:
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left' = 'top'
+
+  @Watch('placement')
+  placementChanged(newPlacement: typeof this.placement) {
+    this._popperInstance.setOptions((options) => ({
+      ...options,
+      placement: newPlacement,
+    }))
+
+    this._popperInstance.update()
+  }
 
   getSelector() {
     return document.getElementById(this.element)
   }
 
-  show() {
+  show = () => {
     this.open = true
 
     this._popperInstance.setOptions((options) => ({
@@ -31,11 +52,10 @@ export class AtomTooltip {
         { name: 'eventListeners', enabled: true },
       ],
     }))
-
     this._popperInstance.update()
   }
 
-  hide() {
+  hide = () => {
     this.open = false
 
     this._popperInstance.setOptions((options) => ({
@@ -70,14 +90,44 @@ export class AtomTooltip {
   connectedCallback() {
     const selector = this.getSelector()
 
-    this._selectorElement = selector
+    this._eventsToShow.forEach((event) => {
+      selector.addEventListener(event, this.show)
+    })
 
-    this.attachEvents(selector)
-    this._popperInstance = createPopper(this._selectorElement, this.el)
+    this._eventsToHide.forEach((event) => {
+      selector.addEventListener(event, this.hide)
+    })
+
+    this._popperInstance = createPopper(selector, this.el, {
+      placement: this.placement,
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 4],
+          },
+        },
+        {
+          name: 'arrow',
+          options: {
+            padding: 16,
+          },
+        },
+      ],
+    })
   }
 
   disconnectedCallback() {
-    this.untachEvents(this._selectorElement)
+    const selector = this.getSelector()
+
+    this._eventsToShow.forEach((event) => {
+      selector.removeEventListener(event, this.show)
+    })
+
+    this._eventsToHide.forEach((event) => {
+      selector.removeEventListener(event, this.hide)
+    })
+
     this._popperInstance.destroy()
   }
 
@@ -85,7 +135,7 @@ export class AtomTooltip {
     return (
       <Host class={{ 'atom-tooltip': true, open: this.open }} role='tooltip'>
         <slot />
-        <div class='atom-tooltip__arrow' data-popper-arrow />
+        <div class='atom-tooltip__arrow' aria-hidden data-popper-arrow />
       </Host>
     )
   }

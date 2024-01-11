@@ -1,54 +1,55 @@
 .atom-tooltip {
-  background: #333;
+  --arrow-width: 10px;
+  --arrow-height: 8px;
+
+  background: var(--color-neutral-light-1);
   border-radius: var(--border-radius);
-  color: white;
-  display: none;
-  font-size: 13px;
-  font-weight: bold;
-  padding: var(--spacing-xxsmall) var(--spacing-xsmall);
+  color: var(--color-neutral-white);
+  font: var(--text-body-small);
+  letter-spacing: var(--text-body-small-letter);
+  padding: var(--spacing-xsmall);
+  visibility: hidden;
 
   &__arrow {
     background: inherit;
-    height: var(--spacing-xsmall);
+    height: var(--arrow-height);
     position: absolute;
     visibility: hidden;
-    width: var(--spacing-xsmall);
-
+    width: var(--arrow-width);
 
     &::before {
       background: inherit;
       content: '';
-      height: var(--spacing-xsmall);
+      height: var(--arrow-height);
       position: absolute;
       transform: rotate(45deg);
-      visibility: visible;
-      width: var(--spacing-xsmall);
+      width: var(--arrow-width);
     }
   }
 
   &.open {
-    display: block;
+    visibility: visible;
+  }
+
+  &.open > &__arrow {
+    &::before {
+      visibility: visible;
+    }
   }
 
   &[data-popper-placement^='top'] > &__arrow {
-    bottom: -4px;
+    bottom: -3px;
   }
 
   &[data-popper-placement^='bottom'] > &__arrow {
-    top: -4px;
+    top: -3px;
   }
 
   &[data-popper-placement^='left'] > &__arrow {
-    right: -4px;
+    right: -3px;
   }
 
   &[data-popper-placement^='right'] > &__arrow {
-    left: -4px;
+    left: -3px;
   }
 }
-
-
-
-
-
-

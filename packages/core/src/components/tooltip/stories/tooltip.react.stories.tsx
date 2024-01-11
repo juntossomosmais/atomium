@@ -1,8 +1,4 @@
-import {
-  AtomButton,
-  AtomIcon,
-  AtomTooltip,
-} from '@juntossomosmais/atomium/react'
+import { AtomButton, AtomTooltip } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
@@ -16,15 +12,16 @@ export default {
 const createTooltip = (args) => (
   <>
     <AtomButton
-      fill='clear'
+      fill='solid'
+      size='large'
       id={args.element}
-      aria-describedby='atomium-tooltip'
+      aria-describedby='atom-tooltip'
     >
-      <AtomIcon size='large' icon='information-outline' />
+      Hover
     </AtomButton>
 
-    <AtomTooltip id='atomium-tooltip' element={args.element}>
-      Hello world!
+    <AtomTooltip id='atom-tooltip' element={args.element}>
+      Tooltip
     </AtomTooltip>
   </>
 )

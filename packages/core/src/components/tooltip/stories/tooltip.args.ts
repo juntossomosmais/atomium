@@ -1,71 +1,51 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
-import { withActions } from '@storybook/addon-actions/decorator'
 
 export const TooltipStoryArgs = {
-  decorators: [withActions],
   parameters: {
     actions: {
       handles: ['atomClick'],
     },
     docs: {
       description: {
-        component:
-          'Wrapper of Ionic Chip component. Read the [Ionic documentation](https://ionicframework.com/docs/api/chip) for more information about the available properties and possibilities.',
+        component: 'Atom-Tooltip',
       },
     },
+    layout: 'centered',
   },
   argTypes: {
-    disabled: {
-      control: 'boolean',
-      defaultValue: { summary: false },
-      description: 'If true, the user cannot interact with the chip.',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    activated: {
-      control: 'boolean',
-      defaultValue: { summary: false },
-      description: 'If true, the chip will be activated.',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    icon: {
-      control: 'text',
-      description: 'If have an value, the chip will have an icon.',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    close: {
-      control: 'boolean',
-      defaultValue: { summary: false },
-      description: 'If true, the chip will have a close button.',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    mode: {
+    placement: {
       control: 'select',
-      options: ['md', 'ios'],
-      defaultValue: { summary: 'md' },
-      description: 'The mode determines which platform styles to use.',
+      defaultValue: { summary: 'auto' },
+      options: [
+        'auto',
+        'auto-start',
+        'auto-end',
+        'top',
+        'top-start',
+        'top-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'right',
+        'left',
+      ],
+      description: 'Determines placement for tooltip',
       table: {
         category: Category.PROPERTIES,
       },
     },
-    atomClick: {
-      action: 'atomClick',
-      description: 'Emitted when the chip is clicked.',
+    element: {
+      control: 'text',
+      description:
+        'Determines which element is responsible to open/close tooltip.',
       table: {
-        category: 'Events',
+        category: Category.PROPERTIES,
       },
     },
   },
 }
 
 export const TooltipComponentArgs = {
-  action: 'hover',
-  element: 'atomium-element'
+  element: 'atomium-element',
+  placement: 'top',
 }
