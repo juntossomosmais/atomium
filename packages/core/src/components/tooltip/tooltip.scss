@@ -52,4 +52,27 @@
   &[data-popper-placement^='right'] > &__arrow {
     left: -3px;
   }
+
+  &__content {
+    align-items: center;
+    display: flex;
+
+    button {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      button {
+        background: none;
+        border: none;
+        color: currentColor;
+        cursor: pointer;
+        display: block;
+        font-size: var(--spacing-large);
+        height: 1em;
+        padding: 0;
+        padding-left: var(--spacing-base);
+      }
+    }
+  }
 }

@@ -15,7 +15,7 @@ export const TooltipStoryArgs = {
   argTypes: {
     placement: {
       control: 'select',
-      defaultValue: { summary: 'auto' },
+      defaultValue: { summary: 'top' },
       options: [
         'auto',
         'auto-start',
@@ -40,6 +40,19 @@ export const TooltipStoryArgs = {
         'Determines which element is responsible to open/close tooltip.',
       table: {
         category: Category.PROPERTIES,
+      },
+    },
+    atomOpen: {
+      description:
+        'Event emitted when hover element, but for mobile when click in element.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    atomClose: {
+      description: 'Event emitted when the tooltip is closed.',
+      table: {
+        category: Category.EVENTS,
       },
     },
   },

@@ -35,6 +35,6 @@ export const Default: StoryObj = {
   args: {
     ...TooltipComponentArgs,
     element: 'elementId',
-    placement: 'auto',
+    placement: 'top',
   },
 }
