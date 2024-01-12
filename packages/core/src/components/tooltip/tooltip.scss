@@ -58,13 +58,13 @@
   &__content {
     align-items: center;
     display: flex;
+  }
 
-    button {
-      display: none;
-    }
+  &__action--close {
+    display: none;
 
     @include below(small) {
-      button {
+      & {
         align-self: flex-start;
         background: none;
         border: none;

@@ -189,7 +189,11 @@ export class AtomTooltip {
         <div class='atom-tooltip__content'>
           <slot />
 
-          <button aria-label='Fechar' onClick={this.hide}>
+          <button
+            class='atom-tooltip__action--close'
+            aria-label='Fechar'
+            onClick={this.hide}
+          >
             <atom-icon icon='close'></atom-icon>
           </button>
         </div>
