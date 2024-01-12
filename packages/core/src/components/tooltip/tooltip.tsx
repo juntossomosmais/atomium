@@ -29,7 +29,7 @@ export class AtomTooltip {
   @State() open = false
 
   /**
-   * Determines which element should listen to open tooltip.
+   * Determines which element by a ID should listen to open tooltip.
    */
   @Prop() element: string
 
@@ -182,7 +182,10 @@ export class AtomTooltip {
 
   render() {
     return (
-      <Host class={{ 'atom-tooltip': true, open: this.open }} role='tooltip'>
+      <Host
+        class={{ 'atom-tooltip': true, open: this.open }}
+        role={this.isMobile() ? 'dialog' : 'tooltip'}
+      >
         <div class='atom-tooltip__content'>
           <slot />
 

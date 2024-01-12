@@ -235,7 +235,7 @@ export namespace Components {
     }
     interface AtomTooltip {
         /**
-          * Determines which element should listen to open tooltip.
+          * Determines which element by a ID should listen to open tooltip.
          */
         "element": string;
         /**
@@ -733,7 +733,7 @@ declare namespace LocalJSX {
     }
     interface AtomTooltip {
         /**
-          * Determines which element should listen to open tooltip.
+          * Determines which element by a ID should listen to open tooltip.
          */
         "element"?: string;
         /**
