@@ -3,6 +3,7 @@
 .atom-tooltip {
   --arrow-width: 10px;
   --arrow-height: 8px;
+  --arrow-square-range: -3px;
 
   background: var(--color-neutral-light-1);
   border-radius: var(--border-radius);
@@ -40,19 +41,19 @@
   }
 
   &[data-popper-placement^='top'] > &__arrow {
-    bottom: -3px;
+    bottom: var(--arrow-square-range);
   }
 
   &[data-popper-placement^='bottom'] > &__arrow {
-    top: -3px;
+    top: var(--arrow-square-range);
   }
 
   &[data-popper-placement^='left'] > &__arrow {
-    right: -3px;
+    right: var(--arrow-square-range);
   }
 
   &[data-popper-placement^='right'] > &__arrow {
-    left: -3px;
+    left: var(--arrow-square-range);
   }
 
   &__content {
