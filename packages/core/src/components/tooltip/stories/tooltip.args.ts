@@ -1,13 +1,16 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
+import { withActions } from '@storybook/addon-actions/decorator'
 
 export const TooltipStoryArgs = {
   parameters: {
     actions: {
-      handles: ['atomClick'],
+      handles: ['atomOpen', 'atomClose'],
     },
+    decorators: [withActions],
     docs: {
       description: {
-        component: 'Atom-Tooltip',
+        component:
+          'Tooltip is a small pop-up box that appears when a user moves a mouse over an element',
       },
     },
     layout: 'centered',
