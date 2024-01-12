@@ -1,5 +1,7 @@
 @import '~@atomium/scss-utils/index';
 
+$placements: 'top', 'bottom', 'left', 'right';
+
 .atom-tooltip {
   --arrow-width: 10px;
   --arrow-height: 8px;
@@ -10,8 +12,11 @@
   color: var(--color-neutral-white);
   font: var(--text-body-small);
   letter-spacing: var(--text-body-small-letter);
+  opacity: 0;
   padding: var(--spacing-xsmall);
+  transition: opacity 0.15s ease-in-out;
   visibility: hidden;
+  will-change: opacity;
 
   &__arrow {
     background: inherit;
@@ -31,6 +36,7 @@
   }
 
   &.open {
+    opacity: 1;
     visibility: visible;
   }
 
@@ -40,20 +46,18 @@
     }
   }
 
-  &[data-popper-placement^='top'] > &__arrow {
-    bottom: var(--arrow-square-range);
-  }
-
-  &[data-popper-placement^='bottom'] > &__arrow {
-    top: var(--arrow-square-range);
-  }
-
-  &[data-popper-placement^='left'] > &__arrow {
-    right: var(--arrow-square-range);
-  }
-
-  &[data-popper-placement^='right'] > &__arrow {
-    left: var(--arrow-square-range);
+  @each $placement in $placements {
+    &[data-popper-placement^='#{$placement}'] > &__arrow {
+      @if $placement == top {
+        bottom: var(--arrow-square-range);
+      } @else if $placement == bottom {
+        top: var(--arrow-square-range);
+      } @else if $placement == left {
+        right: var(--arrow-square-range);
+      } @else {
+        left: var(--arrow-square-range);
+      }
+    }
   }
 
   &__content {
