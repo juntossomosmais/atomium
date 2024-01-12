@@ -18,8 +18,10 @@ import {
 })
 export class AtomTooltip {
   private _popperInstance: ReturnType<typeof createPopper> = null
-  private _eventsToShow = ['mouseenter', 'focus', 'click']
-  private _eventsToHide = ['mouseleave', 'blur', 'click']
+  private _eventsToShow = ['mouseenter', 'focus']
+  private _eventsToHide = ['mouseleave', 'blur']
+  private _eventsToShowMobile = ['focus', 'click']
+  private _eventsToHideMobile = ['blur']
   private _elementSelector: Element = null
 
   @Element() el: HTMLElement
@@ -73,47 +75,15 @@ export class AtomTooltip {
 
   @Listen('resize', { target: 'window' })
   onResize() {
-    const isMobile = this.isMobile()
-
-    this._eventsToShow
-      .filter((event) =>
-        isMobile ? event === 'click' || event === 'focus' : event !== 'click'
-      )
-      .forEach((event) => {
-        this._elementSelector.addEventListener(event, this.show)
-      })
-
-    if (isMobile) {
-      this._elementSelector.removeEventListener('mouseenter', this.show)
-      this._elementSelector.removeEventListener('mouseleave', this.hide)
-    }
-
-    this._eventsToHide
-      .filter((event) => (isMobile ? event === 'blur' : event !== 'click'))
-      .forEach((event) => {
-        this._elementSelector.addEventListener(event, this.hide)
-      })
+    this.attachEvents()
   }
 
   connectedCallback() {
     const selector = document.getElementById(this.element)
-    const isMobile = this.isMobile()
 
     this._elementSelector = selector
 
-    this._eventsToShow
-      .filter((event) =>
-        isMobile ? event === 'click' || event === 'focus' : event !== 'click'
-      )
-      .forEach((event) => {
-        selector.addEventListener(event, this.show)
-      })
-
-    this._eventsToHide
-      .filter((event) => (isMobile ? event === 'blur' : event !== 'click'))
-      .forEach((event) => {
-        selector.addEventListener(event, this.hide)
-      })
+    this.attachEvents()
 
     this._popperInstance = createPopper(selector, this.el, {
       placement: this.placement,
@@ -135,19 +105,52 @@ export class AtomTooltip {
   }
 
   disconnectedCallback() {
-    this._eventsToShow.forEach((event) => {
-      this._elementSelector.removeEventListener(event, this.show)
-    })
-
-    this._eventsToHide.forEach((event) => {
-      this._elementSelector.removeEventListener(event, this.hide)
-    })
+    this.untachEvents()
 
     this._popperInstance.destroy()
   }
 
   private isMobile() {
     return window.matchMedia('(max-width: 768px)').matches
+  }
+
+  private attachEvents = () => {
+    const isMobile = this.isMobile()
+
+    const eventsToShow = isMobile
+      ? this._eventsToShowMobile
+      : this._eventsToShow
+    const eventsToHide = isMobile
+      ? this._eventsToHideMobile
+      : this._eventsToHide
+
+    if (isMobile) {
+      this._elementSelector.removeEventListener('mouseenter', this.show)
+      this._elementSelector.removeEventListener('mouseleave', this.hide)
+    }
+
+    eventsToShow.forEach((event) => {
+      this._elementSelector.addEventListener(event, this.show)
+    })
+
+    eventsToHide.forEach((event) => {
+      this._elementSelector.addEventListener(event, this.hide)
+    })
+  }
+
+  private untachEvents = () => {
+    const allEvents = this._eventsToShow.concat(
+      this._eventsToShowMobile,
+      this._eventsToHide,
+      this._eventsToHideMobile
+    )
+
+    allEvents
+      .filter((event, index) => allEvents.indexOf(event) === index)
+      .forEach((event) => {
+        this._elementSelector.removeEventListener(event, this.show)
+        this._elementSelector.removeEventListener(event, this.hide)
+      })
   }
 
   private show = () => {
