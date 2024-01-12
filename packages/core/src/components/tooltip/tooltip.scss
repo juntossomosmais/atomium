@@ -1,3 +1,5 @@
+@import '~@atomium/scss-utils/index';
+
 .atom-tooltip {
   --arrow-width: 10px;
   --arrow-height: 8px;
@@ -61,7 +63,7 @@
       display: none;
     }
 
-    @media (max-width: 768px) {
+    @include below(small) {
       button {
         align-self: flex-start;
         background: none;
