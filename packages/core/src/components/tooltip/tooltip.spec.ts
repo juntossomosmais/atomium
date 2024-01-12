@@ -22,7 +22,7 @@ describe('AtomTooltip', () => {
         <atom-tooltip action=\"hover\" class=\"atom-tooltip\" data-popper-placement=\"top\" data-popper-reference-hidden element=\"hover\" id=\"hover--tooltip\" role=\"tooltip\" style=\"position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);\">
           <div class=\"atom-tooltip__content\">
             John Doe
-            <button aria-label=\"Fechar\">
+            <button aria-label=\"Fechar\" class="atom-tooltip__action--close">
               <atom-icon icon=\"close\"></atom-icon>
             </button>
           </div>
