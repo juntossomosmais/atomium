@@ -19,11 +19,16 @@ describe('AtomTooltip', () => {
       })
 
       expect(page.root).toEqualHtml(`
-      <atom-tooltip action=\"hover\" class=\"atom-tooltip\" data-popper-placement=\"bottom\" data-popper-reference-hidden element=\"hover\" id=\"hover--tooltip\" role=\"tooltip\" style=\"position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);\">
-        John Doe
-        <div class="atom-tooltip__arrow" data-popper-arrow></div>
-      </atom-tooltip>
-    `)
+        <atom-tooltip action=\"hover\" class=\"atom-tooltip\" data-popper-placement=\"top\" data-popper-reference-hidden element=\"hover\" id=\"hover--tooltip\" role=\"tooltip\" style=\"position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);\">
+          <div class=\"atom-tooltip__content\">
+            John Doe
+            <button aria-label=\"Fechar\">
+              <atom-icon icon=\"close\"></atom-icon>
+            </button>
+          </div>
+          <div aria-hidden=\"\" class=\"atom-tooltip__arrow\" data-popper-arrow></div>
+        </atom-tooltip>
+      `)
 
       const element = page.body.querySelector('#hover')
 
