@@ -2,6 +2,18 @@
 
 $placements: 'top', 'bottom', 'left', 'right';
 
+@mixin shift-away($placement) {
+  @if ($placement == 'top') {
+    transform: translateY(10px);
+  } @else if ($placement == 'bottom') {
+    transform: translateY(-10px);
+  } @else if ($placement == 'left') {
+    transform: translateX(10px);
+  } @else if ($placement == 'right') {
+    transform: translateX(-10px);
+  }
+}
+
 .atom-tooltip {
   --arrow-width: 10px;
   --arrow-height: 8px;
@@ -12,11 +24,38 @@ $placements: 'top', 'bottom', 'left', 'right';
   color: var(--color-neutral-white);
   font: var(--text-body-small);
   letter-spacing: var(--text-body-small-letter);
-  opacity: 0;
   padding: var(--spacing-xsmall);
-  transition: opacity 0.15s ease-in-out;
-  visibility: hidden;
-  will-change: opacity;
+  transition: all 0.15s ease-in-out;
+
+  &[data-show] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &[data-hide] {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @each $placement in $placements {
+    &[data-placement^='#{$placement}'] {
+      &[data-hide] {
+        @include shift-away($placement);
+      }
+    }
+
+    &[data-placement^='#{$placement}'] > &__arrow {
+      @if ($placement == 'top') {
+        bottom: var(--arrow-square-range);
+      } @else if ($placement == 'bottom') {
+        top: var(--arrow-square-range);
+      } @else if ($placement == 'left') {
+        right: var(--arrow-square-range);
+      } @else if ($placement == 'right') {
+        left: var(--arrow-square-range);
+      }
+    }
+  }
 
   &__arrow {
     background: inherit;
@@ -31,32 +70,8 @@ $placements: 'top', 'bottom', 'left', 'right';
       height: var(--arrow-height);
       position: absolute;
       transform: rotate(45deg);
-      width: var(--arrow-width);
-    }
-  }
-
-  &.open {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &.open > &__arrow {
-    &::before {
       visibility: visible;
-    }
-  }
-
-  @each $placement in $placements {
-    &[data-popper-placement^='#{$placement}'] > &__arrow {
-      @if $placement == top {
-        bottom: var(--arrow-square-range);
-      } @else if $placement == bottom {
-        top: var(--arrow-square-range);
-      } @else if $placement == left {
-        right: var(--arrow-square-range);
-      } @else {
-        left: var(--arrow-square-range);
-      }
+      width: var(--arrow-width);
     }
   }
 

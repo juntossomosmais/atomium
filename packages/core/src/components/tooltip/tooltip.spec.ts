@@ -19,14 +19,16 @@ describe('AtomTooltip', () => {
       })
 
       expect(page.root).toEqualHtml(`
-        <atom-tooltip action=\"hover\" class=\"atom-tooltip\" data-popper-placement=\"top\" data-popper-reference-hidden element=\"hover\" id=\"hover--tooltip\" role=\"tooltip\" style=\"position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);\">
-          <div class=\"atom-tooltip__content\">
-            John Doe
-            <button aria-label=\"Fechar\" class="atom-tooltip__action--close">
-              <atom-icon icon=\"close\"></atom-icon>
-            </button>
+        <atom-tooltip action="hover" data-popper-placement="top" data-popper-reference-hidden element="hover" id="hover--tooltip" role="tooltip" style="position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+          <div class="atom-tooltip" data-hide data-placement="top">
+            <div class=\"atom-tooltip__content\">
+              John Doe
+              <button aria-label=\"Fechar\" class="atom-tooltip__action--close">
+                <atom-icon icon=\"close\"></atom-icon>
+              </button>
+            </div>
+            <div aria-hidden=\"\" class=\"atom-tooltip__arrow\" data-popper-arrow></div>
           </div>
-          <div aria-hidden=\"\" class=\"atom-tooltip__arrow\" data-popper-arrow></div>
         </atom-tooltip>
       `)
 
@@ -36,7 +38,9 @@ describe('AtomTooltip', () => {
 
       await page.waitForChanges()
 
-      expect(page.root).toHaveClass('open')
+      expect(page.root?.querySelector('.atom-tooltip')).toHaveAttribute(
+        'data-show'
+      )
     }
   )
 
@@ -54,13 +58,20 @@ describe('AtomTooltip', () => {
 
       await page.waitForChanges()
 
-      expect(page.root).toHaveClass('open')
+      expect(page.root?.querySelector('.atom-tooltip')).toHaveAttribute(
+        'data-show'
+      )
 
       element?.dispatchEvent(new Event(event))
 
       await page.waitForChanges()
 
-      expect(page.root).not.toHaveClass('open')
+      expect(page.root?.querySelector('.atom-tooltip')).not.toHaveAttribute(
+        'data-show'
+      )
+      expect(page.root?.querySelector('.atom-tooltip')).toHaveAttribute(
+        'data-hide'
+      )
     }
   )
 
@@ -78,8 +89,16 @@ describe('AtomTooltip', () => {
 
     await page.waitForChanges()
 
-    expect(page.body.querySelector('#hover-1--tooltip')).toHaveClass('open')
-    expect(page.body.querySelector('#hover-2--tooltip')).not.toHaveClass('open')
+    expect(
+      page.body
+        .querySelector('#hover-1--tooltip')
+        .querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-show')
+    expect(
+      page.body
+        .querySelector('#hover-2--tooltip')
+        .querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-hide')
   })
 
   it('should untach events correctly when have two instances for component', async () => {
@@ -96,7 +115,11 @@ describe('AtomTooltip', () => {
 
     await page.waitForChanges()
 
-    expect(page.body.querySelector('#hover-1--tooltip')).toHaveClass('open')
+    expect(
+      page.body
+        .querySelector('#hover-1--tooltip')
+        ?.querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-show')
 
     const tooltipToBeRemoved = page.body.querySelector('#hover-2--tooltip')
 
@@ -110,6 +133,16 @@ describe('AtomTooltip', () => {
 
     await page.waitForChanges()
 
-    expect(page.body.querySelector('#hover-1--tooltip')).not.toHaveClass('open')
+    expect(
+      page.body
+        .querySelector('#hover-1--tooltip')
+        .querySelector('.atom-tooltip')
+    ).not.toHaveAttribute('data-show')
+
+    expect(
+      page.body
+        .querySelector('#hover-1--tooltip')
+        .querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-hide')
   })
 })

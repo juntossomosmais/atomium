@@ -182,23 +182,27 @@ export class AtomTooltip {
 
   render() {
     return (
-      <Host
-        class={{ 'atom-tooltip': true, open: this.open }}
-        role={this.isMobile() ? 'dialog' : 'tooltip'}
-      >
-        <div class='atom-tooltip__content'>
-          <slot />
+      <Host role={this.isMobile() ? 'dialog' : 'tooltip'}>
+        <div
+          data-placement={this.placement}
+          data-hide={!this.open}
+          data-show={this.open}
+          class={{ 'atom-tooltip': true }}
+        >
+          <div class='atom-tooltip__content'>
+            <slot />
 
-          <button
-            class='atom-tooltip__action--close'
-            aria-label='Fechar'
-            onClick={this.hide}
-          >
-            <atom-icon icon='close'></atom-icon>
-          </button>
+            <button
+              class='atom-tooltip__action--close'
+              aria-label='Fechar'
+              onClick={this.hide}
+            >
+              <atom-icon icon='close'></atom-icon>
+            </button>
+          </div>
+
+          <div class='atom-tooltip__arrow' aria-hidden data-popper-arrow />
         </div>
-
-        <div class='atom-tooltip__arrow' aria-hidden data-popper-arrow />
       </Host>
     )
   }
