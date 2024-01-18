@@ -14,6 +14,7 @@ $placements: 'top', 'bottom', 'left', 'right';
   }
 }
 
+
 .atom-tooltip {
   --arrow-width: 10px;
   --arrow-height: 8px;
@@ -26,6 +27,7 @@ $placements: 'top', 'bottom', 'left', 'right';
   letter-spacing: var(--text-body-small-letter);
   padding: var(--spacing-xsmall);
   transition: all 0.15s ease-in-out;
+  transition-property: opacity, transform, visibility;
 
   &[data-show] {
     opacity: 1;

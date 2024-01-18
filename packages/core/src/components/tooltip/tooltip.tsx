@@ -21,21 +21,15 @@ export class AtomTooltip {
   private _eventsToShow = ['mouseenter', 'focus']
   private _eventsToHide = ['mouseleave', 'blur']
   private _eventsToShowMobile = ['focus', 'click']
-  private _eventsToHideMobile = ['blur']
+  private _eventsToHideMobile = []
   private _elementSelector: Element = null
 
   @Element() el: HTMLElement
 
   @State() open = false
 
-  /**
-   * Determines which element by a ID should listen to open tooltip.
-   */
   @Prop() element: string
 
-  /**
-   * Determines the placement for attach tooltip.
-   */
   @Prop() placement:
     | 'auto'
     | 'auto-start'
@@ -55,7 +49,6 @@ export class AtomTooltip {
       ...options,
       placement: newPlacement,
     }))
-
     this._popperInstance.update()
   }
 
@@ -76,6 +69,18 @@ export class AtomTooltip {
   @Listen('resize', { target: 'window' })
   onResize() {
     this.attachEvents()
+  }
+
+  @Listen('click', { target: 'window' })
+  onClickCheckOutside(event) {
+    if (
+      this.el.contains(event.target) ||
+      this._elementSelector === event.target
+    ) {
+      return
+    }
+
+    this.hide()
   }
 
   connectedCallback() {
@@ -120,6 +125,7 @@ export class AtomTooltip {
     const eventsToShow = isMobile
       ? this._eventsToShowMobile
       : this._eventsToShow
+
     const eventsToHide = isMobile
       ? this._eventsToHideMobile
       : this._eventsToHide
@@ -182,7 +188,12 @@ export class AtomTooltip {
 
   render() {
     return (
-      <Host role={this.isMobile() ? 'dialog' : 'tooltip'}>
+      <Host
+        style={{
+          zIndex: this.open ? '1' : '-1',
+        }}
+        role={this.isMobile() ? 'dialog' : 'tooltip'}
+      >
         <div
           data-placement={this.placement}
           data-hide={!this.open}

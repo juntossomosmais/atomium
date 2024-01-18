@@ -234,13 +234,7 @@ export namespace Components {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
-        /**
-          * Determines which element by a ID should listen to open tooltip.
-         */
         "element": string;
-        /**
-          * Determines the placement for attach tooltip.
-         */
         "placement": | 'auto'
     | 'auto-start'
     | 'auto-end'
@@ -732,9 +726,6 @@ declare namespace LocalJSX {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
-        /**
-          * Determines which element by a ID should listen to open tooltip.
-         */
         "element"?: string;
         /**
           * Event is dispatched when: 1. Mouse leave event in selector 2. Click "Close" button when is mobile
@@ -744,9 +735,6 @@ declare namespace LocalJSX {
           * Event is dispatched when: 1. Mouse enter event in selector 2. Click in element when is mobile
          */
         "onAtomOpen"?: (event: AtomTooltipCustomEvent<any>) => void;
-        /**
-          * Determines the placement for attach tooltip.
-         */
         "placement"?: | 'auto'
     | 'auto-start'
     | 'auto-end'

@@ -19,7 +19,7 @@ describe('AtomTooltip', () => {
       })
 
       expect(page.root).toEqualHtml(`
-        <atom-tooltip action="hover" data-popper-placement="top" data-popper-reference-hidden element="hover" id="hover--tooltip" role="tooltip" style="position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+        <atom-tooltip action="hover" data-popper-placement="top" data-popper-reference-hidden element="hover" id="hover--tooltip" role="tooltip" style="position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px); z-index: -1;">
           <div class="atom-tooltip" data-hide data-placement="top">
             <div class=\"atom-tooltip__content\">
               John Doe
