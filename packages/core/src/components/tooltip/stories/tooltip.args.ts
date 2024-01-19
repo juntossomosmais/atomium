@@ -45,6 +45,13 @@ export const TooltipStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    text: {
+      control: 'text',
+      description: 'Determines a text for tooltip.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     atomOpen: {
       description:
         'Event emitted when hover element, but for mobile when click in element.',
@@ -64,4 +71,5 @@ export const TooltipStoryArgs = {
 export const TooltipComponentArgs = {
   element: 'atomium-element',
   placement: 'top',
+  text: 'Tooltip',
 }

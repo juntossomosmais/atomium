@@ -20,8 +20,12 @@ const createTooltip = (args) => (
       Hover
     </AtomButton>
 
-    <AtomTooltip id='atom-tooltip' element={args.element}>
-      Tooltip
+    <AtomTooltip
+      id='atom-tooltip'
+      placement={args.placement}
+      element={args.element}
+    >
+      <div>{args.text}</div>
     </AtomTooltip>
   </>
 )

@@ -19,7 +19,7 @@ const createTooltip = (args) => {
       placement="${args.placement}"
       element="${args.element}"
     >
-      Tooltip
+      ${args.text}
     </atom-tooltip>
   `
 }
