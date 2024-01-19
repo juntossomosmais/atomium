@@ -133,6 +133,7 @@ export class AtomTooltip {
     if (isMobile) {
       this._elementSelector.removeEventListener('mouseenter', this.show)
       this._elementSelector.removeEventListener('mouseleave', this.hide)
+      this._elementSelector.removeEventListener('blur', this.hide)
     }
 
     eventsToShow.forEach((event) => {
