@@ -196,7 +196,7 @@ export class AtomTooltip {
         role={this.isMobile() ? 'dialog' : 'tooltip'}
       >
         <div
-          data-placement={this.placement}
+          data-placement={this.el.getAttribute('data-popper-placement')}
           data-hide={!this.open}
           data-show={this.open}
           class={{ 'atom-tooltip': true }}
