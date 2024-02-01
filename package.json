@@ -54,7 +54,7 @@
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^7.6.3",
     "@storybook/react-webpack5": "^7.6.3",
-    "@storybook/theming": "^7.6.3",
+    "@storybook/theming": "^7.6.12",
     "@storybook/web-components": "^7.6.3",
     "@storybook/web-components-webpack5": "^7.6.3",
     "@testing-library/jest-dom": "^6.1.4",
