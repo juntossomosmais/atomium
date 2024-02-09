@@ -94,6 +94,7 @@ export namespace Components {
     }
     interface AtomIcon {
         "color"?: Color;
+        "fontSize"?: string;
         "icon"?: IconProps;
         "size"?: 'small' | 'large';
     }
@@ -542,6 +543,7 @@ declare namespace LocalJSX {
     }
     interface AtomIcon {
         "color"?: Color;
+        "fontSize"?: string;
         "icon"?: IconProps;
         "size"?: 'small' | 'large';
     }

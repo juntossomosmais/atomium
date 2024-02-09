@@ -43,11 +43,19 @@ export const IconStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    fontSize: {
+      control: 'text',
+      description:
+        'Alternative prop to customize the icon with a specific size. When size is set, this prop is ignored.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
   },
 }
 
 export const IconComponentArgs = {
   icon: 'heart',
   color: 'secondary',
-  size: 'large',
+  size: '',
 }

@@ -13,6 +13,7 @@ const CDN_URL = 'https://atomium.juntossomosmais.com.br/icons'
 export class AtomIcon {
   @Prop() color?: Color
   @Prop() icon?: IconProps
+  @Prop() fontSize?: string
   @Prop() size?: 'small' | 'large'
 
   render(): JSX.Element {
@@ -22,6 +23,7 @@ export class AtomIcon {
           icon={`${CDN_URL}/${this.icon}.svg`}
           color={this.color}
           size={this.size}
+          style={{ fontSize: this.fontSize }}
         />
       </Host>
     )

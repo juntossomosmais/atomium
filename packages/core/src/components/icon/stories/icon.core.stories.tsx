@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
 import { IconComponentArgs, IconStoryArgs } from './icon.args'
@@ -11,7 +10,12 @@ export default {
 
 const createIcon = (args) => {
   return html`
-    <atom-icon icon=${args.icon} color=${args.color} size=${args.size} />
+    <atom-icon
+      icon=${args.icon}
+      color=${args.color}
+      font-size=${args.fontSize}
+      size=${args.size}
+    />
   `
 }
 
