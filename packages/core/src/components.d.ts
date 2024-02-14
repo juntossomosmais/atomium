@@ -94,9 +94,8 @@ export namespace Components {
     }
     interface AtomIcon {
         "color"?: Color;
-        "fontSize"?: string;
         "icon"?: IconProps;
-        "size"?: 'small' | 'large';
+        "size"?: Size;
     }
     interface AtomInput {
         "autocomplete"?: 'on' | 'off';
@@ -543,9 +542,8 @@ declare namespace LocalJSX {
     }
     interface AtomIcon {
         "color"?: Color;
-        "fontSize"?: string;
         "icon"?: IconProps;
-        "size"?: 'small' | 'large';
+        "size"?: Size;
     }
     interface AtomInput {
         "autocomplete"?: 'on' | 'off';

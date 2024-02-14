@@ -36,17 +36,9 @@ export const IconStoryArgs = {
       },
     },
     size: {
-      control: 'select',
-      description: 'The size of the icon.',
-      options: ['small', 'large'],
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    fontSize: {
       control: 'text',
       description:
-        'Alternative prop to customize the icon with a specific size. When size is set, this prop is ignored.',
+        'The size of the icon. Use large or small to change the size of the icon or pass a number to set the font-size in pixels.',
       table: {
         category: Category.PROPERTIES,
       },
