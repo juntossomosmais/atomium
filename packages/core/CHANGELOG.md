@@ -1,5 +1,47 @@
 # Changelog
 
+## [1.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.0...atomium-v1.13.0) (2024-02-15)
+
+
+### Features
+
+* add font size prop into icon component ([#379](https://github.com/juntossomosmais/atomium/issues/379)) ([d00c774](https://github.com/juntossomosmais/atomium/commit/d00c774247cb151ef271346a860443807e02fde3))
+* add icon svg ([#308](https://github.com/juntossomosmais/atomium/issues/308)) ([61ef420](https://github.com/juntossomosmais/atomium/commit/61ef420d436b695f7d02cc52ff69adeeb59faecd))
+* add tag component ([#261](https://github.com/juntossomosmais/atomium/issues/261)) ([11e8d3b](https://github.com/juntossomosmais/atomium/commit/11e8d3b59714eff3710f78cc0c7ebf6a64629ec1))
+* carousel component ([#235](https://github.com/juntossomosmais/atomium/issues/235)) ([91d3368](https://github.com/juntossomosmais/atomium/commit/91d33687318d6842f577509bf6d0587c6ac4c340))
+* **core:** add white color to button component ([#297](https://github.com/juntossomosmais/atomium/issues/297)) ([cfa8d40](https://github.com/juntossomosmais/atomium/commit/cfa8d4063f992277cf5a2d794b2c4ec23aaebc30))
+* create badge component ([#239](https://github.com/juntossomosmais/atomium/issues/239)) ([b50ff41](https://github.com/juntossomosmais/atomium/commit/b50ff413c8db52091be1a99288e70acf52ed38e2))
+* create custom render and pre load validations ([#290](https://github.com/juntossomosmais/atomium/issues/290)) ([83c7a2c](https://github.com/juntossomosmais/atomium/commit/83c7a2c7e8007fd393761806eff327d58b89072f))
+* **icons:** add compare arrows icon ([#358](https://github.com/juntossomosmais/atomium/issues/358)) ([f45c3a5](https://github.com/juntossomosmais/atomium/commit/f45c3a50d5289722ed3de1b569eb887d1743be62))
+* **icons:** add custom wallet icon ([#313](https://github.com/juntossomosmais/atomium/issues/313)) ([f020b61](https://github.com/juntossomosmais/atomium/commit/f020b612afe6386b8b96b04790a8a70199fc4eaa))
+* **icons:** add icon cash-back and leader-board ([#296](https://github.com/juntossomosmais/atomium/issues/296)) ([efb273b](https://github.com/juntossomosmais/atomium/commit/efb273b34d4501851b9d934ebc343336eaedcdf8))
+* **icons:** add jsm icon ([#292](https://github.com/juntossomosmais/atomium/issues/292)) ([c09f2c4](https://github.com/juntossomosmais/atomium/commit/c09f2c4db1bae4d39a428319dcb97259ddb58f2b))
+* **icons:** add lock-open-outline icon ([2f1814d](https://github.com/juntossomosmais/atomium/commit/2f1814d14ffb50d41c9e1230d5e12063e07199a9))
+* **icons:** add new icons for select ([#351](https://github.com/juntossomosmais/atomium/issues/351)) ([ed4dedd](https://github.com/juntossomosmais/atomium/commit/ed4dedd2fbb77efdc7e15682fd3be5896a6375a4))
+* new prop to center corousel component ([#356](https://github.com/juntossomosmais/atomium/issues/356)) ([e4e10a9](https://github.com/juntossomosmais/atomium/commit/e4e10a944f700afda7d6eedf3bbb49219310d56c))
+
+
+### Bug Fixes
+
+* add extra option to apply use on vite ([#232](https://github.com/juntossomosmais/atomium/issues/232)) ([64a3a56](https://github.com/juntossomosmais/atomium/commit/64a3a566b6c4ea399edded4637019623e47a2aaa))
+* adjust white color in fill clear ([#348](https://github.com/juntossomosmais/atomium/issues/348)) ([83727a0](https://github.com/juntossomosmais/atomium/commit/83727a0ce3eacfa7727d8febabce1679256bb85c))
+* **atom-select:** add possibility to pass default value ([#316](https://github.com/juntossomosmais/atomium/issues/316)) ([c647479](https://github.com/juntossomosmais/atomium/commit/c647479d1ae8df25794664f5bb9fdd89345b3ea3))
+* button-form-functions ([#230](https://github.com/juntossomosmais/atomium/issues/230)) ([71624da](https://github.com/juntossomosmais/atomium/commit/71624da3f3706842a12759b772bb4321eafbfa79))
+* **carouse-item:** using the swiperSlide itself instead of clone  ([#265](https://github.com/juntossomosmais/atomium/issues/265)) ([7154757](https://github.com/juntossomosmais/atomium/commit/7154757df20bfba046700612f8699bb413ffbd00))
+* carousel convertion ([#263](https://github.com/juntossomosmais/atomium/issues/263)) ([a662740](https://github.com/juntossomosmais/atomium/commit/a662740ca4fb936bb12e76088143d7a60b6ecba0))
+* **carousel:** add touch-start-prevent-default as default prop ([#267](https://github.com/juntossomosmais/atomium/issues/267)) ([a53ec06](https://github.com/juntossomosmais/atomium/commit/a53ec06ce690910999dc6f5dfc5415d74efdfe05))
+* **core:** add --debug to test issue on stencil ([a5b4463](https://github.com/juntossomosmais/atomium/commit/a5b4463bbde3ac5ca7be97e06d277d3e0f510401))
+* **core:** add more specific has-icon class ([#350](https://github.com/juntossomosmais/atomium/issues/350)) ([2f12eab](https://github.com/juntossomosmais/atomium/commit/2f12eab4963fabe79912c49b02f99dcdd2afbe09))
+* **core:** add specificity to input border-radius class ([#315](https://github.com/juntossomosmais/atomium/issues/315)) ([86ccdb3](https://github.com/juntossomosmais/atomium/commit/86ccdb3361b49c99223d5341f120c5e6e28e6641))
+* **core:** add stop propagation to avoid button to emit event twice ([#281](https://github.com/juntossomosmais/atomium/issues/281)) ([dd874ae](https://github.com/juntossomosmais/atomium/commit/dd874ae5238c39003a9a1e0eef656ceb2cac4138))
+* **core:** add watch decorator for value prop ([#317](https://github.com/juntossomosmais/atomium/issues/317)) ([fe1a753](https://github.com/juntossomosmais/atomium/commit/fe1a753f05f92a2aeae3d2ebe84ee31357ffde1c))
+* **core:** carousel slides order render ([#360](https://github.com/juntossomosmais/atomium/issues/360)) ([fe08197](https://github.com/juntossomosmais/atomium/commit/fe0819753139ff6c4c4bf46e3ae1c9f5de65470d))
+* **core:** remove debug flag ([ab1f83f](https://github.com/juntossomosmais/atomium/commit/ab1f83fe40bae5a95547d30207b877cd447d0419))
+* **core:** remove lifecycle methods from inputs ([#330](https://github.com/juntossomosmais/atomium/issues/330)) ([ca8ae09](https://github.com/juntossomosmais/atomium/commit/ca8ae090f272f5250a3ffb0aa0a90151e723e9c5))
+* **icon:** use jsm cdn ([#240](https://github.com/juntossomosmais/atomium/issues/240)) ([e98339e](https://github.com/juntossomosmais/atomium/commit/e98339e71e2d1ac2f93d8163e5f1d4e43d0662c0))
+* **tokens:** change default danger token ([#291](https://github.com/juntossomosmais/atomium/issues/291)) ([1a3ff93](https://github.com/juntossomosmais/atomium/commit/1a3ff93244011838d17135ff45d2338f4f660855))
+* use line-height in badge ([#244](https://github.com/juntossomosmais/atomium/issues/244)) ([d073c2b](https://github.com/juntossomosmais/atomium/commit/d073c2bf70c957df93f0672548d6fbcf1f284a14))
+
 ## [1.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.11.0...atomium-v1.12.0) (2024-02-14)
 
 
