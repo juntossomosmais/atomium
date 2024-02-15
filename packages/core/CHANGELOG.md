@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.11.0...atomium-v1.12.0) (2024-02-15)
+
+
+### Features
+
+* add font size prop into icon component ([#379](https://github.com/juntossomosmais/atomium/issues/379)) ([d00c774](https://github.com/juntossomosmais/atomium/commit/d00c774247cb151ef271346a860443807e02fde3))
+
 ## [1.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.10.0...atomium-v1.11.0) (2024-01-02)
 
 
