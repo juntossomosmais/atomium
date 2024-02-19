@@ -1,9 +1,9 @@
 import { Config } from '@stencil/core'
 import { OutputTargetCustom } from '@stencil/core/internal'
-import { sass } from '@stencil/sass'
-
 import { reactOutputTarget } from '@stencil/react-output-target'
+import { sass } from '@stencil/sass'
 import { vueOutputTarget } from '@stencil/vue-output-target'
+
 import { reactBooleanFixOutputTarget } from './output-target/react-boolean'
 
 export const config: Config = {
@@ -19,6 +19,10 @@ export const config: Config = {
   globalScript: 'src/global/global.ts',
   globalStyle: 'src/global/global.scss',
   outputTargets: [
+    {
+      type: 'dist',
+      esmLoaderPath: '../loader',
+    },
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../vue/src/components/index.ts',
@@ -131,13 +135,5 @@ export const config: Config = {
       attachPropsFile:
         '../../react/src/components/react-component-lib/utils/attachProps.ts',
     }),
-    {
-      type: 'dist',
-      esmLoaderPath: '../loader',
-    },
-    {
-      type: 'dist-custom-elements',
-      generateTypeDeclarations: true,
-    },
   ] as OutputTargetCustom[],
 }
