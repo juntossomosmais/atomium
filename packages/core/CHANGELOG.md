@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.0...atomium-v1.12.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* **core:** remove extra build using dist-custom-elements ([#383](https://github.com/juntossomosmais/atomium/issues/383)) ([ed503be](https://github.com/juntossomosmais/atomium/commit/ed503be850c3194f968847b2d908ea1f930ee5ef))
+
 ## [1.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.11.0...atomium-v1.12.0) (2024-02-15)
 
 
