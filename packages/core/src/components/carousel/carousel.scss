@@ -7,7 +7,7 @@
   border: 1px solid transparent;
   border-radius: var(--border-radius-full);
   box-shadow: var(--elevation-3);
-  color: var(--color-brand-secondary-dark-1);
+  color: var(--color-brand-secondary-regular);
   height: var(--spacing-medium);
   padding: var(--spacing-small);
   transition:
@@ -18,7 +18,7 @@
   will-change: border, box-shadow;
 
   &:hover {
-    border-color: var(--color-brand-secondary-dark-1);
+    border-color: var(--color-brand-secondary-regular);
   }
 }
 
