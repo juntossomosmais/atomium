@@ -24,3 +24,12 @@
   justify-content: center;
   width: 100% !important;
 }
+
+.item-smaller {
+  align-items: center;
+  background: coral;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  width: 250px;
+}

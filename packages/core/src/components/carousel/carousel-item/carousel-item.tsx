@@ -1,6 +1,7 @@
 import { Component, Element, Host, h } from '@stencil/core'
 @Component({
   tag: 'atom-carousel-item',
+  styleUrl: 'carousel-item.scss',
   shadow: false,
 })
 export class AtomCarouselItem {
