@@ -82,7 +82,6 @@ export const Default: StoryObj = {
     createComponent(
       {
         pagination: true,
-        slidesPerView: 'auto',
         spaceBetween: 40,
         paginationClickable: true,
         centeredSlides: true,
@@ -122,7 +121,7 @@ export const PaginationType: StoryObj = {
     ),
 }
 
-export const CenterItemContent: StoryObj = {
+export const CenteredSlide: StoryObj = {
   render: () =>
     createComponent(
       {
