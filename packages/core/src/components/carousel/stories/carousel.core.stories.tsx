@@ -40,7 +40,12 @@ const createComponent = (args, itemClass: string) => {
 
   ${args.loop !== undefined ? `loop="${args.loop}"` : ''}
   ${args.autoplay !== undefined ? `autoplay="${args.autoplay}"` : ''}
-  ${args.speed !== undefined ? `speed="${args.speed}"` : ''} >
+  ${args.speed !== undefined ? `speed="${args.speed}"` : ''} 
+  ${
+    args.centeredSlides !== undefined
+      ? `centered-slides="${args.centeredSlides}"`
+      : ''
+  } >
     <atom-carousel-item><div class="${itemClass}">Slide 1</div></atom-carousel-item>
     <atom-carousel-item><div class="${itemClass}">Slide 2</div></atom-carousel-item>
     <atom-carousel-item><div class="${itemClass}">Slide 3</div></atom-carousel-item>
@@ -77,9 +82,10 @@ export const Default: StoryObj = {
     createComponent(
       {
         pagination: true,
-        slidesPerView: 3,
+        slidesPerView: 'auto',
         spaceBetween: 40,
         paginationClickable: true,
+        centeredSlides: true,
       },
       'item-default'
     ),
@@ -121,11 +127,12 @@ export const CenterItemContent: StoryObj = {
     createComponent(
       {
         pagination: true,
-        slidesPerView: 1,
-        spaceBetween: 40,
+        slidesPerView: 'auto',
+        slidesPerGroup: 'auto',
+        spaceBetween: 20,
         paginationClickable: true,
+        centeredSlides: true,
       },
       'item-smaller'
     ),
 }
-

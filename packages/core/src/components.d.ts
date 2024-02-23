@@ -54,6 +54,7 @@ export namespace Components {
         "autoplay"?: boolean;
         "autoplayDelay"?: AutoplayOptions['delay'];
         "centerInsufficientSlides"?: boolean;
+        "centeredSlides"?: boolean;
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;
@@ -498,6 +499,7 @@ declare namespace LocalJSX {
         "autoplay"?: boolean;
         "autoplayDelay"?: AutoplayOptions['delay'];
         "centerInsufficientSlides"?: boolean;
+        "centeredSlides"?: boolean;
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;

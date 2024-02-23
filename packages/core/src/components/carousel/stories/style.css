@@ -4,7 +4,7 @@
   display: flex;
   height: 400px;
   justify-content: center;
-  width: 100% !important;
+  width: 100%;
 }
 
 .item-loop {
@@ -13,7 +13,7 @@
   display: flex;
   height: 400px;
   justify-content: center;
-  width: 100% !important;
+  width: 100%;
 }
 
 .item-pag-type {
@@ -22,7 +22,7 @@
   display: flex;
   height: 400px;
   justify-content: center;
-  width: 100% !important;
+  width: 100%;
 }
 
 .item-smaller {
@@ -31,5 +31,5 @@
   display: flex;
   height: 400px;
   justify-content: center;
-  width: 250px;
+  width: 400px;
 }
