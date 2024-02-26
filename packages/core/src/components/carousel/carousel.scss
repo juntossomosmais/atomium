@@ -4,22 +4,19 @@
 
 ::part(button-prev),
 ::part(button-next) {
-  background: var(--color-neutral-white);
-  border: 1px solid transparent;
+  background: var(--color-brand-secondary-regular);
   border-radius: var(--border-radius-full);
   box-shadow: var(--elevation-3);
-  color: var(--color-brand-secondary-regular);
-  height: var(--spacing-medium);
+  color: var(--color-neutral-white);
   padding: var(--spacing-small);
   transition:
     border var(--transition-duration),
     box-shadow var(--transition-duration),
     opacity var(--transition-duration);
-  width: var(--spacing-medium);
   will-change: border, box-shadow;
 
   &:hover {
-    border-color: var(--color-brand-secondary-regular);
+    background: var(--color-brand-secondary-light-1);
   }
 }
 

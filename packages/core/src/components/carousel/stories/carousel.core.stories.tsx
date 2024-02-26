@@ -37,7 +37,11 @@ const createComponent = (args, itemClass: string) => {
       : ''
   }
 
-
+  ${
+    args.navigationButtonSize !== undefined
+      ? `navigationButtonSize="${args.navigationButtonSize}"`
+      : ''
+  }
   ${args.loop !== undefined ? `loop="${args.loop}"` : ''}
   ${args.autoplay !== undefined ? `autoplay="${args.autoplay}"` : ''}
   ${args.speed !== undefined ? `speed="${args.speed}"` : ''} 

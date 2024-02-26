@@ -58,6 +58,7 @@ export namespace Components {
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;
+        "navigationButtonSize"?: 'medium' | 'xxlarge';
         "pagination"?: boolean;
         "paginationClickable"?: boolean;
         "paginationType"?: PaginationOptions['type'] | 'thumbnails';
@@ -503,6 +504,7 @@ declare namespace LocalJSX {
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;
+        "navigationButtonSize"?: 'medium' | 'xxlarge';
         "onAtomChange"?: (event: AtomCarouselCustomEvent<string>) => void;
         "onAtomClickNext"?: (event: AtomCarouselCustomEvent<string>) => void;
         "onAtomClickPrev"?: (event: AtomCarouselCustomEvent<string>) => void;

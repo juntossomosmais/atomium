@@ -7,8 +7,9 @@ import {
   Prop,
   h,
 } from '@stencil/core'
-import 'swiper/swiper-element-bundle.js'
+import { register } from 'swiper/element/bundle'
 import { AutoplayOptions, PaginationOptions, Swiper } from 'swiper/types'
+register()
 
 import { renderThumbs } from './utils/render-thumbs'
 
@@ -59,12 +60,8 @@ export class AtomCarousel {
   thumbnailImages?: string = ''
   @Prop({ mutable: true })
   videoIcons?: boolean = false
-
-  // If you need more info please read the ADR 0012 at Caveat sections
-  private injectStyles = [
-    '.swiper-button-disabled { opacity: 0 !important}',
-    '.swiper-pagination-custom { display: flex; justify-content: center; column-gap: var(--spacing-base); } ',
-  ]
+  @Prop({ mutable: true })
+  navigationButtonSize?: 'medium' | 'xxlarge' = 'medium'
 
   componentDidLoad() {
     this.swiperEl = this.host.querySelector('swiper-container')
@@ -113,6 +110,13 @@ export class AtomCarousel {
     Object.assign(this.swiperEl, params)
   }
   render() {
+    const injectStyles = [
+      '.swiper-button-disabled { opacity: 0 !important}',
+      '.swiper-pagination-custom { display: flex; justify-content: center; column-gap: var(--spacing-base); } ',
+      `.swiper-button-next { width: var(--spacing-${this.navigationButtonSize}); height: var(--spacing-${this.navigationButtonSize}); }`,
+      `.swiper-button-prev { width: var(--spacing-${this.navigationButtonSize}); height: var(--spacing-${this.navigationButtonSize}); }`,
+    ]
+
     return (
       <Host>
         <swiper-container
@@ -126,7 +130,7 @@ export class AtomCarousel {
           free-mode={this.freeMode}
           autoplay={this.autoplay}
           autoplay-delay={this.autoplayDelay}
-          injectStyles={this.injectStyles}
+          injectStyles={injectStyles}
           touch-start-prevent-default='false'
           center-insufficient-slides={this.centerInsufficientSlides}
           centered-slides={this.centeredSlides}
