@@ -7,9 +7,8 @@ import {
   Prop,
   h,
 } from '@stencil/core'
-import { register } from 'swiper/element/bundle'
+import 'swiper/swiper-element-bundle.js'
 import { AutoplayOptions, PaginationOptions, Swiper } from 'swiper/types'
-register()
 
 import { renderThumbs } from './utils/render-thumbs'
 
