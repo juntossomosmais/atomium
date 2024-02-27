@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.1...atomium-v1.12.2) (2024-02-27)
+
+
+### Bug Fixes
+
+* **carousel:** centralize the slide item content ([#385](https://github.com/juntossomosmais/atomium/issues/385)) ([f3464d8](https://github.com/juntossomosmais/atomium/commit/f3464d8219d35d7a067cb5767ab6df4a60a410c4))
+
 ## [1.12.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.0...atomium-v1.12.1) (2024-02-19)
 
 
