@@ -37,23 +37,32 @@ const createComponent = (args, itemClass: string) => {
       : ''
   }
 
-
+  ${
+    args.navigationButtonSize !== undefined
+      ? `navigationButtonSize="${args.navigationButtonSize}"`
+      : ''
+  }
   ${args.loop !== undefined ? `loop="${args.loop}"` : ''}
   ${args.autoplay !== undefined ? `autoplay="${args.autoplay}"` : ''}
-  ${args.speed !== undefined ? `speed="${args.speed}"` : ''} >
-    <atom-carousel-item ><div class="${itemClass}">Slide 1</div></atom-carousel-item>
-      <atom-carousel-item><div class="${itemClass}">Slide 2</div></atom-carousel-item>
-      <atom-carousel-item><div class="${itemClass}">Slide 3</div></atom-carousel-item>
-      <atom-carousel-item><div class="${itemClass}">Slide 4</div></atom-carousel-item>
-      <atom-carousel-item><div class="${itemClass}">Slide 5</div></atom-carousel-item>
-      <atom-carousel-item><div class="${itemClass}">Slide 6</div></atom-carousel-item>
-      <atom-carousel-item><div class="${itemClass}">Slide 7</div></atom-carousel-item>
-      <atom-carousel-item><div class="${itemClass}">Slide 8</div></atom-carousel-item>
-      <atom-carousel-item lazy="true">
-        <div class="${itemClass}">Slide 9
-          <img loading="lazy" width="100px" src="https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png"/>
-        </div>
-      </atom-carousel-item>
+  ${args.speed !== undefined ? `speed="${args.speed}"` : ''} 
+  ${
+    args.centeredSlides !== undefined
+      ? `centered-slides="${args.centeredSlides}"`
+      : ''
+  } >
+    <atom-carousel-item><div class="${itemClass}">Slide 1</div></atom-carousel-item>
+    <atom-carousel-item><div class="${itemClass}">Slide 2</div></atom-carousel-item>
+    <atom-carousel-item><div class="${itemClass}">Slide 3</div></atom-carousel-item>
+    <atom-carousel-item><div class="${itemClass}">Slide 4</div></atom-carousel-item>
+    <atom-carousel-item><div class="${itemClass}">Slide 5</div></atom-carousel-item>
+    <atom-carousel-item><div class="${itemClass}">Slide 6</div></atom-carousel-item>
+    <atom-carousel-item><div class="${itemClass}">Slide 7</div></atom-carousel-item>
+    <atom-carousel-item><div class="${itemClass}">Slide 8</div></atom-carousel-item>
+    <atom-carousel-item lazy="true">
+      <div class="${itemClass}">Slide 9
+        <img loading="lazy" width="100px" src="https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png"/>
+      </div>
+    </atom-carousel-item>
   </atom-carousel>
   <script>
   const  atomCarousel${carouselStoryId} = document.querySelector('atom-carousel#carousel-${carouselStoryId}');
@@ -77,9 +86,9 @@ export const Default: StoryObj = {
     createComponent(
       {
         pagination: true,
-        slidesPerView: 3,
         spaceBetween: 40,
         paginationClickable: true,
+        centeredSlides: true,
       },
       'item-default'
     ),
@@ -113,5 +122,20 @@ export const PaginationType: StoryObj = {
         paginationType: 'progressbar',
       },
       'item-pag-type'
+    ),
+}
+
+export const CenteredSlide: StoryObj = {
+  render: () =>
+    createComponent(
+      {
+        pagination: true,
+        slidesPerView: 'auto',
+        slidesPerGroup: 'auto',
+        spaceBetween: 20,
+        paginationClickable: true,
+        centeredSlides: true,
+      },
+      'item-smaller'
     ),
 }

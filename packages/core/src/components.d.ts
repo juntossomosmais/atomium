@@ -54,9 +54,11 @@ export namespace Components {
         "autoplay"?: boolean;
         "autoplayDelay"?: AutoplayOptions['delay'];
         "centerInsufficientSlides"?: boolean;
+        "centeredSlides"?: boolean;
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;
+        "navigationButtonSize"?: 'medium' | 'xxlarge';
         "pagination"?: boolean;
         "paginationClickable"?: boolean;
         "paginationType"?: PaginationOptions['type'] | 'thumbnails';
@@ -498,9 +500,11 @@ declare namespace LocalJSX {
         "autoplay"?: boolean;
         "autoplayDelay"?: AutoplayOptions['delay'];
         "centerInsufficientSlides"?: boolean;
+        "centeredSlides"?: boolean;
         "freeMode"?: boolean;
         "loop"?: boolean;
         "navigation"?: boolean;
+        "navigationButtonSize"?: 'medium' | 'xxlarge';
         "onAtomChange"?: (event: AtomCarouselCustomEvent<string>) => void;
         "onAtomClickNext"?: (event: AtomCarouselCustomEvent<string>) => void;
         "onAtomClickPrev"?: (event: AtomCarouselCustomEvent<string>) => void;

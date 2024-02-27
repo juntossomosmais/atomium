@@ -31,7 +31,7 @@
   "dependencies": {
     "@ionic/core": "^7.7.3",
     "@stencil/core": "^4.12.3",
-    "swiper": "^11.0.3"
+    "swiper": "^11.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
@@ -84,7 +84,7 @@
     "postcss-scss": "^4.0.6",
     "prettier": "3.0.0",
     "prop-types": "^15.8.1",
-    "puppeteer": "^21.5.2",
+    "puppeteer": "^22.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.26.3",
