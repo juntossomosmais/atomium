@@ -39,7 +39,7 @@
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.23.2",
     "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/config-conventional": "^19.0.3",
     "@juntossomosmais/linters": "^0.15.0",
     "@nrwl/workspace": "16.6.0",
     "@rollup/plugin-typescript": "^11.1.2",
