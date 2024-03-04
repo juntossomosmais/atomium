@@ -7,3 +7,4 @@ updates:
       time: '06:00'
     rebase-strategy: 'disabled'
     target-branch: main
+    open-pull-requests-limit: 10

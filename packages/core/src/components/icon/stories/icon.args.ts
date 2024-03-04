@@ -36,9 +36,9 @@ export const IconStoryArgs = {
       },
     },
     size: {
-      control: 'select',
-      description: 'The size of the icon.',
-      options: ['small', 'large'],
+      control: 'text',
+      description:
+        'The size of the icon. Use large or small to change the size of the icon or pass a number to set the font-size in pixels.',
       table: {
         category: Category.PROPERTIES,
       },
@@ -49,5 +49,5 @@ export const IconStoryArgs = {
 export const IconComponentArgs = {
   icon: 'heart',
   color: 'secondary',
-  size: 'large',
+  size: '',
 }

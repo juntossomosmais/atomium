@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.1...atomium-v1.12.2) (2024-02-27)
+
+
+### Bug Fixes
+
+* **carousel:** centralize the slide item content ([#385](https://github.com/juntossomosmais/atomium/issues/385)) ([f3464d8](https://github.com/juntossomosmais/atomium/commit/f3464d8219d35d7a067cb5767ab6df4a60a410c4))
+
+## [1.12.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.0...atomium-v1.12.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* **core:** remove extra build using dist-custom-elements ([#383](https://github.com/juntossomosmais/atomium/issues/383)) ([ed503be](https://github.com/juntossomosmais/atomium/commit/ed503be850c3194f968847b2d908ea1f930ee5ef))
+
+## [1.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.11.0...atomium-v1.12.0) (2024-02-15)
+
+
+### Features
+
+* add font size prop into icon component ([#379](https://github.com/juntossomosmais/atomium/issues/379)) ([d00c774](https://github.com/juntossomosmais/atomium/commit/d00c774247cb151ef271346a860443807e02fde3))
+
 ## [1.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.10.0...atomium-v1.11.0) (2024-01-02)
 
 

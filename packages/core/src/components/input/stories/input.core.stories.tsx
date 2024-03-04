@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
 import { InputComponentArgs, InputStoryArgs } from './input.args'
@@ -28,7 +27,6 @@ const createInput = (args) => {
       value=${args.value}
       icon=${args.icon}
       helper-text=${args.helperText}
-      type=${args.type}
     ></atom-input>
   `
 }
