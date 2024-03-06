@@ -38,7 +38,13 @@ export class AtomButton {
     submit: 'requestSubmit',
   }
 
+  private get isLink() {
+    return this.href || this.download || this.target
+  }
+
   private handleClick = (event) => {
+    if (this.isLink) return
+
     event.preventDefault()
     event.stopPropagation()
 
