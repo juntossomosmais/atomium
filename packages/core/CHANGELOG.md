@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.3](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.2...atomium-v1.12.3) (2024-03-07)
+
+
+### Bug Fixes
+
+* **button:** use default behavior when is link ([#399](https://github.com/juntossomosmais/atomium/issues/399)) ([2873800](https://github.com/juntossomosmais/atomium/commit/28738006014c5d25296c36d241d791e34814c08c))
+
 ## [1.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.1...atomium-v1.12.2) (2024-02-27)
 
 
