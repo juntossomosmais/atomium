@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+
 import { AtomButton } from './button'
 
 describe('AtomButton', () => {
@@ -140,8 +141,10 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
+
     formEl.requestSubmit = jest.fn
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
     jest.spyOn(formEl, 'requestSubmit')
 
     buttonEl?.click()
@@ -157,8 +160,10 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
+
     formEl.reset = jest.fn()
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
     jest.spyOn(formEl, 'reset')
     buttonEl?.click()
 
@@ -173,11 +178,35 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
+
     formEl.reset = jest.fn()
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
     jest.spyOn(formEl, 'reset')
     buttonEl?.click()
 
     expect(formEl.reset).not.toHaveBeenCalled()
+  })
+
+  it('should allow default event when is link', async () => {
+    const button = new AtomButton()
+
+    button.href = 'http://example.com'
+    button.download = 'name_file'
+    button.target = '_blank'
+
+    const event = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+    })
+
+    jest.spyOn(event, 'preventDefault')
+    jest.spyOn(event, 'stopPropagation')
+
+    //@ts-expect-error - Testing private method
+    button.handleClick(event)
+
+    expect(event.preventDefault).not.toHaveBeenCalled()
+    expect(event.stopPropagation).not.toHaveBeenCalled()
   })
 })
