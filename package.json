@@ -52,7 +52,7 @@
     "@storybook/addon-mdx-gfm": "^7.6.17",
     "@storybook/addons": "^7.6.17",
     "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/react": "^7.6.17",
+    "@storybook/react": "^8.0.5",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/theming": "^7.6.17",
     "@storybook/web-components": "^7.6.17",
