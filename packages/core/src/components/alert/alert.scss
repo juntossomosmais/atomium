@@ -115,8 +115,7 @@
 
 .atom-icon {
   font-size: var(--icon-size);
-  /* @todo(icons): re-evaluate this when finalizing the icon package */
-  margin-top: 2px;
+  width: var(--space-large);
 }
 
 .atom-close {
