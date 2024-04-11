@@ -114,3 +114,45 @@ export const IconAndText: StoryObj = {
     ...Primary.args,
   },
 }
+
+export const Link: StoryObj = {
+  render: (args: any) => (
+    <AtomButton
+      color={args.color}
+      fill={args.fill}
+      size={args.size}
+      disabled={args.disabled}
+      loading={args.loading}
+      type={args.type}
+      mode={args.mode}
+      expand={args.expand}
+      shape={args.shape}
+      download={args.download}
+      href={args.href}
+      target={args.target}
+    >
+      {args.label}
+    </AtomButton>
+  ),
+  args: {
+    ...Primary.args,
+    href: undefined,
+    download: undefined,
+    target: undefined,
+  },
+  argTypes: {
+    href: {
+      options: ['Download', 'Navigate'],
+      mapping: {
+        Download: '/custom/jsm.svg',
+        Navigate: 'https://www.juntossomosmais.com.br',
+      },
+    },
+    download: {
+      control: 'text',
+    },
+    target: {
+      options: ['_blank', '_self', '_parent', '_top'],
+    },
+  },
+}

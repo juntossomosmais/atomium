@@ -17,7 +17,6 @@ export const CarouselStoryArgs = {
     autoplay: {
       description: 'Set to `true` to enable carousel autoplay',
       defaultValue: { summary: false },
-
       table: {
         category: Category.PROPERTIES,
       },
@@ -25,7 +24,6 @@ export const CarouselStoryArgs = {
     autoplayDelay: {
       description: 'Delay between transitions (in ms)',
       defaultValue: { summary: 0 },
-
       table: {
         category: Category.PROPERTIES,
       },
@@ -34,7 +32,6 @@ export const CarouselStoryArgs = {
       description:
         'When enabled it center slides if the amount of slides less than slidesPerView',
       defaultValue: { summary: false },
-
       table: {
         category: Category.PROPERTIES,
       },
@@ -126,6 +123,14 @@ export const CarouselStoryArgs = {
     videoIcons: {
       description:
         'If true, renders a youtube icon on top of the thumbnail image, when the image is a youtube thumbnail',
+      defaultValue: { summary: false },
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    watchSlidesProgress: {
+      description:
+        'Enable this feature to calculate each slides progress and visibility (slides in viewport will have additional visible class)',
       defaultValue: { summary: false },
       table: {
         category: Category.PROPERTIES,
