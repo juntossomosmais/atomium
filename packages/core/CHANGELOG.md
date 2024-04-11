@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.0...atomium-v1.13.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* **alert:** remove wrong width on icon size ([#414](https://github.com/juntossomosmais/atomium/issues/414)) ([e45007c](https://github.com/juntossomosmais/atomium/commit/e45007cdec9d32577a1979b4b059e5e542269ab7))
+
 ## [1.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.3...atomium-v1.13.0) (2024-04-11)
 
 
