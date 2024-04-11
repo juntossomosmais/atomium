@@ -25,7 +25,8 @@ describe('AtomCarousel', () => {
   it('should render component with passed props', async () => {
     const page = await newSpecPage({
       components: [AtomCarousel],
-      html: `<atom-carousel center-insufficient-slides="true" pagination="false" navigation="false" slides-per-group="4" slides-per-view="2">
+      html: `<atom-carousel center-insufficient-slides="true" pagination="false"
+      navigation="false" slides-per-group="4" slides-per-view="2" watch-slides-progress="true">
               <atom-carousel-item> Slide 1</atom-carousel-item>
               <atom-carousel-item> Slide 2</atom-carousel-item>
               </atom-carousel>`,
@@ -43,6 +44,7 @@ describe('AtomCarousel', () => {
     expect(swiperContainer?.outerHTML).toContain('slides-per-view="2"')
     expect(swiperContainer?.outerHTML).toContain('slides-per-group="4"')
     expect(swiperContainer?.outerHTML).toContain('center-insufficient-slides')
+    expect(swiperContainer?.outerHTML).toContain('watch-slides-progress')
   })
 
   it('should render component with default props', async () => {

@@ -68,6 +68,7 @@ export namespace Components {
         "speed"?: number;
         "thumbnailImages"?: string;
         "videoIcons"?: boolean;
+        "watchSlidesProgress"?: boolean;
     }
     interface AtomCarouselItem {
     }
@@ -517,6 +518,7 @@ declare namespace LocalJSX {
         "speed"?: number;
         "thumbnailImages"?: string;
         "videoIcons"?: boolean;
+        "watchSlidesProgress"?: boolean;
     }
     interface AtomCarouselItem {
     }
