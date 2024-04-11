@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.3...atomium-v1.13.0) (2024-04-11)
+
+
+### Features
+
+* add new watch-slides-progress carousel prop ([#412](https://github.com/juntossomosmais/atomium/issues/412)) ([a5e29b2](https://github.com/juntossomosmais/atomium/commit/a5e29b234c51794ce26308969dd0ce04c93e3bed))
+
 ## [1.12.3](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.2...atomium-v1.12.3) (2024-03-07)
 
 
