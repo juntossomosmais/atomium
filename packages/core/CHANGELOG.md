@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.1...atomium-v1.14.0) (2024-04-23)
+
+
+### Features
+
+* **icons:** add `login` and `messages` icons ([#416](https://github.com/juntossomosmais/atomium/issues/416)) ([335061e](https://github.com/juntossomosmais/atomium/commit/335061e63a444933557f53914a6fd49622e066a4))
+
+
+### Bug Fixes
+
+* **button:** adjust button slot align ([#417](https://github.com/juntossomosmais/atomium/issues/417)) ([1986d05](https://github.com/juntossomosmais/atomium/commit/1986d0592a931450eae874f61a9ddb9b865ef3fe))
+
 ## [1.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.0...atomium-v1.13.1) (2024-04-11)
 
 
