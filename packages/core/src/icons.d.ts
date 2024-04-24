@@ -165,3 +165,5 @@ export type IconProps =
   | 'wallet-giftcard'
   | 'whatsapp'
   | 'youtube'
+  | 'outline-person-blocked'
+  | 'search-off'
