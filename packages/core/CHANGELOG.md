@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.14.0...atomium-v1.15.0) (2024-04-24)
+
+
+### Features
+
+* **icons:** add new icons ([#419](https://github.com/juntossomosmais/atomium/issues/419)) ([2610836](https://github.com/juntossomosmais/atomium/commit/261083663af08ba2f88a2d921175dd38c459e371))
+
 ## [1.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.1...atomium-v1.14.0) (2024-04-23)
 
 
