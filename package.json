@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@ionic/core": "^7.8.2",
-    "@stencil/core": "^4.12.4",
+    "@stencil/core": "^4.17.2",
     "swiper": "^11.0.7"
   },
   "devDependencies": {
