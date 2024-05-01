@@ -38,7 +38,7 @@
     "@babel/preset-env": "^7.24.0",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.24.1",
-    "@commitlint/cli": "^19.0.3",
+    "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.0.3",
     "@juntossomosmais/linters": "^0.18.1",
     "@nrwl/workspace": "18.0.6",
