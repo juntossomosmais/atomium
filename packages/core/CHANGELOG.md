@@ -1,5 +1,45 @@
 # Changelog
 
+## [1.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.14.0...atomium-v1.15.0) (2024-04-24)
+
+
+### Features
+
+* **icons:** add new icons ([#419](https://github.com/juntossomosmais/atomium/issues/419)) ([2610836](https://github.com/juntossomosmais/atomium/commit/261083663af08ba2f88a2d921175dd38c459e371))
+
+## [1.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.1...atomium-v1.14.0) (2024-04-23)
+
+
+### Features
+
+* **icons:** add `login` and `messages` icons ([#416](https://github.com/juntossomosmais/atomium/issues/416)) ([335061e](https://github.com/juntossomosmais/atomium/commit/335061e63a444933557f53914a6fd49622e066a4))
+
+
+### Bug Fixes
+
+* **button:** adjust button slot align ([#417](https://github.com/juntossomosmais/atomium/issues/417)) ([1986d05](https://github.com/juntossomosmais/atomium/commit/1986d0592a931450eae874f61a9ddb9b865ef3fe))
+
+## [1.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.0...atomium-v1.13.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* **alert:** remove wrong width on icon size ([#414](https://github.com/juntossomosmais/atomium/issues/414)) ([e45007c](https://github.com/juntossomosmais/atomium/commit/e45007cdec9d32577a1979b4b059e5e542269ab7))
+
+## [1.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.3...atomium-v1.13.0) (2024-04-11)
+
+
+### Features
+
+* add new watch-slides-progress carousel prop ([#412](https://github.com/juntossomosmais/atomium/issues/412)) ([a5e29b2](https://github.com/juntossomosmais/atomium/commit/a5e29b234c51794ce26308969dd0ce04c93e3bed))
+
+## [1.12.3](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.2...atomium-v1.12.3) (2024-03-07)
+
+
+### Bug Fixes
+
+* **button:** use default behavior when is link ([#399](https://github.com/juntossomosmais/atomium/issues/399)) ([2873800](https://github.com/juntossomosmais/atomium/commit/28738006014c5d25296c36d241d791e34814c08c))
+
 ## [1.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.1...atomium-v1.12.2) (2024-02-27)
 
 

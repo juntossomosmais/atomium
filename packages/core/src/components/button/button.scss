@@ -15,6 +15,7 @@
 
 .atom-button {
   text-transform: inherit;
+
   &[color='white'] {
     --ion-color-base: var(--color-neutral-white);
     --ion-color-contrast: var(--color-neutral-black);
@@ -77,6 +78,7 @@
   }
 
   .slot {
+    align-items: center;
     display: flex;
     gap: var(--spacing-xsmall);
   }

@@ -61,6 +61,8 @@ export class AtomCarousel {
   videoIcons?: boolean = false
   @Prop({ mutable: true })
   navigationButtonSize?: 'medium' | 'xxlarge' = 'medium'
+  @Prop({ mutable: true })
+  watchSlidesProgress?: boolean = false
 
   componentDidLoad() {
     this.swiperEl = this.host.querySelector('swiper-container')
@@ -133,6 +135,7 @@ export class AtomCarousel {
           touch-start-prevent-default='false'
           center-insufficient-slides={this.centerInsufficientSlides}
           centered-slides={this.centeredSlides}
+          watch-slides-progress={this.watchSlidesProgress}
         ></swiper-container>
       </Host>
     )

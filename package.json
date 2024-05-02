@@ -29,18 +29,18 @@
     "tokens:build": "nx build @juntossomosmais/atomium-tokens"
   },
   "dependencies": {
-    "@ionic/core": "^7.7.3",
+    "@ionic/core": "^7.8.2",
     "@stencil/core": "^4.12.4",
     "swiper": "^11.0.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
+    "@babel/core": "^7.24.3",
     "@babel/preset-env": "^7.24.0",
     "@babel/preset-react": "^7.23.3",
-    "@babel/preset-typescript": "^7.23.3",
+    "@babel/preset-typescript": "^7.24.1",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
-    "@juntossomosmais/linters": "^0.18.0",
+    "@juntossomosmais/linters": "^0.18.1",
     "@nrwl/workspace": "18.0.6",
     "@rollup/plugin-typescript": "^11.1.6",
     "@stencil/react-output-target": "^0.5.3",
@@ -102,12 +102,6 @@
     "tslib": "^2.6.2",
     "typescript": "^5.3.3",
     "vue": "^3.4.21"
-  },
-  "optionalDependencies": {
-    "@nx/nx-darwin-arm64": "18.0.6",
-    "@nx/nx-darwin-x64": "18.0.6",
-    "@nx/nx-linux-x64-gnu": "18.0.6",
-    "@nx/nx-win32-x64-msvc": "18.0.6"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
