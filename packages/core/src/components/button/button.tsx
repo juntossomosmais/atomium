@@ -1,8 +1,8 @@
 import { Mode } from '@ionic/core'
 import {
   Component,
-  Event as CustomEvent,
   Element,
+  Event,
   EventEmitter,
   Host,
   Prop,
@@ -29,7 +29,7 @@ export class AtomButton {
   @Prop() target?: string
   @Prop() type: 'submit' | 'reset' | 'button' = 'button'
 
-  @CustomEvent() click: EventEmitter
+  @Event() click: EventEmitter
 
   @Element() element: HTMLElement
 
@@ -49,16 +49,8 @@ export class AtomButton {
     } else {
       const form = this.element.closest('form')
 
-      if (!form) return
-
-      const formAction = form[this.formFunctions[this.type]]
-
-      if (formAction) {
-        formAction()
-      } else {
-        form.dispatchEvent(
-          new Event('submit', { bubbles: true, cancelable: true })
-        )
+      if (form) {
+        return form[this.formFunctions[this.type]]()
       }
     }
   }

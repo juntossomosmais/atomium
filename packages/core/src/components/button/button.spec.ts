@@ -1,5 +1,4 @@
 import { newSpecPage } from '@stencil/core/testing'
-
 import { AtomButton } from './button'
 
 describe('AtomButton', () => {
@@ -141,36 +140,13 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
-
     formEl.requestSubmit = jest.fn
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
-
     jest.spyOn(formEl, 'requestSubmit')
 
     buttonEl?.click()
 
     expect(formEl.requestSubmit).toHaveBeenCalled()
-  })
-
-  it('should submit button call parent form submit event when requestSubmit is not available', async () => {
-    const page = await newSpecPage({
-      components: [AtomButton],
-      html: '<form><atom-button type="submit">Click</atom-button></form>',
-    })
-
-    await page.waitForChanges()
-    const formEl = page.body.querySelector('form') as HTMLFormElement
-
-    //@ts-expect-error testing requestSubmit not available
-    formEl.requestSubmit = null
-
-    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
-
-    const dispatchSubmitEvent = jest.spyOn(formEl, 'dispatchEvent')
-
-    buttonEl?.click()
-
-    expect(dispatchSubmitEvent).toHaveBeenCalled()
   })
 
   it('should submit button call parent form reset', async () => {
@@ -181,10 +157,8 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
-
     formEl.reset = jest.fn()
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
-
     jest.spyOn(formEl, 'reset')
     buttonEl?.click()
 
@@ -199,10 +173,8 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
-
     formEl.reset = jest.fn()
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
-
     jest.spyOn(formEl, 'reset')
     buttonEl?.click()
 
