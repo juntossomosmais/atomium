@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.0...atomium-v1.15.1) (2024-05-06)
+
+
+### Bug Fixes
+
+* **button:** don't emit submit event in older browsers (webkit) ([#431](https://github.com/juntossomosmais/atomium/issues/431)) ([cdda9ae](https://github.com/juntossomosmais/atomium/commit/cdda9aee9df928a6b27914283fe25351ff827c49))
+
 ## [1.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.14.0...atomium-v1.15.0) (2024-04-24)
 
 
