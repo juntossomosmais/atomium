@@ -209,4 +209,57 @@ describe('AtomButton', () => {
     expect(event.preventDefault).not.toHaveBeenCalled()
     expect(event.stopPropagation).not.toHaveBeenCalled()
   })
+
+  it('should correctly apply polyfill for requestSubmit when not available in HTMLFormElement', async () => {
+    //@ts-expect-error test purpose to remove requestSubmit from HTMLFormElement, and simulates a browser
+    window.HTMLFormElement.prototype.requestSubmit = undefined
+
+    jest.isolateModules(() => {
+      require('../../polyfills/form-request-submit.js')
+    })
+
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="submit">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+
+    const formEl = page.body.querySelector<HTMLFormElement>('form')!
+
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
+    jest.spyOn(window.HTMLFormElement.prototype, 'requestSubmit')
+
+    buttonEl?.click()
+
+    expect(formEl.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('should not apply polyfill for requestSubmit when it is already available in HTMLFormElement', async () => {
+    window.HTMLFormElement.prototype.requestSubmit = jest.fn()
+    const originalRequestSubmit = window.HTMLFormElement.prototype.requestSubmit
+
+    jest.isolateModules(() => {
+      require('../../polyfills/form-request-submit.js')
+    })
+
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="submit">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+
+    const formEl = page.body.querySelector<HTMLFormElement>('form')!
+
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
+    jest.spyOn(window.HTMLFormElement.prototype, 'requestSubmit')
+
+    buttonEl?.click()
+
+    expect(formEl.requestSubmit).toBe(originalRequestSubmit)
+    expect(formEl.requestSubmit).toHaveBeenCalledTimes(1)
+  })
 })
