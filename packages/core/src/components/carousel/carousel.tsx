@@ -95,18 +95,15 @@ export class AtomCarousel {
   }
 
   showOrHideNavigationButtons() {
-    if (!this.nextButton || !this.prevButton || !this.hasNavigation) return
+    const hasButtons = this.nextButton && this.prevButton
 
-    if (this.loop) {
-      this.nextButton.classList.remove('disabled')
-      this.prevButton.classList.remove('disabled')
-    } else {
-      this.nextButton.classList.toggle(
-        'disabled',
-        this.currentIndex === this.carouselItems.length - 1
-      )
-      this.prevButton.classList.toggle('disabled', this.currentIndex === 0)
-    }
+    if (!hasButtons || !this.hasNavigation || this.loop) return
+
+    this.nextButton.classList.toggle(
+      'disabled',
+      this.currentIndex === this.carouselItems.length - 1
+    )
+    this.prevButton.classList.toggle('disabled', this.currentIndex === 0)
   }
 
   startAutoplay() {
