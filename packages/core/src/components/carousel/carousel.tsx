@@ -181,7 +181,8 @@ export class AtomCarousel {
                   <img
                     class='thumbnail'
                     src={this.thumbnails[index]}
-                    alt={`Thumbnail for item ${index + 1}`}
+                    alt={`${index + 1}`}
+                    aria-hidden='true'
                   />
                 ) : (
                   <span class='pagination-text'>{index + 1}</span>

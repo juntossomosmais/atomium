@@ -91,11 +91,13 @@ describe('AtomCarousel', () => {
       html: `
         <atom-carousel thumbnails>
           <atom-carousel-item>Slide 1</atom-carousel-item>
+          <atom-carousel-item>Slide 2</atom-carousel-item>
         </atom-carousel>
       `,
     })
 
     page.rootInstance.thumbnails = [
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==',
       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==',
     ]
 
@@ -119,12 +121,18 @@ describe('AtomCarousel', () => {
           </div>
           <div aria-label="Pagination" class="carousel-pagination" role="navigation">
             <button aria-controls="carousel-item-0" aria-selected="" class="active carousel-pagination--thumbnails carousel-pagination__item" role="tab">
-              <img alt="Thumbnail for item 1" class="thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==">
+              <img alt="1" aria-hidden="true" class="thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==">
             </button>
+            <button aria-controls="carousel-item-1" class="carousel-pagination--thumbnails carousel-pagination__item" role="tab">
+            <img alt="2" aria-hidden="true" class="thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==">
+          </button>
           </div>
         </mock:shadow-root>
         <atom-carousel-item>
           Slide 1
+        </atom-carousel-item>
+        <atom-carousel-item>
+          Slide 2
         </atom-carousel-item>
       </atom-carousel>
     `)
