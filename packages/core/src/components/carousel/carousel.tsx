@@ -95,7 +95,7 @@ export class AtomCarousel {
   }
 
   showOrHideNavigationButtons() {
-    if (!this.nextButton || !this.prevButton) return
+    if (!this.nextButton || !this.prevButton || !this.hasNavigation) return
 
     if (this.loop) {
       this.nextButton.classList.remove('disabled')
