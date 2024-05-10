@@ -34,7 +34,8 @@ export const CarouselStoryArgs = {
       },
     },
     autoplay: {
-      description: 'When set a number, the carousel will autoplay.',
+      description:
+        'When set a number, the carousel will autoplay. The number is the interval of autoplay in milliseconds.',
       table: {
         category: Category.PROPERTIES,
       },
