@@ -28,7 +28,8 @@ export const CarouselStoryArgs = {
     },
     loop: {
       control: 'boolean',
-      description: 'If `true`, the user cannot interact with the button.',
+      description:
+        'If `true`, the carousel will loop and navigation buttons could be click to go to the first or last slide.',
       table: {
         category: Category.PROPERTIES,
       },
