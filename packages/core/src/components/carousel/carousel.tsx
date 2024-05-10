@@ -8,7 +8,7 @@ import { Component, Element, Host, Prop, State, h } from '@stencil/core'
 export class AtomCarousel {
   @Prop() loop: boolean = false
   @Prop() autoplay: number
-  @Prop() thumbnails: string[] = []
+  @Prop() thumbnails: string[]
   @Prop() hasNavigation = true
   @Prop() hasPagination = true
 
@@ -37,6 +37,12 @@ export class AtomCarousel {
 
   componentWillLoad() {
     this.carouselItems = this.element.querySelectorAll('atom-carousel-item')
+
+    if (this.carouselItems?.length <= 1) {
+      this.loop = false
+      this.hasNavigation = false
+      this.hasPagination = false
+    }
   }
 
   componentDidLoad() {
@@ -51,12 +57,6 @@ export class AtomCarousel {
     this.showOrHideNavigationButtons()
 
     if (this.autoplay > 0) this.startAutoplay()
-
-    if (this.carouselItems?.length <= 1) {
-      this.loop = false
-      this.hasNavigation = false
-      this.hasPagination = false
-    }
   }
 
   disconnectedCallback() {
@@ -171,7 +171,7 @@ export class AtomCarousel {
           >
             {Array.from(this.carouselItems).map((_, index) => (
               <button
-                class={`carousel-pagination__item ${index === this.currentIdx ? 'active' : ''} ${this.thumbnails.length > 0 ? 'carousel-pagination--thumbnails' : 'carousel-pagination--bullets'}`}
+                class={`carousel-pagination__item ${index === this.currentIdx ? 'active' : ''} ${this.thumbnails?.length > 0 ? 'carousel-pagination--thumbnails' : 'carousel-pagination--bullets'}`}
                 role='tab'
                 aria-selected={index === this.currentIdx}
                 aria-controls={`carousel-item-${index}`}
