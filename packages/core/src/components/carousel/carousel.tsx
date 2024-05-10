@@ -76,9 +76,14 @@ export class AtomCarousel {
 
   handleNavigationClick(event: Event) {
     const button = event.currentTarget as HTMLButtonElement
-    let newIndex =
-      this.currentIndex +
-      (button?.classList.contains('navigation--next') ? 1 : -1)
+    const isNext = button?.classList.contains('navigation--next')
+    let newIndex = this.currentIndex + (isNext ? 1 : -1)
+
+    const isLastItemAndNext =
+      isNext && this.currentIndex === this.carouselItems.length - 1
+    const isFirstItemAndPrev = !isNext && this.currentIndex === 0
+
+    if (!this.loop && (isLastItemAndNext || isFirstItemAndPrev)) return
 
     if (this.loop) {
       newIndex =
