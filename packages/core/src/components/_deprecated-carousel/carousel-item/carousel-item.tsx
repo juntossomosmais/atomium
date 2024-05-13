@@ -1,19 +1,18 @@
 import { Component, Element, Host, h } from '@stencil/core'
-
 @Component({
-  tag: 'atom-carousel-item',
+  tag: 'atom-deprecated-carousel-item',
   styleUrl: 'carousel-item.scss',
-  shadow: true,
+  shadow: false,
 })
-export class AtomCarouselItem {
+export class AtomDeprecatedCarouselItem {
   @Element() host!: HTMLElement
 
   render() {
     return (
       <Host>
-        <div class='atom-carousel-item'>
+        <swiper-slide class='atom-carousel-item'>
           <slot />
-        </div>
+        </swiper-slide>
       </Host>
     )
   }

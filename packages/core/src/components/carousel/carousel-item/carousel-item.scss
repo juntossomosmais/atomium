@@ -1,5 +1,8 @@
 @import '~@atomium/scss-utils/index';
 
-.atom-carousel-item {
-  width: fit-content;
+:host {
+  flex: 1 1 auto;
+  flex-shrink: 0;
+  min-height: var(--carousel-height);
+  width: 100%;
 }

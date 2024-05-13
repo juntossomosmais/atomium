@@ -2,101 +2,125 @@ import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
-import { CarouselStoryArgs } from './carousel.args'
-
-import './style.css'
+import { CarouselComponentArgs, CarouselStoryArgs } from './carousel.args'
 
 export default {
   title: 'Components/Carousel',
+  components: [AtomCarousel, AtomCarouselItem],
   ...CarouselStoryArgs,
 } as Meta
 
-const createComponent = (args, itemClass) => (
+const createCarousel = (args) => (
   <AtomCarousel
-    {...args}
-    onAtomChange={(event) => console.log('onAtomChange', event)}
-    atomClickPrev={(event) => console.log('atomClickPrev', event)}
-    atomClickNext={(event) => console.log('atomClickNext', event)}
+    loop={args.loop}
+    autoplay={args.autoplay}
+    hasNavigation={args.hasNavigation}
+    hasPagination={args.hasPagination}
   >
     <AtomCarouselItem>
-      <div className={itemClass}>Slide 1</div>
+      <div
+        style={{
+          backgroundColor: 'var(--color-brand-primary-regular)',
+          color: 'var(--color-neutral-white)',
+          height: '300px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        Example 1
+      </div>
     </AtomCarouselItem>
     <AtomCarouselItem>
-      <div className={itemClass}>Slide 2</div>
+      <div
+        style={{
+          backgroundColor: 'var(--color-brand-secondary-regular)',
+          color: 'var(--color-neutral-white)',
+          height: '300px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        Example 2
+      </div>
     </AtomCarouselItem>
     <AtomCarouselItem>
-      <div className={itemClass}>Slide 3</div>
-    </AtomCarouselItem>
-    <AtomCarouselItem>
-      <div className={itemClass}>Slide 4</div>
-    </AtomCarouselItem>
-    <AtomCarouselItem>
-      <div className={itemClass}>Slide 5</div>
-    </AtomCarouselItem>
-    <AtomCarouselItem>
-      <div className={itemClass}>Slide 6</div>
-    </AtomCarouselItem>
-    <AtomCarouselItem>
-      <div className={itemClass}>Slide 7</div>
-    </AtomCarouselItem>
-    <AtomCarouselItem>
-      <div className={itemClass}>Slide 8</div>
-    </AtomCarouselItem>
-    <AtomCarouselItem lazy={true}>
-      <div className={itemClass}>
-        <img
-          loading='lazy'
-          width='100%'
-          src='https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png'
-        />
+      <div
+        style={{
+          backgroundColor: 'var(--color-contextual-success-regular)',
+          color: 'var(--color-neutral-white)',
+          height: '300px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        Example 3
       </div>
     </AtomCarouselItem>
   </AtomCarousel>
 )
 
 export const Default: StoryObj = {
-  render: () =>
-    createComponent(
-      {
-        pagination: true,
-        paginationClickable: true,
-        navigation: true,
-        spaceBetween: 40,
-        slidesPerView: 3,
-      },
-      'item-default'
-    ),
+  render: (args) => createCarousel(args),
+  args: {
+    ...CarouselComponentArgs,
+  },
 }
 
-export const DisabledPagination: StoryObj = {
-  render: () =>
-    createComponent(
-      { pagination: false, slidesPerView: 3, spaceBetween: 40 },
-      'item-default'
-    ),
-}
-export const LoopAndAutoplay: StoryObj = {
-  render: () =>
-    createComponent(
-      {
-        pagination: false,
-        navigation: false,
-        loop: true,
-        autoplay: true,
-        speed: 100,
-      },
-      'item-loop'
-    ),
+export const Loop: StoryObj = {
+  render: (args) => createCarousel(args),
+  args: {
+    ...CarouselComponentArgs,
+    loop: true,
+  },
 }
 
-export const PaginationType: StoryObj = {
-  render: () =>
-    createComponent(
-      {
-        pagination: true,
-        navigation: true,
-        paginationType: 'progressbar',
-      },
-      'item-pag-type'
-    ),
+export const Autoplay: StoryObj = {
+  render: (args) => createCarousel(args),
+  args: {
+    ...CarouselComponentArgs,
+    autoplay: 3000,
+  },
+}
+
+export const Thumbnails = () => {
+  const thumbnails = [
+    'https://via.placeholder.com/50',
+    'https://via.placeholder.com/50',
+  ]
+
+  return (
+    <AtomCarousel thumbnails={thumbnails}>
+      <AtomCarouselItem>
+        <div
+          style={{
+            backgroundColor: 'var(--color-brand-primary-regular)',
+            color: 'var(--color-neutral-white)',
+            height: '300px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          Example 1
+        </div>
+      </AtomCarouselItem>
+      <AtomCarouselItem>
+        <div
+          style={{
+            backgroundColor: 'var(--color-brand-secondary-regular)',
+            color: 'var(--color-neutral-white)',
+            height: '300px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          Example 2
+        </div>
+      </AtomCarouselItem>
+    </AtomCarousel>
+  )
 }

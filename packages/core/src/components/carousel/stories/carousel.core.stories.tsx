@@ -1,141 +1,95 @@
 import { Meta, StoryObj } from '@storybook/web-components'
+import { html } from 'lit'
 
-import { CarouselStoryArgs } from './carousel.args'
-import './style.css'
+import { CarouselComponentArgs, CarouselStoryArgs } from './carousel.args'
+
 export default {
   title: 'Components/Carousel',
   ...CarouselStoryArgs,
 } as Meta
-let carouselStoryId = 0
 
-const createComponent = (args, itemClass: string) => {
-  carouselStoryId++
-
-  return `
-  <atom-carousel
-  id="carousel-${carouselStoryId}"
-  ${args.pagination !== undefined ? `pagination="${args.pagination}"` : ''}
-  ${args.navigation !== undefined ? `navigation="${args.navigation}"` : ''}
-  ${
-    args.paginationClickable !== undefined
-      ? `pagination-clickable="${args.paginationClickable}"`
-      : ''
-  }
-  ${
-    args.spaceBetween !== undefined
-      ? `space-between="${args.spaceBetween}"`
-      : ''
-  }
-  ${
-    args.slidesPerView !== undefined
-      ? `slides-per-view="${args.slidesPerView}"`
-      : ''
-  }
-  ${
-    args.paginationType !== undefined
-      ? `pagination-type="${args.paginationType}"`
-      : ''
-  }
-
-  ${
-    args.navigationButtonSize !== undefined
-      ? `navigationButtonSize="${args.navigationButtonSize}"`
-      : ''
-  }
-  ${args.loop !== undefined ? `loop="${args.loop}"` : ''}
-  ${args.autoplay !== undefined ? `autoplay="${args.autoplay}"` : ''}
-  ${args.speed !== undefined ? `speed="${args.speed}"` : ''} 
-  ${
-    args.centeredSlides !== undefined
-      ? `centered-slides="${args.centeredSlides}"`
-      : ''
-  } >
-    <atom-carousel-item><div class="${itemClass}">Slide 1</div></atom-carousel-item>
-    <atom-carousel-item><div class="${itemClass}">Slide 2</div></atom-carousel-item>
-    <atom-carousel-item><div class="${itemClass}">Slide 3</div></atom-carousel-item>
-    <atom-carousel-item><div class="${itemClass}">Slide 4</div></atom-carousel-item>
-    <atom-carousel-item><div class="${itemClass}">Slide 5</div></atom-carousel-item>
-    <atom-carousel-item><div class="${itemClass}">Slide 6</div></atom-carousel-item>
-    <atom-carousel-item><div class="${itemClass}">Slide 7</div></atom-carousel-item>
-    <atom-carousel-item><div class="${itemClass}">Slide 8</div></atom-carousel-item>
-    <atom-carousel-item lazy="true">
-      <div class="${itemClass}">Slide 9
-        <img loading="lazy" width="100px" src="https://user-images.githubusercontent.com/3603793/257943112-fb180815-7bd7-45f7-ad14-bd1677079931.png"/>
-      </div>
-    </atom-carousel-item>
-  </atom-carousel>
-  <script>
-  const  atomCarousel${carouselStoryId} = document.querySelector('atom-carousel#carousel-${carouselStoryId}');
-    atomCarousel${carouselStoryId}.addEventListener('atomChange',(event)=>{
-  console.log('atomChange', event)
-    })
-    atomCarousel${carouselStoryId}.addEventListener('atomClickPrev',(event)=>{
-      console.log('atomClickPrev', event)
-
-    })
-    atomCarousel${carouselStoryId}.addEventListener('atomClickNext',(event)=>{
-      console.log('atomClickNext', event)
-
-    })
-  </script>
+const createCarousel = (args) => {
+  return html`
+    <atom-carousel
+      loop=${args.loop}
+      autoplay=${args.autoplay}
+      has-navigation=${args.hasNavigation}
+      has-pagination=${args.hasPagination}
+    >
+      <atom-carousel-item>
+        <div
+          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
+        >
+          Example 1
+        </div>
+      </atom-carousel-item>
+      <atom-carousel-item>
+        <div
+          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
+        >
+          Example 2
+        </div>
+      </atom-carousel-item>
+      <atom-carousel-item>
+        <div
+          style="background-color: var(--color-contextual-success-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
+        >
+          Example 3
+        </div>
+      </atom-carousel-item>
+    </atom-carousel>
   `
 }
 
 export const Default: StoryObj = {
-  render: () =>
-    createComponent(
-      {
-        pagination: true,
-        spaceBetween: 40,
-        paginationClickable: true,
-        centeredSlides: true,
-      },
-      'item-default'
-    ),
+  render: (args) => createCarousel(args),
+  args: {
+    ...CarouselComponentArgs,
+  },
 }
 
-export const DisabledPagination: StoryObj = {
-  render: () =>
-    createComponent(
-      { pagination: false, slidesPerView: 3, spaceBetween: 40 },
-      'item-default'
-    ),
-}
-export const LoopAndAutoplay: StoryObj = {
-  render: () =>
-    createComponent(
-      {
-        loop: true,
-        autoplay: true,
-        speed: 100,
-        pagination: false,
-        navigation: false,
-        paginationClickable: true,
-      },
-      'item-loop'
-    ),
-}
-export const PaginationType: StoryObj = {
-  render: () =>
-    createComponent(
-      {
-        paginationType: 'progressbar',
-      },
-      'item-pag-type'
-    ),
+export const Loop: StoryObj = {
+  render: (args) => createCarousel(args),
+  args: {
+    ...CarouselComponentArgs,
+    loop: true,
+  },
 }
 
-export const CenteredSlide: StoryObj = {
-  render: () =>
-    createComponent(
-      {
-        pagination: true,
-        slidesPerView: 'auto',
-        slidesPerGroup: 'auto',
-        spaceBetween: 20,
-        paginationClickable: true,
-        centeredSlides: true,
-      },
-      'item-smaller'
-    ),
+export const Autoplay: StoryObj = {
+  render: (args) => createCarousel(args),
+  args: {
+    ...CarouselComponentArgs,
+    autoplay: 3000,
+  },
+}
+
+export const Thumbnails: StoryObj = {
+  render: () => html`
+    <atom-carousel id="carousel" thumbnails>
+      <atom-carousel-item>
+        <div
+          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
+        >
+          Example 1
+        </div>
+      </atom-carousel-item>
+      <atom-carousel-item>
+        <div
+          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
+        >
+          Example 2
+        </div>
+      </atom-carousel-item>
+    </atom-carousel>
+
+    <script>
+      const carousel = document.getElementById('carousel')
+
+      carousel.thumbnails = [
+        'https://via.placeholder.com/50',
+        'https://via.placeholder.com/50',
+      ]
+    </script>
+  `,
 }
