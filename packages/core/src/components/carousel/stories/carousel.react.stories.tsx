@@ -21,7 +21,7 @@ const createCarousel = (args) => (
       <div
         style={{
           backgroundColor: 'var(--color-brand-primary-regular)',
-          color: '#fff',
+          color: 'var(--color-neutral-white)',
           height: '300px',
           display: 'flex',
           alignItems: 'center',
@@ -35,7 +35,7 @@ const createCarousel = (args) => (
       <div
         style={{
           backgroundColor: 'var(--color-brand-secondary-regular)',
-          color: '#fff',
+          color: 'var(--color-neutral-white)',
           height: '300px',
           display: 'flex',
           alignItems: 'center',
@@ -49,7 +49,7 @@ const createCarousel = (args) => (
       <div
         style={{
           backgroundColor: 'var(--color-contextual-success-regular)',
-          color: '#fff',
+          color: 'var(--color-neutral-white)',
           height: '300px',
           display: 'flex',
           alignItems: 'center',
@@ -97,7 +97,7 @@ export const Thumbnails = () => {
         <div
           style={{
             backgroundColor: 'var(--color-brand-primary-regular)',
-            color: '#fff',
+            color: 'var(--color-neutral-white)',
             height: '300px',
             display: 'flex',
             alignItems: 'center',
@@ -111,7 +111,7 @@ export const Thumbnails = () => {
         <div
           style={{
             backgroundColor: 'var(--color-brand-secondary-regular)',
-            color: '#fff',
+            color: 'var(--color-neutral-white)',
             height: '300px',
             display: 'flex',
             alignItems: 'center',

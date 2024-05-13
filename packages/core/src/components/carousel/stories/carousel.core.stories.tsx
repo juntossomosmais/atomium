@@ -18,21 +18,21 @@ const createCarousel = (args) => {
     >
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-primary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 1
         </div>
       </atom-carousel-item>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-secondary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 2
         </div>
       </atom-carousel-item>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-contextual-success-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-contextual-success-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 3
         </div>
@@ -69,14 +69,14 @@ export const Thumbnails: StoryObj = {
     <atom-carousel id="carousel" thumbnails>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-primary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 1
         </div>
       </atom-carousel-item>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-secondary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 2
         </div>
