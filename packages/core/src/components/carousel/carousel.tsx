@@ -34,6 +34,7 @@ export class AtomCarousel {
   carouselItems: NodeListOf<HTMLElement>
   nextButton: HTMLButtonElement
   prevButton: HTMLButtonElement
+  autoplayIntervalId: NodeJS.Timeout
 
   componentWillLoad() {
     this.carouselItems = this.element.querySelectorAll('atom-carousel-item')
@@ -65,6 +66,10 @@ export class AtomCarousel {
       this.handleTouchStart
     )
     this.carouselWrapper.removeEventListener('touchend', this.handleTouchEnd)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.autoplayIntervalId)
   }
 
   handleMoveToPaginationItem(index: number) {
@@ -109,7 +114,7 @@ export class AtomCarousel {
   startAutoplay() {
     this.loop = true
 
-    setInterval(() => {
+    this.autoplayIntervalId = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.carouselItems.length
       this.showOrHideNavigationButtons()
     }, this.autoplay)
