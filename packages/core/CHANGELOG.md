@@ -1,9 +1,19 @@
 # Changelog
 
-## [1.15.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.0...atomium-v1.15.1) (2024-05-06)
+## [1.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.1...atomium-v1.16.0) (2024-05-13)
 
+
+### Features
+
+* **carousel:** add new carousel component ([#434](https://github.com/juntossomosmais/atomium/issues/434)) ([e246629](https://github.com/juntossomosmais/atomium/commit/e2466291c079b8b9572820e1f228bd0fabf06c0f))
+
+**Breaking changes**
+
+- **old carousel** component was renamed to `deprecated-carousel` ([#434](https://github.com/juntossomosmais/atomium/issues/434))
 
 ### Bug Fixes
+
+## [1.15.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.0...atomium-v1.15.1) (2024-05-06)
 
 * **button:** don't emit submit event in older browsers (webkit) ([#431](https://github.com/juntossomosmais/atomium/issues/431)) ([cdda9ae](https://github.com/juntossomosmais/atomium/commit/cdda9aee9df928a6b27914283fe25351ff827c49))
 
