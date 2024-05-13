@@ -7,21 +7,21 @@
     >
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-primary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 1
         </div>
       </atom-carousel-item>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-secondary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 2
         </div>
       </atom-carousel-item>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-contextual-success-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-contextual-success-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 3
         </div>
@@ -31,14 +31,14 @@
     <atom-carousel id="carousel" thumbnails>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-primary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 1
         </div>
       </atom-carousel-item>
       <atom-carousel-item>
         <div
-          style="background-color: var(--color-brand-secondary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center"
+          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
         >
           Example 2
         </div>
@@ -53,5 +53,5 @@
         'https://via.placeholder.com/50',
       ]
     </script>
-  `};Default.parameters={...Default.parameters,docs:{...Default.parameters?.docs,source:{originalSource:"{\n  render: args => createCarousel(args),\n  args: {\n    ...CarouselComponentArgs\n  }\n}",...Default.parameters?.docs?.source}}},Loop.parameters={...Loop.parameters,docs:{...Loop.parameters?.docs,source:{originalSource:"{\n  render: args => createCarousel(args),\n  args: {\n    ...CarouselComponentArgs,\n    loop: true\n  }\n}",...Loop.parameters?.docs?.source}}},Autoplay.parameters={...Autoplay.parameters,docs:{...Autoplay.parameters?.docs,source:{originalSource:"{\n  render: args => createCarousel(args),\n  args: {\n    ...CarouselComponentArgs,\n    autoplay: 3000\n  }\n}",...Autoplay.parameters?.docs?.source}}},Thumbnails.parameters={...Thumbnails.parameters,docs:{...Thumbnails.parameters?.docs,source:{originalSource:"{\n  render: () => html`\n    <atom-carousel id=\"carousel\" thumbnails>\n      <atom-carousel-item>\n        <div\n          style=\"background-color: var(--color-brand-primary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center\"\n        >\n          Example 1\n        </div>\n      </atom-carousel-item>\n      <atom-carousel-item>\n        <div\n          style=\"background-color: var(--color-brand-secondary-regular); color: #fff; height: 300px; display: flex; align-items: center; justify-content: center\"\n        >\n          Example 2\n        </div>\n      </atom-carousel-item>\n    </atom-carousel>\n\n    <script>\n      const carousel = document.getElementById('carousel')\n\n      carousel.thumbnails = [\n        'https://via.placeholder.com/50',\n        'https://via.placeholder.com/50',\n      ]\n    <\/script>\n  `\n}",...Thumbnails.parameters?.docs?.source}}};const __namedExportsOrder=["Default","Loop","Autoplay","Thumbnails"]},"../../utils/storybook/enums/table.ts":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.d(__webpack_exports__,{b:()=>Category});let Category=function(Category){return Category.CSS_CUSTOM_PROPERTIES="CSS Custom Properties",Category.EVENTS="Events",Category.METHODS="Methods",Category.PROPERTIES="Properties",Category.SLOTS="Slots",Category}({})}}]);
-//# sourceMappingURL=components-carousel-stories-carousel-core-stories.df0e22f5.iframe.bundle.js.map
+  `};Default.parameters={...Default.parameters,docs:{...Default.parameters?.docs,source:{originalSource:"{\n  render: args => createCarousel(args),\n  args: {\n    ...CarouselComponentArgs\n  }\n}",...Default.parameters?.docs?.source}}},Loop.parameters={...Loop.parameters,docs:{...Loop.parameters?.docs,source:{originalSource:"{\n  render: args => createCarousel(args),\n  args: {\n    ...CarouselComponentArgs,\n    loop: true\n  }\n}",...Loop.parameters?.docs?.source}}},Autoplay.parameters={...Autoplay.parameters,docs:{...Autoplay.parameters?.docs,source:{originalSource:"{\n  render: args => createCarousel(args),\n  args: {\n    ...CarouselComponentArgs,\n    autoplay: 3000\n  }\n}",...Autoplay.parameters?.docs?.source}}},Thumbnails.parameters={...Thumbnails.parameters,docs:{...Thumbnails.parameters?.docs,source:{originalSource:"{\n  render: () => html`\n    <atom-carousel id=\"carousel\" thumbnails>\n      <atom-carousel-item>\n        <div\n          style=\"background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center\"\n        >\n          Example 1\n        </div>\n      </atom-carousel-item>\n      <atom-carousel-item>\n        <div\n          style=\"background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center\"\n        >\n          Example 2\n        </div>\n      </atom-carousel-item>\n    </atom-carousel>\n\n    <script>\n      const carousel = document.getElementById('carousel')\n\n      carousel.thumbnails = [\n        'https://via.placeholder.com/50',\n        'https://via.placeholder.com/50',\n      ]\n    <\/script>\n  `\n}",...Thumbnails.parameters?.docs?.source}}};const __namedExportsOrder=["Default","Loop","Autoplay","Thumbnails"]},"../../utils/storybook/enums/table.ts":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.d(__webpack_exports__,{b:()=>Category});let Category=function(Category){return Category.CSS_CUSTOM_PROPERTIES="CSS Custom Properties",Category.EVENTS="Events",Category.METHODS="Methods",Category.PROPERTIES="Properties",Category.SLOTS="Slots",Category}({})}}]);
+//# sourceMappingURL=components-carousel-stories-carousel-core-stories.3292be66.iframe.bundle.js.map
