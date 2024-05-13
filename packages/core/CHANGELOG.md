@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.1...atomium-v1.16.0) (2024-05-13)
+
+
+### Features
+
+* **carousel:** add new carousel component ([#434](https://github.com/juntossomosmais/atomium/issues/434)) ([e246629](https://github.com/juntossomosmais/atomium/commit/e2466291c079b8b9572820e1f228bd0fabf06c0f))
+
 ## [1.15.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.0...atomium-v1.15.1) (2024-05-06)
 
 
