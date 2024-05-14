@@ -2,8 +2,39 @@
   "name": "@juntossomosmais/atomium-vue",
   "description": "Vue transpiled for Atomium",
   "private": true,
-  "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/types/index.d.ts"
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "start": "tsc -p . --watch",
+    "build": "nx build @juntossomosmais/atomium && npm run compile && npm run copy",
+    "compile": "tsc --outDir ../core/vue/dist --declarationDir ../core/vue/dist/types",
+    "copy": "npx copyfiles --flat ./package.json ../core/vue"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium"
+            ],
+            "target": "build"
+          }
+        ]
+      },
+      "start": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium"
+            ],
+            "target": "build"
+          }
+        ]
+      }
+    }
+  }
 }
