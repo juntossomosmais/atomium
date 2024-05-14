@@ -312,4 +312,6 @@ export const InputComponentArgs = {
   clearInput: false,
   readonly: false,
   passwordToggle: false,
+  value: '',
+  helperText: '',
 }

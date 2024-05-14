@@ -271,5 +271,7 @@ export const TextareaComponentArgs = {
   mode: 'md',
   disabled: false,
   readonly: false,
-  autoGrow: false,
+  value: '',
+  helperText: '',
+  icon: '',
 }
