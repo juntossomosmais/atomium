@@ -2,6 +2,8 @@ import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
+import './carousel.css'
+
 import { CarouselComponentArgs, CarouselStoryArgs } from './carousel.args'
 
 export default {
@@ -17,47 +19,14 @@ const createCarousel = (args) => (
     hasNavigation={args.hasNavigation}
     hasPagination={args.hasPagination}
   >
-    <AtomCarouselItem>
-      <div
-        style={{
-          backgroundColor: 'var(--color-brand-primary-regular)',
-          color: 'var(--color-neutral-white)',
-          height: '300px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        Example 1
-      </div>
+    <AtomCarouselItem className='slide'>
+      <div>Example 1</div>
     </AtomCarouselItem>
-    <AtomCarouselItem>
-      <div
-        style={{
-          backgroundColor: 'var(--color-brand-secondary-regular)',
-          color: 'var(--color-neutral-white)',
-          height: '300px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        Example 2
-      </div>
+    <AtomCarouselItem className='slide'>
+      <div>Example 2</div>
     </AtomCarouselItem>
-    <AtomCarouselItem>
-      <div
-        style={{
-          backgroundColor: 'var(--color-contextual-success-regular)',
-          color: 'var(--color-neutral-white)',
-          height: '300px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        Example 3
-      </div>
+    <AtomCarouselItem className='slide'>
+      <div>Example 3</div>
     </AtomCarouselItem>
   </AtomCarousel>
 )
@@ -93,33 +62,11 @@ export const Thumbnails = () => {
 
   return (
     <AtomCarousel thumbnails={thumbnails}>
-      <AtomCarouselItem>
-        <div
-          style={{
-            backgroundColor: 'var(--color-brand-primary-regular)',
-            color: 'var(--color-neutral-white)',
-            height: '300px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          Example 1
-        </div>
+      <AtomCarouselItem className='slide'>
+        <div>Example 1</div>
       </AtomCarouselItem>
-      <AtomCarouselItem>
-        <div
-          style={{
-            backgroundColor: 'var(--color-brand-secondary-regular)',
-            color: 'var(--color-neutral-white)',
-            height: '300px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          Example 2
-        </div>
+      <AtomCarouselItem className='slide'>
+        <div>Example 2</div>
       </AtomCarouselItem>
     </AtomCarousel>
   )
