@@ -163,4 +163,8 @@ export const SelectComponentArgs = {
   placeholder: 'Select an option',
   mode: 'md',
   fill: 'solid',
+  value: '',
+  icon: '',
+  helperText: '',
+  errorText: '',
 }

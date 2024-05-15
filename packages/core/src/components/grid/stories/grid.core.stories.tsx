@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
-import { GridCSS, GridStoryArgs } from './grid.args'
+import { GridStoryArgs } from './grid.args'
+
+import './grid.css'
 
 export default {
   title: 'Components/Grid',
@@ -34,10 +35,6 @@ export const Default: StoryObj = {
         <div>size=8 & size-md=6</div>
       </atom-col>
     </atom-grid>
-
-    <style>
-      ${GridCSS}
-    </style>
   `,
 }
 
@@ -63,10 +60,6 @@ export const AutoSize: StoryObj = {
         <div>size=auto</div>
       </atom-col>
     </atom-grid>
-
-    <style>
-      ${GridCSS}
-    </style>
   `,
 }
 
@@ -94,10 +87,6 @@ export const Offset: StoryObj = {
         <div>2</div>
       </atom-col>
     </atom-grid>
-
-    <style>
-      ${GridCSS}
-    </style>
   `,
 }
 
@@ -119,9 +108,5 @@ export const PushAndPull: StoryObj = {
         <div>3</div>
       </atom-col>
     </atom-grid>
-
-    <style>
-      ${GridCSS}
-    </style>
   `,
 }

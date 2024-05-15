@@ -1,6 +1,6 @@
+import { Category } from '@atomium/storybook-utils/enums/table'
 import { withActions } from '@storybook/addon-actions/decorator'
 
-import { Category } from '@atomium/storybook-utils/enums/table'
 
 export const GridStoryArgs = {
   decorators: [withActions],
@@ -59,16 +59,3 @@ export const GridStoryArgs = {
     },
   },
 }
-
-export const GridCSS = `
-  .col > div {
-    box-shadow:
-      0px 2px 1px -1px var(--color-neutral-light-3),
-      0px 1px 2px 0px var(--color-neutral-light-4),
-      0px 1px 3px 0px var(--color-neutral-light-4);
-    border-radius: var(--border-radius);
-    color: var(--color-neutral-light-2);
-    padding: var(--spacing-xsmall);
-    text-align: center;
-  }
-`

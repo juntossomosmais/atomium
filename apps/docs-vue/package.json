@@ -1,0 +1,22 @@
+{
+  "name": "@atomium/docs-vue",
+  "private": true,
+  "scripts": {
+    "start": "storybook dev -p 8006 --no-open",
+    "build": "storybook build -o ../docs/storybook-static/vue"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          {
+            "projects": [
+              "@juntossomosmais/atomium-vue"
+            ],
+            "target": "build"
+          }
+        ]
+      }
+    }
+  }
+}

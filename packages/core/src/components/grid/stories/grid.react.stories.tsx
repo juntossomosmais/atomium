@@ -1,9 +1,11 @@
+import { AtomCol, AtomGrid } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
-import { AtomCol, AtomGrid } from '@juntossomosmais/atomium/react'
 
-import { GridCSS, GridStoryArgs } from './grid.args'
+import { GridStoryArgs } from './grid.args'
+
+import './grid.css'
 
 export default {
   title: 'Components/Grid',
@@ -37,8 +39,6 @@ export const Default: StoryObj = {
           <div>size=8 & sizeMd=6</div>
         </AtomCol>
       </AtomGrid>
-
-      <style>{GridCSS}</style>
     </div>
   ),
 }
@@ -66,8 +66,6 @@ export const AutoSize: StoryObj = {
           <div>size=auto</div>
         </AtomCol>
       </AtomGrid>
-
-      <style>{GridCSS}</style>
     </div>
   ),
 }
@@ -101,8 +99,6 @@ export const Offset: StoryObj = {
           <div>2</div>
         </AtomCol>
       </AtomGrid>
-
-      <style>{GridCSS}</style>
     </div>
   ),
 }
@@ -126,8 +122,6 @@ export const PushAndPull: StoryObj = {
           <div>3</div>
         </AtomCol>
       </AtomGrid>
-
-      <style>{GridCSS}</style>
     </div>
   ),
 }

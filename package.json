@@ -15,9 +15,10 @@
     "utils/*"
   ],
   "scripts": {
-    "build": "nx build @juntossomosmais/atomium && nx build @juntossomosmais/atomium-react",
-    "docs:build": "nx build @atomium/docs && nx build @atomium/docs-react",
+    "build": "nx build @juntossomosmais/atomium && nx build @juntossomosmais/atomium-react && nx build @juntossomosmais/atomium-vue",
+    "docs:build": "nx build @atomium/docs && nx build @atomium/docs-react && nx build @atomium/docs-vue",
     "docs-react:start": "nx run @atomium/docs-react:start",
+    "docs-vue:start": "nx run @atomium/docs-vue:start",
     "icons:build": "nx build @juntossomosmais/atomium-icons",
     "postinstall": "nx run @juntossomosmais/atomium:prebuild",
     "pre-commit": "git rev-parse -q --no-revs --verify MERGE_HEAD || lint-staged",
@@ -55,6 +56,9 @@
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/theming": "^7.6.17",
+    "@storybook/vue3": "^7.6.6",
+    "@storybook/vue3-vite": "^7.6.6",
+    "@vitejs/plugin-vue": "^4.0.0",
     "@storybook/web-components": "^7.6.17",
     "@storybook/web-components-webpack5": "^7.6.17",
     "@testing-library/jest-dom": "^6.4.4",
@@ -100,6 +104,7 @@
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",
+    "vite": "^4.1.4",
     "vue": "^3.4.26"
   },
   "lint-staged": {

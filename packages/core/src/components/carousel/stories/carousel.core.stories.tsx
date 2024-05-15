@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
+import './carousel.css'
+
 import { CarouselComponentArgs, CarouselStoryArgs } from './carousel.args'
 
 export default {
@@ -16,26 +18,14 @@ const createCarousel = (args) => {
       has-navigation=${args.hasNavigation}
       has-pagination=${args.hasPagination}
     >
-      <atom-carousel-item>
-        <div
-          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
-        >
-          Example 1
-        </div>
+      <atom-carousel-item class="slide">
+        <div>Example 1</div>
       </atom-carousel-item>
-      <atom-carousel-item>
-        <div
-          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
-        >
-          Example 2
-        </div>
+      <atom-carousel-item class="slide">
+        <div>Example 2</div>
       </atom-carousel-item>
-      <atom-carousel-item>
-        <div
-          style="background-color: var(--color-contextual-success-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
-        >
-          Example 3
-        </div>
+      <atom-carousel-item class="slide">
+        <div>Example 3</div>
       </atom-carousel-item>
     </atom-carousel>
   `
@@ -67,19 +57,11 @@ export const Autoplay: StoryObj = {
 export const Thumbnails: StoryObj = {
   render: () => html`
     <atom-carousel id="carousel" thumbnails>
-      <atom-carousel-item>
-        <div
-          style="background-color: var(--color-brand-primary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
-        >
-          Example 1
-        </div>
+      <atom-carousel-item class="slide">
+        <div>Example 1</div>
       </atom-carousel-item>
-      <atom-carousel-item>
-        <div
-          style="background-color: var(--color-brand-secondary-regular); color: var(--color-neutral-white); height: 300px; display: flex; align-items: center; justify-content: center"
-        >
-          Example 2
-        </div>
+      <atom-carousel-item class="slide">
+        <div>Example 2</div>
       </atom-carousel-item>
     </atom-carousel>
 
