@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.16.0...atomium-v2.0.0) (2024-05-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **vue:** add vue transpiler 🚀  ([#436](https://github.com/juntossomosmais/atomium/issues/436))
+
+### Features
+
+* **vue:** add vue transpiler 🚀  ([#436](https://github.com/juntossomosmais/atomium/issues/436)) ([1ff216a](https://github.com/juntossomosmais/atomium/commit/1ff216a1a040fa676de9625749841fbb23b42488))
+
 ## [1.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.1...atomium-v1.16.0) (2024-05-13)
 
 
