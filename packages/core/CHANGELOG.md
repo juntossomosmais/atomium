@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.0...atomium-v2.0.1) (2024-05-15)
+
+
+### Bug Fixes
+
+* add atomium-vue as dependson of publish-library ([95cd4d8](https://github.com/juntossomosmais/atomium/commit/95cd4d8054c975a57a9b29791c14d1081bd13ade))
+
 ## [2.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.16.0...atomium-v2.0.0) (2024-05-15)
 
 
