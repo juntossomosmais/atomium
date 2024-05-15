@@ -60,7 +60,8 @@
           "build",
           {
             "projects": [
-              "@juntossomosmais/atomium-react"
+              "@juntossomosmais/atomium-react",
+              "@juntossomosmais/atomium-vue"
             ],
             "target": "build"
           }
