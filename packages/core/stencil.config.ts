@@ -7,7 +7,7 @@ import { vueOutputTarget } from '@stencil/vue-output-target'
 import { reactBooleanFixOutputTarget } from './output-target/react-boolean'
 
 // Since Ionic components are imported in `global.ts`
-// we need to exclude them here to avoid unnecessary imports in the React output module
+// we need to exclude them here to avoid unnecessary imports in the React and Vue output module
 const excludeComponents = [
   'ion-accordion',
   'ion-accordion-group',
