@@ -10,11 +10,27 @@ This is the Vue transpiled implementation of the Atomium design system to be use
 npm i @juntossomosmais/atomium
 ```
 
+And import `loader` in your `main.js` file
+
+```js
+import { ComponentLibrary } from '@juntossomosmais/atomium/vue'
+
+import '@juntossomosmais/atomium/core.css'
+
+ComponentLibrary.install()
+```
+
+Or import as a plugin in your Vue instance
+
+```js
+import { ComponentLibrary } from '@juntossomosmais/atomium/vue'
+
+Vue.use(ComponentLibrary)
+```
+
 ### Basic Usage
 
 ```jsx
-import '@juntossomosmais/atomium/core.css'
-
 import { AtomButton } from '@juntossomosmais/atomium/vue'
 
 <AtomButton>Click me</AtomButton>
