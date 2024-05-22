@@ -65,3 +65,11 @@ export const Danger: StoryObj = {
     icon: 'account-multiple',
   },
 }
+
+export const Close: StoryObj = {
+  render: (args) => createAlert(args),
+  args: {
+    ...AlertComponentArgs,
+    close: true,
+  },
+}
