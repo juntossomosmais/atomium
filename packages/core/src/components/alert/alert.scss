@@ -18,6 +18,10 @@
     padding-right: var(--close-size);
   }
 
+  &.is-closed {
+    display: none;
+  }
+
   @include above(medium) {
     display: flex;
     flex-wrap: wrap;
