@@ -44,7 +44,7 @@ export class AtomAlert {
         role='alert'
         aria-live='assertive'
         aria-atomic='true'
-        aria-hidden={!this.isAlertOpen}
+        aria-hidden={!this.isAlertOpen && 'true'}
         class={{
           'is-close': !this.isAlertOpen,
         }}
