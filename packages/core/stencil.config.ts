@@ -123,8 +123,8 @@ export const config: Config = {
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../vue/src/components/index.ts',
-      includeDefineCustomElements: true,
-      includePolyfills: true,
+      includeDefineCustomElements: false,
+      includePolyfills: false,
       excludeComponents,
     }),
     reactOutputTarget({

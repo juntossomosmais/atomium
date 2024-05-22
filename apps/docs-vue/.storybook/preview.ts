@@ -6,6 +6,10 @@ import '@atomium/storybook-utils/preview.css'
 import '@juntossomosmais/atomium-tokens/tokens.css'
 import '@juntossomosmais/atomium/dist/core/core.css'
 
+import { ComponentLibrary } from '@juntossomosmais/atomium/vue'
+
+ComponentLibrary.install()
+
 const preview = {
   parameters: {
     viewport: {

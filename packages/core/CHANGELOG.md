@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.1...atomium-v2.0.2) (2024-05-22)
+
+
+### Bug Fixes
+
+* **vue:** fix problems to emit events in vue wrappers ([#440](https://github.com/juntossomosmais/atomium/issues/440)) ([26a02af](https://github.com/juntossomosmais/atomium/commit/26a02af9aa9478ac381127e1aa992264c7029a96))
+
 ## [2.0.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.0...atomium-v2.0.1) (2024-05-15)
 
 

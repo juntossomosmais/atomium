@@ -1,6 +1,6 @@
+import { Category } from '@atomium/storybook-utils/enums/table'
 import { withActions } from '@storybook/addon-actions/decorator'
 
-import { Category } from '@atomium/storybook-utils/enums/table'
 
 export const InputStoryArgs = {
   parameters: {
@@ -11,7 +11,16 @@ export const InputStoryArgs = {
       },
     },
     actions: {
-      handles: ['atomChange', 'atomFocus', 'atomBlur', 'atomInput'],
+      handles: [
+        'atomChange',
+        'atomFocus',
+        'atomBlur',
+        'atomInput',
+        'atom-change',
+        'atom-focus',
+        'atom-blur',
+        'atom-input',
+      ],
     },
   },
   decorators: [withActions],

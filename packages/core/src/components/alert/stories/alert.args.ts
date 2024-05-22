@@ -1,12 +1,12 @@
+import { Category } from '@atomium/storybook-utils/enums/table'
 import { withActions } from '@storybook/addon-actions/decorator'
 
-import { Category } from '@atomium/storybook-utils/enums/table'
 
 export const AlertStoryArgs = {
   decorators: [withActions],
   parameters: {
     actions: {
-      handles: ['atomClose', 'atomAction'],
+      handles: ['atomClose', 'atomAction', 'atom-close', 'atom-action'],
     },
     docs: {
       description: {
@@ -80,7 +80,7 @@ export const AlertStoryArgs = {
 
 export const AlertComponentArgs = {
   color: 'neutral',
-  close: true,
+  close: false,
   messageTitle: 'Title example of alert',
   messageText: 'Nice message example',
   actionText: 'Action example',
