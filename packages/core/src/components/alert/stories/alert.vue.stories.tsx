@@ -16,18 +16,27 @@ const createAlert = (args) => ({
   },
   template: `
     <AtomAlert
-      messageTitle="${args.messageTitle}"
-      messageText="${args.messageText}"
+      message-title="${args.messageTitle}"
+      message-text="${args.messageText}"
       color="${args.color}"
+      close="${args.close}"
       icon="${args.icon}"
+      action-text="${args.actionText}"
+      @atom-action="handleAction"
     />
     `,
+  methods: {
+    handleAction() {
+      console.log('Action clicked')
+    },
+  },
 })
 
 export const Default: StoryObj = {
   render: (args) => createAlert(args),
   args: {
     ...AlertComponentArgs,
+    icon: '',
   },
 }
 
@@ -64,5 +73,14 @@ export const Danger: StoryObj = {
     ...AlertComponentArgs,
     color: 'danger',
     icon: 'account-multiple',
+  },
+}
+
+export const Close: StoryObj = {
+  render: (args) => createAlert(args),
+  args: {
+    ...AlertComponentArgs,
+    close: true,
+    icon: '',
   },
 }
