@@ -9,6 +9,18 @@ $screen-fhd: 1920px; // Full HD resolution
 $screen-2k: 2048px; // 2K resolution
 $screen-4k: 3840px; // 4K resolution
 
+$screens-alias: (
+  'xsmall': 'xs',
+  'small': 'sm',
+  'medium': 'md',
+  'large': 'lg',
+  'xlarge': 'xlg',
+  'xxlarge': 'fhd',
+  'xxxlarge': 'xxxlarge',
+  'desktop2k': '2k',
+  'desktop4k': '4k',
+);
+
 $rupture: map-merge(
   $rupture,
   (
