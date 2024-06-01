@@ -60,7 +60,7 @@
     "@storybook/vue3-vite": "^7.6.6",
     "@vitejs/plugin-vue": "^4.0.0",
     "@storybook/web-components": "^7.6.17",
-    "@storybook/web-components-webpack5": "^7.6.17",
+    "@storybook/web-components-webpack5": "^8.1.5",
     "@testing-library/jest-dom": "^6.4.4",
     "@types/jest": "^27.0.3",
     "@types/node": "^20.12.8",
