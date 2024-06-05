@@ -1,7 +1,6 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
 import { withActions } from '@storybook/addon-actions/decorator'
 
-
 export const GridStoryArgs = {
   decorators: [withActions],
   parameters: {
@@ -53,6 +52,56 @@ export const GridStoryArgs = {
       description:
         'Defines the space between the elements in a row of the Grid system. For screens below `medium` size, the gap value will be `var(--spacing-xsmall)`.',
       defaultValue: { summary: 'var(--spacing-base)' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding': {
+      description:
+        'Define padding on the grid can be set for all breakpoints and default for xs screens.',
+      defaultValue: { summary: '0' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding-sm': {
+      description: 'Define padding on small screens.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding-md': {
+      description: 'Define padding on medium screens.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding-lg': {
+      description: 'Define padding on large screens.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding-xlg': {
+      description: 'Define padding on xlarge screens.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding-fhd': {
+      description: 'Define padding on full hd screens.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding-2k': {
+      description: 'Define padding on 2K screens.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-grid-padding-4k': {
+      description: 'Define padding on 4K screens.',
       table: {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
