@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.2...atomium-v2.1.0) (2024-06-05)
+
+
+### Features
+
+* **alert:** add self contained close on alert ([#441](https://github.com/juntossomosmais/atomium/issues/441)) ([8cc3f61](https://github.com/juntossomosmais/atomium/commit/8cc3f6162c9eedab51e51e499becbc32d04895de))
+* **grid:** add possibility to define padding ([#446](https://github.com/juntossomosmais/atomium/issues/446)) ([c7cfb6a](https://github.com/juntossomosmais/atomium/commit/c7cfb6a7bcb5bbd7794f347fc59e1b2e4fa49515))
+
 ## [2.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.1...atomium-v2.0.2) (2024-05-22)
 
 
