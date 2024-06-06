@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.1.0...atomium-v2.2.0) (2024-06-06)
+
+
+### Features
+
+* add custom dollar circle ([#459](https://github.com/juntossomosmais/atomium/issues/459)) ([3d53c4f](https://github.com/juntossomosmais/atomium/commit/3d53c4f2fe050798b04c698a55a3c7e9ddc0e35d))
+
 ## [2.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.2...atomium-v2.1.0) (2024-06-05)
 
 
