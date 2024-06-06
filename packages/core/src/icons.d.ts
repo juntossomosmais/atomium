@@ -1,5 +1,6 @@
 export type IconProps =
   | 'cash-back'
+  | 'dollar-circle'
   | 'jsm-outline'
   | 'jsm'
   | 'leader-board'
