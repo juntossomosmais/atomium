@@ -164,6 +164,11 @@ export namespace Components {
         "type": TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
+    interface AtomListSlider {
+        "hasNavigation": boolean;
+    }
+    interface AtomListSliderItem {
+    }
     interface AtomSelect {
         "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
@@ -414,6 +419,18 @@ declare global {
         prototype: HTMLAtomInputElement;
         new (): HTMLAtomInputElement;
     };
+    interface HTMLAtomListSliderElement extends Components.AtomListSlider, HTMLStencilElement {
+    }
+    var HTMLAtomListSliderElement: {
+        prototype: HTMLAtomListSliderElement;
+        new (): HTMLAtomListSliderElement;
+    };
+    interface HTMLAtomListSliderItemElement extends Components.AtomListSliderItem, HTMLStencilElement {
+    }
+    var HTMLAtomListSliderItemElement: {
+        prototype: HTMLAtomListSliderItemElement;
+        new (): HTMLAtomListSliderItemElement;
+    };
     interface HTMLAtomSelectElementEventMap {
         "atomBlur": void;
         "atomCancel": void;
@@ -475,6 +492,8 @@ declare global {
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
+        "atom-list-slider": HTMLAtomListSliderElement;
+        "atom-list-slider-item": HTMLAtomListSliderItemElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-tag": HTMLAtomTagElement;
         "atom-textarea": HTMLAtomTextareaElement;
@@ -639,6 +658,11 @@ declare namespace LocalJSX {
         "type"?: TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
+    interface AtomListSlider {
+        "hasNavigation"?: boolean;
+    }
+    interface AtomListSliderItem {
+    }
     interface AtomSelect {
         "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
@@ -740,6 +764,8 @@ declare namespace LocalJSX {
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
+        "atom-list-slider": AtomListSlider;
+        "atom-list-slider-item": AtomListSliderItem;
         "atom-select": AtomSelect;
         "atom-tag": AtomTag;
         "atom-textarea": AtomTextarea;
@@ -762,6 +788,8 @@ declare module "@stencil/core" {
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
+            "atom-list-slider": LocalJSX.AtomListSlider & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
+            "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
