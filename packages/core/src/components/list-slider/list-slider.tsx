@@ -1,4 +1,4 @@
-import { Component, Element, Host, State, h } from '@stencil/core'
+import { Component, Element, Host, Prop, State, h } from '@stencil/core'
 
 import { debounce } from '../../utils/debounce'
 
@@ -8,6 +8,8 @@ import { debounce } from '../../utils/debounce'
   shadow: true,
 })
 export class AtomListSlider {
+  @Prop({ mutable: true }) hasNavigation = true
+
   @State() currentIdx: number = 0
 
   @Element() element: HTMLElement
@@ -135,6 +137,8 @@ export class AtomListSlider {
   }
 
   updateSliderPosition() {
+    if (!this.sliderItems || !this.sliderWrapper) return
+
     const totalWidth = Array.from(this.sliderItems).reduce(
       (total, item, index) => {
         let itemTotal = total + item.offsetWidth
@@ -187,28 +191,34 @@ export class AtomListSlider {
     return (
       <Host>
         <div class='atom-list-slider' role='region' aria-label='Carousel'>
-          <button
-            class='navigation navigation--prev'
-            role='button'
-            aria-label='Previous'
-            aria-disabled='true'
-            onClick={(event) => this.handleNavigationClick(event)}
-          >
-            <atom-icon icon='chevron-left'></atom-icon>
-          </button>
+          {this.hasNavigation && (
+            <button
+              class='navigation navigation--prev'
+              role='button'
+              aria-label='Previous'
+              aria-disabled='true'
+              onClick={(event) => this.handleNavigationClick(event)}
+            >
+              <atom-icon icon='chevron-left'></atom-icon>
+            </button>
+          )}
+
           <div class='sliders' aria-live='polite'>
             <div class='wrapper' role='list'>
               <slot />
             </div>
           </div>
-          <button
-            class='navigation navigation--next'
-            role='button'
-            aria-label='Next'
-            onClick={(event) => this.handleNavigationClick(event)}
-          >
-            <atom-icon icon='chevron-right'></atom-icon>
-          </button>
+
+          {this.hasNavigation && (
+            <button
+              class='navigation navigation--next'
+              role='button'
+              aria-label='Next'
+              onClick={(event) => this.handleNavigationClick(event)}
+            >
+              <atom-icon icon='chevron-right'></atom-icon>
+            </button>
+          )}
         </div>
       </Host>
     )
