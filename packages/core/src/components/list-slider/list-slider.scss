@@ -2,13 +2,13 @@
 
 :host {
   --button-navigation-size: var(--spacing-xxxxlarge);
-  --slider-list-height: var(--spacing-xxxxlarge);
+  --slider-height: var(--spacing-xxxxlarge);
   --slider-gap: var(--spacing-base);
   display: block;
 }
 
 .atom-slider-list {
-  min-height: var(--slider-list-height);
+  min-height: var(--slider-height);
   position: relative;
 }
 
@@ -58,31 +58,8 @@
     background: var(--color-brand-secondary-light-1);
   }
 
-  &.disabled {
+  &[aria-disabled='true'] {
     opacity: 0;
     visibility: hidden;
-  }
-}
-
-.pagination {
-  display: flex;
-  gap: var(--spacing-xsmall);
-  justify-content: center;
-  margin-top: var(--spacing-base);
-
-  &-bullets {
-    $pagination-size: var(--spacing-xsmall);
-    background-color: var(--color-neutral-light-3);
-    border-radius: var(--border-radius-full);
-    display: inline-block;
-    height: $pagination-size;
-    text-indent: -9999px;
-    transition-property: background-color;
-    width: $pagination-size;
-    will-change: background-color;
-
-    &.active {
-      background-color: var(--color-brand-secondary-regular);
-    }
   }
 }

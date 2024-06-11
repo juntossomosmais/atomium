@@ -1,6 +1,6 @@
-import { Component, Element, Host, Prop, State, h } from '@stencil/core'
+import { Component, Element, Host, State, h } from '@stencil/core'
 
-import { debounce } from '../../utils/debouce'
+import { debounce } from '../../utils/debounce'
 
 @Component({
   tag: 'atom-list-slider',
@@ -8,8 +8,6 @@ import { debounce } from '../../utils/debouce'
   shadow: true,
 })
 export class AtomListSlider {
-  @Prop() hasNavigation = true
-
   @State() currentIdx: number = 0
 
   @Element() element: HTMLElement
@@ -19,9 +17,25 @@ export class AtomListSlider {
   touchEndX = 0
   sliderGapValue = 0
   viewportWidth = 0
+  maxTranslateX = 0
+
+  sliderWrapper: HTMLElement
+  sliderItems: NodeListOf<HTMLElement>
+  nextButton: HTMLButtonElement
+  prevButton: HTMLButtonElement
 
   get currentIndex() {
     return this.currentIdx
+  }
+
+  get currentTranslateX() {
+    const translateX = this.sliderWrapper.style.transform
+
+    if (!translateX) return 0
+
+    const translateXValue = parseInt(translateX.replace('translateX(', ''))
+
+    return translateXValue === 0 ? 0 : -translateXValue
   }
 
   set currentIndex(value: number) {
@@ -32,14 +46,9 @@ export class AtomListSlider {
     this.updateSliderPosition()
   }
 
-  sliderWrapper: HTMLElement
-  sliderItems: NodeListOf<HTMLElement>
-  nextButton: HTMLButtonElement
-  prevButton: HTMLButtonElement
-
   componentDidLoad() {
-    this.sliderWrapper = this.element.shadowRoot.querySelector('.wrapper')
     this.sliderItems = this.element.querySelectorAll('atom-list-slider-item')
+    this.sliderWrapper = this.element.shadowRoot.querySelector('.wrapper')
     this.viewportWidth = this.sliderWrapper.offsetWidth
 
     this.nextButton = this.element.shadowRoot.querySelector('.navigation--next')
@@ -54,19 +63,24 @@ export class AtomListSlider {
 
     this.sliderGapValue = parseFloat(sliderGap)
 
-    this.showOrHideNavigationButtons()
     this.handleOnResize()
+    window.addEventListener('resize', this.handleOnResize)
   }
 
   disconnectedCallback() {
     this.sliderWrapper.removeEventListener('touchstart', this.handleTouchStart)
     this.sliderWrapper.removeEventListener('touchend', this.handleTouchEnd)
+    window.removeEventListener('resize', this.handleOnResize)
   }
 
   handleOnResize() {
+    if (!this.sliderWrapper) return
+
     const debouncedUpdateSliderPosition = debounce(() => {
       this.viewportWidth = this.sliderWrapper.offsetWidth
-      this.currentIndex = this.currentIdx
+      this.currentIdx = 0
+      this.sliderWrapper.style.transform = `translateX(0)`
+      this.showOrHideNavigationButtons()
     }, 250)
 
     const resizeObserver = new ResizeObserver(debouncedUpdateSliderPosition)
@@ -90,30 +104,7 @@ export class AtomListSlider {
     this.showOrHideNavigationButtons()
   }
 
-  showOrHideNavigationButtons() {
-    if (!this.nextButton || !this.prevButton) return
-
-    let totalWidth = 0
-
-    for (let i = 0; i <= this.currentIndex; i++) {
-      totalWidth += this.sliderItems[i].offsetWidth
-    }
-
-    this.nextButton.classList.toggle(
-      'disabled',
-      totalWidth >= this.viewportWidth
-    )
-
-    this.prevButton.classList.toggle('disabled', this.currentIndex === 0)
-  }
-
-  updateSliderPosition() {
-    const itemWidths = Array.from(this.sliderItems).map(
-      (item) => item.offsetWidth
-    )
-
-    this.itemWidth = itemWidths.reduce((a, b) => a + b, 0) / itemWidths.length
-
+  handleMaxTranslateX() {
     let totalWidth = 0
 
     Array.from(this.sliderItems).forEach((item, index) => {
@@ -123,20 +114,54 @@ export class AtomListSlider {
       }
     })
 
-    // Calculate the total width of all items before the current one
-    let totalPrevWidth = 0
+    this.maxTranslateX = totalWidth - this.viewportWidth
+  }
 
-    for (let i = 0; i < this.currentIdx; i++) {
-      totalPrevWidth += this.sliderItems[i].offsetWidth
-      if (i !== this.currentIdx - 1) {
-        totalPrevWidth += this.sliderGapValue
-      }
-    }
+  showOrHideNavigationButtons() {
+    const hasButtons = this.nextButton && this.prevButton
 
-    // Calculate the translateX value
+    if (!hasButtons) return
+
+    this.handleMaxTranslateX()
+
+    this.nextButton.setAttribute(
+      'aria-disabled',
+      String(this.currentTranslateX >= this.maxTranslateX)
+    )
+    this.prevButton.setAttribute(
+      'aria-disabled',
+      String(this.currentTranslateX === 0)
+    )
+  }
+
+  updateSliderPosition() {
+    const totalWidth = Array.from(this.sliderItems).reduce(
+      (total, item, index) => {
+        let itemTotal = total + item.offsetWidth
+
+        if (index !== this.sliderItems.length - 1) {
+          itemTotal += this.sliderGapValue
+        }
+
+        return itemTotal
+      },
+      0
+    )
+
+    const totalPrevWidth = Array.from(this.sliderItems)
+      .slice(0, this.currentIdx)
+      .reduce((total, item, index) => {
+        let itemTotal = total + item.offsetWidth
+
+        if (index !== this.currentIdx - 1) {
+          itemTotal += this.sliderGapValue
+        }
+
+        return itemTotal
+      }, 0)
+
     const translateX = Math.min(totalPrevWidth, totalWidth - this.viewportWidth)
 
-    // Update the slider position
     this.sliderWrapper.style.transform = `translateX(-${translateX}px)`
   }
 
@@ -156,8 +181,6 @@ export class AtomListSlider {
     this.currentIndex = isSwipeLeft
       ? Math.min(this.currentIndex + 1, lastIndex)
       : Math.max(this.currentIndex - 1, 0)
-
-    this.showOrHideNavigationButtons()
   }
 
   render() {
@@ -168,11 +191,12 @@ export class AtomListSlider {
             class='navigation navigation--prev'
             role='button'
             aria-label='Previous'
+            aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
           >
             <atom-icon icon='chevron-left'></atom-icon>
           </button>
-          <div class='sliders'>
+          <div class='sliders' aria-live='polite'>
             <div class='wrapper' role='list'>
               <slot />
             </div>
