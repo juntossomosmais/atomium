@@ -165,6 +165,7 @@ export namespace Components {
         "value"?: IonTypes.IonInput['value'];
     }
     interface AtomListSlider {
+        "hasNavigation": boolean;
     }
     interface AtomListSliderItem {
     }
@@ -658,6 +659,7 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonInput['value'];
     }
     interface AtomListSlider {
+        "hasNavigation"?: boolean;
     }
     interface AtomListSliderItem {
     }
