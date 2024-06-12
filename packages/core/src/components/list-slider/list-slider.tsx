@@ -8,9 +8,11 @@ import { debounce } from '../../utils/debounce'
   shadow: true,
 })
 export class AtomListSlider {
-  @Prop({ mutable: true }) hasNavigation = true
+  @Prop() hasNavigation = true
+  @Prop() centralized: boolean
 
   @State() currentIdx: number = 0
+  @State() currentCentralized = false
 
   @Element() element: HTMLElement
 
@@ -67,6 +69,8 @@ export class AtomListSlider {
 
     this.handleOnResize()
     window.addEventListener('resize', this.handleOnResize)
+
+    this.currentCentralized = this.centralized
   }
 
   disconnectedCallback() {
@@ -79,9 +83,9 @@ export class AtomListSlider {
     if (!this.sliderWrapper) return
 
     const debouncedUpdateSliderPosition = debounce(() => {
-      this.viewportWidth = this.sliderWrapper.offsetWidth
       this.currentIdx = 0
       this.sliderWrapper.style.transform = `translateX(0)`
+      this.handleMaxTranslateX()
       this.showOrHideNavigationButtons()
     }, 250)
 
@@ -109,12 +113,18 @@ export class AtomListSlider {
   handleMaxTranslateX() {
     let totalWidth = 0
 
+    this.viewportWidth = this.sliderWrapper.offsetWidth
+
     Array.from(this.sliderItems).forEach((item, index) => {
       totalWidth += item.offsetWidth
       if (index !== this.sliderItems.length - 1) {
         totalWidth += this.sliderGapValue
       }
     })
+
+    if (this.centralized === true) {
+      this.currentCentralized = totalWidth <= this.viewportWidth
+    }
 
     this.maxTranslateX = totalWidth - this.viewportWidth
   }
@@ -124,15 +134,16 @@ export class AtomListSlider {
 
     if (!hasButtons) return
 
-    this.handleMaxTranslateX()
+    const isAtEnd = this.currentTranslateX >= this.maxTranslateX
+    const isAtStart = this.currentTranslateX === 0
 
     this.nextButton.setAttribute(
       'aria-disabled',
-      String(this.currentTranslateX >= this.maxTranslateX)
+      String(isAtEnd || !this.hasNavigation)
     )
     this.prevButton.setAttribute(
       'aria-disabled',
-      String(this.currentTranslateX === 0)
+      String(isAtStart || !this.hasNavigation)
     )
   }
 
@@ -191,34 +202,36 @@ export class AtomListSlider {
     return (
       <Host>
         <div class='atom-list-slider' role='region' aria-label='Carousel'>
-          {this.hasNavigation && (
-            <button
-              class='navigation navigation--prev'
-              role='button'
-              aria-label='Previous'
-              aria-disabled='true'
-              onClick={(event) => this.handleNavigationClick(event)}
-            >
-              <atom-icon icon='chevron-left'></atom-icon>
-            </button>
-          )}
+          <button
+            class='navigation navigation--prev'
+            role='button'
+            aria-label='Previous'
+            aria-disabled='true'
+            onClick={(event) => this.handleNavigationClick(event)}
+          >
+            <atom-icon icon='chevron-left'></atom-icon>
+          </button>
 
           <div class='sliders' aria-live='polite'>
-            <div class='wrapper' role='list'>
+            <div
+              class={{
+                [`wrapper`]: true,
+                [`wrapper--centralized`]: this.currentCentralized,
+              }}
+              role='list'
+            >
               <slot />
             </div>
           </div>
 
-          {this.hasNavigation && (
-            <button
-              class='navigation navigation--next'
-              role='button'
-              aria-label='Next'
-              onClick={(event) => this.handleNavigationClick(event)}
-            >
-              <atom-icon icon='chevron-right'></atom-icon>
-            </button>
-          )}
+          <button
+            class='navigation navigation--next'
+            role='button'
+            aria-label='Next'
+            onClick={(event) => this.handleNavigationClick(event)}
+          >
+            <atom-icon icon='chevron-right'></atom-icon>
+          </button>
         </div>
       </Host>
     )

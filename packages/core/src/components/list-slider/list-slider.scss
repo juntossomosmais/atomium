@@ -7,7 +7,7 @@
   display: block;
 }
 
-.atom-slider-list {
+.atom-list-slider {
   min-height: var(--slider-height);
   position: relative;
 }
@@ -23,6 +23,10 @@
   gap: var(--slider-gap);
   transition: transform var(--transition-duration);
   will-change: transform;
+
+  &--centralized {
+    justify-content: center;
+  }
 }
 
 .navigation {
