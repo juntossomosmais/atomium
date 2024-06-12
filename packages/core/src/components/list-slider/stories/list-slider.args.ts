@@ -17,6 +17,14 @@ export const ListSliderStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    centralized: {
+      description:
+        'If `true`, the items will be centralized in the slider when do not fit in the viewport.',
+      defaultValue: { summary: false },
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     '--slider-height': {
       description: 'The min-height of the slider.',
       defaultValue: { summary: '42px' },

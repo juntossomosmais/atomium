@@ -52,3 +52,26 @@ const createListSlider = () => ({
 export const Default: StoryObj = {
   render: () => createListSlider(),
 }
+
+export const Centralized: StoryObj = {
+  render: () => ({
+    components: { AtomListSlider, AtomListSliderItem },
+    setup() {
+      return {}
+    },
+    template: `
+      <AtomListSlider centralized="true">
+        <AtomListSliderItem class="slide">
+          <div>
+            Example 1
+          </div>
+        </AtomListSliderItem>
+        <AtomListSliderItem class="slide">
+          <div>
+            Example 2
+          </div>
+        </AtomListSliderItem>
+      </AtomListSlider>
+    `,
+  }),
+}
