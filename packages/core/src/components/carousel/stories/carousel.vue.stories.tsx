@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/vue3'
-
 import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/vue'
+import { Meta, StoryObj } from '@storybook/vue3'
 
 import './carousel.css'
 
@@ -61,7 +60,7 @@ export const Autoplay: StoryObj = {
   render: (args) => createCarousel(args),
   args: {
     ...CarouselComponentArgs,
-    autoplay: 3000,
+    autoplay: 6000,
   },
 }
 
