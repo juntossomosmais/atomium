@@ -6,11 +6,11 @@ import { Component, Element, Host, Prop, State, h } from '@stencil/core'
   shadow: true,
 })
 export class AtomCarousel {
-  @Prop() loop: boolean = false
-  @Prop() autoplay: number
-  @Prop() thumbnails: string[]
-  @Prop() hasNavigation = true
-  @Prop() hasPagination = true
+  @Prop({ mutable: true }) loop: boolean = false
+  @Prop({ mutable: true }) autoplay: number
+  @Prop({ mutable: true }) thumbnails: string[]
+  @Prop({ mutable: true }) hasNavigation = true
+  @Prop({ mutable: true }) hasPagination = true
 
   @State() currentIdx: number = 0
 
@@ -104,11 +104,14 @@ export class AtomCarousel {
 
     if (!hasButtons || !this.hasNavigation || this.loop) return
 
-    this.nextButton.classList.toggle(
-      'disabled',
-      this.currentIndex === this.carouselItems.length - 1
+    this.nextButton.setAttribute(
+      'aria-disabled',
+      String(this.currentIndex === this.carouselItems.length - 1)
     )
-    this.prevButton.classList.toggle('disabled', this.currentIndex === 0)
+    this.prevButton.setAttribute(
+      'aria-disabled',
+      String(this.currentIndex === 0)
+    )
   }
 
   startAutoplay() {
@@ -149,6 +152,7 @@ export class AtomCarousel {
               class='carousel-navigation navigation--prev'
               role='button'
               aria-label='Previous'
+              aria-disabled='true'
               onClick={(event) => this.handleNavigationClick(event)}
             >
               <atom-icon icon='chevron-left'></atom-icon>
