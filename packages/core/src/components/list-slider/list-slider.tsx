@@ -8,8 +8,8 @@ import { debounce } from '../../utils/debounce'
   shadow: true,
 })
 export class AtomListSlider {
-  @Prop() hasNavigation = true
-  @Prop() centralized: boolean
+  @Prop({ mutable: true }) hasNavigation = true
+  @Prop({ mutable: true }) centralized: boolean
 
   @State() currentIdx: number = 0
   @State() currentCentralized = false
@@ -68,9 +68,14 @@ export class AtomListSlider {
     this.sliderGapValue = parseFloat(sliderGap)
 
     this.handleOnResize()
-    window.addEventListener('resize', this.handleOnResize)
+  }
 
+  componentWillLoad() {
     this.currentCentralized = this.centralized
+  }
+
+  connectedCallback() {
+    window.addEventListener('resize', this.handleOnResize)
   }
 
   disconnectedCallback() {
@@ -228,6 +233,7 @@ export class AtomListSlider {
             class='navigation navigation--next'
             role='button'
             aria-label='Next'
+            aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
           >
             <atom-icon icon='chevron-right'></atom-icon>
