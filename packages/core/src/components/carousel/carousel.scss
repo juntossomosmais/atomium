@@ -58,7 +58,7 @@
     background: var(--color-brand-secondary-light-1);
   }
 
-  &.disabled {
+  &[aria-disabled='true'] {
     opacity: 0;
     visibility: hidden;
   }

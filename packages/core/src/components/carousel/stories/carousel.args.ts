@@ -69,6 +69,13 @@ export const CarouselStoryArgs = {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
     },
+    '--button-navigation-size': {
+      description: 'The size of the navigation buttons.',
+      defaultValue: { summary: '--spacing-xxxxlarge' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
   },
 }
 
