@@ -272,6 +272,10 @@ export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomInputElement;
 }
+export interface AtomListSliderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomListSliderElement;
+}
 export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomSelectElement;
@@ -420,7 +424,19 @@ declare global {
         prototype: HTMLAtomInputElement;
         new (): HTMLAtomInputElement;
     };
+    interface HTMLAtomListSliderElementEventMap {
+        "clickNext": any;
+        "clickPrev": any;
+    }
     interface HTMLAtomListSliderElement extends Components.AtomListSlider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomListSliderElementEventMap>(type: K, listener: (this: HTMLAtomListSliderElement, ev: AtomListSliderCustomEvent<HTMLAtomListSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomListSliderElementEventMap>(type: K, listener: (this: HTMLAtomListSliderElement, ev: AtomListSliderCustomEvent<HTMLAtomListSliderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomListSliderElement: {
         prototype: HTMLAtomListSliderElement;
@@ -662,6 +678,8 @@ declare namespace LocalJSX {
     interface AtomListSlider {
         "centralized"?: boolean;
         "hasNavigation"?: boolean;
+        "onClickNext"?: (event: AtomListSliderCustomEvent<any>) => void;
+        "onClickPrev"?: (event: AtomListSliderCustomEvent<any>) => void;
     }
     interface AtomListSliderItem {
     }

@@ -1,4 +1,5 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
+import { withActions } from '@storybook/addon-actions/decorator'
 
 export const ListSliderStoryArgs = {
   parameters: {
@@ -8,7 +9,11 @@ export const ListSliderStoryArgs = {
           'List Slider is a component that displays a list of items in a horizontal slider.',
       },
     },
+    actions: {
+      handles: ['clickNext', 'clickPrev'],
+    },
   },
+  decorators: [withActions],
   argTypes: {
     hasNavigation: {
       description: 'If `true`, the carousel will have navigation buttons.',
@@ -44,6 +49,22 @@ export const ListSliderStoryArgs = {
       defaultValue: { summary: '--spacing-xxxxlarge' },
       table: {
         category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    clickNext: {
+      action: 'clickNext',
+      description:
+        'Emitted when the next button is clicked. The event detail is the click event.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    clickPrev: {
+      action: 'clickPrev',
+      description:
+        'Emitted when the previous button is clicked. The event detail is the click event.',
+      table: {
+        category: Category.EVENTS,
       },
     },
   },

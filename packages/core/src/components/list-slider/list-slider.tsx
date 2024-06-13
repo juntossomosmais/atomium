@@ -1,4 +1,13 @@
-import { Component, Element, Host, Prop, State, h } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  State,
+  h,
+} from '@stencil/core'
 
 import { debounce } from '../../utils/debounce'
 
@@ -13,6 +22,9 @@ export class AtomListSlider {
 
   @State() currentIdx: number = 0
   @State() currentCentralized = false
+
+  @Event() clickNext: EventEmitter
+  @Event() clickPrev: EventEmitter
 
   @Element() element: HTMLElement
 
@@ -102,6 +114,13 @@ export class AtomListSlider {
   handleNavigationClick(event: Event) {
     const button = event.currentTarget as HTMLButtonElement
     const isNext = button?.classList.contains('navigation--next')
+    const isPrev = button?.classList.contains('navigation--prev')
+
+    if (isNext) {
+      this.clickNext.emit()
+    } else if (isPrev) {
+      this.clickPrev.emit()
+    }
 
     const newIndex = this.currentIndex + (isNext ? 1 : -1)
 
