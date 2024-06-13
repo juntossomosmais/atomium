@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.2.0...atomium-v2.3.0) (2024-06-13)
+
+
+### Features
+
+* **carousel:** improve accessibility using aria-disabled ([#462](https://github.com/juntossomosmais/atomium/issues/462)) ([34f839c](https://github.com/juntossomosmais/atomium/commit/34f839cd49329220e1a6de5c6a4718214a86b5a4))
+* **list slider:** add new component and remove swiper :pray:  ([#461](https://github.com/juntossomosmais/atomium/issues/461)) ([6880f68](https://github.com/juntossomosmais/atomium/commit/6880f680e7e6b84f7bd2f09f287df930a76f8654))
+
 ## [2.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.1.0...atomium-v2.2.0) (2024-06-06)
 
 
