@@ -1,0 +1,69 @@
+@import '~@atomium/scss-utils/index';
+
+:host {
+  --button-navigation-size: var(--spacing-xxxxlarge);
+  --slider-height: var(--spacing-xxxxlarge);
+  --slider-gap: var(--spacing-base);
+  display: block;
+}
+
+.atom-list-slider {
+  min-height: var(--slider-height);
+  position: relative;
+}
+
+.sliders {
+  overflow-x: hidden;
+  z-index: var(--zindex-1);
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--slider-gap);
+  transition: transform var(--transition-duration);
+  will-change: transform;
+
+  &--centralized {
+    justify-content: center;
+  }
+}
+
+.navigation {
+  align-items: center;
+  background: var(--color-brand-secondary-regular);
+  border: 0;
+  border-radius: var(--border-radius-full);
+  box-shadow: var(--elevation-3);
+  color: var(--color-neutral-white);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--spacing-large);
+  height: var(--button-navigation-size);
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition-duration: var(--transition-duration);
+  transition-property: background-color, opacity, visibility;
+  width: var(--button-navigation-size);
+  will-change: background-color, opacity, visibility;
+  z-index: var(--zindex-5);
+
+  &.navigation--prev {
+    left: var(--spacing-small);
+  }
+
+  &.navigation--next {
+    right: var(--spacing-small);
+  }
+
+  &:hover {
+    background: var(--color-brand-secondary-light-1);
+  }
+
+  &[aria-disabled='true'] {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
