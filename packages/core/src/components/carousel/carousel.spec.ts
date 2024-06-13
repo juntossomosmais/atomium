@@ -18,7 +18,7 @@ describe('AtomCarousel', () => {
       <atom-carousel>
         <mock:shadow-root>
           <div aria-label="Carousel" class="atom-carousel" role="region">
-            <button aria-label="Previous" class="carousel-navigation disabled navigation--prev" role="button">
+            <button aria-disabled="true" aria-label="Previous" class="carousel-navigation navigation--prev" role="button">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div class="carousel-sliders">
@@ -26,7 +26,7 @@ describe('AtomCarousel', () => {
                 <slot></slot>
               </div>
             </div>
-            <button aria-label="Next" class="carousel-navigation disabled navigation--next" role="button">
+            <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next" role="button">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
           </div>
@@ -107,7 +107,7 @@ describe('AtomCarousel', () => {
       <atom-carousel thumbnails>
         <mock:shadow-root>
           <div aria-label="Carousel" class="atom-carousel" role="region">
-            <button aria-label="Previous" class="carousel-navigation disabled navigation--prev" role="button">
+            <button aria-disabled="true" aria-label="Previous" class="carousel-navigation navigation--prev" role="button">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div class="carousel-sliders">
@@ -115,7 +115,7 @@ describe('AtomCarousel', () => {
                 <slot></slot>
               </div>
             </div>
-            <button aria-label="Next" class="carousel-navigation disabled navigation--next" role="button">
+            <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next" role="button">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
           </div>

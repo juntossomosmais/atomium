@@ -50,7 +50,7 @@ export const Autoplay: StoryObj = {
   render: (args) => createCarousel(args),
   args: {
     ...CarouselComponentArgs,
-    autoplay: 3000,
+    autoplay: 6000,
   },
 }
 
