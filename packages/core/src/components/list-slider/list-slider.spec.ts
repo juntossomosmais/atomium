@@ -12,6 +12,50 @@ describe('AtomListSlider', () => {
     }
   })
 
+  it('should render an atom-list-slider and atom-list-slider-item elements', async () => {
+    const page = await newSpecPage({
+      components: [AtomListSlider, AtomListSliderItem],
+      html: `
+        <atom-list-slider>
+          <atom-list-slider-item>Slide 1</atom-list-slider-item>
+          <atom-list-slider-item>Slide 2</atom-list-slider-item>
+        </atom-list-slider>
+      `,
+    })
+
+    expect(page?.root).toEqualHtml(`
+      <atom-list-slider>
+        <mock:shadow-root>
+          <div aria-label="Carousel" class="atom-list-slider" role="region">
+            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev" role="button">
+              <atom-icon icon="chevron-left"></atom-icon>
+            </button>
+            <div aria-live="polite" class="sliders">
+              <div class="wrapper" role="list">
+                <slot></slot>
+              </div>
+            </div>
+            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next" role="button">
+              <atom-icon icon="chevron-right"></atom-icon>
+            </button>
+          </div>
+        </mock:shadow-root>
+        <atom-list-slider-item>
+          <mock:shadow-root>
+            <slot></slot>
+          </mock:shadow-root>
+          Slide 1
+        </atom-list-slider-item>
+        <atom-list-slider-item>
+          <mock:shadow-root>
+            <slot></slot>
+          </mock:shadow-root>
+          Slide 2
+        </atom-list-slider-item>
+      </atom-list-slider>
+    `)
+  })
+
   it('should remove navigation buttons when hasNavigation is false', async () => {
     const page = await newSpecPage({
       components: [AtomListSlider, AtomListSliderItem],
@@ -29,7 +73,7 @@ describe('AtomListSlider', () => {
       <atom-list-slider has-navigation="false">
         <mock:shadow-root>
           <div aria-label="Carousel" class="atom-list-slider" role="region">
-            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev" role="button">
+            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev" role="button" style="display: none;">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div aria-live="polite" class="sliders">
@@ -37,7 +81,7 @@ describe('AtomListSlider', () => {
                 <slot></slot>
               </div>
             </div>
-            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next" role="button">
+            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next" role="button" style="display: none;">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
           </div>

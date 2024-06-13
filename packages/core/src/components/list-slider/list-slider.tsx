@@ -142,14 +142,8 @@ export class AtomListSlider {
     const isAtEnd = this.currentTranslateX >= this.maxTranslateX
     const isAtStart = this.currentTranslateX === 0
 
-    this.nextButton.setAttribute(
-      'aria-disabled',
-      String(isAtEnd || !this.hasNavigation)
-    )
-    this.prevButton.setAttribute(
-      'aria-disabled',
-      String(isAtStart || !this.hasNavigation)
-    )
+    this.nextButton.setAttribute('aria-disabled', String(isAtEnd))
+    this.prevButton.setAttribute('aria-disabled', String(isAtStart))
   }
 
   updateSliderPosition() {
@@ -213,6 +207,7 @@ export class AtomListSlider {
             aria-label='Previous'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
+            style={{ display: !this.hasNavigation ? 'none' : '' }}
           >
             <atom-icon icon='chevron-left'></atom-icon>
           </button>
@@ -235,6 +230,7 @@ export class AtomListSlider {
             aria-label='Next'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
+            style={{ display: !this.hasNavigation ? 'none' : '' }}
           >
             <atom-icon icon='chevron-right'></atom-icon>
           </button>
