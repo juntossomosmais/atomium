@@ -12,12 +12,11 @@ export const ComponentLibrary: Plugin = {
   async install() {
     applyPolyfills().then(() => {
       defineCustomElements(window, {
-        ael: (el: any, eventName: string, cb: any, opts: any) =>
-          el.addEventListener(eventName.toLowerCase(), cb, opts),
-        rel: (el: any, eventName: string, cb: any, opts: any) =>
-          el.removeEventListener(eventName.toLowerCase(), cb, opts),
         ce: (eventName: string, opts: any) =>
-          new CustomEvent(toKebabCase(eventName), opts),
+          new CustomEvent(
+            eventName.startsWith('atom') ? toKebabCase(eventName) : eventName,
+            opts
+          ),
       } as any)
     })
   },
