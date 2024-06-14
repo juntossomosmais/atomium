@@ -1,7 +1,5 @@
-import { Meta, StoryObj } from '@storybook/vue3'
-
 import { AtomInput } from '@juntossomosmais/atomium/vue'
-
+import { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
 
 import { InputComponentArgs, InputStoryArgs } from './input.args'
@@ -31,7 +29,7 @@ const createInput = (args) => ({
       type="${args.type}"
       passwordToggle="${args.passwordToggle}"
       value="${args.value}"
-      icon="${args.icon}"
+      ${args.icon ? `icon="${args.icon}"` : ''}
       helperText="${args.helperText}"
     />
   `,
