@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/vue3'
-
 import { AtomSelect } from '@juntossomosmais/atomium/vue'
+import { Meta, StoryObj } from '@storybook/vue3'
 
 import { SelectComponentArgs, SelectStoryArgs } from './select.args'
 
@@ -25,7 +24,7 @@ const createSelect = (args) => ({
       label="${args.label}"
       helperText="${args.helperText}"
       errorText="${args.errorText}"
-      icon="${args.icon}"
+      ${args.icon ? `icon="${args.icon}"` : ''}
       mode="${args.mode}"
       value="${args.value}"
       :options="[
