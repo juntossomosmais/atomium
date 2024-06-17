@@ -1,6 +1,6 @@
 {
   "name": "@juntossomosmais/atomium-tokens",
-  "version": "1.2.0",
+  "version": "2.3.1",
   "description": "Tokens and variables for Atomium",
   "access": "public",
   "main": "dist/index.js",
