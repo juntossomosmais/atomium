@@ -2,6 +2,7 @@
 
 ## [1.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.1.0...atomium-tokens-v1.2.0) (2023-09-21)
 
+
 ### Features
 
 * add tag component ([#261](https://github.com/juntossomosmais/atomium/issues/261)) ([11e8d3b](https://github.com/juntossomosmais/atomium/commit/11e8d3b59714eff3710f78cc0c7ebf6a64629ec1))
