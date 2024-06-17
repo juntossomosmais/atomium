@@ -3,9 +3,9 @@
 ## [2.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.3.0...atomium-v2.3.1) (2024-06-17)
 
 
-### Miscellaneous Chores
+### Vue
 
-* release 2.3.1 ([e531633](https://github.com/juntossomosmais/atomium/commit/e53163387a51319a4b505fce9cfde0f94e303a1a))
+* fix: convert just atom prefixed events to kebab case on install (#468)
 
 ## [2.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.2.0...atomium-v2.3.0) (2024-06-13)
 
