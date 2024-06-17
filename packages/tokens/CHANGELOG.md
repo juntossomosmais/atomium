@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.2.0...atomium-tokens-v2.3.1) (2024-06-17)
+
+
+### Miscellaneous Chores
+
+* release 2.3.1 ([e531633](https://github.com/juntossomosmais/atomium/commit/e53163387a51319a4b505fce9cfde0f94e303a1a))
+
 ## [1.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.1.0...atomium-tokens-v1.2.0) (2023-09-21)
 
 
