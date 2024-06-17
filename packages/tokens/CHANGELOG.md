@@ -1,5 +1,6 @@
 # Changelog
 
+## [1.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.1.0...atomium-tokens-v1.2.0) (2023-09-21)
 
 ### Features
 
