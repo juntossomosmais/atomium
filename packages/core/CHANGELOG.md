@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.3.0...atomium-v2.3.1) (2024-06-17)
+
+
+### Vue
+
+* fix: convert just atom prefixed events to kebab case on install (#468)
+
 ## [2.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.2.0...atomium-v2.3.0) (2024-06-13)
 
 
