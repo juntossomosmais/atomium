@@ -77,6 +77,9 @@ export namespace Components {
         "sizeMd"?: string;
         "sizeSm"?: string;
     }
+    interface AtomContainer {
+        "hasPadding": boolean;
+    }
     interface AtomGrid {
         "fixed"?: boolean;
     }
@@ -339,6 +342,12 @@ declare global {
         prototype: HTMLAtomColElement;
         new (): HTMLAtomColElement;
     };
+    interface HTMLAtomContainerElement extends Components.AtomContainer, HTMLStencilElement {
+    }
+    var HTMLAtomContainerElement: {
+        prototype: HTMLAtomContainerElement;
+        new (): HTMLAtomContainerElement;
+    };
     interface HTMLAtomGridElement extends Components.AtomGrid, HTMLStencilElement {
     }
     var HTMLAtomGridElement: {
@@ -451,6 +460,7 @@ declare global {
         "atom-carousel-item": HTMLAtomCarouselItemElement;
         "atom-chip": HTMLAtomChipElement;
         "atom-col": HTMLAtomColElement;
+        "atom-container": HTMLAtomContainerElement;
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
@@ -530,6 +540,9 @@ declare namespace LocalJSX {
         "sizeLg"?: string;
         "sizeMd"?: string;
         "sizeSm"?: string;
+    }
+    interface AtomContainer {
+        "hasPadding"?: boolean;
     }
     interface AtomGrid {
         "fixed"?: boolean;
@@ -699,6 +712,7 @@ declare namespace LocalJSX {
         "atom-carousel-item": AtomCarouselItem;
         "atom-chip": AtomChip;
         "atom-col": AtomCol;
+        "atom-container": AtomContainer;
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
@@ -721,6 +735,7 @@ declare module "@stencil/core" {
             "atom-carousel-item": LocalJSX.AtomCarouselItem & JSXBase.HTMLAttributes<HTMLAtomCarouselItemElement>;
             "atom-chip": LocalJSX.AtomChip & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
             "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
+            "atom-container": LocalJSX.AtomContainer & JSXBase.HTMLAttributes<HTMLAtomContainerElement>;
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
