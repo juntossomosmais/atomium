@@ -1,0 +1,10 @@
+.wrapper {
+  background-color: var(--color-neutral-light-5)
+}
+
+.title {
+  color: var(--color-neutral-dark-1);
+  font: var(--title-headline-xsmall);
+  letter-spacing: var(--title-headline-xsmall-letter);
+  margin: 0 0 var(--spacing-xxsmall);
+}
