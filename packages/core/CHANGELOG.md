@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.4.0...atomium-v2.4.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* **container:** add !important to prevent overrides ([a1d32cb](https://github.com/juntossomosmais/atomium/commit/a1d32cbf46e58fdcdadb895446a419b413c44920))
+
 ## [2.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.3.0...atomium-v2.4.0) (2024-06-19)
 
 ### Core
