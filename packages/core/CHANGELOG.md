@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.3.0...atomium-v2.4.0) (2024-06-19)
+
+### Core
+
+- **feat*: add container component ([#471](https://github.com/juntossomosmais/atomium/pull/471))
+
 ## [2.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.3.0...atomium-v2.3.1) (2024-06-17)
 
 
