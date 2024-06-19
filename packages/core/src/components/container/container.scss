@@ -1,12 +1,16 @@
 @import '~@atomium/scss-utils/index';
 
+/* We need to use !important to override the default styles used by techniques like * { padding: 0, margin: 0 }, it is very common inside projects and override values without !important :( */
+
 :host {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
   max-width: var(--screen-max-container);
+  width: 100%;
 }
 
 :host(.has-padding) {
-  padding: var(--spacing-base);
+  padding-left: var(--spacing-base) !important;
+  padding-right: var(--spacing-base) !important;
 }
