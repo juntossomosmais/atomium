@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.4.1...atomium-v2.5.0) (2024-07-02)
+
+
+### Features
+
+* **core:** remove apply polyfills for old browsers and update dependencies ([#485](https://github.com/juntossomosmais/atomium/issues/485)) ([8d9cc6f](https://github.com/juntossomosmais/atomium/commit/8d9cc6fc61e0e517cec46eb59962763872f20453))
+
 ## [2.4.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.4.0...atomium-v2.4.1) (2024-06-19)
 
 
