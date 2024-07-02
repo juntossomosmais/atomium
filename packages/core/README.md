@@ -15,12 +15,9 @@ npm i @juntossomosmais/atomium
 ```jsx
 import '@juntossomosmais/atomium/core.css'
 
-import {
-  applyPolyfills,
-  defineCustomElements,
-} from '@juntossomosmais/atomium/loader'
+import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 
-applyPolyfills().then(() => defineCustomElements(window))
+defineCustomElements(window)
 
 <atom-button>Click me</atom-button>
 ```

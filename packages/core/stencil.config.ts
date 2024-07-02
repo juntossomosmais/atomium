@@ -131,7 +131,7 @@ export const config: Config = {
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../react/src/components/index.ts',
       includeDefineCustomElements: true,
-      includePolyfills: true,
+      includePolyfills: false,
       excludeComponents,
     }),
     reactBooleanFixOutputTarget({
