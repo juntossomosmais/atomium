@@ -1,7 +1,4 @@
-import {
-  applyPolyfills,
-  defineCustomElements,
-} from '@juntossomosmais/atomium/loader'
+import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 import { Plugin } from 'vue'
 
 function toKebabCase(str: string) {
@@ -10,14 +7,12 @@ function toKebabCase(str: string) {
 
 export const ComponentLibrary: Plugin = {
   async install() {
-    applyPolyfills().then(() => {
-      defineCustomElements(window, {
-        ce: (eventName: string, opts: any) =>
-          new CustomEvent(
-            eventName.startsWith('atom') ? toKebabCase(eventName) : eventName,
-            opts
-          ),
-      } as any)
-    })
+    defineCustomElements(window, {
+      ce: (eventName: string, opts: any) =>
+        new CustomEvent(
+          eventName.startsWith('atom') ? toKebabCase(eventName) : eventName,
+          opts
+        ),
+    } as any)
   },
 }
