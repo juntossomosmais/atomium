@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.5.0...atomium-v2.6.0) (2024-07-11)
+
+
+### Features
+
+* **icons:** add person warning and time outlined ([#487](https://github.com/juntossomosmais/atomium/issues/487)) ([52d919d](https://github.com/juntossomosmais/atomium/commit/52d919d16986ef9983efbf54822e1e171768c2bc))
+
 ## [2.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.4.1...atomium-v2.5.0) (2024-07-02)
 
 
