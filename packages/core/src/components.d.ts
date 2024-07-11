@@ -7,10 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { Color, Mode, TextFieldTypes } from "@ionic/core";
-import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+import { IonTypes } from "@ionic/core/dist/types/components";
 export { IconProps } from "./icons";
 export { Color, Mode, TextFieldTypes } from "@ionic/core";
-export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+export { IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
@@ -260,19 +260,7 @@ export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
     target: HTMLAtomTextareaElement;
 }
 declare global {
-    interface HTMLAtomAlertElementEventMap {
-        "atomClose": any;
-        "atomAction": any;
-    }
     interface HTMLAtomAlertElement extends Components.AtomAlert, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomAlertElementEventMap>(type: K, listener: (this: HTMLAtomAlertElement, ev: AtomAlertCustomEvent<HTMLAtomAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomAlertElementEventMap>(type: K, listener: (this: HTMLAtomAlertElement, ev: AtomAlertCustomEvent<HTMLAtomAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomAlertElement: {
         prototype: HTMLAtomAlertElement;
@@ -290,18 +278,7 @@ declare global {
         prototype: HTMLAtomBreadcrumbElement;
         new (): HTMLAtomBreadcrumbElement;
     };
-    interface HTMLAtomButtonElementEventMap {
-        "click": any;
-    }
     interface HTMLAtomButtonElement extends Components.AtomButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomButtonElementEventMap>(type: K, listener: (this: HTMLAtomButtonElement, ev: AtomButtonCustomEvent<HTMLAtomButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomButtonElementEventMap>(type: K, listener: (this: HTMLAtomButtonElement, ev: AtomButtonCustomEvent<HTMLAtomButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomButtonElement: {
         prototype: HTMLAtomButtonElement;
@@ -319,18 +296,7 @@ declare global {
         prototype: HTMLAtomCarouselItemElement;
         new (): HTMLAtomCarouselItemElement;
     };
-    interface HTMLAtomChipElementEventMap {
-        "atomClick": any;
-    }
     interface HTMLAtomChipElement extends Components.AtomChip, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomChipElementEventMap>(type: K, listener: (this: HTMLAtomChipElement, ev: AtomChipCustomEvent<HTMLAtomChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomChipElementEventMap>(type: K, listener: (this: HTMLAtomChipElement, ev: AtomChipCustomEvent<HTMLAtomChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomChipElement: {
         prototype: HTMLAtomChipElement;
@@ -360,39 +326,13 @@ declare global {
         prototype: HTMLAtomIconElement;
         new (): HTMLAtomIconElement;
     };
-    interface HTMLAtomInputElementEventMap {
-        "atomFocus": void;
-        "atomBlur": void;
-        "atomChange": string;
-        "atomInput": string;
-    }
     interface HTMLAtomInputElement extends Components.AtomInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomInputElementEventMap>(type: K, listener: (this: HTMLAtomInputElement, ev: AtomInputCustomEvent<HTMLAtomInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomInputElementEventMap>(type: K, listener: (this: HTMLAtomInputElement, ev: AtomInputCustomEvent<HTMLAtomInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomInputElement: {
         prototype: HTMLAtomInputElement;
         new (): HTMLAtomInputElement;
     };
-    interface HTMLAtomListSliderElementEventMap {
-        "clickNext": any;
-        "clickPrev": any;
-    }
     interface HTMLAtomListSliderElement extends Components.AtomListSlider, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomListSliderElementEventMap>(type: K, listener: (this: HTMLAtomListSliderElement, ev: AtomListSliderCustomEvent<HTMLAtomListSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomListSliderElementEventMap>(type: K, listener: (this: HTMLAtomListSliderElement, ev: AtomListSliderCustomEvent<HTMLAtomListSliderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomListSliderElement: {
         prototype: HTMLAtomListSliderElement;
@@ -404,22 +344,7 @@ declare global {
         prototype: HTMLAtomListSliderItemElement;
         new (): HTMLAtomListSliderItemElement;
     };
-    interface HTMLAtomSelectElementEventMap {
-        "atomBlur": void;
-        "atomCancel": void;
-        "atomChange": string;
-        "atomDismiss": void;
-        "atomFocus": void;
-    }
     interface HTMLAtomSelectElement extends Components.AtomSelect, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomSelectElementEventMap>(type: K, listener: (this: HTMLAtomSelectElement, ev: AtomSelectCustomEvent<HTMLAtomSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomSelectElementEventMap>(type: K, listener: (this: HTMLAtomSelectElement, ev: AtomSelectCustomEvent<HTMLAtomSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomSelectElement: {
         prototype: HTMLAtomSelectElement;
@@ -431,21 +356,7 @@ declare global {
         prototype: HTMLAtomTagElement;
         new (): HTMLAtomTagElement;
     };
-    interface HTMLAtomTextareaElementEventMap {
-        "atomFocus": void;
-        "atomBlur": void;
-        "atomChange": string;
-        "atomInput": string;
-    }
     interface HTMLAtomTextareaElement extends Components.AtomTextarea, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomTextareaElementEventMap>(type: K, listener: (this: HTMLAtomTextareaElement, ev: AtomTextareaCustomEvent<HTMLAtomTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomTextareaElementEventMap>(type: K, listener: (this: HTMLAtomTextareaElement, ev: AtomTextareaCustomEvent<HTMLAtomTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomTextareaElement: {
         prototype: HTMLAtomTextareaElement;
