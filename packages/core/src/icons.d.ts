@@ -7,6 +7,8 @@ export type IconProps =
   | 'jsm-outline'
   | 'jsm'
   | 'leader-board'
+  | 'person-time-outline'
+  | 'person-warning-outline'
   | 'professional-plus'
   | 'wallet-giftcard-custom'
   | 'account-box-multiple-outline'
