@@ -153,6 +153,34 @@ Now you can use the imported Atomium components in your project and test them lo
 
 By following these steps, you can easily test and verify any customizations or modifications you have made to Atomium locally using NPM Link.
 
+## Deployment
+
+We are using [GitHub Actions](https://github.com/juntossomosmais/atomium/actions), [GitHub Packages](https://github.com/orgs/juntossomosmais/packages?repo_name=atomium) and [release please](https://github.com/googleapis/release-please) to automate the release process.
+
+When a PR is merged into the `main` branch, the release process is triggered. The release process will create a new release and publish the packages to GitHub Packages.
+
+### Publish errors
+
+If you get an error in Github Actions to publish to NPM, you can run the following command to restart the release process:
+
+1. Go to the [Releases](https://github.com/juntossomosmais/atomium/releases) and remove the release that failed
+2. Go to the [Tags](https://github.com/juntossomosmais/atomium/tags) and remove the tag that failed or run the following command in your terminal:
+
+```bash
+git tag -d <tag>
+git push origin --delete <tag-name>
+```
+
+3. Get the last commit hash from the [Commits](https://github.com/juntossomosmais/atomium/commits/main/) and run the following command in your terminal:
+
+```bash
+git reset --hard <commit-hash>
+git push origin main --force
+```
+
+4. So, a new PR will be created and the release process will be triggered again
+
+
 ## Contributing
 
 **!important**, as it's an internal design system, we don't accept external suggestions to change or add new components.
