@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.6.0...atomium-v2.7.0) (2024-07-15)
+
+
+### Features
+
+* **icons:** add new custom and mdi icons ([#489](https://github.com/juntossomosmais/atomium/issues/489)) ([35c6259](https://github.com/juntossomosmais/atomium/commit/35c6259c662612612721406fe2f29dbc31d50ea7))
+
 ## [2.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.5.0...atomium-v2.6.0) (2024-07-11)
 
 
