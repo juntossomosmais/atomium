@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.0...atomium-v2.7.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **core:** downgrade @stencil/core to 4.17.2 ([#492](https://github.com/juntossomosmais/atomium/issues/492)) ([72a9856](https://github.com/juntossomosmais/atomium/commit/72a985689f689575a8e345360a964b66d2937b22))
+
 ## [2.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.6.0...atomium-v2.7.0) (2024-07-15)
 
 
