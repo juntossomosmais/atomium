@@ -16,7 +16,6 @@ export type IconProps =
   | 'account-box-outline'
   | 'account-box'
   | 'account-check-outline'
-  | 'account-check'
   | 'account-multiple-outline'
   | 'account-multiple'
   | 'account-outline'
