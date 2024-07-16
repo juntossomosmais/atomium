@@ -7,8 +7,7 @@
     "dist/"
   ],
   "scripts": {
-    "compile": "tsc",
-    "build:scripts": "nx exec -- node dist/scripts/build.js",
+    "build:scripts": "tsc && nx exec -- node dist/scripts/build.js",
     "build": "nx exec -- node dist/scripts/generate-types.js && npm run compile && npm run copy",
     "copy": "npx copyfiles --flat ./dist/icons.d.ts ../core/src",
     "test:ci": "jest --coverage --no-cache --updateSnapshot --ci",
@@ -16,11 +15,6 @@
   },
   "nx": {
     "targets": {
-      "build:scripts": {
-        "dependsOn": [
-          "compile"
-        ]
-      },
       "build": {
         "dependsOn": [
           "build:scripts"
