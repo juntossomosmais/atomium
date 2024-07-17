@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 
-* **core:** avoid to prev button hiding during loop ([#496](https://github.com/juntossomosmais/atomium/issues/496)) ([c415939](https://github.com/juntossomosmais/atomium/commit/c4159399a18154a357ee2d84226a30c67abca3d9))
+* **carousel:** avoid to prev button hiding during loop ([#496](https://github.com/juntossomosmais/atomium/issues/496)) ([c415939](https://github.com/juntossomosmais/atomium/commit/c4159399a18154a357ee2d84226a30c67abca3d9))
 
 ## [2.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.0...atomium-v2.7.1) (2024-07-16)
 
