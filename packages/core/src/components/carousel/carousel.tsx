@@ -152,7 +152,7 @@ export class AtomCarousel {
               class='carousel-navigation navigation--prev'
               role='button'
               aria-label='Previous'
-              aria-disabled='true'
+              aria-disabled={this.loop ? 'false' : 'true'}
               onClick={(event) => this.handleNavigationClick(event)}
             >
               <atom-icon icon='chevron-left'></atom-icon>
