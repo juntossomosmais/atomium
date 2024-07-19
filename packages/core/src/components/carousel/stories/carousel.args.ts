@@ -76,6 +76,13 @@ export const CarouselStoryArgs = {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
     },
+    'CustomEvent("transitionend")': {
+      description:
+        'The event dispatched when transition ends to use in the parent component, for example for add a class to the current slide or add a lazy load to the images.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
   },
 }
 
