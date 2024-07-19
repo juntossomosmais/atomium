@@ -28,6 +28,12 @@ export class AtomCarousel {
 
     this.currentIdx = value
     this.carouselWrapper.style.transform = `translateX(-${this.currentIndex * 100}%)`
+
+    const transitionendEvent = new CustomEvent('transitionend', {
+      detail: { currentIndex: this.currentIndex },
+    })
+
+    window.dispatchEvent(transitionendEvent)
   }
 
   carouselWrapper: HTMLElement

@@ -60,6 +60,12 @@ export class AtomListSlider {
     if (!this.sliderItems) return
 
     this.updateSliderPosition()
+
+    const transitionendEvent = new CustomEvent('transitionend', {
+      detail: { currentIndex: this.currentIndex },
+    })
+
+    window.dispatchEvent(transitionendEvent)
   }
 
   componentDidLoad() {

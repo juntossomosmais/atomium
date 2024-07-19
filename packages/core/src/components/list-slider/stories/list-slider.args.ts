@@ -67,6 +67,13 @@ export const ListSliderStoryArgs = {
         category: Category.EVENTS,
       },
     },
+    'CustomEvent("transitionend")': {
+      description:
+        'The event dispatched when transition ends to use in the parent component, for example for add a class to the current slide or add a lazy load to the images.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
   },
 }
 
