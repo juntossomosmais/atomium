@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.2...atomium-v2.8.0) (2024-07-19)
+
+
+### Features
+
+* **carousel:** add dispatch event after transition end ([#498](https://github.com/juntossomosmais/atomium/issues/498)) ([06baf0e](https://github.com/juntossomosmais/atomium/commit/06baf0e2cb00d927100407a91a41e6993460c3eb))
+* **list-slider:** add dispatch event after transition end ([#498](https://github.com/juntossomosmais/atomium/issues/498)) ([06baf0e](https://github.com/juntossomosmais/atomium/commit/06baf0e2cb00d927100407a91a41e6993460c3eb))
+
 ## [2.7.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.1...atomium-v2.7.2) (2024-07-17)
 
 
