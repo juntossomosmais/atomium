@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.8.0...atomium-v2.9.0) (2024-07-25)
+
+
+### Features
+
+* **icons:** add watch-later icon mdi ([#500](https://github.com/juntossomosmais/atomium/issues/500)) ([8a6da26](https://github.com/juntossomosmais/atomium/commit/8a6da269c6538b3278b4adc07c73eb1360574c45))
+
 ## [2.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.2...atomium-v2.8.0) (2024-07-19)
 
 
