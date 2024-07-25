@@ -173,5 +173,7 @@ export type IconProps =
   | 'upload-outline'
   | 'upload'
   | 'wallet-giftcard'
+  | 'watch-later-outline'
+  | 'watch-later'
   | 'whatsapp'
   | 'youtube'
