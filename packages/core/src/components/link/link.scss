@@ -1,0 +1,28 @@
+@import '~@atomium/scss-utils/index';
+
+:host {
+  display: inline-block;
+}
+
+.atom-link {
+  cursor: pointer;
+  font: var(--text-link-medium);
+  letter-spacing: var(--text-link-medium-letter);
+  text-decoration: underline;
+
+
+  &[color='primary'] {
+    color: var(--color-brand-primary-regular);
+  }
+
+  &[color='secondary'] {
+    color: var(--color-brand-secondary-regular)
+  }
+
+  &__button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+  }
+}

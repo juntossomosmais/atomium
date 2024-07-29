@@ -143,6 +143,10 @@ export namespace Components {
         "type": TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
+    interface AtomLink {
+        "color": 'primary' | 'secondary';
+        "type": 'anchor' | 'button';
+    }
     interface AtomListSlider {
         "centralized": boolean;
         "hasNavigation": boolean;
@@ -246,6 +250,10 @@ export interface AtomChipCustomEvent<T> extends CustomEvent<T> {
 export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomInputElement;
+}
+export interface AtomLinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomLinkElement;
 }
 export interface AtomListSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -380,6 +388,23 @@ declare global {
         prototype: HTMLAtomInputElement;
         new (): HTMLAtomInputElement;
     };
+    interface HTMLAtomLinkElementEventMap {
+        "click": any;
+    }
+    interface HTMLAtomLinkElement extends Components.AtomLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomLinkElementEventMap>(type: K, listener: (this: HTMLAtomLinkElement, ev: AtomLinkCustomEvent<HTMLAtomLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomLinkElementEventMap>(type: K, listener: (this: HTMLAtomLinkElement, ev: AtomLinkCustomEvent<HTMLAtomLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomLinkElement: {
+        prototype: HTMLAtomLinkElement;
+        new (): HTMLAtomLinkElement;
+    };
     interface HTMLAtomListSliderElementEventMap {
         "clickNext": any;
         "clickPrev": any;
@@ -464,6 +489,7 @@ declare global {
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
+        "atom-link": HTMLAtomLinkElement;
         "atom-list-slider": HTMLAtomListSliderElement;
         "atom-list-slider-item": HTMLAtomListSliderItemElement;
         "atom-select": HTMLAtomSelectElement;
@@ -608,6 +634,11 @@ declare namespace LocalJSX {
         "type"?: TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
+    interface AtomLink {
+        "color"?: 'primary' | 'secondary';
+        "onClick"?: (event: AtomLinkCustomEvent<any>) => void;
+        "type"?: 'anchor' | 'button';
+    }
     interface AtomListSlider {
         "centralized"?: boolean;
         "hasNavigation"?: boolean;
@@ -716,6 +747,7 @@ declare namespace LocalJSX {
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
+        "atom-link": AtomLink;
         "atom-list-slider": AtomListSlider;
         "atom-list-slider-item": AtomListSliderItem;
         "atom-select": AtomSelect;
@@ -739,6 +771,7 @@ declare module "@stencil/core" {
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
+            "atom-link": LocalJSX.AtomLink & JSXBase.HTMLAttributes<HTMLAtomLinkElement>;
             "atom-list-slider": LocalJSX.AtomListSlider & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
             "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
