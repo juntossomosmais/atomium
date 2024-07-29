@@ -1,23 +1,28 @@
-import { Meta, StoryObj } from '@storybook/web-components'
-import { html } from 'lit'
+import { AtomLink } from '@juntossomosmais/atomium/vue'
+import { Meta, StoryObj } from '@storybook/vue3'
 
 import { LinkStoryArgs } from './link.args'
-
-export default {
-  title: 'Components/Link',
-  ...LinkStoryArgs,
-} as Meta
 
 const createLink = (
   args,
   textExample = 'It should be used inside router components'
-) => {
-  return html`
-    <atom-link type="${args.type}" color="${args.color}">
-      ${textExample}
-    </atom-link>
-  `
-}
+) => ({
+  components: { AtomLink },
+  setup() {
+    return { args }
+  },
+  template: `
+    <AtomLink color=${args.color} type=${args.type}>
+    ${textExample}
+  </AtomLink>
+  `,
+})
+
+export default {
+  title: 'Components/Link',
+  component: AtomLink,
+  ...LinkStoryArgs,
+} as Meta
 
 export const Primary: StoryObj = {
   render: (args) => createLink(args),
