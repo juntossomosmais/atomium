@@ -213,4 +213,68 @@ describe('AtomCarousel', () => {
     expect(page?.rootInstance.hasNavigation).toBe(false)
     expect(page?.rootInstance.hasPagination).toBe(false)
   })
+
+  it('should autoplay the carousel', async () => {
+    const page = await newSpecPage({
+      components: [AtomCarousel],
+      html: `
+        <atom-carousel autoplay="1000">
+          <atom-carousel-item>Slide 1</atom-carousel-item>
+          <atom-carousel-item>Slide 2</atom-carousel-item>
+        </atom-carousel>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    expect(page?.rootInstance.autoplayIntervalId).toBeDefined()
+  })
+
+  it('should remove autoplay when mouse enter and restart when mouse leave', async () => {
+    const page = await newSpecPage({
+      components: [AtomCarousel],
+      html: `
+        <atom-carousel autoplay="1000">
+          <atom-carousel-item>Slide 1</atom-carousel-item>
+          <atom-carousel-item>Slide 2</atom-carousel-item>
+        </atom-carousel>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    const carouselWrapper = page.root?.shadowRoot?.querySelector(
+      '.carousel-wrapper'
+    ) as HTMLElement
+
+    carouselWrapper?.dispatchEvent(new MouseEvent('mouseenter'))
+
+    expect(page?.rootInstance.autoplayIntervalId).toBeNull()
+
+    carouselWrapper?.dispatchEvent(new MouseEvent('mouseleave'))
+
+    expect(page?.rootInstance.autoplayIntervalId).toBeDefined()
+  })
+
+  it('should restart autoplay when click in navigation button', async () => {
+    const page = await newSpecPage({
+      components: [AtomCarousel],
+      html: `
+        <atom-carousel autoplay="1000">
+          <atom-carousel-item>Slide 1</atom-carousel-item>
+          <atom-carousel-item>Slide 2</atom-carousel-item>
+        </atom-carousel>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    const nextButton = page.root?.shadowRoot?.querySelector(
+      '.navigation--next'
+    ) as HTMLElement
+
+    nextButton?.click()
+
+    expect(page?.rootInstance.autoplayIntervalId).toBeDefined()
+  })
 })
