@@ -13,9 +13,11 @@ const createLink = (
   textExample = 'It should be used inside router components'
 ) => {
   return html`
-    <atom-link type="${args.type}" color="${args.color}">
-      ${textExample}
-    </atom-link>
+    <a href="/nice-example">
+      <atom-link type="${args.type}" color="${args.color}">
+        ${textExample}
+      </atom-link>
+    </a>
   `
 }
 
@@ -36,8 +38,11 @@ export const Secondary: StoryObj = {
 }
 
 export const Button: StoryObj = {
-  render: (args) =>
-    createLink(args, 'It should be used to trigger user actions'),
+  render: (args) => html`
+    <atom-link type="${args.type}" color="${args.color}">
+      It is a button! and can be used to trigger user actions
+    </atom-link>
+  `,
   args: {
     ...Primary.args,
     type: 'button',

@@ -7,7 +7,7 @@ export const LinkStoryArgs = {
     docs: {
       description: {
         component:
-          'Link components are link children styled components. They are used to navigate to different pages (when used inside router components, such as router-link(Vue) and Link(Next)) or used to trigger user actions.',
+          'atom-link components are link children styled components. They are used to navigate to different pages (when used inside router components, such as router-link(Vue) and Link(Next)) or used to trigger user actions.',
       },
     },
   },
@@ -23,7 +23,25 @@ export const LinkStoryArgs = {
       options: ['anchor', 'button'],
       defaultValue: { summary: 'anchor' },
       description:
-        'The link type. Use anchor for navigation (combined with router-link or Link) and button for user actions.',
+        'The atom-link type. Use anchor for navigation (combined with router-link or Link) and button for user actions.',
     },
   },
 }
+
+const LinkReactStoryArgs = JSON.parse(JSON.stringify(LinkStoryArgs))
+
+LinkReactStoryArgs.parameters.docs.description.component =
+  'atom-link components are link children styled components. They are used to navigate to different pages (when used inside Link(Next)) or used to trigger user actions.<br/><br/> OBS: Link (Next) component does not render a anchor tag by default, so you need to wrap it with a tag for semantic reasons. You can create a wrapper component on your project to do this.'
+
+LinkReactStoryArgs.argTypes.type.description =
+  'The atom-link type. Use anchor for navigation (combined with Link) and button for user actions.'
+
+const LinkVueStoryArgs = JSON.parse(JSON.stringify(LinkStoryArgs))
+
+LinkVueStoryArgs.parameters.docs.description.component =
+  'atom-link components are link children styled components. They are used to navigate to different pages (when used inside router-link or NuxtLink or used to trigger user actions.'
+
+LinkVueStoryArgs.argTypes.type.description =
+  'The atom-link type. Use anchor for navigation (combined with router-link or NuxtLink) and button for user actions.'
+
+export { LinkReactStoryArgs, LinkVueStoryArgs }

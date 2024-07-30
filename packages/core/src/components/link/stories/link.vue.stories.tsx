@@ -1,27 +1,43 @@
 import { AtomLink } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3'
+import { defineComponent, h } from 'vue'
 
-import { LinkStoryArgs } from './link.args'
+import { LinkVueStoryArgs } from './link.args'
+
+const RouterLink = defineComponent({
+  name: 'RouterLink',
+  props: {
+    to: {
+      type: String,
+      required: false,
+    },
+  },
+  setup(props, { slots }) {
+    return () => h('div', slots.default())
+  },
+})
 
 const createLink = (
   args,
   textExample = 'It should be used inside router components'
 ) => ({
-  components: { AtomLink },
+  components: { AtomLink, RouterLink },
   setup() {
     return { args }
   },
   template: `
-    <AtomLink color=${args.color} type=${args.type}>
-    ${textExample}
-  </AtomLink>
+  <router-link to="/nice-example">
+    <AtomLink :color="args.color" :type="args.type">
+      ${textExample}
+    </AtomLink>
+  </router-link>
   `,
 })
 
 export default {
   title: 'Components/Link',
   component: AtomLink,
-  ...LinkStoryArgs,
+  ...LinkVueStoryArgs,
 } as Meta
 
 export const Primary: StoryObj = {
@@ -41,8 +57,17 @@ export const Secondary: StoryObj = {
 }
 
 export const Button: StoryObj = {
-  render: (args) =>
-    createLink(args, 'It should be used to trigger user actions'),
+  render: (args) => ({
+    components: { AtomLink },
+    setup() {
+      return { args }
+    },
+    template: `
+          <AtomLink color=${args.color} type=${args.type}>
+          It is a button! and can be used to trigger user actions
+        </AtomLink>
+        `,
+  }),
   args: {
     ...Primary.args,
     type: 'button',

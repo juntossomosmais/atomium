@@ -1,21 +1,29 @@
 import { AtomLink } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 
-import { LinkStoryArgs } from './link.args'
+import { LinkReactStoryArgs } from './link.args'
+
+const Link = ({ children }) => {
+  return <>{children}</>
+}
 
 export default {
   title: 'Components/Link',
   component: AtomLink,
-  ...LinkStoryArgs,
+  ...LinkReactStoryArgs,
 } as Meta
 
 const createLink = (
   args,
-  textExample = 'It should be used inside router components'
+  textExample = 'It should be used inside Link (Next) component'
 ) => (
-  <AtomLink color={args.color} type={args.type}>
-    {textExample}
-  </AtomLink>
+  <Link>
+    <a>
+      <AtomLink color={args.color} type={args.type}>
+        {textExample}
+      </AtomLink>
+    </a>
+  </Link>
 )
 
 export const Primary: StoryObj = {
@@ -35,8 +43,11 @@ export const Secondary: StoryObj = {
 }
 
 export const Button: StoryObj = {
-  render: (args) =>
-    createLink(args, 'It should be used to trigger user actions'),
+  render: (args) => (
+    <AtomLink color={args.color} type={args.type}>
+      It is a button! and can be used to trigger user actions
+    </AtomLink>
+  ),
   args: {
     ...Primary.args,
     type: 'button',
