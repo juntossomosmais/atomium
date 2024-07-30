@@ -101,6 +101,8 @@ export class AtomCarousel {
         (newIndex + this.carouselItems.length) % this.carouselItems.length
     }
 
+    if (this.autoplay > 0) this.startAutoplay()
+
     this.currentIndex = newIndex
     this.showOrHideNavigationButtons()
   }
@@ -121,6 +123,10 @@ export class AtomCarousel {
   }
 
   startAutoplay() {
+    if (this.autoplayIntervalId) {
+      clearInterval(this.autoplayIntervalId)
+    }
+
     this.loop = true
 
     this.autoplayIntervalId = setInterval(() => {
