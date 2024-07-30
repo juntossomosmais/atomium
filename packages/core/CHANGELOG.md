@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.10.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.9.0...atomium-v2.10.0) (2024-07-30)
+
+
+### Features
+
+* **carousel:** reset autoplay when click on navigation and stop during mouse enter ([#503](https://github.com/juntossomosmais/atomium/issues/503)) ([023592a](https://github.com/juntossomosmais/atomium/commit/023592ad38ac43cf9838ebc1a716a102b5e019f2))
+* **component:** create link component ([#502](https://github.com/juntossomosmais/atomium/issues/502)) ([356fe0c](https://github.com/juntossomosmais/atomium/commit/356fe0c6e1ad0f39c4e1ea7c6cf344a1aa0dd21b))
+
 ## [2.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.8.0...atomium-v2.9.0) (2024-07-25)
 
 
