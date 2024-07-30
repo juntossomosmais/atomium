@@ -5,11 +5,13 @@
 }
 
 .atom-link {
+  align-items: center;
   cursor: pointer;
+  display: flex;
   font: var(--text-link-medium);
+  gap: var(--spacing-xxsmall);
   letter-spacing: var(--text-link-medium-letter);
   text-decoration: underline;
-
 
   &[color='primary'] {
     color: var(--color-brand-primary-regular);

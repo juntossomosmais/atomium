@@ -1,4 +1,4 @@
-import { AtomLink } from '@juntossomosmais/atomium/vue'
+import { AtomIcon, AtomLink } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 import { defineComponent, h } from 'vue'
 
@@ -53,6 +53,31 @@ export const Secondary: StoryObj = {
   args: {
     ...Primary.args,
     color: 'secondary',
+  },
+}
+
+export const WithIcon: StoryObj = {
+  render: (args) => ({
+    components: { AtomLink, AtomIcon },
+    setup() {
+      return { args }
+    },
+    template: `
+    <router-link to="/nice-example">
+      <AtomLink :color="args.color" :type="args.type">
+        <span>
+          Nice example with icon
+        </span>
+        <AtomIcon
+          icon="heart"
+          color="primary"
+        />
+      </AtomLink>
+    </router-link>
+  `,
+  }),
+  args: {
+    ...Primary.args,
   },
 }
 

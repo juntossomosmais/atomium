@@ -1,4 +1,4 @@
-import { AtomLink } from '@juntossomosmais/atomium/react'
+import { AtomIcon, AtomLink } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 
 import { LinkReactStoryArgs } from './link.args'
@@ -39,6 +39,22 @@ export const Secondary: StoryObj = {
   args: {
     ...Primary.args,
     color: 'secondary',
+  },
+}
+
+export const WithIcon: StoryObj = {
+  render: (args) => (
+    <Link>
+      <a>
+        <AtomLink color={args.color} type={args.type}>
+          <span>Nice example with icon</span>
+          <AtomIcon icon='heart' color='primary' />
+        </AtomLink>
+      </a>
+    </Link>
+  ),
+  args: {
+    ...Primary.args,
   },
 }
 

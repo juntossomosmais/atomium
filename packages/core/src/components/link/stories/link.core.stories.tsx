@@ -37,6 +37,21 @@ export const Secondary: StoryObj = {
   },
 }
 
+export const WithIcon: StoryObj = {
+  render: (args) => html`
+    <a href="/nice-example">
+      <atom-link type="${args.type}" color="${args.color}">
+        <span> Nice example with icon </span>
+        <atom-icon icon="heart" />
+      </atom-link>
+    </a>
+  `,
+  args: {
+    ...Primary.args,
+    color: 'secondary',
+  },
+}
+
 export const Button: StoryObj = {
   render: (args) => html`
     <atom-link type="${args.type}" color="${args.color}">
