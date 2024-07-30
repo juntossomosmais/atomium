@@ -94,6 +94,7 @@ export type IconProps =
   | 'home'
   | 'information-outline'
   | 'information'
+  | 'instagram'
   | 'linkedin'
   | 'lock-open-outline'
   | 'lock-outline'
