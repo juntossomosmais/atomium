@@ -65,13 +65,11 @@ export const WithIcon: StoryObj = {
     template: `
     <router-link to="/nice-example">
       <AtomLink :color="args.color" :type="args.type">
-        <span>
-          Nice example with icon
-        </span>
-        <AtomIcon
-          icon="heart"
-          color="primary"
-        />
+      Nice example with icon
+      <AtomIcon
+        icon="heart"
+        color="primary"
+      />
       </AtomLink>
     </router-link>
   `,

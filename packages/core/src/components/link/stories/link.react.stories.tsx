@@ -47,7 +47,7 @@ export const WithIcon: StoryObj = {
     <Link>
       <a>
         <AtomLink color={args.color} type={args.type}>
-          <span>Nice example with icon</span>
+          Nice example with icon
           <AtomIcon icon='heart' color='primary' />
         </AtomLink>
       </a>
