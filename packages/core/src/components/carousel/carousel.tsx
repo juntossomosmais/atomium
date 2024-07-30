@@ -61,6 +61,11 @@ export class AtomCarousel {
     this.carouselWrapper.addEventListener('touchstart', this.handleTouchStart)
     this.carouselWrapper.addEventListener('touchend', this.handleTouchEnd)
 
+    if (this.autoplay) {
+      this.carouselWrapper.addEventListener('mouseenter', this.stopAutoplay)
+      this.carouselWrapper.addEventListener('mouseleave', this.restartAutoplay)
+    }
+
     this.showOrHideNavigationButtons()
 
     if (this.autoplay > 0) this.startAutoplay()
@@ -72,6 +77,14 @@ export class AtomCarousel {
       this.handleTouchStart
     )
     this.carouselWrapper.removeEventListener('touchend', this.handleTouchEnd)
+
+    if (this.autoplay) {
+      this.carouselWrapper.removeEventListener('mouseenter', this.stopAutoplay)
+      this.carouselWrapper.removeEventListener(
+        'mouseleave',
+        this.restartAutoplay
+      )
+    }
   }
 
   componentWillUnmount() {
@@ -120,6 +133,19 @@ export class AtomCarousel {
       'aria-disabled',
       String(this.currentIndex === 0)
     )
+  }
+
+  stopAutoplay = () => {
+    if (this.autoplayIntervalId) {
+      clearInterval(this.autoplayIntervalId)
+      this.autoplayIntervalId = null
+    }
+  }
+
+  restartAutoplay = () => {
+    if (!this.autoplayIntervalId) {
+      this.startAutoplay()
+    }
   }
 
   startAutoplay() {
