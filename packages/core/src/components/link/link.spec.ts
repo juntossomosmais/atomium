@@ -72,7 +72,7 @@ describe('atom-link', () => {
     expect(clickEventSpy).toHaveBeenCalled()
   })
 
-  it('should render a clicable button but not emit click event when loading', async () => {
+  it('should render a unclicable button but not emit click event when loading', async () => {
     const page = await newSpecPage({
       components: [AtomLink],
       html: `<atom-link color="secondary" type="button" loading>styled link</atom-link>`,
