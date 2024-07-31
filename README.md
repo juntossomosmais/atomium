@@ -124,6 +124,26 @@ To enable syntax highlighting in your editor, you need to install the following 
 
 - [lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html)
 
+## Local test using Alpha/Beta versions
+
+To locally test Atomium using Alpha/Beta versions, follow the steps below:
+
+1. Update the `.release-please-manifest.json` file in the root directory of the Atomium project with the next version number + alpha. Ex: the current version is `2.10.0`, so the next alpha version can be `2.11.0-alpha.1` (OBS: in the example, it is updating only the core lib, update the libs that your changes impact).
+
+![image](./utils/doc-images/add-alpha-version-to-release-json.png)
+
+2. Add the same version to the repespective `package.json` file in the root directory of the lib project. Ex: packages/core/package.json
+
+![image](./utils/doc-images/add-alpha-to-package-json.png)
+
+3. Build the Atomium libraries by running the following command in the root directory of the Atomium project
+
+```bash
+npx nx run @juntossomosmais/atomium:publish-library-alpha
+```
+
+OBS: you can even share the alpha version with your team, than they can test it locally.
+
 ## Local test using NPM Link
 
 To locally test Atomium using NPM Link, follow the steps below:
