@@ -53,7 +53,7 @@ export const OutlineFilled: StoryObj = {
   },
 }
 
-export const White: StoryObj = {
+export const Ghost: StoryObj = {
   render: (args) => createButton(args, 'dark'),
   args: {
     ...Primary.args,
