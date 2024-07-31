@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.10.0...atomium-v2.11.0) (2024-07-31)
+
+
+### Features
+
+* **button:** add new fill type to button and link loading ([#508](https://github.com/juntossomosmais/atomium/issues/508)) ([e2e4790](https://github.com/juntossomosmais/atomium/commit/e2e47905be924c280d3fc20290f833ce6956196f))
+* **icons:** add icon instagram ([#506](https://github.com/juntossomosmais/atomium/issues/506)) ([7590960](https://github.com/juntossomosmais/atomium/commit/7590960177b3bcc796676bc9cd81263e51fd0835))
+
 ## [2.10.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.9.0...atomium-v2.10.0) (2024-07-30)
 
 
