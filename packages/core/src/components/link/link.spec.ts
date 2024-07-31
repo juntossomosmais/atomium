@@ -71,4 +71,20 @@ describe('atom-link', () => {
 
     expect(clickEventSpy).toHaveBeenCalled()
   })
+
+  it('should render a clicable button but not emit click event when loading', async () => {
+    const page = await newSpecPage({
+      components: [AtomLink],
+      html: `<atom-link color="secondary" type="button" loading>styled link</atom-link>`,
+    })
+
+    await page.waitForChanges()
+
+    const buttonEl = page.root?.shadowRoot?.querySelector('button')
+    const clickEventSpy = jest.spyOn(page.rootInstance.click, 'emit')
+
+    buttonEl?.click()
+
+    expect(clickEventSpy).not.toHaveBeenCalled()
+  })
 })

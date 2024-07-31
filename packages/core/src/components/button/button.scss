@@ -67,6 +67,14 @@
     }
   }
 
+  &.is-outline-filled{
+    --background: var(--color-neutral-white);
+    --color: var(--ion-color-base);
+    --border-width: 2px;
+    --border-style: solid;
+    --border-color: var(--ion-color-base);
+  }
+
   &.is-loading {
     &::part(native) {
       cursor: inherit;
@@ -90,3 +98,5 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+

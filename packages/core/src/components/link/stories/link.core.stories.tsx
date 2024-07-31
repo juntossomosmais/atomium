@@ -14,7 +14,7 @@ const createLink = (
 ) => {
   return html`
     <a href="/nice-example">
-      <atom-link type="${args.type}" color="${args.color}">
+      <atom-link type="${args.type}" color="${args.color}" loading="${args.loading}">
         ${textExample}
       </atom-link>
     </a>
@@ -26,6 +26,7 @@ export const Primary: StoryObj = {
   args: {
     type: 'anchor',
     color: 'primary',
+    loading: false,
   },
 }
 
@@ -34,6 +35,19 @@ export const Secondary: StoryObj = {
   args: {
     ...Primary.args,
     color: 'secondary',
+  },
+}
+
+export const Loading: StoryObj = {
+  render: (args) => html`
+    <a href="/nice-example">
+      <atom-link type="${args.type}" color="${args.color}" loading>
+        Loading...
+      </atom-link>
+    </a>
+  `,
+  args: {
+    ...Primary.args,
   },
 }
 

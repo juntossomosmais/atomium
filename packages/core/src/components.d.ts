@@ -38,7 +38,7 @@ export namespace Components {
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
-        "fill": 'clear' | 'outline' | 'solid';
+        "fill": 'clear' | 'outline' | 'outline-filled' | 'solid';
         "href"?: string;
         "loading"?: boolean;
         "mode": Mode;
@@ -145,6 +145,7 @@ export namespace Components {
     }
     interface AtomLink {
         "color": 'primary' | 'secondary';
+        "loading"?: boolean;
         "type": 'anchor' | 'button';
     }
     interface AtomListSlider {
@@ -526,7 +527,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
-        "fill"?: 'clear' | 'outline' | 'solid';
+        "fill"?: 'clear' | 'outline' | 'outline-filled' | 'solid';
         "href"?: string;
         "loading"?: boolean;
         "mode"?: Mode;
@@ -636,6 +637,7 @@ declare namespace LocalJSX {
     }
     interface AtomLink {
         "color"?: 'primary' | 'secondary';
+        "loading"?: boolean;
         "onClick"?: (event: AtomLinkCustomEvent<any>) => void;
         "type"?: 'anchor' | 'button';
     }

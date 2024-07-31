@@ -1,6 +1,6 @@
+import { AtomButton, AtomIcon } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
-import { AtomButton, AtomIcon } from '@juntossomosmais/atomium/vue'
 
 import { ButtonComponentArgs, ButtonStoryArgs } from './button.args'
 
@@ -45,6 +45,15 @@ export const Secondary: StoryObj = {
     ...Primary.args,
     color: 'secondary',
     fill: 'outline',
+  },
+}
+
+export const OutlineFilled: StoryObj = {
+  render: (args) => createButton(args, 'dark'),
+  args: {
+    ...Primary.args,
+    fill: 'outline-filled',
+    color: 'secondary',
   },
 }
 

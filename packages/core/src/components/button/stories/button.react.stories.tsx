@@ -43,6 +43,15 @@ export const Secondary: StoryObj = {
   },
 }
 
+export const OutlineFilled: StoryObj = {
+  render: (args) => createButton(args, 'dark'),
+  args: {
+    ...Primary.args,
+    fill: 'outline-filled',
+    color: 'secondary',
+  },
+}
+
 export const White: StoryObj = {
   render: (args) => createButton(args, 'dark'),
   args: {
