@@ -44,7 +44,16 @@ export const Secondary: StoryObj = {
   },
 }
 
-export const White: StoryObj = {
+export const OutlineFilled: StoryObj = {
+  render: (args) => createButton(args, 'dark'),
+  args: {
+    ...Primary.args,
+    fill: 'outline-filled',
+    color: 'secondary',
+  },
+}
+
+export const Ghost: StoryObj = {
   render: (args) => createButton(args, 'dark'),
   args: {
     ...Primary.args,

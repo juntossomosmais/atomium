@@ -31,6 +31,7 @@ export const Primary: StoryObj = {
   args: {
     type: 'anchor',
     color: 'primary',
+    loading: false,
   },
 }
 
@@ -39,6 +40,21 @@ export const Secondary: StoryObj = {
   args: {
     ...Primary.args,
     color: 'secondary',
+  },
+}
+
+export const Loading: StoryObj = {
+  render: (args) => (
+    <Link>
+      <a>
+        <AtomLink color={args.color} type={args.type} loading>
+          Loading...
+        </AtomLink>
+      </a>
+    </Link>
+  ),
+  args: {
+    ...Primary.args,
   },
 }
 

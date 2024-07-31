@@ -1,5 +1,4 @@
 export const LinkStoryArgs = {
-  decorators: [],
   parameters: {
     actions: {
       handles: [],
@@ -24,6 +23,11 @@ export const LinkStoryArgs = {
       defaultValue: { summary: 'anchor' },
       description:
         'The atom-link type. Use anchor for navigation (combined with router-link or Link) and button for user actions.',
+    },
+    loading: {
+      control: 'boolean',
+      defaultValue: false,
+      description: 'If `true`, the opacity of the link is reduced.',
     },
   },
 }

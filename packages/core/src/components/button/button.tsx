@@ -19,7 +19,7 @@ export class AtomButton {
   @Prop({ mutable: true }) disabled?: boolean
   @Prop({ mutable: true }) download?: string
   @Prop({ mutable: true }) expand?: 'block'
-  @Prop({ mutable: true }) fill: 'clear' | 'outline' | 'solid' = 'solid'
+  @Prop({ mutable: true }) fill: 'clear' | 'outline' | 'outline-filled' | 'solid' = 'solid'
   @Prop({ mutable: true }) shape?: 'round' | 'circle' = 'round'
   @Prop({ mutable: true }) href?: string
   @Prop({ mutable: true }) loading?: boolean
@@ -74,9 +74,10 @@ export class AtomButton {
             [`atom-button`]: true,
             [`is-loading`]: this.loading,
             [`is-circle`]: this.shape === 'circle',
+            [`is-outline-filled`]: this.fill === 'outline-filled',
           }}
           color={this.disabled && !this.loading ? 'medium' : this.color}
-          fill={this.fill}
+          fill={this.fill === 'outline-filled' ? 'default' : this.fill}
           size={this.size}
           expand={this.expand}
           shape='round'

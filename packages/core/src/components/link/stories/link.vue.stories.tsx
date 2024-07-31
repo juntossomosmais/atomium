@@ -27,7 +27,7 @@ const createLink = (
   },
   template: `
   <router-link to="/nice-example">
-    <AtomLink :color="args.color" :type="args.type">
+    <AtomLink :color="args.color" :type="args.type" :loading="args.loading">
       ${textExample}
     </AtomLink>
   </router-link>
@@ -45,6 +45,7 @@ export const Primary: StoryObj = {
   args: {
     type: 'anchor',
     color: 'primary',
+    loading: false,
   },
 }
 
@@ -53,6 +54,25 @@ export const Secondary: StoryObj = {
   args: {
     ...Primary.args,
     color: 'secondary',
+  },
+}
+
+export const Loading: StoryObj = {
+  render: (args) => ({
+    components: { AtomLink, RouterLink },
+    setup() {
+      return { args }
+    },
+    template: `
+    <router-link to="/nice-example">
+      <AtomLink :color="args.color" :type="args.type" loading>
+        Loading...
+      </AtomLink>
+    </router-link>
+  `,
+  }),
+  args: {
+    ...Primary.args,
   },
 }
 
