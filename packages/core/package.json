@@ -1,6 +1,6 @@
 {
   "name": "@juntossomosmais/atomium",
-  "version": "2.12.0",
+  "version": "3.0.0",
   "description": "Core of web components for Atomium",
   "repository": {
     "type": "git",
