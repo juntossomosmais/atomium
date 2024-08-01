@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.11.0...atomium-v2.12.0) (2024-08-01)
+
+
+### Features
+
+* **icons:** add icon of pix ([#521](https://github.com/juntossomosmais/atomium/issues/521)) ([4a2bd5c](https://github.com/juntossomosmais/atomium/commit/4a2bd5cbbd20adc6ffab778e1de0639812eded7b))
+
 ## [2.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.10.0...atomium-v2.11.0) (2024-07-31)
 
 
