@@ -9,6 +9,7 @@ export type IconProps =
   | 'leader-board'
   | 'person-time-outline'
   | 'person-warning-outline'
+  | 'pix-colorful'
   | 'pix'
   | 'professional-plus'
   | 'wallet-giftcard-custom'
