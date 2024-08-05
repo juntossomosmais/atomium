@@ -13,6 +13,8 @@ The types should be:
 - fix: for bug fixes
 - chore: for maintenance tasks
 - major: for major changes that generate a new version
+- docs: for documentation
+- ci: for chores about ci changes
 
 Example:
 > feat(component): create link component
