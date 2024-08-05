@@ -1,5 +1,26 @@
 ## Infos
 
+<!--
+
+### Pull Request Title Convention
+
+When creating a Pull Request, please follow the title convention. It is essential that the title conforms to the standard as it will be used in the library's changelog description.
+
+> type(context): description
+
+The types should be:
+- feat: for new features
+- fix: for bug fixes
+- chore: for maintenance tasks
+- major: for major changes that generate a new version
+- docs: for documentation
+- ci: for chores about ci changes
+
+Example:
+> feat(component): create link component
+
+-->
+
 [Task](https://juntossomosmais.monday.com/boards/XXX/pulses/XXX)
 
 #### What is being delivered?
