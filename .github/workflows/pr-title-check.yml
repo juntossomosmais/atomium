@@ -2,7 +2,7 @@ name: PR Title Check
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened]
 
 jobs:
   pr-title:
@@ -15,8 +15,8 @@ jobs:
       - name: Validate PR Title
         run: |
           if [[ ! "${{ github.event.pull_request.title }}" =~ ^(feat|fix|chore|major)\([a-zA-Z0-9_-]+\):\ .+$ ]]; then
-            echo "O título do Pull Request deve seguir a convenção: 'tipo(contexto): descrição'."
-            echo "Os tipos devem ser: feat, fix, chore, major."
-            echo "Exemplo de título correto: feat(component): create link component"
+            echo "The Pull Request title must follow the convention: 'type(context): description'."
+            "The types must be: feat, fix, chore, major."
+            echo "Example of a correct title: feat(component): create link component"
             exit 1
           fi
