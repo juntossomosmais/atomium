@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.12.0...atomium-v2.13.0) (2024-08-06)
+
+
+### Features
+
+* **icons:** add icon of pix colerful ([#525](https://github.com/juntossomosmais/atomium/issues/525)) ([4ab55a1](https://github.com/juntossomosmais/atomium/commit/4ab55a1669cf7b9929567c1fb5fb7acfcbcdd9b6))
+
 ## [2.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.11.0...atomium-v2.12.0) (2024-08-01)
 
 
