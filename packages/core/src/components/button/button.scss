@@ -14,6 +14,7 @@
 }
 
 .atom-button {
+  margin: 0;
   text-transform: inherit;
 
   &[color='white'] {
@@ -26,10 +27,17 @@
     --ion-color-contrast: var(--color-neutral-black);
   }
 
+  &[size='small'],
+  &[size='default'],
+  &[size='large'] {
+    --padding-start: var(--spacing-base);
+    --padding-end: var(--spacing-base);
+    height: var(--button-size);
+  }
+
   &[size='default'] {
     --button-size: var(--spacing-xxxxlarge);
     font: var(--button-medium);
-    height: var(--button-size);
     letter-spacing: var(--button-medium-letter);
 
     &.is-circle {
@@ -40,7 +48,6 @@
   &[size='small'] {
     --button-size: var(--spacing-xxxlarge);
     font: var(--button-small);
-    height: var(--button-size);
     letter-spacing: var(--button-small-letter);
 
     &.is-circle {
@@ -51,7 +58,6 @@
   &[size='large'] {
     --button-size: var(--spacing-giant);
     font: var(--button-large);
-    height: var(--button-size);
     letter-spacing: var(--button-large-letter);
 
     &.is-circle {
@@ -67,7 +73,7 @@
     }
   }
 
-  &.is-outline-filled{
+  &.is-outline-filled {
     --background: var(--color-neutral-white);
     --color: var(--ion-color-base);
     --border-width: 2px;
@@ -98,5 +104,3 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
-
