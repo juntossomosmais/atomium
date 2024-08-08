@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.13.0...atomium-v2.13.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **button:** decrease horizontal padding size ([#531](https://github.com/juntossomosmais/atomium/issues/531)) ([1c6a7b7](https://github.com/juntossomosmais/atomium/commit/1c6a7b724b6abebadcb7cf98f78d416bc9f079cd))
+
 ## [2.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.12.0...atomium-v2.13.0) (2024-08-06)
 
 
