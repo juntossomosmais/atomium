@@ -14,6 +14,7 @@
 }
 
 .atom-button {
+  margin: 0;
   text-transform: inherit;
 
   &[color='white'] {
@@ -67,7 +68,7 @@
     }
   }
 
-  &.is-outline-filled{
+  &.is-outline-filled {
     --background: var(--color-neutral-white);
     --color: var(--ion-color-base);
     --border-width: 2px;
@@ -98,5 +99,3 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
-
