@@ -4,6 +4,11 @@ import { IconProps } from '../../icons'
 
 type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
 
+/* @todo it's needed to prevent a ionic error. In the version 8.0 it was fixed, remove it after the upgrade.
+ *  https://github.com/ionic-team/ionic-framework/issues/23942
+ */
+const BACKDROP_NO_SCROLL = 'backdrop-no-scroll'
+
 @Component({
   tag: 'atom-modal',
   styleUrl: 'modal.scss',
@@ -39,12 +44,24 @@ export class AtomModal {
     },
   }
 
+  componentDidLoad() {
+    document.body.classList.remove(BACKDROP_NO_SCROLL)
+  }
+
   private handleDidDimiss = () => {
     this.atomDidDismiss.emit(this.modal)
   }
 
   private handleDidPresent = () => {
     this.atomDidPresent.emit(this.modal)
+  }
+
+  private handleWillDimiss = () => {
+    document.body.classList.remove(BACKDROP_NO_SCROLL)
+  }
+
+  private handleWillPresent = () => {
+    document.body.classList.add(BACKDROP_NO_SCROLL)
   }
 
   private handleCloseClick = () => {
@@ -74,6 +91,8 @@ export class AtomModal {
           }}
           onDidDismiss={this.handleDidDimiss}
           onDidPresent={this.handleDidPresent}
+          onWillDismiss={this.handleWillDimiss}
+          onWillPresent={this.handleWillPresent}
         >
           <header class='atom-modal__header'>
             <div>
