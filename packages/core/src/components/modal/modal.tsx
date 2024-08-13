@@ -132,6 +132,7 @@ export class AtomModal {
             <footer class='atom-modal__footer'>
               <atom-button
                 color='secondary'
+                fill='outline'
                 class='atom-modal__btn-action atom-modal__btn-action--secondary'
                 onClick={this.handleSecondaryClick}
               >

@@ -36,7 +36,7 @@ describe('atom-modal', () => {
             <atom-button class="atom-modal__btn-action atom-modal__btn-action--secondary" color="secondary">
               Secondary
             </atom-button>
-            <atom-button class="atom-modal__btn-action atom-modal__btn-action--primary" color="primary">
+            <atom-button class="atom-modal__btn-action atom-modal__btn-action--primary" color="primary" fill="outline">
               Primary
             </atom-button>
           </footer>
