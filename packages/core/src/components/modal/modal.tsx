@@ -56,17 +56,10 @@ export class AtomModal {
     this.atomDidPresent.emit(this.modal)
   }
 
-  private handleWillDimiss = () => {
-    document.body.classList.remove(BACKDROP_NO_SCROLL)
-  }
-
-  private handleWillPresent = () => {
-    document.body.classList.add(BACKDROP_NO_SCROLL)
-  }
-
-  private handleCloseClick = () => {
+  private handleCloseClick = async () => {
     this.atomCloseClick.emit(this.modal)
-    this.modal.dismiss()
+    await this.modal.dismiss()
+    document.body.classList.remove(BACKDROP_NO_SCROLL)
   }
 
   private handleSecondaryClick = () => {
@@ -83,27 +76,28 @@ export class AtomModal {
     return (
       <Host>
         <ion-modal
+          aria-labelledby='atom-modal__header-title'
+          aria-describedby='atom-modal__content'
           ref={(el) => (this.modal = el as HTMLIonModalElement)}
           trigger={this.trigger}
           class={{
             'atom-modal': true,
             'atom-modal--progress': !!this.progress,
           }}
-          onDidDismiss={this.handleDidDimiss}
+          onIonModalDidDismiss={this.handleDidDimiss}
           onDidPresent={this.handleDidPresent}
-          onWillDismiss={this.handleWillDimiss}
-          onWillPresent={this.handleWillPresent}
         >
           <header class='atom-modal__header'>
-            <div>
-              {iconType && (
-                <atom-icon
-                  icon={iconType.icon}
-                  class={`atom-modal__icon-type atom-modal__icon-type--${iconType.color}`}
-                />
-              )}
+            {iconType && (
+              <atom-icon
+                aria-hidden='true'
+                icon={iconType.icon}
+                class={`atom-modal__icon-type atom-modal__icon-type--${iconType.color}`}
+              />
+            )}
+            <div id='atom-modal__header-title'>
               {this.headerTitle ? (
-                <h3 class='atom-modal__title'>{this.headerTitle}</h3>
+                <h1 class='atom-modal__title'>{this.headerTitle}</h1>
               ) : (
                 <slot name='header' />
               )}
@@ -112,11 +106,13 @@ export class AtomModal {
               fill='clear'
               shape='circle'
               onClick={this.handleCloseClick}
+              aria-label='close'
               class='atom-modal__close'
             >
               <atom-icon
                 icon='close'
                 class='atom-modal__close-icon'
+                aria-hidden='true'
               ></atom-icon>
             </atom-button>
           </header>
@@ -124,6 +120,7 @@ export class AtomModal {
             <ion-progress-bar value={this.progress} color='primary' />
           )}
           <div
+            id='atom-modal__content'
             class={{
               'atom-modal__content': true,
               'atom-modal__content--divided': this.hasDivider,
@@ -136,14 +133,14 @@ export class AtomModal {
               <atom-button
                 color='secondary'
                 class='atom-modal__btn-action atom-modal__btn-action--secondary'
-                onClick={() => this.handleSecondaryClick()}
+                onClick={this.handleSecondaryClick}
               >
                 {this.secondaryText}
               </atom-button>
               <atom-button
                 color='primary'
                 class='atom-modal__btn-action atom-modal__btn-action--primary'
-                onClick={() => this.handlePrimaryClick()}
+                onClick={this.handlePrimaryClick}
               >
                 {this.primaryText}
               </atom-button>
