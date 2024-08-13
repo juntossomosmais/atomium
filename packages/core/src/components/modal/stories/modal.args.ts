@@ -24,7 +24,6 @@ export const ModalStoryArgs = {
   decorators: [withActions],
   argTypes: {
     trigger: {
-      control: 'string',
       description: 'The id of the element that will trigger the modal',
       table: {
         category: Category.PROPERTIES,
@@ -46,21 +45,21 @@ export const ModalStoryArgs = {
       },
     },
     headerTitle: {
-      control: 'string',
+      control: 'text',
       description: 'The title of the modal',
       table: {
         category: Category.PROPERTIES,
       },
     },
     primaryText: {
-      control: 'string',
+      control: 'text',
       description: 'Text of the primary button',
       table: {
         category: Category.PROPERTIES,
       },
     },
     secondaryText: {
-      control: 'string',
+      control: 'text',
       description: 'Text of the secondary button',
       table: {
         category: Category.PROPERTIES,
@@ -141,7 +140,7 @@ export const ModalStoryArgs = {
 }
 
 export const ModalComponentArgs = {
-  hasDivider: true,
   primaryText: 'Primary',
   secondaryText: 'Secondary',
+  hasDivider: false,
 }

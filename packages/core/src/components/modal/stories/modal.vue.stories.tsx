@@ -1,33 +1,34 @@
-import { Meta, StoryObj } from '@storybook/web-components'
-import { html } from 'lit'
+import { AtomButton, AtomModal } from '@juntossomosmais/atomium/vue'
+import { Meta, StoryObj } from '@storybook/vue3'
 
 import { ModalComponentArgs, ModalStoryArgs } from './modal.args'
 
 export default {
-  title: 'Components/Modal',
+  title: 'Components/Button',
   ...ModalStoryArgs,
 } as Meta
 
-const createModal = (args) => {
-  return html`
+const createModal = (args, themeColor = 'light') => ({
+  components: { AtomModal, AtomButton },
+  setup() {
+    return { args, themeColor }
+  },
+  template: `
     <div>
-      <atom-button id="open-modal">Open Modal</atom-button>
-      <atom-modal
+      <AtomButton id='open-modal'>Open Modal</AtomButton>
+      <AtomModal
         alert-type="${args.alertType}"
         has-divider="${args.hasDivider}"
         primary-text="${args.primaryText}"
         secondary-text="${args.secondaryText}"
         trigger="open-modal"
         progress="${args.progress}"
-        has-footer="${args.hasFooter}"
-        header-title="${args.headerTitle}"
       >
-        <div slot="header">Custom Header</div>
-        <p>Modal Content</p>
-      </<atom-modal>
+        {{ args.label }}
+      </AtomModal>
     </div>
-  `
-}
+  `,
+})
 
 export const Default: StoryObj = {
   render: (args) => createModal(args),

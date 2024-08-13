@@ -20,7 +20,7 @@ export class AtomModal {
   @Prop() headerTitle?: string = ''
   @Prop() primaryText?: string
   @Prop() secondaryText?: string
-  @Prop() hasDivider?: boolean
+  @Prop() hasDivider?: boolean = false
   @Prop() alertType?: 'alert' | 'error'
   @Prop() progress?: number
   @Prop() hasFooter?: boolean = true
