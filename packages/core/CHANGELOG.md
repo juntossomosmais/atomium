@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.13.0...atomium-v2.13.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **button:** decrease horizontal padding size ([#531](https://github.com/juntossomosmais/atomium/issues/531)) ([1c6a7b7](https://github.com/juntossomosmais/atomium/commit/1c6a7b724b6abebadcb7cf98f78d416bc9f079cd))
+
+## [2.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.12.0...atomium-v2.13.0) (2024-08-06)
+
+
+### Features
+
+* **icons:** add icon of pix colerful ([#525](https://github.com/juntossomosmais/atomium/issues/525)) ([4ab55a1](https://github.com/juntossomosmais/atomium/commit/4ab55a1669cf7b9929567c1fb5fb7acfcbcdd9b6))
+
 ## [2.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.11.0...atomium-v2.12.0) (2024-08-01)
 
 
