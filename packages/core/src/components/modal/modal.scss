@@ -22,18 +22,18 @@
     padding-top: 0;
 
     &--divided {
-      border-top: 1px solid var(--color-neutral-light-3);
       border-bottom: 1px solid var(--color-neutral-light-3);
+      border-top: 1px solid var(--color-neutral-light-3);
       padding-top: var(--spacing-large);
     }
   }
 
   &__footer {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-medium);
     justify-content: flex-end;
     padding: var(--spacing-large);
-    flex-wrap: wrap;
   }
 
   &__header {
@@ -67,13 +67,13 @@
     }
   }
 
+  ion-progress-bar::part(track) {
+    background-color: var(--color-brand-primary-light-2);
+  }
+
   @include below(small) {
     &__btn-action {
       width: 100%;
-    }
-
-    ion-progress-bar::part(track) {
-      background-color: var(--color-brand-primary-light-2);
     }
 
     atom-button::part(button) {
