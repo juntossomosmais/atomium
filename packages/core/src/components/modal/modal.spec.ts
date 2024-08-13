@@ -22,14 +22,14 @@ describe('atom-modal', () => {
   it('should render header slot when headerTitle is not passed', async () => {
     expect(page.root).toEqualHtml(`
       <atom-modal primary-text="Primary" secondary-text="Secondary" trigger="button">
-        <ion-modal class="atom-modal" trigger="button">
+        <ion-modal aria-describedby="atom-modal__content" aria-labelledby="atom-modal__header-title" class="atom-modal" trigger="button">
           <header class="atom-modal__header">
-            <div></div>
-            <atom-button class="atom-modal__close" fill="clear" shape="circle">
-              <atom-icon class="atom-modal__close-icon" icon="close"></atom-icon>
+            <div id="atom-modal__header-title"></div>
+            <atom-button aria-label="close" class="atom-modal__close" fill="clear" shape="circle">
+              <atom-icon aria-hidden="true" class="atom-modal__close-icon" icon="close"></atom-icon>
             </atom-button>
           </header>
-          <div class="atom-modal__content">
+          <div class="atom-modal__content" id="atom-modal__content">
             Modal content
           </div>
           <footer class="atom-modal__footer">
@@ -75,7 +75,9 @@ describe('atom-modal', () => {
       </atom-modal>
     `)
 
-    expect(page.root?.innerHTML).toContain('atom-modal__icon-type atom-modal__icon-type--error')
+    expect(page.root?.innerHTML).toContain(
+      'atom-modal__icon-type atom-modal__icon-type--error'
+    )
   })
 
   it('should render progress bar when progress is passed', async () => {
@@ -85,7 +87,9 @@ describe('atom-modal', () => {
       </atom-modal>
     `)
 
-    expect(page.root?.innerHTML).toContain('<ion-progress-bar value="0.5" color="primary">')
+    expect(page.root?.innerHTML).toContain(
+      '<ion-progress-bar value="0.5" color="primary">'
+    )
   })
 
   it('should render progress bar when progress is passed', async () => {
@@ -100,8 +104,12 @@ describe('atom-modal', () => {
 
   it('should emit click events when clicked', async () => {
     const closeButton = page.root?.querySelector('.atom-modal__close')
-    const primaryButton = page.root?.querySelector('.atom-modal__btn-action--primary')
-    const secondaryButton = page.root?.querySelector('.atom-modal__btn-action--secondary')
+    const primaryButton = page.root?.querySelector(
+      '.atom-modal__btn-action--primary'
+    )
+    const secondaryButton = page.root?.querySelector(
+      '.atom-modal__btn-action--secondary'
+    )
     const spyClose = jest.fn()
     const spyPrimary = jest.fn()
     const spySecondary = jest.fn()
