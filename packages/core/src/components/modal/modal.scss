@@ -2,7 +2,6 @@
 
 .atom-modal {
   &__close {
-    color: var(--color-neutral-light-1);
     position: absolute;
     right: var(--spacing-small);
     top: var(--spacing-small);
@@ -14,7 +13,7 @@
   }
 
   &__content {
-    color: var(--color-neutral-regular);
+    color: var(--color-neutral-light-1);
     font: var(--text-body-medium);
     height: 100%;
     letter-spacing: var(--text-body-medium-letter);
@@ -75,10 +74,10 @@
   @include below(small) {
     &__btn-action {
       width: 100%;
-    }
 
-    atom-button::part(button) {
-      width: 100%;
+      &::part(button) {
+        width: 100%;
+      }
     }
   }
 }
