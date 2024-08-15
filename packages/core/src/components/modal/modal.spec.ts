@@ -92,7 +92,7 @@ describe('atom-modal', () => {
     )
   })
 
-  it('should render progress bar when progress is passed', async () => {
+  it('should content contain divided class', async () => {
     await page.setContent(`
       <atom-modal has-divider="true">
         Modal content
