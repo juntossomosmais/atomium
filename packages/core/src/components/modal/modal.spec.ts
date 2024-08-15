@@ -19,7 +19,7 @@ describe('atom-modal', () => {
     })
   })
 
-  it('should render header slot when headerTitle is not passed', async () => {
+  it('should render modal with default values', async () => {
     expect(page.root).toEqualHtml(`
       <atom-modal primary-text="Primary" secondary-text="Secondary" trigger="button">
         <ion-modal aria-describedby="atom-modal__content" aria-labelledby="atom-modal__header-title" class="atom-modal" trigger="button">
