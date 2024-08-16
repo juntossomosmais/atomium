@@ -25,7 +25,7 @@ describe('AtomButton', () => {
     expect(page.root).toEqualHtml(`
       <atom-button>
         <mock:shadow-root>
-          <ion-button class="atom-button" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
+          <ion-button class="atom-button" color="primary" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
             <span class="slot">
               <slot></slot>
             </span>
@@ -47,7 +47,7 @@ describe('AtomButton', () => {
     expect(page.root).toEqualHtml(`
       <atom-button loading="true">
         <mock:shadow-root>
-          <ion-button class="atom-button is-loading" color="primary" disabled="" fill="solid" mode="md" shape="round" size="default" type="button">
+          <ion-button class="atom-button is-loading" color="primary" disabled="" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
             <span class="loading">
               <ion-spinner color="light"></ion-spinner>
             </span>
@@ -69,7 +69,7 @@ describe('AtomButton', () => {
     await page.waitForChanges()
 
     expect(page.root?.shadowRoot).toEqualHtml(`
-      <ion-button class="atom-button is-loading" color="primary" disabled="" fill="outline" mode="md" shape="round" size="default" type="button">
+      <ion-button class="atom-button is-loading" color="primary" disabled="" fill="outline" mode="md" part="button" shape="round" size="default" type="button">
         <span class="loading">
           <ion-spinner color="primary"></ion-spinner>
         </span>
@@ -89,7 +89,7 @@ describe('AtomButton', () => {
     await page.waitForChanges()
 
     expect(page.root?.shadowRoot).toEqualHtml(`
-      <ion-button class="atom-button" color="medium" disabled="" fill="solid" mode="md" shape="round" size="default" type="button">
+      <ion-button class="atom-button" color="medium" disabled="" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
         <span class="slot">
           <slot></slot>
         </span>
@@ -106,7 +106,7 @@ describe('AtomButton', () => {
     await page.waitForChanges()
 
     expect(page.root?.shadowRoot).toEqualHtml(`
-      <ion-button class="atom-button is-circle" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
+      <ion-button class="atom-button is-circle" color="primary" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
         <span class="slot">
           <slot></slot>
         </span>

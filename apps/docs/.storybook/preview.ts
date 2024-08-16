@@ -1,7 +1,7 @@
 import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 
 import { CustomViewports } from '@atomium/storybook-utils/custom-viewports'
-import DocumentationTemplate from '@atomium/storybook-utils/DocumentationTemplate.mdx'
+import DocumentationTemplate from '@atomium/storybook-utils/templates/DocumentationTemplate.mdx'
 
 import '@atomium/storybook-utils/preview.css'
 
