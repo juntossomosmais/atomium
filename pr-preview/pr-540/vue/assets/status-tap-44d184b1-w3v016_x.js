@@ -1,0 +1,3 @@
+import{d as i,w as a}from"./index-BR--6uTH.js";import{a as m,s as p}from"./index-6cad21e9-C8mkRYkz.js";import{d}from"./helpers-079c01eb-D592YRe8.js";import"./vue.esm-bundler-Dk4JuX4g.js";import"./iframe-DYHf6dW1.js";import"../sb-preview/runtime.js";import"./index-f5dbb989-By3l89LO.js";/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ */const u=()=>{const o=window;o.addEventListener("statusTap",()=>{i(()=>{const n=o.innerWidth,r=o.innerHeight,e=document.elementFromPoint(n/2,r/2);if(!e)return;const t=m(e);t&&new Promise(s=>d(t,s)).then(()=>{a(async()=>{t.style.setProperty("--overflow","hidden"),await p(t,300),t.style.removeProperty("--overflow")})})})})};export{u as startStatusTap};
