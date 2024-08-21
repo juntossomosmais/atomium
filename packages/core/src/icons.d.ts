@@ -175,7 +175,7 @@ export type IconProps =
   | 'tune'
   | 'upload-outline'
   | 'upload'
-  | 'verified-outiline'
+  | 'verified-outline'
   | 'verified'
   | 'wallet-giftcard'
   | 'watch-later-outline'
