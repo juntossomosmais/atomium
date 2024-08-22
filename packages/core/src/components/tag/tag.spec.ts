@@ -1,6 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing'
 
 import { IconProps } from '../../icons'
+
 import { AtomTag } from './tag'
 
 const setup = async (
@@ -39,8 +40,10 @@ describe('atom-tag', () => {
     const colorExists = atomTag?.shadowRoot?.innerHTML
       .split(' ')
       .find((el) => el === `color="${mockedColor}"`)
+
     expect(colorExists).toBeTruthy()
     const atomTagLabel = page.root?.innerHTML
+
     expect(atomTag?.nodeName.toLocaleLowerCase()).toBe('atom-tag')
     expect(atomTagLabel).toBe(tagLabel)
   })
@@ -48,8 +51,9 @@ describe('atom-tag', () => {
   it('should render atom-tag with icon', async () => {
     const mockedIcon = 'heart'
     const pageRoot = await setup('success', mockedIcon)
+
     expect(pageRoot?.root?.shadowRoot)
-      .toEqualHtml(`<ion-badge class="atom-tag" color="success">
+      .toEqualHtml(`<ion-badge class="atom-tag" color="success" part="tag">
     <atom-icon class="atom-icon" icon=${mockedIcon}></atom-icon>
     <slot></slot>
   </ion-badge>`)
@@ -71,6 +75,7 @@ describe('atom-tag', () => {
     const customColorsExists = page?.root?.shadowRoot?.innerHTML.includes(
       `style="${customColors}"`
     )
+
     expect(customColorsExists).toBeTruthy()
   })
 })

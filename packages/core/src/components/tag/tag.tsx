@@ -1,4 +1,5 @@
 import { Component, Host, Prop, h } from '@stencil/core'
+
 import { IconProps } from '../../icons'
 
 @Component({
@@ -31,6 +32,7 @@ export class AtomTag {
             backgroundColor: this.getColor(this.customBackgroundColor),
             color: this.getColor(this.customTextColor),
           }}
+          part='tag'
           class='atom-tag'
         >
           {this.icon && (
