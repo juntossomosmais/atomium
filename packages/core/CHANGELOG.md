@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.14.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.0...atomium-v2.14.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* **icons:** rename verified outline icon ([#540](https://github.com/juntossomosmais/atomium/issues/540)) ([57e3b51](https://github.com/juntossomosmais/atomium/commit/57e3b517f331fe31d9bab207dd13a6e033575765))
+* **tag:** light tag color ([#542](https://github.com/juntossomosmais/atomium/issues/542)) ([c098357](https://github.com/juntossomosmais/atomium/commit/c098357e0cf1e4b7202febd0398f000a51c92cbc))
+
 ## [2.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.13.1...atomium-v2.14.0) (2024-08-16)
 
 
