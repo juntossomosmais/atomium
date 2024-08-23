@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.14.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.1...atomium-v2.14.2) (2024-08-23)
+
+
+### Bug Fixes
+
+* **alert:** improve position of icon on single line ([#543](https://github.com/juntossomosmais/atomium/issues/543)) ([9c587d6](https://github.com/juntossomosmais/atomium/commit/9c587d6cbd7ab3e2cbe30502ec6a35cfe6ef873a))
+
 ## [2.14.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.0...atomium-v2.14.1) (2024-08-22)
 
 
