@@ -8,9 +8,7 @@
   align-items: center;
   cursor: pointer;
   display: flex;
-  font: var(--text-link-medium);
   gap: var(--spacing-xxsmall);
-  letter-spacing: var(--text-link-medium-letter);
   text-decoration: underline;
 
   &[color='primary'] {
@@ -18,7 +16,22 @@
   }
 
   &[color='secondary'] {
-    color: var(--color-brand-secondary-regular)
+    color: var(--color-brand-secondary-regular);
+  }
+
+  &--small {
+    font: var(--text-link-small);
+    letter-spacing: var(--text-link-small-letter);
+  }
+
+  &--medium {
+    font: var(--text-link-medium);
+    letter-spacing: var(--text-link-medium-letter);
+  }
+
+  &--large {
+    font: var(--text-link-large);
+    letter-spacing: var(--text-link-medium-large);
   }
 
   &__button {

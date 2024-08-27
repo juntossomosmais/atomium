@@ -149,6 +149,7 @@ export namespace Components {
     interface AtomLink {
         "color": 'primary' | 'secondary';
         "loading"?: boolean;
+        "size": 'small' | 'medium' | 'large';
         "type": 'anchor' | 'button';
     }
     interface AtomListSlider {
@@ -681,6 +682,7 @@ declare namespace LocalJSX {
         "color"?: 'primary' | 'secondary';
         "loading"?: boolean;
         "onClick"?: (event: AtomLinkCustomEvent<any>) => void;
+        "size"?: 'small' | 'medium' | 'large';
         "type"?: 'anchor' | 'button';
     }
     interface AtomListSlider {
