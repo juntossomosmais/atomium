@@ -14,11 +14,26 @@ const createLink = (
 ) => {
   return html`
     <a href="/nice-example">
-      <atom-link type="${args.type}" color="${args.color}" loading="${args.loading}">
+      <atom-link
+        type="${args.type}"
+        color="${args.color}"
+        loading="${args.loading}"
+        size="${args.size}"
+      >
         ${textExample}
       </atom-link>
     </a>
   `
+}
+
+export const Default: StoryObj = {
+  render: (args) => createLink(args),
+  args: {
+    type: 'anchor',
+    color: 'secondary',
+    size: 'medium',
+    loading: false,
+  },
 }
 
 export const Primary: StoryObj = {
@@ -26,6 +41,7 @@ export const Primary: StoryObj = {
   args: {
     type: 'anchor',
     color: 'primary',
+    size: 'medium',
     loading: false,
   },
 }
@@ -47,7 +63,7 @@ export const Loading: StoryObj = {
     </a>
   `,
   args: {
-    ...Primary.args,
+    ...Default.args,
   },
 }
 
@@ -61,7 +77,7 @@ export const WithIcon: StoryObj = {
     </a>
   `,
   args: {
-    ...Primary.args,
+    ...Default.args,
     color: 'secondary',
   },
 }
@@ -73,7 +89,19 @@ export const Button: StoryObj = {
     </atom-link>
   `,
   args: {
-    ...Primary.args,
+    ...Default.args,
     type: 'button',
+  },
+}
+
+export const Size: StoryObj = {
+  render: (args) => html`
+    <atom-link size="${args.size}" color="${args.color}">
+      It is a large link, using large font size
+    </atom-link>
+  `,
+  args: {
+    ...Default.args,
+    size: 'large',
   },
 }
