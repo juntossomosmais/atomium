@@ -14,7 +14,7 @@ describe('atom-link', () => {
     expect(page.root).toEqualHtml(`
       <atom-link>
         <mock:shadow-root>
-        <span class="atom-link" color="primary">
+        <span class="atom-link atom-link--medium" color="secondary">
            <slot></slot>
          </span>
         </mock:shadow-root>
@@ -23,18 +23,18 @@ describe('atom-link', () => {
     `)
   })
 
-  it('should render a span element with secondary color', async () => {
+  it('should render a span element with primary color', async () => {
     const page = await newSpecPage({
       components: [AtomLink],
-      html: `<atom-link color="secondary">styled link</atom-link>`,
+      html: `<atom-link color="primary">styled link</atom-link>`,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-link color="secondary">
+      <atom-link color="primary">
         <mock:shadow-root>
-        <span class="atom-link" color="secondary">
+        <span class="atom-link atom-link--medium" color="primary">
            <slot></slot>
          </span>
         </mock:shadow-root>
@@ -86,5 +86,25 @@ describe('atom-link', () => {
     buttonEl?.click()
 
     expect(clickEventSpy).not.toHaveBeenCalled()
+  })
+
+  it('should render a spam element with small size css class', async () => {
+    const page = await newSpecPage({
+      components: [AtomLink],
+      html: `<atom-link size="small">styled link</atom-link>`,
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-link size="small">
+        <mock:shadow-root>
+        <span class="atom-link atom-link--small" color="secondary">
+           <slot></slot>
+         </span>
+        </mock:shadow-root>
+        styled link
+      </atom-link>
+    `)
   })
 })
