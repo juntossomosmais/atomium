@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.2...atomium-v2.15.0) (2024-08-27)
+
+
+### Features
+
+* **link:** set default color and add size prop ([#545](https://github.com/juntossomosmais/atomium/issues/545)) ([f63b1c7](https://github.com/juntossomosmais/atomium/commit/f63b1c728015bb050c00fc701f4dd4148196edc2))
+
 ## [2.14.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.1...atomium-v2.14.2) (2024-08-23)
 
 
