@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.14.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.1...atomium-v2.14.2) (2024-08-23)
+
+
+### Bug Fixes
+
+* **alert:** improve position of icon on single line ([#543](https://github.com/juntossomosmais/atomium/issues/543)) ([9c587d6](https://github.com/juntossomosmais/atomium/commit/9c587d6cbd7ab3e2cbe30502ec6a35cfe6ef873a))
+
+## [2.14.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.0...atomium-v2.14.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* **icons:** rename verified outline icon ([#540](https://github.com/juntossomosmais/atomium/issues/540)) ([57e3b51](https://github.com/juntossomosmais/atomium/commit/57e3b517f331fe31d9bab207dd13a6e033575765))
+* **tag:** light tag color ([#542](https://github.com/juntossomosmais/atomium/issues/542)) ([c098357](https://github.com/juntossomosmais/atomium/commit/c098357e0cf1e4b7202febd0398f000a51c92cbc))
+
+## [2.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.13.1...atomium-v2.14.0) (2024-08-16)
+
+
+### Features
+
+* **icons:** add verified icons ([#539](https://github.com/juntossomosmais/atomium/issues/539)) ([f04d310](https://github.com/juntossomosmais/atomium/commit/f04d310243aae09c2465aae04d10875dc7c4dfc7))
+* **modal:** add modal component ([#534](https://github.com/juntossomosmais/atomium/issues/534)) ([f3fc1bb](https://github.com/juntossomosmais/atomium/commit/f3fc1bbe47362a88a0754324160f1e25f2fccc65))
+
+## [2.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.13.0...atomium-v2.13.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **button:** decrease horizontal padding size ([#531](https://github.com/juntossomosmais/atomium/issues/531)) ([1c6a7b7](https://github.com/juntossomosmais/atomium/commit/1c6a7b724b6abebadcb7cf98f78d416bc9f079cd))
+
 ## [2.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.12.0...atomium-v2.13.0) (2024-08-06)
 
 

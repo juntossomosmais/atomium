@@ -38,7 +38,10 @@ export namespace Components {
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
-        "fill": 'clear' | 'outline' | 'outline-filled' | 'solid';
+        "fill": | 'clear'
+    | 'outline'
+    | 'outline-filled'
+    | 'solid';
         "href"?: string;
         "loading"?: boolean;
         "mode": Mode;
@@ -155,6 +158,16 @@ export namespace Components {
     }
     interface AtomListSliderItem {
     }
+    interface AtomModal {
+        "alertType"?: 'alert' | 'error';
+        "hasDivider"?: boolean;
+        "hasFooter"?: boolean;
+        "headerTitle"?: string;
+        "primaryText"?: string;
+        "progress"?: number;
+        "secondaryText"?: string;
+        "trigger"?: string;
+    }
     interface AtomSelect {
         "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
@@ -260,6 +273,10 @@ export interface AtomLinkCustomEvent<T> extends CustomEvent<T> {
 export interface AtomListSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomListSliderElement;
+}
+export interface AtomModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomModalElement;
 }
 export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -431,6 +448,27 @@ declare global {
         prototype: HTMLAtomListSliderItemElement;
         new (): HTMLAtomListSliderItemElement;
     };
+    interface HTMLAtomModalElementEventMap {
+        "atomCloseClick": any;
+        "atomDidDismiss": any;
+        "atomDidPresent": any;
+        "atomPrimaryClick": any;
+        "atomSecondaryClick": any;
+    }
+    interface HTMLAtomModalElement extends Components.AtomModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomModalElementEventMap>(type: K, listener: (this: HTMLAtomModalElement, ev: AtomModalCustomEvent<HTMLAtomModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomModalElementEventMap>(type: K, listener: (this: HTMLAtomModalElement, ev: AtomModalCustomEvent<HTMLAtomModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomModalElement: {
+        prototype: HTMLAtomModalElement;
+        new (): HTMLAtomModalElement;
+    };
     interface HTMLAtomSelectElementEventMap {
         "atomBlur": void;
         "atomCancel": void;
@@ -494,6 +532,7 @@ declare global {
         "atom-link": HTMLAtomLinkElement;
         "atom-list-slider": HTMLAtomListSliderElement;
         "atom-list-slider-item": HTMLAtomListSliderItemElement;
+        "atom-modal": HTMLAtomModalElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-tag": HTMLAtomTagElement;
         "atom-textarea": HTMLAtomTextareaElement;
@@ -528,7 +567,10 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
-        "fill"?: 'clear' | 'outline' | 'outline-filled' | 'solid';
+        "fill"?: | 'clear'
+    | 'outline'
+    | 'outline-filled'
+    | 'solid';
         "href"?: string;
         "loading"?: boolean;
         "mode"?: Mode;
@@ -651,6 +693,21 @@ declare namespace LocalJSX {
     }
     interface AtomListSliderItem {
     }
+    interface AtomModal {
+        "alertType"?: 'alert' | 'error';
+        "hasDivider"?: boolean;
+        "hasFooter"?: boolean;
+        "headerTitle"?: string;
+        "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomDidPresent"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomPrimaryClick"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomSecondaryClick"?: (event: AtomModalCustomEvent<any>) => void;
+        "primaryText"?: string;
+        "progress"?: number;
+        "secondaryText"?: string;
+        "trigger"?: string;
+    }
     interface AtomSelect {
         "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
@@ -754,6 +811,7 @@ declare namespace LocalJSX {
         "atom-link": AtomLink;
         "atom-list-slider": AtomListSlider;
         "atom-list-slider-item": AtomListSliderItem;
+        "atom-modal": AtomModal;
         "atom-select": AtomSelect;
         "atom-tag": AtomTag;
         "atom-textarea": AtomTextarea;
@@ -778,6 +836,7 @@ declare module "@stencil/core" {
             "atom-link": LocalJSX.AtomLink & JSXBase.HTMLAttributes<HTMLAtomLinkElement>;
             "atom-list-slider": LocalJSX.AtomListSlider & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
             "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
+            "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
