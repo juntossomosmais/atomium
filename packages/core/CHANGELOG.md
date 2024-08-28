@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.15.0...atomium-v2.16.0) (2024-08-28)
+
+
+### Features
+
+* **icon:** add white color ([#547](https://github.com/juntossomosmais/atomium/issues/547)) ([651bb20](https://github.com/juntossomosmais/atomium/commit/651bb20159cca6c49d733947739f1cf9e9c3698e))
+
 ## [2.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.2...atomium-v2.15.0) (2024-08-27)
 
 
