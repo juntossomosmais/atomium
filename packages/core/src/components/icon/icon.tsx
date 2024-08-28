@@ -16,6 +16,7 @@ type ColorProps =
   | 'medium'
   | 'dark'
   | 'white'
+
 @Component({
   tag: 'atom-icon',
   styleUrl: 'icon.scss',
