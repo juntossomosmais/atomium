@@ -49,44 +49,59 @@ export class AtomSelect {
   @Event() atomChange!: EventEmitter<string>
   @Event() atomDismiss!: EventEmitter<void>
   @Event() atomFocus!: EventEmitter<void>
-  @Method() setBadge() {
+
+  @Method()
+  setBadge() {
     const ionItemElements = document.querySelectorAll('ion-item')
+    const optionsWithBadge = this.optionsWithBadge
 
-    ionItemElements.forEach((itemElement) => {
-      const elementText = itemElement.textContent
-      const optionWithBadge = this.optionsWhitBadge[elementText]
+    if (!ionItemElements || !optionsWithBadge) return
 
-      if (optionWithBadge) {
-        const badgeElement = document.createElement('atom-badge')
-        const { type, label } = optionWithBadge.badge
+    ionItemElements?.forEach((itemElement) => {
+      const elementText = itemElement.textContent?.trim()
+      const optionWithBadge = optionsWithBadge[elementText]
 
-        badgeElement.setAttribute('type', type)
-        badgeElement.textContent = label
+      if (!optionWithBadge || !itemElement) return
 
-        itemElement.style.width = 'fit-content'
-        itemElement.appendChild(badgeElement)
-      }
+      const badgeElement = document.createElement('atom-badge')
+      const { type, label } = optionWithBadge.badge
+
+      badgeElement.setAttribute('type', type)
+      badgeElement.textContent = label
+      badgeElement.classList.add('atom-badge')
+
+      itemElement.style.width = 'fit-content'
+      itemElement.appendChild(badgeElement)
     })
   }
-
-  filterOptionsWithBadge = (options) => {
-    return options?.reduce((optionsWhitBadge, option) => {
+  filterOptionsWithBadge = (
+    options: Array<{
+      label?: string
+      value?: string
+      badge?: { label: string; type: string }
+    }>
+  ) => {
+    return options?.reduce((optionsWithBadge, option) => {
       if (option?.badge?.label) {
         const label = option.label || option.value
 
-        optionsWhitBadge[label] = option
+        if (label) {
+          optionsWithBadge[label] = option
+        }
       }
 
-      return optionsWhitBadge
+      return optionsWithBadge
     }, {})
   }
-  optionsWhitBadge = {}
+
+  optionsWithBadge = {}
+
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
   }
 
   componentWillLoad() {
-    this.optionsWhitBadge = this.filterOptionsWithBadge(this.options)
+    this.optionsWithBadge = this.filterOptionsWithBadge(this.options)
   }
 
   disconnectedCallback() {
