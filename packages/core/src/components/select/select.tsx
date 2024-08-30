@@ -8,6 +8,7 @@ import {
   Host,
   Prop,
   h,
+  Method,
 } from '@stencil/core'
 
 import { IconProps } from '../../icons'
@@ -40,6 +41,7 @@ export class AtomSelect {
     label?: string
     selected?: boolean
     disabled?: boolean
+    badge?: { type: string; label: string }
   }> = []
 
   @Event() atomBlur!: EventEmitter<void>
@@ -47,9 +49,44 @@ export class AtomSelect {
   @Event() atomChange!: EventEmitter<string>
   @Event() atomDismiss!: EventEmitter<void>
   @Event() atomFocus!: EventEmitter<void>
+  @Method() setBadge() {
+    const ionItemElements = document.querySelectorAll('ion-item')
 
+    ionItemElements.forEach((itemElement) => {
+      const elementText = itemElement.textContent
+      const optionWithBadge = this.optionsWhitBadge[elementText]
+
+      if (optionWithBadge) {
+        const badgeElement = document.createElement('atom-badge')
+        const { type, label } = optionWithBadge.badge
+
+        badgeElement.setAttribute('type', type)
+        badgeElement.textContent = label
+
+        itemElement.style.width = 'fit-content'
+        itemElement.appendChild(badgeElement)
+      }
+    })
+  }
+
+  filterOptionsWithBadge = (options) => {
+    return options?.reduce((optionsWhitBadge, option) => {
+      if (option?.badge?.label) {
+        const label = option.label || option.value
+
+        optionsWhitBadge[label] = option
+      }
+
+      return optionsWhitBadge
+    }, {})
+  }
+  optionsWhitBadge = {}
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
+  }
+
+  componentWillLoad() {
+    this.optionsWhitBadge = this.filterOptionsWithBadge(this.options)
   }
 
   disconnectedCallback() {
@@ -67,6 +104,8 @@ export class AtomSelect {
   }
 
   private handleBlur = () => {
+    this.setBadge()
+
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.atomBlur.emit()
   }

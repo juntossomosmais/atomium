@@ -184,9 +184,11 @@ export namespace Components {
     label?: string
     selected?: boolean
     disabled?: boolean
+    badge?: { type: string; label: string }
   }>;
         "placeholder": string;
         "readonly"?: boolean;
+        "setBadge": () => Promise<void>;
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomTag {
@@ -728,6 +730,7 @@ declare namespace LocalJSX {
     label?: string
     selected?: boolean
     disabled?: boolean
+    badge?: { type: string; label: string }
   }>;
         "placeholder"?: string;
         "readonly"?: boolean;

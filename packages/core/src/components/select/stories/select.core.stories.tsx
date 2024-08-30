@@ -32,13 +32,19 @@ const createSelect = (args) => {
         atomSelectElements.forEach((atomSelect) => {
           atomSelect.options = [
             { id: '1', value: 'Red', disabled: false },
-            { id: '2', value: 'Green', disabled: false },
+            {
+              id: '2',
+              value: 'Green',
+              disabled: false,
+              badge: { type: 'success', label: 'New' },
+            },
             { id: '3', value: 'Blue', disabled: false },
             {
               id: '4',
               value: 'nice_blue',
               disabled: false,
               label: 'Nice Blue',
+              badge: { type: 'success', label: 'New' },
             },
             { id: '5', value: 'Disabled example', disabled: true },
           ]
