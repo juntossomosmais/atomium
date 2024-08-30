@@ -6,10 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
-import { Color, Mode, TextFieldTypes } from "@ionic/core";
+import { Mode, TextFieldTypes } from "@ionic/core";
 import { IonTypes } from "@ionic/core/dist/types/components";
 export { IconProps } from "./icons";
-export { Color, Mode, TextFieldTypes } from "@ionic/core";
+export { Mode, TextFieldTypes } from "@ionic/core";
 export { IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomAlert {
@@ -87,7 +87,7 @@ export namespace Components {
         "fixed"?: boolean;
     }
     interface AtomIcon {
-        "color"?: Color;
+        "color"?: ColorProps;
         "icon"?: IconProps;
         "size"?: Size;
     }
@@ -149,6 +149,7 @@ export namespace Components {
     interface AtomLink {
         "color": 'primary' | 'secondary';
         "loading"?: boolean;
+        "size": 'small' | 'medium' | 'large';
         "type": 'anchor' | 'button';
     }
     interface AtomListSlider {
@@ -619,7 +620,7 @@ declare namespace LocalJSX {
         "fixed"?: boolean;
     }
     interface AtomIcon {
-        "color"?: Color;
+        "color"?: ColorProps;
         "icon"?: IconProps;
         "size"?: Size;
     }
@@ -683,6 +684,7 @@ declare namespace LocalJSX {
         "color"?: 'primary' | 'secondary';
         "loading"?: boolean;
         "onClick"?: (event: AtomLinkCustomEvent<any>) => void;
+        "size"?: 'small' | 'medium' | 'large';
         "type"?: 'anchor' | 'button';
     }
     interface AtomListSlider {

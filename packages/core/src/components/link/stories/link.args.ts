@@ -14,7 +14,7 @@ export const LinkStoryArgs = {
     color: {
       control: 'select',
       options: ['primary', 'secondary'],
-      defaultValue: { summary: 'primary' },
+      defaultValue: { summary: 'secondary' },
       description: 'The link color.',
     },
     type: {
@@ -28,6 +28,13 @@ export const LinkStoryArgs = {
       control: 'boolean',
       defaultValue: false,
       description: 'If `true`, the opacity of the link is reduced.',
+    },
+
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      defaultValue: { summary: 'medium' },
+      description: 'The link typhography size.',
     },
   },
 }

@@ -30,6 +30,7 @@ export const IconStoryArgs = {
         'light',
         'medium',
         'dark',
+        'white',
       ],
       table: {
         category: Category.PROPERTIES,
