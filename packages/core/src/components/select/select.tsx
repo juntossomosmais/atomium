@@ -69,6 +69,7 @@ export class AtomSelect {
       badgeElement.setAttribute('type', type)
       badgeElement.textContent = label
       badgeElement.classList.add('atom-badge')
+      badgeElement.style.marginLeft = '4px'
 
       itemElement.style.width = 'fit-content'
       itemElement.appendChild(badgeElement)
