@@ -60,6 +60,9 @@ export class AtomSelect {
     ionItemElements?.forEach((itemElement) => {
       const elementText = itemElement.textContent?.trim()
       const optionWithBadge = optionsWithBadge[elementText]
+      const sideElement =
+        this.getSideElement(itemElement, 'ion-radio') ||
+        this.getSideElement(itemElement, 'ion-checkbox')
 
       if (!optionWithBadge || !itemElement) return
 
@@ -69,11 +72,15 @@ export class AtomSelect {
       badgeElement.setAttribute('type', type)
       badgeElement.textContent = label
       badgeElement.classList.add('atom-badge')
-      badgeElement.style.marginLeft = '4px'
 
-      itemElement.style.width = 'fit-content'
+      sideElement.style.width = 'fit-content'
+      sideElement.style.marginRight = '4px'
       itemElement.appendChild(badgeElement)
     })
+  }
+
+  getSideElement(element, name) {
+    return element.getElementsByTagName(name)[0] as HTMLElement
   }
   filterOptionsWithBadge = (
     options: Array<{
