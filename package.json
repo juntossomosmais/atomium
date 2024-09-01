@@ -58,7 +58,7 @@
     "@storybook/vue3": "^7.6.6",
     "@storybook/vue3-vite": "^7.6.6",
     "@vitejs/plugin-vue": "^5.1.1",
-    "@storybook/web-components": "^7.6.17",
+    "@storybook/web-components": "^8.1.11",
     "@storybook/web-components-webpack5": "^7.6.17",
     "@testing-library/jest-dom": "^6.4.8",
     "@types/jest": "^27.0.3",
