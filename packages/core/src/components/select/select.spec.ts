@@ -7,11 +7,11 @@ const optionsMock: {
   selected?: boolean
   disabled?: boolean
   label?: string
-  badge?: { type: string; label: string }
+  tag?: { type: string; label: string }
 }[] = [
   { value: 'apple', selected: true },
   { value: 'banana', disabled: true },
-  { value: 'orange', badge: { type: 'success', label: 'New' } },
+  { value: 'orange', tag: { type: 'success', label: 'New' } },
 ]
 
 describe('AtomSelect', () => {
@@ -254,7 +254,7 @@ describe('AtomSelect', () => {
 
     const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const spyIonBlur = jest.fn()
-    const spySetBadge = jest.spyOn(page.rootInstance, 'setBadge')
+    const spySetTag = jest.spyOn(page.rootInstance, 'setTag')
 
     page.root?.addEventListener('ionBlur', spyIonBlur)
 
@@ -267,7 +267,7 @@ describe('AtomSelect', () => {
     page.root?.dispatchEvent(new CustomEvent('ionBlur'))
 
     expect(spyIonBlur).toHaveBeenCalled()
-    expect(spySetBadge).toHaveBeenCalled()
+    expect(spySetTag).toHaveBeenCalled()
   })
 
   it('emits atomCancel event on select cancel', async () => {
@@ -337,16 +337,15 @@ describe('AtomSelect', () => {
     expect(handleDismiss).not.toHaveBeenCalled()
   })
 
-  it('should filter options with badge', async () => {
+  it('should filter options with tag', async () => {
     const page = await newSpecPage({
       components: [AtomSelect],
       html: '<atom-select />',
     })
 
     await page.waitForChanges()
-    const mockFiltered = optionsMock.filter((option) => option?.badge?.label)
-    const instanceObjetct =
-      page.rootInstance.filterOptionsWithBadge(optionsMock)
+    const mockFiltered = optionsMock.filter((option) => option?.tag?.label)
+    const instanceObjetct = page.rootInstance.filterOptionsWithTag(optionsMock)
 
     expect(Object.keys(instanceObjetct).length).toEqual(mockFiltered.length)
   })
