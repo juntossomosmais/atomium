@@ -36,7 +36,7 @@ const createSelect = (args) => {
               id: '2',
               value: 'Green',
               disabled: false,
-              badge: { type: 'success', label: 'New' },
+              tag: { color: 'success', label: 'New' },
             },
             { id: '3', value: 'Blue', disabled: false },
             {
@@ -44,7 +44,7 @@ const createSelect = (args) => {
               value: 'nice_blue',
               disabled: false,
               label: 'Nice Blue',
-              badge: { type: 'success', label: 'New' },
+              tag: { color: 'success', label: 'New' },
             },
             { id: '5', value: 'Disabled example', disabled: true },
           ]

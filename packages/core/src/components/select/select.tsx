@@ -41,7 +41,7 @@ export class AtomSelect {
     label?: string
     selected?: boolean
     disabled?: boolean
-    badge?: { type: string; label: string }
+    tag?: { color: string; label: string }
   }> = []
 
   @Event() atomBlur!: EventEmitter<void>
@@ -51,65 +51,72 @@ export class AtomSelect {
   @Event() atomFocus!: EventEmitter<void>
 
   @Method()
-  setBadge() {
+  setTag() {
     const ionItemElements = document.querySelectorAll('ion-item')
-    const optionsWithBadge = this.optionsWithBadge
+    const optionsWithTag = this.optionsWithTag
 
-    if (!ionItemElements || !optionsWithBadge) return
+    if (!ionItemElements || !optionsWithTag) return
 
     ionItemElements?.forEach((itemElement) => {
       const elementText = itemElement.textContent?.trim()
-      const optionWithBadge = optionsWithBadge[elementText]
+      const optionWithTag = optionsWithTag[elementText]
       const sideElement =
         this.getSideElement(itemElement, 'ion-radio') ||
         this.getSideElement(itemElement, 'ion-checkbox')
 
-      if (!optionWithBadge || !itemElement) return
+      if (!optionWithTag || !itemElement) return
 
-      const badgeElement = document.createElement('atom-badge')
-      const { type, label } = optionWithBadge.badge
+      const tagElement = document.createElement('atom-tag')
+      const { color, label } = optionWithTag.tag
 
-      badgeElement.setAttribute('type', type)
-      badgeElement.textContent = label
-      badgeElement.classList.add('atom-badge')
+      tagElement.setAttribute('color', color)
+      tagElement.textContent = label
+      tagElement.classList.add('atom-tag')
+      tagElement.style.marginLeft = '8px'
 
-      sideElement.style.width = 'fit-content'
-      sideElement.style.marginRight = '4px'
-      itemElement.appendChild(badgeElement)
+      const insideElement = sideElement.shadowRoot
+        .firstElementChild as HTMLElement
+
+      insideElement.style.justifyContent = 'start'
+
+      insideElement.firstElementChild.insertAdjacentElement(
+        'afterend',
+        tagElement
+      )
     })
   }
 
   getSideElement(element, name) {
     return element.getElementsByTagName(name)[0] as HTMLElement
   }
-  filterOptionsWithBadge = (
+  filterOptionsWithTag = (
     options: Array<{
       label?: string
       value?: string
-      badge?: { label: string; type: string }
+      tag?: { label: string; color: string }
     }>
   ) => {
-    return options?.reduce((optionsWithBadge, option) => {
-      if (option?.badge?.label) {
+    return options?.reduce((optionsWithTag, option) => {
+      if (option?.tag?.label) {
         const label = option.label || option.value
 
         if (label) {
-          optionsWithBadge[label] = option
+          optionsWithTag[label] = option
         }
       }
 
-      return optionsWithBadge
+      return optionsWithTag
     }, {})
   }
 
-  optionsWithBadge = {}
+  optionsWithTag = {}
 
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
   }
 
   componentWillLoad() {
-    this.optionsWithBadge = this.filterOptionsWithBadge(this.options)
+    this.optionsWithTag = this.filterOptionsWithTag(this.options)
   }
 
   disconnectedCallback() {
@@ -127,7 +134,7 @@ export class AtomSelect {
   }
 
   private handleBlur = () => {
-    this.setBadge()
+    this.setTag()
 
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.atomBlur.emit()
