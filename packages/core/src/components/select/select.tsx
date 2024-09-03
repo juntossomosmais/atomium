@@ -52,41 +52,46 @@ export class AtomSelect {
 
   @Method()
   setTag() {
-    const ionItemElements = document.querySelectorAll('ion-item')
-    const optionsWithTag = this.optionsWithTag
+    /**
+     * This method was necessary because the `ion-selection-option` loop does not allow customizations or custom components.
+     * So, to be able to add custom elements such as a tag or a badge inside an option of the `select` field, when the select
+     * is opened, the `onBlur` event triggers this method that performs a search for all `ion-item` elements (which is the
+     * final element rendered to list options) and filters the ones that need to be changed.
+     */
 
-    if (!ionItemElements || !optionsWithTag) return
+    const ionItemElements = document.querySelectorAll('ion-item') || []
 
     ionItemElements?.forEach((itemElement) => {
-      const elementText = itemElement.textContent?.trim()
-      const optionWithTag = optionsWithTag[elementText]
-      const sideElement =
-        this.getSideElement(itemElement, 'ion-radio') ||
-        this.getSideElement(itemElement, 'ion-checkbox')
+      const optionText = itemElement.textContent?.trim()
+      const optionWithTag = this.optionsWithTag[optionText]
 
-      if (!optionWithTag || !itemElement) return
+      if (!optionWithTag) return
 
-      const tagElement = document.createElement('atom-tag')
       const { color, label } = optionWithTag.tag
 
+      const optionElement =
+        this.getElementByTag(itemElement, 'ion-radio') ||
+        this.getElementByTag(itemElement, 'ion-checkbox')
+      const optionShadowRoot = optionElement.shadowRoot
+        .firstElementChild as HTMLElement
+      const firstElementInOption =
+        optionShadowRoot.firstElementChild as HTMLElement
+
+      const tagElement = document.createElement('atom-tag')
+
       tagElement.setAttribute('color', color)
+      tagElement.style.marginLeft = '8px'
       tagElement.textContent = label
       tagElement.classList.add('atom-tag')
-      tagElement.style.marginLeft = '8px'
 
-      const insideElement = sideElement.shadowRoot
-        .firstElementChild as HTMLElement
+      optionShadowRoot.style.justifyContent = 'start'
 
-      insideElement.style.justifyContent = 'start'
-
-      insideElement.firstElementChild.insertAdjacentElement(
-        'afterend',
-        tagElement
-      )
+      firstElementInOption.style.marginRight = '0'
+      firstElementInOption.insertAdjacentElement('afterend', tagElement)
     })
   }
 
-  getSideElement(element, name) {
+  getElementByTag(element, name) {
     return element.getElementsByTagName(name)[0] as HTMLElement
   }
   filterOptionsWithTag = (
