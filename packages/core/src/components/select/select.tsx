@@ -51,7 +51,7 @@ export class AtomSelect {
   @Event() atomFocus!: EventEmitter<void>
 
   @Method()
-  setTag() {
+  setTagInSelectOptions() {
     /**
      * This method was necessary because the `ion-selection-option` loop does not allow customizations or custom components.
      * So, to be able to add custom elements such as a tag or a badge inside an option of the `select` field, when the select
@@ -140,7 +140,7 @@ export class AtomSelect {
   }
 
   private handleBlur = () => {
-    this.setTag()
+    if (Object.values(this.optionsWithTag).length) this.setTagInSelectOptions()
 
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.atomBlur.emit()

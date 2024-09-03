@@ -254,7 +254,6 @@ describe('AtomSelect', () => {
 
     const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
     const spyIonBlur = jest.fn()
-    const spySetTag = jest.spyOn(page.rootInstance, 'setTag')
 
     page.root?.addEventListener('ionBlur', spyIonBlur)
 
@@ -267,7 +266,6 @@ describe('AtomSelect', () => {
     page.root?.dispatchEvent(new CustomEvent('ionBlur'))
 
     expect(spyIonBlur).toHaveBeenCalled()
-    expect(spySetTag).toHaveBeenCalled()
   })
 
   it('emits atomCancel event on select cancel', async () => {

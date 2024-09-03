@@ -189,7 +189,7 @@ export namespace Components {
   }>;
         "placeholder": string;
         "readonly"?: boolean;
-        "setTag": () => Promise<void>;
+        "setTagInSelectOptions": () => Promise<void>;
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomTag {
