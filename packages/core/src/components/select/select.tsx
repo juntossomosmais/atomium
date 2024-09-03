@@ -80,7 +80,7 @@ export class AtomSelect {
       const tagElement = document.createElement('atom-tag')
 
       tagElement.setAttribute('color', color)
-      tagElement.style.marginLeft = '8px'
+      tagElement.style.marginLeft = 'var(--spacing-xsmall)'
       tagElement.textContent = label
       tagElement.classList.add('atom-tag')
 
@@ -114,14 +114,10 @@ export class AtomSelect {
     }, {})
   }
 
-  optionsWithTag = {}
+  optionsWithTag = this.filterOptionsWithTag(this.options)
 
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
-  }
-
-  componentWillLoad() {
-    this.optionsWithTag = this.filterOptionsWithTag(this.options)
   }
 
   disconnectedCallback() {
