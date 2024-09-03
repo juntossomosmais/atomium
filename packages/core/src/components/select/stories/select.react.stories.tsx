@@ -92,7 +92,7 @@ export const Multiple: StoryObj = {
   },
 }
 
-const optionWhitTag = [
+const optionWithTag = [
   ...optionsDefault,
   {
     id: '3',
@@ -102,8 +102,8 @@ const optionWhitTag = [
   },
 ]
 
-export const WhitTag: StoryObj = {
-  render: (args) => createSelect(args, optionWhitTag),
+export const WithTag: StoryObj = {
+  render: (args) => createSelect(args, optionWithTag),
   args: {
     ...SelectComponentArgs,
   },
