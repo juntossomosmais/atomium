@@ -59,7 +59,7 @@ export class AtomSelect {
      * final element rendered to list options) and filters the ones that need to be changed.
      */
 
-    const ionItemElements = document.querySelectorAll('ion-item') || []
+    const ionItemElements = document.querySelectorAll('ion-item')
 
     ionItemElements?.forEach((itemElement) => {
       const optionText = itemElement.textContent?.trim()
@@ -115,7 +115,11 @@ export class AtomSelect {
     }, {})
   }
 
-  optionsWithTag = this.filterOptionsWithTag(this.options)
+  optionsWithTag = {}
+
+  componentWillLoad() {
+    this.optionsWithTag = this.filterOptionsWithTag(this.options)
+  }
 
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
