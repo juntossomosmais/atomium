@@ -94,6 +94,7 @@ export class AtomSelect {
   getElementByTag(element, name) {
     return element.getElementsByTagName(name)[0] as HTMLElement
   }
+
   filterOptionsWithTag = (
     options: Array<{
       label?: string
