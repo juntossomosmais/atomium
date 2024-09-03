@@ -34,6 +34,7 @@ export class AtomTag {
           }}
           part='tag'
           class='atom-tag'
+          mode='md'
         >
           {this.icon && (
             <atom-icon class='atom-icon' icon={this.icon}></atom-icon>
