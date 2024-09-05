@@ -24,6 +24,8 @@ export class AtomModal {
   @Prop() alertType?: 'alert' | 'error'
   @Prop() progress?: number
   @Prop() hasFooter?: boolean = true
+  @Prop() disablePrimary?: boolean = false
+  @Prop() disableSecondary?: boolean = false
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -132,6 +134,7 @@ export class AtomModal {
             <footer class='atom-modal__footer'>
               <atom-button
                 color='secondary'
+                disabled={this.disableSecondary}
                 fill='outline'
                 class='atom-modal__btn-action atom-modal__btn-action--secondary'
                 onClick={this.handleSecondaryClick}
@@ -140,6 +143,7 @@ export class AtomModal {
               </atom-button>
               <atom-button
                 color='primary'
+                disabled={this.disablePrimary}
                 class='atom-modal__btn-action atom-modal__btn-action--primary'
                 onClick={this.handlePrimaryClick}
               >

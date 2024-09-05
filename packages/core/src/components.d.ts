@@ -160,6 +160,8 @@ export namespace Components {
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
+        "disablePrimary"?: boolean;
+        "disableSecondary"?: boolean;
         "hasDivider"?: boolean;
         "hasFooter"?: boolean;
         "headerTitle"?: string;
@@ -695,6 +697,8 @@ declare namespace LocalJSX {
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
+        "disablePrimary"?: boolean;
+        "disableSecondary"?: boolean;
         "hasDivider"?: boolean;
         "hasFooter"?: boolean;
         "headerTitle"?: string;

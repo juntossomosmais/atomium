@@ -12,7 +12,8 @@ describe('atom-modal', () => {
         <atom-modal
           trigger="button"
           primary-text="Primary"
-          secondary-text="Secondary" 
+          secondary-text="Secondary"
+          disable-primary="true"
         >
           Modal content
         </atom-modal>`,
@@ -21,7 +22,7 @@ describe('atom-modal', () => {
 
   it('should render modal with default values', async () => {
     expect(page.root).toEqualHtml(`
-      <atom-modal primary-text="Primary" secondary-text="Secondary" trigger="button">
+      <atom-modal primary-text="Primary" secondary-text="Secondary" trigger="button" disable-primary="true">
         <ion-modal aria-describedby="atom-modal__content" aria-labelledby="atom-modal__header-title" class="atom-modal" trigger="button">
           <header class="atom-modal__header">
             <div id="atom-modal__header-title"></div>
@@ -36,7 +37,7 @@ describe('atom-modal', () => {
             <atom-button class="atom-modal__btn-action atom-modal__btn-action--secondary" color="secondary" fill="outline">
               Secondary
             </atom-button>
-            <atom-button class="atom-modal__btn-action atom-modal__btn-action--primary" color="primary">
+            <atom-button class="atom-modal__btn-action atom-modal__btn-action--primary" color="primary" disabled="">
               Primary
             </atom-button>
           </footer>

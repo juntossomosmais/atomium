@@ -20,6 +20,8 @@ const createModal = (args) => (
       secondaryText={args.secondaryText}
       trigger='open-modal'
       progress={args.progress}
+      disablePrimary={args.disablePrimary}
+      disableSecondary={args.disableSecondary}
     >
       <div slot='header'>Custom Header</div>
       <p>Modal Content</p>
