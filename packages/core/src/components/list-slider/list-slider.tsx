@@ -31,6 +31,7 @@ export class AtomListSlider {
   itemWidth = 0
   touchStartX = 0
   touchEndX = 0
+  isTouchMoved = false
   sliderGapValue = 0
   viewportWidth = 0
   maxTranslateX = 0
@@ -76,8 +77,15 @@ export class AtomListSlider {
     this.nextButton = this.element.shadowRoot.querySelector('.navigation--next')
     this.prevButton = this.element.shadowRoot.querySelector('.navigation--prev')
 
-    this.sliderWrapper.addEventListener('touchstart', this.handleTouchStart)
-    this.sliderWrapper.addEventListener('touchend', this.handleTouchEnd)
+    this.sliderWrapper.addEventListener('touchstart', (event) =>
+      this.handleTouchStart(event)
+    )
+    this.sliderWrapper.addEventListener('touchend', (event) =>
+      this.handleTouchEnd(event)
+    )
+    this.sliderWrapper.addEventListener('touchmove', () =>
+      this.handleTouchMove()
+    )
 
     const sliderGap = getComputedStyle(this.element).getPropertyValue(
       '--slider-gap'
@@ -97,8 +105,11 @@ export class AtomListSlider {
   }
 
   disconnectedCallback() {
+    if (!this.sliderWrapper) return
+
     this.sliderWrapper.removeEventListener('touchstart', this.handleTouchStart)
     this.sliderWrapper.removeEventListener('touchend', this.handleTouchEnd)
+    this.sliderWrapper.removeEventListener('touchmove', this.handleTouchMove)
     window.removeEventListener('resize', this.handleOnResize)
   }
 
@@ -205,6 +216,7 @@ export class AtomListSlider {
   }
 
   handleTouchStart = (event: TouchEvent) => {
+    this.isTouchMoved = false
     this.touchStartX = event.touches[0].clientX
   }
 
@@ -213,13 +225,19 @@ export class AtomListSlider {
     this.handleSwipe()
   }
 
-  handleSwipe = () => {
-    const lastIndex = this.sliderItems.length - 1
-    const isSwipeLeft = this.touchEndX < this.touchStartX
+  handleTouchMove = () => {
+    this.isTouchMoved = true
+  }
 
-    this.currentIndex = isSwipeLeft
-      ? Math.min(this.currentIndex + 1, lastIndex)
-      : Math.max(this.currentIndex - 1, 0)
+  handleSwipe = () => {
+    if (this.isTouchMoved) {
+      const lastIndex = this.sliderItems.length - 1
+      const isSwipeLeft = this.touchEndX < this.touchStartX
+
+      this.currentIndex = isSwipeLeft
+        ? Math.min(this.currentIndex + 1, lastIndex)
+        : Math.max(this.currentIndex - 1, 0)
+    }
   }
 
   render() {
