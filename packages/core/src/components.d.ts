@@ -169,7 +169,6 @@ export namespace Components {
         "trigger"?: string;
     }
     interface AtomSelect {
-        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
         "errorText"?: string;
         "fill": 'solid' | 'outline';
@@ -709,7 +708,6 @@ declare namespace LocalJSX {
         "trigger"?: string;
     }
     interface AtomSelect {
-        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
         "errorText"?: string;
         "fill"?: 'solid' | 'outline';

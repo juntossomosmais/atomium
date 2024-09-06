@@ -26,17 +26,8 @@
   --ion-color-step-550: --color-neutral-light-1;
   min-height: var(--atom-select-min-height);
 
-  &[color='primary'] {
-    --highlight-color-focused: var(--color-brand-primary-regular);
-    --atom-icon-color: var(--color-brand-primary-regular);
-  }
-
   &[color='secondary'] {
     --highlight-color-focused: var(--color-brand-secondary-regular);
-  }
-
-  &[color='danger'] {
-    --highlight-color-focused: var(--color-contextual-error-regular);
   }
 
   &.has-error {
@@ -82,15 +73,8 @@
   z-index: var(--zindex-100);
 
   .select-expanded + & {
-    &.atom-color--primary {
-      --atom-icon-color: var(--color-brand-primary-regular);
-    }
+    --atom-icon-color: var(--color-brand-secondary-regular);
 
-    &.atom-color--secondary {
-      --atom-icon-color: var(--color-brand-secondary-regular);
-    }
-
-    &.atom-color--danger,
     &.has-error {
       --atom-icon-color: var(--color-contextual-error-regular);
     }
