@@ -92,37 +92,25 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
     --background-hover: var(--ion-color-medium);
   }
 
-  &.atom-select-color-primary {
+  &.atom-select__popover {
     .item-checkbox-checked {
-      --color: var(--ion-color-primary);
+      --color: var(--color-brand-secondary-regular);
+
+      &::part(native) {
+        --background: rgba(var(--color-brand-secondary-light-2-rgb));
+      }
     }
 
     ion-checkbox {
-      --checkbox-background-checked: var(--ion-color-primary);
-      --border-color-checked: var(--ion-color-primary);
+      --checkbox-background-checked: var(--color-brand-secondary-regular);
+      --border-color-checked: var(--color-brand-secondary-regular);
     }
 
     .item-radio-checked {
-      --background: rgba(var(--ion-color-primary-rgb));
-      --background-focused: var(--ion-color-primary);
-      --background-hover: var(--ion-color-primary);
-    }
-  }
-
-  &.atom-select-color-secondary {
-    .item-checkbox-checked {
-      --color: var(--ion-color-secondary);
-    }
-
-    ion-checkbox {
-      --checkbox-background-checked: var(--ion-color-secondary);
-      --border-color-checked: var(--ion-color-secondary);
-    }
-
-    .item-radio-checked {
-      --background: rgba(var(--ion-color-secondary-rgb));
-      --background-focused: var(--ion-color-secondary);
-      --background-hover: var(--ion-color-secondary);
+      --background: rgba(var(--color-brand-secondary-light-2-rgb));
+      --background-focused: var(--color-brand-secondary-regular);
+      --background-hover: var(--color-brand-secondary-regular);
+      color: var(--color-brand-secondary-regular);
     }
   }
 }
