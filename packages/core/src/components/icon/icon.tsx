@@ -1,4 +1,3 @@
-import { Color } from '@ionic/core'
 import { Component, Host, Prop, State, Watch, h } from '@stencil/core'
 
 import { IconProps } from '../../icons'
@@ -6,6 +5,17 @@ import { IconProps } from '../../icons'
 const CDN_URL = 'https://atomium.juntossomosmais.com.br/icons'
 
 type Size = 'small' | 'large' | number
+type ColorProps =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'light'
+  | 'medium'
+  | 'dark'
+  | 'white'
 
 @Component({
   tag: 'atom-icon',
@@ -13,7 +23,7 @@ type Size = 'small' | 'large' | number
   shadow: true,
 })
 export class AtomIcon {
-  @Prop() color?: Color
+  @Prop() color?: ColorProps
   @Prop() icon?: IconProps
   @Prop() size?: Size
 
@@ -44,8 +54,8 @@ export class AtomIcon {
     return (
       <Host aria-hidden='true'>
         <ion-icon
-          icon={`${CDN_URL}/${this.icon}.svg`}
           color={this.color}
+          icon={`${CDN_URL}/${this.icon}.svg`}
           size={this.validateSize}
           style={{ fontSize: this.fontSize }}
         />

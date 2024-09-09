@@ -6,9 +6,10 @@ import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core'
   shadow: true,
 })
 export class AtomLink {
-  @Prop() color: 'primary' | 'secondary' = 'primary'
+  @Prop() color: 'primary' | 'secondary' = 'secondary'
   @Prop() type: 'anchor' | 'button' = 'anchor'
   @Prop() loading?: boolean = false
+  @Prop() size: 'small' | 'medium' | 'large' = 'medium'
 
   @Event() click: EventEmitter
 
@@ -31,6 +32,7 @@ export class AtomLink {
             class={{
               [`atom-link`]: true,
               [`is-loading`]: this.loading,
+              [`atom-link--${this.size}`]: true,
             }}
             color={this.color}
           >
