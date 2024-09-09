@@ -230,14 +230,14 @@ export class AtomListSlider {
   }
 
   handleSwipe = () => {
-    if (this.isTouchMoved) {
-      const lastIndex = this.sliderItems.length - 1
-      const isSwipeLeft = this.touchEndX < this.touchStartX
+    if (!this.isTouchMoved) return
 
-      this.currentIndex = isSwipeLeft
-        ? Math.min(this.currentIndex + 1, lastIndex)
-        : Math.max(this.currentIndex - 1, 0)
-    }
+    const lastIndex = this.sliderItems.length - 1
+    const isSwipeLeft = this.touchEndX < this.touchStartX
+
+    this.currentIndex = isSwipeLeft
+      ? Math.min(this.currentIndex + 1, lastIndex)
+      : Math.max(this.currentIndex - 1, 0)
   }
 
   render() {
