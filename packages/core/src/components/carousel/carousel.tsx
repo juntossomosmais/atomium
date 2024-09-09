@@ -6,13 +6,13 @@ import { Component, Element, Host, Prop, State, h } from '@stencil/core'
   shadow: true,
 })
 export class AtomCarousel {
-  @Prop({ mutable: true }) loop: boolean = false
+  @Prop({ mutable: true }) loop = false
   @Prop({ mutable: true }) autoplay: number
   @Prop({ mutable: true }) thumbnails: string[]
   @Prop({ mutable: true }) hasNavigation = true
   @Prop({ mutable: true }) hasPagination = true
 
-  @State() currentIdx: number = 0
+  @State() currentIdx = 0
 
   @Element() element: HTMLElement
 
@@ -50,6 +50,10 @@ export class AtomCarousel {
       this.hasNavigation = false
       this.hasPagination = false
     }
+
+    if (this.autoplay) {
+      this.loop = true
+    }
   }
 
   componentDidLoad() {
@@ -64,11 +68,10 @@ export class AtomCarousel {
     if (this.autoplay) {
       this.carouselWrapper.addEventListener('mouseenter', this.stopAutoplay)
       this.carouselWrapper.addEventListener('mouseleave', this.restartAutoplay)
+      this.startAutoplay()
     }
 
     this.showOrHideNavigationButtons()
-
-    if (this.autoplay > 0) this.startAutoplay()
   }
 
   disconnectedCallback() {
@@ -95,12 +98,12 @@ export class AtomCarousel {
     if (!this.carouselItems || !this.carouselItems[index]) return
 
     this.currentIndex = index
+
     this.showOrHideNavigationButtons()
   }
 
-  handleNavigationClick(event: Event) {
-    const button = event.currentTarget as HTMLButtonElement
-    const isNext = button?.classList.contains('navigation--next')
+  handleNavigationClick(button: 'prev' | 'next') {
+    const isNext = button === 'next'
     let newIndex = this.currentIndex + (isNext ? 1 : -1)
 
     const isLastItemAndNext =
@@ -114,8 +117,6 @@ export class AtomCarousel {
         (newIndex + this.carouselItems.length) % this.carouselItems.length
     }
 
-    if (this.autoplay > 0) this.startAutoplay()
-
     this.currentIndex = newIndex
     this.showOrHideNavigationButtons()
   }
@@ -127,7 +128,7 @@ export class AtomCarousel {
 
     this.nextButton.setAttribute(
       'aria-disabled',
-      String(this.currentIndex === this.carouselItems.length - 1)
+      String(this.currentIndex === this.carouselItems?.length - 1)
     )
     this.prevButton.setAttribute(
       'aria-disabled',
@@ -153,11 +154,8 @@ export class AtomCarousel {
       clearInterval(this.autoplayIntervalId)
     }
 
-    this.loop = true
-
     this.autoplayIntervalId = setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.carouselItems.length
-      this.showOrHideNavigationButtons()
+      this.handleNavigationClick('next')
     }, this.autoplay)
   }
 
@@ -191,7 +189,7 @@ export class AtomCarousel {
               role='button'
               aria-label='Previous'
               aria-disabled={this.loop ? 'false' : 'true'}
-              onClick={(event) => this.handleNavigationClick(event)}
+              onClick={() => this.handleNavigationClick('prev')}
             >
               <atom-icon icon='chevron-left'></atom-icon>
             </button>
@@ -206,7 +204,7 @@ export class AtomCarousel {
               class='carousel-navigation navigation--next'
               role='button'
               aria-label='Next'
-              onClick={(event) => this.handleNavigationClick(event)}
+              onClick={() => this.handleNavigationClick('next')}
             >
               <atom-icon icon='chevron-right'></atom-icon>
             </button>
