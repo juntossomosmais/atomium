@@ -7,10 +7,11 @@ const optionsMock: {
   selected?: boolean
   disabled?: boolean
   label?: string
+  tag?: { color: string; label: string }
 }[] = [
   { value: 'apple', selected: true },
   { value: 'banana', disabled: true },
-  { value: 'orange' },
+  { value: 'orange', tag: { color: 'success', label: 'New' } },
 ]
 
 describe('AtomSelect', () => {
@@ -226,9 +227,13 @@ describe('AtomSelect', () => {
       html: '<atom-select />',
     })
 
+    page.rootInstance.options = optionsMock
+
     await page.waitForChanges()
 
-    const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
+    const selectEl = page.root?.shadowRoot?.querySelector(
+      'ion-select'
+    ) as HTMLElement
     const spy = jest.fn()
 
     page.root?.addEventListener('ionFocus', spy)
@@ -248,20 +253,23 @@ describe('AtomSelect', () => {
       html: '<atom-select />',
     })
 
+    page.rootInstance.options = optionsMock
+
     await page.waitForChanges()
 
     const selectEl = page.root?.shadowRoot?.querySelector('ion-select')
-    const spy = jest.fn()
+    const spyIonBlur = jest.fn()
 
-    page.root?.addEventListener('ionBlur', spy)
+    page.root?.addEventListener('ionBlur', spyIonBlur)
 
     if (selectEl) {
       selectEl.dispatchEvent(new Event('ionBlur'))
     }
 
+    await page.waitForChanges()
     page.root?.dispatchEvent(new CustomEvent('ionBlur'))
 
-    expect(spy).toHaveBeenCalled()
+    expect(spyIonBlur).toHaveBeenCalled()
   })
 
   it('emits atomCancel event on select cancel', async () => {
@@ -329,5 +337,85 @@ describe('AtomSelect', () => {
     await page.waitForChanges()
 
     expect(handleDismiss).not.toHaveBeenCalled()
+  })
+
+  it('should filter options with tag', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    await page.waitForChanges()
+    const mockFiltered = optionsMock.filter((option) => option?.tag?.label)
+    const instanceObjetct = page.rootInstance.filterOptionsWithTag(optionsMock)
+
+    expect(Object.keys(instanceObjetct).length).toEqual(mockFiltered.length)
+  })
+  it('should filter options and attach tag element', async () => {
+    const page = await newSpecPage({
+      components: [AtomSelect],
+      html: '<atom-select />',
+    })
+
+    page.rootInstance.options = optionsMock
+    await page.waitForChanges()
+
+    const generateItems = (texts: Array<string>) => {
+      return texts.map((text) => {
+        const ionItem = document.createElement('ion-item')
+        const ionRadio = document.createElement('ion-radio')
+        const radioShadow = ionRadio.attachShadow({ mode: 'open' })
+
+        radioShadow.innerHTML = `<div><p>${text}</p></div>`
+        ionItem.textContent = text
+        ionItem.appendChild(ionRadio)
+
+        return ionItem
+      })
+    }
+
+    const items = generateItems(['apple', 'banana', 'orange'])
+
+    page.rootInstance.optionsWithTag =
+      page.rootInstance.filterOptionsWithTag(optionsMock)
+
+    jest
+      .spyOn(document, 'querySelectorAll')
+      .mockReturnValue(items as unknown as NodeListOf<HTMLElement>)
+
+    await page.waitForChanges()
+
+    page.rootInstance.setTagInSelectOptions()
+
+    await page.waitForChanges()
+
+    expect(items[0]).toEqualHtml(`
+      <ion-item>
+        apple
+        <ion-radio>
+          <mock:shadow-root>
+            <div>
+              <p>apple</p>
+            </div>
+          </mock:shadow-root>
+        </ion-radio>
+      </ion-item>
+    `)
+
+    expect(items[2]).toEqualHtml(`
+      <ion-item>
+        orange
+        <ion-radio>
+          <mock:shadow-root>
+            <div style="justify-content: start;">
+              <p style="margin-right: 0;">orange</p>
+              <atom-tag class="atom-tag" color="success" style="margin-left: var(--spacing-xsmall);">
+                  New
+              </atom-tag>
+            </div>
+          </mock:shadow-root>
+        </ion-radio>
+      </ion-item>
+    `)
   })
 })

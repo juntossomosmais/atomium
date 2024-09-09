@@ -8,6 +8,7 @@ import {
   Host,
   Prop,
   h,
+  Method,
 } from '@stencil/core'
 
 import { IconProps } from '../../icons'
@@ -39,6 +40,7 @@ export class AtomSelect {
     label?: string
     selected?: boolean
     disabled?: boolean
+    tag?: { color: string; label: string }
   }> = []
 
   @Event() atomBlur!: EventEmitter<void>
@@ -46,6 +48,77 @@ export class AtomSelect {
   @Event() atomChange!: EventEmitter<string>
   @Event() atomDismiss!: EventEmitter<void>
   @Event() atomFocus!: EventEmitter<void>
+
+  @Method()
+  setTagInSelectOptions() {
+    /**
+     * This method was necessary because the `ion-selection-option` loop does not allow customizations or custom components.
+     * So, to be able to add custom elements such as a tag or a badge inside an option of the `select` field, when the select
+     * is opened, the `onBlur` event triggers this method that performs a search for all `ion-item` elements (which is the
+     * final element rendered to list options) and filters the ones that need to be changed.
+     */
+
+    const ionItemElements = document.querySelectorAll('ion-item')
+
+    ionItemElements?.forEach((itemElement) => {
+      const optionText = itemElement.textContent?.trim()
+      const optionWithTag = this.optionsWithTag[optionText]
+
+      if (!optionWithTag) return
+
+      const { color, label } = optionWithTag.tag
+
+      const optionElement =
+        this.getElementByTag(itemElement, 'ion-radio') ||
+        this.getElementByTag(itemElement, 'ion-checkbox')
+      const optionShadowRoot = optionElement.shadowRoot
+        .firstElementChild as HTMLElement
+      const firstElementInOption =
+        optionShadowRoot.firstElementChild as HTMLElement
+
+      const tagElement = document.createElement('atom-tag')
+
+      tagElement.setAttribute('color', color)
+      tagElement.style.marginLeft = 'var(--spacing-xsmall)'
+      tagElement.textContent = label
+      tagElement.classList.add('atom-tag')
+
+      optionShadowRoot.style.justifyContent = 'start'
+
+      firstElementInOption.style.marginRight = '0'
+      firstElementInOption.insertAdjacentElement('afterend', tagElement)
+    })
+  }
+
+  getElementByTag(element, name) {
+    return element.getElementsByTagName(name)[0] as HTMLElement
+  }
+
+  filterOptionsWithTag = (
+    options: Array<{
+      label?: string
+      value?: string
+      tag?: { label: string; color: string }
+    }>
+  ) => {
+    return options?.reduce((optionsWithTag, option) => {
+      if (option?.tag?.label) {
+        const label = option.label || option.value
+
+        if (label) {
+          optionsWithTag[label] = option
+        }
+      }
+
+      return optionsWithTag
+    }, {})
+  }
+
+  optionsWithTag = {}
+
+  componentWillLoad() {
+    this.optionsWithTag = this.filterOptionsWithTag(this.options)
+  }
 
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
@@ -66,6 +139,8 @@ export class AtomSelect {
   }
 
   private handleBlur = () => {
+    if (Object.values(this.optionsWithTag).length) this.setTagInSelectOptions()
+
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.atomBlur.emit()
   }
