@@ -79,8 +79,7 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
 .select-popover {
   &.atom-select__popover {
     .select-interface-option {
-      --color-hover: var(--color-brand-secondary-regular);
-      --background-hover: var(--color-brand-secondary-light-2);
+      --background-hover: var(--color-neutral-light-5);
       --background-hover-opacity: 0.6;
     }
 
@@ -89,6 +88,7 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
       --background-focused: var(--color-brand-secondary-regular);
       --background-hover: var(--color-brand-secondary-regular);
       --background-hover-opacity: 0.1;
+      --color-hover: var(--color-brand-secondary-regular);
       --color: var(--color-brand-secondary-regular);
     }
 
@@ -96,6 +96,7 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
       --background-hover: var(--color-brand-secondary-regular);
       --background-hover-opacity: 0.1;
       --color: var(--color-brand-secondary-regular);
+      --color-hover: var(--color-brand-secondary-regular);
 
       &::part(native) {
         --background: rgba(var(--color-brand-secondary-light-2-rgb));
