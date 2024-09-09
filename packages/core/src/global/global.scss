@@ -93,15 +93,12 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
     }
 
     .item-checkbox-checked {
+      --background-hover: var(--color-brand-secondary-regular);
+      --background-hover-opacity: 0.1;
       --color: var(--color-brand-secondary-regular);
 
       &::part(native) {
         --background: rgba(var(--color-brand-secondary-light-2-rgb));
-        --background-hover: var(--color-brand-secondary-light-2);
-
-        &:after {
-          opacity: 0.1;
-        }
       }
     }
 
