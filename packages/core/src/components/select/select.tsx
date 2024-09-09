@@ -20,7 +20,6 @@ import { IconProps } from '../../icons'
 export class AtomSelect {
   @Element() selectEl!: HTMLIonSelectElement
 
-  @Prop() color?: 'primary' | 'secondary' | 'danger' = 'secondary'
   @Prop() disabled?: boolean
   @Prop() errorText?: string
   @Prop() fill: 'solid' | 'outline' = 'solid'
@@ -104,7 +103,7 @@ export class AtomSelect {
           placeholder={this.placeholder}
           disabled={this.disabled}
           multiple={this.multiple}
-          color={this.color}
+          color='secondary'
           mode={this.mode}
           value={this.value}
           tabindex={this.readonly && '-1'}
@@ -114,7 +113,7 @@ export class AtomSelect {
           onIonFocus={this.handleFocus}
           onIonCancel={this.handleCancel}
           interfaceOptions={{
-            cssClass: `atom-select-color-${this.color}`,
+            cssClass: `atom-select__popover`,
           }}
         >
           {this.options.map((option) => (
@@ -136,13 +135,7 @@ export class AtomSelect {
           </div>
         )}
         {this.icon && (
-          <atom-icon
-            class={{
-              [`atom-icon`]: true,
-              [`atom-color--${this.color}`]: true,
-            }}
-            icon={this.icon}
-          ></atom-icon>
+          <atom-icon class='atom-icon' icon={this.icon}></atom-icon>
         )}
       </Host>
     )
