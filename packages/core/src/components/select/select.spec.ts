@@ -361,49 +361,62 @@ describe('AtomSelect', () => {
     page.rootInstance.options = optionsMock
     await page.waitForChanges()
 
+    const generateItems = (texts: Array<string>) => {
+      return texts.map((text) => {
+        const ionItem = document.createElement('ion-item')
+        const ionRadio = document.createElement('ion-radio')
+        const radioShadow = ionRadio.attachShadow({ mode: 'open' })
+
+        radioShadow.innerHTML = `<div><p>${text}</p></div>`
+        ionItem.textContent = text
+        ionItem.appendChild(ionRadio)
+
+        return ionItem
+      })
+    }
+
+    const items = generateItems(['apple', 'banana', 'orange'])
+
     page.rootInstance.optionsWithTag =
       page.rootInstance.filterOptionsWithTag(optionsMock)
 
-    const ionItem = document.createElement('ion-item')
-    const ionRadio = document.createElement('ion-radio')
-
-    const radioShadow = ionRadio.attachShadow({ mode: 'open' })
-
-    radioShadow.innerHTML = `<div><p>test</p></div>`
-
-    ionItem.textContent = 'orange'
-
-    ionItem.appendChild(ionRadio)
-
-    page.root?.appendChild(ionItem)
+    jest
+      .spyOn(document, 'querySelectorAll')
+      .mockReturnValue(items as unknown as NodeListOf<HTMLElement>)
 
     await page.waitForChanges()
 
     page.rootInstance.setTagInSelectOptions()
 
-    expect(page.root).toEqualHtml(`
-      <atom-select>
-        <mock:shadow-root>
-          <ion-select class="atom-select" color="secondary" fill="solid" interface="popover" label-placement="stacked" mode="md" shape="round">
-            <ion-select-option value="apple">apple</ion-select-option>
-            <ion-select-option value="banana" disabled>banana</ion-select-option>
-            <ion-select-option value="orange">orange</ion-select-option>
-          </ion-select>
-        </mock:shadow-root>
-        <ion-item>
-          orange
-          <ion-radio>
-            <mock:shadow-root>
-              <div style="justify-content: start;">
-                <p style="margin-right: 0;">test</p>
-                <atom-tag class="atom-tag" color="success" style="margin-left: var(--spacing-xsmall);">
+    await page.waitForChanges()
+
+    expect(items[0]).toEqualHtml(`
+      <ion-item>
+        apple
+        <ion-radio>
+          <mock:shadow-root>
+            <div>
+              <p>apple</p>
+            </div>
+          </mock:shadow-root>
+        </ion-radio>
+      </ion-item>
+    `)
+
+    expect(items[2]).toEqualHtml(`
+      <ion-item>
+        orange
+        <ion-radio>
+          <mock:shadow-root>
+            <div style="justify-content: start;">
+              <p style="margin-right: 0;">orange</p>
+              <atom-tag class="atom-tag" color="success" style="margin-left: var(--spacing-xsmall);">
                   New
-                </atom-tag>
-              </div>
-            </mock:shadow-root>
-          </ion-radio>
-        </ion-item>
-      </atom-select>
+              </atom-tag>
+            </div>
+          </mock:shadow-root>
+        </ion-radio>
+      </ion-item>
     `)
   })
 })
