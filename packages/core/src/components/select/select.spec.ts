@@ -92,7 +92,6 @@ describe('AtomSelect', () => {
         name="test"
         label="Select a fruit"
         placeholder="Select an option"
-        color="primary"
         mode="ios"
         fill="outline"
         disabled
@@ -104,9 +103,9 @@ describe('AtomSelect', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-select color="primary" disabled="" fill="outline" label="Select a fruit" mode="ios" multiple="" name="test" placeholder="Select an option">
+      <atom-select disabled="" fill="outline" label="Select a fruit" mode="ios" multiple="" name="test" placeholder="Select an option">
         <mock:shadow-root>
-          <ion-select class="atom-select" color="primary" disabled="" fill="outline" interface="popover" label="Select a fruit" label-placement="stacked" mode="ios" multiple="" name="test" placeholder="Select an option" shape="round">
+          <ion-select class="atom-select" color="secondary" disabled="" fill="outline" interface="popover" label="Select a fruit" label-placement="stacked" mode="ios" multiple="" name="test" placeholder="Select an option" shape="round">
             <ion-select-option value="apple">apple</ion-select-option>
             <ion-select-option value="banana" disabled>banana</ion-select-option>
             <ion-select-option value="orange">orange</ion-select-option>
@@ -135,7 +134,7 @@ describe('AtomSelect', () => {
             <ion-select-option disabled="" value="banana">banana</ion-select-option>
             <ion-select-option value="orange">orange</ion-select-option>
           </ion-select>
-          <atom-icon class="atom-color--secondary atom-icon" icon="account-multiple"></atom-icon>
+          <atom-icon class="atom-icon" icon="account-multiple"></atom-icon>
         </mock:shadow-root>
       </atom-select>
     `)

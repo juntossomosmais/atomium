@@ -16,7 +16,6 @@ const createSelect = (args) => ({
   template: `
     <AtomSelect
       placeholder="${args.placeholder}"
-      color="${args.color}"
       fill="${args.fill}"
       disabled="${args.disabled}"
       readonly="${args.readonly}"

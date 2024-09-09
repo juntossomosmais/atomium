@@ -13,7 +13,6 @@ export default {
 const createSelect = (args) => (
   <AtomSelect
     placeholder={args.placeholder}
-    color={args.color}
     fill={args.fill}
     disabled={args.disabled}
     readonly={args.readonly}

@@ -12,7 +12,6 @@ const createSelect = (args) => {
   return html`
     <atom-select
       placeholder=${args.placeholder}
-      color=${args.color}
       fill=${args.fill}
       disabled=${args.disabled}
       readonly=${args.readonly}
