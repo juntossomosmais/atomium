@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.17.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.16.0...atomium-v2.17.0) (2024-09-10)
+
+
+### Features
+
+* **icons:** new icon local-activity ([#562](https://github.com/juntossomosmais/atomium/issues/562)) ([c9fda30](https://github.com/juntossomosmais/atomium/commit/c9fda3050c1d17c14986838e7599ce74a90912ca))
+* **select:** add badge in select options ([#549](https://github.com/juntossomosmais/atomium/issues/549)) ([f0252ca](https://github.com/juntossomosmais/atomium/commit/f0252caa3ccfb13044991a7141be0c6eb64d7f1e))
+
+
+### Bug Fixes
+
+* **carousel:** improve carousel lifecycle to avoid redundancy ([#566](https://github.com/juntossomosmais/atomium/issues/566)) ([52f2161](https://github.com/juntossomosmais/atomium/commit/52f216130597b2e842cc098871b9474a4b0b6f24))
+* **list-slider:** add touchmove listener to identifies move ([#564](https://github.com/juntossomosmais/atomium/issues/564)) ([a5ac3d1](https://github.com/juntossomosmais/atomium/commit/a5ac3d184ea24420e9937a086625a80f4b2bfcf5))
+* **select:** add background to selected item and remove color's prop ([#565](https://github.com/juntossomosmais/atomium/issues/565)) ([226aa78](https://github.com/juntossomosmais/atomium/commit/226aa78c257b86742af6c007506be62e8cfe6301))
+
 ## [2.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.15.0...atomium-v2.16.0) (2024-08-28)
 
 
