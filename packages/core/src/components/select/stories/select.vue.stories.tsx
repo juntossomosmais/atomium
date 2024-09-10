@@ -8,10 +8,26 @@ export default {
   ...SelectStoryArgs,
 } as Meta
 
-const createSelect = (args) => ({
+const optionsDefault = [
+  { id: '1', value: 'Red', disabled: false },
+  {
+    id: '2',
+    value: 'Green',
+    disabled: false,
+  },
+  { id: '3', value: 'Blue', disabled: false },
+  {
+    id: '4',
+    value: 'nice_blue',
+    disabled: false,
+    label: 'Nice Blue',
+  },
+  { id: '5', value: 'Disabled example', disabled: true },
+]
+const createSelect = (args, options = optionsDefault) => ({
   components: { AtomSelect },
   setup() {
-    return { args }
+    return { args, options }
   },
   template: `
     <AtomSelect
@@ -26,13 +42,7 @@ const createSelect = (args) => ({
       ${args.icon ? `icon="${args.icon}"` : ''}
       mode="${args.mode}"
       value="${args.value}"
-      :options="[
-        { id: '1', value: 'Red', disabled: false },
-        { id: '2', value: 'Green', disabled: false },
-        { id: '3', value: 'Blue', disabled: false },
-        { id: '4', value: 'nice_blue', disabled: false, label: 'Nice Blue' },
-        { id: '5', value: 'Disabled example', disabled: true },
-      ]"
+      :options="options"
     />
   `,
 })
@@ -81,5 +91,21 @@ export const Multiple: StoryObj = {
   args: {
     ...SelectComponentArgs,
     multiple: true,
+  },
+}
+const optionWithTag = [
+  ...optionsDefault,
+  {
+    id: '3',
+    value: 'Nice Green',
+    disabled: false,
+    tag: { color: 'success', label: 'New ' },
+  },
+]
+
+export const WithTag: StoryObj = {
+  render: (args) => createSelect(args, optionWithTag),
+  args: {
+    ...SelectComponentArgs,
   },
 }
