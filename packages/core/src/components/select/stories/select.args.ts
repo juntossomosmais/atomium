@@ -40,15 +40,6 @@ export const SelectStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'danger'],
-      defaultValue: { summary: 'secondary' },
-      description: "The color to use from your application's color palette.",
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
     multiple: {
       control: 'boolean',
       defaultValue: { summary: false },
@@ -160,7 +151,6 @@ export const SelectStoryArgs = {
 }
 
 export const SelectComponentArgs = {
-  color: 'secondary',
   disabled: false,
   readonly: false,
   multiple: false,
