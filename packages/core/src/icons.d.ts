@@ -98,6 +98,8 @@ export type IconProps =
   | 'information'
   | 'instagram'
   | 'linkedin'
+  | 'local-activity-outline'
+  | 'local-activity'
   | 'lock-open-outline'
   | 'lock-outline'
   | 'lock'
