@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.2.0...atomium-tokens-v2.0.0) (2024-09-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **tokens:** fix all letter spacing values ([#537](https://github.com/juntossomosmais/atomium/issues/537))
+
+### Bug Fixes
+
+* **tokens:** fix all letter spacing values ([#537](https://github.com/juntossomosmais/atomium/issues/537)) ([550fd34](https://github.com/juntossomosmais/atomium/commit/550fd34de953a8868551f9906c28bbd5e3d9786a))
+
 ## [1.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.1.0...atomium-tokens-v1.2.0) (2023-09-21)
 
 
