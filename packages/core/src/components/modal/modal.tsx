@@ -89,7 +89,7 @@ export class AtomModal {
           onIonModalDidDismiss={this.handleDidDimiss}
           onDidPresent={this.handleDidPresent}
         >
-          <header class='atom-modal__header'>
+          <header part='header' class='atom-modal__header'>
             {iconType && (
               <atom-icon
                 aria-hidden='true'
@@ -123,6 +123,7 @@ export class AtomModal {
           )}
           <div
             id='atom-modal__content'
+            part='content'
             class={{
               'atom-modal__content': true,
               'atom-modal__content--divided': this.hasDivider,
@@ -131,7 +132,7 @@ export class AtomModal {
             <slot />
           </div>
           {this.hasFooter && (
-            <footer class='atom-modal__footer'>
+            <footer part='footer' class='atom-modal__footer'>
               <atom-button
                 color='secondary'
                 disabled={this.disableSecondary}
