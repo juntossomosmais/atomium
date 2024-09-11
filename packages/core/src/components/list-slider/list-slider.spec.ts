@@ -3,6 +3,20 @@ import { newSpecPage } from '@stencil/core/testing'
 import { AtomListSlider } from './list-slider'
 import { AtomListSliderItem } from './list-slider-item/list-slider-item'
 
+class MockTouchEvent extends Event {
+  touches: Touch[]
+  changedTouches: Touch[]
+
+  constructor(
+    type: string,
+    init: { touches?: Touch[]; changedTouches?: Touch[] }
+  ) {
+    super(type)
+    this.touches = init.touches || []
+    this.changedTouches = init.changedTouches || []
+  }
+}
+
 describe('AtomListSlider', () => {
   beforeEach(() => {
     global.ResizeObserver = class ResizeObserver {
@@ -141,5 +155,153 @@ describe('AtomListSlider', () => {
         </atom-list-slider-item>
       </atom-list-slider>
     `)
+  })
+
+  it('should navigate to the next slide when clicking on the next button', async () => {
+    const page = await newSpecPage({
+      components: [AtomListSlider, AtomListSliderItem],
+      html: `
+        <atom-list-slider>
+          <atom-list-slider-item>Slide 1</atom-list-slider-item>
+          <atom-list-slider-item>Slide 2</atom-list-slider-item>
+        </atom-list-slider>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    const nextButton = page.root?.shadowRoot?.querySelector(
+      '.navigation--next'
+    ) as HTMLElement
+
+    nextButton?.click()
+
+    expect(page.rootInstance.currentIndex).toBe(1)
+  })
+
+  it('should navigate to the previous slide when clicking on the previous button', async () => {
+    const page = await newSpecPage({
+      components: [AtomListSlider, AtomListSliderItem],
+      html: `
+        <atom-list-slider>
+          <atom-list-slider-item>Slide 1</atom-list-slider-item>
+          <atom-list-slider-item>Slide 2</atom-list-slider-item>
+        </atom-list-slider>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    const nextButton = page.root?.shadowRoot?.querySelector(
+      '.navigation--next'
+    ) as HTMLElement
+
+    nextButton?.click()
+
+    const prevButton = page.root?.shadowRoot?.querySelector(
+      '.navigation--prev'
+    ) as HTMLElement
+
+    prevButton?.click()
+
+    expect(page.rootInstance.currentIndex).toBe(0)
+  })
+
+  it('should remove event listeners on disconnectedCallback', async () => {
+    const page = await newSpecPage({
+      components: [AtomListSlider, AtomListSliderItem],
+      html: `
+        <atom-list-slider>
+          <atom-list-slider-item>Slide 1</atom-list-slider-item>
+          <atom-list-slider-item>Slide 2</atom-list-slider-item>
+        </atom-list-slider>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    const instance = page.rootInstance
+
+    const removeEventListenerSpy = jest.spyOn(
+      instance.sliderWrapper,
+      'removeEventListener'
+    )
+    const removeWindowEventListenerSpy = jest.spyOn(
+      window,
+      'removeEventListener'
+    )
+
+    instance.disconnectedCallback()
+
+    expect(removeEventListenerSpy).toHaveBeenCalledWith(
+      'touchstart',
+      instance.handleTouchStart
+    )
+    expect(removeEventListenerSpy).toHaveBeenCalledWith(
+      'touchend',
+      instance.handleTouchEnd
+    )
+    expect(removeEventListenerSpy).toHaveBeenCalledWith(
+      'touchmove',
+      instance.handleTouchMove
+    )
+    expect(removeWindowEventListenerSpy).toHaveBeenCalledWith(
+      'resize',
+      instance.handleOnResize
+    )
+
+    removeEventListenerSpy.mockRestore()
+    removeWindowEventListenerSpy.mockRestore()
+  })
+
+  it('should handle touch events correctly', async () => {
+    const page = await newSpecPage({
+      components: [AtomListSlider, AtomListSliderItem],
+      html: `
+        <atom-list-slider>
+          <atom-list-slider-item style="width: 100px;">Slide 1</atom-list-slider-item>
+          <atom-list-slider-item style="width: 100px;">Slide 2</atom-list-slider-item>
+        </atom-list-slider>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    const instance = page.rootInstance
+    const wrapper = page?.root?.shadowRoot?.querySelector(
+      '.wrapper'
+    ) as HTMLElement
+
+    instance.sliderItems = wrapper.querySelectorAll('slider-item')
+    instance.currentIndex = 0
+
+    const touchStartEvent = new MockTouchEvent('touchstart', {
+      touches: [{ clientX: 100 }] as unknown as Touch[],
+    })
+
+    wrapper.dispatchEvent(touchStartEvent)
+    expect(instance.touchStartX).toBe(100)
+    expect(instance.isTouchMoved).toBe(false)
+
+    const touchMoveEvent = new MockTouchEvent('touchmove', {})
+
+    wrapper.dispatchEvent(touchMoveEvent)
+    expect(instance.isTouchMoved).toBe(true)
+
+    const touchEndEventLeft = new MockTouchEvent('touchend', {
+      changedTouches: [{ clientX: 50 }] as unknown as Touch[],
+    })
+
+    wrapper.dispatchEvent(touchEndEventLeft)
+    expect(instance.touchEndX).toBe(50)
+    expect(instance.currentIndex).toBe(-1)
+
+    const touchEndEventRight = new MockTouchEvent('touchend', {
+      changedTouches: [{ clientX: 150 }] as unknown as Touch[],
+    })
+
+    wrapper.dispatchEvent(touchEndEventRight)
+    expect(instance.touchEndX).toBe(150)
+    expect(instance.currentIndex).toBe(0)
   })
 })

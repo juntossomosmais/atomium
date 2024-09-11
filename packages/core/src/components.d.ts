@@ -171,7 +171,6 @@ export namespace Components {
         "trigger"?: string;
     }
     interface AtomSelect {
-        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
         "errorText"?: string;
         "fill": 'solid' | 'outline';
@@ -187,9 +186,11 @@ export namespace Components {
     label?: string
     selected?: boolean
     disabled?: boolean
+    tag?: { color: string; label: string }
   }>;
         "placeholder": string;
         "readonly"?: boolean;
+        "setTagInSelectOptions": () => Promise<void>;
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomTag {
@@ -713,7 +714,6 @@ declare namespace LocalJSX {
         "trigger"?: string;
     }
     interface AtomSelect {
-        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
         "errorText"?: string;
         "fill"?: 'solid' | 'outline';
@@ -734,6 +734,7 @@ declare namespace LocalJSX {
     label?: string
     selected?: boolean
     disabled?: boolean
+    tag?: { color: string; label: string }
   }>;
         "placeholder"?: string;
         "readonly"?: boolean;
