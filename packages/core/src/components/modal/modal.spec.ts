@@ -24,16 +24,16 @@ describe('atom-modal', () => {
     expect(page.root).toEqualHtml(`
       <atom-modal primary-text="Primary" secondary-text="Secondary" trigger="button" disable-primary="true">
         <ion-modal aria-describedby="atom-modal__content" aria-labelledby="atom-modal__header-title" class="atom-modal" trigger="button">
-          <header class="atom-modal__header">
+          <header class="atom-modal__header" part="header">
             <div id="atom-modal__header-title"></div>
             <atom-button aria-label="close" class="atom-modal__close" fill="clear" shape="circle">
               <atom-icon aria-hidden="true" class="atom-modal__close-icon" icon="close"></atom-icon>
             </atom-button>
           </header>
-          <div class="atom-modal__content" id="atom-modal__content">
+          <div class="atom-modal__content" id="atom-modal__content" part="content">
             Modal content
           </div>
-          <footer class="atom-modal__footer">
+          <footer class="atom-modal__footer" part="footer">
             <atom-button class="atom-modal__btn-action atom-modal__btn-action--secondary" color="secondary" fill="outline">
               Secondary
             </atom-button>
