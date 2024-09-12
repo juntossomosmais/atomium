@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.18.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.17.0...atomium-v2.18.0) (2024-09-12)
+
+
+### Features
+
+* **modal:** add options to disable buttons ([#563](https://github.com/juntossomosmais/atomium/issues/563)) ([90ee9b5](https://github.com/juntossomosmais/atomium/commit/90ee9b538549a0111c5c92d3d75a75ee61a965c8))
+* **select:** define max-height and add variable to control it ([#570](https://github.com/juntossomosmais/atomium/issues/570)) ([7917638](https://github.com/juntossomosmais/atomium/commit/7917638ca4587c7696eeae2f0398ede34152d14f))
+
 ## [2.17.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.16.0...atomium-v2.17.0) (2024-09-10)
 
 
