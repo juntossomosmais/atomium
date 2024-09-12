@@ -77,6 +77,8 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
 */
 
 .select-popover {
+  --max-height: var(--select-max-height, 250px);
+
   &.atom-select__popover {
     .select-interface-option {
       --background-hover: var(--color-neutral-light-5);

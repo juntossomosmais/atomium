@@ -147,6 +147,13 @@ export const SelectStoryArgs = {
         category: Category.EVENTS,
       },
     },
+    '--select-max-height': {
+      description: 'Add a custom max-height to the select list options.',
+      defaultValue: { summary: '250px' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
   },
 }
 
