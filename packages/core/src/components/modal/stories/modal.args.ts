@@ -80,6 +80,22 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    disableSecondary: {
+      control: 'boolean',
+      description:
+        'If true, the secondary button will be disabled. Default is false',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    disablePrimary: {
+      control: 'boolean',
+      description:
+        'If true, the primary button will be disabled. Default is false',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     atomCloseClick: {
       action: 'atomCloseClick',
       description:
@@ -143,4 +159,6 @@ export const ModalComponentArgs = {
   primaryText: 'Primary',
   secondaryText: 'Secondary',
   hasDivider: false,
+  disableSecondary: false,
+  disablePrimary: false,
 }

@@ -21,6 +21,8 @@ const createModal = (args) => {
         progress="${args.progress}"
         has-footer="${args.hasFooter}"
         header-title="${args.headerTitle}"
+        disable-secondary="${args.disableSecondary}"
+        disable-primary="${args.disablePrimary}"
       >
         <div slot="header">Custom Header</div>
         <p>Modal Content</p>

@@ -23,6 +23,8 @@ const createModal = (args, themeColor = 'light') => ({
         secondary-text="${args.secondaryText}"
         trigger="open-modal"
         progress="${args.progress}"
+        disable-primary="${args.disablePrimary}"
+        disable-secondary="${args.disableSecondary}"
       >
         {{ args.label }}
       </AtomModal>

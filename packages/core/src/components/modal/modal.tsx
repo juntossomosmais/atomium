@@ -9,6 +9,8 @@ type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
  */
 const BACKDROP_NO_SCROLL = 'backdrop-no-scroll'
 
+type HTMLAtomModalElement = HTMLIonModalElement & { close: () => Promise<void> }
+
 @Component({
   tag: 'atom-modal',
   styleUrl: 'modal.scss',
@@ -17,13 +19,15 @@ const BACKDROP_NO_SCROLL = 'backdrop-no-scroll'
 })
 export class AtomModal {
   @Prop() trigger?: string
-  @Prop() headerTitle?: string = ''
+  @Prop() headerTitle = ''
   @Prop() primaryText?: string
   @Prop() secondaryText?: string
-  @Prop() hasDivider?: boolean = false
+  @Prop() hasDivider = false
   @Prop() alertType?: 'alert' | 'error'
   @Prop() progress?: number
-  @Prop() hasFooter?: boolean = true
+  @Prop() hasFooter = true
+  @Prop() disablePrimary = false
+  @Prop() disableSecondary = false
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -31,7 +35,7 @@ export class AtomModal {
   @Event() atomPrimaryClick: EventEmitter
   @Event() atomSecondaryClick: EventEmitter
 
-  private modal: HTMLIonModalElement
+  private modal: HTMLAtomModalElement
 
   private alertMap: AlertType = {
     alert: {
@@ -46,6 +50,12 @@ export class AtomModal {
 
   componentDidLoad() {
     document.body.classList.remove(BACKDROP_NO_SCROLL)
+
+    this.modal.close = async () => {
+      await this.modal.dismiss()
+
+      document.body.classList.remove(BACKDROP_NO_SCROLL)
+    }
   }
 
   private handleDidDimiss = () => {
@@ -58,8 +68,7 @@ export class AtomModal {
 
   private handleCloseClick = async () => {
     this.atomCloseClick.emit(this.modal)
-    await this.modal.dismiss()
-    document.body.classList.remove(BACKDROP_NO_SCROLL)
+    this.modal.close()
   }
 
   private handleSecondaryClick = () => {
@@ -78,7 +87,7 @@ export class AtomModal {
         <ion-modal
           aria-labelledby='atom-modal__header-title'
           aria-describedby='atom-modal__content'
-          ref={(el) => (this.modal = el as HTMLIonModalElement)}
+          ref={(el) => (this.modal = el as HTMLAtomModalElement)}
           trigger={this.trigger}
           class={{
             'atom-modal': true,
@@ -87,7 +96,7 @@ export class AtomModal {
           onIonModalDidDismiss={this.handleDidDimiss}
           onDidPresent={this.handleDidPresent}
         >
-          <header class='atom-modal__header'>
+          <header part='header' class='atom-modal__header'>
             {iconType && (
               <atom-icon
                 aria-hidden='true'
@@ -121,6 +130,7 @@ export class AtomModal {
           )}
           <div
             id='atom-modal__content'
+            part='content'
             class={{
               'atom-modal__content': true,
               'atom-modal__content--divided': this.hasDivider,
@@ -129,9 +139,10 @@ export class AtomModal {
             <slot />
           </div>
           {this.hasFooter && (
-            <footer class='atom-modal__footer'>
+            <footer part='footer' class='atom-modal__footer'>
               <atom-button
                 color='secondary'
+                disabled={this.disableSecondary}
                 fill='outline'
                 class='atom-modal__btn-action atom-modal__btn-action--secondary'
                 onClick={this.handleSecondaryClick}
@@ -140,6 +151,7 @@ export class AtomModal {
               </atom-button>
               <atom-button
                 color='primary'
+                disabled={this.disablePrimary}
                 class='atom-modal__btn-action atom-modal__btn-action--primary'
                 onClick={this.handlePrimaryClick}
               >
