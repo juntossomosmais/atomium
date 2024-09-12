@@ -160,11 +160,11 @@ export namespace Components {
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
-        "disablePrimary"?: boolean;
-        "disableSecondary"?: boolean;
-        "hasDivider"?: boolean;
-        "hasFooter"?: boolean;
-        "headerTitle"?: string;
+        "disablePrimary": boolean;
+        "disableSecondary": boolean;
+        "hasDivider": boolean;
+        "hasFooter": boolean;
+        "headerTitle": string;
         "primaryText"?: string;
         "progress"?: number;
         "secondaryText"?: string;

@@ -117,6 +117,7 @@ describe('atom-modal', () => {
 
     page.rootInstance.modal = {
       dismiss: jest.fn(),
+      close: jest.fn(),
     }
     page.root?.addEventListener('atomCloseClick', spyClose)
     page.root?.addEventListener('atomPrimaryClick', spyPrimary)
