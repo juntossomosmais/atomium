@@ -15,46 +15,6 @@ const optionsDefault = [
     value: 'Green',
     disabled: false,
   },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
-  {
-    id: '2',
-    value: 'Green',
-    disabled: false,
-  },
   { id: '3', value: 'Blue', disabled: false },
   {
     id: '4',
