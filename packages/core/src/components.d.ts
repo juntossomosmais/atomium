@@ -193,6 +193,12 @@ export namespace Components {
         "setTagInSelectOptions": () => Promise<void>;
         "value"?: IonTypes.IonSelect['value'];
     }
+    interface AtomStepsModal {
+        "currentStep": number;
+        "steps": number;
+        "stepsTitles": string;
+        "trigger"?: string;
+    }
     interface AtomTag {
         "color": 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
         "customBackgroundColor"?: string;
@@ -284,6 +290,10 @@ export interface AtomModalCustomEvent<T> extends CustomEvent<T> {
 export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomSelectElement;
+}
+export interface AtomStepsModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomStepsModalElement;
 }
 export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -493,6 +503,23 @@ declare global {
         prototype: HTMLAtomSelectElement;
         new (): HTMLAtomSelectElement;
     };
+    interface HTMLAtomStepsModalElementEventMap {
+        "atomFinish": any;
+    }
+    interface HTMLAtomStepsModalElement extends Components.AtomStepsModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomStepsModalElementEventMap>(type: K, listener: (this: HTMLAtomStepsModalElement, ev: AtomStepsModalCustomEvent<HTMLAtomStepsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomStepsModalElementEventMap>(type: K, listener: (this: HTMLAtomStepsModalElement, ev: AtomStepsModalCustomEvent<HTMLAtomStepsModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomStepsModalElement: {
+        prototype: HTMLAtomStepsModalElement;
+        new (): HTMLAtomStepsModalElement;
+    };
     interface HTMLAtomTagElement extends Components.AtomTag, HTMLStencilElement {
     }
     var HTMLAtomTagElement: {
@@ -537,6 +564,7 @@ declare global {
         "atom-list-slider-item": HTMLAtomListSliderItemElement;
         "atom-modal": HTMLAtomModalElement;
         "atom-select": HTMLAtomSelectElement;
+        "atom-steps-modal": HTMLAtomStepsModalElement;
         "atom-tag": HTMLAtomTagElement;
         "atom-textarea": HTMLAtomTextareaElement;
     }
@@ -740,6 +768,13 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
         "value"?: IonTypes.IonSelect['value'];
     }
+    interface AtomStepsModal {
+        "currentStep"?: number;
+        "onAtomFinish"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "steps"?: number;
+        "stepsTitles"?: string;
+        "trigger"?: string;
+    }
     interface AtomTag {
         "color"?: 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
         "customBackgroundColor"?: string;
@@ -818,6 +853,7 @@ declare namespace LocalJSX {
         "atom-list-slider-item": AtomListSliderItem;
         "atom-modal": AtomModal;
         "atom-select": AtomSelect;
+        "atom-steps-modal": AtomStepsModal;
         "atom-tag": AtomTag;
         "atom-textarea": AtomTextarea;
     }
@@ -843,6 +879,7 @@ declare module "@stencil/core" {
             "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
             "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
+            "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
             "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
         }

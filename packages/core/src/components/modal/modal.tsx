@@ -125,9 +125,9 @@ export class AtomModal {
               ></atom-icon>
             </atom-button>
           </header>
-          {!!this.progress && (
+          {this.progress >= 0 ? (
             <ion-progress-bar value={this.progress} color='primary' />
-          )}
+          ) : null}
           <div
             id='atom-modal__content'
             part='content'

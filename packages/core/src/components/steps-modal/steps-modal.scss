@@ -1,0 +1,10 @@
+@import '~@atomium/scss-utils/index';
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+  margin-top: var(--spacing-base);
+}
