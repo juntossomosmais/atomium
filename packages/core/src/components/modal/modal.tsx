@@ -28,6 +28,7 @@ export class AtomModal {
   @Prop() hasFooter = true
   @Prop() disablePrimary = false
   @Prop() disableSecondary = false
+  @Prop() isOpen = false
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -49,7 +50,7 @@ export class AtomModal {
   }
 
   componentDidLoad() {
-    document.body.classList.remove(BACKDROP_NO_SCROLL)
+    document.body.classList.add(BACKDROP_NO_SCROLL)
 
     this.modal.close = async () => {
       await this.modal.dismiss()
@@ -95,6 +96,7 @@ export class AtomModal {
           }}
           onIonModalDidDismiss={this.handleDidDimiss}
           onDidPresent={this.handleDidPresent}
+          isOpen={this.isOpen}
         >
           <header part='header' class='atom-modal__header'>
             {iconType && (
