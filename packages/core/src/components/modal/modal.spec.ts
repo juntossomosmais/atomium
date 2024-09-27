@@ -2,6 +2,13 @@ import { newSpecPage, SpecPage } from '@stencil/core/testing'
 
 import { AtomModal } from './modal'
 
+Object.defineProperty(document.body, 'classList', {
+  value: {
+    add: jest.fn(),
+    remove: jest.fn(),
+  },
+})
+
 describe('atom-modal', () => {
   let page: SpecPage
 
@@ -94,6 +101,41 @@ describe('atom-modal', () => {
     })
 
     expect(page.root?.innerHTML).toContain('isopen')
+
+    page.rootInstance.isOpen = false
+
+    await page.waitForChanges()
+
+    expect(document.body.classList.remove).toHaveBeenCalled()
+  })
+  it('should call remove and add on backdrop no scroll class when is-open changes', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal header-title="Header from prop" is-open="true">
+        Modal content
+        <div slot="header">Custom Header</div>
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain('isopen')
+
+    page.rootInstance.isOpen = false
+
+    await page.waitForChanges()
+
+    expect(document.body.classList.remove).toHaveBeenCalledWith(
+      'backdrop-no-scroll'
+    )
+
+    page.rootInstance.isOpen = true
+
+    await page.waitForChanges()
+
+    expect(document.body.classList.add).toHaveBeenCalledWith(
+      'backdrop-no-scroll'
+    )
   })
   it('should render icon type when alertType is passed', async () => {
     await page.setContent(`
