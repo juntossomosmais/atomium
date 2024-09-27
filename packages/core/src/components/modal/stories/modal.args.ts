@@ -80,6 +80,14 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    isOpen: {
+      control: 'boolean',
+      description: 'If true, the modal will be opened. Default is false',
+      table: {
+        category: Category.PROPERTIES,
+      },
+      defaultValue: false,
+    },
     disableSecondary: {
       control: 'boolean',
       description:
@@ -161,4 +169,5 @@ export const ModalComponentArgs = {
   hasDivider: false,
   disableSecondary: false,
   disablePrimary: false,
+  isOpen: false,
 }

@@ -1,4 +1,12 @@
-import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core'
+import {
+  Component,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core'
 
 import { IconProps } from '../../icons'
 
@@ -36,6 +44,13 @@ export class AtomModal {
   @Event() atomPrimaryClick: EventEmitter
   @Event() atomSecondaryClick: EventEmitter
 
+  @Watch('isOpen')
+  watchPropHandler(newValue: boolean) {
+    if (newValue) {
+      document.body.classList.add(BACKDROP_NO_SCROLL)
+    }
+  }
+
   private modal: HTMLAtomModalElement
 
   private readonly alertMap: AlertType = {
@@ -50,7 +65,7 @@ export class AtomModal {
   }
 
   componentDidLoad() {
-    document.body.classList.add(BACKDROP_NO_SCROLL)
+    document.body.classList.remove(BACKDROP_NO_SCROLL)
 
     this.modal.close = async () => {
       await this.modal.dismiss()

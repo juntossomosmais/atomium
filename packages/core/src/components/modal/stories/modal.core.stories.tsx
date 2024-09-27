@@ -23,6 +23,7 @@ const createModal = (args) => {
         header-title="${args.headerTitle}"
         disable-secondary="${args.disableSecondary}"
         disable-primary="${args.disablePrimary}"
+        is-open="${args.isOpen}"
       >
         <div slot="header">Custom Header</div>
         <p>Modal Content</p>

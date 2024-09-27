@@ -25,6 +25,7 @@ const createModal = (args, themeColor = 'light') => ({
         progress="${args.progress}"
         disable-primary="${args.disablePrimary}"
         disable-secondary="${args.disableSecondary}"
+        is-open="${args.isOpen}"
       >
         {{ args.label }}
       </AtomModal>

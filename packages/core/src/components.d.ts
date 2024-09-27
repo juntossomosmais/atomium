@@ -165,6 +165,7 @@ export namespace Components {
         "hasDivider": boolean;
         "hasFooter": boolean;
         "headerTitle": string;
+        "isOpen": boolean;
         "primaryText"?: string;
         "progress"?: number;
         "secondaryText"?: string;
@@ -703,6 +704,7 @@ declare namespace LocalJSX {
         "hasDivider"?: boolean;
         "hasFooter"?: boolean;
         "headerTitle"?: string;
+        "isOpen"?: boolean;
         "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidPresent"?: (event: AtomModalCustomEvent<any>) => void;

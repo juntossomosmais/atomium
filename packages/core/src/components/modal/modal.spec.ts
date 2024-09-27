@@ -69,6 +69,32 @@ describe('atom-modal', () => {
     expect(page.root?.textContent).toContain('Header from prop')
   })
 
+  it('should render modal closed if is open is set to false', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal header-title="Header from prop" is-open="false">
+        Modal content
+        <div slot="header">Custom Header</div>
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).not.toContain('isopen')
+  })
+  it('should render modal opened if is open is set to true', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal header-title="Header from prop" is-open="true">
+        Modal content
+        <div slot="header">Custom Header</div>
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain('isopen')
+  })
   it('should render icon type when alertType is passed', async () => {
     await page.setContent(`
       <atom-modal alert-type="error">
