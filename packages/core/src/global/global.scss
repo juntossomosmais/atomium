@@ -111,3 +111,7 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
     }
   }
 }
+
+html.backdrop-no-scroll {
+  overflow: hidden;
+}
