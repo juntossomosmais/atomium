@@ -38,7 +38,7 @@ export class AtomModal {
 
   private modal: HTMLAtomModalElement
 
-  private alertMap: AlertType = {
+  private readonly alertMap: AlertType = {
     alert: {
       icon: 'alert-outline',
       color: 'warning',
@@ -59,24 +59,24 @@ export class AtomModal {
     }
   }
 
-  private handleDidDimiss = () => {
+  private readonly handleDidDimiss = () => {
     this.atomDidDismiss.emit(this.modal)
   }
 
-  private handleDidPresent = () => {
+  private readonly handleDidPresent = () => {
     this.atomDidPresent.emit(this.modal)
   }
 
-  private handleCloseClick = async () => {
+  private readonly handleCloseClick = async () => {
     this.atomCloseClick.emit(this.modal)
     this.modal.close()
   }
 
-  private handleSecondaryClick = () => {
+  private readonly handleSecondaryClick = () => {
     this.atomSecondaryClick.emit(this.modal)
   }
 
-  private handlePrimaryClick = () => {
+  private readonly handlePrimaryClick = () => {
     this.atomPrimaryClick.emit(this.modal)
   }
 
