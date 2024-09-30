@@ -130,11 +130,11 @@ To locally test Atomium using Alpha/Beta versions, follow the steps below:
 
 1. Update the `.release-please-manifest.json` file in the root directory of the Atomium project with the next version number + alpha. Ex: the current version is `2.10.0`, so the next alpha version can be `2.11.0-alpha.1` (OBS: in the example, it is updating only the core lib, update the libs that your changes impact).
 
-![add alpha version to release](https://github.com/user-attachments/assets/3e3adaa2-1bcd-4442-8d1a-118cc14cc274)
+![add alpha version to release](https://github.com/user-attachments/assets/91418116-266c-45f1-9cf2-bdf2d6c1a7eb)
 
 2. Add the same version to the repespective `package.json` file in the root directory of the lib project. Ex: packages/core/package.json
 
-![add alpha to package](https://github.com/user-attachments/assets/3e3adaa2-1bcd-4442-8d1a-118cc14cc274)
+![add alpha to package](https://github.com/user-attachments/assets/ec4bfbf2-a822-4cf5-b7c4-66575fd36230)
 
 3. Build the Atomium libraries by running the following command in the root directory of the Atomium project
 

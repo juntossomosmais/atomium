@@ -4,12 +4,11 @@ import { IconProps } from '../../icons'
 
 type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
 
-/* @todo it's needed to prevent a ionic error. In the version 8.0 it was fixed, remove it after the upgrade.
- *  https://github.com/ionic-team/ionic-framework/issues/23942
- */
 const BACKDROP_NO_SCROLL = 'backdrop-no-scroll'
 
-type HTMLAtomModalElement = HTMLIonModalElement & { close: () => Promise<void> }
+export type HTMLAtomModalElement = HTMLIonModalElement & {
+  close: () => Promise<void>
+}
 
 @Component({
   tag: 'atom-modal',
@@ -28,6 +27,7 @@ export class AtomModal {
   @Prop() hasFooter = true
   @Prop() disablePrimary = false
   @Prop() disableSecondary = false
+  @Prop({ mutable: true }) isOpen = false
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -37,7 +37,7 @@ export class AtomModal {
 
   private modal: HTMLAtomModalElement
 
-  private alertMap: AlertType = {
+  private readonly alertMap: AlertType = {
     alert: {
       icon: 'alert-outline',
       color: 'warning',
@@ -48,34 +48,50 @@ export class AtomModal {
     },
   }
 
+  private readonly addClasses = () => {
+    document.body.classList.add(BACKDROP_NO_SCROLL)
+    document.documentElement.classList.add(BACKDROP_NO_SCROLL)
+  }
+
+  private readonly removeClasses = () => {
+    document.body.classList.remove(BACKDROP_NO_SCROLL)
+    document.documentElement.classList.remove(BACKDROP_NO_SCROLL)
+  }
+
   componentDidLoad() {
+    /* @todo it's needed to prevent a ionic error. In the version 8.0 it was fixed, remove it after the upgrade.
+     *  https://github.com/ionic-team/ionic-framework/issues/23942
+     */
     document.body.classList.remove(BACKDROP_NO_SCROLL)
 
     this.modal.close = async () => {
       await this.modal.dismiss()
-
-      document.body.classList.remove(BACKDROP_NO_SCROLL)
+      this.removeClasses()
+      this.isOpen = false
     }
   }
 
-  private handleDidDimiss = () => {
+  private readonly handleDidDismiss = () => {
     this.atomDidDismiss.emit(this.modal)
+    this.modal.close()
   }
 
-  private handleDidPresent = () => {
+  private readonly handleDidPresent = () => {
     this.atomDidPresent.emit(this.modal)
+    this.isOpen = true
+    this.addClasses()
   }
 
-  private handleCloseClick = async () => {
+  private readonly handleCloseClick = async () => {
     this.atomCloseClick.emit(this.modal)
     this.modal.close()
   }
 
-  private handleSecondaryClick = () => {
+  private readonly handleSecondaryClick = () => {
     this.atomSecondaryClick.emit(this.modal)
   }
 
-  private handlePrimaryClick = () => {
+  private readonly handlePrimaryClick = () => {
     this.atomPrimaryClick.emit(this.modal)
   }
 
@@ -93,8 +109,10 @@ export class AtomModal {
             'atom-modal': true,
             'atom-modal--progress': !!this.progress,
           }}
-          onIonModalDidDismiss={this.handleDidDimiss}
+          onIonModalDidDismiss={this.handleDidDismiss}
+          onDidDismiss={this.handleDidDismiss}
           onDidPresent={this.handleDidPresent}
+          isOpen={this.isOpen}
         >
           <header part='header' class='atom-modal__header'>
             {iconType && (
