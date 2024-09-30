@@ -146,6 +146,51 @@ describe('atom-modal', () => {
     expect(page.rootInstance.modal.close).toHaveBeenCalled()
   })
 
+  it('should call remove and add on backdrop no scroll class when is-open changes', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal header-title="Header from prop" is-open="true">
+        Modal content
+        <div slot="header">Custom Header</div>
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain('isopen')
+
+    page.rootInstance.modal = {
+      dismiss: jest.fn(),
+    }
+
+    page.rootInstance.handleDidPresent()
+
+    expect(document.body.classList.add).toHaveBeenCalled()
+    expect(document.documentElement.classList.add).toHaveBeenCalled()
+  })
+
+  it('should call remove on class list when call remove classes', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal header-title="Header from prop" is-open="true">
+        Modal content
+        <div slot="header">Custom Header</div>
+      </atom-modal>
+    `,
+    })
+
+    page.rootInstance.addClasses()
+
+    expect(document.body.classList.add).toHaveBeenCalled()
+    expect(document.documentElement.classList.add).toHaveBeenCalled()
+
+    page.rootInstance.removeClasses()
+
+    expect(document.body.classList.remove).toHaveBeenCalled()
+    expect(document.documentElement.classList.remove).toHaveBeenCalled()
+  })
+
   it('should render icon type when alertType is passed', async () => {
     await page.setContent(`
       <atom-modal alert-type="error">
