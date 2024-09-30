@@ -9,6 +9,13 @@ Object.defineProperty(document.body, 'classList', {
   },
 })
 
+Object.defineProperty(document.documentElement, 'classList', {
+  value: {
+    add: jest.fn(),
+    remove: jest.fn(),
+  },
+})
+
 describe('atom-modal', () => {
   let page: SpecPage
 
@@ -121,22 +128,24 @@ describe('atom-modal', () => {
 
     expect(page.root?.innerHTML).toContain('isopen')
 
-    page.rootInstance.isOpen = false
+    page.rootInstance.modal = {
+      dismiss: jest.fn(),
+      close: jest.fn(),
+    }
+    page.rootInstance.handleDidPresent()
 
-    await page.waitForChanges()
+    expect(document.body.classList.add).toHaveBeenCalled()
+    expect(document.documentElement.classList.add).toHaveBeenCalled()
 
-    expect(document.body.classList.remove).toHaveBeenCalledWith(
-      'backdrop-no-scroll'
-    )
+    page.rootInstance.handleDidDismiss()
 
-    page.rootInstance.isOpen = true
+    expect(page.rootInstance.modal.close).toHaveBeenCalled()
 
-    await page.waitForChanges()
+    page.rootInstance.handleCloseClick()
 
-    expect(document.body.classList.add).toHaveBeenCalledWith(
-      'backdrop-no-scroll'
-    )
+    expect(page.rootInstance.modal.close).toHaveBeenCalled()
   })
+
   it('should render icon type when alertType is passed', async () => {
     await page.setContent(`
       <atom-modal alert-type="error">

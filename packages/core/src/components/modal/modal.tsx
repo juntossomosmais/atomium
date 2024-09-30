@@ -6,7 +6,9 @@ type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
 
 const BACKDROP_NO_SCROLL = 'backdrop-no-scroll'
 
-type HTMLAtomModalElement = HTMLIonModalElement & { close: () => Promise<void> }
+export type HTMLAtomModalElement = HTMLIonModalElement & {
+  close: () => Promise<void>
+}
 
 @Component({
   tag: 'atom-modal',
@@ -25,7 +27,7 @@ export class AtomModal {
   @Prop() hasFooter = true
   @Prop() disablePrimary = false
   @Prop() disableSecondary = false
-  @Prop() isOpen = false
+  @Prop({ mutable: true }) isOpen = false
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -46,6 +48,16 @@ export class AtomModal {
     },
   }
 
+  private readonly addClasses = () => {
+    document.body.classList.add(BACKDROP_NO_SCROLL)
+    document.documentElement.classList.add(BACKDROP_NO_SCROLL)
+  }
+
+  private readonly removeClasses = () => {
+    document.body.classList.remove(BACKDROP_NO_SCROLL)
+    document.documentElement.classList.remove(BACKDROP_NO_SCROLL)
+  }
+
   componentDidLoad() {
     /* @todo it's needed to prevent a ionic error. In the version 8.0 it was fixed, remove it after the upgrade.
      *  https://github.com/ionic-team/ionic-framework/issues/23942
@@ -54,21 +66,20 @@ export class AtomModal {
 
     this.modal.close = async () => {
       await this.modal.dismiss()
-
-      document.body.classList.remove(BACKDROP_NO_SCROLL)
-      document.documentElement.classList.remove(BACKDROP_NO_SCROLL)
+      this.removeClasses()
+      this.isOpen = false
     }
   }
 
-  private readonly handleDidDimiss = () => {
+  private readonly handleDidDismiss = () => {
     this.atomDidDismiss.emit(this.modal)
+    this.modal.close()
   }
 
   private readonly handleDidPresent = () => {
     this.atomDidPresent.emit(this.modal)
-
-    document.body.classList.add(BACKDROP_NO_SCROLL)
-    document.documentElement.classList.add(BACKDROP_NO_SCROLL)
+    this.isOpen = true
+    this.addClasses()
   }
 
   private readonly handleCloseClick = async () => {
@@ -98,7 +109,8 @@ export class AtomModal {
             'atom-modal': true,
             'atom-modal--progress': !!this.progress,
           }}
-          onIonModalDidDismiss={this.handleDidDimiss}
+          onIonModalDidDismiss={this.handleDidDismiss}
+          onDidDismiss={this.handleDidDismiss}
           onDidPresent={this.handleDidPresent}
           isOpen={this.isOpen}
         >
