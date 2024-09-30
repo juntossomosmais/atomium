@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.18.0...atomium-v2.18.1) (2024-09-30)
+
+
+### Bug Fixes
+
+* **modal:** add class on mount and fix backdrop ([#572](https://github.com/juntossomosmais/atomium/issues/572)) ([5788d68](https://github.com/juntossomosmais/atomium/commit/5788d6836829b2d8ead6f9b687d80682f1c0a466))
+
 ## [2.18.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.17.0...atomium-v2.18.0) (2024-09-12)
 
 
