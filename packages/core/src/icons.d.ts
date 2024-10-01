@@ -12,6 +12,7 @@ export type IconProps =
   | 'pix-colorful'
   | 'pix'
   | 'professional-plus'
+  | 'target'
   | 'wallet-giftcard-custom'
   | 'account-box-multiple-outline'
   | 'account-box-multiple'
