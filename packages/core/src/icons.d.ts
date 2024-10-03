@@ -130,6 +130,7 @@ export type IconProps =
   | 'microsoft-word'
   | 'minus-thick'
   | 'minus'
+  | 'my-location'
   | 'open-in-new'
   | 'outline-person-blocked'
   | 'pencil'
