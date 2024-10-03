@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.20.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.19.0...atomium-v2.20.0) (2024-10-03)
+
+
+### Features
+
+* **icons:** add my-location icon ([#588](https://github.com/juntossomosmais/atomium/issues/588)) ([678b3e2](https://github.com/juntossomosmais/atomium/commit/678b3e205793b13d42f1857c248b9fa6fd9c0ac3))
+
 ## [2.19.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.18.1...atomium-v2.19.0) (2024-10-01)
 
 
