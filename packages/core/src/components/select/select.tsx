@@ -71,8 +71,14 @@ export class AtomSelect {
       const optionElement =
         this.getElementByTag(itemElement, 'ion-radio') ||
         this.getElementByTag(itemElement, 'ion-checkbox')
+
+      if (!optionElement?.shadowRoot) return
+
       const optionShadowRoot = optionElement.shadowRoot
         .firstElementChild as HTMLElement
+
+      if (!optionShadowRoot) return
+
       const firstElementInOption =
         optionShadowRoot.firstElementChild as HTMLElement
 
