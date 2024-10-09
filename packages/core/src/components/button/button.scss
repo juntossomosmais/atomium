@@ -16,6 +16,7 @@
 .atom-button {
   margin: 0;
   text-transform: inherit;
+  white-space: normal;
 
   &[color='white'] {
     --ion-color-base: var(--color-neutral-white);
