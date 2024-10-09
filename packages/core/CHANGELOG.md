@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.20.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.0...atomium-v2.20.1) (2024-10-09)
+
+
+### Bug Fixes
+
+* **button:** add white space property to not overflow text ([#591](https://github.com/juntossomosmais/atomium/issues/591)) ([f808c17](https://github.com/juntossomosmais/atomium/commit/f808c176af6258269c0e592f8557adea56cad6bd))
+
 ## [2.20.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.19.0...atomium-v2.20.0) (2024-10-03)
 
 
