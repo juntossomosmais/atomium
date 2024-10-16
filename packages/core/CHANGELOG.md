@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.21.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.1...atomium-v2.21.0) (2024-10-16)
+
+
+### Features
+
+* **icons:** add trolley and shopping bag icons ([#593](https://github.com/juntossomosmais/atomium/issues/593)) ([785c585](https://github.com/juntossomosmais/atomium/commit/785c5857856e286a79e98bae2e0a5231feaba447))
+
 ## [2.20.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.0...atomium-v2.20.1) (2024-10-09)
 
 
