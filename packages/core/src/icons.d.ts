@@ -3,6 +3,7 @@ export type IconProps =
   | 'account-time-outline'
   | 'account-warning-outline'
   | 'cash-back'
+  | 'credit-card-colorful'
   | 'dollar-circle'
   | 'jsm-outline'
   | 'jsm'
