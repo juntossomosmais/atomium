@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.22.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.21.0...atomium-v2.22.0) (2024-10-21)
+
+
+### Features
+
+* **icon:** add creditc card icon ([#595](https://github.com/juntossomosmais/atomium/issues/595)) ([dbc7e64](https://github.com/juntossomosmais/atomium/commit/dbc7e649c32ee53063b0c74ad846bdada171e4ef))
+* **select:** add validation in select tag ([#590](https://github.com/juntossomosmais/atomium/issues/590)) ([647eba6](https://github.com/juntossomosmais/atomium/commit/647eba6578ea9e71ffe2d3176aa6e04b302e8a49))
+
 ## [2.21.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.1...atomium-v2.21.0) (2024-10-16)
 
 
