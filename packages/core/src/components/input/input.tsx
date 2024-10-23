@@ -119,12 +119,10 @@ export class AtomInput {
   }
 
   private handleBlur = () => {
-    this.inputEl.removeEventListener('ionBlur', this.handleBlur)
     this.atomBlur.emit()
   }
 
   private handleFocus = () => {
-    this.inputEl.removeEventListener('ionFocus', this.handleFocus)
     this.atomFocus.emit()
   }
 
