@@ -1,5 +1,48 @@
 # Changelog
 
+## [2.22.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.21.0...atomium-v2.22.0) (2024-10-21)
+
+
+### Features
+
+* **icon:** add creditc card icon ([#595](https://github.com/juntossomosmais/atomium/issues/595)) ([dbc7e64](https://github.com/juntossomosmais/atomium/commit/dbc7e649c32ee53063b0c74ad846bdada171e4ef))
+* **select:** add validation in select tag ([#590](https://github.com/juntossomosmais/atomium/issues/590)) ([647eba6](https://github.com/juntossomosmais/atomium/commit/647eba6578ea9e71ffe2d3176aa6e04b302e8a49))
+
+## [2.21.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.1...atomium-v2.21.0) (2024-10-16)
+
+
+### Features
+
+* **icons:** add trolley and shopping bag icons ([#593](https://github.com/juntossomosmais/atomium/issues/593)) ([785c585](https://github.com/juntossomosmais/atomium/commit/785c5857856e286a79e98bae2e0a5231feaba447))
+
+## [2.20.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.0...atomium-v2.20.1) (2024-10-09)
+
+
+### Bug Fixes
+
+* **button:** add white space property to not overflow text ([#591](https://github.com/juntossomosmais/atomium/issues/591)) ([f808c17](https://github.com/juntossomosmais/atomium/commit/f808c176af6258269c0e592f8557adea56cad6bd))
+
+## [2.20.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.19.0...atomium-v2.20.0) (2024-10-03)
+
+
+### Features
+
+* **icons:** add my-location icon ([#588](https://github.com/juntossomosmais/atomium/issues/588)) ([678b3e2](https://github.com/juntossomosmais/atomium/commit/678b3e205793b13d42f1857c248b9fa6fd9c0ac3))
+
+## [2.19.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.18.1...atomium-v2.19.0) (2024-10-01)
+
+
+### Features
+
+* **icons:** add icon target ([#584](https://github.com/juntossomosmais/atomium/issues/584)) ([ce477d2](https://github.com/juntossomosmais/atomium/commit/ce477d200fab26c3dc6f561276dc1aaa9ab6ed1d))
+
+## [2.18.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.18.0...atomium-v2.18.1) (2024-09-30)
+
+
+### Bug Fixes
+
+* **modal:** add class on mount and fix backdrop ([#572](https://github.com/juntossomosmais/atomium/issues/572)) ([5788d68](https://github.com/juntossomosmais/atomium/commit/5788d6836829b2d8ead6f9b687d80682f1c0a466))
+
 ## [2.18.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.17.0...atomium-v2.18.0) (2024-09-12)
 
 

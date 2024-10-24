@@ -1,6 +1,8 @@
 @import '~@atomium/scss-utils/index';
 
 .atom-modal {
+  position: fixed;
+
   &__close {
     position: absolute;
     right: var(--spacing-small);
