@@ -1,10 +1,11 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
-import { ModalComponentArgs } from './modal.args'
+import { ModalComponentArgs, ModalStoryArgs } from './modal.args'
 
 export default {
   title: 'Components/StepsModal',
+  ...ModalStoryArgs,
 } as Meta
 
 const createModal = () => {

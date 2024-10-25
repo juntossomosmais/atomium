@@ -196,6 +196,7 @@ export namespace Components {
     }
     interface AtomStepsModal {
         "currentStep": number;
+        "isOpen": boolean;
         "steps": number;
         "stepsTitles": string;
         "trigger"?: string;
@@ -506,6 +507,11 @@ declare global {
     };
     interface HTMLAtomStepsModalElementEventMap {
         "atomFinish": any;
+        "atomNextStep": any;
+        "atomPreviousStep": any;
+        "atomCloseClick": any;
+        "atomDidDismiss": any;
+        "atomDidPresent": any;
     }
     interface HTMLAtomStepsModalElement extends Components.AtomStepsModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLAtomStepsModalElementEventMap>(type: K, listener: (this: HTMLAtomStepsModalElement, ev: AtomStepsModalCustomEvent<HTMLAtomStepsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -772,7 +778,13 @@ declare namespace LocalJSX {
     }
     interface AtomStepsModal {
         "currentStep"?: number;
+        "isOpen"?: boolean;
+        "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomDidPresent"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomFinish"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomNextStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomPreviousStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "steps"?: number;
         "stepsTitles"?: string;
         "trigger"?: string;

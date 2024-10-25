@@ -19,8 +19,14 @@ export class AtomStepsModal {
   @Prop() currentStep: number = 0
   @Prop() trigger?: string
   @Prop() stepsTitles: string
+  @Prop() isOpen: boolean = false
 
   @Event() atomFinish: EventEmitter
+  @Event() atomNextStep: EventEmitter
+  @Event() atomPreviousStep: EventEmitter
+  @Event() atomCloseClick: EventEmitter
+  @Event() atomDidDismiss: EventEmitter
+  @Event() atomDidPresent: EventEmitter
 
   @Element() el!: HTMLElement
 
@@ -39,6 +45,7 @@ export class AtomStepsModal {
       this.atomFinish.emit()
     } else {
       this.handleStep(this.currentStep + 1)
+      this.atomNextStep.emit()
       forceUpdate(this.el)
     }
   }
@@ -48,6 +55,7 @@ export class AtomStepsModal {
       return
     }
 
+    this.atomPreviousStep.emit()
     this.handleStep(this.currentStep - 1)
   }
 
@@ -67,6 +75,10 @@ export class AtomStepsModal {
           disable-primary='false'
           onAtomPrimaryClick={this.handlePrimaryClick}
           onAtomSecondaryClick={this.handleSecondaryClick}
+          isOpen={this.isOpen}
+          onAtomDidDismiss={this.atomDidDismiss.emit}
+          onAtomDidPresent={this.atomDidPresent.emit}
+          onAtomCloseClick={this.atomCloseClick.emit}
         >
           {this.stepsTitlesArray.map((title, index) => (
             <div class={this.currentStep === index ? 'show' : 'hide'}>
