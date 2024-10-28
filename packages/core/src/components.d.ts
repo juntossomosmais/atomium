@@ -507,6 +507,7 @@ declare global {
     };
     interface HTMLAtomStepsModalElementEventMap {
         "atomFinish": any;
+        "atomCancel": any;
         "atomNextStep": any;
         "atomPreviousStep": any;
         "atomCloseClick": any;
@@ -779,6 +780,7 @@ declare namespace LocalJSX {
     interface AtomStepsModal {
         "currentStep"?: number;
         "isOpen"?: boolean;
+        "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomDidPresent"?: (event: AtomStepsModalCustomEvent<any>) => void;

@@ -16,12 +16,13 @@ import {
 })
 export class AtomStepsModal {
   @Prop() steps: number = 0
-  @Prop() currentStep: number = 0
+  @Prop({ mutable: true }) currentStep: number = 0
   @Prop() trigger?: string
   @Prop() stepsTitles: string
-  @Prop() isOpen: boolean = false
+  @Prop({ mutable: true }) isOpen: boolean = false
 
   @Event() atomFinish: EventEmitter
+  @Event() atomCancel: EventEmitter
   @Event() atomNextStep: EventEmitter
   @Event() atomPreviousStep: EventEmitter
   @Event() atomCloseClick: EventEmitter
@@ -52,6 +53,8 @@ export class AtomStepsModal {
 
   private handleSecondaryClick = () => {
     if (this.currentStep === 0) {
+      this.atomCancel.emit()
+
       return
     }
 
@@ -70,7 +73,7 @@ export class AtomStepsModal {
           secondary-text='back'
           progress={this.currentStep / this.steps}
           has-footer=''
-          header-title={this.stepsTitlesArray[this.currentStep]}
+          header-title={this.stepsTitlesArray[this.currentStep].trim()}
           disable-secondary='false'
           disable-primary='false'
           onAtomPrimaryClick={this.handlePrimaryClick}

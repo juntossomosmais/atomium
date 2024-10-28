@@ -9,14 +9,16 @@ export const ModalStoryArgs = {
         'atomCloseClick',
         'atomDidDismiss',
         'atomDidPresent',
-        'atomPrimaryClick',
-        'atomSecondaryClick',
+        'atomNextStep',
+        'atomPreviousStep',
+        'atomCancel',
+        'atomFinish',
       ],
     },
     docs: {
       description: {
         component:
-          'Wrapper of Ionic Modal component. Read the [Ionic documentation](https://ionicframework.com/docs/api/modal) for more information about the available properties and possibilities.',
+          'Wrapper of Atom Modal component which implements steps logic. Read the [Atom Modal documentation](https://juntossomosmais.github.io/atomium/?path=/docs/components-modal--docs) for more information.',
       },
       page: DocumentationTemplate,
     },
@@ -29,71 +31,43 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    hasDivider: {
-      control: 'boolean',
-      description: 'if true, a divider will be added on the header and footer',
-      defaultValue: false,
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    hasFooter: {
-      control: 'boolean',
-      description: 'If false, the footer will not be rendered. Default is true',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    headerTitle: {
-      control: 'text',
-      description: 'The title of the modal',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    primaryText: {
-      control: 'text',
-      description: 'Text of the primary button',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    secondaryText: {
-      control: 'text',
-      description: 'Text of the secondary button',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    alertType: {
-      control: 'select',
-      options: ['alert', 'error'],
-      description: 'Type of alert icon. Available options: alert, error',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    progress: {
+    currentStep: {
       control: 'number',
-      description: "Percentage of the progress bar's width",
+      description: 'The index of the step that will be displayed',
+      defaultValue: { summary: 0 },
       table: {
         category: Category.PROPERTIES,
       },
     },
-    disableSecondary: {
-      control: 'boolean',
-      description:
-        'If true, the secondary button will be disabled. Default is false',
+    stepsTitles: {
+      control: 'string',
+      description: 'An string with the titles of the steps separated by commas',
       table: {
         category: Category.PROPERTIES,
       },
     },
-    disablePrimary: {
+    isOpen: {
       control: 'boolean',
-      description:
-        'If true, the primary button will be disabled. Default is false',
+      description: 'If true, the modal will be displayed',
+      defaultValue: { summary: false },
       table: {
         category: Category.PROPERTIES,
+      },
+    },
+    steps: {
+      control: 'number',
+      description:
+        'The number of steps that the modal will have. OBS: It needs to be the same number of steps-titles',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    atomCancel: {
+      action: 'atomCancel',
+      description:
+        'Event emitted when the secondary button is clicked and the current step is 0. The event callback recieve ion-modal custom component as a param.',
+      table: {
+        category: Category.EVENTS,
       },
     },
     atomCloseClick: {
@@ -120,34 +94,34 @@ export const ModalStoryArgs = {
         category: Category.EVENTS,
       },
     },
-    atomPrimaryClick: {
-      action: 'atomPrimaryClick',
+    atomFinish: {
+      action: 'atomFinish',
+      description:
+        'Event emitted when the primary button is clicked on the last step. The event callback recieve ion-modal custom component as a param.',
+      table: {
+        category: Category.EVENTS,
+      },
+    },
+    atomNextStep: {
+      action: 'atomNextStep',
       description:
         'Event emitted when the primary button is clicked. The event callback recieve ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
     },
-    atomSecondaryClick: {
-      action: 'atomSecondaryClick',
+    atomPreviousStep: {
+      action: 'atomPreviousStep',
       description:
         'Event emitted when the secondary button is clicked. The event callback recieve ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
     },
-    default: {
-      name: '',
+    step_x: {
+      name: 'step-x',
       description:
-        'The default slot is where the content of the modal will be rendered',
-      table: {
-        category: Category.SLOTS,
-      },
-    },
-    header: {
-      name: 'header',
-      description:
-        'The header slot is where the custom header of the modal will be rendered. It is only rendered if the headerTitle property is not set',
+        'The slot where the content of the step x will be rendered. Obs: x is the index of the step',
       table: {
         category: Category.SLOTS,
       },
@@ -156,9 +130,8 @@ export const ModalStoryArgs = {
 }
 
 export const ModalComponentArgs = {
-  primaryText: 'Primary',
-  secondaryText: 'Secondary',
-  hasDivider: false,
-  disableSecondary: false,
-  disablePrimary: false,
+  trigger: 'open-modal-steps',
+  stepsTitles: 'Step 1, Step 2, Step 3',
+  steps: 3,
+  isOpen: true,
 }
