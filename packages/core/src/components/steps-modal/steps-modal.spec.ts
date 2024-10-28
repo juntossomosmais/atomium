@@ -2,20 +2,6 @@ import { newSpecPage, SpecPage } from '@stencil/core/testing'
 
 import { AtomStepsModal } from './steps-modal'
 
-Object.defineProperty(document.body, 'classList', {
-  value: {
-    add: jest.fn(),
-    remove: jest.fn(),
-  },
-})
-
-Object.defineProperty(document.documentElement, 'classList', {
-  value: {
-    add: jest.fn(),
-    remove: jest.fn(),
-  },
-})
-
 describe('atom-modal', () => {
   let page: SpecPage
 
@@ -69,7 +55,7 @@ describe('atom-modal', () => {
         </atom-steps-modal>
     `)
   })
-  it('should change step when handlePrimay is called', async () => {
+  it('should change step when handlePrimary is called', async () => {
     page.root
       ?.querySelector('atom-modal')
       ?.dispatchEvent(new CustomEvent('atomPrimaryClick'))
