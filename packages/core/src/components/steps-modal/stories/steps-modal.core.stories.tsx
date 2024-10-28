@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
-import { ModalComponentArgs, ModalStoryArgs } from './modal.args'
+import { ModalComponentArgs, ModalStoryArgs } from './steps-modal.args'
 
 export default {
   title: 'Components/StepsModal',
