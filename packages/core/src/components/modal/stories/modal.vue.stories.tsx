@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import { ModalComponentArgs, ModalStoryArgs } from './modal.args'
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Modal',
   ...ModalStoryArgs,
 } as Meta
 
@@ -27,7 +27,8 @@ const createModal = (args, themeColor = 'light') => ({
         disable-secondary="${args.disableSecondary}"
         is-open="${args.isOpen}"
       >
-        {{ args.label }}
+        <div slot='header'>Custom Header</div>
+        <p>Modal Content</p>
       </AtomModal>
     </div>
   `,

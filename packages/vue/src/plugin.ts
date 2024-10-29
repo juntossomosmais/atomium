@@ -1,9 +1,6 @@
+import { toKebabCase } from '@atomium/script-utils/to-kebab-case'
 import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 import { Plugin } from 'vue'
-
-function toKebabCase(str: string) {
-  return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()
-}
 
 export const ComponentLibrary: Plugin = {
   async install() {

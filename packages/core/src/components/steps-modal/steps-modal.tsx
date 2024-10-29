@@ -1,3 +1,4 @@
+import { toKebabCase } from '@atomium/script-utils/to-kebab-case'
 import {
   Component,
   Element,
@@ -62,6 +63,22 @@ export class AtomStepsModal {
     this.handleStep(this.currentStep - 1)
   }
 
+  private handleCloseClick = () => {
+    this.currentStep = 0
+    this.atomCloseClick.emit()
+  }
+
+  private mapEvent(
+    element: HTMLElement,
+    eventName: string,
+    handler: () => void
+  ) {
+    element.addEventListener(eventName, handler as EventListener)
+    const kebabEventName = toKebabCase(eventName)
+
+    element.addEventListener(kebabEventName, handler as EventListener)
+  }
+
   render() {
     return (
       <Host>
@@ -76,12 +93,24 @@ export class AtomStepsModal {
           header-title={this.stepsTitlesArray[this.currentStep].trim()}
           disable-secondary='false'
           disable-primary='false'
-          onAtomPrimaryClick={this.handlePrimaryClick}
-          onAtomSecondaryClick={this.handleSecondaryClick}
+          ref={(el) => {
+            if (el) {
+              this.mapEvent(el, 'atomPrimaryClick', this.handlePrimaryClick)
+              this.mapEvent(el, 'atomSecondaryClick', this.handleSecondaryClick)
+              this.mapEvent(
+                el,
+                'atomDidDismiss',
+                () => this.atomDidDismiss.emit
+              )
+              this.mapEvent(
+                el,
+                'atomDidPresent',
+                () => this.atomDidPresent.emit
+              )
+              this.mapEvent(el, 'atomCloseClick', () => this.handleCloseClick)
+            }
+          }}
           isOpen={this.isOpen}
-          onAtomDidDismiss={this.atomDidDismiss.emit}
-          onAtomDidPresent={this.atomDidPresent.emit}
-          onAtomCloseClick={this.atomCloseClick.emit}
         >
           {this.stepsTitlesArray.map((title, index) => (
             <div class={this.currentStep === index ? 'show' : 'hide'}>
