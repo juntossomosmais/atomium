@@ -34,11 +34,12 @@ export class AtomStepsModal {
   private stepsTitlesArray: string[] = []
 
   componentWillLoad() {
-    if (
+    const isInvalidCurrentStep =
       this.currentStep > this.steps ||
       this.currentStep < 1 ||
       this.currentStep === undefined
-    ) {
+
+    if (isInvalidCurrentStep) {
       this.currentStep = 1
     }
 
@@ -50,13 +51,13 @@ export class AtomStepsModal {
   }
 
   private handlePrimaryClick = () => {
-    if (this.currentStep === this.steps) {
-      this.atomFinish.emit()
-    } else {
-      this.handleStep(this.currentStep + 1)
-      this.atomNextStep.emit(this.currentStep)
-      forceUpdate(this.el)
-    }
+    const { currentStep, steps, atomFinish, atomNextStep, el } = this
+
+    return currentStep === steps
+      ? atomFinish.emit()
+      : (this.handleStep(currentStep + 1),
+        atomNextStep.emit(currentStep),
+        forceUpdate(el))
   }
 
   private handleCloseClick = () => {
