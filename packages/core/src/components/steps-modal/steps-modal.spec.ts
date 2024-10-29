@@ -2,7 +2,7 @@ import { newSpecPage, SpecPage } from '@stencil/core/testing'
 
 import { AtomStepsModal } from './steps-modal'
 
-describe('atom-modal', () => {
+describe('atom-steps-modal', () => {
   let page: SpecPage
 
   beforeEach(async () => {
@@ -41,13 +41,13 @@ describe('atom-modal', () => {
             disable-secondary="false"
             disable-primary="false"
             >
-            <div class="show">
+            <div class="step" style="display: block;">
                 <div slot="step-1">Step 1 Content</div>
             </div>
-            <div class="hide">
+            <div class="step" style="display: none;">
                 <div slot="step-2">Step 2 Content</div>
             </div>
-            <div class="hide">
+            <div class="step" style="display: none;">
                 <div slot="step-3">Step 3 Content</div>
             </div>
         </atom-modal
@@ -134,7 +134,7 @@ describe('atom-modal', () => {
   })
 
   it('should apply show class to current step and hide to others', async () => {
-    let stepShow = page.root?.querySelector('.show')
+    let stepShow = page.root?.querySelector('[style="display: block;"]')
 
     expect(stepShow).not.toBeNull()
 
@@ -146,7 +146,7 @@ describe('atom-modal', () => {
 
     await page.waitForChanges()
 
-    stepShow = page.root?.querySelector('.show')
+    stepShow = page.root?.querySelector('[style="display: block;"]')
 
     expect(stepShow).not.toBeNull()
 

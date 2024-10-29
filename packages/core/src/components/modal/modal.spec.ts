@@ -203,18 +203,6 @@ describe('atom-modal', () => {
     )
   })
 
-  it('should render progress bar when progress is passed', async () => {
-    await page.setContent(`
-      <atom-modal progress="0.5">
-        Modal content
-      </atom-modal>
-    `)
-
-    expect(page.root?.innerHTML).toContain(
-      '<ion-progress-bar value="0.5" color="primary">'
-    )
-  })
-
   it('should content contain divided class', async () => {
     await page.setContent(`
       <atom-modal has-divider="true">
@@ -252,5 +240,31 @@ describe('atom-modal', () => {
     expect(spyClose).toHaveBeenCalled()
     expect(spyPrimary).toHaveBeenCalled()
     expect(spySecondary).toHaveBeenCalled()
+  })
+  it('should render progress bar when progress is passed even if it is zero', async () => {
+    await page.setContent(`
+      <atom-modal>
+        Modal content
+      </atom-modal>
+    `)
+
+    await page.waitForChanges()
+
+    expect(page.root?.innerHTML).not.toContain(
+      '<ion-progress-bar value="0" color="primary"></ion-progress-bar>'
+    )
+
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal progress="0">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain(
+      '<ion-progress-bar value="0" color="primary"></ion-progress-bar>'
+    )
   })
 })

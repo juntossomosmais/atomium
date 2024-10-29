@@ -57,7 +57,7 @@ export const ModalStoryArgs = {
     steps: {
       control: 'number',
       description:
-        'The number of steps that the modal will have. OBS: It needs to be the same number of steps-titles',
+        'The number of steps that the modal will have. Obs: It needs to be the same number of steps-titles',
       table: {
         category: Category.PROPERTIES,
       },
@@ -65,7 +65,7 @@ export const ModalStoryArgs = {
     atomCancel: {
       action: 'atomCancel',
       description:
-        'Event emitted when the secondary button is clicked and the current step is 0. The event callback recieve ion-modal custom component as a param.',
+        'Emitted when the secondary button is clicked on the first step, passing the `ion-modal` component as a parameter',
       table: {
         category: Category.EVENTS,
       },
@@ -73,7 +73,7 @@ export const ModalStoryArgs = {
     atomCloseClick: {
       action: 'atomCloseClick',
       description:
-        'Event emitted when the close button is clicked. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted when the close button is clicked. The event callback receive ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -81,7 +81,7 @@ export const ModalStoryArgs = {
     atomDidDismiss: {
       action: 'atomDidDismiss',
       description:
-        'Event emitted after the modal has dismissed. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted after the modal has dismissed. The event callback receive ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -89,7 +89,7 @@ export const ModalStoryArgs = {
     atomDidPresent: {
       action: 'atomDidPresent',
       description:
-        'Event emitted after the modal has presented. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted after the modal has presented. The event callback receive ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -97,7 +97,7 @@ export const ModalStoryArgs = {
     atomFinish: {
       action: 'atomFinish',
       description:
-        'Event emitted when the primary button is clicked on the last step. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted when the primary button is clicked on the last step. The event callback receive ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -105,7 +105,7 @@ export const ModalStoryArgs = {
     atomNextStep: {
       action: 'atomNextStep',
       description:
-        'Event emitted when the primary button is clicked. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted when the primary button is clicked. The event callback receive ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -113,7 +113,7 @@ export const ModalStoryArgs = {
     atomPreviousStep: {
       action: 'atomPreviousStep',
       description:
-        'Event emitted when the secondary button is clicked. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted when the secondary button is clicked. The event callback receive ion-modal custom component as a param.',
       table: {
         category: Category.EVENTS,
       },

@@ -16,10 +16,10 @@ import {
 })
 export class AtomStepsModal {
   @Prop() steps: number
-  @Prop({ mutable: true }) currentStep: number = 1
+  @Prop({ mutable: true }) currentStep = 1
   @Prop() trigger?: string
   @Prop() stepsTitles: string
-  @Prop({ mutable: true }) isOpen: boolean = false
+  @Prop({ mutable: true }) isOpen = false
 
   @Event() atomFinish: EventEmitter
   @Event() atomCancel: EventEmitter
@@ -97,7 +97,12 @@ export class AtomStepsModal {
           onAtomCloseClick={this.handleCloseClick}
         >
           {this.stepsTitlesArray.map((title, index) => (
-            <div class={this.currentStep === index + 1 ? 'show' : 'hide'}>
+            <div
+              class='step'
+              style={{
+                display: this.currentStep === index + 1 ? 'block' : 'none',
+              }}
+            >
               <slot name={`step-${index + 1}`}></slot>
             </div>
           ))}
