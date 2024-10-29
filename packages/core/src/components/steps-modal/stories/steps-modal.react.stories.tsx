@@ -5,7 +5,7 @@ import React from 'react'
 import { ModalComponentArgs, ModalStoryArgs } from './steps-modal.args'
 
 export default {
-  title: 'Components/StepsModal',
+  title: 'Components/Steps Modal',
   component: AtomStepsModal,
   ...ModalStoryArgs,
 } as Meta
@@ -17,6 +17,7 @@ const createModal = (args) => (
       steps={args.steps}
       trigger='open-modal-steps'
       steps-titles={args.stepsTitles}
+      close-on-finish={args.closeOnFinish}
     >
       <div slot='step-1'>Step 1 Content</div>
       <div slot='step-2'>Step 2 Content</div>
@@ -29,7 +30,6 @@ export const Default: StoryObj = {
   render: (args) => createModal(args),
   args: {
     ...ModalComponentArgs,
-    currentStep: 1,
   },
 }
 
@@ -38,5 +38,13 @@ export const CurrentStepAlreadySet: StoryObj = {
   args: {
     ...ModalComponentArgs,
     currentStep: 2,
+  },
+}
+
+export const CloseOnFinish: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    closeOnFinish: true,
   },
 }

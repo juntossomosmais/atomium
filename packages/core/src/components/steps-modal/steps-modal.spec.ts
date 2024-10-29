@@ -33,8 +33,8 @@ describe('atom-steps-modal', () => {
             trigger="open-modal-steps"
             alert-type=""
             has-divider="false"
-            primary-text="Primary"
-            secondary-text="back"
+            primary-text="Próximo"
+            secondary-text="Voltar"
             progress="0.3333333333333333"
             has-footer=""
             header-title="Step 1"
@@ -207,5 +207,30 @@ describe('atom-steps-modal', () => {
     expect(
       page.root?.querySelector('atom-modal')?.getAttribute('header-title')
     ).toBe('Step 2')
+  })
+  it('should close modal when closeOnFinish is set', async () => {
+    page = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            close-on-finish
+        >
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
+      </atom-steps-modal>`,
+    })
+
+    page.rootInstance.handlePrimaryClick()
+    page.rootInstance.handlePrimaryClick()
+    page.rootInstance.handlePrimaryClick()
+
+    await page.waitForChanges()
+
+    expect(page.rootInstance.isOpen).toBe(false)
   })
 })
