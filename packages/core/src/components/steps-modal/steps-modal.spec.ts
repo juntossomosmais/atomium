@@ -15,9 +15,9 @@ describe('atom-modal', () => {
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
         >
-        <div slot="step-0">Step 1 Content</div>
-        <div slot="step-1">Step 2 Content</div>
-        <div slot="step-2">Step 3 Content</div>
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
       </atom-steps-modal>`,
     })
   })
@@ -35,20 +35,20 @@ describe('atom-modal', () => {
             has-divider="false"
             primary-text="Primary"
             secondary-text="back"
-            progress="0"
+            progress="0.3333333333333333"
             has-footer=""
             header-title="Step 1"
             disable-secondary="false"
             disable-primary="false"
             >
             <div class="show">
-                <div slot="step-0">Step 1 Content</div>
+                <div slot="step-1">Step 1 Content</div>
             </div>
             <div class="hide">
-                <div slot="step-1">Step 2 Content</div>
+                <div slot="step-2">Step 2 Content</div>
             </div>
             <div class="hide">
-                <div slot="step-2">Step 3 Content</div>
+                <div slot="step-3">Step 3 Content</div>
             </div>
         </atom-modal
             >
@@ -115,7 +115,7 @@ describe('atom-modal', () => {
       ?.dispatchEvent(new CustomEvent('atomPrimaryClick'))
     await page.waitForChanges()
 
-    expect(finishSpy).toHaveBeenCalled()
+    expect(finishSpy).toHaveBeenCalledTimes(1)
   })
 
   it('should not change step when handleSecondary is called on first step', async () => {
@@ -132,6 +132,7 @@ describe('atom-modal', () => {
     ).toBe('Step 1')
     expect(cancelSpy).toHaveBeenCalled()
   })
+
   it('should apply show class to current step and hide to others', async () => {
     let stepShow = page.root?.querySelector('.show')
 
@@ -150,5 +151,61 @@ describe('atom-modal', () => {
     expect(stepShow).not.toBeNull()
 
     expect(stepShow?.querySelector('div')?.textContent).toBe('Step 2 Content')
+  })
+
+  it('should emit atomNextStep when handlePrimary is called', async () => {
+    const nextStepSpy = jest.fn()
+
+    page.root?.addEventListener('atomNextStep', nextStepSpy)
+
+    page.root
+      ?.querySelector('atom-modal')
+      ?.dispatchEvent(new CustomEvent('atomPrimaryClick'))
+
+    expect(nextStepSpy).toHaveBeenCalled()
+    expect(
+      nextStepSpy.mock.calls[nextStepSpy.mock.calls.length - 1][0].detail
+    ).toBe(2)
+  })
+
+  it('should emit atomPreviousStep with current step when handleSecondary is called', async () => {
+    const previousStepSpy = jest.fn()
+
+    page.root?.addEventListener('atomPreviousStep', previousStepSpy)
+
+    page.root
+      ?.querySelector('atom-modal')
+      ?.dispatchEvent(new CustomEvent('atomPrimaryClick'))
+    page.root
+      ?.querySelector('atom-modal')
+      ?.dispatchEvent(new CustomEvent('atomSecondaryClick'))
+
+    expect(previousStepSpy).toHaveBeenCalled()
+    expect(
+      previousStepSpy.mock.calls[previousStepSpy.mock.calls.length - 1][0]
+        .detail
+    ).toBe(1)
+  })
+
+  it('should open directly on a specific step when currentStep is set', async () => {
+    page = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            current-step="2"
+        >
+        <div slot="step-0">Step 1 Content</div>
+        <div slot="step-1">Step 2 Content</div>
+        <div slot="step-2">Step 3 Content</div>
+      </atom-steps-modal>`,
+    })
+
+    expect(
+      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+    ).toBe('Step 2')
   })
 })

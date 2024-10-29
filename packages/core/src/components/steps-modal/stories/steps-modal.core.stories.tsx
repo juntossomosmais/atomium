@@ -8,7 +8,7 @@ export default {
   ...ModalStoryArgs,
 } as Meta
 
-const createModal = () => {
+const createModal = (args) => {
   return html`
     <div>
       <atom-button id="open-modal-steps">Open Modal</atom-button>
@@ -16,18 +16,28 @@ const createModal = () => {
         steps="3"
         trigger="open-modal-steps"
         steps-titles="Step 1, Step 2, Step 3"
+        current-step="${args.currentStep}"
       >
-        <div slot="step-0">Step 1 Content</div>
-        <div slot="step-1">Step 2 Content</div>
-        <div slot="step-2">Step 3 Content</div>
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
       </atom-steps-modal>
     </div>
   `
 }
 
 export const Default: StoryObj = {
-  render: () => createModal(),
+  render: (args) => createModal(args),
   args: {
     ...ModalComponentArgs,
+    currentStep: 1,
+  },
+}
+
+export const CurrentStepAlreadySet: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    currentStep: 2,
   },
 }

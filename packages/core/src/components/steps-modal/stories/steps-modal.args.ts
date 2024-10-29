@@ -133,5 +133,5 @@ export const ModalComponentArgs = {
   trigger: 'open-modal-steps',
   stepsTitles: 'Step 1, Step 2, Step 3',
   steps: 3,
-  isOpen: true,
+  isOpen: false,
 }

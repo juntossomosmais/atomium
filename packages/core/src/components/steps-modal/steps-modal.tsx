@@ -15,8 +15,8 @@ import {
   shadow: false,
 })
 export class AtomStepsModal {
-  @Prop() steps: number = 0
-  @Prop({ mutable: true }) currentStep: number = 0
+  @Prop() steps: number
+  @Prop({ mutable: true }) currentStep: number = 1
   @Prop() trigger?: string
   @Prop() stepsTitles: string
   @Prop({ mutable: true }) isOpen: boolean = false
@@ -34,6 +34,14 @@ export class AtomStepsModal {
   private stepsTitlesArray: string[] = []
 
   componentWillLoad() {
+    if (
+      this.currentStep > this.steps ||
+      this.currentStep < 1 ||
+      this.currentStep === undefined
+    ) {
+      this.currentStep = 1
+    }
+
     this.stepsTitlesArray = this.stepsTitles.split(',')
   }
 
@@ -42,29 +50,29 @@ export class AtomStepsModal {
   }
 
   private handlePrimaryClick = () => {
-    if (this.currentStep === this.steps - 1) {
+    if (this.currentStep === this.steps) {
       this.atomFinish.emit()
     } else {
       this.handleStep(this.currentStep + 1)
-      this.atomNextStep.emit()
+      this.atomNextStep.emit(this.currentStep)
       forceUpdate(this.el)
     }
   }
 
   private handleCloseClick = () => {
-    this.currentStep = 0
+    this.currentStep = 1
     this.atomCloseClick.emit()
   }
 
   private handleSecondaryClick = () => {
-    if (this.currentStep === 0) {
+    if (this.currentStep === 1) {
       this.atomCancel.emit()
 
       return
     }
 
-    this.atomPreviousStep.emit()
     this.handleStep(this.currentStep - 1)
+    this.atomPreviousStep.emit(this.currentStep)
   }
 
   render() {
@@ -78,7 +86,7 @@ export class AtomStepsModal {
           secondary-text='back'
           progress={this.currentStep / this.steps}
           has-footer=''
-          header-title={this.stepsTitlesArray[this.currentStep].trim()}
+          header-title={this.stepsTitlesArray[this.currentStep - 1].trim()}
           disable-secondary='false'
           disable-primary='false'
           onAtomPrimaryClick={this.handlePrimaryClick}
@@ -89,8 +97,8 @@ export class AtomStepsModal {
           onAtomCloseClick={this.handleCloseClick}
         >
           {this.stepsTitlesArray.map((title, index) => (
-            <div class={this.currentStep === index ? 'show' : 'hide'}>
-              <slot name={`step-${index}`}></slot>
+            <div class={this.currentStep === index + 1 ? 'show' : 'hide'}>
+              <slot name={`step-${index + 1}`}></slot>
             </div>
           ))}
         </atom-modal>
