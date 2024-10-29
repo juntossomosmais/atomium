@@ -1,7 +1,7 @@
 import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 import { Plugin } from 'vue'
 
-function toKebabCase(str) {
+function toKebabCase(str: string) {
   return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()
 }
 
