@@ -107,7 +107,7 @@ export const ModalStoryArgs = {
     atomCloseClick: {
       action: 'atomCloseClick',
       description:
-        'Event emitted when the close button is clicked. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted when the close button is clicked. The event callback recieve `ion-modal` custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -115,7 +115,7 @@ export const ModalStoryArgs = {
     atomDidDismiss: {
       action: 'atomDidDismiss',
       description:
-        'Event emitted after the modal has dismissed. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted after the modal has dismissed. The event callback recieve `ion-modal` custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -123,7 +123,7 @@ export const ModalStoryArgs = {
     atomDidPresent: {
       action: 'atomDidPresent',
       description:
-        'Event emitted after the modal has presented. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted after the modal has presented. The event callback recieve `ion-modal` custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -131,7 +131,7 @@ export const ModalStoryArgs = {
     atomPrimaryClick: {
       action: 'atomPrimaryClick',
       description:
-        'Event emitted when the primary button is clicked. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted when the primary button is clicked. The event callback recieve `ion-modal` custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
@@ -139,7 +139,7 @@ export const ModalStoryArgs = {
     atomSecondaryClick: {
       action: 'atomSecondaryClick',
       description:
-        'Event emitted when the secondary button is clicked. The event callback recieve ion-modal custom component as a param.',
+        'Event emitted when the secondary button is clicked. The event callback recieve `ion-modal` custom component as a param.',
       table: {
         category: Category.EVENTS,
       },
