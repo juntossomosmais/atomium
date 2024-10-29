@@ -18,7 +18,7 @@ export const ModalStoryArgs = {
     docs: {
       description: {
         component:
-          'Wrapper of Atom Modal component which implements steps logic. Read the [Atom Modal documentation](https://juntossomosmais.github.io/atomium/?path=/docs/components-modal--docs) for more information.',
+          'A wrapper for the Atom Modal component that includes step navigation functionality. For further details, refer to the [Atom Modal documentation](https://juntossomosmais.github.io/atomium/?path=/docs/components-modal--docs).',
       },
       page: DocumentationTemplate,
     },
@@ -26,14 +26,14 @@ export const ModalStoryArgs = {
   decorators: [withActions],
   argTypes: {
     trigger: {
-      description: 'The id of the element that will trigger the modal',
+      description: 'The ID of the element that will trigger the modal.',
       table: {
         category: Category.PROPERTIES,
       },
     },
     currentStep: {
       control: 'number',
-      description: 'The index of the step that will be displayed',
+      description: 'The index of the step currently being displayed.',
       defaultValue: { summary: 0 },
       table: {
         category: Category.PROPERTIES,
@@ -41,14 +41,15 @@ export const ModalStoryArgs = {
     },
     stepsTitles: {
       control: 'string',
-      description: 'An string with the titles of the steps separated by commas',
+      description:
+        'A string containing the titles of each step, separated by commas.',
       table: {
         category: Category.PROPERTIES,
       },
     },
     isOpen: {
       control: 'boolean',
-      description: 'If true, the modal will be displayed',
+      description: 'When true, the modal is displayed.',
       defaultValue: { summary: false },
       table: {
         category: Category.PROPERTIES,
@@ -57,7 +58,7 @@ export const ModalStoryArgs = {
     steps: {
       control: 'number',
       description:
-        'The number of steps that the modal will have. Obs: It needs to be the same number of steps-titles',
+        'The total number of steps in the modal. Note: this must match the number of titles in `stepsTitles`.',
       table: {
         category: Category.PROPERTIES,
       },
@@ -65,7 +66,7 @@ export const ModalStoryArgs = {
     atomCancel: {
       action: 'atomCancel',
       description:
-        'Emitted when the secondary button is clicked on the first step, passing the `ion-modal` component as a parameter',
+        'Emitted when the secondary button is clicked on the first step, passing the `ion-modal` component as a parameter.',
       table: {
         category: Category.EVENTS,
       },
@@ -73,7 +74,7 @@ export const ModalStoryArgs = {
     atomCloseClick: {
       action: 'atomCloseClick',
       description:
-        'Event emitted when the close button is clicked. The event callback receive ion-modal custom component as a param.',
+        'Emitted when the close button is clicked. The callback receives the `ion-modal` component as a parameter.',
       table: {
         category: Category.EVENTS,
       },
@@ -81,7 +82,7 @@ export const ModalStoryArgs = {
     atomDidDismiss: {
       action: 'atomDidDismiss',
       description:
-        'Event emitted after the modal has dismissed. The event callback receive ion-modal custom component as a param.',
+        'Emitted after the modal is dismissed. The callback receives the `ion-modal` component as a parameter.',
       table: {
         category: Category.EVENTS,
       },
@@ -89,7 +90,7 @@ export const ModalStoryArgs = {
     atomDidPresent: {
       action: 'atomDidPresent',
       description:
-        'Event emitted after the modal has presented. The event callback receive ion-modal custom component as a param.',
+        'Emitted after the modal is presented. The callback receives the `ion-modal` component as a parameter.',
       table: {
         category: Category.EVENTS,
       },
@@ -97,7 +98,7 @@ export const ModalStoryArgs = {
     atomFinish: {
       action: 'atomFinish',
       description:
-        'Event emitted when the primary button is clicked on the last step. The event callback receive ion-modal custom component as a param.',
+        'Emitted when the primary button is clicked on the last step. The callback receives the `ion-modal` component as a parameter.',
       table: {
         category: Category.EVENTS,
       },
@@ -105,7 +106,7 @@ export const ModalStoryArgs = {
     atomNextStep: {
       action: 'atomNextStep',
       description:
-        'Event emitted when the primary button is clicked. The event callback receive ion-modal custom component as a param.',
+        'Emitted when the primary button is clicked to proceed to the next step. The callback receives the `ion-modal` component as a parameter.',
       table: {
         category: Category.EVENTS,
       },
@@ -113,7 +114,7 @@ export const ModalStoryArgs = {
     atomPreviousStep: {
       action: 'atomPreviousStep',
       description:
-        'Event emitted when the secondary button is clicked. The event callback receive ion-modal custom component as a param.',
+        'Emitted when the secondary button is clicked to go back a step. The callback receives the `ion-modal` component as a parameter.',
       table: {
         category: Category.EVENTS,
       },
@@ -121,7 +122,7 @@ export const ModalStoryArgs = {
     step_x: {
       name: 'step-x',
       description:
-        'The slot where the content of the step x will be rendered. Obs: x is the index of the step',
+        'The slot where the content for each step will be rendered, with x as the step index.',
       table: {
         category: Category.SLOTS,
       },
