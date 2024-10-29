@@ -56,7 +56,7 @@ export class AtomStepsModal {
     return currentStep === steps
       ? atomFinish.emit()
       : (this.handleStep(currentStep + 1),
-        atomNextStep.emit(currentStep),
+        atomNextStep.emit(currentStep + 1),
         forceUpdate(el))
   }
 
