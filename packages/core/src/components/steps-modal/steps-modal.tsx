@@ -123,10 +123,11 @@ export class AtomStepsModal {
           onAtomDidDismiss={this.handleDidDismiss}
           onAtomDidPresent={this.handleDidPresent}
           onAtomCloseClick={this.handleCloseClick}
+          class='atom-steps-modal'
         >
           {this.stepsTitlesArray.map((title, index) => (
             <div
-              class='step'
+              class='atom-steps-modal__step'
               style={{
                 display: this.currentStep === index + 1 ? 'block' : 'none',
               }}
