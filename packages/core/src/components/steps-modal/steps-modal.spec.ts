@@ -36,6 +36,7 @@ describe('atom-steps-modal', () => {
         <atom-modal
             trigger="open-modal-steps"
             alert-type=""
+            class="atom-steps-modal"
             has-divider="false"
             primary-text="Next"
             progress="0.3333333333333333"
@@ -45,13 +46,13 @@ describe('atom-steps-modal', () => {
             disable-secondary="false"
             disable-primary="false"
             >
-            <div class="step" style="display: block;">
+            <div class="atom-steps-modal__step" style="display: block;">
                 <div slot="step-1">Step 1 Content</div>
             </div>
-            <div class="step" style="display: none;">
+            <div class="atom-steps-modal__step" style="display: none;">
                 <div slot="step-2">Step 2 Content</div>
             </div>
-            <div class="step" style="display: none;">
+            <div class="atom-steps-modal__step" style="display: none;">
                 <div slot="step-3">Step 3 Content</div>
             </div>
         </atom-modal
