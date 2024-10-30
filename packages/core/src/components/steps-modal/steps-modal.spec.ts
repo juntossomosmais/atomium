@@ -14,8 +14,8 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            primary-text="Primary"
-            secondary-text="Secondary"
+            primary-text="Next"
+            secondary-text="Previous"
         >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>
@@ -27,17 +27,19 @@ describe('atom-steps-modal', () => {
   it('should render modal with default values', async () => {
     expect(page.root).toEqualHtml(`
         <atom-steps-modal
-        steps="3"
-        trigger="open-modal-steps"
-        steps-titles="Step 1, Step 2, Step 3"
+          primary-text="Next"
+          secondary-text="Previous"
+          steps="3"
+          trigger="open-modal-steps"
+          steps-titles="Step 1, Step 2, Step 3"
         >
         <atom-modal
             trigger="open-modal-steps"
             alert-type=""
             has-divider="false"
-            primary-text="Primary"
-            secondary-text="Secondary"
+            primary-text="Next"
             progress="0.3333333333333333"
+            secondary-text="Previous"
             has-footer=""
             header-title="Step 1"
             disable-secondary="false"
