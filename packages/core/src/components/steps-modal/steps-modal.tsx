@@ -20,8 +20,8 @@ export class AtomStepsModal {
   @Prop() trigger?: string
   @Prop() stepsTitles: string
   @Prop({ mutable: true }) isOpen = false
-  @Prop() primaryText? = 'Próximo'
-  @Prop() secondaryText? = 'Voltar'
+  @Prop() primaryText?: string
+  @Prop() secondaryText?: string
   @Prop() closeOnFinish? = false
 
   @Event() atomFinish: EventEmitter
