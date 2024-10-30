@@ -146,6 +146,6 @@ export const ModalComponentArgs = {
   currentStep: 1,
   isOpen: false,
   closeOnFinish: false,
-  primaryText: 'Primary',
-  secondaryText: 'Secondary',
+  primaryText: 'Next',
+  secondaryText: 'Previous',
 }
