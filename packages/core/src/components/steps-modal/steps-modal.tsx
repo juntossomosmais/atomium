@@ -22,7 +22,7 @@ export class AtomStepsModal {
   @Prop({ mutable: true }) isOpen = false
   @Prop() primaryText?: string
   @Prop() secondaryText?: string
-  @Prop() closeOnFinish? = false
+  @Prop() closeOnFinish?: boolean
 
   @Event() atomFinish: EventEmitter
   @Event() atomCancel: EventEmitter
