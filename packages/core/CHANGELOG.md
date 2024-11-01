@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.23.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.22.0...atomium-v2.23.0) (2024-11-01)
+
+
+### Features
+
+* **icons:** add icons houglass, engineering, grid-view, home-repair-service and activity-blocked ([#607](https://github.com/juntossomosmais/atomium/issues/607)) ([fe8f52b](https://github.com/juntossomosmais/atomium/commit/fe8f52bb99eba663c033d778c65317505320c7a8))
+
+
+### Bug Fixes
+
+* **input:** dont remove eventlistener on blur/focus ([#598](https://github.com/juntossomosmais/atomium/issues/598)) ([c79b2b1](https://github.com/juntossomosmais/atomium/commit/c79b2b1399ce30d16baee9ed5365e428a9f0f207))
+
 ## [2.22.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.21.0...atomium-v2.22.0) (2024-10-21)
 
 
