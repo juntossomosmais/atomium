@@ -110,7 +110,6 @@ export class AtomStepsModal {
         <atom-modal
           trigger={this.trigger}
           alert-type=''
-          has-divider='false'
           primary-text={this.primaryText}
           secondary-text={this.secondaryText}
           progress={this.currentStep / this.steps}
@@ -121,6 +120,7 @@ export class AtomStepsModal {
           onAtomPrimaryClick={this.handlePrimaryClick}
           onAtomSecondaryClick={this.handleSecondaryClick}
           is-open={this.isOpen}
+          has-divider
           onAtomDidDismiss={this.handleDidDismiss}
           onAtomDidPresent={this.handleDidPresent}
           onAtomCloseClick={this.handleCloseClick}
