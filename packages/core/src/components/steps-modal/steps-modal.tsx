@@ -31,6 +31,7 @@ export class AtomStepsModal {
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
   @Event() atomDidPresent: EventEmitter
+  @Event() atomIsOpenChange: EventEmitter
 
   @Element() el!: HTMLElement
 
@@ -123,6 +124,10 @@ export class AtomStepsModal {
           onAtomDidDismiss={this.handleDidDismiss}
           onAtomDidPresent={this.handleDidPresent}
           onAtomCloseClick={this.handleCloseClick}
+          onAtomIsOpenChange={(e) => {
+            e.stopImmediatePropagation()
+            this.atomIsOpenChange.emit(e.detail)
+          }}
           class='atom-steps-modal'
         >
           {this.stepsTitlesArray.map((title, index) => (

@@ -20,6 +20,7 @@ const createModal = (args) => {
         close-on-finish="${args.closeOnFinish}"
         primary-text="${args.primaryText}"
         secondary-text="${args.secondaryText}"
+        is-open="${args.isOpen}"
       >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>

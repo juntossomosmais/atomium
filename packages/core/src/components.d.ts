@@ -472,6 +472,7 @@ declare global {
         "atomDidPresent": any;
         "atomPrimaryClick": any;
         "atomSecondaryClick": any;
+        "atomIsOpenChange": any;
     }
     interface HTMLAtomModalElement extends Components.AtomModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLAtomModalElementEventMap>(type: K, listener: (this: HTMLAtomModalElement, ev: AtomModalCustomEvent<HTMLAtomModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -516,6 +517,7 @@ declare global {
         "atomCloseClick": any;
         "atomDidDismiss": any;
         "atomDidPresent": any;
+        "atomIsOpenChange": any;
     }
     interface HTMLAtomStepsModalElement extends Components.AtomStepsModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLAtomStepsModalElementEventMap>(type: K, listener: (this: HTMLAtomStepsModalElement, ev: AtomStepsModalCustomEvent<HTMLAtomStepsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -746,6 +748,7 @@ declare namespace LocalJSX {
         "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidPresent"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomIsOpenChange"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomPrimaryClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomSecondaryClick"?: (event: AtomModalCustomEvent<any>) => void;
         "primaryText"?: string;
@@ -789,6 +792,7 @@ declare namespace LocalJSX {
         "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomDidPresent"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomFinish"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomIsOpenChange"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomNextStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomPreviousStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "primaryText"?: string;

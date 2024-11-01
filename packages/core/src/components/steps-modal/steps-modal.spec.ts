@@ -238,4 +238,27 @@ describe('atom-steps-modal', () => {
 
     expect(page.rootInstance.isOpen).toBe(false)
   })
+  it('should emit atomIsOpenChange when modal is opened or closed', async () => {
+    const isOpenChangeSpy = jest.fn()
+
+    page.root?.addEventListener('atomIsOpenChange', isOpenChangeSpy)
+
+    page.root
+      ?.querySelector('atom-modal')
+      ?.dispatchEvent(new CustomEvent('atomIsOpenChange', { detail: true }))
+
+    await page.waitForChanges()
+
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(1)
+    expect(isOpenChangeSpy.mock.calls[0][0].detail).toBe(true)
+
+    page.root
+      ?.querySelector('atom-modal')
+      ?.dispatchEvent(new CustomEvent('atomIsOpenChange', { detail: false }))
+
+    await page.waitForChanges()
+
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2)
+    expect(isOpenChangeSpy.mock.calls[1][0].detail).toBe(false)
+  })
 })

@@ -267,4 +267,16 @@ describe('atom-modal', () => {
       '<ion-progress-bar value="0" color="primary"></ion-progress-bar>'
     )
   })
+  it('should emit atomIsOpenChange when is open changes', async () => {
+    const isOpenChangeSpy = jest.fn()
+
+    page.root?.addEventListener('atomIsOpenChange', isOpenChangeSpy)
+
+    page.rootInstance.isOpen = true
+
+    await page.waitForChanges()
+
+    expect(isOpenChangeSpy).toHaveBeenCalled()
+    expect(isOpenChangeSpy.mock.calls[0][0].detail).toBe(true)
+  })
 })
