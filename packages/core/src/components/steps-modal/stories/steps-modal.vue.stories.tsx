@@ -24,7 +24,6 @@ const createModal = (args, themeColor = 'light') => ({
         primary-text="${args.primaryText}"
         secondary-text="${args.secondaryText}"
         is-open="${args.isOpen}"
-        @atom-is-open-change="(e) => console.log('atom-is-open-change', e.detail)"
       >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>
