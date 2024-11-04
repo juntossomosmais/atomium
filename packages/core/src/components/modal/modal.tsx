@@ -1,4 +1,12 @@
-import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core'
+import {
+  Component,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core'
 
 import { IconProps } from '../../icons'
 
@@ -34,6 +42,7 @@ export class AtomModal {
   @Event() atomDidPresent: EventEmitter
   @Event() atomPrimaryClick: EventEmitter
   @Event() atomSecondaryClick: EventEmitter
+  @Event() atomIsOpenChange: EventEmitter
 
   private modal: HTMLAtomModalElement
 
@@ -71,6 +80,13 @@ export class AtomModal {
     }
   }
 
+  @Watch('isOpen')
+  handleIsOpenChange(newValue: boolean, oldValue: boolean) {
+    if (newValue !== oldValue) {
+      this.atomIsOpenChange.emit(newValue)
+    }
+  }
+
   private readonly handleDidDismiss = () => {
     this.atomDidDismiss.emit(this.modal)
     this.modal.close()
@@ -78,7 +94,6 @@ export class AtomModal {
 
   private readonly handleDidPresent = () => {
     this.atomDidPresent.emit(this.modal)
-    this.isOpen = true
     this.addClasses()
   }
 
@@ -143,9 +158,9 @@ export class AtomModal {
               ></atom-icon>
             </atom-button>
           </header>
-          {!!this.progress && (
+          {this.progress >= 0 ? (
             <ion-progress-bar value={this.progress} color='primary' />
-          )}
+          ) : null}
           <div
             id='atom-modal__content'
             part='content'
