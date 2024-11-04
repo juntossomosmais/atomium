@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.24.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.23.0...atomium-v2.24.0) (2024-11-04)
+
+
+### Features
+
+* **component:** add steps modal ([#599](https://github.com/juntossomosmais/atomium/issues/599)) ([38a28ce](https://github.com/juntossomosmais/atomium/commit/38a28ce59344f1a18d7ffe0c9904623d21563eb3))
+
 ## [2.23.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.22.0...atomium-v2.23.0) (2024-11-01)
 
 
