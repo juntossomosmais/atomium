@@ -1,5 +1,339 @@
 # Changelog
 
+## [2.24.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.23.0...atomium-v2.24.0) (2024-11-04)
+
+
+### Features
+
+* **component:** add steps modal ([#599](https://github.com/juntossomosmais/atomium/issues/599)) ([38a28ce](https://github.com/juntossomosmais/atomium/commit/38a28ce59344f1a18d7ffe0c9904623d21563eb3))
+
+## [2.23.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.22.0...atomium-v2.23.0) (2024-11-01)
+
+
+### Features
+
+* **icons:** add icons houglass, engineering, grid-view, home-repair-service and activity-blocked ([#607](https://github.com/juntossomosmais/atomium/issues/607)) ([fe8f52b](https://github.com/juntossomosmais/atomium/commit/fe8f52bb99eba663c033d778c65317505320c7a8))
+
+
+### Bug Fixes
+
+* **input:** dont remove eventlistener on blur/focus ([#598](https://github.com/juntossomosmais/atomium/issues/598)) ([c79b2b1](https://github.com/juntossomosmais/atomium/commit/c79b2b1399ce30d16baee9ed5365e428a9f0f207))
+
+## [2.22.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.21.0...atomium-v2.22.0) (2024-10-21)
+
+
+### Features
+
+* **icon:** add creditc card icon ([#595](https://github.com/juntossomosmais/atomium/issues/595)) ([dbc7e64](https://github.com/juntossomosmais/atomium/commit/dbc7e649c32ee53063b0c74ad846bdada171e4ef))
+* **select:** add validation in select tag ([#590](https://github.com/juntossomosmais/atomium/issues/590)) ([647eba6](https://github.com/juntossomosmais/atomium/commit/647eba6578ea9e71ffe2d3176aa6e04b302e8a49))
+
+## [2.21.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.1...atomium-v2.21.0) (2024-10-16)
+
+
+### Features
+
+* **icons:** add trolley and shopping bag icons ([#593](https://github.com/juntossomosmais/atomium/issues/593)) ([785c585](https://github.com/juntossomosmais/atomium/commit/785c5857856e286a79e98bae2e0a5231feaba447))
+
+## [2.20.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.20.0...atomium-v2.20.1) (2024-10-09)
+
+
+### Bug Fixes
+
+* **button:** add white space property to not overflow text ([#591](https://github.com/juntossomosmais/atomium/issues/591)) ([f808c17](https://github.com/juntossomosmais/atomium/commit/f808c176af6258269c0e592f8557adea56cad6bd))
+
+## [2.20.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.19.0...atomium-v2.20.0) (2024-10-03)
+
+
+### Features
+
+* **icons:** add my-location icon ([#588](https://github.com/juntossomosmais/atomium/issues/588)) ([678b3e2](https://github.com/juntossomosmais/atomium/commit/678b3e205793b13d42f1857c248b9fa6fd9c0ac3))
+
+## [2.19.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.18.1...atomium-v2.19.0) (2024-10-01)
+
+
+### Features
+
+* **icons:** add icon target ([#584](https://github.com/juntossomosmais/atomium/issues/584)) ([ce477d2](https://github.com/juntossomosmais/atomium/commit/ce477d200fab26c3dc6f561276dc1aaa9ab6ed1d))
+
+## [2.18.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.18.0...atomium-v2.18.1) (2024-09-30)
+
+
+### Bug Fixes
+
+* **modal:** add class on mount and fix backdrop ([#572](https://github.com/juntossomosmais/atomium/issues/572)) ([5788d68](https://github.com/juntossomosmais/atomium/commit/5788d6836829b2d8ead6f9b687d80682f1c0a466))
+
+## [2.18.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.17.0...atomium-v2.18.0) (2024-09-12)
+
+
+### Features
+
+* **modal:** add options to disable buttons ([#563](https://github.com/juntossomosmais/atomium/issues/563)) ([90ee9b5](https://github.com/juntossomosmais/atomium/commit/90ee9b538549a0111c5c92d3d75a75ee61a965c8))
+* **select:** define max-height and add variable to control it ([#570](https://github.com/juntossomosmais/atomium/issues/570)) ([7917638](https://github.com/juntossomosmais/atomium/commit/7917638ca4587c7696eeae2f0398ede34152d14f))
+
+## [2.17.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.16.0...atomium-v2.17.0) (2024-09-10)
+
+
+### Features
+
+* **icons:** new icon local-activity ([#562](https://github.com/juntossomosmais/atomium/issues/562)) ([c9fda30](https://github.com/juntossomosmais/atomium/commit/c9fda3050c1d17c14986838e7599ce74a90912ca))
+* **select:** add badge in select options ([#549](https://github.com/juntossomosmais/atomium/issues/549)) ([f0252ca](https://github.com/juntossomosmais/atomium/commit/f0252caa3ccfb13044991a7141be0c6eb64d7f1e))
+
+
+### Bug Fixes
+
+* **carousel:** improve carousel lifecycle to avoid redundancy ([#566](https://github.com/juntossomosmais/atomium/issues/566)) ([52f2161](https://github.com/juntossomosmais/atomium/commit/52f216130597b2e842cc098871b9474a4b0b6f24))
+* **list-slider:** add touchmove listener to identifies move ([#564](https://github.com/juntossomosmais/atomium/issues/564)) ([a5ac3d1](https://github.com/juntossomosmais/atomium/commit/a5ac3d184ea24420e9937a086625a80f4b2bfcf5))
+* **select:** add background to selected item and remove color's prop ([#565](https://github.com/juntossomosmais/atomium/issues/565)) ([226aa78](https://github.com/juntossomosmais/atomium/commit/226aa78c257b86742af6c007506be62e8cfe6301))
+
+## [2.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.15.0...atomium-v2.16.0) (2024-08-28)
+
+
+### Features
+
+* **icon:** add white color ([#547](https://github.com/juntossomosmais/atomium/issues/547)) ([651bb20](https://github.com/juntossomosmais/atomium/commit/651bb20159cca6c49d733947739f1cf9e9c3698e))
+
+## [2.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.2...atomium-v2.15.0) (2024-08-27)
+
+
+### Features
+
+* **link:** set default color and add size prop ([#545](https://github.com/juntossomosmais/atomium/issues/545)) ([f63b1c7](https://github.com/juntossomosmais/atomium/commit/f63b1c728015bb050c00fc701f4dd4148196edc2))
+
+## [2.14.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.1...atomium-v2.14.2) (2024-08-23)
+
+
+### Bug Fixes
+
+* **alert:** improve position of icon on single line ([#543](https://github.com/juntossomosmais/atomium/issues/543)) ([9c587d6](https://github.com/juntossomosmais/atomium/commit/9c587d6cbd7ab3e2cbe30502ec6a35cfe6ef873a))
+
+## [2.14.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.14.0...atomium-v2.14.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* **icons:** rename verified outline icon ([#540](https://github.com/juntossomosmais/atomium/issues/540)) ([57e3b51](https://github.com/juntossomosmais/atomium/commit/57e3b517f331fe31d9bab207dd13a6e033575765))
+* **tag:** light tag color ([#542](https://github.com/juntossomosmais/atomium/issues/542)) ([c098357](https://github.com/juntossomosmais/atomium/commit/c098357e0cf1e4b7202febd0398f000a51c92cbc))
+
+## [2.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.13.1...atomium-v2.14.0) (2024-08-16)
+
+
+### Features
+
+* **icons:** add verified icons ([#539](https://github.com/juntossomosmais/atomium/issues/539)) ([f04d310](https://github.com/juntossomosmais/atomium/commit/f04d310243aae09c2465aae04d10875dc7c4dfc7))
+* **modal:** add modal component ([#534](https://github.com/juntossomosmais/atomium/issues/534)) ([f3fc1bb](https://github.com/juntossomosmais/atomium/commit/f3fc1bbe47362a88a0754324160f1e25f2fccc65))
+
+## [2.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.13.0...atomium-v2.13.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **button:** decrease horizontal padding size ([#531](https://github.com/juntossomosmais/atomium/issues/531)) ([1c6a7b7](https://github.com/juntossomosmais/atomium/commit/1c6a7b724b6abebadcb7cf98f78d416bc9f079cd))
+
+## [2.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.12.0...atomium-v2.13.0) (2024-08-06)
+
+
+### Features
+
+* **icons:** add icon of pix colerful ([#525](https://github.com/juntossomosmais/atomium/issues/525)) ([4ab55a1](https://github.com/juntossomosmais/atomium/commit/4ab55a1669cf7b9929567c1fb5fb7acfcbcdd9b6))
+
+## [2.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.11.0...atomium-v2.12.0) (2024-08-01)
+
+
+### Features
+
+* **icons:** add icon of pix ([#521](https://github.com/juntossomosmais/atomium/issues/521)) ([4a2bd5c](https://github.com/juntossomosmais/atomium/commit/4a2bd5cbbd20adc6ffab778e1de0639812eded7b))
+
+## [2.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.10.0...atomium-v2.11.0) (2024-07-31)
+
+
+### Features
+
+* **button:** add new fill type to button and link loading ([#508](https://github.com/juntossomosmais/atomium/issues/508)) ([e2e4790](https://github.com/juntossomosmais/atomium/commit/e2e47905be924c280d3fc20290f833ce6956196f))
+* **icons:** add icon instagram ([#506](https://github.com/juntossomosmais/atomium/issues/506)) ([7590960](https://github.com/juntossomosmais/atomium/commit/7590960177b3bcc796676bc9cd81263e51fd0835))
+
+## [2.10.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.9.0...atomium-v2.10.0) (2024-07-30)
+
+
+### Features
+
+* **carousel:** reset autoplay when click on navigation and stop during mouse enter ([#503](https://github.com/juntossomosmais/atomium/issues/503)) ([023592a](https://github.com/juntossomosmais/atomium/commit/023592ad38ac43cf9838ebc1a716a102b5e019f2))
+* **component:** create link component ([#502](https://github.com/juntossomosmais/atomium/issues/502)) ([356fe0c](https://github.com/juntossomosmais/atomium/commit/356fe0c6e1ad0f39c4e1ea7c6cf344a1aa0dd21b))
+
+## [2.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.8.0...atomium-v2.9.0) (2024-07-25)
+
+
+### Features
+
+* **icons:** add watch-later icon mdi ([#500](https://github.com/juntossomosmais/atomium/issues/500)) ([8a6da26](https://github.com/juntossomosmais/atomium/commit/8a6da269c6538b3278b4adc07c73eb1360574c45))
+
+## [2.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.2...atomium-v2.8.0) (2024-07-19)
+
+
+### Features
+
+* **carousel:** add dispatch event after transition end ([#498](https://github.com/juntossomosmais/atomium/issues/498)) ([06baf0e](https://github.com/juntossomosmais/atomium/commit/06baf0e2cb00d927100407a91a41e6993460c3eb))
+* **list-slider:** add dispatch event after transition end ([#498](https://github.com/juntossomosmais/atomium/issues/498)) ([06baf0e](https://github.com/juntossomosmais/atomium/commit/06baf0e2cb00d927100407a91a41e6993460c3eb))
+
+## [2.7.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.1...atomium-v2.7.2) (2024-07-17)
+
+
+### Bug Fixes
+
+* **carousel:** avoid to prev button hiding during loop ([#496](https://github.com/juntossomosmais/atomium/issues/496)) ([c415939](https://github.com/juntossomosmais/atomium/commit/c4159399a18154a357ee2d84226a30c67abca3d9))
+
+## [2.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.7.0...atomium-v2.7.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **core:** downgrade @stencil/core to 4.17.2 ([#492](https://github.com/juntossomosmais/atomium/issues/492)) ([72a9856](https://github.com/juntossomosmais/atomium/commit/72a985689f689575a8e345360a964b66d2937b22))
+
+## [2.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.6.0...atomium-v2.7.0) (2024-07-15)
+
+
+### Features
+
+* **icons:** add new custom and mdi icons ([#489](https://github.com/juntossomosmais/atomium/issues/489)) ([35c6259](https://github.com/juntossomosmais/atomium/commit/35c6259c662612612721406fe2f29dbc31d50ea7))
+
+## [2.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.5.0...atomium-v2.6.0) (2024-07-11)
+
+
+### Features
+
+* **icons:** add person warning and time outlined ([#487](https://github.com/juntossomosmais/atomium/issues/487)) ([52d919d](https://github.com/juntossomosmais/atomium/commit/52d919d16986ef9983efbf54822e1e171768c2bc))
+
+## [2.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.4.1...atomium-v2.5.0) (2024-07-02)
+
+
+### Features
+
+* **core:** remove apply polyfills for old browsers and update dependencies ([#485](https://github.com/juntossomosmais/atomium/issues/485)) ([8d9cc6f](https://github.com/juntossomosmais/atomium/commit/8d9cc6fc61e0e517cec46eb59962763872f20453))
+
+## [2.4.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.4.0...atomium-v2.4.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* **container:** add !important to prevent overrides ([a1d32cb](https://github.com/juntossomosmais/atomium/commit/a1d32cbf46e58fdcdadb895446a419b413c44920))
+
+## [2.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.3.0...atomium-v2.4.0) (2024-06-19)
+
+### Core
+
+- **feat*: add container component ([#471](https://github.com/juntossomosmais/atomium/pull/471))
+
+## [2.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.3.0...atomium-v2.3.1) (2024-06-17)
+
+
+### Vue
+
+* fix: convert just atom prefixed events to kebab case on install (#468)
+
+## [2.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.2.0...atomium-v2.3.0) (2024-06-13)
+
+
+### Features
+
+* **carousel:** improve accessibility using aria-disabled ([#462](https://github.com/juntossomosmais/atomium/issues/462)) ([34f839c](https://github.com/juntossomosmais/atomium/commit/34f839cd49329220e1a6de5c6a4718214a86b5a4))
+* **list slider:** add new component and remove swiper :pray:  ([#461](https://github.com/juntossomosmais/atomium/issues/461)) ([6880f68](https://github.com/juntossomosmais/atomium/commit/6880f680e7e6b84f7bd2f09f287df930a76f8654))
+
+## [2.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.1.0...atomium-v2.2.0) (2024-06-06)
+
+
+### Features
+
+* add custom dollar circle ([#459](https://github.com/juntossomosmais/atomium/issues/459)) ([3d53c4f](https://github.com/juntossomosmais/atomium/commit/3d53c4f2fe050798b04c698a55a3c7e9ddc0e35d))
+
+## [2.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.2...atomium-v2.1.0) (2024-06-05)
+
+
+### Features
+
+* **alert:** add self contained close on alert ([#441](https://github.com/juntossomosmais/atomium/issues/441)) ([8cc3f61](https://github.com/juntossomosmais/atomium/commit/8cc3f6162c9eedab51e51e499becbc32d04895de))
+* **grid:** add possibility to define padding ([#446](https://github.com/juntossomosmais/atomium/issues/446)) ([c7cfb6a](https://github.com/juntossomosmais/atomium/commit/c7cfb6a7bcb5bbd7794f347fc59e1b2e4fa49515))
+
+## [2.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.1...atomium-v2.0.2) (2024-05-22)
+
+
+### Bug Fixes
+
+* **vue:** fix problems to emit events in vue wrappers ([#440](https://github.com/juntossomosmais/atomium/issues/440)) ([26a02af](https://github.com/juntossomosmais/atomium/commit/26a02af9aa9478ac381127e1aa992264c7029a96))
+
+## [2.0.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.0.0...atomium-v2.0.1) (2024-05-15)
+
+
+### Bug Fixes
+
+* add atomium-vue as dependson of publish-library ([95cd4d8](https://github.com/juntossomosmais/atomium/commit/95cd4d8054c975a57a9b29791c14d1081bd13ade))
+
+## [2.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.16.0...atomium-v2.0.0) (2024-05-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **vue:** add vue transpiler 🚀  ([#436](https://github.com/juntossomosmais/atomium/issues/436))
+
+### Features
+
+* **vue:** add vue transpiler 🚀  ([#436](https://github.com/juntossomosmais/atomium/issues/436)) ([1ff216a](https://github.com/juntossomosmais/atomium/commit/1ff216a1a040fa676de9625749841fbb23b42488))
+
+## [1.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.1...atomium-v1.16.0) (2024-05-13)
+
+
+### Features
+
+* **carousel:** add new carousel component ([#434](https://github.com/juntossomosmais/atomium/issues/434)) ([e246629](https://github.com/juntossomosmais/atomium/commit/e2466291c079b8b9572820e1f228bd0fabf06c0f))
+
+**Breaking changes**
+
+- **old carousel** component was renamed to `deprecated-carousel` ([#434](https://github.com/juntossomosmais/atomium/issues/434))
+
+### Bug Fixes
+
+## [1.15.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.15.0...atomium-v1.15.1) (2024-05-06)
+
+* **button:** don't emit submit event in older browsers (webkit) ([#431](https://github.com/juntossomosmais/atomium/issues/431)) ([cdda9ae](https://github.com/juntossomosmais/atomium/commit/cdda9aee9df928a6b27914283fe25351ff827c49))
+
+## [1.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.14.0...atomium-v1.15.0) (2024-04-24)
+
+
+### Features
+
+* **icons:** add new icons ([#419](https://github.com/juntossomosmais/atomium/issues/419)) ([2610836](https://github.com/juntossomosmais/atomium/commit/261083663af08ba2f88a2d921175dd38c459e371))
+
+## [1.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.1...atomium-v1.14.0) (2024-04-23)
+
+
+### Features
+
+* **icons:** add `login` and `messages` icons ([#416](https://github.com/juntossomosmais/atomium/issues/416)) ([335061e](https://github.com/juntossomosmais/atomium/commit/335061e63a444933557f53914a6fd49622e066a4))
+
+
+### Bug Fixes
+
+* **button:** adjust button slot align ([#417](https://github.com/juntossomosmais/atomium/issues/417)) ([1986d05](https://github.com/juntossomosmais/atomium/commit/1986d0592a931450eae874f61a9ddb9b865ef3fe))
+
+## [1.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v1.13.0...atomium-v1.13.1) (2024-04-11)
+
+
+### Bug Fixes
+
+* **alert:** remove wrong width on icon size ([#414](https://github.com/juntossomosmais/atomium/issues/414)) ([e45007c](https://github.com/juntossomosmais/atomium/commit/e45007cdec9d32577a1979b4b059e5e542269ab7))
+
+## [1.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.3...atomium-v1.13.0) (2024-04-11)
+
+
+### Features
+
+* add new watch-slides-progress carousel prop ([#412](https://github.com/juntossomosmais/atomium/issues/412)) ([a5e29b2](https://github.com/juntossomosmais/atomium/commit/a5e29b234c51794ce26308969dd0ce04c93e3bed))
+
+## [1.12.3](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.2...atomium-v1.12.3) (2024-03-07)
+
+
+### Bug Fixes
+
+* **button:** use default behavior when is link ([#399](https://github.com/juntossomosmais/atomium/issues/399)) ([2873800](https://github.com/juntossomosmais/atomium/commit/28738006014c5d25296c36d241d791e34814c08c))
+
 ## [1.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v1.12.1...atomium-v1.12.2) (2024-02-27)
 
 

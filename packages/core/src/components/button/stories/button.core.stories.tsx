@@ -44,7 +44,16 @@ export const Secondary: StoryObj = {
   },
 }
 
-export const White: StoryObj = {
+export const OutlineFilled: StoryObj = {
+  render: (args) => createButton(args, 'dark'),
+  args: {
+    ...Primary.args,
+    fill: 'outline-filled',
+    color: 'secondary',
+  },
+}
+
+export const Ghost: StoryObj = {
   render: (args) => createButton(args, 'dark'),
   args: {
     ...Primary.args,
@@ -113,5 +122,47 @@ export const IconAndText: StoryObj = {
   `,
   args: {
     ...Primary.args,
+  },
+}
+
+export const Link: StoryObj = {
+  render: (args) => html`
+    <atom-button
+      color="${args.color}"
+      fill="${args.fill}"
+      expand="${args.expand}"
+      size="${args.size}"
+      disabled="${args.disabled}"
+      loading="${args.loading}"
+      type="${args.type}"
+      mode="${args.mode}"
+      shape="${args.shape}"
+      download="${args.download}"
+      href="${args.href}"
+      target="${args.target}"
+    >
+      ${args.label}
+    </atom-button>
+  `,
+  args: {
+    ...Primary.args,
+    href: undefined,
+    download: undefined,
+    target: undefined,
+  },
+  argTypes: {
+    href: {
+      options: ['Download', 'Navigate'],
+      mapping: {
+        Download: '/custom/jsm.svg',
+        Navigate: 'https://www.juntossomosmais.com.br',
+      },
+    },
+    download: {
+      control: 'text',
+    },
+    target: {
+      options: ['_blank', '_self', '_parent', '_top'],
+    },
   },
 }

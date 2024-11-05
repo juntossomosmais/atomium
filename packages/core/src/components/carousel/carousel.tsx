@@ -1,139 +1,243 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Prop,
-  h,
-} from '@stencil/core'
-import 'swiper/swiper-element-bundle.js'
-import { AutoplayOptions, PaginationOptions, Swiper } from 'swiper/types'
+import { Component, Element, Host, Prop, State, h } from '@stencil/core'
 
-import { renderThumbs } from './utils/render-thumbs'
-
-interface SwiperElement extends HTMLElement {
-  swiper: Swiper
-}
 @Component({
   tag: 'atom-carousel',
   styleUrl: 'carousel.scss',
-  shadow: false,
+  shadow: true,
 })
 export class AtomCarousel {
-  @Element() host!: HTMLElement
-  private swiperEl: SwiperElement
-  @Event() atomClickPrev!: EventEmitter<string>
-  @Event() atomClickNext!: EventEmitter<string>
-  @Event() atomChange!: EventEmitter<string>
+  @Prop({ mutable: true }) loop = false
+  @Prop({ mutable: true }) autoplay: number
+  @Prop({ mutable: true }) thumbnails: string[]
+  @Prop({ mutable: true }) hasNavigation = true
+  @Prop({ mutable: true }) hasPagination = true
 
-  @Prop({ mutable: true })
-  autoplay?: boolean
-  @Prop({ mutable: true })
-  autoplayDelay?: AutoplayOptions['delay']
-  @Prop({ mutable: true })
-  centeredSlides?: boolean = false
-  @Prop({ mutable: true })
-  centerInsufficientSlides?: boolean = false
-  @Prop({ mutable: true })
-  freeMode?: boolean
-  @Prop({ mutable: true })
-  loop?: boolean
-  @Prop({ mutable: true })
-  navigation?: boolean = true
-  @Prop({ mutable: true })
-  pagination?: boolean = true
-  @Prop({ mutable: true })
-  paginationClickable?: boolean
-  @Prop({ mutable: true })
-  paginationType?: PaginationOptions['type'] | 'thumbnails' = 'bullets'
-  @Prop({ mutable: true })
-  slidesPerGroup?: number | string = 1
-  @Prop({ mutable: true })
-  slidesPerView?: number | string = 1
-  @Prop({ mutable: true })
-  spaceBetween?: number = 0
-  @Prop({ mutable: true })
-  speed?: number
-  @Prop({ mutable: true })
-  thumbnailImages?: string = ''
-  @Prop({ mutable: true })
-  videoIcons?: boolean = false
-  @Prop({ mutable: true })
-  navigationButtonSize?: 'medium' | 'xxlarge' = 'medium'
+  @State() currentIdx = 0
+
+  @Element() element: HTMLElement
+
+  touchStartX = 0
+  touchEndX = 0
+
+  get currentIndex() {
+    return this.currentIdx
+  }
+
+  set currentIndex(value: number) {
+    if (!this.carouselWrapper) return
+
+    this.currentIdx = value
+    this.carouselWrapper.style.transform = `translateX(-${this.currentIndex * 100}%)`
+
+    const transitionendEvent = new CustomEvent('transitionend', {
+      detail: { currentIndex: this.currentIndex },
+    })
+
+    window.dispatchEvent(transitionendEvent)
+  }
+
+  carouselWrapper: HTMLElement
+  carouselItems: NodeListOf<HTMLElement>
+  nextButton: HTMLButtonElement
+  prevButton: HTMLButtonElement
+  autoplayIntervalId: NodeJS.Timeout
+
+  componentWillLoad() {
+    this.carouselItems = this.element.querySelectorAll('atom-carousel-item')
+
+    if (this.carouselItems?.length <= 1) {
+      this.loop = false
+      this.hasNavigation = false
+      this.hasPagination = false
+    }
+
+    if (this.autoplay) {
+      this.loop = true
+    }
+  }
 
   componentDidLoad() {
-    this.swiperEl = this.host.querySelector('swiper-container')
+    this.carouselWrapper =
+      this.element.shadowRoot.querySelector('.carousel-wrapper')
+    this.nextButton = this.element.shadowRoot.querySelector('.navigation--next')
+    this.prevButton = this.element.shadowRoot.querySelector('.navigation--prev')
 
-    const children = this.host.querySelectorAll('atom-carousel-item')
+    this.carouselWrapper.addEventListener('touchstart', this.handleTouchStart)
+    this.carouselWrapper.addEventListener('touchend', this.handleTouchEnd)
 
-    children.forEach((child) => {
-      const slide = child.querySelector('swiper-slide')
-
-      if (slide) {
-        this.swiperEl.appendChild(slide)
-        this.host.removeChild(child)
-      }
-    })
-
-    this.swiperEl.swiper?.on('slideChange', () => {
-      this.atomChange.emit()
-    })
-    this.swiperEl.swiper?.on('navigationPrev', () => {
-      this.atomClickPrev.emit()
-    })
-    this.swiperEl.swiper?.on('navigationNext', () => {
-      this.atomClickNext.emit()
-    })
-
-    let params: { pagination: PaginationOptions } = this.pagination && {
-      pagination: {
-        type:
-          this.paginationType === 'thumbnails' ? 'custom' : this.paginationType,
-        clickable: this.paginationClickable,
-      },
+    if (this.autoplay) {
+      this.carouselWrapper.addEventListener('mouseenter', this.stopAutoplay)
+      this.carouselWrapper.addEventListener('mouseleave', this.restartAutoplay)
+      this.startAutoplay()
     }
 
-    if (this.paginationType === 'thumbnails') {
-      const urls = this.thumbnailImages ? this.thumbnailImages.split(',') : []
-
-      params = {
-        pagination: {
-          ...params.pagination,
-          renderCustom: (_swiper, current, total) =>
-            renderThumbs(current, total, urls, this.videoIcons),
-        },
-      }
-    }
-
-    Object.assign(this.swiperEl, params)
+    this.showOrHideNavigationButtons()
   }
-  render() {
-    const injectStyles = [
-      '.swiper-button-disabled { opacity: 0 !important}',
-      '.swiper-pagination-custom { display: flex; justify-content: center; column-gap: var(--spacing-base); } ',
-      `.swiper-button-next { width: var(--spacing-${this.navigationButtonSize}); height: var(--spacing-${this.navigationButtonSize}); }`,
-      `.swiper-button-prev { width: var(--spacing-${this.navigationButtonSize}); height: var(--spacing-${this.navigationButtonSize}); }`,
-    ]
 
+  disconnectedCallback() {
+    this.carouselWrapper.removeEventListener(
+      'touchstart',
+      this.handleTouchStart
+    )
+    this.carouselWrapper.removeEventListener('touchend', this.handleTouchEnd)
+
+    if (this.autoplay) {
+      this.carouselWrapper.removeEventListener('mouseenter', this.stopAutoplay)
+      this.carouselWrapper.removeEventListener(
+        'mouseleave',
+        this.restartAutoplay
+      )
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.autoplayIntervalId)
+  }
+
+  handleMoveToPaginationItem(index: number) {
+    if (!this.carouselItems || !this.carouselItems[index]) return
+
+    this.currentIndex = index
+
+    this.showOrHideNavigationButtons()
+  }
+
+  handleNavigationClick(button: 'prev' | 'next') {
+    const isNext = button === 'next'
+    let newIndex = this.currentIndex + (isNext ? 1 : -1)
+
+    const isLastItemAndNext =
+      isNext && this.currentIndex === this.carouselItems.length - 1
+    const isFirstItemAndPrev = !isNext && this.currentIndex === 0
+
+    if (!this.loop && (isLastItemAndNext || isFirstItemAndPrev)) return
+
+    if (this.loop) {
+      newIndex =
+        (newIndex + this.carouselItems.length) % this.carouselItems.length
+    }
+
+    this.currentIndex = newIndex
+    this.showOrHideNavigationButtons()
+  }
+
+  showOrHideNavigationButtons() {
+    const hasButtons = this.nextButton && this.prevButton
+
+    if (!hasButtons || !this.hasNavigation || this.loop) return
+
+    this.nextButton.setAttribute(
+      'aria-disabled',
+      String(this.currentIndex === this.carouselItems?.length - 1)
+    )
+    this.prevButton.setAttribute(
+      'aria-disabled',
+      String(this.currentIndex === 0)
+    )
+  }
+
+  stopAutoplay = () => {
+    if (this.autoplayIntervalId) {
+      clearInterval(this.autoplayIntervalId)
+      this.autoplayIntervalId = null
+    }
+  }
+
+  restartAutoplay = () => {
+    if (!this.autoplayIntervalId) {
+      this.startAutoplay()
+    }
+  }
+
+  startAutoplay() {
+    if (this.autoplayIntervalId) {
+      clearInterval(this.autoplayIntervalId)
+    }
+
+    this.autoplayIntervalId = setInterval(() => {
+      this.handleNavigationClick('next')
+    }, this.autoplay)
+  }
+
+  handleTouchStart = (event: TouchEvent) => {
+    this.touchStartX = event.touches[0].clientX
+  }
+
+  handleTouchEnd = (event: TouchEvent) => {
+    this.touchEndX = event.changedTouches[0].clientX
+    this.handleSwipe()
+  }
+
+  handleSwipe = () => {
+    const lastIndex = this.carouselItems.length - 1
+    const isSwipeLeft = this.touchEndX < this.touchStartX
+
+    this.currentIndex = isSwipeLeft
+      ? Math.min(this.currentIndex + 1, lastIndex)
+      : Math.max(this.currentIndex - 1, 0)
+
+    this.showOrHideNavigationButtons()
+  }
+
+  render() {
     return (
       <Host>
-        <swiper-container
-          class='atom-carousel'
-          navigation={this.navigation}
-          space-between={this.spaceBetween}
-          loop={this.loop}
-          speed={this.speed}
-          slides-per-group={this.slidesPerGroup}
-          slides-per-view={this.slidesPerView}
-          free-mode={this.freeMode}
-          autoplay={this.autoplay}
-          autoplay-delay={this.autoplayDelay}
-          injectStyles={injectStyles}
-          touch-start-prevent-default='false'
-          center-insufficient-slides={this.centerInsufficientSlides}
-          centered-slides={this.centeredSlides}
-        ></swiper-container>
+        <div class='atom-carousel' role='region' aria-label='Carousel'>
+          {this.hasNavigation && (
+            <button
+              class='carousel-navigation navigation--prev'
+              role='button'
+              aria-label='Previous'
+              aria-disabled={this.loop ? 'false' : 'true'}
+              onClick={() => this.handleNavigationClick('prev')}
+            >
+              <atom-icon icon='chevron-left'></atom-icon>
+            </button>
+          )}
+          <div class='carousel-sliders'>
+            <div class='carousel-wrapper' role='list'>
+              <slot />
+            </div>
+          </div>
+          {this.hasNavigation && (
+            <button
+              class='carousel-navigation navigation--next'
+              role='button'
+              aria-label='Next'
+              onClick={() => this.handleNavigationClick('next')}
+            >
+              <atom-icon icon='chevron-right'></atom-icon>
+            </button>
+          )}
+        </div>
+        {this.hasPagination && (
+          <div
+            class='carousel-pagination'
+            role='navigation'
+            aria-label='Pagination'
+          >
+            {Array.from(this.carouselItems).map((_, index) => (
+              <button
+                class={`carousel-pagination__item ${index === this.currentIdx ? 'active' : ''} ${this.thumbnails?.length > 0 ? 'carousel-pagination--thumbnails' : 'carousel-pagination--bullets'}`}
+                role='tab'
+                aria-selected={index === this.currentIdx}
+                aria-controls={`carousel-item-${index}`}
+                onClick={() => this.handleMoveToPaginationItem(index)}
+              >
+                {this.thumbnails?.length > 0 ? (
+                  <img
+                    class='thumbnail'
+                    src={this.thumbnails[index]}
+                    alt={`${index + 1}`}
+                    aria-hidden='true'
+                  />
+                ) : (
+                  <span class='pagination-text'>{index + 1}</span>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
       </Host>
     )
   }

@@ -1,0 +1,49 @@
+@import '~@atomium/scss-utils/index';
+
+:host {
+  display: inline-block;
+}
+
+.atom-link {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: var(--spacing-xxsmall);
+  text-decoration: underline;
+
+  &[color='primary'] {
+    color: var(--color-brand-primary-regular);
+  }
+
+  &[color='secondary'] {
+    color: var(--color-brand-secondary-regular);
+  }
+
+  &--small {
+    font: var(--text-link-small);
+    letter-spacing: var(--text-link-small-letter);
+  }
+
+  &--medium {
+    font: var(--text-link-medium);
+    letter-spacing: var(--text-link-medium-letter);
+  }
+
+  &--large {
+    font: var(--text-link-large);
+    letter-spacing: var(--text-link-medium-large);
+  }
+
+  &__button {
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+  }
+}
+
+.is-loading {
+  cursor: wait;
+  opacity: 0.5;
+}

@@ -1,0 +1,78 @@
+import { AtomButton, AtomModal } from '@juntossomosmais/atomium/react'
+import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
+
+import { ModalComponentArgs, ModalStoryArgs } from './modal.args'
+
+export default {
+  title: 'Components/Modal',
+  component: AtomModal,
+  ...ModalStoryArgs,
+} as Meta
+
+const createModal = (args) => (
+  <div>
+    <AtomButton id='open-modal'>Open Modal</AtomButton>
+    <AtomModal
+      alertType={args.alertType}
+      hasDivider={args.hasDivider}
+      primaryText={args.primaryText}
+      secondaryText={args.secondaryText}
+      trigger='open-modal'
+      progress={args.progress}
+      disablePrimary={args.disablePrimary}
+      disableSecondary={args.disableSecondary}
+      isOpen={args.isOpen}
+    >
+      <div slot='header'>Custom Header</div>
+      <p>Modal Content</p>
+    </AtomModal>
+  </div>
+)
+
+export const Default: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+  },
+}
+
+export const Divided: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    hasDivider: true,
+  },
+}
+
+export const Progress: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    progress: 0.5,
+  },
+}
+
+export const Alert: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    alertType: 'alert',
+  },
+}
+
+export const Error: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    alertType: 'error',
+  },
+}
+
+export const HeaderTitle: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    headerTitle: 'Title',
+  },
+}

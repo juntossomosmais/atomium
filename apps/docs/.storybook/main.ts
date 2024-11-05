@@ -1,5 +1,32 @@
 import type { StorybookConfig } from '@storybook/web-components-webpack5'
 
+function getStorybookRefs(configType: string) {
+  if (configType === 'DEVELOPMENT') {
+    return {
+      react: {
+        title: 'React (localhost:7006)',
+        url: 'http://localhost:7006',
+      },
+      vue: {
+        title: 'Vue (localhost:8006)',
+        url: 'http://localhost:8006',
+      },
+    }
+  }
+  return {
+    react: {
+      title: 'React Library',
+      url: 'react',
+      expanded: false,
+    },
+    vue: {
+      title: 'Vue Library',
+      url: 'vue',
+      expanded: false,
+    },
+  }
+}
+
 const config: StorybookConfig = {
   stories: [
     '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
@@ -23,22 +50,8 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
-  refs: (config, { configType }) => {
-    if (configType === 'DEVELOPMENT') {
-      return {
-        react: {
-          title: 'React (localhost:7006)',
-          url: 'http://localhost:7006',
-        },
-      }
-    }
-    return {
-      react: {
-        title: 'React Library',
-        url: 'react',
-        expanded: false,
-      },
-    }
+  refs: (config, { configType = '' }) => {
+    return getStorybookRefs(configType)
   },
 }
 

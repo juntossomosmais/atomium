@@ -15,19 +15,23 @@ import {
   shadow: true,
 })
 export class AtomButton {
-  @Prop() color: 'primary' | 'secondary' | 'white' = 'primary'
-  @Prop() disabled?: boolean
-  @Prop() download?: string
-  @Prop() expand?: 'block'
-  @Prop() fill: 'clear' | 'outline' | 'solid' = 'solid'
-  @Prop() shape?: 'round' | 'circle' = 'round'
-  @Prop() href?: string
-  @Prop() loading?: boolean
-  @Prop() mode: Mode = 'md'
-  @Prop() rel?: string
-  @Prop() size: 'small' | 'default' | 'large' = 'default'
-  @Prop() target?: string
-  @Prop() type: 'submit' | 'reset' | 'button' = 'button'
+  @Prop({ mutable: true }) color: 'primary' | 'secondary' | 'white' = 'primary'
+  @Prop({ mutable: true }) disabled?: boolean
+  @Prop({ mutable: true }) download?: string
+  @Prop({ mutable: true }) expand?: 'block'
+  @Prop({ mutable: true }) fill:
+    | 'clear'
+    | 'outline'
+    | 'outline-filled'
+    | 'solid' = 'solid'
+  @Prop({ mutable: true }) shape?: 'round' | 'circle' = 'round'
+  @Prop({ mutable: true }) href?: string
+  @Prop({ mutable: true }) loading?: boolean
+  @Prop({ mutable: true }) mode: Mode = 'md'
+  @Prop({ mutable: true }) rel?: string
+  @Prop({ mutable: true }) size: 'small' | 'default' | 'large' = 'default'
+  @Prop({ mutable: true }) target?: string
+  @Prop({ mutable: true }) type: 'submit' | 'reset' | 'button' = 'button'
 
   @Event() click: EventEmitter
 
@@ -38,7 +42,13 @@ export class AtomButton {
     submit: 'requestSubmit',
   }
 
+  private get isLink() {
+    return this.href || this.download || this.target
+  }
+
   private handleClick = (event) => {
+    if (this.isLink) return
+
     event.preventDefault()
     event.stopPropagation()
 
@@ -68,9 +78,10 @@ export class AtomButton {
             [`atom-button`]: true,
             [`is-loading`]: this.loading,
             [`is-circle`]: this.shape === 'circle',
+            [`is-outline-filled`]: this.fill === 'outline-filled',
           }}
           color={this.disabled && !this.loading ? 'medium' : this.color}
-          fill={this.fill}
+          fill={this.fill === 'outline-filled' ? 'default' : this.fill}
           size={this.size}
           expand={this.expand}
           shape='round'
@@ -82,6 +93,7 @@ export class AtomButton {
           target={this.target}
           download={this.download}
           onClick={this.handleClick.bind(this)}
+          part='button'
         >
           {this.loading && (
             <span class='loading'>

@@ -30,7 +30,7 @@ export const ButtonStoryArgs = {
     },
     fill: {
       control: 'select',
-      options: ['solid', 'clear', 'outline'],
+      options: ['solid', 'clear', 'outline', 'outline-filled'],
       defaultValue: { summary: 'solid' },
       description:
         'Set to `"clear"` for a transparent button that resembles a flat button, to `"outline"` for a transparent button with a border, or to `"solid"` for a button with a filled background. The default fill is "solid" except inside of a toolbar, where the default is `"clear"`.',

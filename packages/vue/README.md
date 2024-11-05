@@ -1,8 +1,6 @@
 # Atomium - Vue
 
-🚧  **This is a work in progress** 🚧
-
-[Vue Integration of Stencil](https://stenciljs.com/docs/vue) just works with Vue 3. If you want to use Vue 2, please use the Web Components implementation of Atomium.
+This is the Vue transpiled implementation of the Atomium design system to be used in Vue projects
 
 ## Getting Started
 
@@ -12,29 +10,30 @@
 npm i @juntossomosmais/atomium
 ```
 
+And import `loader` in your `main.js` file
+
+```js
+import { ComponentLibrary } from '@juntossomosmais/atomium/vue'
+
+import '@juntossomosmais/atomium/core.css'
+
+ComponentLibrary.install()
+```
+
+Or import as a plugin in your Vue instance
+
+```js
+import { ComponentLibrary } from '@juntossomosmais/atomium/vue'
+
+Vue.use(ComponentLibrary)
+```
+
 ### Basic Usage
 
 ```jsx
-import '@juntossomosmais/atomium/core.css'
+import { AtomButton } from '@juntossomosmais/atomium/vue'
 
-import {
-  applyPolyfills,
-  defineCustomElements,
-} from '@juntossomosmais/atomium/loader'
-
-applyPolyfills().then(() => defineCustomElements(window))
-
-<atom-button>Click me</atom-button>
+<AtomButton>Click me</AtomButton>
 ```
 
-## Vue 2
-
-For Vue 2, a configuration is need in order to avoid the warning about unknown component. Add the below code to your Vue initialization:
-
-```js
-Vue.config.ignoredElements = [
-  /^atom-/
-]
-```
-
-The setting is explained at the [Vue docs](https://v2.vuejs.org/v2/api/#ignoredElements), the same doc exists for [Vue 3](https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue), but no worries, Stencil integrations just handle everything.
+You could check the Vue components transpiled of Stencil in [Vue Stories](https://juntossomosmais.github.io/atomium/?path=/docs/Vue_introduction--docs)

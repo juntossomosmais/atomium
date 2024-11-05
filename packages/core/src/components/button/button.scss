@@ -14,7 +14,10 @@
 }
 
 .atom-button {
+  margin: 0;
   text-transform: inherit;
+  white-space: normal;
+
   &[color='white'] {
     --ion-color-base: var(--color-neutral-white);
     --ion-color-contrast: var(--color-neutral-black);
@@ -25,10 +28,17 @@
     --ion-color-contrast: var(--color-neutral-black);
   }
 
+  &[size='small'],
+  &[size='default'],
+  &[size='large'] {
+    --padding-start: var(--spacing-base);
+    --padding-end: var(--spacing-base);
+    height: var(--button-size);
+  }
+
   &[size='default'] {
     --button-size: var(--spacing-xxxxlarge);
     font: var(--button-medium);
-    height: var(--button-size);
     letter-spacing: var(--button-medium-letter);
 
     &.is-circle {
@@ -39,7 +49,6 @@
   &[size='small'] {
     --button-size: var(--spacing-xxxlarge);
     font: var(--button-small);
-    height: var(--button-size);
     letter-spacing: var(--button-small-letter);
 
     &.is-circle {
@@ -50,7 +59,6 @@
   &[size='large'] {
     --button-size: var(--spacing-giant);
     font: var(--button-large);
-    height: var(--button-size);
     letter-spacing: var(--button-large-letter);
 
     &.is-circle {
@@ -66,6 +74,14 @@
     }
   }
 
+  &.is-outline-filled {
+    --background: var(--color-neutral-white);
+    --color: var(--ion-color-base);
+    --border-width: 2px;
+    --border-style: solid;
+    --border-color: var(--ion-color-base);
+  }
+
   &.is-loading {
     &::part(native) {
       cursor: inherit;
@@ -77,6 +93,7 @@
   }
 
   .slot {
+    align-items: center;
     display: flex;
     gap: var(--spacing-xsmall);
   }

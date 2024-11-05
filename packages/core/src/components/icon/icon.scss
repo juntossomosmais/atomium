@@ -1,3 +1,7 @@
 :host {
   display: inline-flex;
 }
+
+.ion-color-white {
+  --ion-color-base: var(--color-neutral-white);
+}

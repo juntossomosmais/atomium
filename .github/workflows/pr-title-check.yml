@@ -1,0 +1,22 @@
+name: PR Title Check
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  pr-title:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Validate PR Title
+        run: |
+          if [[ ! "${{ github.event.pull_request.title }}" =~ ^(feat|fix|chore|major|docs|ci)\(([a-z_-]+)\)!*:(.+|\d+)$ ]]; then
+            echo "The Pull Request title must follow the convention: 'type(context): description'."
+            echo "The types must be: feat, fix, chore, major, docs, ci."
+            echo "Example of a correct title: feat(component): create link component"
+            exit 1
+          fi

@@ -16,6 +16,11 @@ export const SelectStoryArgs = {
         'atomBlur',
         'atomCancel',
         'atomDismiss',
+        'atom-change',
+        'atom-focus',
+        'atom-blur',
+        'atom-cancel',
+        'atom-dismiss',
       ],
     },
   },
@@ -31,15 +36,6 @@ export const SelectStoryArgs = {
     placeholder: {
       control: 'text',
       description: 'The placeholder of the select',
-      table: {
-        category: Category.PROPERTIES,
-      },
-    },
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'danger'],
-      defaultValue: { summary: 'secondary' },
-      description: "The color to use from your application's color palette.",
       table: {
         category: Category.PROPERTIES,
       },
@@ -151,11 +147,17 @@ export const SelectStoryArgs = {
         category: Category.EVENTS,
       },
     },
+    '--select-max-height': {
+      description: 'Add a custom max-height to the select list options.',
+      defaultValue: { summary: '250px' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
   },
 }
 
 export const SelectComponentArgs = {
-  color: 'secondary',
   disabled: false,
   readonly: false,
   multiple: false,
@@ -163,4 +165,8 @@ export const SelectComponentArgs = {
   placeholder: 'Select an option',
   mode: 'md',
   fill: 'solid',
+  value: '',
+  icon: '',
+  helperText: '',
+  errorText: '',
 }

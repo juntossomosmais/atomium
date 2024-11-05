@@ -1,6 +1,6 @@
+import { Category } from '@atomium/storybook-utils/enums/table'
 import { withActions } from '@storybook/addon-actions/decorator'
 
-import { Category } from '@atomium/storybook-utils/enums/table'
 
 export const TextareaStoryArgs = {
   parameters: {
@@ -11,7 +11,16 @@ export const TextareaStoryArgs = {
       },
     },
     actions: {
-      handles: ['atomChange', 'atomFocus', 'atomBlur', 'atomInput'],
+      handles: [
+        'atomChange',
+        'atomFocus',
+        'atomBlur',
+        'atomInput',
+        'atom-change',
+        'atom-focus',
+        'atom-blur',
+        'atom-input',
+      ],
     },
   },
   decorators: [withActions],
@@ -271,5 +280,7 @@ export const TextareaComponentArgs = {
   mode: 'md',
   disabled: false,
   readonly: false,
-  autoGrow: false,
+  value: '',
+  helperText: '',
+  icon: '',
 }

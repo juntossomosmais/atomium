@@ -1,0 +1,95 @@
+@import '~@atomium/scss-utils/index';
+
+.atom-modal {
+  position: fixed;
+
+  &__close {
+    position: absolute;
+    right: var(--spacing-small);
+    top: var(--spacing-small);
+  }
+
+  &__close-icon {
+    color: var(--color-neutral-regular);
+    font-size: var(--spacing-large);
+  }
+
+  &__content {
+    color: var(--color-neutral-light-1);
+    font: var(--text-body-medium);
+    height: 100%;
+    letter-spacing: var(--text-body-medium-letter);
+    padding: var(--spacing-large);
+    padding-top: 0;
+
+    &--divided {
+      border-bottom: 1px solid var(--color-neutral-light-3);
+      border-top: 1px solid var(--color-neutral-light-3);
+      padding-top: var(--spacing-large);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-medium);
+    justify-content: flex-end;
+    padding: var(--spacing-large);
+  }
+
+  &__header {
+    color: var(--color-neutral-light-1);
+    padding: var(--spacing-large);
+    position: relative;
+  }
+
+  &__icon-type {
+    font-size: var(--spacing-xxxxlarge);
+    margin-bottom: var(--spacing-large);
+
+    &--warning {
+      color: var(--color-contextual-warning-dark-1);
+    }
+
+    &--error {
+      color: var(--color-contextual-error-regular);
+    }
+  }
+
+  &__title,
+  &__header {
+    font: var(--title-headline-xsmall);
+    letter-spacing: var(--title-headline-xsmall-letter);
+    margin: 0;
+  }
+
+  &--progress {
+    .atom-modal__content--divided {
+      border-top: 0;
+    }
+  }
+
+  ion-progress-bar::part(track) {
+    background-color: var(--color-brand-primary-light-2);
+  }
+
+  @include below(small) {
+    &__btn-action {
+      width: 100%;
+
+      &::part(button) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+ion-modal::part(content) {
+  --border-radius: 8px;
+  height: auto;
+
+  @include below(small) {
+    --border-radius: 0;
+    height: 100%;
+  }
+}

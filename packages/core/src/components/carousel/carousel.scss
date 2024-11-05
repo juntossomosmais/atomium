@@ -1,65 +1,118 @@
 @import '~@atomium/scss-utils/index';
-@import '~swiper/swiper-bundle.css';
-@import '~swiper/swiper.css';
 
-::part(button-prev),
-::part(button-next) {
+:host {
+  --button-navigation-size: var(--spacing-xxxxlarge);
+  --carousel-height: var(--spacing-xxxxlarge);
+  --thumbnail-size: var(--spacing-giant);
+  --thumbnail-object-fit: contain;
+  display: block;
+}
+
+.atom-carousel {
+  min-height: var(--carousel-height);
+  position: relative;
+}
+
+.carousel-sliders {
+  overflow-x: hidden;
+  z-index: var(--zindex-1);
+}
+
+.carousel-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform var(--transition-duration);
+  will-change: transform;
+}
+
+.carousel-navigation {
+  align-items: center;
   background: var(--color-brand-secondary-regular);
+  border: 0;
   border-radius: var(--border-radius-full);
   box-shadow: var(--elevation-3);
   color: var(--color-neutral-white);
-  padding: var(--spacing-small);
-  transition:
-    border var(--transition-duration),
-    box-shadow var(--transition-duration),
-    opacity var(--transition-duration);
-  will-change: border, box-shadow;
+  cursor: pointer;
+  display: flex;
+  font-size: var(--spacing-large);
+  height: var(--button-navigation-size);
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition-duration: var(--transition-duration);
+  transition-property: background-color, opacity, visibility;
+  width: var(--button-navigation-size);
+  will-change: background-color, opacity, visibility;
+  z-index: var(--zindex-5);
+
+  &.navigation--prev {
+    left: var(--spacing-small);
+  }
+
+  &.navigation--next {
+    right: var(--spacing-small);
+  }
 
   &:hover {
     background: var(--color-brand-secondary-light-1);
   }
+
+  &[aria-disabled='true'] {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
-::part(pagination) {
-  margin-top: var(--spacing-large);
-  position: unset;
-}
-
-::part(thumb) {
-  align-items: center;
-  background: var(--color-neutral-white);
-  border: 1px solid var(--color-neutral-light-4);
-  border-radius: var(--border-radius-medium);
-  cursor: pointer;
-  display: inline-flex;
-  height: var(--spacing-giant);
+.carousel-pagination {
+  display: flex;
+  gap: var(--spacing-xsmall);
   justify-content: center;
-  opacity: 1;
-  padding: var(--spacing-xxsmall);
-  position: relative;
-  width: var(--spacing-giant);
-}
+  margin-top: var(--spacing-base);
 
-::part(thumb-youtube-icon) {
-  color: var(--color-contextual-error-regular);
-  font-size: var(--spacing-xxlarge);
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+  &__item {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    transition-duration: var(--transition-duration);
+  }
 
-::part(thumb-active) {
-  border: 1px solid var(--color-neutral-light-2);
-}
+  &--bullets {
+    $pagination-size: var(--spacing-xsmall);
+    background-color: var(--color-neutral-light-3);
+    border-radius: var(--border-radius-full);
+    display: inline-block;
+    height: $pagination-size;
+    text-indent: -9999px;
+    transition-property: background-color;
+    width: $pagination-size;
+    will-change: background-color;
 
-::part(thumb-img) {
-  max-width: 100%;
-}
+    &.active {
+      background-color: var(--color-brand-secondary-regular);
+    }
+  }
 
-.atom-carousel__thumbnails {
-  border-radius: var(--border-radius-medium);
-  height: var(--spacing-giant);
-  object-fit: contain;
-  width: var(--spacing-giant);
+  &--thumbnails {
+    align-items: center;
+    border: 1px solid var(--color-neutral-light-4);
+    display: flex;
+    height: var(--thumbnail-size);
+    justify-content: center;
+    transition-property: border-color;
+    width: var(--thumbnail-size);
+    will-change: border-color;
+
+    &.active {
+      border-color: var(--color-brand-secondary-regular);
+    }
+
+    .thumbnail {
+      display: block;
+      object-fit: var(--thumbnail-object-fit);
+      width: 100%;
+    }
+  }
 }

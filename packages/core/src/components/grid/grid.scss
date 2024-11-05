@@ -1,7 +1,23 @@
 @import '~@atomium/scss-utils/index';
 
+:host {
+  --atom-grid-padding: 0;
+}
+
 .atom-grid {
   display: flex;
   flex-wrap: wrap;
   margin: calc(var(--grid-gap) / -2);
+  padding: var(--atom-grid-padding);
+
+  @each $scale-full-name, $scale-alias in $screens-alias {
+    @if $scale-alias != 'xs' {
+      @include above($scale-full-name) {
+        padding: var(
+          --atom-grid-padding-#{$scale-alias},
+          var(--atom-grid-padding)
+        );
+      }
+    }
+  }
 }

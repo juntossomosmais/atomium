@@ -1,6 +1,6 @@
 {
   "name": "@juntossomosmais/atomium-tokens",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Tokens and variables for Atomium",
   "access": "public",
   "main": "dist/index.js",
@@ -28,7 +28,8 @@
     "build": "ts-node ./scripts/generate-tokens/index.ts && rollup -c rollup.tokens.config.mjs && tsc --module commonjs",
     "publish-library": "npm publish --access public",
     "test:ci": "jest --coverage --no-cache --updateSnapshot --ci",
-    "test": "jest"
+    "test": "jest",
+    "publish-library-alpha": "npm publish --access public --tag alpha"
   },
   "files": [
     "dist"

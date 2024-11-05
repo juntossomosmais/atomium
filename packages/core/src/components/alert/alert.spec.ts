@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+
 import { AtomAlert } from './alert'
 
 const messageTitle = 'Alert title'
@@ -33,7 +34,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert message-title="${messageTitle}" message-text="${messageText}"  role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"message-title="${messageTitle}" message-text="${messageText}"  role="alert">
         ${createAlertColor('neutral')}
       </atom-alert>
     `)
@@ -48,7 +49,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert color="info" message-text="Alert text" message-title="Alert title" role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"color="info" message-text="Alert text" message-title="Alert title" role="alert">
         ${createAlertColor('info')}
       </atom-alert>
     `)
@@ -63,7 +64,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert color="success" message-text="Alert text" message-title="Alert title" role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"color="success" message-text="Alert text" message-title="Alert title" role="alert">
         ${createAlertColor('success')}
       </atom-alert>
     `)
@@ -78,7 +79,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert color="danger" message-text="Alert text" message-title="Alert title" role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"color="danger" message-text="Alert text" message-title="Alert title" role="alert">
         ${createAlertColor('danger')}
       </atom-alert>
     `)
@@ -93,7 +94,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert color="warning" message-text="Alert text" message-title="Alert title" role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"color="warning" message-text="Alert text" message-title="Alert title" role="alert">
         ${createAlertColor('warning')}
       </atom-alert>
     `)
@@ -108,7 +109,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert icon="alert" message-title="${messageTitle}" message-text="${messageText}" role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"icon="alert" message-title="${messageTitle}" message-text="${messageText}" role="alert">
         <mock:shadow-root>
             <div class="atom-alert atom-color--neutral">
               <div class="atom-body">
@@ -137,7 +138,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert close="true" message-title="${messageTitle}" message-text="${messageText}" role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"close="true" message-title="${messageTitle}" message-text="${messageText}" role="alert">
           <mock:shadow-root>
             <div class="atom-alert atom-color--neutral has-close">
               <div class="atom-body">
@@ -159,6 +160,29 @@ describe('AtomAlert', () => {
     `)
   })
 
+  it('should not render alert when click close button', async () => {
+    const page = await newSpecPage({
+      components: [AtomAlert],
+      html: `<atom-alert message-title="${messageTitle}" message-text="${messageText}" close="true"></atom-alert>`,
+    })
+
+    await page.waitForChanges()
+
+    const alertCloseEl = page.root?.shadowRoot?.querySelector(
+      '.atom-close'
+    ) as HTMLElement
+
+    alertCloseEl.click()
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-alert aria-atomic="true" aria-hidden="true" aria-live="assertive"     class="is-close" close="true" message-text="Alert text" message-title="Alert title" role="alert">
+        <mock:shadow-root></mock:shadow-root>
+      </atom-alert>
+    `)
+  })
+
   it('should add actions "action-text" prop is set', async () => {
     const page = await newSpecPage({
       components: [AtomAlert],
@@ -168,7 +192,7 @@ describe('AtomAlert', () => {
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-alert action-text="Action example" message-title="${messageTitle}" message-text="${messageText}" role="alert">
+      <atom-alert aria-atomic="true" aria-live="assertive"action-text="Action example" message-title="${messageTitle}" message-text="${messageText}" role="alert">
         <mock:shadow-root>
           <div class="atom-alert atom-color--neutral">
             <div class="atom-body">

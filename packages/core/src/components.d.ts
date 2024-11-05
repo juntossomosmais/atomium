@@ -6,12 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
-import { Color, Mode, TextFieldTypes } from "@ionic/core";
-import { AutoplayOptions, PaginationOptions } from "swiper/types";
+import { Mode, TextFieldTypes } from "@ionic/core";
 import { IonTypes } from "@ionic/core/dist/types/components";
 export { IconProps } from "./icons";
-export { Color, Mode, TextFieldTypes } from "@ionic/core";
-export { AutoplayOptions, PaginationOptions } from "swiper/types";
+export { Mode, TextFieldTypes } from "@ionic/core";
 export { IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomAlert {
@@ -40,7 +38,10 @@ export namespace Components {
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
-        "fill": 'clear' | 'outline' | 'solid';
+        "fill": | 'clear'
+    | 'outline'
+    | 'outline-filled'
+    | 'solid';
         "href"?: string;
         "loading"?: boolean;
         "mode": Mode;
@@ -51,23 +52,11 @@ export namespace Components {
         "type": 'submit' | 'reset' | 'button';
     }
     interface AtomCarousel {
-        "autoplay"?: boolean;
-        "autoplayDelay"?: AutoplayOptions['delay'];
-        "centerInsufficientSlides"?: boolean;
-        "centeredSlides"?: boolean;
-        "freeMode"?: boolean;
-        "loop"?: boolean;
-        "navigation"?: boolean;
-        "navigationButtonSize"?: 'medium' | 'xxlarge';
-        "pagination"?: boolean;
-        "paginationClickable"?: boolean;
-        "paginationType"?: PaginationOptions['type'] | 'thumbnails';
-        "slidesPerGroup"?: number | string;
-        "slidesPerView"?: number | string;
-        "spaceBetween"?: number;
-        "speed"?: number;
-        "thumbnailImages"?: string;
-        "videoIcons"?: boolean;
+        "autoplay": number;
+        "hasNavigation": boolean;
+        "hasPagination": boolean;
+        "loop": boolean;
+        "thumbnails": string[];
     }
     interface AtomCarouselItem {
     }
@@ -91,11 +80,14 @@ export namespace Components {
         "sizeMd"?: string;
         "sizeSm"?: string;
     }
+    interface AtomContainer {
+        "hasPadding": boolean;
+    }
     interface AtomGrid {
         "fixed"?: boolean;
     }
     interface AtomIcon {
-        "color"?: Color;
+        "color"?: ColorProps;
         "icon"?: IconProps;
         "size"?: Size;
     }
@@ -154,8 +146,32 @@ export namespace Components {
         "type": TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
+    interface AtomLink {
+        "color": 'primary' | 'secondary';
+        "loading"?: boolean;
+        "size": 'small' | 'medium' | 'large';
+        "type": 'anchor' | 'button';
+    }
+    interface AtomListSlider {
+        "centralized": boolean;
+        "hasNavigation": boolean;
+    }
+    interface AtomListSliderItem {
+    }
+    interface AtomModal {
+        "alertType"?: 'alert' | 'error';
+        "disablePrimary": boolean;
+        "disableSecondary": boolean;
+        "hasDivider": boolean;
+        "hasFooter": boolean;
+        "headerTitle": string;
+        "isOpen": boolean;
+        "primaryText"?: string;
+        "progress"?: number;
+        "secondaryText"?: string;
+        "trigger"?: string;
+    }
     interface AtomSelect {
-        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
         "errorText"?: string;
         "fill": 'solid' | 'outline';
@@ -171,10 +187,22 @@ export namespace Components {
     label?: string
     selected?: boolean
     disabled?: boolean
+    tag?: { color: string; label: string }
   }>;
         "placeholder": string;
         "readonly"?: boolean;
+        "setTagInSelectOptions": () => Promise<void>;
         "value"?: IonTypes.IonSelect['value'];
+    }
+    interface AtomStepsModal {
+        "closeOnFinish"?: boolean;
+        "currentStep": number;
+        "isOpen": boolean;
+        "primaryText"?: string;
+        "secondaryText"?: string;
+        "steps": number;
+        "stepsTitles": string;
+        "trigger"?: string;
     }
     interface AtomTag {
         "color": 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
@@ -258,10 +286,6 @@ export interface AtomButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomButtonElement;
 }
-export interface AtomCarouselCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLAtomCarouselElement;
-}
 export interface AtomChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomChipElement;
@@ -270,9 +294,25 @@ export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomInputElement;
 }
+export interface AtomLinkCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomLinkElement;
+}
+export interface AtomListSliderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomListSliderElement;
+}
+export interface AtomModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomModalElement;
+}
 export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomSelectElement;
+}
+export interface AtomStepsModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomStepsModalElement;
 }
 export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -330,20 +370,7 @@ declare global {
         prototype: HTMLAtomButtonElement;
         new (): HTMLAtomButtonElement;
     };
-    interface HTMLAtomCarouselElementEventMap {
-        "atomClickPrev": string;
-        "atomClickNext": string;
-        "atomChange": string;
-    }
     interface HTMLAtomCarouselElement extends Components.AtomCarousel, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomCarouselElementEventMap>(type: K, listener: (this: HTMLAtomCarouselElement, ev: AtomCarouselCustomEvent<HTMLAtomCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomCarouselElementEventMap>(type: K, listener: (this: HTMLAtomCarouselElement, ev: AtomCarouselCustomEvent<HTMLAtomCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomCarouselElement: {
         prototype: HTMLAtomCarouselElement;
@@ -378,6 +405,12 @@ declare global {
         prototype: HTMLAtomColElement;
         new (): HTMLAtomColElement;
     };
+    interface HTMLAtomContainerElement extends Components.AtomContainer, HTMLStencilElement {
+    }
+    var HTMLAtomContainerElement: {
+        prototype: HTMLAtomContainerElement;
+        new (): HTMLAtomContainerElement;
+    };
     interface HTMLAtomGridElement extends Components.AtomGrid, HTMLStencilElement {
     }
     var HTMLAtomGridElement: {
@@ -410,6 +443,69 @@ declare global {
         prototype: HTMLAtomInputElement;
         new (): HTMLAtomInputElement;
     };
+    interface HTMLAtomLinkElementEventMap {
+        "click": any;
+    }
+    interface HTMLAtomLinkElement extends Components.AtomLink, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomLinkElementEventMap>(type: K, listener: (this: HTMLAtomLinkElement, ev: AtomLinkCustomEvent<HTMLAtomLinkElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomLinkElementEventMap>(type: K, listener: (this: HTMLAtomLinkElement, ev: AtomLinkCustomEvent<HTMLAtomLinkElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomLinkElement: {
+        prototype: HTMLAtomLinkElement;
+        new (): HTMLAtomLinkElement;
+    };
+    interface HTMLAtomListSliderElementEventMap {
+        "clickNext": any;
+        "clickPrev": any;
+    }
+    interface HTMLAtomListSliderElement extends Components.AtomListSlider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomListSliderElementEventMap>(type: K, listener: (this: HTMLAtomListSliderElement, ev: AtomListSliderCustomEvent<HTMLAtomListSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomListSliderElementEventMap>(type: K, listener: (this: HTMLAtomListSliderElement, ev: AtomListSliderCustomEvent<HTMLAtomListSliderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomListSliderElement: {
+        prototype: HTMLAtomListSliderElement;
+        new (): HTMLAtomListSliderElement;
+    };
+    interface HTMLAtomListSliderItemElement extends Components.AtomListSliderItem, HTMLStencilElement {
+    }
+    var HTMLAtomListSliderItemElement: {
+        prototype: HTMLAtomListSliderItemElement;
+        new (): HTMLAtomListSliderItemElement;
+    };
+    interface HTMLAtomModalElementEventMap {
+        "atomCloseClick": any;
+        "atomDidDismiss": any;
+        "atomDidPresent": any;
+        "atomPrimaryClick": any;
+        "atomSecondaryClick": any;
+        "atomIsOpenChange": any;
+    }
+    interface HTMLAtomModalElement extends Components.AtomModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomModalElementEventMap>(type: K, listener: (this: HTMLAtomModalElement, ev: AtomModalCustomEvent<HTMLAtomModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomModalElementEventMap>(type: K, listener: (this: HTMLAtomModalElement, ev: AtomModalCustomEvent<HTMLAtomModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomModalElement: {
+        prototype: HTMLAtomModalElement;
+        new (): HTMLAtomModalElement;
+    };
     interface HTMLAtomSelectElementEventMap {
         "atomBlur": void;
         "atomCancel": void;
@@ -430,6 +526,30 @@ declare global {
     var HTMLAtomSelectElement: {
         prototype: HTMLAtomSelectElement;
         new (): HTMLAtomSelectElement;
+    };
+    interface HTMLAtomStepsModalElementEventMap {
+        "atomFinish": any;
+        "atomCancel": any;
+        "atomNextStep": any;
+        "atomPreviousStep": any;
+        "atomCloseClick": any;
+        "atomDidDismiss": any;
+        "atomDidPresent": any;
+        "atomIsOpenChange": any;
+    }
+    interface HTMLAtomStepsModalElement extends Components.AtomStepsModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomStepsModalElementEventMap>(type: K, listener: (this: HTMLAtomStepsModalElement, ev: AtomStepsModalCustomEvent<HTMLAtomStepsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomStepsModalElementEventMap>(type: K, listener: (this: HTMLAtomStepsModalElement, ev: AtomStepsModalCustomEvent<HTMLAtomStepsModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomStepsModalElement: {
+        prototype: HTMLAtomStepsModalElement;
+        new (): HTMLAtomStepsModalElement;
     };
     interface HTMLAtomTagElement extends Components.AtomTag, HTMLStencilElement {
     }
@@ -484,10 +604,16 @@ declare global {
         "atom-carousel-item": HTMLAtomCarouselItemElement;
         "atom-chip": HTMLAtomChipElement;
         "atom-col": HTMLAtomColElement;
+        "atom-container": HTMLAtomContainerElement;
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
+        "atom-link": HTMLAtomLinkElement;
+        "atom-list-slider": HTMLAtomListSliderElement;
+        "atom-list-slider-item": HTMLAtomListSliderItemElement;
+        "atom-modal": HTMLAtomModalElement;
         "atom-select": HTMLAtomSelectElement;
+        "atom-steps-modal": HTMLAtomStepsModalElement;
         "atom-tag": HTMLAtomTagElement;
         "atom-textarea": HTMLAtomTextareaElement;
         "atom-tooltip": HTMLAtomTooltipElement;
@@ -522,7 +648,10 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
-        "fill"?: 'clear' | 'outline' | 'solid';
+        "fill"?: | 'clear'
+    | 'outline'
+    | 'outline-filled'
+    | 'solid';
         "href"?: string;
         "loading"?: boolean;
         "mode"?: Mode;
@@ -534,26 +663,11 @@ declare namespace LocalJSX {
         "type"?: 'submit' | 'reset' | 'button';
     }
     interface AtomCarousel {
-        "autoplay"?: boolean;
-        "autoplayDelay"?: AutoplayOptions['delay'];
-        "centerInsufficientSlides"?: boolean;
-        "centeredSlides"?: boolean;
-        "freeMode"?: boolean;
+        "autoplay"?: number;
+        "hasNavigation"?: boolean;
+        "hasPagination"?: boolean;
         "loop"?: boolean;
-        "navigation"?: boolean;
-        "navigationButtonSize"?: 'medium' | 'xxlarge';
-        "onAtomChange"?: (event: AtomCarouselCustomEvent<string>) => void;
-        "onAtomClickNext"?: (event: AtomCarouselCustomEvent<string>) => void;
-        "onAtomClickPrev"?: (event: AtomCarouselCustomEvent<string>) => void;
-        "pagination"?: boolean;
-        "paginationClickable"?: boolean;
-        "paginationType"?: PaginationOptions['type'] | 'thumbnails';
-        "slidesPerGroup"?: number | string;
-        "slidesPerView"?: number | string;
-        "spaceBetween"?: number;
-        "speed"?: number;
-        "thumbnailImages"?: string;
-        "videoIcons"?: boolean;
+        "thumbnails"?: string[];
     }
     interface AtomCarouselItem {
     }
@@ -578,11 +692,14 @@ declare namespace LocalJSX {
         "sizeMd"?: string;
         "sizeSm"?: string;
     }
+    interface AtomContainer {
+        "hasPadding"?: boolean;
+    }
     interface AtomGrid {
         "fixed"?: boolean;
     }
     interface AtomIcon {
-        "color"?: Color;
+        "color"?: ColorProps;
         "icon"?: IconProps;
         "size"?: Size;
     }
@@ -642,8 +759,41 @@ declare namespace LocalJSX {
         "type"?: TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
+    interface AtomLink {
+        "color"?: 'primary' | 'secondary';
+        "loading"?: boolean;
+        "onClick"?: (event: AtomLinkCustomEvent<any>) => void;
+        "size"?: 'small' | 'medium' | 'large';
+        "type"?: 'anchor' | 'button';
+    }
+    interface AtomListSlider {
+        "centralized"?: boolean;
+        "hasNavigation"?: boolean;
+        "onClickNext"?: (event: AtomListSliderCustomEvent<any>) => void;
+        "onClickPrev"?: (event: AtomListSliderCustomEvent<any>) => void;
+    }
+    interface AtomListSliderItem {
+    }
+    interface AtomModal {
+        "alertType"?: 'alert' | 'error';
+        "disablePrimary"?: boolean;
+        "disableSecondary"?: boolean;
+        "hasDivider"?: boolean;
+        "hasFooter"?: boolean;
+        "headerTitle"?: string;
+        "isOpen"?: boolean;
+        "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomDidPresent"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomIsOpenChange"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomPrimaryClick"?: (event: AtomModalCustomEvent<any>) => void;
+        "onAtomSecondaryClick"?: (event: AtomModalCustomEvent<any>) => void;
+        "primaryText"?: string;
+        "progress"?: number;
+        "secondaryText"?: string;
+        "trigger"?: string;
+    }
     interface AtomSelect {
-        "color"?: 'primary' | 'secondary' | 'danger';
         "disabled"?: boolean;
         "errorText"?: string;
         "fill"?: 'solid' | 'outline';
@@ -664,10 +814,29 @@ declare namespace LocalJSX {
     label?: string
     selected?: boolean
     disabled?: boolean
+    tag?: { color: string; label: string }
   }>;
         "placeholder"?: string;
         "readonly"?: boolean;
         "value"?: IonTypes.IonSelect['value'];
+    }
+    interface AtomStepsModal {
+        "closeOnFinish"?: boolean;
+        "currentStep"?: number;
+        "isOpen"?: boolean;
+        "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomDidPresent"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomFinish"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomIsOpenChange"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomNextStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "onAtomPreviousStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
+        "primaryText"?: string;
+        "secondaryText"?: string;
+        "steps"?: number;
+        "stepsTitles"?: string;
+        "trigger"?: string;
     }
     interface AtomTag {
         "color"?: 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
@@ -760,10 +929,16 @@ declare namespace LocalJSX {
         "atom-carousel-item": AtomCarouselItem;
         "atom-chip": AtomChip;
         "atom-col": AtomCol;
+        "atom-container": AtomContainer;
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
+        "atom-link": AtomLink;
+        "atom-list-slider": AtomListSlider;
+        "atom-list-slider-item": AtomListSliderItem;
+        "atom-modal": AtomModal;
         "atom-select": AtomSelect;
+        "atom-steps-modal": AtomStepsModal;
         "atom-tag": AtomTag;
         "atom-textarea": AtomTextarea;
         "atom-tooltip": AtomTooltip;
@@ -781,10 +956,16 @@ declare module "@stencil/core" {
             "atom-carousel-item": LocalJSX.AtomCarouselItem & JSXBase.HTMLAttributes<HTMLAtomCarouselItemElement>;
             "atom-chip": LocalJSX.AtomChip & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
             "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
+            "atom-container": LocalJSX.AtomContainer & JSXBase.HTMLAttributes<HTMLAtomContainerElement>;
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
+            "atom-link": LocalJSX.AtomLink & JSXBase.HTMLAttributes<HTMLAtomLinkElement>;
+            "atom-list-slider": LocalJSX.AtomListSlider & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
+            "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
+            "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
+            "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
             "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
             "atom-tooltip": LocalJSX.AtomTooltip & JSXBase.HTMLAttributes<HTMLAtomTooltipElement>;

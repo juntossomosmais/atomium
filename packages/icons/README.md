@@ -34,6 +34,17 @@ To add a new icon, follow these steps:
 1. Create an SVG file with the name of your icon. For example, if you want to add an icon named `my-icon`, create a file named `my-icon.svg` in the svg directory.
 2. Run `npm run icons:build` to generate the type for your icon.
 3. Once the SVG file is added, a pipeline (found in `.github/workflows/icons.yml`) will automatically build the module and upload it to the CDN.
+  3.1 In dev mode we haven't uploaded it to the CDN yet, so to see your results, you need to change the path in `ion-icon`
+  ```js
+  <Host aria-hidden='true'>
+    <ion-icon
+      icon={`{mdi ou custom depende da pasta do ícone}/${this.icon}.svg`}
+      color={this.color}
+      size={this.size}
+    />
+  </Host>
+  ```
+  Don't forget to revert this before commit
 
 ## How it works
 

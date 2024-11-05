@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+
 import { AtomButton } from './button'
 
 describe('AtomButton', () => {
@@ -24,7 +25,7 @@ describe('AtomButton', () => {
     expect(page.root).toEqualHtml(`
       <atom-button>
         <mock:shadow-root>
-          <ion-button class="atom-button" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
+          <ion-button class="atom-button" color="primary" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
             <span class="slot">
               <slot></slot>
             </span>
@@ -46,7 +47,7 @@ describe('AtomButton', () => {
     expect(page.root).toEqualHtml(`
       <atom-button loading="true">
         <mock:shadow-root>
-          <ion-button class="atom-button is-loading" color="primary" disabled="" fill="solid" mode="md" shape="round" size="default" type="button">
+          <ion-button class="atom-button is-loading" color="primary" disabled="" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
             <span class="loading">
               <ion-spinner color="light"></ion-spinner>
             </span>
@@ -68,7 +69,7 @@ describe('AtomButton', () => {
     await page.waitForChanges()
 
     expect(page.root?.shadowRoot).toEqualHtml(`
-      <ion-button class="atom-button is-loading" color="primary" disabled="" fill="outline" mode="md" shape="round" size="default" type="button">
+      <ion-button class="atom-button is-loading" color="primary" disabled="" fill="outline" mode="md" part="button" shape="round" size="default" type="button">
         <span class="loading">
           <ion-spinner color="primary"></ion-spinner>
         </span>
@@ -88,7 +89,7 @@ describe('AtomButton', () => {
     await page.waitForChanges()
 
     expect(page.root?.shadowRoot).toEqualHtml(`
-      <ion-button class="atom-button" color="medium" disabled="" fill="solid" mode="md" shape="round" size="default" type="button">
+      <ion-button class="atom-button" color="medium" disabled="" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
         <span class="slot">
           <slot></slot>
         </span>
@@ -105,7 +106,7 @@ describe('AtomButton', () => {
     await page.waitForChanges()
 
     expect(page.root?.shadowRoot).toEqualHtml(`
-      <ion-button class="atom-button is-circle" color="primary" fill="solid" mode="md" shape="round" size="default" type="button">
+      <ion-button class="atom-button is-circle" color="primary" fill="solid" mode="md" part="button" shape="round" size="default" type="button">
         <span class="slot">
           <slot></slot>
         </span>
@@ -140,8 +141,10 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
+
     formEl.requestSubmit = jest.fn
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
     jest.spyOn(formEl, 'requestSubmit')
 
     buttonEl?.click()
@@ -157,8 +160,10 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
+
     formEl.reset = jest.fn()
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
     jest.spyOn(formEl, 'reset')
     buttonEl?.click()
 
@@ -173,11 +178,88 @@ describe('AtomButton', () => {
 
     await page.waitForChanges()
     const formEl = page.body.querySelector('form') as HTMLFormElement
+
     formEl.reset = jest.fn()
     const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
     jest.spyOn(formEl, 'reset')
     buttonEl?.click()
 
     expect(formEl.reset).not.toHaveBeenCalled()
+  })
+
+  it('should allow default event when is link', async () => {
+    const button = new AtomButton()
+
+    button.href = 'http://example.com'
+    button.download = 'name_file'
+    button.target = '_blank'
+
+    const event = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+    })
+
+    jest.spyOn(event, 'preventDefault')
+    jest.spyOn(event, 'stopPropagation')
+
+    //@ts-expect-error - Testing private method
+    button.handleClick(event)
+
+    expect(event.preventDefault).not.toHaveBeenCalled()
+    expect(event.stopPropagation).not.toHaveBeenCalled()
+  })
+
+  it('should correctly apply polyfill for requestSubmit when not available in HTMLFormElement', async () => {
+    //@ts-expect-error test purpose to remove requestSubmit from HTMLFormElement, and simulates a browser
+    window.HTMLFormElement.prototype.requestSubmit = undefined
+
+    jest.isolateModules(() => {
+      require('../../polyfills/form-request-submit.js')
+    })
+
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="submit">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+
+    const formEl = page.body.querySelector<HTMLFormElement>('form')!
+
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
+    jest.spyOn(window.HTMLFormElement.prototype, 'requestSubmit')
+
+    buttonEl?.click()
+
+    expect(formEl.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('should not apply polyfill for requestSubmit when it is already available in HTMLFormElement', async () => {
+    window.HTMLFormElement.prototype.requestSubmit = jest.fn()
+    const originalRequestSubmit = window.HTMLFormElement.prototype.requestSubmit
+
+    jest.isolateModules(() => {
+      require('../../polyfills/form-request-submit.js')
+    })
+
+    const page = await newSpecPage({
+      components: [AtomButton],
+      html: '<form><atom-button type="submit">Click</atom-button></form>',
+    })
+
+    await page.waitForChanges()
+
+    const formEl = page.body.querySelector<HTMLFormElement>('form')!
+
+    const buttonEl = page.root?.shadowRoot?.querySelector('ion-button')
+
+    jest.spyOn(window.HTMLFormElement.prototype, 'requestSubmit')
+
+    buttonEl?.click()
+
+    expect(formEl.requestSubmit).toBe(originalRequestSubmit)
+    expect(formEl.requestSubmit).toHaveBeenCalledTimes(1)
   })
 })
