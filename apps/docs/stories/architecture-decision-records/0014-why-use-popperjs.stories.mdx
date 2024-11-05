@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title='Docs/Architecture Decision Records/ADR 0014: Why PopperJS' />
+
+# ADR 0014: Why PopperJS
+
+🗓️ 2024-11 · ✍️ [@igorwessel](https://github.com/igorwessel)
+
+## Context
+
+It was necessary due to the complexity of modifying the `ion-popover` to meet the tooltip requirements. This involved many changes to the `ion-popover` component to make it behave like a tooltip.
+
+## Problems
+
+These changes included things like:
+
+- Removing a class that locks the scroll on the site (added to the body) when using the `ion-popover`,
+- Adding scroll tracking
+- Ensuring responsiveness in terms of automatically changing side/direction.
+
+## Decision Drivers
+
+- Bundle Size: The size of the library was considered. If the size was too large, it would be a NO-GO for inclusion in the project. As the entire library currently (2024/11/05) only 8.9KB, we understood that the size would not negatively impact the user experience.
+- Popularity and Maintenance: PopperJS is the most well-known library for handling this type of work. Many libraries that implement some type of "popper" use it to provide this functionality.
+
+## Decision
+
+Based on this, we understood that it does not make sense to spend effort recreating many of the functionalities that PopperJS offers. Given that the library size is small, we decided to add the library to the project to implement our tooltip.
