@@ -18,10 +18,10 @@ import {
 })
 export class AtomTooltip {
   private _popperInstance: ReturnType<typeof createPopper> = null
-  private _eventsToShowClick = ['click']
-  private _eventsToHideClick = []
-  private _eventsToShowHover = ['mouseenter', 'focus']
-  private _eventsToHideHover = ['mouseleave', 'blur']
+  private readonly _eventsToShowClick = ['click']
+  private readonly _eventsToHideClick = []
+  private readonly _eventsToShowHover = ['mouseenter', 'focus']
+  private readonly _eventsToHideHover = ['mouseleave', 'blur']
   private _elementSelector: Element = null
 
   @Element() el: HTMLElement
@@ -127,7 +127,7 @@ export class AtomTooltip {
     return window.matchMedia('(max-width: 768px)').matches
   }
 
-  private addEventListeners = (
+  private readonly addEventListeners = (
     events: string[],
     handler: EventListenerOrEventListenerObject
   ) => {
@@ -136,7 +136,7 @@ export class AtomTooltip {
     )
   }
 
-  private removeEventListeners = (
+  private readonly removeEventListeners = (
     events: string[],
     handler: EventListenerOrEventListenerObject
   ) => {
@@ -145,7 +145,7 @@ export class AtomTooltip {
     )
   }
 
-  private attachEvents = () => {
+  private readonly attachEvents = () => {
     const isMobile = this.isMobile()
 
     if (this.action === 'click') {
@@ -163,7 +163,7 @@ export class AtomTooltip {
     }
   }
 
-  private untachEvents = () => {
+  private readonly untachEvents = () => {
     const allEvents = this._eventsToShowClick.concat(
       this._eventsToHideClick,
       this._eventsToShowHover,
@@ -176,7 +176,7 @@ export class AtomTooltip {
     this.removeEventListeners(uniqueEvents, this.hide)
   }
 
-  private show = () => {
+  private readonly show = () => {
     this.open = true
     this.atomOpen.emit()
 
@@ -190,7 +190,7 @@ export class AtomTooltip {
     this._popperInstance.update()
   }
 
-  private hide = () => {
+  private readonly hide = () => {
     this.open = false
     this.atomClose.emit()
 
