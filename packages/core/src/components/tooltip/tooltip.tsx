@@ -18,10 +18,10 @@ import {
 })
 export class AtomTooltip {
   private _popperInstance: ReturnType<typeof createPopper> = null
-  private _eventsToShow = ['mouseenter', 'focus']
-  private _eventsToHide = ['mouseleave', 'blur']
-  private _eventsToShowMobile = ['focus', 'click']
-  private _eventsToHideMobile = []
+  private _eventsToShowClick = ['click']
+  private _eventsToHideClick = []
+  private _eventsToShowHover = ['mouseenter', 'focus']
+  private _eventsToHideHover = ['mouseleave', 'blur']
   private _elementSelector: Element = null
 
   @Element() el: HTMLElement
@@ -50,6 +50,14 @@ export class AtomTooltip {
       placement: newPlacement,
     }))
     this._popperInstance.update()
+  }
+
+  @Prop() action: 'hover' | 'click' = 'hover'
+
+  @Watch('action')
+  updateEvents() {
+    this.untachEvents()
+    this.attachEvents()
   }
 
   /**
@@ -119,45 +127,53 @@ export class AtomTooltip {
     return window.matchMedia('(max-width: 768px)').matches
   }
 
+  private addEventListeners = (
+    events: string[],
+    handler: EventListenerOrEventListenerObject
+  ) => {
+    events.forEach((event) =>
+      this._elementSelector.addEventListener(event, handler)
+    )
+  }
+
+  private removeEventListeners = (
+    events: string[],
+    handler: EventListenerOrEventListenerObject
+  ) => {
+    events.forEach((event) =>
+      this._elementSelector.removeEventListener(event, handler)
+    )
+  }
+
   private attachEvents = () => {
     const isMobile = this.isMobile()
 
-    const eventsToShow = isMobile
-      ? this._eventsToShowMobile
-      : this._eventsToShow
+    if (this.action === 'click') {
+      this.addEventListeners(this._eventsToShowClick, this.show)
+      this.addEventListeners(this._eventsToHideClick, this.hide)
+    } else {
+      this.addEventListeners(this._eventsToShowHover, this.show)
+      this.addEventListeners(this._eventsToHideHover, this.hide)
 
-    const eventsToHide = isMobile
-      ? this._eventsToHideMobile
-      : this._eventsToHide
-
-    if (isMobile) {
-      this._elementSelector.removeEventListener('mouseenter', this.show)
-      this._elementSelector.removeEventListener('mouseleave', this.hide)
-      this._elementSelector.removeEventListener('blur', this.hide)
+      if (isMobile) {
+        this.addEventListeners(this._eventsToShowClick, this.show)
+        this.removeEventListeners(this._eventsToShowHover, this.show)
+        this.removeEventListeners(this._eventsToHideHover, this.hide)
+      }
     }
-
-    eventsToShow.forEach((event) => {
-      this._elementSelector.addEventListener(event, this.show)
-    })
-
-    eventsToHide.forEach((event) => {
-      this._elementSelector.addEventListener(event, this.hide)
-    })
   }
 
   private untachEvents = () => {
-    const allEvents = this._eventsToShow.concat(
-      this._eventsToShowMobile,
-      this._eventsToHide,
-      this._eventsToHideMobile
+    const allEvents = this._eventsToShowClick.concat(
+      this._eventsToHideClick,
+      this._eventsToShowHover,
+      this._eventsToHideHover
     )
 
-    allEvents
-      .filter((event, index) => allEvents.indexOf(event) === index)
-      .forEach((event) => {
-        this._elementSelector.removeEventListener(event, this.show)
-        this._elementSelector.removeEventListener(event, this.hide)
-      })
+    const uniqueEvents = Array.from(new Set(allEvents))
+
+    this.removeEventListeners(uniqueEvents, this.show)
+    this.removeEventListeners(uniqueEvents, this.hide)
   }
 
   private show = () => {
@@ -185,6 +201,7 @@ export class AtomTooltip {
         { name: 'eventListeners', enabled: false },
       ],
     }))
+    this._popperInstance.update()
   }
 
   render() {
@@ -204,13 +221,15 @@ export class AtomTooltip {
           <div class='atom-tooltip__content'>
             <slot />
 
-            <button
-              class='atom-tooltip__action--close'
-              aria-label='Fechar'
-              onClick={this.hide}
-            >
-              <atom-icon icon='close'></atom-icon>
-            </button>
+            {(this.action === 'click' || this.isMobile()) && (
+              <button
+                class='atom-tooltip__action--close'
+                aria-label='Fechar'
+                onClick={this.hide}
+              >
+                <atom-icon icon='close'></atom-icon>
+              </button>
+            )}
           </div>
 
           <div class='atom-tooltip__arrow' aria-hidden data-popper-arrow />

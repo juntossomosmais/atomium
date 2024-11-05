@@ -83,21 +83,16 @@ $placements: 'top', 'bottom', 'left', 'right';
   }
 
   &__action--close {
-    display: none;
-
-    @include below(small) {
-      & {
-        align-self: flex-start;
-        background: none;
-        border: none;
-        color: currentColor;
-        cursor: pointer;
-        display: block;
-        font-size: var(--spacing-large);
-        height: 1em;
-        padding: 0;
-        padding-left: var(--spacing-base);
-      }
-    }
+    align-self: flex-start;
+    background: none;
+    border: none;
+    color: currentColor;
+    cursor: pointer;
+    display: block;
+    font-size: var(--spacing-large);
+    height: 1em;
+    padding: 0;
+    padding-left: var(--spacing-base);
   }
+
 }

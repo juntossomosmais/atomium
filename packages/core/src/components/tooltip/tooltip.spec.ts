@@ -3,9 +3,12 @@ import { newSpecPage } from '@stencil/core/testing'
 import { AtomTooltip } from './tooltip'
 
 describe('AtomTooltip', () => {
-  const createTooltip = (id: string) => `
+  const createTooltip = (
+    id: string,
+    action: AtomTooltip['action'] = 'hover'
+  ) => `
       <button id="${id}" aria-describedby="${id}--tooltip">Hover</button>
-      <atom-tooltip id="${id}--tooltip" element="${id}" action="hover">John Doe</atom-tooltip>
+      <atom-tooltip id="${id}--tooltip" element="${id}" action="${action}">John Doe</atom-tooltip>
     `
 
   const hoverTooltip = createTooltip('hover')
@@ -23,9 +26,6 @@ describe('AtomTooltip', () => {
           <div class="atom-tooltip" data-hide data-placement="top">
             <div class=\"atom-tooltip__content\">
               John Doe
-              <button aria-label=\"Fechar\" class="atom-tooltip__action--close">
-                <atom-icon icon=\"close\"></atom-icon>
-              </button>
             </div>
             <div aria-hidden=\"\" class=\"atom-tooltip__arrow\" data-popper-arrow></div>
           </div>
@@ -91,13 +91,13 @@ describe('AtomTooltip', () => {
 
     expect(
       page.body
-        .querySelector('#hover-1--tooltip')
-        .querySelector('.atom-tooltip')
+        ?.querySelector('#hover-1--tooltip')
+        ?.querySelector('.atom-tooltip')
     ).toHaveAttribute('data-show')
     expect(
       page.body
-        .querySelector('#hover-2--tooltip')
-        .querySelector('.atom-tooltip')
+        ?.querySelector('#hover-2--tooltip')
+        ?.querySelector('.atom-tooltip')
     ).toHaveAttribute('data-hide')
   })
 
@@ -135,14 +135,47 @@ describe('AtomTooltip', () => {
 
     expect(
       page.body
-        .querySelector('#hover-1--tooltip')
-        .querySelector('.atom-tooltip')
+        ?.querySelector('#hover-1--tooltip')
+        ?.querySelector('.atom-tooltip')
     ).not.toHaveAttribute('data-show')
 
     expect(
       page.body
-        .querySelector('#hover-1--tooltip')
-        .querySelector('.atom-tooltip')
+        ?.querySelector('#hover-1--tooltip')
+        ?.querySelector('.atom-tooltip')
     ).toHaveAttribute('data-hide')
+  })
+
+  it('should untach events correctly when changes action', async () => {
+    const page = await newSpecPage({
+      components: [AtomTooltip],
+      html: hoverTooltip,
+    })
+
+    const element = page.body.querySelector('#hover')
+
+    page.body.querySelector('#hover--tooltip')?.setAttribute('action', 'click')
+
+    await page.waitForChanges()
+
+    expect(
+      page.body.querySelector('#hover--tooltip')?.querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-hide')
+
+    element?.dispatchEvent(new Event('click'))
+
+    await page.waitForChanges()
+
+    expect(
+      page.body.querySelector('#hover--tooltip')?.querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-show')
+
+    element?.dispatchEvent(new Event('mouseleave'))
+
+    await page.waitForChanges()
+
+    expect(
+      page.body.querySelector('#hover--tooltip')?.querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-show')
   })
 })

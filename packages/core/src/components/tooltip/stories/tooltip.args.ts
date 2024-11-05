@@ -37,6 +37,15 @@ export const TooltipStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    action: {
+      control: 'select',
+      defaultValue: { summary: 'hover' },
+      options: ['hover', 'click'],
+      description: 'Should use a `Click` trigger or `Hover` trigger',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     element: {
       control: 'text',
       description:
@@ -72,4 +81,5 @@ export const TooltipComponentArgs = {
   element: 'atomium-element',
   placement: 'top',
   text: 'Tooltip',
+  action: 'hover',
 }

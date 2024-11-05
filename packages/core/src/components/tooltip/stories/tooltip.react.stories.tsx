@@ -9,7 +9,7 @@ export default {
   ...TooltipStoryArgs,
 } as Meta
 
-const createTooltip = (args) => (
+const createTooltip = (args, buttonText = 'Hover') => (
   <>
     <AtomButton
       fill='solid'
@@ -17,13 +17,14 @@ const createTooltip = (args) => (
       id={args.element}
       aria-describedby='atom-tooltip'
     >
-      Hover
+      {buttonText}
     </AtomButton>
 
     <AtomTooltip
       id='atom-tooltip'
       placement={args.placement}
       element={args.element}
+      action={args.action}
     >
       <div>{args.text}</div>
     </AtomTooltip>
@@ -34,5 +35,15 @@ export const Default: StoryObj = {
   render: (args) => createTooltip(args),
   args: {
     ...TooltipComponentArgs,
+  },
+}
+
+export const Click: StoryObj = {
+  render: (args) => createTooltip(args, 'Click'),
+  args: {
+    ...TooltipComponentArgs,
+    element: 'elementId',
+    placement: 'top',
+    action: 'click',
   },
 }

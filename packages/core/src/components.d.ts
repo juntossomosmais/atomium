@@ -264,6 +264,7 @@ export namespace Components {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
+        "action": 'hover' | 'click';
         "element": string;
         "placement": | 'auto'
     | 'auto-start'
@@ -899,6 +900,7 @@ declare namespace LocalJSX {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
+        "action"?: 'hover' | 'click';
         "element"?: string;
         /**
           * Event is dispatched when: 1. Mouse leave event in selector 2. Click "Close" button when is mobile
