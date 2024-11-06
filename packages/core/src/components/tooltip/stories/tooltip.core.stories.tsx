@@ -32,11 +32,11 @@ export default {
   ...TooltipStoryArgs,
 } as Meta
 
-export const Default: StoryObj = {
+export const Hover: StoryObj = {
   render: (args) => createTooltip(args, 'Hover'),
   args: {
     ...TooltipComponentArgs,
-    element: 'elementId',
+    element: 'hover',
     placement: 'top',
     open: false,
   },
@@ -46,7 +46,7 @@ export const Click: StoryObj = {
   render: (args) => createTooltip(args, 'Click'),
   args: {
     ...TooltipComponentArgs,
-    element: 'elementId',
+    element: 'click',
     placement: 'top',
     action: 'click',
     open: false,
@@ -57,7 +57,7 @@ export const Opened: StoryObj = {
   render: (args) => createTooltip(args, 'Opened'),
   args: {
     ...TooltipComponentArgs,
-    element: 'elementId',
+    element: 'opened',
     placement: 'left',
     action: 'click',
     open: true,

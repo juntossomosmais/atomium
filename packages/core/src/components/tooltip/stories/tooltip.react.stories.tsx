@@ -32,10 +32,11 @@ const createTooltip = (args, buttonText = 'Hover') => (
   </>
 )
 
-export const Default: StoryObj = {
+export const Hover: StoryObj = {
   render: (args) => createTooltip(args),
   args: {
     ...TooltipComponentArgs,
+    element: 'hover',
   },
 }
 
@@ -43,7 +44,7 @@ export const Click: StoryObj = {
   render: (args) => createTooltip(args, 'Click'),
   args: {
     ...TooltipComponentArgs,
-    element: 'elementId',
+    element: 'click',
     placement: 'top',
     action: 'click',
   },
@@ -53,7 +54,7 @@ export const Opened: StoryObj = {
   render: (args) => createTooltip(args, 'Opened'),
   args: {
     ...TooltipComponentArgs,
-    element: 'elementId',
+    element: 'opened',
     placement: 'left',
     action: 'click',
     open: true,
