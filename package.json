@@ -74,7 +74,7 @@
     "eslint": "^8.57.0",
     "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-sonarjs": "^1.0.4",
     "husky": "^9.1.5",
     "jest": "^27.0.3",
