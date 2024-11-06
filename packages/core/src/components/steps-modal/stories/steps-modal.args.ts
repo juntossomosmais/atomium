@@ -55,6 +55,22 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    disablePrimaryButton: {
+      control: 'boolean',
+      description:
+        'This property is used to disable the primary button. When true the primary button wont be clickable.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    disableSecondaryButton: {
+      control: 'boolean',
+      description:
+        'This property is used to disable the secondary button. When true the secondary button wont be clickable.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     steps: {
       control: 'number',
       description:
