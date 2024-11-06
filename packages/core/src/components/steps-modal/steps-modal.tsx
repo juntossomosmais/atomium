@@ -23,6 +23,8 @@ export class AtomStepsModal {
   @Prop() primaryText?: string
   @Prop() secondaryText?: string
   @Prop() closeOnFinish?: boolean
+  @Prop() disablePrimary?: boolean
+  @Prop() disableSecondary?: boolean
 
   @Event() atomFinish: EventEmitter
   @Event() atomCancel: EventEmitter
@@ -76,7 +78,8 @@ export class AtomStepsModal {
     return currentStep === steps ? handleFinish() : handleNextStep()
   }
 
-  private handleCloseClick = () => {
+  private handleCloseClick = (e: Event) => {
+    e.stopImmediatePropagation()
     this.isOpen = false
     this.currentStep = 1
     this.atomCloseClick.emit()
@@ -93,12 +96,14 @@ export class AtomStepsModal {
     this.atomPreviousStep.emit(this.currentStep)
   }
 
-  private handleDidPresent = () => {
+  private handleDidPresent = (e: Event) => {
+    e.stopImmediatePropagation()
     this.isOpen = true
     this.atomDidPresent.emit(this.currentStep)
   }
 
-  private handleDidDismiss = () => {
+  private handleDidDismiss = (e: Event) => {
+    e.stopImmediatePropagation()
     this.isOpen = false
     this.atomDidDismiss.emit(this.currentStep)
     this.currentStep = 1
@@ -115,8 +120,8 @@ export class AtomStepsModal {
           progress={this.currentStep / this.steps}
           has-footer=''
           header-title={this.stepsTitlesArray[this.currentStep - 1].trim()}
-          disable-secondary='false'
-          disable-primary='false'
+          disable-primary={this.disablePrimary}
+          disable-secondary={this.disableSecondary}
           onAtomPrimaryClick={this.handlePrimaryClick}
           onAtomSecondaryClick={this.handleSecondaryClick}
           is-open={this.isOpen}
