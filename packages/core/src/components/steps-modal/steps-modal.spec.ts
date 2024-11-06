@@ -130,8 +130,8 @@ describe('atom-steps-modal', () => {
             steps-titles="Step 1, Step 2, Step 3"
             primary-text="Next"
             secondary-text="Previous"
-            disable-primary
-            disable-secondary
+            disable-primary-button
+            disable-secondary-button
         >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>
@@ -147,8 +147,8 @@ describe('atom-steps-modal', () => {
         steps="3"
         trigger="open-modal-steps"
         steps-titles="Step 1, Step 2, Step 3"
-        disable-primary=""
-        disable-secondary=""
+        disable-primary-button=""
+        disable-secondary-button=""
       >
       <atom-modal
           trigger="open-modal-steps"
