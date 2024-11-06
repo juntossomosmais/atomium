@@ -93,13 +93,19 @@ export const Multiple: StoryObj = {
     multiple: true,
   },
 }
+
 const optionWithTag = [
-  ...optionsDefault,
   {
-    id: '3',
+    id: '1',
     value: 'Nice Green',
     disabled: false,
     tag: { color: 'success', label: 'New ' },
+  },
+  {
+    id: '2',
+    value: 'Nice Red',
+    disabled: false,
+    tag: { color: 'danger', label: 'Old ' },
   },
 ]
 
