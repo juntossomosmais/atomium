@@ -41,7 +41,8 @@ export const TooltipStoryArgs = {
       control: 'select',
       defaultValue: { summary: 'hover' },
       options: ['hover', 'click'],
-      description: 'Should use a `Click` trigger or `Hover` trigger',
+      description:
+        'Determines the trigger action for the tooltip: `hover` or `click`.',
       table: {
         category: Category.PROPERTIES,
       },
@@ -49,7 +50,14 @@ export const TooltipStoryArgs = {
     element: {
       control: 'text',
       description:
-        'Determines which element is responsible to open/close tooltip.',
+        'Specifies the element responsible for opening/closing the tooltip.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    open: {
+      control: 'boolean',
+      description: 'Controls whether the tooltip is open or closed.',
       table: {
         category: Category.PROPERTIES,
       },
@@ -82,4 +90,5 @@ export const TooltipComponentArgs = {
   placement: 'top',
   text: 'Tooltip',
   action: 'hover',
+  open: false,
 }

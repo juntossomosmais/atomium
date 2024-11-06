@@ -266,6 +266,7 @@ export namespace Components {
     interface AtomTooltip {
         "action": 'hover' | 'click';
         "element": string;
+        "open": boolean;
         "placement": | 'auto'
     | 'auto-start'
     | 'auto-end'
@@ -910,6 +911,7 @@ declare namespace LocalJSX {
           * Event is dispatched when: 1. Mouse enter event in selector 2. Click in element when is mobile
          */
         "onAtomOpen"?: (event: AtomTooltipCustomEvent<any>) => void;
+        "open"?: boolean;
         "placement"?: | 'auto'
     | 'auto-start'
     | 'auto-end'

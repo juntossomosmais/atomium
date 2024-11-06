@@ -1,44 +1,44 @@
-import { Meta, StoryObj } from '@storybook/web-components'
-import { html } from 'lit'
+import { AtomButton, AtomTooltip } from '@juntossomosmais/atomium/vue'
+import { Meta, StoryObj } from '@storybook/vue3'
 
 import { TooltipComponentArgs, TooltipStoryArgs } from './tooltip.args'
 
-const createTooltip = (args, buttonText = 'hover') => {
-  return html`
-    <atom-button
-      fill="solid"
-      size="large"
+export default {
+  title: 'Components/Tooltip',
+  ...TooltipStoryArgs,
+} as Meta
+
+const createTooltip = (args, buttonText = 'Hover') => ({
+  components: { AtomTooltip, AtomButton },
+  setup() {
+    return { args }
+  },
+  template: `
+   <AtomButton
+      fill='solid'
+      size='large'
       id="${args.element}"
-      aria-describedby="atom-tooltip"
+      aria-describedby='atom-tooltip'
     >
       ${buttonText}
-    </atom-button>
+    </AtomButton>
 
-    <atom-tooltip
-      id="atom-tooltip"
+    <AtomTooltip
+      id='atom-tooltip'
       placement="${args.placement}"
       element="${args.element}"
       action="${args.action}"
       open="${args.open}"
     >
-      ${args.text}
-    </atom-tooltip>
-  `
-}
-
-export default {
-  title: 'Components/Tooltip',
-  component: 'atom-tooltip',
-  ...TooltipStoryArgs,
-} as Meta
+      <div>${args.text}</div>
+    </AtomTooltip>
+  `,
+})
 
 export const Default: StoryObj = {
-  render: (args) => createTooltip(args, 'Hover'),
+  render: (args) => createTooltip(args),
   args: {
     ...TooltipComponentArgs,
-    element: 'elementId',
-    placement: 'top',
-    open: false,
   },
 }
 
@@ -49,7 +49,6 @@ export const Click: StoryObj = {
     element: 'elementId',
     placement: 'top',
     action: 'click',
-    open: false,
   },
 }
 

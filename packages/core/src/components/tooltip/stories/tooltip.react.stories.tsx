@@ -25,6 +25,7 @@ const createTooltip = (args, buttonText = 'Hover') => (
       placement={args.placement}
       element={args.element}
       action={args.action}
+      open={args.open}
     >
       <div>{args.text}</div>
     </AtomTooltip>
@@ -45,5 +46,16 @@ export const Click: StoryObj = {
     element: 'elementId',
     placement: 'top',
     action: 'click',
+  },
+}
+
+export const Opened: StoryObj = {
+  render: (args) => createTooltip(args, 'Opened'),
+  args: {
+    ...TooltipComponentArgs,
+    element: 'elementId',
+    placement: 'left',
+    action: 'click',
+    open: true,
   },
 }

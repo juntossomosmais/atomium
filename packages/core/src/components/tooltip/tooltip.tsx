@@ -7,7 +7,6 @@ import {
   Host,
   Listen,
   Prop,
-  State,
   Watch,
   h,
 } from '@stencil/core'
@@ -15,6 +14,7 @@ import {
 @Component({
   tag: 'atom-tooltip',
   styleUrl: 'tooltip.scss',
+  shadow: true,
 })
 export class AtomTooltip {
   private _popperInstance: ReturnType<typeof createPopper> = null
@@ -23,10 +23,11 @@ export class AtomTooltip {
   private readonly _eventsToShowHover = ['mouseenter', 'focus']
   private readonly _eventsToHideHover = ['mouseleave', 'blur']
   private _elementSelector: Element = null
+  private _arrowElement: HTMLElement = null
 
   @Element() el: HTMLElement
 
-  @State() open = false
+  @Prop({ mutable: true }) open = false
 
   @Prop() element: string
 
@@ -91,7 +92,7 @@ export class AtomTooltip {
     this.hide()
   }
 
-  connectedCallback() {
+  componentWillLoad() {
     const selector = document.getElementById(this.element)
 
     this._elementSelector = selector
@@ -107,14 +108,30 @@ export class AtomTooltip {
             offset: [0, 4],
           },
         },
+      ],
+    })
+  }
+
+  componentDidLoad() {
+    this._arrowElement = this.el.shadowRoot.querySelector(
+      '.atom-tooltip__arrow'
+    )
+
+    this._popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
         {
           name: 'arrow',
           options: {
+            element: this._arrowElement,
             padding: 16,
           },
         },
       ],
-    })
+    }))
+
+    this._popperInstance.update()
   }
 
   disconnectedCallback() {
@@ -213,7 +230,7 @@ export class AtomTooltip {
         role={this.isMobile() ? 'dialog' : 'tooltip'}
       >
         <div
-          data-placement={this.el.getAttribute('data-popper-placement')}
+          data-placement={this.placement}
           data-hide={!this.open}
           data-show={this.open}
           class={{ 'atom-tooltip': true }}
@@ -232,7 +249,7 @@ export class AtomTooltip {
             )}
           </div>
 
-          <div class='atom-tooltip__arrow' aria-hidden data-popper-arrow />
+          <div class='atom-tooltip__arrow' aria-hidden />
         </div>
       </Host>
     )
