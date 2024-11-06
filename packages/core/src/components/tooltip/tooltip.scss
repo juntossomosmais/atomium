@@ -44,9 +44,7 @@ $placements: 'top', 'bottom', 'left', 'right';
         &[data-hide] {
           @include shift-away($placement);
         }
-      }
-  
-      &[data-placement^='#{$placement}']  {
+
         .atom-tooltip__arrow { 
           @if ($placement == 'top') {
             bottom: var(--arrow-square-range);
