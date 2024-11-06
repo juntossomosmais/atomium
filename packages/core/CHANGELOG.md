@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.24.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.24.0...atomium-v2.24.1) (2024-11-06)
+
+
+### Bug Fixes
+
+* **select:** add async to method to avoid promise warning ([#611](https://github.com/juntossomosmais/atomium/issues/611)) ([c5de2cb](https://github.com/juntossomosmais/atomium/commit/c5de2cb767c67f1f5d5ffa770b7050cfb31c1ab3))
+* **steps-modal:** allow user to disable buttons and fix event propagation ([#609](https://github.com/juntossomosmais/atomium/issues/609)) ([f6c8f6d](https://github.com/juntossomosmais/atomium/commit/f6c8f6d67186d087182acf92d3932a72da9bd215))
+
 ## [2.24.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.23.0...atomium-v2.24.0) (2024-11-04)
 
 
