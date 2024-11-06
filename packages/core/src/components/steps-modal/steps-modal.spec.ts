@@ -121,6 +121,77 @@ describe('atom-steps-modal', () => {
     expect(finishSpy).toHaveBeenCalledTimes(1)
   })
 
+  it('should pass disable primary and disable secondary button to  atom modal when it is set', async () => {
+    page.setContent(`
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            primary-text="Next"
+            secondary-text="Previous"
+            disable-primary
+            disable-secondary
+        >
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
+      </atom-steps-modal>
+          `)
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-steps-modal
+        primary-text="Next"
+        secondary-text="Previous"
+        steps="3"
+        trigger="open-modal-steps"
+        steps-titles="Step 1, Step 2, Step 3"
+        disable-primary=""
+        disable-secondary=""
+      >
+      <atom-modal
+          trigger="open-modal-steps"
+          alert-type=""
+          class="atom-steps-modal"
+          primary-text="Next"
+          progress="0.3333333333333333"
+          secondary-text="Previous"
+          has-footer=""
+          has-divider=""
+          header-title="Step 1"
+          disable-primary=""
+          disable-secondary=""
+          >
+          <div class="atom-steps-modal__step" style="display: block;">
+              <div slot="step-1">Step 1 Content</div>
+          </div>
+          <div class="atom-steps-modal__step" style="display: none;">
+              <div slot="step-2">Step 2 Content</div>
+          </div>
+          <div class="atom-steps-modal__step" style="display: none;">
+              <div slot="step-3">Step 3 Content</div>
+          </div>
+      </atom-modal
+          >
+      </atom-steps-modal>
+  `)
+  })
+
+  it('should call stopImmediatePropagation when handleDidPresent, handleDidDismiss and handleCloseClick is called', async () => {
+    const stopImmediatePropagationSpy = jest.fn()
+
+    page.root?.addEventListener('atomDidPresent', stopImmediatePropagationSpy)
+    page.root?.addEventListener('atomDidDismiss', stopImmediatePropagationSpy)
+    page.root?.addEventListener('atomCloseClick', stopImmediatePropagationSpy)
+
+    page.rootInstance.handleDidPresent(new Event('atomDidPresent'))
+    page.rootInstance.handleDidDismiss(new Event('atomDidDismiss'))
+    page.rootInstance.handleCloseClick(new Event('atomCloseClick'))
+
+    expect(stopImmediatePropagationSpy).toHaveBeenCalledTimes(3)
+  })
+
   it('should not change step when handleSecondary is called on first step', async () => {
     const cancelSpy = jest.fn()
 
