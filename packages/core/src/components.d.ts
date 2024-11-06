@@ -197,8 +197,8 @@ export namespace Components {
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         "currentStep": number;
-        "disablePrimary"?: boolean;
-        "disableSecondary"?: boolean;
+        "disablePrimaryButton"?: boolean;
+        "disableSecondaryButton"?: boolean;
         "isOpen": boolean;
         "primaryText"?: string;
         "secondaryText"?: string;
@@ -788,8 +788,8 @@ declare namespace LocalJSX {
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         "currentStep"?: number;
-        "disablePrimary"?: boolean;
-        "disableSecondary"?: boolean;
+        "disablePrimaryButton"?: boolean;
+        "disableSecondaryButton"?: boolean;
         "isOpen"?: boolean;
         "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
