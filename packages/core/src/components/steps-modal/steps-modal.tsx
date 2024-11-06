@@ -81,7 +81,6 @@ export class AtomStepsModal {
   private handleCloseClick = (e: Event) => {
     e.stopImmediatePropagation()
     this.isOpen = false
-    this.currentStep = 1
     this.atomCloseClick.emit()
   }
 
