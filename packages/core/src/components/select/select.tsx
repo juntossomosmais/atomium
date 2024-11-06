@@ -5,10 +5,10 @@ import {
   Element,
   Event,
   EventEmitter,
-  Host,
-  Prop,
   h,
+  Host,
   Method,
+  Prop,
 } from '@stencil/core'
 
 import { IconProps } from '../../icons'
@@ -50,7 +50,7 @@ export class AtomSelect {
   @Event() atomFocus!: EventEmitter<void>
 
   @Method()
-  setTagInSelectOptions() {
+  async setTagInSelectOptions() {
     /**
      * This method was necessary because the `ion-selection-option` loop does not allow customizations or custom components.
      * So, to be able to add custom elements such as a tag or a badge inside an option of the `select` field, when the select
