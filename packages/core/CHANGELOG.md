@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.24.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.24.1...atomium-v2.24.2) (2024-11-08)
+
+
+### Bug Fixes
+
+* **container:** add box-sizing: border-box to fix size ([#613](https://github.com/juntossomosmais/atomium/issues/613)) ([c451d75](https://github.com/juntossomosmais/atomium/commit/c451d7592e98e48f44c147858856cfe15143335c))
+
 ## [2.24.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.24.0...atomium-v2.24.1) (2024-11-06)
 
 
