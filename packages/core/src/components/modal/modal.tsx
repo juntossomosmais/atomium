@@ -128,6 +128,7 @@ export class AtomModal {
           onDidDismiss={this.handleDidDismiss}
           onDidPresent={this.handleDidPresent}
           isOpen={this.isOpen}
+          part='modal'
         >
           <header part='header' class='atom-modal__header'>
             {iconType && (

@@ -133,6 +133,7 @@ export class AtomStepsModal {
             this.atomIsOpenChange.emit(e.detail)
           }}
           class='atom-steps-modal'
+          part='steps-modal'
         >
           {this.stepsTitlesArray.map((title, index) => (
             <div

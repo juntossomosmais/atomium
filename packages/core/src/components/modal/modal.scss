@@ -1,7 +1,12 @@
 @import '~@atomium/scss-utils/index';
 
+:host {
+  --atom-modal-zindex: var(--zindex-1000);
+}
+
 .atom-modal {
   position: fixed;
+  z-index: var(--atom-modal-zindex) !important;
 
   &__close {
     position: absolute;

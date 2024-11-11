@@ -1,5 +1,7 @@
 @import '~@atomium/scss-utils/index';
 
-.atom-steps-modal__step {
-  margin-top: var(--spacing-base);
+.atom-steps-modal {
+  &__step {
+    margin-top: var(--spacing-base);
+  }
 }
