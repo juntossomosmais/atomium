@@ -5,7 +5,6 @@
 
 ### Bug Fixes
 
-* **modal:** change variable's name on modal to zindex ([#617](https://github.com/juntossomosmais/atomium/issues/617)) ([7d02f87](https://github.com/juntossomosmais/atomium/commit/7d02f87bbe6ba8f19c0832d04c48aaf9b099db9a))
 * **modal:** set new z index value for modal and steps modal ([#615](https://github.com/juntossomosmais/atomium/issues/615)) ([f35dfe5](https://github.com/juntossomosmais/atomium/commit/f35dfe53b9528903852758888f4f89adab25cb99))
 
 ## [2.24.2](https://github.com/juntossomosmais/atomium/compare/atomium-v2.24.1...atomium-v2.24.2) (2024-11-08)
