@@ -1,14 +1,6 @@
 @import '~@atomium/scss-utils/index';
 
-:host {
-  --atom-steps-modal-z-index: var(--zindex-1000);
-}
-
 .atom-steps-modal {
-  &::part(modal){
-    --atom-modal-z-index: var(--atom-steps-modal-z-index);
-  }
-
   &__step {
     margin-top: var(--spacing-base);
   }
