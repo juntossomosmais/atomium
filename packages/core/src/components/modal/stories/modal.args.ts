@@ -160,6 +160,14 @@ export const ModalStoryArgs = {
         category: Category.SLOTS,
       },
     },
+    '--atom-modal-zindex': {
+      description:
+        'The z-index of the modal, to change this value using CSS custom properties, change its value on root element. This needs to be done this way because the ion-modal is rendered on the body element.',
+      defaultValue: { summary: '--zindex-1000' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
   },
 }
 
