@@ -152,6 +152,13 @@ export const ModalStoryArgs = {
         category: Category.SLOTS,
       },
     },
+    '--atom-modal-zindex': {
+      description: 'The z-index of the modal',
+      defaultValue: { summary: '--zindex-1000' },
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
   },
 }
 
