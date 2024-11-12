@@ -16,12 +16,12 @@ const createModal = (args) => (
     <AtomModal
       alertType={args.alertType}
       hasDivider={args.hasDivider}
-      primaryText={args.primaryText}
-      secondaryText={args.secondaryText}
+      primaryButtonText={args.primaryButtonText}
+      secondaryButtonText={args.secondaryButtonText}
       trigger='open-modal'
       progress={args.progress}
-      disablePrimary={args.disablePrimary}
-      disableSecondary={args.disableSecondary}
+      disablePrimaryButton={args.disablePrimaryButton}
+      disableSecondaryButton={args.disableSecondaryButton}
       isOpen={args.isOpen}
     >
       <div slot='header'>Custom Header</div>

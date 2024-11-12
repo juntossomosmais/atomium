@@ -27,14 +27,14 @@ export type HTMLAtomModalElement = HTMLIonModalElement & {
 export class AtomModal {
   @Prop() trigger?: string
   @Prop() headerTitle = ''
-  @Prop() primaryText?: string
-  @Prop() secondaryText?: string
+  @Prop() primaryButtonText?: string
+  @Prop() secondaryButtonText?: string
   @Prop() hasDivider = false
   @Prop() alertType?: 'alert' | 'error'
   @Prop() progress?: number
   @Prop() hasFooter = true
-  @Prop() disablePrimary = false
-  @Prop() disableSecondary = false
+  @Prop() disablePrimaryButton = false
+  @Prop() disableSecondaryButton = false
   @Prop({ mutable: true }) isOpen = false
 
   @Event() atomCloseClick: EventEmitter
@@ -146,6 +146,7 @@ export class AtomModal {
               )}
             </div>
             <atom-button
+              color='secondary'
               fill='clear'
               shape='circle'
               onClick={this.handleCloseClick}
@@ -176,20 +177,20 @@ export class AtomModal {
             <footer part='footer' class='atom-modal__footer'>
               <atom-button
                 color='secondary'
-                disabled={this.disableSecondary}
+                disabled={this.disableSecondaryButton}
                 fill='outline'
                 class='atom-modal__btn-action atom-modal__btn-action--secondary'
                 onClick={this.handleSecondaryClick}
               >
-                {this.secondaryText}
+                {this.secondaryButtonText}
               </atom-button>
               <atom-button
                 color='primary'
-                disabled={this.disablePrimary}
+                disabled={this.disablePrimaryButton}
                 class='atom-modal__btn-action atom-modal__btn-action--primary'
                 onClick={this.handlePrimaryClick}
               >
-                {this.primaryText}
+                {this.primaryButtonText}
               </atom-button>
             </footer>
           )}

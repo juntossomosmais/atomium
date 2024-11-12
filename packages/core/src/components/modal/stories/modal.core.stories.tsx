@@ -15,14 +15,14 @@ const createModal = (args) => {
       <atom-modal
         alert-type="${args.alertType}"
         has-divider="${args.hasDivider}"
-        primary-text="${args.primaryText}"
-        secondary-text="${args.secondaryText}"
+        primary-button-text="${args.primaryButtonText}"
+        secondary-button-text="${args.secondaryButtonText}"
         trigger="open-modal"
         progress="${args.progress}"
         has-footer="${args.hasFooter}"
         header-title="${args.headerTitle}"
-        disable-secondary="${args.disableSecondary}"
-        disable-primary="${args.disablePrimary}"
+        disable-secondary-button="${args.disableSecondaryButton}"
+        disable-primary-button="${args.disablePrimaryButton}"
         is-open="${args.isOpen}"
       >
         <div slot="header">Custom Header</div>

@@ -20,8 +20,8 @@ export class AtomStepsModal {
   @Prop() trigger?: string
   @Prop() stepsTitles: string
   @Prop({ mutable: true }) isOpen = false
-  @Prop() primaryText?: string
-  @Prop() secondaryText?: string
+  @Prop() primaryButtonText?: string
+  @Prop() secondaryButtonText?: string
   @Prop() closeOnFinish?: boolean
   @Prop() disablePrimaryButton?: boolean
   @Prop() disableSecondaryButton?: boolean
@@ -114,8 +114,8 @@ export class AtomStepsModal {
         <atom-modal
           trigger={this.trigger}
           alert-type=''
-          primary-text={this.primaryText}
-          secondary-text={this.secondaryText}
+          primary-button-text={this.primaryButtonText}
+          secondary-button-text={this.secondaryButtonText}
           progress={this.currentStep / this.steps}
           has-footer=''
           header-title={this.stepsTitlesArray[this.currentStep - 1].trim()}

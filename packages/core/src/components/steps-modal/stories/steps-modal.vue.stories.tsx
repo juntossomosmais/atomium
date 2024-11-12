@@ -21,8 +21,8 @@ const createModal = (args, themeColor = 'light') => ({
         trigger="open-modal-steps"
         steps-titles="${args.stepsTitles}"
         close-on-finish="${args.closeOnFinish}"
-        primary-text="${args.primaryText}"
-        secondary-text="${args.secondaryText}"
+        primary-button-text="${args.primaryButtonText}"
+        secondary-button-text="${args.secondaryButtonText}"
         is-open="${args.isOpen}"
       >
         <div slot="step-1">Step 1 Content</div>

@@ -160,15 +160,15 @@ export namespace Components {
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
-        "disablePrimary": boolean;
-        "disableSecondary": boolean;
+        "disablePrimaryButton": boolean;
+        "disableSecondaryButton": boolean;
         "hasDivider": boolean;
         "hasFooter": boolean;
         "headerTitle": string;
         "isOpen": boolean;
-        "primaryText"?: string;
+        "primaryButtonText"?: string;
         "progress"?: number;
-        "secondaryText"?: string;
+        "secondaryButtonText"?: string;
         "trigger"?: string;
     }
     interface AtomSelect {
@@ -200,8 +200,8 @@ export namespace Components {
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen": boolean;
-        "primaryText"?: string;
-        "secondaryText"?: string;
+        "primaryButtonText"?: string;
+        "secondaryButtonText"?: string;
         "steps": number;
         "stepsTitles": string;
         "trigger"?: string;
@@ -780,8 +780,8 @@ declare namespace LocalJSX {
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
-        "disablePrimary"?: boolean;
-        "disableSecondary"?: boolean;
+        "disablePrimaryButton"?: boolean;
+        "disableSecondaryButton"?: boolean;
         "hasDivider"?: boolean;
         "hasFooter"?: boolean;
         "headerTitle"?: string;
@@ -792,9 +792,9 @@ declare namespace LocalJSX {
         "onAtomIsOpenChange"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomPrimaryClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomSecondaryClick"?: (event: AtomModalCustomEvent<any>) => void;
-        "primaryText"?: string;
+        "primaryButtonText"?: string;
         "progress"?: number;
-        "secondaryText"?: string;
+        "secondaryButtonText"?: string;
         "trigger"?: string;
     }
     interface AtomSelect {
@@ -838,8 +838,8 @@ declare namespace LocalJSX {
         "onAtomIsOpenChange"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomNextStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomPreviousStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
-        "primaryText"?: string;
-        "secondaryText"?: string;
+        "primaryButtonText"?: string;
+        "secondaryButtonText"?: string;
         "steps"?: number;
         "stepsTitles"?: string;
         "trigger"?: string;

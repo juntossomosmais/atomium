@@ -14,8 +14,8 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            primary-text="Next"
-            secondary-text="Previous"
+            primary-button-text="Next"
+            secondary-button-text="Previous"
         >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>
@@ -27,8 +27,8 @@ describe('atom-steps-modal', () => {
   it('should render modal with default values', async () => {
     expect(page.root).toEqualHtml(`
         <atom-steps-modal
-          primary-text="Next"
-          secondary-text="Previous"
+          primary-button-text="Next"
+          secondary-button-text="Previous"
           steps="3"
           trigger="open-modal-steps"
           steps-titles="Step 1, Step 2, Step 3"
@@ -37,9 +37,9 @@ describe('atom-steps-modal', () => {
             trigger="open-modal-steps"
             alert-type=""
             class="atom-steps-modal"
-            primary-text="Next"
+            primary-button-text="Next"
             progress="0.3333333333333333"
-            secondary-text="Previous"
+            secondary-button-text="Previous"
             has-footer=""
             has-divider=""
             header-title="Step 1"
@@ -129,8 +129,8 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            primary-text="Next"
-            secondary-text="Previous"
+            primary-button-text="Next"
+            secondary-button-text="Previous"
             disable-primary-button
             disable-secondary-button
         >
@@ -143,8 +143,8 @@ describe('atom-steps-modal', () => {
 
     expect(page.root).toEqualHtml(`
       <atom-steps-modal
-        primary-text="Next"
-        secondary-text="Previous"
+        primary-button-text="Next"
+        secondary-button-text="Previous"
         steps="3"
         trigger="open-modal-steps"
         steps-titles="Step 1, Step 2, Step 3"
@@ -155,9 +155,9 @@ describe('atom-steps-modal', () => {
           trigger="open-modal-steps"
           alert-type=""
           class="atom-steps-modal"
-          primary-text="Next"
+          primary-button-text="Next"
           progress="0.3333333333333333"
-          secondary-text="Previous"
+          secondary-button-text="Previous"
           has-footer=""
           has-divider=""
           header-title="Step 1"
