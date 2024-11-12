@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.25.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.24.3...atomium-v2.25.0) (2024-11-12)
+
+
+### Features
+
+* **component:** add tooltip ([#367](https://github.com/juntossomosmais/atomium/issues/367)) ([e1b86ad](https://github.com/juntossomosmais/atomium/commit/e1b86adc2b95c34c048210c566186322ee265ba7))
+* **modal:** change buttons props to be more declarative ([#621](https://github.com/juntossomosmais/atomium/issues/621)) ([b82f8e7](https://github.com/juntossomosmais/atomium/commit/b82f8e7f208690505a206a782ed504e8f490a2d9))
+
+
+### Bug Fixes
+
+* **core:** change ion-color-danger ([#618](https://github.com/juntossomosmais/atomium/issues/618)) ([24fee39](https://github.com/juntossomosmais/atomium/commit/24fee399af55b1ddfcc43203dbbbdab73eac134a))
+
 ## [2.24.3](https://github.com/juntossomosmais/atomium/compare/atomium-v2.24.2...atomium-v2.24.3) (2024-11-11)
 
 
