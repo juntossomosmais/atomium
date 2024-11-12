@@ -18,8 +18,8 @@ const createModal = (args) => {
         steps-titles="Step 1, Step 2, Step 3"
         current-step="${args.currentStep}"
         close-on-finish="${args.closeOnFinish}"
-        primary-text="${args.primaryText}"
-        secondary-text="${args.secondaryText}"
+        primary-button-text="${args.primaryButtonText}"
+        secondary-button-text="${args.secondaryButtonText}"
         is-open="${args.isOpen}"
       >
         <div slot="step-1">Step 1 Content</div>

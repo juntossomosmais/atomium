@@ -19,12 +19,12 @@ const createModal = (args, themeColor = 'light') => ({
       <AtomModal
         alert-type="${args.alertType}"
         has-divider="${args.hasDivider}"
-        primary-text="${args.primaryText}"
-        secondary-text="${args.secondaryText}"
+        primary-button-text="${args.primaryButtonText}"
+        secondary-button-text="${args.secondaryButtonText}"
         trigger="open-modal"
         progress="${args.progress}"
-        disable-primary="${args.disablePrimary}"
-        disable-secondary="${args.disableSecondary}"
+        disable-primary-button="${args.disablePrimaryButton}"
+        disable-secondary-button="${args.disableSecondaryButton}"
         is-open="${args.isOpen}"
       >
         <div slot='header'>Custom Header</div>

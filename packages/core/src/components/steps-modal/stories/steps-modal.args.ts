@@ -170,6 +170,6 @@ export const ModalComponentArgs = {
   currentStep: 1,
   isOpen: false,
   closeOnFinish: false,
-  primaryText: 'Next',
-  secondaryText: 'Previous',
+  primaryButtonText: 'Next',
+  secondaryButtonText: 'Previous',
 }

@@ -51,14 +51,14 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    primaryText: {
+    primaryButtonText: {
       control: 'text',
       description: 'Text of the primary button',
       table: {
         category: Category.PROPERTIES,
       },
     },
-    secondaryText: {
+    secondaryButtonText: {
       control: 'text',
       description: 'Text of the secondary button',
       table: {
@@ -88,7 +88,7 @@ export const ModalStoryArgs = {
       },
       defaultValue: false,
     },
-    disableSecondary: {
+    disableSecondaryButton: {
       control: 'boolean',
       description:
         'If true, the secondary button will be disabled. Default is false',
@@ -96,7 +96,7 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    disablePrimary: {
+    disablePrimaryButton: {
       control: 'boolean',
       description:
         'If true, the primary button will be disabled. Default is false',
@@ -172,10 +172,10 @@ export const ModalStoryArgs = {
 }
 
 export const ModalComponentArgs = {
-  primaryText: 'Primary',
-  secondaryText: 'Secondary',
+  primaryButtonText: 'Primary',
+  secondaryButtonText: 'Secondary',
   hasDivider: false,
-  disableSecondary: false,
-  disablePrimary: false,
+  disableSecondaryButton: false,
+  disablePrimaryButton: false,
   isOpen: false,
 }
