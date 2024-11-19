@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.26.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.25.0...atomium-v2.26.0) (2024-11-19)
+
+
+### Features
+
+* **button:** add custom color to color prop ([#624](https://github.com/juntossomosmais/atomium/issues/624)) ([67ebf03](https://github.com/juntossomosmais/atomium/commit/67ebf037864df356fb951ff456425ec17fca9962))
+* **icons:** add new discount-tag icon ([#622](https://github.com/juntossomosmais/atomium/issues/622)) ([3989741](https://github.com/juntossomosmais/atomium/commit/39897417e4a6488e6e527e92e21bec0612a147dc))
+
 ## [2.25.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.24.3...atomium-v2.25.0) (2024-11-12)
 
 
