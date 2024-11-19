@@ -21,7 +21,7 @@ export const ButtonStoryArgs = {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'white'],
+      options: ['primary', 'secondary', 'white', 'custom'],
       defaultValue: { summary: 'primary' },
       description: "The color to use from your application's color palette.",
       table: {
@@ -120,6 +120,20 @@ export const ButtonStoryArgs = {
       description: 'The mode determines which platform styles to use.',
       table: {
         category: Category.PROPERTIES,
+      },
+    },
+    '--atom-button-color': {
+      description:
+        'Custom color of the button. It just works with `color="custom"`.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--atom-button-color-contrast': {
+      description:
+        'Custom color contrast of the button. It just works with `color="custom"`.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
       },
     },
   },

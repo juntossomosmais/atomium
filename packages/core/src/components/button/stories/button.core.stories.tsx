@@ -3,6 +3,8 @@ import { html } from 'lit'
 
 import { ButtonComponentArgs, ButtonStoryArgs } from './button.args'
 
+import './button.css'
+
 export default {
   title: 'Components/Button',
   ...ButtonStoryArgs,
@@ -12,6 +14,7 @@ const createButton = (args, themeColor = 'light') => {
   return html`
     <div class="theme-${themeColor}">
       <atom-button
+        class="button"
         color="${args.color}"
         fill="${args.fill}"
         expand="${args.expand}"
