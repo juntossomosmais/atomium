@@ -34,7 +34,7 @@ export namespace Components {
         "items": BreadcrumbItemProp[];
     }
     interface AtomButton {
-        "color": 'primary' | 'secondary' | 'white';
+        "color": 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
@@ -648,7 +648,7 @@ declare namespace LocalJSX {
         "items"?: BreadcrumbItemProp[];
     }
     interface AtomButton {
-        "color"?: 'primary' | 'secondary' | 'white';
+        "color"?: 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';

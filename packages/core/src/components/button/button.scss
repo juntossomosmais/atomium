@@ -28,6 +28,11 @@
     --ion-color-contrast: var(--color-neutral-black);
   }
 
+  &[color='custom'] {
+    --ion-color-contrast: var(--atom-button-color-contrast);
+    --ion-color-base: var(--atom-button-color);
+  }
+
   &[size='small'],
   &[size='default'],
   &[size='large'] {
