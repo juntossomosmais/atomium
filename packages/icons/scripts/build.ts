@@ -1,22 +1,12 @@
 import path from 'path'
+
 import { optimize } from 'svgo'
 
 import { readSvg, readSvgDirectories, writeSvgFile } from './helpers.js'
 
 function optimizeSvg(path: string, svg: string) {
-  const config = [
-    {
-      name: 'preset-default',
-      params: {
-        overrides: {
-          convertShapeToPath: false,
-          mergePaths: false,
-          removeViewBox: false,
-        },
-      },
-    },
-  ]
-  const optimizedSvg = optimize(svg, { path, plugins: config })
+  const optimizedSvg = optimize(svg, { path })
+
   return optimizedSvg.data
 }
 
@@ -28,6 +18,7 @@ function build() {
     const basename = path.basename(file)
     const content = readSvg(file)
     const optimizedFile = optimizeSvg(file, content)
+
     writeSvgFile(basename, optimizedFile)
   }
 }
