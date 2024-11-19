@@ -4,6 +4,8 @@ import React from 'react'
 
 import { ButtonComponentArgs, ButtonStoryArgs } from './button.args'
 
+import './button.css'
+
 export default {
   title: 'Components/Button',
   component: AtomButton,
@@ -13,6 +15,7 @@ export default {
 const createButton = (args, themeColor = 'light') => (
   <div className={`theme-${themeColor}`}>
     <AtomButton
+      className='button'
       color={args.color}
       fill={args.fill}
       size={args.size}
