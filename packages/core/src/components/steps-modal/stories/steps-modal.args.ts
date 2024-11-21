@@ -144,6 +144,14 @@ export const ModalStoryArgs = {
         category: Category.EVENTS,
       },
     },
+    customInitialStep: {
+      control: 'number',
+      description:
+        'The index of the step that the modal will start on. If the user tries to go back further than the custom initial step, the modal closes itself. Default value is 1',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     step_x: {
       name: 'step-x',
       description:
@@ -170,6 +178,7 @@ export const ModalComponentArgs = {
   currentStep: 1,
   isOpen: false,
   closeOnFinish: false,
-  primaryButtonText: 'Next',
-  secondaryButtonText: 'Previous',
+  primaryButtonTextsByStep: 'Continue, Continue, Finish',
+  secondaryButtonTextsByStep: 'Close, Back, Back',
+  customInitialStep: 1,
 }

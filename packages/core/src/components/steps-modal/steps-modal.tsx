@@ -20,11 +20,13 @@ export class AtomStepsModal {
   @Prop() trigger?: string
   @Prop() stepsTitles: string
   @Prop({ mutable: true }) isOpen = false
-  @Prop() primaryButtonText?: string
-  @Prop() secondaryButtonText?: string
   @Prop() closeOnFinish?: boolean
   @Prop() disablePrimaryButton?: boolean
   @Prop() disableSecondaryButton?: boolean
+  @Prop() customInitialStep?: number
+  @Prop() cancelButtonText?: string
+  @Prop() primaryButtonTextsByStep: string
+  @Prop() secondaryButtonTextsByStep: string
 
   @Event() atomFinish: EventEmitter
   @Event() atomCancel: EventEmitter
@@ -38,6 +40,8 @@ export class AtomStepsModal {
   @Element() el!: HTMLElement
 
   private stepsTitlesArray: string[] = []
+  private primaryButtonTextsArray: string[] = []
+  private secondaryButtonTextsArray: string[] = []
 
   componentWillLoad() {
     const isInvalidCurrentStep =
@@ -49,7 +53,13 @@ export class AtomStepsModal {
       this.currentStep = 1
     }
 
+    if (this.customInitialStep) {
+      this.currentStep = this.customInitialStep
+    }
+
     this.stepsTitlesArray = this.stepsTitles.split(',')
+    this.primaryButtonTextsArray = this.primaryButtonTextsByStep.split(',')
+    this.secondaryButtonTextsArray = this.secondaryButtonTextsByStep.split(',')
   }
 
   private handleStep = (step: number) => {
@@ -85,6 +95,13 @@ export class AtomStepsModal {
   }
 
   private handleSecondaryClick = () => {
+    if (this.currentStep === this.customInitialStep) {
+      this.isOpen = false
+      this.atomCancel.emit()
+
+      return
+    }
+
     if (this.currentStep === 1) {
       this.atomCancel.emit()
 
@@ -106,6 +123,16 @@ export class AtomStepsModal {
     this.isOpen = false
     this.atomDidDismiss.emit(this.currentStep)
     this.currentStep = 1
+  }
+
+  private get secondaryButtonText() {
+    return this.currentStep === this.customInitialStep
+      ? this.cancelButtonText
+      : this.secondaryButtonTextsArray[this.currentStep - 1].trim()
+  }
+
+  private get primaryButtonText() {
+    return this.primaryButtonTextsArray[this.currentStep - 1].trim()
   }
 
   render() {
