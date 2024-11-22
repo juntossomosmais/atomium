@@ -53,7 +53,7 @@ export class AtomStepsModal {
       this.currentStep = 1
     }
 
-    if (this.customInitialStep) {
+    if (this.customInitialStep && this.customInitialStep >= 1) {
       this.currentStep = this.customInitialStep
     }
 
