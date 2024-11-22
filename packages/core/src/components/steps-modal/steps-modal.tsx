@@ -96,7 +96,6 @@ export class AtomStepsModal {
 
   private handleSecondaryClick = () => {
     if (this.currentStep === this.customInitialStep) {
-      this.isOpen = false
       this.atomCancel.emit()
 
       return
@@ -122,7 +121,7 @@ export class AtomStepsModal {
     e.stopImmediatePropagation()
     this.isOpen = false
     this.atomDidDismiss.emit(this.currentStep)
-    this.currentStep = this.customInitialStep ? this.customInitialStep : 1
+    this.currentStep = this.customInitialStep ?? 1
   }
 
   private get secondaryButtonText() {
@@ -137,7 +136,10 @@ export class AtomStepsModal {
 
   private get progress() {
     if(this.customInitialStep) {
-      return (this.currentStep - this.customInitialStep + 1) / (this.steps + 1 - this.customInitialStep)
+      const currentStepAdjustedAsInitial = this.currentStep - this.customInitialStep
+      const stepsQuantityAjustedToCustomInitial = (this.steps + 1 - this.customInitialStep)
+
+      return ( currentStepAdjustedAsInitial / stepsQuantityAjustedToCustomInitial )
     }
 
     return this.currentStep / this.steps
