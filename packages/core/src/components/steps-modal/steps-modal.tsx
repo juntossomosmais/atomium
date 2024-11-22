@@ -135,6 +135,14 @@ export class AtomStepsModal {
     return this.primaryButtonTextsArray[this.currentStep - 1].trim()
   }
 
+  private get progress() {
+    if(this.customInitialStep) {
+      return (this.currentStep - this.customInitialStep + 1) / (this.steps + 1 - this.customInitialStep)
+    }
+
+    return this.currentStep / this.steps
+  }
+
   render() {
     return (
       <Host>
@@ -143,7 +151,7 @@ export class AtomStepsModal {
           alert-type=''
           primary-button-text={this.primaryButtonText}
           secondary-button-text={this.secondaryButtonText}
-          progress={this.currentStep / this.steps}
+          progress={this.progress}
           has-footer=''
           header-title={this.stepsTitlesArray[this.currentStep - 1].trim()}
           disable-primary={this.disablePrimaryButton}

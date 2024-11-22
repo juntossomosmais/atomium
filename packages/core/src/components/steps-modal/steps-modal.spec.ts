@@ -286,6 +286,7 @@ describe('atom-steps-modal', () => {
       page.root?.querySelector('atom-modal')?.getAttribute('header-title')
     ).toBe('Step 2')
   })
+  
   it('should close modal when closeOnFinish is set', async () => {
     page = await newSpecPage({
       components: [AtomStepsModal],
@@ -313,6 +314,7 @@ describe('atom-steps-modal', () => {
 
     expect(page.rootInstance.isOpen).toBe(false)
   })
+
   it('should emit atomIsOpenChange when modal is opened or closed', async () => {
     const isOpenChangeSpy = jest.fn()
 
@@ -336,6 +338,7 @@ describe('atom-steps-modal', () => {
     expect(isOpenChangeSpy).toHaveBeenCalledTimes(2)
     expect(isOpenChangeSpy.mock.calls[1][0].detail).toBe(false)
   })
+
   it('should close the modal when customInitialStep is set and the secondary button is clicked on that step', async () => {
     page = await newSpecPage({
       components: [AtomStepsModal],
@@ -360,5 +363,27 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(page.rootInstance.isOpen).toBe(false)
+  })
+
+  it('should adjust progress when customInitialStep is set', async () => {
+    page = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            custom-initial-step="2"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
+        >
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
+      </atom-steps-modal>`,
+    })
+
+    expect(page.rootInstance.progress).toBe(0.5)
   })
 })
