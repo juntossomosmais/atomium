@@ -136,7 +136,7 @@ export class AtomStepsModal {
 
   private get progress() {
     if(this.customInitialStep) {
-      const currentStepAdjustedAsInitial = this.currentStep - this.customInitialStep
+      const currentStepAdjustedAsInitial = this.currentStep - this.customInitialStep + 1
       const stepsQuantityAjustedToCustomInitial = (this.steps + 1 - this.customInitialStep)
 
       return ( currentStepAdjustedAsInitial / stepsQuantityAjustedToCustomInitial )

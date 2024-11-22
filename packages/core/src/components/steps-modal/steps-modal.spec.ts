@@ -339,7 +339,7 @@ describe('atom-steps-modal', () => {
     expect(isOpenChangeSpy.mock.calls[1][0].detail).toBe(false)
   })
 
-  it('should close the modal when customInitialStep is set and the secondary button is clicked on that step', async () => {
+  it('should emit atom cancel the modal when customInitialStep is set and the secondary button is clicked on that step', async () => {
     page = await newSpecPage({
       components: [AtomStepsModal],
       html: `
@@ -357,12 +357,16 @@ describe('atom-steps-modal', () => {
         <div slot="step-3">Step 3 Content</div>
       </atom-steps-modal>`,
     })
+    const cancelSpy = jest.fn()
 
-    page.rootInstance.handleSecondaryClick()
+    page.root?.addEventListener('atomCancel', cancelSpy)
 
-    await page.waitForChanges()
+    page.root
+      ?.querySelector('atom-modal')
+      ?.dispatchEvent(new CustomEvent('atomSecondaryClick'))
 
-    expect(page.rootInstance.isOpen).toBe(false)
+    expect(page.rootInstance.currentStep).toBe(2)
+    expect(cancelSpy).toHaveBeenCalled()
   })
 
   it('should adjust progress when customInitialStep is set', async () => {
@@ -405,7 +409,7 @@ describe('atom-steps-modal', () => {
         <div slot="step-3">Step 3 Content</div>
       </atom-steps-modal>`,
     })
-    
+
     const mockEventObject = {
       stopImmediatePropagation: jest.fn(),
     }
