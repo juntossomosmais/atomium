@@ -286,7 +286,7 @@ describe('atom-steps-modal', () => {
       page.root?.querySelector('atom-modal')?.getAttribute('header-title')
     ).toBe('Step 2')
   })
-  
+
   it('should close modal when closeOnFinish is set', async () => {
     page = await newSpecPage({
       components: [AtomStepsModal],
@@ -385,5 +385,35 @@ describe('atom-steps-modal', () => {
     })
 
     expect(page.rootInstance.progress).toBe(0.5)
+  })
+  
+  it('should set customInitialStep to current step when dismiss is called', async () => {
+    page = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            custom-initial-step="2"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
+        >
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
+      </atom-steps-modal>`,
+    })
+    
+    const mockEventObject = {
+      stopImmediatePropagation: jest.fn(),
+    }
+
+    page.rootInstance.handlePrimaryClick()
+    page.rootInstance.handlePrimaryClick()
+    page.rootInstance.handleDidDismiss(mockEventObject)
+
+    expect(page.rootInstance.currentStep).toBe(2)
   })
 })

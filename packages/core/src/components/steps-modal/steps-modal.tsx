@@ -122,7 +122,7 @@ export class AtomStepsModal {
     e.stopImmediatePropagation()
     this.isOpen = false
     this.atomDidDismiss.emit(this.currentStep)
-    this.currentStep = 1
+    this.currentStep = this.customInitialStep ? this.customInitialStep : 1
   }
 
   private get secondaryButtonText() {
