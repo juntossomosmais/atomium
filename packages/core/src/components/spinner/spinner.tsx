@@ -7,15 +7,23 @@ import { Component, Host, Prop, h } from '@stencil/core'
 })
 export class AtomSpinner {
   @Prop() type: 'primary' | 'secondary' | 'dark' = 'primary'
-  @Prop() size: number = 20
+  @Prop() size: number | undefined = 40
 
   render() {
+    const customSize = {
+      '--size': `${this.size}px`,
+    }
+
     return (
       <Host>
-        <section>
-          <div class='atom-spinner' />
-          <div data-type={this.type} class='atom-spinner__top-border' />
-        </section>
+        <div class='container'>
+          <div
+            class='atom-spinner__top-border'
+            data-type={this.type}
+            style={customSize}
+          />
+          <div class='atom-spinner' data-type={this.type} style={customSize} />
+        </div>
       </Host>
     )
   }
