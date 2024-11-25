@@ -161,8 +161,8 @@ describe('atom-steps-modal', () => {
           has-footer=""
           has-divider=""
           header-title="Step 1"
-          disable-primary=""
-          disable-secondary=""
+          disable-primary-button=""
+          disable-secondary-button=""
           part="steps-modal"
           >
           <div class="atom-steps-modal__step" style="display: block;">
