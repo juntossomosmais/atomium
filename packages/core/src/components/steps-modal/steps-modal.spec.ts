@@ -348,7 +348,7 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            custom-initial-step="2"
+            locked-initial-step="2"
             primary-button-texts-by-step="Next, Next, Finish"
             secondary-button-texts-by-step="Close, Close, Previous"
         >
@@ -369,7 +369,7 @@ describe('atom-steps-modal', () => {
     expect(cancelSpy).toHaveBeenCalled()
   })
 
-  it('should adjust progress when customInitialStep is set', async () => {
+  it('should adjust progress when locked-initial-step is set', async () => {
     page = await newSpecPage({
       components: [AtomStepsModal],
       html: `
@@ -378,7 +378,7 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            custom-initial-step="2"
+            locked-initial-step="2"
             primary-button-texts-by-step="Next, Next, Finish"
             secondary-button-texts-by-step="Close, Close, Previous"
         >
@@ -390,8 +390,8 @@ describe('atom-steps-modal', () => {
 
     expect(page.rootInstance.progress).toBe(0.5)
   })
-  
-  it('should set customInitialStep to current step when dismiss is called', async () => {
+
+  it('should set locked-initial-step to current step when dismiss is called', async () => {
     page = await newSpecPage({
       components: [AtomStepsModal],
       html: `
@@ -400,7 +400,7 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            custom-initial-step="2"
+            locked-initial-step="2"
             primary-button-texts-by-step="Next, Next, Finish"
             secondary-button-texts-by-step="Close, Close, Previous"
         >
