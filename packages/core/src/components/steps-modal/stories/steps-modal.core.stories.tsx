@@ -22,7 +22,6 @@ const createModal = (args) => {
         secondary-button-texts-by-step="${args.secondaryButtonTextsByStep}"
         is-open="${args.isOpen}"
         custom-initial-step="${args.customInitialStep}"
-        cancel-button-text="Close"
       >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>

@@ -24,7 +24,6 @@ export class AtomStepsModal {
   @Prop() disablePrimaryButton?: boolean
   @Prop() disableSecondaryButton?: boolean
   @Prop() customInitialStep?: number
-  @Prop() cancelButtonText?: string
   @Prop() primaryButtonTextsByStep: string
   @Prop() secondaryButtonTextsByStep: string
 
@@ -125,9 +124,7 @@ export class AtomStepsModal {
   }
 
   private get secondaryButtonText() {
-    return this.currentStep === this.customInitialStep
-      ? this.cancelButtonText
-      : this.secondaryButtonTextsArray[this.currentStep - 1].trim()
+    return this.secondaryButtonTextsArray[this.currentStep - 1].trim()
   }
 
   private get primaryButtonText() {
@@ -135,14 +132,14 @@ export class AtomStepsModal {
   }
 
   private get progress() {
-    if(this.customInitialStep) {
-      const currentStepAdjustedAsInitial = this.currentStep - this.customInitialStep + 1
-      const stepsQuantityAjustedToCustomInitial = (this.steps + 1 - this.customInitialStep)
+    if (!this.customInitialStep) return this.currentStep / this.steps
 
-      return ( currentStepAdjustedAsInitial / stepsQuantityAjustedToCustomInitial )
-    }
+    const currentStepAdjustedAsInitial =
+      this.currentStep - this.customInitialStep + 1
+    const stepsQuantityAdjustedToCustomInitial =
+      this.steps + 1 - this.customInitialStep
 
-    return this.currentStep / this.steps
+    return currentStepAdjustedAsInitial / stepsQuantityAdjustedToCustomInitial
   }
 
   render() {
