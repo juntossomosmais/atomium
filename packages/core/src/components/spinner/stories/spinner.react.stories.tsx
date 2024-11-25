@@ -10,11 +10,14 @@ export default {
   ...SpinnerStoryArgs,
 } as Meta
 
-const createSpinner = (args) => <AtomSpinner color={args.color} />
+const createSpinner = (args) => (
+  <AtomSpinner type={args.type} number={args.number} />
+)
 
 export const Primary: StoryObj = {
   render: (args) => createSpinner(args),
   args: {
+    number: 40,
     type: 'primary',
   },
 }
@@ -22,6 +25,7 @@ export const Primary: StoryObj = {
 export const Secondary: StoryObj = {
   render: (args) => createSpinner(args),
   args: {
+    ...Primary.args,
     type: 'secondary',
   },
 }
@@ -29,6 +33,7 @@ export const Secondary: StoryObj = {
 export const Dark: StoryObj = {
   render: (args) => createSpinner(args),
   args: {
+    ...Primary.args,
     type: 'dark',
   },
 }

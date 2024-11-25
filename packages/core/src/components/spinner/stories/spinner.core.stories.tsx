@@ -9,12 +9,13 @@ export default {
 } as Meta
 
 const createSpinner = (args) => {
-  return html`<atom-spinner type="${args.type}" />`
+  return html`<atom-spinner type="${args.type}" size="${args.size}" />`
 }
 
 export const Primary: StoryObj = {
   render: (args) => createSpinner(args),
   args: {
+    size: 40,
     type: 'primary',
   },
 }
@@ -22,6 +23,7 @@ export const Primary: StoryObj = {
 export const Secondary: StoryObj = {
   render: (args) => createSpinner(args),
   args: {
+    ...Primary.args,
     type: 'secondary',
   },
 }
@@ -29,6 +31,7 @@ export const Secondary: StoryObj = {
 export const Dark: StoryObj = {
   render: (args) => createSpinner(args),
   args: {
+    ...Primary.args,
     type: 'dark',
   },
 }

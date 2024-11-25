@@ -21,9 +21,8 @@ export const SpinnerStoryArgs = {
     },
     size: {
       control: 'text',
-      defaultValue: { summary: 20 },
-      description:
-        'The type of the Spinner, the component will receive the color according to its type.',
+      defaultValue: { summary: 40 },
+      description: 'The size of the Spinner.',
     },
   },
 }
