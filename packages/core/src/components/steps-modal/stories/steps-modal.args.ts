@@ -144,6 +144,15 @@ export const ModalStoryArgs = {
         category: Category.EVENTS,
       },
     },
+    lockedInitialStep: {
+      control: 'number',
+      description:
+        'Specifies the step index at which the modal will start. Users are restricted from navigating to steps before this index. Attempting to go back beyond this step will emit atom cancel event from the modal.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+
     step_x: {
       name: 'step-x',
       description:
@@ -170,6 +179,7 @@ export const ModalComponentArgs = {
   currentStep: 1,
   isOpen: false,
   closeOnFinish: false,
-  primaryButtonText: 'Next',
-  secondaryButtonText: 'Previous',
+  primaryButtonTextsByStep: 'Continue, Continue, Finish',
+  secondaryButtonTextsByStep: 'Close, Back, Back',
+  lockedInitialStep: 1,
 }

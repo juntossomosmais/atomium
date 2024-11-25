@@ -195,13 +195,15 @@ export namespace Components {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomStepsModal {
+        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep": number;
+        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen": boolean;
-        "primaryButtonText"?: string;
-        "secondaryButtonText"?: string;
+        "primaryButtonTextsByStep": string;
+        "secondaryButtonTextsByStep": string;
         "steps": number;
         "stepsTitles": string;
         "trigger"?: string;
@@ -825,8 +827,10 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomStepsModal {
+        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep"?: number;
+        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen"?: boolean;
@@ -838,8 +842,8 @@ declare namespace LocalJSX {
         "onAtomIsOpenChange"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomNextStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomPreviousStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
-        "primaryButtonText"?: string;
-        "secondaryButtonText"?: string;
+        "primaryButtonTextsByStep"?: string;
+        "secondaryButtonTextsByStep"?: string;
         "steps"?: number;
         "stepsTitles"?: string;
         "trigger"?: string;

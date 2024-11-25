@@ -21,8 +21,8 @@ const createModal = (args, themeColor = 'light') => ({
         trigger="open-modal-steps"
         steps-titles="${args.stepsTitles}"
         close-on-finish="${args.closeOnFinish}"
-        primary-button-text="${args.primaryButtonText}"
-        secondary-button-text="${args.secondaryButtonText}"
+        primary-button-texts-by-step="${args.primaryButtonTextsByStep}"
+        secondary-button-texts-by-step="${args.secondaryButtonTextsByStep}"
         is-open="${args.isOpen}"
       >
         <div slot="step-1">Step 1 Content</div>
@@ -45,6 +45,14 @@ export const CurrentStepAlreadySet: StoryObj = {
   args: {
     ...ModalComponentArgs,
     currentStep: 2,
+  },
+}
+
+export const CustomInitialStep: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    customInitialStep: 2,
   },
 }
 
