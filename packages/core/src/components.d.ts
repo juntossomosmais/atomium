@@ -7,10 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { Mode, TextFieldTypes } from "@ionic/core";
-import { IonTypes } from "@ionic/core/dist/types/components";
+import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export { IconProps } from "./icons";
 export { Mode, TextFieldTypes } from "@ionic/core";
-export { IonTypes } from "@ionic/core/dist/types/components";
+export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
@@ -195,13 +195,12 @@ export namespace Components {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomStepsModal {
-        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep": number;
-        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen": boolean;
+        "lockedInitialStep"?: number;
         "primaryButtonTextsByStep": string;
         "secondaryButtonTextsByStep": string;
         "steps": number;
@@ -827,13 +826,12 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomStepsModal {
-        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep"?: number;
-        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen"?: boolean;
+        "lockedInitialStep"?: number;
         "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;
