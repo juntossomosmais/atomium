@@ -23,7 +23,7 @@ export class AtomStepsModal {
   @Prop() closeOnFinish?: boolean
   @Prop() disablePrimaryButton?: boolean
   @Prop() disableSecondaryButton?: boolean
-  @Prop() customInitialStep?: number
+  @Prop() lockedInitialStep?: number
   @Prop() primaryButtonTextsByStep: string
   @Prop() secondaryButtonTextsByStep: string
 
@@ -52,8 +52,8 @@ export class AtomStepsModal {
       this.currentStep = 1
     }
 
-    if (this.customInitialStep && this.customInitialStep >= 1) {
-      this.currentStep = this.customInitialStep
+    if (this.lockedInitialStep && this.lockedInitialStep >= 1) {
+      this.currentStep = this.lockedInitialStep
     }
 
     this.stepsTitlesArray = this.stepsTitles.split(',')
@@ -94,7 +94,7 @@ export class AtomStepsModal {
   }
 
   private handleSecondaryClick = () => {
-    if (this.currentStep === this.customInitialStep) {
+    if (this.currentStep === this.lockedInitialStep) {
       this.atomCancel.emit()
 
       return
@@ -120,7 +120,7 @@ export class AtomStepsModal {
     e.stopImmediatePropagation()
     this.isOpen = false
     this.atomDidDismiss.emit(this.currentStep)
-    this.currentStep = this.customInitialStep ?? 1
+    this.currentStep = this.lockedInitialStep ?? 1
   }
 
   private get secondaryButtonText() {
@@ -132,12 +132,12 @@ export class AtomStepsModal {
   }
 
   private get progress() {
-    if (!this.customInitialStep) return this.currentStep / this.steps
+    if (!this.lockedInitialStep) return this.currentStep / this.steps
 
     const currentStepAdjustedAsInitial =
-      this.currentStep - this.customInitialStep + 1
+      this.currentStep - this.lockedInitialStep + 1
     const stepsQuantityAdjustedToCustomInitial =
-      this.steps + 1 - this.customInitialStep
+      this.steps + 1 - this.lockedInitialStep
 
     return currentStepAdjustedAsInitial / stepsQuantityAdjustedToCustomInitial
   }
