@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.27.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.27.0...atomium-v2.27.1) (2024-11-25)
+
+
+### Bug Fixes
+
+* **steps-modal:** use correct prop name to disable primary and secondary button ([#630](https://github.com/juntossomosmais/atomium/issues/630)) ([cf3dea9](https://github.com/juntossomosmais/atomium/commit/cf3dea982448e8c058e5f884e21e810031a5f42c))
+
 ## [2.27.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.26.0...atomium-v2.27.0) (2024-11-25)
 
 
