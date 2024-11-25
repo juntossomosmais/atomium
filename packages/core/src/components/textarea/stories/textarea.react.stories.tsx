@@ -1,7 +1,6 @@
+import { AtomTextarea } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
-
-import { AtomTextarea } from '@juntossomosmais/atomium/react'
 
 import { TextareaComponentArgs, TextareaStoryArgs } from './textarea.args'
 
@@ -84,9 +83,9 @@ export const ErrorState: StoryObj = {
         placeholder='Enter a valid email'
         helperText='Example: atomium@juntossomosmais.com.br'
         errorText='Invalid email'
-        type='email'
         onAtomChange={(ev) => validate(ev.target.value)}
         hasError={hasError}
+        value='invalid-email'
       />
     )
   },

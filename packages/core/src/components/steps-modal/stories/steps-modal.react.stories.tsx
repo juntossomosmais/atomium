@@ -18,8 +18,8 @@ const createModal = (args) => (
       trigger='open-modal-steps'
       steps-titles={args.stepsTitles}
       close-on-finish={args.closeOnFinish}
-      primaryButtonText={args.primaryButtonText}
-      secondaryButtonText={args.secondaryButtonText}
+      primaryButtonTextsByStep={args.primaryButtonTextsByStep}
+      secondaryButtonTextsByStep={args.secondaryButtonTextsByStep}
     >
       <div slot='step-1'>Step 1 Content</div>
       <div slot='step-2'>Step 2 Content</div>
@@ -40,6 +40,14 @@ export const CurrentStepAlreadySet: StoryObj = {
   args: {
     ...ModalComponentArgs,
     currentStep: 2,
+  },
+}
+
+export const CustomInitialStep: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    customInitialStep: 2,
   },
 }
 

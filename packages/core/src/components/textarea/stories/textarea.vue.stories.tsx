@@ -1,7 +1,5 @@
-import { Meta, StoryObj } from '@storybook/vue3'
-
 import { AtomTextarea } from '@juntossomosmais/atomium/vue'
-
+import { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
 
 import { TextareaComponentArgs, TextareaStoryArgs } from './textarea.args'
@@ -100,6 +98,7 @@ export const ErrorState = {
         type='email'
         @input="validate($event.target.value)"
         :hasError="hasError"
+        value="invalid-email"
       />
     `,
   }),
