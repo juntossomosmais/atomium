@@ -7,7 +7,7 @@ import { Component, Host, Prop, h } from '@stencil/core'
 })
 export class AtomSpinner {
   @Prop() type: 'primary' | 'secondary' | 'dark' = 'primary'
-  @Prop() size: number | undefined = 40
+  @Prop() size: number = 40
 
   render() {
     const customSize = {

@@ -1,3 +1,5 @@
+import { Category } from '@atomium/storybook-utils/enums/table'
+
 export const SpinnerStoryArgs = {
   decorators: [],
   parameters: {
@@ -18,11 +20,17 @@ export const SpinnerStoryArgs = {
       defaultValue: { summary: 'primary' },
       description:
         'The type of the Spinner, the component will receive the color according to its type.',
+      table: {
+        category: Category.PROPERTIES,
+      },
     },
     size: {
-      control: 'text',
+      control: 'number',
       defaultValue: { summary: 40 },
       description: 'The size of the Spinner.',
+      table: {
+        category: Category.PROPERTIES,
+      },
     },
   },
 }

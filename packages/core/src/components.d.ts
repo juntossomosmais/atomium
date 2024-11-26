@@ -195,7 +195,7 @@ export namespace Components {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomSpinner {
-        "size": number | undefined;
+        "size": number;
         "type": 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepsModal {
@@ -836,7 +836,7 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomSpinner {
-        "size"?: number | undefined;
+        "size"?: number;
         "type"?: 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepsModal {
