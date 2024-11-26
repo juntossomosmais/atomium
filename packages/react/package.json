@@ -2,8 +2,7 @@
   "name": "@juntossomosmais/atomium-react",
   "description": "React transpiled for Atomium",
   "private": true,
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist/"
