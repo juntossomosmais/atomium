@@ -153,8 +153,8 @@ export class AtomStepsModal {
           progress={this.progress}
           has-footer=''
           header-title={this.stepsTitlesArray[this.currentStep - 1].trim()}
-          disable-primary={this.disablePrimaryButton}
-          disable-secondary={this.disableSecondaryButton}
+          disable-primary-button={this.disablePrimaryButton}
+          disable-secondary-button={this.disableSecondaryButton}
           onAtomPrimaryClick={this.handlePrimaryClick}
           onAtomSecondaryClick={this.handleSecondaryClick}
           is-open={this.isOpen}
