@@ -9,7 +9,7 @@ export const SpinnerStoryArgs = {
     docs: {
       description: {
         component:
-          'Spinners are inline block elements that usually appear near another element. Read the [Ionic documentation](https://ionicframework.com/docs/api/Spinner) for more information about this component.',
+          'The Spinner component is a loading indicator that can be used to indicate that a process is running.',
       },
     },
   },
