@@ -1,8 +1,9 @@
 import { AtomButton, AtomIcon } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
-
 import { ButtonComponentArgs, ButtonStoryArgs } from './button.args'
+
+import './button.css'
 
 export default {
   title: 'Components/Button',
@@ -17,6 +18,7 @@ const createButton = (args, themeColor = 'light') => ({
   template: `
     <div :class="'theme-' + themeColor">
       <AtomButton
+        class="button"
         color="${args.color}"
         fill="${args.fill}"
         size="${args.size}"

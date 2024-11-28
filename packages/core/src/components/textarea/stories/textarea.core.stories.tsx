@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
 import { TextareaComponentArgs, TextareaStoryArgs } from './textarea.args'
@@ -71,6 +70,8 @@ export const ErrorState: StoryObj = {
       placeholder="Enter a valid email"
       helper-text="Example: atomium@juntossomosmais.com.br"
       error-text="Invalid email"
+      value="invalid-email"
+      has-error="true"
     ></atom-textarea>
 
     <script>

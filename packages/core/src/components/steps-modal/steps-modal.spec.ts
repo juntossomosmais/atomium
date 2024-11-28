@@ -14,8 +14,8 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            primary-button-text="Next"
-            secondary-button-text="Previous"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
         >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>
@@ -27,8 +27,8 @@ describe('atom-steps-modal', () => {
   it('should render modal with default values', async () => {
     expect(page.root).toEqualHtml(`
         <atom-steps-modal
-          primary-button-text="Next"
-          secondary-button-text="Previous"
+          primary-button-texts-by-step="Next, Next, Finish"
+          secondary-button-texts-by-step="Close, Close, Previous"
           steps="3"
           trigger="open-modal-steps"
           steps-titles="Step 1, Step 2, Step 3"
@@ -39,7 +39,7 @@ describe('atom-steps-modal', () => {
             class="atom-steps-modal"
             primary-button-text="Next"
             progress="0.3333333333333333"
-            secondary-button-text="Previous"
+            secondary-button-text="Close"
             has-footer=""
             has-divider=""
             header-title="Step 1"
@@ -129,8 +129,8 @@ describe('atom-steps-modal', () => {
             steps="3"
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
-            primary-button-text="Next"
-            secondary-button-text="Previous"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
             disable-primary-button
             disable-secondary-button
         >
@@ -143,8 +143,8 @@ describe('atom-steps-modal', () => {
 
     expect(page.root).toEqualHtml(`
       <atom-steps-modal
-        primary-button-text="Next"
-        secondary-button-text="Previous"
+        primary-button-texts-by-step="Next, Next, Finish"
+        secondary-button-texts-by-step="Close, Close, Previous"
         steps="3"
         trigger="open-modal-steps"
         steps-titles="Step 1, Step 2, Step 3"
@@ -157,12 +157,12 @@ describe('atom-steps-modal', () => {
           class="atom-steps-modal"
           primary-button-text="Next"
           progress="0.3333333333333333"
-          secondary-button-text="Previous"
+          secondary-button-text="Close"
           has-footer=""
           has-divider=""
           header-title="Step 1"
-          disable-primary=""
-          disable-secondary=""
+          disable-primary-button=""
+          disable-secondary-button=""
           part="steps-modal"
           >
           <div class="atom-steps-modal__step" style="display: block;">
@@ -273,6 +273,8 @@ describe('atom-steps-modal', () => {
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
             current-step="2"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
         >
         <div slot="step-0">Step 1 Content</div>
         <div slot="step-1">Step 2 Content</div>
@@ -284,6 +286,7 @@ describe('atom-steps-modal', () => {
       page.root?.querySelector('atom-modal')?.getAttribute('header-title')
     ).toBe('Step 2')
   })
+
   it('should close modal when closeOnFinish is set', async () => {
     page = await newSpecPage({
       components: [AtomStepsModal],
@@ -294,6 +297,8 @@ describe('atom-steps-modal', () => {
             trigger="open-modal-steps"
             steps-titles="Step 1, Step 2, Step 3"
             close-on-finish
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
         >
         <div slot="step-1">Step 1 Content</div>
         <div slot="step-2">Step 2 Content</div>
@@ -309,6 +314,7 @@ describe('atom-steps-modal', () => {
 
     expect(page.rootInstance.isOpen).toBe(false)
   })
+
   it('should emit atomIsOpenChange when modal is opened or closed', async () => {
     const isOpenChangeSpy = jest.fn()
 
@@ -331,5 +337,87 @@ describe('atom-steps-modal', () => {
 
     expect(isOpenChangeSpy).toHaveBeenCalledTimes(2)
     expect(isOpenChangeSpy.mock.calls[1][0].detail).toBe(false)
+  })
+
+  it('should emit atom cancel the modal when customInitialStep is set and the secondary button is clicked on that step', async () => {
+    page = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            locked-initial-step="2"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
+        >
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
+      </atom-steps-modal>`,
+    })
+    const cancelSpy = jest.fn()
+
+    page.root?.addEventListener('atomCancel', cancelSpy)
+
+    page.root
+      ?.querySelector('atom-modal')
+      ?.dispatchEvent(new CustomEvent('atomSecondaryClick'))
+
+    expect(page.rootInstance.currentStep).toBe(2)
+    expect(cancelSpy).toHaveBeenCalled()
+  })
+
+  it('should adjust progress when locked-initial-step is set', async () => {
+    page = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            locked-initial-step="2"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
+        >
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
+      </atom-steps-modal>`,
+    })
+
+    expect(page.rootInstance.progress).toBe(0.5)
+  })
+
+  it('should set locked-initial-step to current step when dismiss is called', async () => {
+    page = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+        <atom-button id="open-modal-steps">Open Modal</atom-button>
+        <atom-steps-modal
+            steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            locked-initial-step="2"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
+        >
+        <div slot="step-1">Step 1 Content</div>
+        <div slot="step-2">Step 2 Content</div>
+        <div slot="step-3">Step 3 Content</div>
+      </atom-steps-modal>`,
+    })
+
+    const mockEventObject = {
+      stopImmediatePropagation: jest.fn(),
+    }
+
+    page.rootInstance.handlePrimaryClick()
+    page.rootInstance.handlePrimaryClick()
+    page.rootInstance.handleDidDismiss(mockEventObject)
+
+    expect(page.rootInstance.currentStep).toBe(2)
   })
 })

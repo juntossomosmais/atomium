@@ -80,6 +80,7 @@ export const ErrorState: StoryObj = {
       helper-text="Example: atomium@juntossomosmais.com.br"
       error-text="Invalid email"
       value="invalid-email"
+      has-error="true"
       type="email"
     ></atom-input>
 

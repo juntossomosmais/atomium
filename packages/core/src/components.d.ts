@@ -34,7 +34,7 @@ export namespace Components {
         "items": BreadcrumbItemProp[];
     }
     interface AtomButton {
-        "color": 'primary' | 'secondary' | 'white';
+        "color": 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
@@ -199,13 +199,15 @@ export namespace Components {
         "type": 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepsModal {
+        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep": number;
+        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen": boolean;
-        "primaryButtonText"?: string;
-        "secondaryButtonText"?: string;
+        "primaryButtonTextsByStep": string;
+        "secondaryButtonTextsByStep": string;
         "steps": number;
         "stepsTitles": string;
         "trigger"?: string;
@@ -659,7 +661,7 @@ declare namespace LocalJSX {
         "items"?: BreadcrumbItemProp[];
     }
     interface AtomButton {
-        "color"?: 'primary' | 'secondary' | 'white';
+        "color"?: 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
@@ -840,8 +842,10 @@ declare namespace LocalJSX {
         "type"?: 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepsModal {
+        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep"?: number;
+        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen"?: boolean;
@@ -853,8 +857,8 @@ declare namespace LocalJSX {
         "onAtomIsOpenChange"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomNextStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomPreviousStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
-        "primaryButtonText"?: string;
-        "secondaryButtonText"?: string;
+        "primaryButtonTextsByStep"?: string;
+        "secondaryButtonTextsByStep"?: string;
         "steps"?: number;
         "stepsTitles"?: string;
         "trigger"?: string;
