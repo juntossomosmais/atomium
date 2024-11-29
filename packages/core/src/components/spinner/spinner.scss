@@ -1,78 +1,8 @@
-.container {
-  position: relative;
-}
-
-.atom-spinner {
-  border: calc(var(--size) / 5) solid var(--color-neutral-light-4);
-  border-radius: 50%;
-  height: var(--size);
-  width: var(--size);
-
-  &[data-type='primary'] {
-    border-color: var(--color-brand-primary-light-1);
-  }
-}
-
-.atom-spinner__top-border {
-  animation: rotate 1s linear infinite;
-  border: calc(var(--size) / 5) solid transparent;
-  border-radius: 50%;
-  border-top-color: var(--color-neutral-white);
-  height: var(--size);
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: var(--size);
-
-  &[data-type='secondary'] {
-    border-top-color: var(--color-brand-secondary-regular);
-  }
-
-  &[data-type='dark'] {
-    border-top-color: var(--color-neutral-light-1);
-  }
-
-  &::before,
-  &::after {
-    background-color: var(--color-neutral-white);
-    border-radius: 50%;
-    content: '';
-    height: calc(var(--size) / 5);
-    position: absolute;
-    top: calc((var(--size) / 20) * -1);
-    width: calc(var(--size) / 5);
-  }
-
-  &::before {
-    left: 0;
-  }
-
-  &::after {
-    right: 0;
-  }
-
-  &[data-type='secondary']::before,
-  &[data-type='secondary']::after {
-    background-color: var(--color-brand-secondary-regular);
-  }
-
-  &[data-type='dark']::before,
-  &[data-type='dark']::after {
-    background-color: var(--color-neutral-light-1);
-  }
+svg {
+  animation: rotate 1.5s linear infinite;
 }
 
 @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes rotate2 {
   from {
     transform: rotate(0deg);
   }
