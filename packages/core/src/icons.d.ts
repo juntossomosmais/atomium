@@ -196,3 +196,4 @@ export type IconProps =
   | 'watch-later'
   | 'whatsapp'
   | 'youtube'
+  | 'sentiment-dissatisfied'
