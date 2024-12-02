@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.28.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.27.1...atomium-v2.28.0) (2024-12-02)
+
+
+### Features
+
+* **icons:** add new icon ([#644](https://github.com/juntossomosmais/atomium/issues/644)) ([e0e6f3b](https://github.com/juntossomosmais/atomium/commit/e0e6f3b9a45369fef856214b1e6807cbaedd6a87))
+
 ## [2.27.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.27.0...atomium-v2.27.1) (2024-11-25)
 
 
