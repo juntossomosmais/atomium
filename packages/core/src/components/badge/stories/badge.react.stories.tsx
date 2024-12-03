@@ -1,7 +1,6 @@
+import { AtomBadge } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
-
-import { AtomBadge } from '@juntossomosmais/atomium/react'
 
 import { BadgeStoryArgs } from './badge.args'
 

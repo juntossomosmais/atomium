@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.29.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.28.0...atomium-v2.29.0) (2024-12-03)
+
+
+### Features
+
+* **component:** create spinner component ([#628](https://github.com/juntossomosmais/atomium/issues/628)) ([44d800a](https://github.com/juntossomosmais/atomium/commit/44d800ac2e366cd404140d9d2d66fea76720765d))
+* **icon:** add new icon add-circle-outline ([#648](https://github.com/juntossomosmais/atomium/issues/648)) ([36622f0](https://github.com/juntossomosmais/atomium/commit/36622f02f9c2746a64ad0f1acb0a69554f5a6484))
+
+## [2.28.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.27.1...atomium-v2.28.0) (2024-12-02)
+
+
+### Features
+
+* **icons:** add new icon ([#644](https://github.com/juntossomosmais/atomium/issues/644)) ([e0e6f3b](https://github.com/juntossomosmais/atomium/commit/e0e6f3b9a45369fef856214b1e6807cbaedd6a87))
+
 ## [2.27.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.27.0...atomium-v2.27.1) (2024-11-25)
 
 

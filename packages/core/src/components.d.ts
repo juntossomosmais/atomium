@@ -194,6 +194,10 @@ export namespace Components {
         "setTagInSelectOptions": () => Promise<void>;
         "value"?: IonTypes.IonSelect['value'];
     }
+    interface AtomSpinner {
+        "size": number;
+        "type": 'primary' | 'secondary' | 'dark';
+    }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         "currentStep": number;
@@ -532,6 +536,12 @@ declare global {
         prototype: HTMLAtomSelectElement;
         new (): HTMLAtomSelectElement;
     };
+    interface HTMLAtomSpinnerElement extends Components.AtomSpinner, HTMLStencilElement {
+    }
+    var HTMLAtomSpinnerElement: {
+        prototype: HTMLAtomSpinnerElement;
+        new (): HTMLAtomSpinnerElement;
+    };
     interface HTMLAtomStepsModalElementEventMap {
         "atomFinish": any;
         "atomCancel": any;
@@ -618,6 +628,7 @@ declare global {
         "atom-list-slider-item": HTMLAtomListSliderItemElement;
         "atom-modal": HTMLAtomModalElement;
         "atom-select": HTMLAtomSelectElement;
+        "atom-spinner": HTMLAtomSpinnerElement;
         "atom-steps-modal": HTMLAtomStepsModalElement;
         "atom-tag": HTMLAtomTagElement;
         "atom-textarea": HTMLAtomTextareaElement;
@@ -825,6 +836,10 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
         "value"?: IonTypes.IonSelect['value'];
     }
+    interface AtomSpinner {
+        "size"?: number;
+        "type"?: 'primary' | 'secondary' | 'dark';
+    }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         "currentStep"?: number;
@@ -948,6 +963,7 @@ declare namespace LocalJSX {
         "atom-list-slider-item": AtomListSliderItem;
         "atom-modal": AtomModal;
         "atom-select": AtomSelect;
+        "atom-spinner": AtomSpinner;
         "atom-steps-modal": AtomStepsModal;
         "atom-tag": AtomTag;
         "atom-textarea": AtomTextarea;
@@ -975,6 +991,7 @@ declare module "@stencil/core" {
             "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
             "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
+            "atom-spinner": LocalJSX.AtomSpinner & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
             "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
             "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
