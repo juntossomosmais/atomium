@@ -44,7 +44,7 @@
     "@juntossomosmais/linters": "^0.21.0",
     "@nrwl/workspace": "19.6.4",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@stencil/react-output-target": "^0.5.3",
+    "@stencil/react-output-target": "^0.7.4",
     "@stencil/sass": "^3.0.12",
     "@stencil/vue-output-target": "^0.8.9",
     "@storybook/addon-a11y": "^7.6.17",
