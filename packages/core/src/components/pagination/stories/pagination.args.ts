@@ -4,14 +4,15 @@ export const PaginationStoryArgs = {
   parameters: {
     docs: {
       description: {
-        component: '',
+        component:
+          'A pagination component is an interface that allows users to navigate through large amounts of content that has been split into multiple pages',
       },
     },
   },
   argTypes: {
     page: {
       control: 'number',
-      description: 'The current page.',
+      description: 'Current page.',
       table: {
         category: Category.PROPERTIES,
       },
