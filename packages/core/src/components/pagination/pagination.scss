@@ -21,11 +21,11 @@
       text-align: center;
       width: var(--spacing-xxlarge);
 
-      &:not(&--ellipsis):hover {
+      &:not(.has-ellipsis):hover {
         background-color: var(--color-neutral-light-4);
       }
 
-      &--active {
+      &.is-active {
         color: var(--color-neutral-regular);
         font-weight: var(--font-weight-bold);
 
@@ -41,7 +41,7 @@
         }
       }
 
-      &--ellipsis {
+      &.has-ellipsis {
         cursor: auto;
         height: 100%;
       }

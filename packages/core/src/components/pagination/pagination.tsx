@@ -92,7 +92,7 @@ export class AtomPagination {
             <button
               class={{
                 'atom-pagination__nav-item': true,
-                'atom-pagination__nav-item--active': !!currentPage,
+                'is-active': !!currentPage,
               }}
               onClick={() => this.handleChangePage(item.number)}
             >
@@ -109,7 +109,7 @@ export class AtomPagination {
             <span
               class={{
                 'atom-pagination__nav-item': true,
-                'atom-pagination__nav-item--ellipsis': true,
+                'has-ellipsis': true,
               }}
             >
               ...
