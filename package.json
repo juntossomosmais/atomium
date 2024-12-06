@@ -42,7 +42,7 @@
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.4.1",
     "@juntossomosmais/linters": "^0.21.0",
-    "@nrwl/workspace": "19.6.4",
+    "@nrwl/workspace": "19.8.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@stencil/react-output-target": "^0.5.3",
     "@stencil/sass": "^3.0.12",
