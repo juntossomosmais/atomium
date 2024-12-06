@@ -171,6 +171,10 @@ export namespace Components {
         "secondaryButtonText"?: string;
         "trigger"?: string;
     }
+    interface AtomPagination {
+        "count": number;
+        "page": number;
+    }
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
@@ -199,13 +203,12 @@ export namespace Components {
         "type": 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepsModal {
-        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep": number;
-        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen": boolean;
+        "lockedInitialStep"?: number;
         "primaryButtonTextsByStep": string;
         "secondaryButtonTextsByStep": string;
         "steps": number;
@@ -315,6 +318,10 @@ export interface AtomListSliderCustomEvent<T> extends CustomEvent<T> {
 export interface AtomModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomModalElement;
+}
+export interface AtomPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomPaginationElement;
 }
 export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -516,6 +523,23 @@ declare global {
         prototype: HTMLAtomModalElement;
         new (): HTMLAtomModalElement;
     };
+    interface HTMLAtomPaginationElementEventMap {
+        "atomChangePage": number;
+    }
+    interface HTMLAtomPaginationElement extends Components.AtomPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomPaginationElementEventMap>(type: K, listener: (this: HTMLAtomPaginationElement, ev: AtomPaginationCustomEvent<HTMLAtomPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomPaginationElementEventMap>(type: K, listener: (this: HTMLAtomPaginationElement, ev: AtomPaginationCustomEvent<HTMLAtomPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomPaginationElement: {
+        prototype: HTMLAtomPaginationElement;
+        new (): HTMLAtomPaginationElement;
+    };
     interface HTMLAtomSelectElementEventMap {
         "atomBlur": void;
         "atomCancel": void;
@@ -628,6 +652,7 @@ declare global {
         "atom-list-slider": HTMLAtomListSliderElement;
         "atom-list-slider-item": HTMLAtomListSliderItemElement;
         "atom-modal": HTMLAtomModalElement;
+        "atom-pagination": HTMLAtomPaginationElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-spinner": HTMLAtomSpinnerElement;
         "atom-steps-modal": HTMLAtomStepsModalElement;
@@ -810,6 +835,11 @@ declare namespace LocalJSX {
         "secondaryButtonText"?: string;
         "trigger"?: string;
     }
+    interface AtomPagination {
+        "count"?: number;
+        "onAtomChangePage"?: (event: AtomPaginationCustomEvent<number>) => void;
+        "page"?: number;
+    }
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
@@ -842,13 +872,12 @@ declare namespace LocalJSX {
         "type"?: 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepsModal {
-        "cancelButtonText"?: string;
         "closeOnFinish"?: boolean;
         "currentStep"?: number;
-        "customInitialStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "isOpen"?: boolean;
+        "lockedInitialStep"?: number;
         "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;
@@ -964,6 +993,7 @@ declare namespace LocalJSX {
         "atom-list-slider": AtomListSlider;
         "atom-list-slider-item": AtomListSliderItem;
         "atom-modal": AtomModal;
+        "atom-pagination": AtomPagination;
         "atom-select": AtomSelect;
         "atom-spinner": AtomSpinner;
         "atom-steps-modal": AtomStepsModal;
@@ -992,6 +1022,7 @@ declare module "@stencil/core" {
             "atom-list-slider": LocalJSX.AtomListSlider & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
             "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
             "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
+            "atom-pagination": LocalJSX.AtomPagination & JSXBase.HTMLAttributes<HTMLAtomPaginationElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-spinner": LocalJSX.AtomSpinner & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
             "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
