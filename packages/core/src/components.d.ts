@@ -7,10 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { Mode, TextFieldTypes } from "@ionic/core";
-import { IonTypes } from "@ionic/core/dist/types/components";
+import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export { IconProps } from "./icons";
 export { Mode, TextFieldTypes } from "@ionic/core";
-export { IonTypes } from "@ionic/core/dist/types/components";
+export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;

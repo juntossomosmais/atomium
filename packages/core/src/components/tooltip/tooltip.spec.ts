@@ -29,7 +29,7 @@ describe('AtomTooltip', () => {
             <div class=\"atom-tooltip__content\">
               <slot></slot>
             </div>
-            <div aria-hidden=\"\" class=\"atom-tooltip__arrow\"></div>
+            <div aria-hidden=\"\" class=\"atom-tooltip__arrow\"  style="position: absolute;"></div>
           </div>
         </mock:shadow-root>
         John Doe
