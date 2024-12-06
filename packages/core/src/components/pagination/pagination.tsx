@@ -38,6 +38,12 @@ export class AtomPagination {
   makeItems() {
     const items = []
 
+    if (this.count <= 1) {
+      items.push({ type: 'page', number: 1 })
+
+      return items
+    }
+
     const siblingsStart = Math.max(
       Math.min(
         this.page - this.sibling,
