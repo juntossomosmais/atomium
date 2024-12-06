@@ -55,7 +55,7 @@
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
-    "@storybook/theming": "^7.6.17",
+    "@storybook/theming": "^8.4.6",
     "@storybook/vue3": "^7.6.6",
     "@storybook/vue3-vite": "^7.6.6",
     "@storybook/web-components": "^7.6.17",
