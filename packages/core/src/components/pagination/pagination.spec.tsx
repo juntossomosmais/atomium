@@ -53,6 +53,18 @@ describe('atom-pagination', () => {
     ])
   })
 
+  it('generates correct pagination items when count is equal or less 1', async () => {
+    const page = await newSpecPage({
+      components: [AtomPagination],
+      html: `<atom-pagination page="1" count="1"></atom-pagination>`,
+    })
+
+    const pagination = page.rootInstance
+    const items = pagination.makeItems()
+
+    expect(items).toEqual([{ type: 'page', number: 1 }])
+  })
+
   it('generates correct boundary pagination items', async () => {
     const page = await newSpecPage({
       components: [AtomPagination],
