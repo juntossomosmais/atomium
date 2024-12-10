@@ -8,10 +8,6 @@
 * **pagination:** create pagination component ([#647](https://github.com/juntossomosmais/atomium/issues/647)) ([66a2b6b](https://github.com/juntossomosmais/atomium/commit/66a2b6b0bba12a25e86c8768ff6a0aad0afc6a17))
 
 
-### Bug Fixes
-
-* **pagination:** edge case when count is equal a 1 ([#650](https://github.com/juntossomosmais/atomium/issues/650)) ([7bd25d1](https://github.com/juntossomosmais/atomium/commit/7bd25d14065ff87f56499509ede4dbd579e19d84))
-
 ## [2.29.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.28.0...atomium-v2.29.0) (2024-12-03)
 
 
