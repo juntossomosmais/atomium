@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.31.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.30.0...atomium-v2.31.0) (2024-12-13)
+
+
+### Features
+
+* **icons:** add star-circle icon ([#652](https://github.com/juntossomosmais/atomium/issues/652)) ([7f76790](https://github.com/juntossomosmais/atomium/commit/7f767901b6c3415f7ae53bbe1535853207a0d360))
+
 ## [2.30.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.29.0...atomium-v2.30.0) (2024-12-10)
 
 
