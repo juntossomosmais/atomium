@@ -63,7 +63,7 @@ jobs:
 
       - name: Install dependencies
         if: ${{ steps.release.outputs.releases_created }}
-        run: npm ci --legacy-peer-deps
+        run: npm ci --legacy-peer-deps && npx nx clear-cache
 
       - name: Build and publish Core
         if: ${{ steps.release.outputs['packages/core--release_created'] }}
