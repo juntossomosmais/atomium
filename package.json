@@ -15,7 +15,7 @@
     "utils/*"
   ],
   "scripts": {
-    "build": "nx build @juntossomosmais/atomium && nx build @juntossomosmais/atomium-react && nx build @juntossomosmais/atomium-vue",
+    "build": "nx clear-cache && nx build @juntossomosmais/atomium && nx build @juntossomosmais/atomium-react && nx build @juntossomosmais/atomium-vue",
     "docs:build": "nx build @atomium/docs && nx build @atomium/docs-react && nx build @atomium/docs-vue",
     "docs-react:start": "nx run @atomium/docs-react:start",
     "docs-vue:start": "nx run @atomium/docs-vue:start",
