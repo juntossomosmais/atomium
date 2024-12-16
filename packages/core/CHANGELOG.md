@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.31.0...atomium-v3.0.0) (2024-12-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core:** update stencil and ionic ([#632](https://github.com/juntossomosmais/atomium/issues/632))
+
+### Features
+
+* **core:** update stencil and ionic ([#632](https://github.com/juntossomosmais/atomium/issues/632)) ([a2c3d06](https://github.com/juntossomosmais/atomium/commit/a2c3d068b497c48d9c9875fc47537272dcf37d36))
+
 ## [2.31.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.30.0...atomium-v2.31.0) (2024-12-13)
 
 
