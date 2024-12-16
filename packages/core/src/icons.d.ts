@@ -167,6 +167,7 @@ export type IconProps =
   | 'share-variant'
   | 'shopping-outline'
   | 'shopping'
+  | 'star-circle'
   | 'star-outline'
   | 'star'
   | 'store-outline'

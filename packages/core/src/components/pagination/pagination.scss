@@ -1,0 +1,50 @@
+.atom-pagination {
+  &__nav {
+    align-items: center;
+    display: flex;
+    font: var(--text-body-small);
+    gap: var(--spacing-xsmall);
+    letter-spacing: var(--text-body-small-letter);
+    list-style: none;
+
+    &-item {
+      background: none;
+      border: none;
+      color: var(--color-brand-secondary-regular);
+      cursor: pointer;
+      display: block;
+      font: var(--text-body-small);
+      height: var(--spacing-xxlarge);
+      letter-spacing: var(--text-body-small-letter);
+      padding: 0;
+      position: relative;
+      text-align: center;
+      width: var(--spacing-xxlarge);
+
+      &:not(.has-ellipsis):hover {
+        background-color: var(--color-neutral-light-4);
+      }
+
+      &.is-active {
+        color: var(--color-neutral-regular);
+        font-weight: var(--font-weight-bold);
+
+        &::after {
+          background: var(--color-neutral-light-1);
+          border-radius: 9px;
+          bottom: 0;
+          content: '';
+          height: var(--spacing-xxsmall);
+          left: 0;
+          position: absolute;
+          width: 100%;
+        }
+      }
+
+      &.has-ellipsis {
+        cursor: auto;
+        height: 100%;
+      }
+    }
+  }
+}
