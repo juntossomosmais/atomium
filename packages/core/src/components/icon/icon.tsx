@@ -50,7 +50,7 @@ export class AtomIcon {
     this.updateSize(this.size)
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Host aria-hidden='true'>
         <ion-icon

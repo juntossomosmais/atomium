@@ -161,7 +161,7 @@ export class AtomSelect {
     this.atomDismiss.emit()
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Host
         class={{
