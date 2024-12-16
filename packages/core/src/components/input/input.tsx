@@ -126,7 +126,7 @@ export class AtomInput {
     this.atomFocus.emit()
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Host>
         <ion-input
