@@ -4,8 +4,6 @@ import { reactOutputTarget } from '@stencil/react-output-target'
 import { sass } from '@stencil/sass'
 import { vueOutputTarget } from '@stencil/vue-output-target'
 
-import { reactBooleanFixOutputTarget } from './output-target/react-boolean'
-
 // Since Ionic components are imported in `global.ts`
 // we need to exclude them here to avoid unnecessary imports in the React and Vue output module
 const excludeComponents = [
@@ -127,6 +125,10 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
+    {
+      type: 'dist-custom-elements',
+      externalRuntime: false,
+    },
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../vue/src/components/index.ts',
@@ -135,15 +137,9 @@ export const config: Config = {
       excludeComponents,
     }),
     reactOutputTarget({
-      componentCorePackage: '@juntossomosmais/atomium',
-      proxiesFile: '../react/src/components/index.ts',
-      includeDefineCustomElements: true,
-      includePolyfills: false,
+      stencilPackageName: '@juntossomosmais/atomium',
+      outDir: '../react/src/components',
       excludeComponents,
-    }),
-    reactBooleanFixOutputTarget({
-      attachPropsFile:
-        '../../react/src/components/react-component-lib/utils/attachProps.ts',
     }),
   ] as OutputTargetCustom[],
 }
