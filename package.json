@@ -30,9 +30,9 @@
     "tokens:build": "nx build @juntossomosmais/atomium-tokens"
   },
   "dependencies": {
-    "@ionic/core": "^7.8.6",
+    "@ionic/core": "^8.4.1",
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "~4.17.2"
+    "@stencil/core": "~4.22.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -42,7 +42,7 @@
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.4.1",
     "@juntossomosmais/linters": "^0.21.0",
-    "@nrwl/workspace": "19.8.4",
+    "@nrwl/workspace": "19.6.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@stencil/react-output-target": "^0.5.3",
     "@stencil/sass": "^3.0.12",
@@ -52,7 +52,7 @@
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-mdx-gfm": "^7.6.17",
     "@storybook/addons": "^7.6.17",
-    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/preset-typescript": "^2.1.0",
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/theming": "^7.6.17",
@@ -107,6 +107,9 @@
     "typescript": "^5.5.4",
     "vite": "^5.4.2",
     "vue": "^3.4.38"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
