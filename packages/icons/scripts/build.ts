@@ -4,8 +4,20 @@ import { optimize } from 'svgo'
 
 import { readSvg, readSvgDirectories, writeSvgFile } from './helpers.js'
 
-function optimizeSvg(path: string, svg: string) {
-  const optimizedSvg = optimize(svg, { path })
+function optimizeSvg(filePath: string, svg: string) {
+  const optimizedSvg = optimize(svg, {
+    path: filePath,
+    plugins: [
+      {
+        name: 'preset-default',
+        params: {
+          overrides: {
+            removeViewBox: false,
+          },
+        },
+      },
+    ],
+  })
 
   return optimizedSvg.data
 }
