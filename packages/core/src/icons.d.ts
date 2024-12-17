@@ -145,6 +145,7 @@ export type IconProps =
   | 'open-in-new'
   | 'outline-person-blocked'
   | 'pencil'
+  | 'pets'
   | 'phone-outline'
   | 'phone'
   | 'play-box-multiple-outline'
