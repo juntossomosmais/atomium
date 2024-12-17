@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.0.0...atomium-v3.1.0) (2024-12-17)
+
+
+### Features
+
+* **icons:** add pets icon ([#665](https://github.com/juntossomosmais/atomium/issues/665)) ([96de054](https://github.com/juntossomosmais/atomium/commit/96de0543e4c19a39acc313094b8f4f07fa4ee755))
+
 ## [3.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.31.0...atomium-v3.0.0) (2024-12-17)
 
 
