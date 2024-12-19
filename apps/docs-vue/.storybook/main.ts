@@ -1,7 +1,7 @@
 module.exports = {
   stories: [
-    '../stories/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../../../packages/core/src/**/*.vue.stories.@(js|jsx|ts|tsx|mdx)',
+    '../stories/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../../../packages/core/src/**/*.vue.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [
     '@storybook/addon-essentials',
@@ -10,6 +10,8 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/theming',
+    '@storybook/addon-mdx-gfm',
+    '@storybook/addon-webpack5-compiler-babel',
   ],
   framework: {
     name: '@storybook/vue3-vite',
