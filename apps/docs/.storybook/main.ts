@@ -35,12 +35,10 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-essentials',
-    '@storybook/addon-docs',
     '@storybook/addon-actions',
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
     '@storybook/theming',
-    '@storybook/addon-mdx-gfm',
     '@storybook/addon-webpack5-compiler-babel',
   ],
   staticDirs: ['../../../packages/icons/svg'],
