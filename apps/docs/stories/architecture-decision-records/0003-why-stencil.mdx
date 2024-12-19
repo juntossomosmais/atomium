@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta } from '@storybook/blocks'
 
-<Meta title='Docs/Architecture Decision Records/ADR 0003: Why Stencil?' />
+<Meta title="Docs/Architecture Decision Records/ADR 0003: Why Stencil?" />
 
 # ADR 0003: Why Stencil?
 
@@ -12,17 +12,17 @@ We need to choose a framework to build our web components library
 
 ## Decision Drivers
 
-- We need to build a web components library that is lightweight and performant.
-- We need a solution that is framework agnostic, so we can use it with any JavaScript framework.
-- We want to use a compiler to generate web components, to make development easier and more efficient.
-- We want to use a framework that has a good community, so we can get support and contribute to the ecosystem.
-- We need good integration with Ionic, React, and Vue, as these are the frameworks we use in our projects.
+* We need to build a web components library that is lightweight and performant.
+* We need a solution that is framework agnostic, so we can use it with any JavaScript framework.
+* We want to use a compiler to generate web components, to make development easier and more efficient.
+* We want to use a framework that has a good community, so we can get support and contribute to the ecosystem.
+* We need good integration with Ionic, React, and Vue, as these are the frameworks we use in our projects.
 
 ## Considered Options
 
-- **[Lit](https://lit.dev/)**: A library for building fast, lightweight web components. Not a compiler, so we would need to use a separate tool to generate web components.
-- **[Svelte](https://svelte.dev/)**: A framework that shifts most of the work to a compile step, making it fast and lightweight. Not a compiler for web components, so we would need to use a separate tool to generate them.
-- **[Stencil](https://stenciljs.com/)**: A compiler for generating web components and progressive web apps. Framework agnostic with a good community and good integrations with Ionic, React, and Vue.
+* **[Lit](https://lit.dev/)**: A library for building fast, lightweight web components. Not a compiler, so we would need to use a separate tool to generate web components.
+* **[Svelte](https://svelte.dev/)**: A framework that shifts most of the work to a compile step, making it fast and lightweight. Not a compiler for web components, so we would need to use a separate tool to generate them.
+* **[Stencil](https://stenciljs.com/)**: A compiler for generating web components and progressive web apps. Framework agnostic with a good community and good integrations with Ionic, React, and Vue.
 
 ## Decision
 
