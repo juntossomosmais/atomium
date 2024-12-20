@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta } from '@storybook/blocks'
 
-<Meta title='Docs/Architecture Decision Records/ADR 0010: Why do we need a fix in React?' />
+<Meta title="Docs/Architecture Decision Records/ADR 0010: Why do we need a fix in React?" />
 
 # ADR 0010: Why do we need a fix in React?
 
@@ -45,8 +45,8 @@ expect(atom - button).toBeDisabled()
 
 After we consider the options:
 
-- Living with the problem for possibly in the near future react will offer better [support](https://github.com/facebook/react/issues/11347) for web-components.
+* Living with the problem for possibly in the near future react will offer better [support](https://github.com/facebook/react/issues/11347) for web-components.
   > We can see [tests in a experimental branch here](https://custom-elements-everywhere.com/libraries/react-experimental/results/results.html)
-- We are already transpiling the web-component to React, could use a workaround.
+* We are already transpiling the web-component to React, could use a workaround.
 
 Based on these options, we decide to use workaround which will basically set/remove attributes after [occurs a update in component.](https://react.dev/reference/react/Component#componentdidupdate)

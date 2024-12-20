@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta } from '@storybook/blocks'
 
 <Meta title="Docs/Architecture Decision Records/ADR 0013: Why do we need to convert carousel item" />
 
@@ -25,16 +25,16 @@ To convert the inner `<atom-carousel-item>` to `<swiper-slide>`, and we have two
 
 ## Decision Drivers
 
-- Performance
-- Complexity
-- Compatibility
+* Performance
+* Complexity
+* Compatibility
 
 ### Performance
 
 We had performed a test with both approach using 9 items inside the Carousel:
 
-- With children `atom-carousel-item` doing the conversion, it took _0.50ms_
-- With parent `atom-carousel` doing the conversion, it took _0.20ms_
+* With children `atom-carousel-item` doing the conversion, it took *0.50ms*
+* With parent `atom-carousel` doing the conversion, it took *0.20ms*
 
 ### Complexity
 
@@ -72,7 +72,7 @@ Taking in consideration the complexity of both codes, not only the parent's conv
 
 This subject was in fact the decision maker, even tho the performance of the first approach took half of the time, when it came to compatibility we discovered why.
 
-For simples cases, such static card, plain text or image showcases, no difference between both, but when we started to use with complex components, that had to deal with framework functions such reactivity we face a bigger issue. The HTMLString conversion component loose _"connections "_ with the inner content. So it just became a plain HTML String copy, instead of a state and object reference.
+For simples cases, such static card, plain text or image showcases, no difference between both, but when we started to use with complex components, that had to deal with framework functions such reactivity we face a bigger issue. The HTMLString conversion component loose *"connections "* with the inner content. So it just became a plain HTML String copy, instead of a state and object reference.
 When using `.innerHTML.replace` our components lost its ability to re-render once loading is ready, update values and even trigger framework events.
 
 When using `appendChild` behavior, we copy the whole HTMLElement and its props, functions, children, and every memory reference we had. And working as needed and expected.
@@ -83,4 +83,4 @@ Once a perfect work alongside with frameworks such React and Vue is one of the m
 
 ### Alert
 
-Because of the need of _transport_ of `atom-carousel-item` content to inside `swiper-slide` to achieve framework compatibility we loose the lazy property. At our case is not a problem because swiper-slide's lazy property only add a loading spinner while image loads.
+Because of the need of *transport* of `atom-carousel-item` content to inside `swiper-slide` to achieve framework compatibility we loose the lazy property. At our case is not a problem because swiper-slide's lazy property only add a loading spinner while image loads.

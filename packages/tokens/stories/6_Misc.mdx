@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from '@storybook/blocks'
 import { Box, BoxList } from './components/Box.jsx'
 
-<Meta title='Tokens/Misc' />
+<Meta title="Tokens/Misc" />
 
 # Miscellaneous
 
@@ -25,10 +25,13 @@ This token must be used **only** with `border-radius` CSS property.
 ### Example
 
 <BoxList>
-  <Box borderRadius='var(--border-radius)' />
-  <Box borderRadius='var(--border-radius-medium)' />
-  <Box borderRadius='var(--border-radius-large)' />
-  <Box borderRadius='var(--border-radius-full)' />
+  <Box borderRadius="var(--border-radius)" />
+
+  <Box borderRadius="var(--border-radius-medium)" />
+
+  <Box borderRadius="var(--border-radius-large)" />
+
+  <Box borderRadius="var(--border-radius-full)" />
 </BoxList>
 
 ## transition-duration
