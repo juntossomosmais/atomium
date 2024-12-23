@@ -196,6 +196,7 @@ export type IconProps =
   | 'upload'
   | 'verified-outline'
   | 'verified'
+  | 'videogame-asset'
   | 'wallet-giftcard'
   | 'watch-later-outline'
   | 'watch-later'
