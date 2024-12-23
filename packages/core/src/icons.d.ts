@@ -150,6 +150,7 @@ export type IconProps =
   | 'pets'
   | 'phone-outline'
   | 'phone'
+  | 'photo-camera'
   | 'play-box-multiple-outline'
   | 'play-box-multiple'
   | 'play-circle-outline'
