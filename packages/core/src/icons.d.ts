@@ -142,6 +142,7 @@ export type IconProps =
   | 'microsoft-word'
   | 'minus-thick'
   | 'minus'
+  | 'monetization'
   | 'my-location'
   | 'open-in-new'
   | 'outline-person-blocked'
