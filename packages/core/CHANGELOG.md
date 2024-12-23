@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.1.0...atomium-v3.2.0) (2024-12-23)
+
+
+### Features
+
+* **icons:** add category, videogame and monetization icon ([#669](https://github.com/juntossomosmais/atomium/issues/669)) ([90cf61d](https://github.com/juntossomosmais/atomium/commit/90cf61d36757bf3ad8b1ab6e39df666931b6e1ca))
+
 ## [3.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.0.0...atomium-v3.1.0) (2024-12-17)
 
 
