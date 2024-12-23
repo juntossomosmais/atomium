@@ -51,6 +51,7 @@ export type IconProps =
   | 'bell'
   | 'calendar-today-outline'
   | 'calendar-today'
+  | 'category'
   | 'cellphone-settings'
   | 'cellphone'
   | 'chat-outline'
