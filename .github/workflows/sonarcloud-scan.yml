@@ -36,11 +36,7 @@ jobs:
           node-version: 18
           registry-url: 'https://npm.pkg.github.com'
           token: ${{ secrets.GH_ACTIONS }}
-
-      - name: Create .npmrc
-        run: |
-          echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
+          scope: '@juntossomosmais'
 
       - name: Cache node modules
         id: cache-npm
@@ -54,11 +50,6 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
-      - name: List the state of node modules
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        continue-on-error: true
-        run: npm list
 
       - name: Install dependencies and build libs 🔧
         run: npm ci --legacy-peer-deps
