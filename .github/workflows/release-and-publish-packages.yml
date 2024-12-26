@@ -59,7 +59,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: |
           echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
 
       - name: Install dependencies
         if: ${{ steps.release.outputs.releases_created }}
