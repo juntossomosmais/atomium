@@ -46,11 +46,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: List the state of node modules
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        continue-on-error: true
-        run: npm list
-
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
         continue-on-error: false

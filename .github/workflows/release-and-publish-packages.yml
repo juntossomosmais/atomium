@@ -42,10 +42,6 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: List the state of node modules
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }} && ${{ steps.release.outputs.releases_created }}
-        continue-on-error: true
-        run: npm list
 
       - name: Setup Node
         if: ${{ steps.release.outputs.releases_created }}
