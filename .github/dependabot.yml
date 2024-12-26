@@ -8,3 +8,20 @@ updates:
     rebase-strategy: 'disabled'
     target-branch: main
     open-pull-requests-limit: 10
+    groups:
+      production-dependencies:
+        dependency-type: 'production'
+      development-dependencies:
+        dependency-type: 'development'
+      storybook:
+        patterns:
+          - '@storybook*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      stencil:
+        patterns:
+          - '@stencil*'
+        update-types:
+          - 'minor'
+          - 'patch'
