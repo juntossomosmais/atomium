@@ -16,12 +16,16 @@ updates:
       storybook:
         patterns:
           - '@storybook*'
-        update-types:
-          - 'minor'
-          - 'patch'
       stencil:
         patterns:
           - '@stencil*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      nx:
+        patterns:
+          - '@nrwl*'
+          - 'nx*'
         update-types:
           - 'minor'
           - 'patch'
