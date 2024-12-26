@@ -111,7 +111,7 @@
     "vue": "^3.4.38"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+    "@rollup/rollup-linux-x64-gnu": "4.29.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
