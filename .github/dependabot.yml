@@ -25,6 +25,7 @@ updates:
       nx:
         patterns:
           - '@nrwl*'
+          - '@nx*'
           - 'nx*'
         update-types:
           - 'minor'
@@ -35,7 +36,7 @@ updates:
           - '@types/react*'
       babel:
         patterns:
-          - 'babel*'
+          - '@babel*'
       commitlint:
         patterns:
           - '@commitlint*'
