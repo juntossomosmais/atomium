@@ -37,11 +37,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           token: ${{ secrets.GH_ACTIONS }}
 
-      - name: Create .npmrc
-        run: |
-          echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
-
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -56,7 +51,10 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install dependencies and build libs 🔧
-        run: npm ci --legacy-peer-deps
+        run: |
+          echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
+          npm ci --legacy-peer-deps
         continue-on-error: false
 
       - name: Define test script to run

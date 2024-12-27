@@ -28,11 +28,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           token: ${{ secrets.GH_ACTIONS }}
 
-      - name: Create .npmrc
-        run: |
-          echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
-
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
@@ -46,8 +41,11 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+      - name: Install dependencies and build libs 🔧
+        run: |
+          echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
+          npm ci --legacy-peer-deps
         continue-on-error: false
 
       - name: Build icons
