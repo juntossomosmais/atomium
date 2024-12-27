@@ -29,3 +29,13 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+      react:
+        patterns:
+          - 'react*'
+          - '@types/react*'
+      babel:
+        patterns:
+          - 'babel*'
+      commitlint:
+        patterns:
+          - '@commitlint*'
