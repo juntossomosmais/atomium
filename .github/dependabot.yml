@@ -32,7 +32,8 @@ updates:
           - 'patch'
       react:
         patterns:
-          - 'react*'
+          - 'react'
+          - 'react-dom'
           - '@types/react*'
       babel:
         patterns:
@@ -46,3 +47,6 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+    ignore:
+      - dependency-name: 'eslint'
+        versions: ['9.x']
