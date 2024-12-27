@@ -39,3 +39,9 @@ updates:
       commitlint:
         patterns:
           - '@commitlint*'
+      eslint:
+        patterns:
+          - 'eslint*'
+        update-types:
+          - 'minor'
+          - 'patch'
