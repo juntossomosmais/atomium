@@ -143,6 +143,7 @@ export type IconProps =
   | 'minus-thick'
   | 'minus'
   | 'monetization'
+  | 'monetization-outline'
   | 'my-location'
   | 'open-in-new'
   | 'outline-person-blocked'
