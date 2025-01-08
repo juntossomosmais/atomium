@@ -1,6 +1,6 @@
 /* We need to use `body` instead of `:root` because some components of Ionic are injected by demand, so we need to use it to override the variables of the components that are loaded later */
 
-:root {
+body {
   --ion-background-color: white;
   --ion-font-family: var(--font-family);
 
