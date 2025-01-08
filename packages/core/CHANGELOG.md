@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.0...atomium-v3.2.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* **core:** increase priority of custom ionic css variables ([#684](https://github.com/juntossomosmais/atomium/issues/684)) ([2a57843](https://github.com/juntossomosmais/atomium/commit/2a5784307d370a5e7950566e0d397dcee6d9d9e9))
+
 ## [3.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.1.0...atomium-v3.2.0) (2025-01-03)
 
 
