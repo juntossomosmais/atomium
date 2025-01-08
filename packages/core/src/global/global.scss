@@ -1,4 +1,6 @@
-:root {
+/* We need to use `body` instead of `:root` because some components of Ionic are injected by demand, so we need to use it to override the variables of the components that are loaded later */
+
+body {
   --ion-background-color: white;
   --ion-font-family: var(--font-family);
 
@@ -107,8 +109,4 @@ Issue: https://github.com/ionic-team/ionic-framework/issues/27500
       --border-color-checked: var(--color-brand-secondary-regular);
     }
   }
-}
-
-html.backdrop-no-scroll {
-  overflow: hidden;
 }

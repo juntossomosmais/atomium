@@ -21,7 +21,6 @@ export type HTMLAtomModalElement = HTMLIonModalElement & {
 @Component({
   tag: 'atom-modal',
   styleUrl: 'modal.scss',
-  shadow: false,
   scoped: true,
 })
 export class AtomModal {
