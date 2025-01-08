@@ -21,7 +21,6 @@ export type HTMLAtomModalElement = HTMLIonModalElement & {
 @Component({
   tag: 'atom-modal',
   styleUrl: 'modal.scss',
-  shadow: false,
   scoped: true,
 })
 export class AtomModal {
@@ -68,11 +67,6 @@ export class AtomModal {
   }
 
   componentDidLoad() {
-    /* @todo it's needed to prevent a ionic error. In the version 8.0 it was fixed, remove it after the upgrade.
-     *  https://github.com/ionic-team/ionic-framework/issues/23942
-     */
-    document.body.classList.remove(BACKDROP_NO_SCROLL)
-
     this.modal.close = async () => {
       await this.modal.dismiss()
       this.removeClasses()
