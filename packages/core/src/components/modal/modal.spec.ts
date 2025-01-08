@@ -108,6 +108,12 @@ describe('atom-modal', () => {
     })
 
     expect(page.root?.innerHTML).toContain('isopen')
+
+    page.rootInstance.isOpen = false
+
+    await page.waitForChanges()
+
+    expect(document.body.classList.remove).toHaveBeenCalled()
   })
   it('should call remove and add on backdrop no scroll class when is-open changes', async () => {
     page = await newSpecPage({
