@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.2.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.0...atomium-v3.2.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* **core:** increase priority of custom ionic css variables ([#684](https://github.com/juntossomosmais/atomium/issues/684)) ([2a57843](https://github.com/juntossomosmais/atomium/commit/2a5784307d370a5e7950566e0d397dcee6d9d9e9))
+
+## [3.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.1.0...atomium-v3.2.0) (2025-01-03)
+
+
+### Features
+
+* **icons:** add category, videogame and monetization icon ([#669](https://github.com/juntossomosmais/atomium/issues/669)) ([90cf61d](https://github.com/juntossomosmais/atomium/commit/90cf61d36757bf3ad8b1ab6e39df666931b6e1ca))
+* **icons:** add monetization outline ([#683](https://github.com/juntossomosmais/atomium/issues/683)) ([d3c8ba4](https://github.com/juntossomosmais/atomium/commit/d3c8ba4b2494ffbb9ffaec5932288b3176255b2b))
+
 ## [3.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.0.0...atomium-v3.1.0) (2024-12-17)
 
 

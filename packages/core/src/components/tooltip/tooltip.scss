@@ -1,5 +1,3 @@
-@import '~@atomium/scss-utils/index';
-
 $placements: 'top', 'bottom', 'left', 'right';
 
 @mixin shift-away($placement) {
@@ -19,7 +17,7 @@ $placements: 'top', 'bottom', 'left', 'right';
     --arrow-width: 10px;
     --arrow-height: 8px;
     --arrow-square-range: -3px;
-  
+
     background: var(--color-neutral-light-1);
     border-radius: var(--border-radius);
     color: var(--color-neutral-white);
@@ -28,24 +26,24 @@ $placements: 'top', 'bottom', 'left', 'right';
     padding: var(--spacing-xsmall);
     transition: all 0.15s ease-in-out;
     transition-property: opacity, transform, visibility;
-  
+
     &[data-show] {
       opacity: 1;
       visibility: visible;
     }
-  
+
     &[data-hide] {
       opacity: 0;
       visibility: hidden;
     }
-  
+
     @each $placement in $placements {
       &[data-placement^='#{$placement}'] {
         &[data-hide] {
           @include shift-away($placement);
         }
 
-        .atom-tooltip__arrow { 
+        .atom-tooltip__arrow {
           @if ($placement == 'top') {
             bottom: var(--arrow-square-range);
           } @else if ($placement == 'bottom') {
@@ -58,14 +56,14 @@ $placements: 'top', 'bottom', 'left', 'right';
         }
       }
     }
-  
+
     &__arrow {
       background: inherit;
       height: var(--arrow-height);
       position: absolute;
       visibility: hidden;
       width: var(--arrow-width);
-  
+
       &::before {
         background: inherit;
         content: '';
@@ -76,12 +74,12 @@ $placements: 'top', 'bottom', 'left', 'right';
         width: var(--arrow-width);
       }
     }
-  
+
     &__content {
       align-items: center;
       display: flex;
     }
-  
+
     &__action--close {
       align-self: flex-start;
       background: none;
@@ -94,10 +92,5 @@ $placements: 'top', 'bottom', 'left', 'right';
       padding: 0;
       padding-left: var(--spacing-base);
     }
-  
   }
 }
-
-
-
-

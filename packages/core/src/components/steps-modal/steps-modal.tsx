@@ -12,7 +12,6 @@ import {
 @Component({
   tag: 'atom-steps-modal',
   styleUrl: 'steps-modal.scss',
-  shadow: false,
 })
 export class AtomStepsModal {
   @Prop() steps: number
