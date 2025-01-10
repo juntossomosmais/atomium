@@ -146,7 +146,7 @@ export class AtomDatetime {
     if (this.rangeMode) {
       this.handleRangeMode(dates)
     } else {
-      this.atomChange.emit(event.detail)
+      this.atomChange.emit(event.detail.value)
     }
   }
 
