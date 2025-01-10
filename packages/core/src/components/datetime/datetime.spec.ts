@@ -78,6 +78,60 @@ describe('AtomDatetime', () => {
     )
 
     expect(spy).toHaveBeenCalled()
-    expect(spy.mock.calls[0][0].detail.value).toEqual('2022-01-01')
+    expect(spy.mock.calls[0][0].detail).toEqual('2022-01-01')
+  })
+
+  it('should emits atomCancel when cancel button is clicked', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    await page.waitForChanges()
+
+    const datetime = page.root?.querySelector('ion-datetime')
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomCancel', spy)
+
+    datetime?.dispatchEvent(new CustomEvent('ionCancel'))
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('should emits atomFocus when datetime is focused', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    await page.waitForChanges()
+
+    const datetime = page.root?.querySelector('ion-datetime')
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomFocus', spy)
+
+    datetime?.dispatchEvent(new CustomEvent('ionFocus'))
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('should emits atomBlur when datetime is blurred', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    await page.waitForChanges()
+
+    const datetime = page.root?.querySelector('ion-datetime')
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomBlur', spy)
+
+    datetime?.dispatchEvent(new CustomEvent('ionBlur'))
+
+    expect(spy).toHaveBeenCalled()
   })
 })
