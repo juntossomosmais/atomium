@@ -13,6 +13,7 @@ import {
   Host,
   Method,
   Prop,
+  State,
   h,
 } from '@stencil/core'
 
@@ -24,7 +25,7 @@ import {
 export class AtomDatetime {
   @Element() element!: HTMLElement
 
-  @Prop() buttonLabel?: string
+  @Prop() label?: string
   @Prop() cancelText?: string
   @Prop() clearText?: string
   @Prop() datetimeId = 'datetime'
@@ -58,6 +59,7 @@ export class AtomDatetime {
   @Prop() name?: string
   @Prop() preferWheel = false
   @Prop() presentation?: DatetimePresentation = 'date'
+  @Prop() rangeMode?: boolean
   @Prop() readonly?: boolean
   @Prop() showClearButton?: boolean
   @Prop() showDefaultButtons?: boolean
@@ -70,9 +72,11 @@ export class AtomDatetime {
     | DatetimeChangeEventDetail
   @Prop() yearValues?: number[] | string
 
+  @State() selectedDates: string[] = []
+
   @Event() atomFocus!: EventEmitter<void>
   @Event() atomBlur!: EventEmitter<void>
-  @Event() atomChange!: EventEmitter<string>
+  @Event() atomChange!: EventEmitter<string | string[]>
   @Event() atomCancel!: EventEmitter<string>
 
   private _datetimeEl!: HTMLIonDatetimeElement
@@ -92,13 +96,6 @@ export class AtomDatetime {
     }
   }
 
-  private handleChange = (event: DatetimeChangeEventDetail) => {
-    const value: DatetimeChangeEventDetail = event
-
-    this.value = value
-    this.atomChange.emit(String(value.value))
-  }
-
   private handleBlur = () => {
     this.atomBlur.emit()
   }
@@ -109,6 +106,48 @@ export class AtomDatetime {
 
   private handleCancel = () => {
     this.atomCancel.emit()
+  }
+
+  private calculateDateRange(dates: string[]): string[] {
+    const [start, end] = dates.map((date) => new Date(date))
+
+    const increment = start <= end ? 1 : -1
+    const daysDifference = Math.abs(
+      (end.getTime() - start.getTime()) / (1000 * 3600 * 24)
+    )
+
+    return Array.from({ length: daysDifference + 1 }, (_, i) => {
+      const currentDate = new Date(start)
+
+      currentDate.setDate(start.getDate() + i * increment)
+
+      return currentDate.toISOString().split('T')[0]
+    })
+  }
+
+  private handleRangeMode(dates: string[]) {
+    if (dates.length === 2) {
+      this.selectedDates = this.calculateDateRange(dates)
+    } else if (dates.length === 1) {
+      this.selectedDates =
+        this.selectedDates.length === 2
+          ? dates
+          : this.selectedDates.concat(dates)
+    } else {
+      this.selectedDates = []
+    }
+
+    this.atomChange.emit(this.selectedDates)
+  }
+
+  private handleDateChange = (event) => {
+    const dates = event.detail.value || []
+
+    if (this.rangeMode) {
+      this.handleRangeMode(dates)
+    } else {
+      this.atomChange.emit(event.detail)
+    }
   }
 
   private renderDatetime() {
@@ -133,7 +172,7 @@ export class AtomDatetime {
         min={this.min}
         minuteValues={this.minuteValues}
         monthValues={this.monthValues}
-        multiple={this.multiple}
+        multiple={this.multiple || this.rangeMode}
         mode='md'
         name={this.name}
         presentation={this.presentation}
@@ -145,8 +184,8 @@ export class AtomDatetime {
         showDefaultTitle={this.showDefaultTitle}
         size={this.size}
         yearValues={this.yearValues}
-        value={this.value}
-        onIonChange={this.handleChange}
+        value={this.rangeMode ? this.selectedDates : this.value}
+        onIonChange={this.handleDateChange}
         onIonCancel={this.handleCancel}
         onIonBlur={this.handleBlur}
         onIonFocus={this.handleFocus}
@@ -170,23 +209,21 @@ export class AtomDatetime {
       <Host>
         {this.useButton ? (
           <div>
-            <div class='atom-datetime-item'>
+            <div class='atom-item'>
               <ion-datetime-button
-                class='atom-datetime-button'
+                class='atom-button'
                 color='secondary'
                 datetime={this.datetimeId}
                 disabled={this.disabled}
                 mode='md'
               ></ion-datetime-button>
-              <ion-label class='atom-datetime-label' position='stacked'>
-                {this.buttonLabel}
-              </ion-label>
+              <span class='atom-label'>{this.label}</span>
               <atom-icon
                 class='atom-icon'
                 icon={
                   this.presentation === 'time'
                     ? 'clock-outline'
-                    : 'calendar-today'
+                    : 'calendar-today-outline'
                 }
               />
             </div>

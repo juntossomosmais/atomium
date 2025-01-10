@@ -84,7 +84,6 @@ export namespace Components {
         "hasPadding": boolean;
     }
     interface AtomDatetime {
-        "buttonLabel"?: string;
         "cancelText"?: string;
         "clearText"?: string;
         "datetimeId": string;
@@ -99,6 +98,7 @@ export namespace Components {
         "hourCycle": 'h12' | 'h23';
         "hourValues"?: number[] | string;
         "isDateEnabled"?: (dateString: string) => boolean;
+        "label"?: string;
         "locale": string;
         "max"?: string;
         "min"?: string;
@@ -108,6 +108,7 @@ export namespace Components {
         "name"?: string;
         "preferWheel": boolean;
         "presentation"?: DatetimePresentation;
+        "rangeMode"?: boolean;
         "readonly"?: boolean;
         "setValue": (value: any) => Promise<void>;
         "showClearButton"?: boolean;
@@ -472,7 +473,7 @@ declare global {
     interface HTMLAtomDatetimeElementEventMap {
         "atomFocus": void;
         "atomBlur": void;
-        "atomChange": string;
+        "atomChange": string | string[];
         "atomCancel": string;
     }
     interface HTMLAtomDatetimeElement extends Components.AtomDatetime, HTMLStencilElement {
@@ -800,7 +801,6 @@ declare namespace LocalJSX {
         "hasPadding"?: boolean;
     }
     interface AtomDatetime {
-        "buttonLabel"?: string;
         "cancelText"?: string;
         "clearText"?: string;
         "datetimeId"?: string;
@@ -815,6 +815,7 @@ declare namespace LocalJSX {
         "hourCycle"?: 'h12' | 'h23';
         "hourValues"?: number[] | string;
         "isDateEnabled"?: (dateString: string) => boolean;
+        "label"?: string;
         "locale"?: string;
         "max"?: string;
         "min"?: string;
@@ -824,10 +825,11 @@ declare namespace LocalJSX {
         "name"?: string;
         "onAtomBlur"?: (event: AtomDatetimeCustomEvent<void>) => void;
         "onAtomCancel"?: (event: AtomDatetimeCustomEvent<string>) => void;
-        "onAtomChange"?: (event: AtomDatetimeCustomEvent<string>) => void;
+        "onAtomChange"?: (event: AtomDatetimeCustomEvent<string | string[]>) => void;
         "onAtomFocus"?: (event: AtomDatetimeCustomEvent<void>) => void;
         "preferWheel"?: boolean;
         "presentation"?: DatetimePresentation;
+        "rangeMode"?: boolean;
         "readonly"?: boolean;
         "showClearButton"?: boolean;
         "showDefaultButtons"?: boolean;
