@@ -1,7 +1,11 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
-import { DatetimeComponentArgs, DatetimeStoryArgs } from './datetime.args'
+import {
+  DatetimeComponentArgs,
+  DatetimeExampleTexts,
+  DatetimeStoryArgs,
+} from './datetime.args'
 
 export default {
   title: 'Components/Datetime',
@@ -55,8 +59,7 @@ export const AdvancedDateConstraints: StoryObj = {
   parameters: {
     docs: {
       description: {
-        story:
-          'This story shows how to use the `isDateEnabled` property to disable weekends using the following logic: `\nconst date = new Date(dateString);\nconst utcDay = date.getUTCDay();\nreturn utcDay !== 0 && utcDay !== 6;`',
+        story: DatetimeExampleTexts.advancedDateConstraints,
       },
     },
   },
@@ -91,8 +94,7 @@ export const HighlightingSpecificDatesArray: StoryObj = {
   parameters: {
     docs: {
       description: {
-        story:
-          'This story shows how to use the `highlightedDates` property with an array to highlight specific dates.',
+        story: DatetimeExampleTexts.highlightingSpecificDatesArray,
       },
     },
   },
@@ -120,20 +122,27 @@ export const HighlightingSpecificDatesCallback: StoryObj = {
   parameters: {
     docs: {
       description: {
-        story:
-          'This story shows how to use the `highlightedDates` property with a callback function to highlight dates based on custom logic using the following logic: `\nconst date = new Date(dateString);\nconst day = date.getUTCDate();\nif (day % 5 === 0) {\n  return {\n    textColor: "#800080",\n    backgroundColor: "#ffc0cb",\n  };\n}\nreturn undefined;`',
+        story: DatetimeExampleTexts.highlightingSpecificDatesCallback,
       },
     },
   },
 }
 
-export const DatetimeButton: StoryObj = {
+export const WithMultipleDates: StoryObj = {
+  render: () => html` <atom-datetime multiple></atom-datetime> `,
+}
+
+export const UsingRangeMode: StoryObj = {
+  render: () => html` <atom-datetime range-mode></atom-datetime> `,
+}
+
+export const UsingWithButton: StoryObj = {
   render: () => html`
     <atom-grid>
       <atom-col size="8">
         <atom-datetime
           use-button="true"
-          button-label="Selecione uma data"
+          label="Selecione uma data"
           datetime-id="datetime-with-button-date"
           presentation="date"
         ></atom-datetime>
@@ -141,7 +150,7 @@ export const DatetimeButton: StoryObj = {
       <atom-col size="8">
         <atom-datetime
           use-button="true"
-          button-label="Selecione uma hora"
+          label="Selecione uma hora"
           datetime-id="datetime-with-button-time"
           presentation="time"
         ></atom-datetime>
@@ -149,7 +158,7 @@ export const DatetimeButton: StoryObj = {
       <atom-col size="8">
         <atom-datetime
           use-button="true"
-          button-label="Selecione um mês e ano"
+          label="Selecione um mês e ano"
           datetime-id="datetime-with-button-year-month"
           presentation="month-year"
           .formatOptions="${{ date: { month: 'long', year: 'numeric' } }}"

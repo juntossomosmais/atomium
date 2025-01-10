@@ -24,7 +24,7 @@ export const DatetimeStoryArgs = {
   },
   decorators: [withActions],
   argTypes: {
-    buttonLabel: {
+    label: {
       control: 'string',
       description: 'The text of label when `useButton` prop is true.',
     },
@@ -133,6 +133,11 @@ export const DatetimeStoryArgs = {
       options: ['date', 'time', 'month-year', 'month', 'year'],
       description: 'The presentation of the datetime.',
     },
+    rangeMode: {
+      control: 'boolean',
+      defaultValue: { summary: 'false' },
+      description: 'If true, the datetime is in range mode.',
+    },
     readonly: {
       control: 'boolean',
       defaultValue: { summary: 'false' },
@@ -212,6 +217,7 @@ export const DatetimeComponentArgs = {
   multiple: false,
   name: 'datetime',
   presentation: 'date',
+  rangeMode: false,
   readonly: false,
   showClearButton: false,
   showDefaultButtons: false,
@@ -221,4 +227,13 @@ export const DatetimeComponentArgs = {
   useButton: false,
   value: undefined,
   yearValues: undefined,
+}
+
+export const DatetimeExampleTexts = {
+  advancedDateConstraints:
+    'This story shows how to use the `isDateEnabled` property to disable weekends using the following logic: `\nconst date = new Date(dateString);\nconst utcDay = date.getUTCDay();\nreturn utcDay !== 0 && utcDay !== 6;`',
+  highlightingSpecificDatesArray:
+    'This story shows how to use the `highlightedDates` property with an array to highlight specific dates.',
+  highlightingSpecificDatesCallback:
+    'This story shows how to use the `highlightedDates` property with a callback function to highlight dates based on custom logic using the following logic: `\nconst date = new Date(dateString);\nconst day = date.getUTCDate();\nif (day % 5 === 0) {\n  return {\n    textColor: "#800080",\n    backgroundColor: "#ffc0cb",\n  };\n}\nreturn undefined;`',
 }
