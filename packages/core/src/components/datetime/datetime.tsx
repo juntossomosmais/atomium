@@ -96,15 +96,15 @@ export class AtomDatetime {
     }
   }
 
-  private handleBlur = () => {
+  private readonly handleBlur = () => {
     this.atomBlur.emit()
   }
 
-  private handleFocus = () => {
+  private readonly handleFocus = () => {
     this.atomFocus.emit()
   }
 
-  private handleCancel = () => {
+  private readonly handleCancel = () => {
     this.atomCancel.emit()
   }
 
