@@ -58,6 +58,34 @@ describe('AtomDatetime', () => {
     expect(spy.mock.calls[0][0].detail).toEqual(['2022-01-01', '2022-01-02'])
   })
 
+  it('should start a new range when a new date is selected after a range', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime range-mode="true"></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomChange', spy)
+
+    datetime.handleRangeMode(['2022-01-01', '2022-01-05'])
+    await page.waitForChanges()
+
+    datetime.handleRangeMode(['2022-01-10'])
+    await page.waitForChanges()
+
+    expect(spy).toHaveBeenCalledTimes(2)
+    expect(spy.mock.calls[1][0].detail).toEqual([
+      '2022-01-01',
+      '2022-01-02',
+      '2022-01-03',
+      '2022-01-04',
+      '2022-01-05',
+      '2022-01-10',
+    ])
+  })
+
   it('should emits atomChange with a single date when rangeMode is false', async () => {
     const page = await newSpecPage({
       components: [AtomDatetime],
