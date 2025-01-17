@@ -168,6 +168,19 @@ export const ModalStoryArgs = {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
     },
+    present: {
+      description:
+        'Method to present the modal overlay after it has been created.',
+      table: {
+        category: Category.METHODS,
+      },
+    },
+    dismiss: {
+      description: 'Method to close the modal after it has been presented.',
+      table: {
+        category: Category.METHODS,
+      },
+    },
   },
 }
 
