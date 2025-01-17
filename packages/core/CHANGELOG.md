@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.1...atomium-v3.3.0) (2025-01-17)
+
+
+### Features
+
+* **icons:** add shopping cart icon and cupom ([#688](https://github.com/juntossomosmais/atomium/issues/688)) ([ae65156](https://github.com/juntossomosmais/atomium/commit/ae6515646d1f9bf279dfedc505f965bc4793c9fb))
+
 ## [3.2.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.0...atomium-v3.2.1) (2025-01-08)
 
 
