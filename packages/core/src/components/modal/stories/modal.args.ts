@@ -168,6 +168,55 @@ export const ModalStoryArgs = {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
     },
+    '--height': {
+      description: 'Height of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--max-height': {
+      description: 'Maximum height of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--max-width': {
+      description: 'Maximum width of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--min-height': {
+      description: 'Minimum height of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--min-width': {
+      description: 'Minimum width of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--width': {
+      description: 'Width of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    present: {
+      description:
+        'Method to present the modal overlay after it has been created.',
+      table: {
+        category: Category.METHODS,
+      },
+    },
+    dismiss: {
+      description: 'Method to close the modal after it has been presented.',
+      table: {
+        category: Category.METHODS,
+      },
+    },
   },
 }
 
