@@ -2,20 +2,6 @@ import { newSpecPage, SpecPage } from '@stencil/core/testing'
 
 import { AtomModal } from './modal'
 
-Object.defineProperty(document.body, 'classList', {
-  value: {
-    add: jest.fn(),
-    remove: jest.fn(),
-  },
-})
-
-Object.defineProperty(document.documentElement, 'classList', {
-  value: {
-    add: jest.fn(),
-    remove: jest.fn(),
-  },
-})
-
 describe('atom-modal', () => {
   let page: SpecPage
 
@@ -108,87 +94,6 @@ describe('atom-modal', () => {
     })
 
     expect(page.root?.innerHTML).toContain('isopen')
-
-    page.rootInstance.isOpen = false
-
-    await page.waitForChanges()
-
-    expect(document.body.classList.remove).toHaveBeenCalled()
-  })
-  it('should call remove and add on backdrop no scroll class when is-open changes', async () => {
-    page = await newSpecPage({
-      components: [AtomModal],
-      html: `
-      <atom-modal header-title="Header from prop" is-open="true">
-        Modal content
-        <div slot="header">Custom Header</div>
-      </atom-modal>
-    `,
-    })
-
-    expect(page.root?.innerHTML).toContain('isopen')
-
-    page.rootInstance.modal = {
-      dismiss: jest.fn(),
-      close: jest.fn(),
-    }
-    page.rootInstance.handleDidPresent()
-
-    expect(document.body.classList.add).toHaveBeenCalled()
-    expect(document.documentElement.classList.add).toHaveBeenCalled()
-
-    page.rootInstance.handleDidDismiss()
-
-    expect(page.rootInstance.modal.close).toHaveBeenCalled()
-
-    page.rootInstance.handleCloseClick()
-
-    expect(page.rootInstance.modal.close).toHaveBeenCalled()
-  })
-
-  it('should call remove and add on backdrop no scroll class when is-open changes', async () => {
-    page = await newSpecPage({
-      components: [AtomModal],
-      html: `
-      <atom-modal header-title="Header from prop" is-open="true">
-        Modal content
-        <div slot="header">Custom Header</div>
-      </atom-modal>
-    `,
-    })
-
-    expect(page.root?.innerHTML).toContain('isopen')
-
-    page.rootInstance.modal = {
-      dismiss: jest.fn(),
-    }
-
-    page.rootInstance.handleDidPresent()
-
-    expect(document.body.classList.add).toHaveBeenCalled()
-    expect(document.documentElement.classList.add).toHaveBeenCalled()
-  })
-
-  it('should call remove on class list when call remove classes', async () => {
-    page = await newSpecPage({
-      components: [AtomModal],
-      html: `
-      <atom-modal header-title="Header from prop" is-open="true">
-        Modal content
-        <div slot="header">Custom Header</div>
-      </atom-modal>
-    `,
-    })
-
-    page.rootInstance.addClasses()
-
-    expect(document.body.classList.add).toHaveBeenCalled()
-    expect(document.documentElement.classList.add).toHaveBeenCalled()
-
-    page.rootInstance.removeClasses()
-
-    expect(document.body.classList.remove).toHaveBeenCalled()
-    expect(document.documentElement.classList.remove).toHaveBeenCalled()
   })
 
   it('should render icon type when alertType is passed', async () => {
@@ -271,6 +176,7 @@ describe('atom-modal', () => {
     const isOpenChangeSpy = jest.fn()
 
     page.root?.addEventListener('atomIsOpenChange', isOpenChangeSpy)
+    expect(isOpenChangeSpy).not.toHaveBeenCalled()
 
     page.rootInstance.isOpen = true
 

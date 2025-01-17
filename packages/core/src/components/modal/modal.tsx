@@ -12,12 +12,6 @@ import { IconProps } from '../../icons'
 
 type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
 
-const BACKDROP_NO_SCROLL = 'backdrop-no-scroll'
-
-export type HTMLAtomModalElement = HTMLIonModalElement & {
-  close: () => Promise<void>
-}
-
 @Component({
   tag: 'atom-modal',
   styleUrl: 'modal.scss',
@@ -43,7 +37,7 @@ export class AtomModal {
   @Event() atomSecondaryClick: EventEmitter
   @Event() atomIsOpenChange: EventEmitter
 
-  private modal: HTMLAtomModalElement
+  private modal: HTMLIonModalElement
 
   private readonly alertMap: AlertType = {
     alert: {
@@ -56,29 +50,6 @@ export class AtomModal {
     },
   }
 
-  private readonly addClasses = () => {
-    document.body.classList.add(BACKDROP_NO_SCROLL)
-    document.documentElement.classList.add(BACKDROP_NO_SCROLL)
-  }
-
-  private readonly removeClasses = () => {
-    document.body.classList.remove(BACKDROP_NO_SCROLL)
-    document.documentElement.classList.remove(BACKDROP_NO_SCROLL)
-  }
-
-  componentDidLoad() {
-    /* @todo it's needed to prevent a ionic error. In the version 8.0 it was fixed, remove it after the upgrade.
-     *  https://github.com/ionic-team/ionic-framework/issues/23942
-     */
-    document.body.classList.remove(BACKDROP_NO_SCROLL)
-
-    this.modal.close = async () => {
-      await this.modal.dismiss()
-      this.removeClasses()
-      this.isOpen = false
-    }
-  }
-
   @Watch('isOpen')
   handleIsOpenChange(newValue: boolean, oldValue: boolean) {
     if (newValue !== oldValue) {
@@ -88,17 +59,15 @@ export class AtomModal {
 
   private readonly handleDidDismiss = () => {
     this.atomDidDismiss.emit(this.modal)
-    this.modal.close()
   }
 
   private readonly handleDidPresent = () => {
     this.atomDidPresent.emit(this.modal)
-    this.addClasses()
   }
 
   private readonly handleCloseClick = async () => {
     this.atomCloseClick.emit(this.modal)
-    this.modal.close()
+    this.modal.dismiss()
   }
 
   private readonly handleSecondaryClick = () => {
@@ -117,7 +86,7 @@ export class AtomModal {
         <ion-modal
           aria-labelledby='atom-modal__header-title'
           aria-describedby='atom-modal__content'
-          ref={(el) => (this.modal = el as HTMLAtomModalElement)}
+          ref={(el) => (this.modal = el as HTMLIonModalElement)}
           trigger={this.trigger}
           class={{
             'atom-modal': true,
