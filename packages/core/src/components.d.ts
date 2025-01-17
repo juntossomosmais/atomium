@@ -6,10 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
-import { Mode, TextFieldTypes } from "@ionic/core";
+import { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export { IconProps } from "./icons";
-export { Mode, TextFieldTypes } from "@ionic/core";
+export { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export namespace Components {
     interface AtomAlert {
@@ -82,6 +82,44 @@ export namespace Components {
     }
     interface AtomContainer {
         "hasPadding": boolean;
+    }
+    interface AtomDatetime {
+        "cancelText"?: string;
+        "clearText"?: string;
+        "datetimeId": string;
+        "dayValues"?: number[] | string;
+        "disabled"?: boolean;
+        "doneText"?: string;
+        "formatOptions": {
+    date: Intl.DateTimeFormatOptions
+    time: Intl.DateTimeFormatOptions
+  };
+        "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
+        "hourCycle": 'h12' | 'h23';
+        "hourValues"?: number[] | string;
+        "isDateEnabled"?: (dateString: string) => boolean;
+        "label"?: string;
+        "locale": string;
+        "max"?: string;
+        "min"?: string;
+        "minuteValues"?: number[] | string;
+        "monthValues"?: number[] | string;
+        "multiple"?: boolean;
+        "name"?: string;
+        "preferWheel": boolean;
+        "presentation"?: DatetimePresentation;
+        "rangeMode"?: boolean;
+        "readonly"?: boolean;
+        "setValue": (value: any) => Promise<void>;
+        "showClearButton"?: boolean;
+        "showDefaultButtons"?: boolean;
+        "showDefaultTimeLabel": boolean;
+        "showDefaultTitle": boolean;
+        "size"?: 'cover' | 'fixed';
+        "useButton": boolean;
+        "value"?: | DatetimeCustomEvent
+    | DatetimeChangeEventDetail;
+        "yearValues"?: number[] | string;
     }
     interface AtomGrid {
         "fixed"?: boolean;
@@ -303,6 +341,10 @@ export interface AtomChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomChipElement;
 }
+export interface AtomDatetimeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomDatetimeElement;
+}
 export interface AtomInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomInputElement;
@@ -427,6 +469,26 @@ declare global {
     var HTMLAtomContainerElement: {
         prototype: HTMLAtomContainerElement;
         new (): HTMLAtomContainerElement;
+    };
+    interface HTMLAtomDatetimeElementEventMap {
+        "atomFocus": void;
+        "atomBlur": void;
+        "atomChange": string | string[];
+        "atomCancel": string;
+    }
+    interface HTMLAtomDatetimeElement extends Components.AtomDatetime, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomDatetimeElementEventMap>(type: K, listener: (this: HTMLAtomDatetimeElement, ev: AtomDatetimeCustomEvent<HTMLAtomDatetimeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomDatetimeElementEventMap>(type: K, listener: (this: HTMLAtomDatetimeElement, ev: AtomDatetimeCustomEvent<HTMLAtomDatetimeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAtomDatetimeElement: {
+        prototype: HTMLAtomDatetimeElement;
+        new (): HTMLAtomDatetimeElement;
     };
     interface HTMLAtomGridElement extends Components.AtomGrid, HTMLStencilElement {
     }
@@ -645,6 +707,7 @@ declare global {
         "atom-chip": HTMLAtomChipElement;
         "atom-col": HTMLAtomColElement;
         "atom-container": HTMLAtomContainerElement;
+        "atom-datetime": HTMLAtomDatetimeElement;
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
@@ -736,6 +799,47 @@ declare namespace LocalJSX {
     }
     interface AtomContainer {
         "hasPadding"?: boolean;
+    }
+    interface AtomDatetime {
+        "cancelText"?: string;
+        "clearText"?: string;
+        "datetimeId"?: string;
+        "dayValues"?: number[] | string;
+        "disabled"?: boolean;
+        "doneText"?: string;
+        "formatOptions"?: {
+    date: Intl.DateTimeFormatOptions
+    time: Intl.DateTimeFormatOptions
+  };
+        "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
+        "hourCycle"?: 'h12' | 'h23';
+        "hourValues"?: number[] | string;
+        "isDateEnabled"?: (dateString: string) => boolean;
+        "label"?: string;
+        "locale"?: string;
+        "max"?: string;
+        "min"?: string;
+        "minuteValues"?: number[] | string;
+        "monthValues"?: number[] | string;
+        "multiple"?: boolean;
+        "name"?: string;
+        "onAtomBlur"?: (event: AtomDatetimeCustomEvent<void>) => void;
+        "onAtomCancel"?: (event: AtomDatetimeCustomEvent<string>) => void;
+        "onAtomChange"?: (event: AtomDatetimeCustomEvent<string | string[]>) => void;
+        "onAtomFocus"?: (event: AtomDatetimeCustomEvent<void>) => void;
+        "preferWheel"?: boolean;
+        "presentation"?: DatetimePresentation;
+        "rangeMode"?: boolean;
+        "readonly"?: boolean;
+        "showClearButton"?: boolean;
+        "showDefaultButtons"?: boolean;
+        "showDefaultTimeLabel"?: boolean;
+        "showDefaultTitle"?: boolean;
+        "size"?: 'cover' | 'fixed';
+        "useButton"?: boolean;
+        "value"?: | DatetimeCustomEvent
+    | DatetimeChangeEventDetail;
+        "yearValues"?: number[] | string;
     }
     interface AtomGrid {
         "fixed"?: boolean;
@@ -986,6 +1090,7 @@ declare namespace LocalJSX {
         "atom-chip": AtomChip;
         "atom-col": AtomCol;
         "atom-container": AtomContainer;
+        "atom-datetime": AtomDatetime;
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
@@ -1015,6 +1120,7 @@ declare module "@stencil/core" {
             "atom-chip": LocalJSX.AtomChip & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
             "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
             "atom-container": LocalJSX.AtomContainer & JSXBase.HTMLAttributes<HTMLAtomContainerElement>;
+            "atom-datetime": LocalJSX.AtomDatetime & JSXBase.HTMLAttributes<HTMLAtomDatetimeElement>;
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
