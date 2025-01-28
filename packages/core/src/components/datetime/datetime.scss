@@ -3,6 +3,12 @@
     background-color: var(--color-brand-secondary-regular);
     color: var(--color-neutral-white);
   }
+
+  &::part(calendar-day) {
+    &:hover {
+      background-color: var(--color-neutral-light-5);
+    }
+  }
 }
 
 .atom-item {
