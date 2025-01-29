@@ -1,13 +1,23 @@
 .atom-datetime {
-  &::part(calendar-day-active) {
-    background-color: var(--color-brand-secondary-regular);
-    color: var(--color-neutral-white);
+  &::part(calendar-day) {
+    position: relative;
+
+    &:hover {
+      &:after {
+        background-color: rgba(var(--color-neutral-black-rgb), 0.07);
+        border-radius: 50%;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
   }
 
-  &::part(calendar-day) {
-    &:hover {
-      background-color: var(--color-neutral-light-5);
-    }
+  &::part(calendar-day active) {
+    background-color: red;
   }
 }
 
