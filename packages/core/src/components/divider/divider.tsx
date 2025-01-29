@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core'
+import { Component, h, Prop } from '@stencil/core'
 
 @Component({
   tag: 'atom-divider',
@@ -6,11 +6,9 @@ import { Component, h } from '@stencil/core'
   shadow: true,
 })
 export class AtomDivider {
+  @Prop() type: 'up' | 'down' = 'down'
+
   render() {
-    return (
-      <div class='atom-divider'>
-        <slot></slot>
-      </div>
-    )
+    return <div class='atom-divider' />
   }
 }
