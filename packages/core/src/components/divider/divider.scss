@@ -1,3 +1,9 @@
 .atom-divider {
   background-color: var(--color-neutral-light-3);
+  height: 1px;
+  width: 100%;
+
+  &[type='up'] {
+    background-color: red;
+  }
 }
