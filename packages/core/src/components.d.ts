@@ -83,6 +83,9 @@ export namespace Components {
     interface AtomContainer {
         "hasPadding": boolean;
     }
+    interface AtomDivider {
+        "type": 'up' | 'down';
+    }
     interface AtomGrid {
         "fixed"?: boolean;
     }
@@ -428,6 +431,12 @@ declare global {
         prototype: HTMLAtomContainerElement;
         new (): HTMLAtomContainerElement;
     };
+    interface HTMLAtomDividerElement extends Components.AtomDivider, HTMLStencilElement {
+    }
+    var HTMLAtomDividerElement: {
+        prototype: HTMLAtomDividerElement;
+        new (): HTMLAtomDividerElement;
+    };
     interface HTMLAtomGridElement extends Components.AtomGrid, HTMLStencilElement {
     }
     var HTMLAtomGridElement: {
@@ -645,6 +654,7 @@ declare global {
         "atom-chip": HTMLAtomChipElement;
         "atom-col": HTMLAtomColElement;
         "atom-container": HTMLAtomContainerElement;
+        "atom-divider": HTMLAtomDividerElement;
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
@@ -736,6 +746,9 @@ declare namespace LocalJSX {
     }
     interface AtomContainer {
         "hasPadding"?: boolean;
+    }
+    interface AtomDivider {
+        "type"?: 'up' | 'down';
     }
     interface AtomGrid {
         "fixed"?: boolean;
@@ -986,6 +999,7 @@ declare namespace LocalJSX {
         "atom-chip": AtomChip;
         "atom-col": AtomCol;
         "atom-container": AtomContainer;
+        "atom-divider": AtomDivider;
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
@@ -1015,6 +1029,7 @@ declare module "@stencil/core" {
             "atom-chip": LocalJSX.AtomChip & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
             "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
             "atom-container": LocalJSX.AtomContainer & JSXBase.HTMLAttributes<HTMLAtomContainerElement>;
+            "atom-divider": LocalJSX.AtomDivider & JSXBase.HTMLAttributes<HTMLAtomDividerElement>;
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
