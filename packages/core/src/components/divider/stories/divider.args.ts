@@ -1,4 +1,4 @@
-export const BadgeStoryArgs = {
+export const DividerStoryArgs = {
   decorators: [],
   parameters: {
     actions: {
@@ -14,23 +14,10 @@ export const BadgeStoryArgs = {
   argTypes: {
     type: {
       control: 'select',
-      options: [
-        'primary',
-        'secondary',
-        'info',
-        'success',
-        'warning',
-        'danger',
-        'neutral',
-        'dark',
-      ],
-      defaultValue: { summary: 'primary' },
+      options: ['up', 'down'],
+      defaultValue: { summary: 'down' },
       description:
         'The type of the badge, the component will receive the color according to its type.',
-    },
-    label: {
-      control: 'text',
-      description: 'The label of the badge',
     },
   },
 }

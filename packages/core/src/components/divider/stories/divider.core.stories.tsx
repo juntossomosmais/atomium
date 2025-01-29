@@ -1,77 +1,27 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
-import { BadgeStoryArgs } from './divider.args'
+import { DividerStoryArgs } from './divider.args'
 
 export default {
-  title: 'Components/Badge',
-  ...BadgeStoryArgs,
+  title: 'Components/Divider',
+  ...DividerStoryArgs,
 } as Meta
 
-const createBadge = (args) => {
-  return html` <atom-badge type="${args.type}"> ${args.label} </atom-badge> `
+const createDivider = (args) => {
+  return html` <atom-divider type="${args.type}" /> `
 }
 
-export const Primary: StoryObj = {
-  render: (args) => createBadge(args),
+export const Up: StoryObj = {
+  render: (args) => createDivider(args),
   args: {
-    type: 'primary',
-    label: 'Badge',
+    type: 'up',
   },
 }
 
-export const Secondary: StoryObj = {
-  render: (args) => createBadge(args),
+export const Down: StoryObj = {
+  render: (args) => createDivider(args),
   args: {
-    ...Primary.args,
-    type: 'secondary',
-  },
-}
-
-export const Info: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'info',
-  },
-}
-
-export const Success: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'success',
-  },
-}
-
-export const Warning: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'warning',
-  },
-}
-
-export const Danger: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'danger',
-  },
-}
-
-export const Neutral: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'neutral',
-  },
-}
-
-export const Dark: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'dark',
+    type: 'down',
   },
 }

@@ -1,79 +1,27 @@
-import { AtomBadge } from '@juntossomosmais/atomium/react'
+import { AtomDivider } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
-import { BadgeStoryArgs } from './divider.args'
+import { DividerStoryArgs } from './divider.args'
 
 export default {
-  title: 'Components/Badge',
-  component: AtomBadge,
-  ...BadgeStoryArgs,
+  title: 'Components/Divider',
+  component: AtomDivider,
+  ...DividerStoryArgs,
 } as Meta
 
-const createBadge = (args) => (
-  <AtomBadge color={args.color}>{args.label}</AtomBadge>
-)
+const createDivider = (args) => <AtomDivider type={args.type} />
 
-export const Primary: StoryObj = {
-  render: (args) => createBadge(args),
+export const Up: StoryObj = {
+  render: (args) => createDivider(args),
   args: {
-    type: 'primary',
-    label: 'Badge',
+    type: 'up',
   },
 }
 
-export const Secondary: StoryObj = {
-  render: (args) => createBadge(args),
+export const Down: StoryObj = {
+  render: (args) => createDivider(args),
   args: {
-    ...Primary.args,
-    type: 'secondary',
-  },
-}
-
-export const Success: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'success',
-  },
-}
-
-export const Warning: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'warning',
-  },
-}
-
-export const Danger: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'danger',
-  },
-}
-
-export const Neutral: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'neutral',
-  },
-}
-
-export const Dark: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'dark',
-  },
-}
-
-export const Info: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'info',
+    type: 'down',
   },
 }
