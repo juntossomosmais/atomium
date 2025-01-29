@@ -5,6 +5,7 @@ import {
   DatetimeHighlightCallback,
   DatetimePresentation,
 } from '@ionic/core'
+import { JSX } from '@ionic/core/dist/types/components'
 import {
   Component,
   Element,
@@ -140,8 +141,10 @@ export class AtomDatetime {
     this.atomChange.emit(this.selectedDates)
   }
 
-  private handleDateChange = (event) => {
-    const dates = event.detail.value || []
+  private handleDateChange: JSX.IonDatetime['onIonChange'] = (event) => {
+    const dates = Array.isArray(event.detail.value)
+      ? event.detail.value
+      : [event.detail.value]
 
     if (this.rangeMode) {
       this.handleRangeMode(dates)
