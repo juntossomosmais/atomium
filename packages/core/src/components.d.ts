@@ -122,7 +122,7 @@ export namespace Components {
         "yearValues"?: number[] | string;
     }
     interface AtomDivider {
-        "type": 'up' | 'down';
+        "type": 'horizontal' | 'vertical';
     }
     interface AtomGrid {
         "fixed"?: boolean;
@@ -852,7 +852,7 @@ declare namespace LocalJSX {
         "yearValues"?: number[] | string;
     }
     interface AtomDivider {
-        "type"?: 'up' | 'down';
+        "type"?: 'horizontal' | 'vertical';
     }
     interface AtomGrid {
         "fixed"?: boolean;

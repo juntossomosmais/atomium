@@ -6,7 +6,7 @@ import { Component, h, Prop } from '@stencil/core'
   shadow: true,
 })
 export class AtomDivider {
-  @Prop() type: 'up' | 'down' = 'down'
+  @Prop() type: 'horizontal' | 'vertical' = 'horizontal'
 
   render() {
     return <div data-type={this.type} class='atom-divider' />

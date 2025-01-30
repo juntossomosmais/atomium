@@ -14,10 +14,10 @@ export const DividerStoryArgs = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['down', 'up'],
-      defaultValue: { summary: 'down' },
+      options: ['horizontal', 'vertical'],
+      defaultValue: { summary: 'horizontal' },
       description:
-        'The type of the divider, will change your anatomy. The component can be used to separate content in two directions, up or down.',
+        'The type of the divider, will change your anatomy. The component can be used to separate content in two directions, vertical or horizontal.',
     },
   },
 }

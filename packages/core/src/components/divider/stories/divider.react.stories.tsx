@@ -11,7 +11,7 @@ export default {
 } as Meta
 
 const createDivider = (args) =>
-  args.type === 'up' ? (
+  args.type === 'vertical' ? (
     <div
       style={{
         height: '100px',
@@ -23,16 +23,16 @@ const createDivider = (args) =>
     <AtomDivider type={args.type} />
   )
 
-export const Down: StoryObj = {
+export const Horizontal: StoryObj = {
   render: (args) => createDivider(args),
   args: {
-    type: 'down',
+    type: 'horizontal',
   },
 }
 
-export const Up: StoryObj = {
+export const Vertical: StoryObj = {
   render: (args) => createDivider(args),
   args: {
-    type: 'up',
+    type: 'vertical',
   },
 }
