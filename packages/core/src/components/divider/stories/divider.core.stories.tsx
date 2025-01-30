@@ -9,19 +9,23 @@ export default {
 } as Meta
 
 const createDivider = (args) => {
-  return html` <atom-divider type="${args.type}" /> `
-}
-
-export const Up: StoryObj = {
-  render: (args) => createDivider(args),
-  args: {
-    type: 'up',
-  },
+  return args.type === 'up'
+    ? html` <div style="height: 100px;">
+        <atom-divider type="${args.type}" />
+      </div>`
+    : html`<atom-divider type="${args.type}" />`
 }
 
 export const Down: StoryObj = {
   render: (args) => createDivider(args),
   args: {
     type: 'down',
+  },
+}
+
+export const Up: StoryObj = {
+  render: (args) => createDivider(args),
+  args: {
+    type: 'up',
   },
 }

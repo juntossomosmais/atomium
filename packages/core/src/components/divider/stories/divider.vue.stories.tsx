@@ -13,19 +13,24 @@ const createDivider = (args) => ({
   setup() {
     return { args }
   },
-  template: `<AtomDivider type="${args.type}" />`,
+  template: `
+  <div v-if="args.type === 'up'" style="height: 100px">
+    <AtomDivider :type="args.type" />
+  </div>
+  <AtomDivider v-else :type="args.type" />
+  `,
 })
-
-export const Up: StoryObj = {
-  render: (args) => createDivider(args),
-  args: {
-    type: 'up',
-  },
-}
 
 export const Down: StoryObj = {
   render: (args) => createDivider(args),
   args: {
     type: 'down',
+  },
+}
+
+export const Up: StoryObj = {
+  render: (args) => createDivider(args),
+  args: {
+    type: 'up',
   },
 }

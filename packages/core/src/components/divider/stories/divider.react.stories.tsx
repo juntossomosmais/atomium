@@ -10,18 +10,29 @@ export default {
   ...DividerStoryArgs,
 } as Meta
 
-const createDivider = (args) => <AtomDivider type={args.type} />
-
-export const Up: StoryObj = {
-  render: (args) => createDivider(args),
-  args: {
-    type: 'up',
-  },
-}
+const createDivider = (args) =>
+  args.type === 'up' ? (
+    <div
+      style={{
+        height: '100px',
+      }}
+    >
+      <AtomDivider type={args.type} />
+    </div>
+  ) : (
+    <AtomDivider type={args.type} />
+  )
 
 export const Down: StoryObj = {
   render: (args) => createDivider(args),
   args: {
     type: 'down',
+  },
+}
+
+export const Up: StoryObj = {
+  render: (args) => createDivider(args),
+  args: {
+    type: 'up',
   },
 }
