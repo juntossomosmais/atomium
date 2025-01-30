@@ -3,7 +3,8 @@
   height: 1px;
   width: 100%;
 
-  &[type='up'] {
-    background-color: red;
+  &[data-type='up'] {
+    height: 100%;
+    width: 1px;
   }
 }
