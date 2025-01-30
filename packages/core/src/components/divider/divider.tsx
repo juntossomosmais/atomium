@@ -9,6 +9,6 @@ export class AtomDivider {
   @Prop() type: 'up' | 'down' = 'down'
 
   render() {
-    return <div class='atom-divider' />
+    return <div data-type={this.type} class='atom-divider' />
   }
 }
