@@ -10,7 +10,7 @@ export default {
 
 const createDivider = (args) => {
   return args.type === 'vertical'
-    ? html` <div style="height: 100px;">
+    ? html`<div style="height: 100px;">
         <atom-divider type="${args.type}" />
       </div>`
     : html`<atom-divider type="${args.type}" />`

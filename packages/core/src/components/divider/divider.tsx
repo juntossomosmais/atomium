@@ -9,6 +9,6 @@ export class AtomDivider {
   @Prop() type: 'horizontal' | 'vertical' = 'horizontal'
 
   render() {
-    return <div class={`atom-divider ${this.type}`} aria-hidden={true} />
+    return <div class={`atom-divider is-${this.type}`} aria-hidden={true} />
   }
 }
