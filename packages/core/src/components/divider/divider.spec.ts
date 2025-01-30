@@ -14,7 +14,7 @@ describe('atom-divider', () => {
     expect(page.root).toEqualHtml(`
       <atom-divider type='horizontal'>
         <mock:shadow-root>
-          <div class="atom-divider" data-type="horizontal"></div>
+          <div aria-hidden="" class="atom-divider horizontal"></div>
         </mock:shadow-root>
       </atom-divider>
     `)
@@ -32,7 +32,7 @@ it('should render with prop vertical', async () => {
   expect(page.root).toEqualHtml(`
       <atom-divider type='vertical'>
         <mock:shadow-root>
-          <div class="atom-divider" data-type="vertical"></div>
+          <div aria-hidden="" class="atom-divider vertical"></div>
         </mock:shadow-root>
       </atom-divider>
   `)
