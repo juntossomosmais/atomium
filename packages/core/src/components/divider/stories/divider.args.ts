@@ -7,17 +7,17 @@ export const DividerStoryArgs = {
     docs: {
       description: {
         component:
-          'Badges are inline block elements that usually appear near another element. Read the [Ionic documentation](https://ionicframework.com/docs/api/Badge) for more information about this component.',
+          'The Divider is a thin line that helps separate and group content in the interface. This component can also be used to define rhythm and order.',
       },
     },
   },
   argTypes: {
     type: {
       control: 'select',
-      options: ['up', 'down'],
+      options: ['down', 'up'],
       defaultValue: { summary: 'down' },
       description:
-        'The type of the badge, the component will receive the color according to its type.',
+        'The type of the divider, will change your anatomy. The component can be used to separate content in two directions, up or down.',
     },
   },
 }
