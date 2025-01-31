@@ -176,6 +176,7 @@ export type IconProps =
   | 'reload'
   | 'replay'
   | 'search-off'
+  | 'style'
   | 'sentiment-dissatisfied'
   | 'share-variant-outline'
   | 'share-variant'
