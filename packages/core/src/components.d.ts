@@ -121,6 +121,9 @@ export namespace Components {
     | DatetimeChangeEventDetail;
         "yearValues"?: number[] | string;
     }
+    interface AtomDivider {
+        "type": 'horizontal' | 'vertical';
+    }
     interface AtomGrid {
         "fixed"?: boolean;
     }
@@ -490,6 +493,12 @@ declare global {
         prototype: HTMLAtomDatetimeElement;
         new (): HTMLAtomDatetimeElement;
     };
+    interface HTMLAtomDividerElement extends Components.AtomDivider, HTMLStencilElement {
+    }
+    var HTMLAtomDividerElement: {
+        prototype: HTMLAtomDividerElement;
+        new (): HTMLAtomDividerElement;
+    };
     interface HTMLAtomGridElement extends Components.AtomGrid, HTMLStencilElement {
     }
     var HTMLAtomGridElement: {
@@ -708,6 +717,7 @@ declare global {
         "atom-col": HTMLAtomColElement;
         "atom-container": HTMLAtomContainerElement;
         "atom-datetime": HTMLAtomDatetimeElement;
+        "atom-divider": HTMLAtomDividerElement;
         "atom-grid": HTMLAtomGridElement;
         "atom-icon": HTMLAtomIconElement;
         "atom-input": HTMLAtomInputElement;
@@ -840,6 +850,9 @@ declare namespace LocalJSX {
         "value"?: | DatetimeCustomEvent
     | DatetimeChangeEventDetail;
         "yearValues"?: number[] | string;
+    }
+    interface AtomDivider {
+        "type"?: 'horizontal' | 'vertical';
     }
     interface AtomGrid {
         "fixed"?: boolean;
@@ -1091,6 +1104,7 @@ declare namespace LocalJSX {
         "atom-col": AtomCol;
         "atom-container": AtomContainer;
         "atom-datetime": AtomDatetime;
+        "atom-divider": AtomDivider;
         "atom-grid": AtomGrid;
         "atom-icon": AtomIcon;
         "atom-input": AtomInput;
@@ -1121,6 +1135,7 @@ declare module "@stencil/core" {
             "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
             "atom-container": LocalJSX.AtomContainer & JSXBase.HTMLAttributes<HTMLAtomContainerElement>;
             "atom-datetime": LocalJSX.AtomDatetime & JSXBase.HTMLAttributes<HTMLAtomDatetimeElement>;
+            "atom-divider": LocalJSX.AtomDivider & JSXBase.HTMLAttributes<HTMLAtomDividerElement>;
             "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
             "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
             "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
