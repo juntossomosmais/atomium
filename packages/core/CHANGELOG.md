@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.1...atomium-v3.3.0) (2025-01-31)
+
+
+### Features
+
+* **datetime:** add new component ([#687](https://github.com/juntossomosmais/atomium/issues/687)) ([778dc0c](https://github.com/juntossomosmais/atomium/commit/778dc0ca6a011070a2d8dd8527c8d59eeafd5746))
+* **divider:** create new component ([#692](https://github.com/juntossomosmais/atomium/issues/692)) ([53716d7](https://github.com/juntossomosmais/atomium/commit/53716d7a5fc138119a0c88ae479d6d7ea88263be))
+* **icons:** add shopping cart icon and cupom ([#688](https://github.com/juntossomosmais/atomium/issues/688)) ([ae65156](https://github.com/juntossomosmais/atomium/commit/ae6515646d1f9bf279dfedc505f965bc4793c9fb))
+* **icons:** adding icons for new home component ([#691](https://github.com/juntossomosmais/atomium/issues/691)) ([fffcf04](https://github.com/juntossomosmais/atomium/commit/fffcf04ec15f6789f30134c15434504404cacdf8))
+
 ## [3.2.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.0...atomium-v3.2.1) (2025-01-08)
 
 
