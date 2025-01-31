@@ -1,0 +1,39 @@
+:host {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+
+  p {
+    margin: 0;
+  }
+}
+
+.atom-meter {
+  background-color: var(--color-neutral-light-4);
+  border-radius: var(--border-radius-medium);
+  height: var(--spacing-base);
+  position: relative;
+  width: 100%;
+}
+
+.within {
+  background-color: var(--color-brand-secondary-regular);
+  border-radius: var(--border-radius-medium);
+  height: var(--spacing-base);
+  position: absolute;
+  width: 50%;
+
+  &.success {
+    background-color: var(--color-success-regular);
+  }
+
+  &.warning {
+    background-color: var(--color-success-regular);
+  }
+
+  &.danger {
+    background-color: var(--color-success-regular);
+  }
+}
