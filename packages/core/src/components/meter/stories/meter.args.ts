@@ -13,18 +13,18 @@ export const MeterStoryArgs = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['horizontal', 'vertical'],
-      defaultValue: { summary: 'horizontal' },
-      description: 'Meter',
-    },
-    title: {
-      control: 'text',
+      options: ['success', 'neutral', 'warning', 'danger'],
+      defaultValue: { summary: 'neutral' },
       description: 'Meter',
     },
     size: {
       control: 'select',
-      options: ['small', 'large'],
+      options: ['large', 'small'],
       defaultValue: { summary: 'large' },
+      description: 'Meter',
+    },
+    title: {
+      control: 'text',
       description: 'Meter',
     },
     value: {

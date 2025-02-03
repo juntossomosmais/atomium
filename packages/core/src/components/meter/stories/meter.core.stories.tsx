@@ -17,20 +17,36 @@ const createMeter = (args) => {
   ></atom-meter>`
 }
 
-export const Horizontal: StoryObj = {
+export const Neutral: StoryObj = {
   render: (args) => createMeter(args),
   args: {
     title: 'Meter',
-    type: 'success',
+    type: 'neutral',
     size: 'large',
     value: 'Lesgo',
   },
 }
 
-export const Vertical: StoryObj = {
+export const Success: StoryObj = {
   render: (args) => createMeter(args),
   args: {
-    ...Horizontal.args,
-    type: 'neutral',
+    ...Neutral.args,
+    type: 'success',
+  },
+}
+
+export const Warning: StoryObj = {
+  render: (args) => createMeter(args),
+  args: {
+    ...Neutral.args,
+    type: 'warning',
+  },
+}
+
+export const Danger: StoryObj = {
+  render: (args) => createMeter(args),
+  args: {
+    ...Neutral.args,
+    type: 'danger',
   },
 }
