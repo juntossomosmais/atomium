@@ -16,24 +16,38 @@
   height: var(--spacing-base);
   position: relative;
   width: 100%;
+
+  &.is-small {
+    height: var(--spacing-xsmall);
+
+    .within {
+      height: var(--spacing-xsmall);
+    }
+  }
+
+  .within {
+    background-color: var(--color-brand-secondary-regular);
+    border-radius: var(--border-radius-medium);
+    height: var(--spacing-base);
+    position: absolute;
+    width: 50%;
+
+    &.is-success {
+      background-color: var(--color-contextual-success-light-1);
+    }
+
+    &.is-warning {
+      background-color: var(--color-contextual-warning-regular);
+    }
+
+    &.is-danger {
+      background-color: var(--color-contextual-error-regular);
+    }
+  }
 }
 
-.within {
-  background-color: var(--color-brand-secondary-regular);
-  border-radius: var(--border-radius-medium);
-  height: var(--spacing-base);
-  position: absolute;
-  width: 50%;
-
-  &.success {
-    background-color: var(--color-success-regular);
-  }
-
-  &.warning {
-    background-color: var(--color-success-regular);
-  }
-
-  &.danger {
-    background-color: var(--color-success-regular);
-  }
+.title {
+  font: var(--text-body-small);
+  letter-spacing: var(--text-body-small-letter);
+  margin-bottom: var(--spacing-xsmall);
 }

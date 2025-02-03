@@ -10,13 +10,12 @@ export class AtomMeter {
   @Prop() size: 'small' | 'large' = 'large'
   @Prop() title: string
   @Prop() renderText: string
-  // deve virar a callback que igao falou
 
   render() {
     return (
       <Host>
-        <p>{this.title}</p>
-        <div class='atom-meter'>
+        <h1 class='title'>{this.title}</h1>
+        <div class={`atom-meter is-${this.size}`}>
           <div class={`within is-${this.type}`} />
         </div>
       </Host>
