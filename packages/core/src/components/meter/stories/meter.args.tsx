@@ -1,3 +1,5 @@
+import { h } from '@stencil/core'
+
 export const MeterStoryArgs = {
   decorators: [],
   parameters: {
@@ -13,7 +15,7 @@ export const MeterStoryArgs = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['success', 'neutral', 'warning', 'danger'],
+      options: ['neutral', 'success', 'warning', 'danger'],
       defaultValue: { summary: 'neutral' },
       description: 'Meter',
     },
@@ -27,10 +29,24 @@ export const MeterStoryArgs = {
       control: 'text',
       description: 'Meter',
     },
-    value: {
-      control: 'text',
-      defaultValue: { summary: 'Lesgo' },
+    min: {
+      control: 'number',
+      defaultValue: { summary: '0' },
       description: 'Meter',
+    },
+    max: {
+      control: 'number',
+      description: 'Meter',
+    },
+    actual: {
+      control: 'number',
+      defaultValue: { summary: '0' },
+      description: 'Meter',
+    },
+    content: {
+      control: 'text',
+      description: 'Meter',
+      defaultValue: () => <div>Valor atual: 0</div>,
     },
   },
 }

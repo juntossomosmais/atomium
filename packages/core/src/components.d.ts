@@ -200,7 +200,9 @@ export namespace Components {
     interface AtomListSliderItem {
     }
     interface AtomMeter {
-        "renderText": string;
+        "actual": number;
+        "max": number;
+        "min": number;
         "size": 'small' | 'large';
         "title": string;
         "type": 'success' | 'neutral' | 'warning' | 'danger';
@@ -947,7 +949,9 @@ declare namespace LocalJSX {
     interface AtomListSliderItem {
     }
     interface AtomMeter {
-        "renderText"?: string;
+        "actual"?: number;
+        "max"?: number;
+        "min"?: number;
         "size"?: 'small' | 'large';
         "title"?: string;
         "type"?: 'success' | 'neutral' | 'warning' | 'danger';

@@ -13,17 +13,24 @@ const createMeter = (args) => {
     .type=${args.type}
     .size=${args.size}
     .title=${args.title}
-    .value=${args.value}
-  ></atom-meter>`
+    .min=${args.min}
+    .max=${args.max}
+    .actual=${args.actual}
+  >
+    <div>${args.content || `${args.actual} of ${args.max}`}</div>
+  </atom-meter>`
 }
 
-export const Neutral: StoryObj = {
+const Neutral: StoryObj = {
   render: (args) => createMeter(args),
   args: {
     title: 'Meter',
     type: 'neutral',
     size: 'large',
-    value: 'Lesgo',
+    min: 1,
+    max: 6,
+    actual: 4,
+    content: '',
   },
 }
 
@@ -48,5 +55,14 @@ export const Danger: StoryObj = {
   args: {
     ...Neutral.args,
     type: 'danger',
+  },
+}
+
+export const Small: StoryObj = {
+  render: (args) => createMeter(args),
+  args: {
+    ...Neutral.args,
+    title: 'Small Meter',
+    size: 'small',
   },
 }
