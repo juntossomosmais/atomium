@@ -347,9 +347,9 @@ describe('AtomSelect', () => {
 
     await page.waitForChanges()
     const mockFiltered = optionsMock.filter((option) => option?.tag?.label)
-    const instanceObjetct = page.rootInstance.filterOptionsWithTag(optionsMock)
+    const instanceObject = page.rootInstance.filterOptionsWithTag(optionsMock)
 
-    expect(Object.keys(instanceObjetct).length).toEqual(mockFiltered.length)
+    expect(Object.keys(instanceObject).length).toEqual(mockFiltered.length)
   })
   it('should filter options and attach tag element', async () => {
     const page = await newSpecPage({
