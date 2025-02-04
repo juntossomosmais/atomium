@@ -33,7 +33,7 @@ export class AtomMeter {
       <Host>
         <div class={`container-text ${this.centerTitle && 'hasCenterTitle'}`}>
           <h1 class='title'>{this.title}</h1>
-          {!this.centerTitle && this.isMobile() && <slot />}
+          {!this.centerTitle && !this.isMobile() && <slot />}
         </div>
         <div class={`atom-meter is-${this.size}`}>
           <div
@@ -42,7 +42,7 @@ export class AtomMeter {
           />
         </div>
         <div class='container-text hasMarginTop'>
-          {!this.centerTitle && !this.isMobile() && <slot />}
+          {!this.centerTitle && this.isMobile() && <slot />}
         </div>
       </Host>
     )
