@@ -201,12 +201,12 @@ export namespace Components {
     }
     interface AtomMeter {
         "actual": number;
-        "centerTitle": boolean;
+        "centerTitle"?: boolean;
         "max": number;
         "min": number;
-        "size": 'small' | 'large';
+        "size"?: 'small' | 'large';
         "title": string;
-        "type": 'success' | 'neutral' | 'warning' | 'danger';
+        "type"?: 'success' | 'neutral' | 'warning' | 'danger';
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';

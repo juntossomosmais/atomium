@@ -6,10 +6,10 @@ import { Component, Element, h, Host, Prop } from '@stencil/core'
   shadow: true,
 })
 export class AtomMeter {
-  @Prop() type: 'success' | 'neutral' | 'warning' | 'danger' = 'neutral'
-  @Prop() size: 'small' | 'large' = 'large'
+  @Prop() type?: 'success' | 'neutral' | 'warning' | 'danger' = 'neutral'
+  @Prop() size?: 'small' | 'large' = 'large'
   @Prop() title: string
-  @Prop() centerTitle: boolean = false
+  @Prop() centerTitle?: boolean = false
   @Prop() min: number = 0
   @Prop() max: number
   @Prop() actual: number
@@ -31,7 +31,9 @@ export class AtomMeter {
   render() {
     return (
       <Host>
-        <div class={`container-text ${this.centerTitle && 'hasCenterTitle'}`}>
+        <div
+          class={`container-text ${this.centerTitle ? 'hasCenterTitle' : ''}`}
+        >
           <h1 class='title'>{this.title}</h1>
           {!this.centerTitle && !this.isMobile() && <slot />}
         </div>
@@ -41,9 +43,11 @@ export class AtomMeter {
             style={{ width: `${this.getProgress()}%` }}
           />
         </div>
-        <div class='container-text hasMarginTop'>
-          {!this.centerTitle && this.isMobile() && <slot />}
-        </div>
+        {!this.centerTitle && this.isMobile() && (
+          <div class='container-text hasMarginTop'>
+            <slot />
+          </div>
+        )}
       </Host>
     )
   }
