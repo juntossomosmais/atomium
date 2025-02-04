@@ -16,26 +16,33 @@ export class AtomMeter {
 
   @Element() el: HTMLElement
 
+  private isMobile = () => {
+    return window.matchMedia('(max-width: 768px)').matches
+  }
+
+  private getProgress = () => {
+    if (this.actual >= this.max) return 100
+
+    if (this.actual <= this.min) return 0
+
+    return ((this.actual - this.min) / (this.max - this.min)) * 100
+  }
+
   render() {
-    const getProgress = () => {
-      if (this.actual >= this.max) return 100
-
-      if (this.actual <= this.min) return 0
-
-      return ((this.actual - this.min) / (this.max - this.min)) * 100
-    }
-
     return (
       <Host>
         <div class={`container-text ${this.centerTitle && 'hasCenterTitle'}`}>
           <h1 class='title'>{this.title}</h1>
-          {!this.centerTitle && <slot />}
+          {!this.centerTitle && this.isMobile() && <slot />}
         </div>
         <div class={`atom-meter is-${this.size}`}>
           <div
             class={`within is-${this.type}`}
-            style={{ width: `${getProgress()}%` }}
+            style={{ width: `${this.getProgress()}%` }}
           />
+        </div>
+        <div class='container-text hasMarginTop'>
+          {!this.centerTitle && !this.isMobile() && <slot />}
         </div>
       </Host>
     )
