@@ -1,5 +1,3 @@
-import { h } from '@stencil/core'
-
 export const MeterStoryArgs = {
   decorators: [],
   parameters: {
@@ -8,7 +6,8 @@ export const MeterStoryArgs = {
     },
     docs: {
       description: {
-        component: 'Meter',
+        component:
+          'Meters are visual representations of a quantity or an achievement. Their progress is determined by the actions of the user, not by the actions of the  system. This last point is what differentiates them from the progress bar.',
       },
     },
   },
@@ -17,36 +16,43 @@ export const MeterStoryArgs = {
       control: 'select',
       options: ['neutral', 'success', 'warning', 'danger'],
       defaultValue: { summary: 'neutral' },
-      description: 'Meter',
+      description:
+        'The type of the Meter, the component will receive the color according to its type.',
     },
     size: {
       control: 'select',
       options: ['large', 'small'],
       defaultValue: { summary: 'large' },
-      description: 'Meter',
+      description:
+        'The size of the Meter, the componente will receive the size according to its prop.',
     },
     title: {
       control: 'text',
-      description: 'Meter',
+      description: 'Top title of the Meter, at the top left of the component.',
+    },
+    centerTitle: {
+      control: 'boolean',
+      defaultValue: { summary: false },
+      description: 'The prop to center the title.',
     },
     min: {
       control: 'number',
       defaultValue: { summary: '0' },
-      description: 'Meter',
+      description: 'Minimum value for progression calculation.',
     },
     max: {
       control: 'number',
-      description: 'Meter',
+      description: 'Max value for progression calculation.',
     },
     actual: {
       control: 'number',
       defaultValue: { summary: '0' },
-      description: 'Meter',
+      description: 'Actual value for progression calculation.',
     },
     content: {
       control: 'text',
-      description: 'Meter',
-      defaultValue: () => <div>Valor atual: 0</div>,
+      description:
+        'This prop is a children, used to fill the slot of the component.',
     },
   },
 }

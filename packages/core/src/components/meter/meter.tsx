@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 @Component({
   tag: 'atom-meter',
@@ -9,9 +9,12 @@ export class AtomMeter {
   @Prop() type: 'success' | 'neutral' | 'warning' | 'danger' = 'neutral'
   @Prop() size: 'small' | 'large' = 'large'
   @Prop() title: string
+  @Prop() centerTitle: boolean = false
   @Prop() min: number = 0
   @Prop() max: number
   @Prop() actual: number
+
+  @Element() el: HTMLElement
 
   render() {
     const getProgress = () => {
@@ -24,9 +27,9 @@ export class AtomMeter {
 
     return (
       <Host>
-        <div class='container-text'>
+        <div class={`container-text ${this.centerTitle && 'hasCenterTitle'}`}>
           <h1 class='title'>{this.title}</h1>
-          <slot />
+          {!this.centerTitle && <slot />}
         </div>
         <div class={`atom-meter is-${this.size}`}>
           <div

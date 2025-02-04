@@ -13,6 +13,7 @@ const createMeter = (args) => {
     .type=${args.type}
     .size=${args.size}
     .title=${args.title}
+    .centerTitle=${args.centerTitle}
     .min=${args.min}
     .max=${args.max}
     .actual=${args.actual}
@@ -21,11 +22,12 @@ const createMeter = (args) => {
   </atom-meter>`
 }
 
-const Neutral: StoryObj = {
+export const Neutral: StoryObj = {
   render: (args) => createMeter(args),
   args: {
     title: 'Meter',
     type: 'neutral',
+    centerTitle: false,
     size: 'large',
     min: 1,
     max: 6,
