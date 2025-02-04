@@ -128,10 +128,22 @@ export class AtomSelect {
 
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
+    this.applyPointerEventsNone()
   }
 
   disconnectedCallback() {
     this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
+  }
+
+  /* In some cases each elements inside `ion-select` are clickable individually, so it causes a bug to open the popover, for example, when click on arrow icon the popover is opened extremely small. This method is a workaround to fix this bug. */
+  private applyPointerEventsNone() {
+    const ionSelect = this.selectEl?.shadowRoot?.querySelector('ion-select')
+    const selectWrapper =
+      ionSelect?.shadowRoot?.querySelector('.select-wrapper')
+
+    if (selectWrapper) {
+      (selectWrapper as HTMLElement).style.pointerEvents = 'none'
+    }
   }
 
   private handleChange: IonTypes.IonSelect['onIonChange'] = (event) => {
