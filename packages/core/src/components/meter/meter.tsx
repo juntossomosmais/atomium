@@ -11,7 +11,7 @@ export class AtomMeter {
   @Prop() type?: 'success' | 'neutral' | 'warning' | 'danger' = 'neutral'
   @Prop() size?: 'small' | 'large' = 'large'
   @Prop() title: string
-  @Prop() centerTitle?: boolean = false
+  @Prop() hasCenterTitle?: boolean = false
   @Prop() min: number
   @Prop() max: number
   @Prop() actual: number
@@ -25,13 +25,15 @@ export class AtomMeter {
   }
 
   render() {
+    const hasMobileClass = isMobile() ? 'is-mobile' : ''
+
     return (
       <Host>
         <div
-          class={`container-text ${this.centerTitle ? 'has-center-title' : ''} ${isMobile() ? 'is-mobile' : ''}`}
+          class={`container-text ${this.hasCenterTitle ? 'has-center-title' : ''} ${hasMobileClass}`}
         >
-          <h1 class={`title ${isMobile() ? 'is-mobile' : ''}`}>{this.title}</h1>
-          {!this.centerTitle && !isMobile() && <slot />}
+          <h1 class={`title ${hasMobileClass}`}>{this.title}</h1>
+          {!this.hasCenterTitle && !isMobile() && <slot />}
         </div>
         <div class={`atom-meter is-${this.size}`}>
           <div
@@ -39,7 +41,7 @@ export class AtomMeter {
             style={{ width: `${this.getProgress()}%` }}
           />
         </div>
-        {!this.centerTitle && isMobile() && (
+        {!this.hasCenterTitle && isMobile() && (
           <div class='container-text has-gap-top'>
             <slot />
           </div>

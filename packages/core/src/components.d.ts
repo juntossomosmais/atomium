@@ -201,7 +201,7 @@ export namespace Components {
     }
     interface AtomMeter {
         "actual": number;
-        "centerTitle"?: boolean;
+        "hasCenterTitle"?: boolean;
         "max": number;
         "min": number;
         "size"?: 'small' | 'large';
@@ -951,7 +951,7 @@ declare namespace LocalJSX {
     }
     interface AtomMeter {
         "actual"?: number;
-        "centerTitle"?: boolean;
+        "hasCenterTitle"?: boolean;
         "max"?: number;
         "min"?: number;
         "size"?: 'small' | 'large';
