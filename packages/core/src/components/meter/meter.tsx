@@ -40,7 +40,7 @@ export class AtomMeter {
           />
         </div>
         {!this.centerTitle && isMobile() && (
-          <div class='container-text hasMarginTop'>
+          <div class='container-text has-gap-top'>
             <slot />
           </div>
         )}
