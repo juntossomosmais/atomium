@@ -11,7 +11,6 @@
   align-items: flex-end;
   display: flex;
   font: var(--text-body-small);
-  font-weight: 300;
   justify-content: space-between;
   letter-spacing: var(--text-body-small-letter);
   margin-bottom: var(--spacing-xsmall);
@@ -28,7 +27,6 @@
 
   &.is-mobile {
     font: var(--text-body-small);
-    font-weight: 300;
     letter-spacing: var(--text-body-small-letter);
   }
 
@@ -39,12 +37,10 @@
 
 .title {
   font: var(--text-body-medium);
-  font-weight: 300;
   letter-spacing: var(--text-body-medium-letter);
 
   &.is-mobile {
     font: var(--text-body-small);
-    font-weight: 300;
     letter-spacing: var(--text-body-small-letter);
   }
 }
