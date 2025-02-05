@@ -32,9 +32,11 @@ export class AtomMeter {
     return (
       <Host>
         <div
-          class={`container-text ${this.centerTitle ? 'hasCenterTitle' : ''}`}
+          class={`container-text ${this.centerTitle ? 'hasCenterTitle' : ''} ${this.isMobile() ? 'is-mobile' : ''}`}
         >
-          <h1 class='title'>{this.title}</h1>
+          <h1 class={`title ${this.isMobile() ? 'is-mobile' : ''}`}>
+            {this.title}
+          </h1>
           {!this.centerTitle && !this.isMobile() && <slot />}
         </div>
         <div class={`atom-meter is-${this.size}`}>
