@@ -12,7 +12,7 @@ export class AtomMeter {
   @Prop() size?: 'small' | 'large' = 'large'
   @Prop() title: string
   @Prop() centerTitle?: boolean = false
-  @Prop() min: number = 0
+  @Prop() min: number
   @Prop() max: number
   @Prop() actual: number
 

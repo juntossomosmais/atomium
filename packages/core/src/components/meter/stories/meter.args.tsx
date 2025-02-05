@@ -37,7 +37,6 @@ export const MeterStoryArgs = {
     },
     min: {
       control: 'number',
-      defaultValue: { summary: '0' },
       description: 'Minimum value for progression calculation.',
     },
     max: {
@@ -46,7 +45,6 @@ export const MeterStoryArgs = {
     },
     actual: {
       control: 'number',
-      defaultValue: { summary: '0' },
       description: 'Actual value for progression calculation.',
     },
     content: {
