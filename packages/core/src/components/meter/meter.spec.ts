@@ -21,7 +21,7 @@ describe('atom-meter', () => {
     expect(page.root).toEqualHtml(`
       <atom-meter type="neutral" size="large" actual="4" max="6" min="1" title=":fialho-dino:">
         <mock:shadow-root>
-          <div class="container-text ">
+          <div class="container-text">
             <h1 class="title">
               :fialho-dino:
             </h1>
@@ -38,15 +38,15 @@ describe('atom-meter', () => {
   it('should render with centerTitle prop', async () => {
     const page = await newSpecPage({
       components: [AtomMeter],
-      html: `<atom-meter center-title="true" title="Centered Title" min="1" max="6" actual="4"></atom-meter>`,
+      html: `<atom-meter has-center-title="true" title="Centered Title" min="1" max="6" actual="4"></atom-meter>`,
     })
 
     await page.waitForChanges()
 
     expect(page.root).toEqualHtml(`
-      <atom-meter center-title="true" title="Centered Title" min="1" max="6" actual="4">
+      <atom-meter has-center-title="true" title="Centered Title" min="1" max="6" actual="4">
         <mock:shadow-root>
-          <div class="container-text hasCenterTitle">
+          <div class="container-text has-center-title">
             <h1 class="title">Centered Title</h1>
           </div>
           <div class="atom-meter is-large">
