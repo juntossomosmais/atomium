@@ -28,7 +28,7 @@ export class AtomMeter {
     return (
       <Host>
         <div
-          class={`container-text ${this.centerTitle ? 'hasCenterTitle' : ''} ${isMobile() ? 'is-mobile' : ''}`}
+          class={`container-text ${this.centerTitle ? 'has-center-title' : ''} ${isMobile() ? 'is-mobile' : ''}`}
         >
           <h1 class={`title ${isMobile() ? 'is-mobile' : ''}`}>{this.title}</h1>
           {!this.centerTitle && !isMobile() && <slot />}
