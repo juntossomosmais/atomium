@@ -1,4 +1,6 @@
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from '@stencil/core'
+
+import { isMobile } from '../../utils/screens'
 
 @Component({
   tag: 'atom-meter',
@@ -14,12 +16,6 @@ export class AtomMeter {
   @Prop() max: number
   @Prop() actual: number
 
-  @Element() el: HTMLElement
-
-  private isMobile = () => {
-    return window.matchMedia('(max-width: 768px)').matches
-  }
-
   private getProgress = () => {
     if (this.actual >= this.max) return 100
 
@@ -32,12 +28,10 @@ export class AtomMeter {
     return (
       <Host>
         <div
-          class={`container-text ${this.centerTitle ? 'hasCenterTitle' : ''} ${this.isMobile() ? 'is-mobile' : ''}`}
+          class={`container-text ${this.centerTitle ? 'hasCenterTitle' : ''} ${isMobile() ? 'is-mobile' : ''}`}
         >
-          <h1 class={`title ${this.isMobile() ? 'is-mobile' : ''}`}>
-            {this.title}
-          </h1>
-          {!this.centerTitle && !this.isMobile() && <slot />}
+          <h1 class={`title ${isMobile() ? 'is-mobile' : ''}`}>{this.title}</h1>
+          {!this.centerTitle && !isMobile() && <slot />}
         </div>
         <div class={`atom-meter is-${this.size}`}>
           <div
@@ -45,7 +39,7 @@ export class AtomMeter {
             style={{ width: `${this.getProgress()}%` }}
           />
         </div>
-        {!this.centerTitle && this.isMobile() && (
+        {!this.centerTitle && isMobile() && (
           <div class='container-text hasMarginTop'>
             <slot />
           </div>
