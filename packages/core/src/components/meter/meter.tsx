@@ -35,7 +35,7 @@ export class AtomMeter {
         </div>
         <div class={`atom-meter is-${this.size}`}>
           <div
-            class={`within is-${this.type}`}
+            class={`step is-${this.type}`}
             style={{ width: `${this.getProgress()}%` }}
           />
         </div>
