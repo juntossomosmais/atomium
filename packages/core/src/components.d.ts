@@ -216,6 +216,8 @@ export namespace Components {
         "count": number;
         "page": number;
     }
+    interface AtomRichTooltip {
+    }
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
@@ -611,6 +613,12 @@ declare global {
         prototype: HTMLAtomPaginationElement;
         new (): HTMLAtomPaginationElement;
     };
+    interface HTMLAtomRichTooltipElement extends Components.AtomRichTooltip, HTMLStencilElement {
+    }
+    var HTMLAtomRichTooltipElement: {
+        prototype: HTMLAtomRichTooltipElement;
+        new (): HTMLAtomRichTooltipElement;
+    };
     interface HTMLAtomSelectElementEventMap {
         "atomBlur": void;
         "atomCancel": void;
@@ -726,6 +734,7 @@ declare global {
         "atom-list-slider-item": HTMLAtomListSliderItemElement;
         "atom-modal": HTMLAtomModalElement;
         "atom-pagination": HTMLAtomPaginationElement;
+        "atom-rich-tooltip": HTMLAtomRichTooltipElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-spinner": HTMLAtomSpinnerElement;
         "atom-steps-modal": HTMLAtomStepsModalElement;
@@ -957,6 +966,8 @@ declare namespace LocalJSX {
         "onAtomChangePage"?: (event: AtomPaginationCustomEvent<number>) => void;
         "page"?: number;
     }
+    interface AtomRichTooltip {
+    }
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
@@ -1113,6 +1124,7 @@ declare namespace LocalJSX {
         "atom-list-slider-item": AtomListSliderItem;
         "atom-modal": AtomModal;
         "atom-pagination": AtomPagination;
+        "atom-rich-tooltip": AtomRichTooltip;
         "atom-select": AtomSelect;
         "atom-spinner": AtomSpinner;
         "atom-steps-modal": AtomStepsModal;
@@ -1144,6 +1156,7 @@ declare module "@stencil/core" {
             "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
             "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
             "atom-pagination": LocalJSX.AtomPagination & JSXBase.HTMLAttributes<HTMLAtomPaginationElement>;
+            "atom-rich-tooltip": LocalJSX.AtomRichTooltip & JSXBase.HTMLAttributes<HTMLAtomRichTooltipElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-spinner": LocalJSX.AtomSpinner & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
             "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
