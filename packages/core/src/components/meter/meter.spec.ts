@@ -30,7 +30,7 @@ describe('atom-meter', () => {
             <slot></slot>
           </div>
           <div class="atom-meter is-large">
-            <div class="within is-neutral" style="width: 60%;"></div>
+            <div class="step is-neutral" style="width: 60%;"></div>
           </div>
         </mock:shadow-root>
       </atom-meter>
@@ -52,7 +52,7 @@ describe('atom-meter', () => {
             <h1 class="title">Centered Title</h1>
           </div>
           <div class="atom-meter is-large">
-            <div class="within is-neutral" style="width: 60%;"></div>
+            <div class="step is-neutral" style="width: 60%;"></div>
           </div>
         </mock:shadow-root>
       </atom-meter>
@@ -75,7 +75,7 @@ describe('atom-meter', () => {
             <slot></slot>
           </div>
           <div class="atom-meter is-small">
-            <div class="within is-neutral" style="width: 60%;"></div>
+            <div class="step is-neutral" style="width: 60%;"></div>
           </div>
         </mock:shadow-root>
       </atom-meter>
@@ -98,7 +98,7 @@ describe('atom-meter', () => {
             <slot></slot>
           </div>
           <div class="atom-meter is-large">
-            <div class="within is-neutral" style="width: 60%;"></div>
+            <div class="step is-neutral" style="width: 60%;"></div>
           </div>
         </mock:shadow-root>
         Children
@@ -123,7 +123,7 @@ describe('atom-meter', () => {
             <h1 class="title">test</h1>
           </div>
           <div class="atom-meter is-large">
-            <div class="within is-neutral" style="width: 60%;"></div>
+            <div class="step is-neutral" style="width: 60%;"></div>
           </div>
           <div class="container-text has-gap-top">
             <slot></slot>
