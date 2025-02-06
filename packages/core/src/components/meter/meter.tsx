@@ -25,14 +25,12 @@ export class AtomMeter {
   }
 
   render() {
-    const hasMobileClass = isMobile() ? 'is-mobile' : ''
-
     return (
       <Host>
         <div
-          class={`container-text ${this.hasCenterTitle ? 'has-center-title' : ''} ${hasMobileClass}`}
+          class={`container-text ${this.hasCenterTitle ? 'has-center-title' : ''}`}
         >
-          <h1 class={`title ${hasMobileClass}`}>{this.title}</h1>
+          <h1 class='title'>{this.title}</h1>
           {!this.hasCenterTitle && !isMobile() && <slot />}
         </div>
         <div class={`atom-meter is-${this.size}`}>

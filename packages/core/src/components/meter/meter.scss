@@ -25,7 +25,7 @@
     margin-top: var(--spacing-xsmall);
   }
 
-  &.is-mobile {
+  @media (max-width: 768px) {
     font: var(--text-body-small);
     letter-spacing: var(--text-body-small-letter);
   }
@@ -36,7 +36,7 @@
   letter-spacing: var(--text-body-medium-letter);
   margin: 0;
 
-  &.is-mobile {
+  @media (max-width: 768px) {
     font: var(--text-body-small);
     letter-spacing: var(--text-body-small-letter);
   }
