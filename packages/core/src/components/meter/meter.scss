@@ -29,15 +29,12 @@
     font: var(--text-body-small);
     letter-spacing: var(--text-body-small-letter);
   }
-
-  * {
-    margin: 0;
-  }
 }
 
 .title {
   font: var(--text-body-medium);
   letter-spacing: var(--text-body-medium-letter);
+  margin: 0;
 
   &.is-mobile {
     font: var(--text-body-small);
