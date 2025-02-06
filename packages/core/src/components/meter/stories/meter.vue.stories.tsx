@@ -18,7 +18,7 @@ const createMeter = (args) => ({
       type="${args.type}"
       size="${args.size}"
       title="${args.title}"
-      centerTitle="${args.centerTitle}"
+      hasCenterTitle="${args.hasCenterTitle}"
       min="${args.min}"
       max="${args.max}"
       actual="${args.actual}"
@@ -33,7 +33,7 @@ export const Neutral: StoryObj = {
   args: {
     title: 'Meter',
     type: 'neutral',
-    centerTitle: false,
+    hasCenterTitle: false,
     size: 'large',
     min: 1,
     max: 6,

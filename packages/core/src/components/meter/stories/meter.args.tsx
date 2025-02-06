@@ -30,7 +30,7 @@ export const MeterStoryArgs = {
       control: 'text',
       description: 'Top title of the Meter, at the top left of the component.',
     },
-    centerTitle: {
+    hasCenterTitle: {
       control: 'boolean',
       defaultValue: { summary: false },
       description: 'The prop to center the title.',
