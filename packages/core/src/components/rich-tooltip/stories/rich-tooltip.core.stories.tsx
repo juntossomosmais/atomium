@@ -1,78 +1,46 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
-import { BadgeStoryArgs } from './badge.args'
+import { RichTooltipStoryArgs } from './rich-tooltip.args'
 
 export default {
-  title: 'Components/Badge',
-  ...BadgeStoryArgs,
+  title: 'Components/Rich Tooltip',
+  ...RichTooltipStoryArgs,
 } as Meta
 
-const createBadge = (args) => {
-  return html` <atom-badge type="${args.type}"> ${args.label} </atom-badge> `
+const createRichTooltip = (args) => {
+  return html` <atom-button
+      fill="solid"
+      size="large"
+      id="${args.element}"
+      aria-describedby="atom-tooltip"
+    >
+      Hover
+    </atom-button>
+
+    <atom-rich-tooltip
+      id="atom-tooltip"
+      placement="${args.placement}"
+      element="${args.element}"
+      action="${args.action}"
+      open="${args.open}"
+    >
+      ${args.text}
+    </atom-rich-tooltip>`
 }
 
 export const Primary: StoryObj = {
-  render: (args) => createBadge(args),
+  render: (args) => createRichTooltip(args),
   args: {
     type: 'primary',
-    label: 'Badge',
+    label: 'Alou',
   },
 }
 
 export const Secondary: StoryObj = {
-  render: (args) => createBadge(args),
+  render: (args) => createRichTooltip(args),
   args: {
     ...Primary.args,
     type: 'secondary',
-  },
-}
-
-export const Info: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'info',
-  },
-}
-
-export const Success: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'success',
-  },
-}
-
-export const Warning: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'warning',
-  },
-}
-
-export const Danger: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'danger',
-  },
-}
-
-export const Neutral: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'neutral',
-  },
-}
-
-export const Dark: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'dark',
   },
 }

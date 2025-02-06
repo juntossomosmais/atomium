@@ -1,4 +1,4 @@
-export const BadgeStoryArgs = {
+export const RichTooltipStoryArgs = {
   decorators: [],
   parameters: {
     actions: {
@@ -6,8 +6,7 @@ export const BadgeStoryArgs = {
     },
     docs: {
       description: {
-        component:
-          'Badges are inline block elements that usually appear near another element. Read the [Ionic documentation](https://ionicframework.com/docs/api/Badge) for more information about this component.',
+        component: '',
       },
     },
   },
