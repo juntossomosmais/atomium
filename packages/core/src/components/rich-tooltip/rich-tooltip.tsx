@@ -3,16 +3,15 @@ import { Component, Element, Host, Prop, Watch, h } from '@stencil/core'
 import { TooltipController } from '../../utils/tooltip'
 
 @Component({
-  tag: 'atom-tooltip',
-  styleUrl: 'tooltip.scss',
+  tag: 'atom-rich-tooltip',
+  styleUrl: 'rich-tooltip.scss',
   shadow: true,
 })
-export class AtomTooltip {
+export class AtomRichTooltip {
   private tooltipController: TooltipController
 
   @Element() el: HTMLElement
 
-  @Prop({ mutable: true }) open = false
   @Prop() element: string
   @Prop() placement:
     | 'auto'
@@ -27,6 +26,7 @@ export class AtomTooltip {
     | 'right'
     | 'left' = 'top'
   @Prop() action: 'hover' | 'click' = 'hover'
+  @Prop() Title?: string
 
   @Watch('placement')
   updatePlacement(
@@ -68,7 +68,10 @@ export class AtomTooltip {
   render() {
     return (
       <Host role='tooltip'>
+        teste
         <div class='atom-tooltip'>
+          <h1>{this.Title}</h1>
+          teste
           <slot />
         </div>
       </Host>

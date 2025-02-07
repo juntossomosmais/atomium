@@ -1,16 +1,18 @@
-import { Meta, StoryObj } from '@storybook/web-components'
-import { html } from 'lit'
+import { AtomBadge } from '@juntossomosmais/atomium/react'
+import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
 
 import { BadgeStoryArgs } from './badge.args'
 
 export default {
   title: 'Components/Badge',
+  component: AtomBadge,
   ...BadgeStoryArgs,
 } as Meta
 
-const createBadge = (args) => {
-  return html` <atom-badge type="${args.type}"> ${args.label} </atom-badge> `
-}
+const createBadge = (args) => (
+  <AtomBadge color={args.color}>{args.label}</AtomBadge>
+)
 
 export const Primary: StoryObj = {
   render: (args) => createBadge(args),
@@ -25,14 +27,6 @@ export const Secondary: StoryObj = {
   args: {
     ...Primary.args,
     type: 'secondary',
-  },
-}
-
-export const Info: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'info',
   },
 }
 
@@ -73,5 +67,13 @@ export const Dark: StoryObj = {
   args: {
     ...Primary.args,
     type: 'dark',
+  },
+}
+
+export const Info: StoryObj = {
+  render: (args) => createBadge(args),
+  args: {
+    ...Primary.args,
+    type: 'info',
   },
 }

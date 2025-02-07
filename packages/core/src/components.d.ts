@@ -225,6 +225,11 @@ export namespace Components {
         "count": number;
         "page": number;
     }
+    interface AtomRichTooltip {
+        "action": 'hover' | 'click';
+        "element": string;
+        "placement": string;
+    }
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
@@ -328,17 +333,7 @@ export namespace Components {
         "action": 'hover' | 'click';
         "element": string;
         "open": boolean;
-        "placement": | 'auto'
-    | 'auto-start'
-    | 'auto-end'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right'
-    | 'left';
+        "placement": string;
     }
 }
 export interface AtomAlertCustomEvent<T> extends CustomEvent<T> {
@@ -388,10 +383,6 @@ export interface AtomStepsModalCustomEvent<T> extends CustomEvent<T> {
 export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomTextareaElement;
-}
-export interface AtomTooltipCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLAtomTooltipElement;
 }
 declare global {
     interface HTMLAtomAlertElementEventMap {
@@ -626,6 +617,12 @@ declare global {
         prototype: HTMLAtomPaginationElement;
         new (): HTMLAtomPaginationElement;
     };
+    interface HTMLAtomRichTooltipElement extends Components.AtomRichTooltip, HTMLStencilElement {
+    }
+    var HTMLAtomRichTooltipElement: {
+        prototype: HTMLAtomRichTooltipElement;
+        new (): HTMLAtomRichTooltipElement;
+    };
     interface HTMLAtomSelectElementEventMap {
         "atomBlur": void;
         "atomCancel": void;
@@ -703,19 +700,7 @@ declare global {
         prototype: HTMLAtomTextareaElement;
         new (): HTMLAtomTextareaElement;
     };
-    interface HTMLAtomTooltipElementEventMap {
-        "atomClose": any;
-        "atomOpen": any;
-    }
     interface HTMLAtomTooltipElement extends Components.AtomTooltip, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAtomTooltipElementEventMap>(type: K, listener: (this: HTMLAtomTooltipElement, ev: AtomTooltipCustomEvent<HTMLAtomTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAtomTooltipElementEventMap>(type: K, listener: (this: HTMLAtomTooltipElement, ev: AtomTooltipCustomEvent<HTMLAtomTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomTooltipElement: {
         prototype: HTMLAtomTooltipElement;
@@ -742,6 +727,7 @@ declare global {
         "atom-meter": HTMLAtomMeterElement;
         "atom-modal": HTMLAtomModalElement;
         "atom-pagination": HTMLAtomPaginationElement;
+        "atom-rich-tooltip": HTMLAtomRichTooltipElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-spinner": HTMLAtomSpinnerElement;
         "atom-steps-modal": HTMLAtomStepsModalElement;
@@ -982,6 +968,11 @@ declare namespace LocalJSX {
         "onAtomChangePage"?: (event: AtomPaginationCustomEvent<number>) => void;
         "page"?: number;
     }
+    interface AtomRichTooltip {
+        "action"?: 'hover' | 'click';
+        "element"?: string;
+        "placement"?: string;
+    }
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
@@ -1097,26 +1088,8 @@ declare namespace LocalJSX {
     interface AtomTooltip {
         "action"?: 'hover' | 'click';
         "element"?: string;
-        /**
-          * Event is dispatched when: 1. Mouse leave event in selector 2. Click "Close" button when is mobile
-         */
-        "onAtomClose"?: (event: AtomTooltipCustomEvent<any>) => void;
-        /**
-          * Event is dispatched when: 1. Mouse enter event in selector 2. Click in element when is mobile
-         */
-        "onAtomOpen"?: (event: AtomTooltipCustomEvent<any>) => void;
         "open"?: boolean;
-        "placement"?: | 'auto'
-    | 'auto-start'
-    | 'auto-end'
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right'
-    | 'left';
+        "placement"?: string;
     }
     interface IntrinsicElements {
         "atom-alert": AtomAlert;
@@ -1139,6 +1112,7 @@ declare namespace LocalJSX {
         "atom-meter": AtomMeter;
         "atom-modal": AtomModal;
         "atom-pagination": AtomPagination;
+        "atom-rich-tooltip": AtomRichTooltip;
         "atom-select": AtomSelect;
         "atom-spinner": AtomSpinner;
         "atom-steps-modal": AtomStepsModal;
@@ -1171,6 +1145,7 @@ declare module "@stencil/core" {
             "atom-meter": LocalJSX.AtomMeter & JSXBase.HTMLAttributes<HTMLAtomMeterElement>;
             "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
             "atom-pagination": LocalJSX.AtomPagination & JSXBase.HTMLAttributes<HTMLAtomPaginationElement>;
+            "atom-rich-tooltip": LocalJSX.AtomRichTooltip & JSXBase.HTMLAttributes<HTMLAtomRichTooltipElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-spinner": LocalJSX.AtomSpinner & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
             "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
