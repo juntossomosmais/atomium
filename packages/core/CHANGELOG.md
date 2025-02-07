@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.3.0...atomium-v3.4.0) (2025-02-07)
+
+
+### Features
+
+* **meter:** create new component ([#695](https://github.com/juntossomosmais/atomium/issues/695)) ([f6e9d98](https://github.com/juntossomosmais/atomium/commit/f6e9d9891b6915b574e1bff772af6478358ba2db))
+
 ## [3.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.1...atomium-v3.3.0) (2025-02-04)
 
 
