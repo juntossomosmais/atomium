@@ -1,5 +1,7 @@
 import { createPopper, Placement } from '@popperjs/core'
 
+import { isMobile } from './screens'
+
 export class TooltipController {
   private _popperInstance: ReturnType<typeof createPopper> = null
   private readonly _eventsToShowClick = ['click']
@@ -52,12 +54,8 @@ export class TooltipController {
     this._popperInstance.destroy()
   }
 
-  private isMobile() {
-    return window.matchMedia('(max-width: 768px)').matches
-  }
-
   private attachEvents() {
-    const isMobile = this.isMobile()
+    const isMobileScreen = isMobile()
 
     if (this.action === 'click') {
       this.addEventListeners(this._eventsToShowClick, this.show)
@@ -66,7 +64,7 @@ export class TooltipController {
       this.addEventListeners(this._eventsToShowHover, this.show)
       this.addEventListeners(this._eventsToHideHover, this.hide)
 
-      if (isMobile) {
+      if (isMobileScreen) {
         this.addEventListeners(this._eventsToShowClick, this.show)
         this.removeEventListeners(this._eventsToShowHover, this.show)
         this.removeEventListeners(this._eventsToHideHover, this.hide)
