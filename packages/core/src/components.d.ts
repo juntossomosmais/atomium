@@ -199,6 +199,15 @@ export namespace Components {
     }
     interface AtomListSliderItem {
     }
+    interface AtomMeter {
+        "actual": number;
+        "hasCenterTitle"?: boolean;
+        "max": number;
+        "min": number;
+        "size"?: 'small' | 'large';
+        "title": string;
+        "type"?: 'success' | 'neutral' | 'warning' | 'danger';
+    }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
         "disablePrimaryButton": boolean;
@@ -563,6 +572,12 @@ declare global {
         prototype: HTMLAtomListSliderItemElement;
         new (): HTMLAtomListSliderItemElement;
     };
+    interface HTMLAtomMeterElement extends Components.AtomMeter, HTMLStencilElement {
+    }
+    var HTMLAtomMeterElement: {
+        prototype: HTMLAtomMeterElement;
+        new (): HTMLAtomMeterElement;
+    };
     interface HTMLAtomModalElementEventMap {
         "atomCloseClick": any;
         "atomDidDismiss": any;
@@ -709,6 +724,7 @@ declare global {
         "atom-link": HTMLAtomLinkElement;
         "atom-list-slider": HTMLAtomListSliderElement;
         "atom-list-slider-item": HTMLAtomListSliderItemElement;
+        "atom-meter": HTMLAtomMeterElement;
         "atom-modal": HTMLAtomModalElement;
         "atom-pagination": HTMLAtomPaginationElement;
         "atom-rich-tooltip": HTMLAtomRichTooltipElement;
@@ -919,6 +935,15 @@ declare namespace LocalJSX {
     }
     interface AtomListSliderItem {
     }
+    interface AtomMeter {
+        "actual"?: number;
+        "hasCenterTitle"?: boolean;
+        "max"?: number;
+        "min"?: number;
+        "size"?: 'small' | 'large';
+        "title"?: string;
+        "type"?: 'success' | 'neutral' | 'warning' | 'danger';
+    }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
         "disablePrimaryButton"?: boolean;
@@ -1084,6 +1109,7 @@ declare namespace LocalJSX {
         "atom-link": AtomLink;
         "atom-list-slider": AtomListSlider;
         "atom-list-slider-item": AtomListSliderItem;
+        "atom-meter": AtomMeter;
         "atom-modal": AtomModal;
         "atom-pagination": AtomPagination;
         "atom-rich-tooltip": AtomRichTooltip;
@@ -1116,6 +1142,7 @@ declare module "@stencil/core" {
             "atom-link": LocalJSX.AtomLink & JSXBase.HTMLAttributes<HTMLAtomLinkElement>;
             "atom-list-slider": LocalJSX.AtomListSlider & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
             "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
+            "atom-meter": LocalJSX.AtomMeter & JSXBase.HTMLAttributes<HTMLAtomMeterElement>;
             "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
             "atom-pagination": LocalJSX.AtomPagination & JSXBase.HTMLAttributes<HTMLAtomPaginationElement>;
             "atom-rich-tooltip": LocalJSX.AtomRichTooltip & JSXBase.HTMLAttributes<HTMLAtomRichTooltipElement>;
