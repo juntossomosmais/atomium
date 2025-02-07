@@ -14,11 +14,35 @@ export class AtomTooltip {
 
   @Prop({ mutable: true }) open = false
   @Prop() element: string
-  @Prop() placement: string = 'top'
+  @Prop() placement:
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left' = 'top'
   @Prop() action: 'hover' | 'click' = 'hover'
 
   @Watch('placement')
-  updatePlacement(newPlacement: string) {
+  updatePlacement(
+    newPlacement:
+      | 'auto'
+      | 'auto-start'
+      | 'auto-end'
+      | 'top'
+      | 'top-start'
+      | 'top-end'
+      | 'bottom'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'right'
+      | 'left' = 'top'
+  ) {
     this.tooltipController.updatePlacement(newPlacement)
   }
 
