@@ -4,7 +4,7 @@ import { TooltipController } from '../../utils/tooltip'
 
 @Component({
   tag: 'atom-rich-tooltip',
-  styleUrl: 'tag.scss',
+  styleUrl: 'rich-tooltip.scss',
   shadow: true,
 })
 export class AtomRichTooltip {
@@ -13,11 +13,36 @@ export class AtomRichTooltip {
   @Element() el: HTMLElement
 
   @Prop() element: string
-  @Prop() placement: string = 'top'
+  @Prop() placement:
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left' = 'top'
   @Prop() action: 'hover' | 'click' = 'hover'
+  @Prop() Title?: string
 
   @Watch('placement')
-  updatePlacement(newPlacement: string) {
+  updatePlacement(
+    newPlacement:
+      | 'auto'
+      | 'auto-start'
+      | 'auto-end'
+      | 'top'
+      | 'top-start'
+      | 'top-end'
+      | 'bottom'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'right'
+      | 'left' = 'top'
+  ) {
     this.tooltipController.updatePlacement(newPlacement)
   }
 
@@ -43,7 +68,10 @@ export class AtomRichTooltip {
   render() {
     return (
       <Host role='tooltip'>
-        <div class='atom-rich-tooltip'>
+        teste
+        <div class='atom-tooltip'>
+          <h1>{this.Title}</h1>
+          teste
           <slot />
         </div>
       </Host>
