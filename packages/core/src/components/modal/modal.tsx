@@ -29,6 +29,7 @@ export class AtomModal {
   @Prop() disablePrimaryButton = false
   @Prop() disableSecondaryButton = false
   @Prop({ mutable: true }) isOpen = false
+  @Prop({ mutable: true }) canDismiss = true
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -96,6 +97,7 @@ export class AtomModal {
           onDidDismiss={this.handleDidDismiss}
           onDidPresent={this.handleDidPresent}
           isOpen={this.isOpen}
+          canDismiss={this.canDismiss}
           part='modal'
         >
           <header part='header' class='atom-modal__header'>
