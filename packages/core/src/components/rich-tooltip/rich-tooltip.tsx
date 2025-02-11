@@ -1,14 +1,4 @@
-import {
-  Component,
-  Element,
-  EventEmitter,
-  Host,
-  Prop,
-  Watch,
-  h,
-} from '@stencil/core'
-
-import { TooltipController } from '../../utils/tooltip'
+import { Component, Element, EventEmitter, Host, Prop, h } from '@stencil/core'
 
 @Component({
   tag: 'atom-rich-tooltip',
@@ -16,8 +6,6 @@ import { TooltipController } from '../../utils/tooltip'
   shadow: true,
 })
 export class AtomRichTooltip {
-  private tooltipController: TooltipController
-
   @Element() el: HTMLElement
 
   @Prop() element: string
@@ -38,53 +26,27 @@ export class AtomRichTooltip {
   @Prop() actiontext: string
   @Prop() buttonaction: EventEmitter
 
-  @Watch('placement')
-  updatePlacement(
-    newPlacement:
-      | 'auto'
-      | 'auto-start'
-      | 'auto-end'
-      | 'top'
-      | 'top-start'
-      | 'top-end'
-      | 'bottom'
-      | 'bottom-start'
-      | 'bottom-end'
-      | 'right'
-      | 'left' = 'top'
-  ) {
-    this.tooltipController.updatePlacement(newPlacement)
-  }
-
-  @Watch('action')
-  updateEvents(newAction: 'hover' | 'click') {
-    this.tooltipController.updateAction(newAction)
-  }
-
-  componentWillLoad() {
-    this.tooltipController = new TooltipController(
-      this.el,
-      this.element,
-      this.placement,
-      this.action
-    )
-    this.tooltipController.init()
-  }
-
-  disconnectedCallback() {
-    this.tooltipController.destroy()
-  }
-
   render() {
     return (
       <Host role='tooltip'>
-        <div class='atom-tooltip'>
-          <h1 class='title'>{this.title}</h1>
-          <p class='text'>
-            <slot />
-          </p>
-          <p class='action'>{this.actiontext}</p>
-        </div>
+        <atom-tooltip
+          element={this.element}
+          placement={this.placement}
+          action={this.action}
+          class='rich-tooltip'
+        >
+          <div class='rich-tooltip__content'>
+            <h1 class='title'>{this.title}</h1>
+            <p class='text'>
+              <slot />
+            </p>
+            {this.action === 'click' && (
+              <p class='action' onClick={() => this.buttonaction.emit()}>
+                {this.actiontext}
+              </p>
+            )}
+          </div>
+        </atom-tooltip>
       </Host>
     )
   }

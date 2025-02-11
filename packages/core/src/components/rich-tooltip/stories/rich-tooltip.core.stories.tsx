@@ -47,3 +47,25 @@ export const Hover: StoryObj = {
     open: false,
   },
 }
+
+export const Click: StoryObj = {
+  render: (args) => createRichTooltip(args, 'Click'),
+  args: {
+    ...RichTooltipComponentArgs,
+    element: 'click',
+    placement: 'top',
+    action: 'click',
+    open: false,
+  },
+}
+
+export const Opened: StoryObj = {
+  render: (args) => createRichTooltip(args, 'Opened'),
+  args: {
+    ...RichTooltipComponentArgs,
+    element: 'opened',
+    placement: 'left',
+    action: 'click',
+    open: true,
+  },
+}

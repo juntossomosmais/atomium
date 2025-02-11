@@ -1,101 +1,17 @@
-$placements: 'top', 'bottom', 'left', 'right';
-
-@mixin shift-away($placement) {
-  @if ($placement == 'top') {
-    transform: translateY(10px);
-  } @else if ($placement == 'bottom') {
-    transform: translateY(-10px);
-  } @else if ($placement == 'left') {
-    transform: translateX(10px);
-  } @else if ($placement == 'right') {
-    transform: translateX(-10px);
-  }
-}
-
 :host {
-  .atom-tooltip {
-    --arrow-width: 10px;
-    --arrow-height: 8px;
-    --arrow-square-range: -3px;
-
-    background: var(--color-neutral-light-5);
-    border-radius: var(--border-radius);
-    box-shadow: var(--elevation-4);
-    color: var(--color-neutral-regular);
-    filter: drop-shadow(var(--elevation-3));
-    max-width: 100%;
-    padding: var(--spacing-small);
-    padding-bottom: var(--spacing-medium);
-    padding-top: var(--spacing-xlarge);
-    transition: all 0.15s ease-in-out;
-    transition-property: opacity, transform, visibility;
-    width: 252px;
-
-    &[data-show] {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    &[data-hide] {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    @each $placement in $placements {
-      &[data-placement^='#{$placement}'] {
-        &[data-hide] {
-          @include shift-away($placement);
-        }
-
-        .atom-tooltip__arrow {
-          @if ($placement == 'top') {
-            bottom: var(--arrow-square-range);
-          } @else if ($placement == 'bottom') {
-            top: var(--arrow-square-range);
-          } @else if ($placement == 'left') {
-            right: var(--arrow-square-range);
-          } @else if ($placement == 'right') {
-            left: var(--arrow-square-range);
-          }
-        }
-      }
-    }
-
-    &__arrow {
-      background: inherit;
-      height: var(--arrow-height);
-      position: absolute;
-      visibility: hidden;
-      width: var(--arrow-width);
-
-      &::before {
-        background: inherit;
-        content: '';
-        height: var(--arrow-height);
-        position: absolute;
-        transform: rotate(45deg);
-        visibility: visible;
-        width: var(--arrow-width);
-      }
-    }
-
-    &__content {
-      align-items: center;
-      display: flex;
-    }
-
-    &__action--close {
-      align-self: flex-start;
-      background: none;
-      border: none;
-      color: currentColor;
-      cursor: pointer;
-      display: block;
-      font-size: var(--spacing-large);
-      height: 1em;
-      padding: 0;
-      padding-left: var(--spacing-base);
-    }
+  ::part(tooltip) {
+    background: var(--color-neutral-light-5) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--elevation-4) !important;
+    color: var(--color-neutral-regular) !important;
+    filter: drop-shadow(var(--elevation-3)) !important;
+    max-width: 100% !important;
+    padding: var(--spacing-small) !important;
+    padding-bottom: var(--spacing-medium) !important;
+    padding-top: var(--spacing-xlarge) !important;
+    transition: all 0.15s ease-in-out !important;
+    transition-property: opacity, transform, visibility !important;
+    width: 252px !important;
   }
 
   .title {

@@ -409,6 +409,10 @@ export interface AtomTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomTextareaElement;
 }
+export interface AtomTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomTooltipElement;
+}
 declare global {
     interface HTMLAtomAlertElementEventMap {
         "atomClose": any;
@@ -725,7 +729,19 @@ declare global {
         prototype: HTMLAtomTextareaElement;
         new (): HTMLAtomTextareaElement;
     };
+    interface HTMLAtomTooltipElementEventMap {
+        "atomClose": any;
+        "atomOpen": any;
+    }
     interface HTMLAtomTooltipElement extends Components.AtomTooltip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomTooltipElementEventMap>(type: K, listener: (this: HTMLAtomTooltipElement, ev: AtomTooltipCustomEvent<HTMLAtomTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomTooltipElementEventMap>(type: K, listener: (this: HTMLAtomTooltipElement, ev: AtomTooltipCustomEvent<HTMLAtomTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomTooltipElement: {
         prototype: HTMLAtomTooltipElement;
@@ -1126,6 +1142,14 @@ declare namespace LocalJSX {
     interface AtomTooltip {
         "action"?: 'hover' | 'click';
         "element"?: string;
+        /**
+          * Event is dispatched when: 1. Mouse leave event in selector 2. Click "Close" button when is mobile
+         */
+        "onAtomClose"?: (event: AtomTooltipCustomEvent<any>) => void;
+        /**
+          * Event is dispatched when: 1. Mouse enter event in selector 2. Click in element when is mobile
+         */
+        "onAtomOpen"?: (event: AtomTooltipCustomEvent<any>) => void;
         "open"?: boolean;
         "placement"?: | 'auto'
     | 'auto-start'
