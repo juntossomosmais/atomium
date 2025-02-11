@@ -171,11 +171,17 @@ describe('AtomCarousel', () => {
       '.navigation--next'
     ) as HTMLElement
 
+    const prevButton = page.root?.shadowRoot?.querySelector(
+      '.navigation--prev'
+    ) as HTMLElement
+
     nextButton?.click()
-
     await page.waitForChanges()
-
     expect(page?.rootInstance.currentIdx).toBe(1)
+
+    prevButton?.click()
+    await page.waitForChanges()
+    expect(page?.rootInstance.currentIdx).toBe(0)
   })
 
   it('should working with loop', async () => {
