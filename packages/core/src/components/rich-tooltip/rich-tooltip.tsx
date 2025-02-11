@@ -1,4 +1,12 @@
-import { Component, Element, Host, Prop, Watch, h } from '@stencil/core'
+import {
+  Component,
+  Element,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core'
 
 import { TooltipController } from '../../utils/tooltip'
 
@@ -26,7 +34,9 @@ export class AtomRichTooltip {
     | 'right'
     | 'left' = 'top'
   @Prop() action: 'hover' | 'click' = 'hover'
-  @Prop() Title?: string
+  @Prop() title?: string
+  @Prop() actiontext: string
+  @Prop() buttonaction: EventEmitter
 
   @Watch('placement')
   updatePlacement(
@@ -68,11 +78,12 @@ export class AtomRichTooltip {
   render() {
     return (
       <Host role='tooltip'>
-        teste
         <div class='atom-tooltip'>
-          <h1>{this.Title}</h1>
-          teste
-          <slot />
+          <h1 class='title'>{this.title}</h1>
+          <p class='text'>
+            <slot />
+          </p>
+          <p class='action'>{this.actiontext}</p>
         </div>
       </Host>
     )

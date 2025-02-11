@@ -13,25 +13,28 @@ export default {
 
 const createRichTooltip = (args, buttonText = 'hover') => {
   return html`
-    <atom-button
-      fill="solid"
-      size="large"
-      id="${args.element}"
-      aria-describedby="atom-tooltip"
-    >
-      ${buttonText}
-    </atom-button>
-
-    <atom-rich-tooltip
-      id="atom-tooltip"
-      placement="${args.placement}"
-      element="${args.element}"
-      title="${args.title}"
-      action="${args.action}"
-      open="${args.open}"
-    >
-      ${args.text}
-    </atom-rich-tooltip>
+    <div style="height: 400px">
+      <atom-button
+        fill="solid"
+        size="large"
+        id="${args.element}"
+        aria-describedby="atom-tooltip"
+      >
+        ${buttonText}
+      </atom-button>
+      <atom-rich-tooltip
+        id="atom-tooltip"
+        placement="${args.placement}"
+        element="${args.element}"
+        title="${args.title}"
+        action="${args.action}"
+        actiontext="${args.actiontext}"
+        ovo="${args.ovo}"
+        open="${args.open}"
+      >
+        ${args.text}
+      </atom-rich-tooltip>
+    </div>
   `
 }
 

@@ -8,9 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+import { EventEmitter } from "@stencil/core";
 export { IconProps } from "./icons";
 export { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+export { EventEmitter } from "@stencil/core";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
@@ -227,8 +229,21 @@ export namespace Components {
     }
     interface AtomRichTooltip {
         "action": 'hover' | 'click';
+        "actiontext": string;
+        "buttonaction": EventEmitter;
         "element": string;
-        "placement": string;
+        "placement": | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left';
+        "title"?: string;
     }
     interface AtomSelect {
         "disabled"?: boolean;
@@ -333,7 +348,17 @@ export namespace Components {
         "action": 'hover' | 'click';
         "element": string;
         "open": boolean;
-        "placement": string;
+        "placement": | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left';
     }
 }
 export interface AtomAlertCustomEvent<T> extends CustomEvent<T> {
@@ -970,8 +995,21 @@ declare namespace LocalJSX {
     }
     interface AtomRichTooltip {
         "action"?: 'hover' | 'click';
+        "actiontext"?: string;
+        "buttonaction"?: EventEmitter;
         "element"?: string;
-        "placement"?: string;
+        "placement"?: | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left';
+        "title"?: string;
     }
     interface AtomSelect {
         "disabled"?: boolean;
@@ -1089,7 +1127,17 @@ declare namespace LocalJSX {
         "action"?: 'hover' | 'click';
         "element"?: string;
         "open"?: boolean;
-        "placement"?: string;
+        "placement"?: | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left';
     }
     interface IntrinsicElements {
         "atom-alert": AtomAlert;

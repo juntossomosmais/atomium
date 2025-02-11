@@ -76,6 +76,13 @@ export const RichTooltipStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    actiontext: {
+      control: 'text',
+      description: 'Action button',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     atomOpen: {
       description:
         'Event emitted when hover element, but for mobile when click in element.',
@@ -95,8 +102,9 @@ export const RichTooltipStoryArgs = {
 export const RichTooltipComponentArgs = {
   element: 'atomium-element',
   placement: 'top',
-  text: 'Tooltip',
+  text: 'Supporting line text lorem ipsum dolor sit amet, consectetur',
   action: 'hover',
   title: 'Title',
+  actiontext: 'Action Button',
   open: false,
 }
