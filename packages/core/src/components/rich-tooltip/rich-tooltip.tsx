@@ -10,9 +10,6 @@ export class AtomRichTooltip {
 
   @Prop() element: string
   @Prop() placement:
-    | 'auto'
-    | 'auto-start'
-    | 'auto-end'
     | 'top'
     | 'top-start'
     | 'top-end'

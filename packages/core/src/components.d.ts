@@ -232,10 +232,7 @@ export namespace Components {
         "actiontext": string;
         "buttonaction": EventEmitter;
         "element": string;
-        "placement": | 'auto'
-    | 'auto-start'
-    | 'auto-end'
-    | 'top'
+        "placement": | 'top'
     | 'top-start'
     | 'top-end'
     | 'bottom'
@@ -1014,10 +1011,7 @@ declare namespace LocalJSX {
         "actiontext"?: string;
         "buttonaction"?: EventEmitter;
         "element"?: string;
-        "placement"?: | 'auto'
-    | 'auto-start'
-    | 'auto-end'
-    | 'top'
+        "placement"?: | 'top'
     | 'top-start'
     | 'top-end'
     | 'bottom'
