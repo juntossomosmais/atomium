@@ -24,7 +24,7 @@ export class AtomCarousel {
   }
 
   set currentIndex(value: number) {
-    if (!this.carouselWrapper || !value) return
+    if (!this.carouselWrapper) return
 
     this.currentIdx = value
     this.carouselWrapper.style.transform = `translateX(-${this.currentIndex * 100}%)`
