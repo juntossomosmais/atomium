@@ -18,7 +18,7 @@ const createTooltip = (args, buttonText = 'Hover') => (
       fill='solid'
       size='large'
       id={args.element}
-      aria-describedby='atom-rich-tooltip'
+      aria-describedby='atom-tooltip'
     >
       {buttonText}
     </AtomButton>
@@ -27,18 +27,23 @@ const createTooltip = (args, buttonText = 'Hover') => (
       id='atom-tooltip'
       placement={args.placement}
       element={args.element}
+      title={args.title}
       action={args.action}
+      actiontext={args.actiontext}
+      open={args.open}
     >
-      <div>{args.text}</div>
+      {args.text}
     </AtomRichTooltip>
   </>
 )
 
 export const Hover: StoryObj = {
-  render: (args) => createTooltip(args),
+  render: (args) => createTooltip(args, 'Hover'),
   args: {
     ...RichTooltipComponentArgs,
     element: 'hover',
+    placement: 'top',
+    open: false,
   },
 }
 
@@ -49,6 +54,7 @@ export const Click: StoryObj = {
     element: 'click',
     placement: 'top',
     action: 'click',
+    open: false,
   },
 }
 

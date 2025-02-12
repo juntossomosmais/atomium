@@ -1,83 +1,75 @@
-import { AtomBadge } from '@juntossomosmais/atomium/vue'
+import { AtomButton, AtomRichTooltip } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
-import { BadgeStoryArgs } from './badge.args'
+import {
+  RichTooltipComponentArgs,
+  RichTooltipStoryArgs,
+} from './rich-tooltip.args'
 
 export default {
-  title: 'Components/Badge',
-  ...BadgeStoryArgs,
+  title: 'Components/Rich Tooltip',
+  ...RichTooltipStoryArgs,
 } as Meta
 
-const createBadge = (args) => ({
-  components: { AtomBadge },
+const createTooltip = (args, buttonText = 'Hover') => ({
+  components: { AtomButton, AtomRichTooltip },
   setup() {
-    return { args }
+    return { args, buttonText }
   },
   template: `
-    <AtomBadge type="${args.type}">{{ args.label }}</AtomBadge>
+    <div>
+      <AtomButton
+        fill="solid"
+        size="large"
+        :id="args.element"
+        aria-describedby="atom-tooltip"
+      >
+        {{ buttonText }}
+      </AtomButton>
+
+      <AtomRichTooltip
+        id="atom-tooltip"
+        :placement="args.placement"
+        :element="args.element"
+        :title="args.title"
+        :action="args.action"
+        :actiontext="args.actiontext"
+        :open="args.open"
+      >
+        {{ args.text }}
+      </AtomRichTooltip>
+    </div>
   `,
 })
 
-export const Primary: StoryObj = {
-  render: (args) => createBadge(args),
+export const Hover: StoryObj = {
+  render: (args) => createTooltip(args, 'Hover'),
   args: {
-    type: 'primary',
-    label: 'Badge',
+    ...RichTooltipComponentArgs,
+    element: 'hover',
+    placement: 'top',
+    open: false,
   },
 }
 
-export const Secondary: StoryObj = {
-  render: (args) => createBadge(args),
+export const Click: StoryObj = {
+  render: (args) => createTooltip(args, 'Click'),
   args: {
-    ...Primary.args,
-    type: 'secondary',
+    ...RichTooltipComponentArgs,
+    element: 'click',
+    placement: 'top',
+    action: 'click',
+    open: false,
   },
 }
 
-export const Success: StoryObj = {
-  render: (args) => createBadge(args),
+export const Opened: StoryObj = {
+  render: (args) => createTooltip(args, 'Opened'),
   args: {
-    ...Primary.args,
-    type: 'success',
-  },
-}
-
-export const Warning: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'warning',
-  },
-}
-
-export const Danger: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'danger',
-  },
-}
-
-export const Neutral: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'neutral',
-  },
-}
-
-export const Dark: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'dark',
-  },
-}
-
-export const Info: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'info',
+    ...RichTooltipComponentArgs,
+    element: 'opened',
+    placement: 'left',
+    action: 'click',
+    open: true,
   },
 }

@@ -13,7 +13,7 @@ export default {
 
 const createRichTooltip = (args, buttonText = 'hover') => {
   return html`
-    <div style="height: 400px">
+    <div style="height: 300px; display: flex; align-items: center;">
       <atom-button
         fill="solid"
         size="large"
@@ -29,7 +29,6 @@ const createRichTooltip = (args, buttonText = 'hover') => {
         title="${args.title}"
         action="${args.action}"
         actiontext="${args.actiontext}"
-        ovo="${args.ovo}"
         open="${args.open}"
       >
         ${args.text}
