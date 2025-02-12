@@ -33,8 +33,7 @@ const createTooltip = (args, buttonText = 'Hover') => ({
         :element="args.element"
         :title="args.title"
         :action="args.action"
-        :actiontext="args.actiontext"
-        :buttonaction="args.buttonaction"
+        :actionText="args.actiontext"
         :open="args.open"
       >
         {{ args.text }}

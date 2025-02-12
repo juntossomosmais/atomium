@@ -28,8 +28,8 @@ const createRichTooltip = (args, buttonText = 'hover') => {
         element="${args.element}"
         title="${args.title}"
         action="${args.action}"
-        actiontext="${args.actiontext}"
-        buttonaction="${args.buttonaction}"
+        action-text="${args.actionText}"
+        button-action="${args.buttonAction}"
         open="${args.open}"
       >
         ${args.text}

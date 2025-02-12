@@ -227,7 +227,7 @@ export namespace Components {
     }
     interface AtomRichTooltip {
         "action": 'hover' | 'click';
-        "actiontext": string;
+        "actionText": string;
         "element": string;
         "placement": | 'top'
     | 'top-start'
@@ -645,7 +645,7 @@ declare global {
         new (): HTMLAtomPaginationElement;
     };
     interface HTMLAtomRichTooltipElementEventMap {
-        "buttonaction": void;
+        "buttonAction": void;
     }
     interface HTMLAtomRichTooltipElement extends Components.AtomRichTooltip, HTMLStencilElement {
         addEventListener<K extends keyof HTMLAtomRichTooltipElementEventMap>(type: K, listener: (this: HTMLAtomRichTooltipElement, ev: AtomRichTooltipCustomEvent<HTMLAtomRichTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1020,9 +1020,9 @@ declare namespace LocalJSX {
     }
     interface AtomRichTooltip {
         "action"?: 'hover' | 'click';
-        "actiontext"?: string;
+        "actionText"?: string;
         "element"?: string;
-        "onButtonaction"?: (event: AtomRichTooltipCustomEvent<void>) => void;
+        "onButtonAction"?: (event: AtomRichTooltipCustomEvent<void>) => void;
         "placement"?: | 'top'
     | 'top-start'
     | 'top-end'

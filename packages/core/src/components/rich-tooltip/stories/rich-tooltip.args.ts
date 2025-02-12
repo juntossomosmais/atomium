@@ -76,14 +76,14 @@ export const RichTooltipStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    actiontext: {
+    actionText: {
       control: 'text',
       description: 'Determines a text for action button.',
       table: {
         category: Category.PROPERTIES,
       },
     },
-    buttonaction: {
+    buttonAction: {
       description:
         'Event emitted when the action button is clicked. Action needs to be click to show the button.',
       table: {
@@ -112,6 +112,6 @@ export const RichTooltipComponentArgs = {
   text: 'Supporting line text lorem ipsum dolor sit amet, consectetur',
   action: 'hover',
   title: 'Title',
-  actiontext: 'Action Button',
+  actionText: 'Action Button',
   open: false,
 }
