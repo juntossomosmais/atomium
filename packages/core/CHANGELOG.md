@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.4.0...atomium-v3.5.0) (2025-02-12)
+
+
+### Features
+
+* **modal:** add can-dismiss property to control modal dismissal ([#700](https://github.com/juntossomosmais/atomium/issues/700)) ([6b7640f](https://github.com/juntossomosmais/atomium/commit/6b7640f10eb71a30024ffed35b6addfa698b0615))
+
 ## [3.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.3.0...atomium-v3.4.0) (2025-02-11)
 
 
