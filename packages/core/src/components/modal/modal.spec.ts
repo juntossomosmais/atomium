@@ -82,6 +82,7 @@ describe('atom-modal', () => {
 
     expect(page.root?.innerHTML).not.toContain('isopen')
   })
+
   it('should render modal opened if is open is set to true', async () => {
     page = await newSpecPage({
       components: [AtomModal],
@@ -146,6 +147,7 @@ describe('atom-modal', () => {
     expect(spyPrimary).toHaveBeenCalled()
     expect(spySecondary).toHaveBeenCalled()
   })
+
   it('should render progress bar when progress is passed even if it is zero', async () => {
     await page.setContent(`
       <atom-modal>
@@ -172,6 +174,7 @@ describe('atom-modal', () => {
       '<ion-progress-bar value="0" color="primary"></ion-progress-bar>'
     )
   })
+
   it('should emit atomIsOpenChange when is open changes', async () => {
     const isOpenChangeSpy = jest.fn()
 
@@ -184,5 +187,31 @@ describe('atom-modal', () => {
 
     expect(isOpenChangeSpy).toHaveBeenCalled()
     expect(isOpenChangeSpy.mock.calls[0][0].detail).toBe(true)
+  })
+
+  it('should render not can close modal when prop.canDismiss is set to true', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" can-dismiss="true">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain('candismiss')
+  })
+
+  it('should render not can close modal when prop.canDismiss is set to false', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" can-dismiss="false">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).not.toContain('candismiss')
   })
 })
