@@ -214,4 +214,17 @@ describe('atom-modal', () => {
 
     expect(page.root?.innerHTML).not.toContain('candismiss')
   })
+
+  it('should render the modal with the specified id when the idName prop is set', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" id-name="modal-id">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain('modal-id')
+  })
 })

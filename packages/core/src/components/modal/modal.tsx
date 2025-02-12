@@ -18,6 +18,7 @@ type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
   scoped: true,
 })
 export class AtomModal {
+  @Prop() idName?: string
   @Prop() trigger?: string
   @Prop() headerTitle = ''
   @Prop() primaryButtonText?: string
@@ -89,6 +90,7 @@ export class AtomModal {
           aria-describedby='atom-modal__content'
           ref={(el) => (this.modal = el as HTMLIonModalElement)}
           trigger={this.trigger}
+          id={this.idName}
           class={{
             'atom-modal': true,
             'atom-modal--progress': !!this.progress,
