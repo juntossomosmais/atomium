@@ -1,17 +1,17 @@
 :host {
   ::part(tooltip) {
-    background: var(--color-neutral-light-5) !important;
-    border-radius: var(--border-radius) !important;
-    box-shadow: var(--elevation-4) !important;
-    color: var(--color-neutral-regular) !important;
-    filter: drop-shadow(var(--elevation-3)) !important;
-    max-width: 100% !important;
-    padding: var(--spacing-small) !important;
-    padding-bottom: var(--spacing-medium) !important;
-    padding-top: var(--spacing-xlarge) !important;
-    transition: all 0.15s ease-in-out !important;
-    transition-property: opacity, transform, visibility !important;
-    width: 252px !important;
+    background: var(--color-neutral-light-5);
+    border-radius: var(--border-radius);
+    box-shadow: var(--elevation-4);
+    color: var(--color-neutral-regular);
+    filter: drop-shadow(var(--elevation-3));
+    max-width: 100%;
+    padding: var(--spacing-small);
+    padding-bottom: var(--spacing-medium);
+    padding-top: var(--spacing-xlarge);
+    transition: all 0.15s ease-in-out;
+    transition-property: opacity, transform, visibility;
+    width: 252px;
   }
 
   .title {
