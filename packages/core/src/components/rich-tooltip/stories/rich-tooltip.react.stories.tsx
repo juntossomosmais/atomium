@@ -30,6 +30,7 @@ const createTooltip = (args, buttonText = 'Hover') => (
       title={args.title}
       action={args.action}
       actiontext={args.actiontext}
+      buttonaction={args.buttonaction}
       open={args.open}
     >
       {args.text}

@@ -1,4 +1,12 @@
-import { Component, Element, EventEmitter, Host, Prop, h } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core'
 
 @Component({
   tag: 'atom-rich-tooltip',
@@ -21,7 +29,8 @@ export class AtomRichTooltip {
   @Prop() action: 'hover' | 'click' = 'hover'
   @Prop() title?: string
   @Prop() actiontext: string
-  @Prop() buttonaction: EventEmitter
+
+  @Event() buttonaction: EventEmitter<void>
 
   render() {
     return (

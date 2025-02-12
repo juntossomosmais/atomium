@@ -78,9 +78,16 @@ export const RichTooltipStoryArgs = {
     },
     actiontext: {
       control: 'text',
-      description: 'Action button',
+      description: 'Determines a text for action button.',
       table: {
         category: Category.PROPERTIES,
+      },
+    },
+    buttonaction: {
+      description:
+        'Event emitted when the action button is clicked. Action needs to be click to show the button.',
+      table: {
+        category: Category.EVENTS,
       },
     },
     atomOpen: {

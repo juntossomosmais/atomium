@@ -8,11 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
-import { EventEmitter } from "@stencil/core";
 export { IconProps } from "./icons";
 export { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
-export { EventEmitter } from "@stencil/core";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
@@ -230,7 +228,6 @@ export namespace Components {
     interface AtomRichTooltip {
         "action": 'hover' | 'click';
         "actiontext": string;
-        "buttonaction": EventEmitter;
         "element": string;
         "placement": | 'top'
     | 'top-start'
@@ -393,6 +390,10 @@ export interface AtomModalCustomEvent<T> extends CustomEvent<T> {
 export interface AtomPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLAtomPaginationElement;
+}
+export interface AtomRichTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAtomRichTooltipElement;
 }
 export interface AtomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -643,7 +644,18 @@ declare global {
         prototype: HTMLAtomPaginationElement;
         new (): HTMLAtomPaginationElement;
     };
+    interface HTMLAtomRichTooltipElementEventMap {
+        "buttonaction": void;
+    }
     interface HTMLAtomRichTooltipElement extends Components.AtomRichTooltip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAtomRichTooltipElementEventMap>(type: K, listener: (this: HTMLAtomRichTooltipElement, ev: AtomRichTooltipCustomEvent<HTMLAtomRichTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAtomRichTooltipElementEventMap>(type: K, listener: (this: HTMLAtomRichTooltipElement, ev: AtomRichTooltipCustomEvent<HTMLAtomRichTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAtomRichTooltipElement: {
         prototype: HTMLAtomRichTooltipElement;
@@ -1009,8 +1021,8 @@ declare namespace LocalJSX {
     interface AtomRichTooltip {
         "action"?: 'hover' | 'click';
         "actiontext"?: string;
-        "buttonaction"?: EventEmitter;
         "element"?: string;
+        "onButtonaction"?: (event: AtomRichTooltipCustomEvent<void>) => void;
         "placement"?: | 'top'
     | 'top-start'
     | 'top-end'
