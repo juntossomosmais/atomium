@@ -210,11 +210,13 @@ export namespace Components {
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
+        "canDismiss"?: boolean;
         "disablePrimaryButton": boolean;
         "disableSecondaryButton": boolean;
         "hasDivider": boolean;
         "hasFooter": boolean;
         "headerTitle": string;
+        "idName"?: string;
         "isOpen": boolean;
         "primaryButtonText"?: string;
         "progress"?: number;
@@ -960,11 +962,13 @@ declare namespace LocalJSX {
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
+        "canDismiss"?: boolean;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
         "hasDivider"?: boolean;
         "hasFooter"?: boolean;
         "headerTitle"?: string;
+        "idName"?: string;
         "isOpen"?: boolean;
         "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
