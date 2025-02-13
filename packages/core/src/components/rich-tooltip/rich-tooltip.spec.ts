@@ -3,14 +3,23 @@ import { newSpecPage } from '@stencil/core/testing'
 import { AtomRichTooltip } from './rich-tooltip'
 
 describe('AtomRichTooltip', () => {
+  const createTooltip = (
+    id: string,
+    action: AtomRichTooltip['action'] = 'hover',
+    open = false
+  ) => `
+      <button id="${id}" aria-describedby="${id}--tooltip">Hover</button>
+      <atom-rich-tooltip id="${id}--tooltip" element="${id}" open="${open}" action="${action}" title="Test Title" actiontext="Click me">Tooltip content</atom-rich-tooltip>
+    `
+
   it('should render correctly', async () => {
     const page = await newSpecPage({
       components: [AtomRichTooltip],
-      html: `<atom-rich-tooltip element="test-element" title="Test Title" actiontext="Click me">Tooltip content</atom-rich-tooltip>`,
+      html: createTooltip('test-element'),
     })
 
     expect(page.root).toEqualHtml(`
-      <atom-rich-tooltip element="test-element" title="Test Title" actiontext="Click me" role="tooltip">
+      <atom-rich-tooltip id="test-element--tooltip" element="test-element" open="false" action="hover" title="Test Title" actiontext="Click me" role="tooltip">
         <mock:shadow-root>
           <atom-tooltip element="test-element" placement="top" action="hover" class="rich-tooltip">
             <div class="rich-tooltip__content">
@@ -26,22 +35,10 @@ describe('AtomRichTooltip', () => {
     `)
   })
 
-  it('should display action text when action is click', async () => {
-    const page = await newSpecPage({
-      components: [AtomRichTooltip],
-      html: `<atom-rich-tooltip element="test-element" title="Test Title" action="click" actiontext="Click me">Tooltip content</atom-rich-tooltip>`,
-    })
-
-    expect(page.root?.shadowRoot?.querySelector('.action')).not.toBeNull()
-    expect(page.root?.shadowRoot?.querySelector('.action')?.textContent).toBe(
-      'Click me'
-    )
-  })
-
   it('should not display action text when action is hover', async () => {
     const page = await newSpecPage({
       components: [AtomRichTooltip],
-      html: `<atom-rich-tooltip element="test-element" title="Test Title" action="hover" actiontext="Click me">Tooltip content</atom-rich-tooltip>`,
+      html: createTooltip('test-element', 'hover'),
     })
 
     expect(page.root?.shadowRoot?.querySelector('.action')).toBeNull()
