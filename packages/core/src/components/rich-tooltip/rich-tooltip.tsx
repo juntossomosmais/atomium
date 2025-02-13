@@ -47,9 +47,9 @@ export class AtomRichTooltip {
               <slot />
             </p>
             {this.action === 'click' && this.actionText && (
-              <p class='action' onClick={() => this.buttonAction.emit()}>
+              <button class='action' onClick={() => this.buttonAction.emit()}>
                 {this.actionText}
-              </p>
+              </button>
             )}
           </div>
         </atom-tooltip>
