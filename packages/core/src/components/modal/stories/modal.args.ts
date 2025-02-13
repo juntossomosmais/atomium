@@ -29,6 +29,13 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    id: {
+      control: 'text',
+      description: 'The id of the modal',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     hasDivider: {
       control: 'boolean',
       description: 'if true, a divider will be added on the header and footer',
@@ -100,6 +107,14 @@ export const ModalStoryArgs = {
       control: 'boolean',
       description:
         'If true, the primary button will be disabled. Default is false',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
+    canDismiss: {
+      control: 'boolean',
+      description:
+        'If true, the modal can be dismissed by clicking outside the modal. Default is true',
       table: {
         category: Category.PROPERTIES,
       },
@@ -227,4 +242,5 @@ export const ModalComponentArgs = {
   disableSecondaryButton: false,
   disablePrimaryButton: false,
   isOpen: false,
+  canDismiss: true,
 }

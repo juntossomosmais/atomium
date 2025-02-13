@@ -18,6 +18,7 @@ type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
   scoped: true,
 })
 export class AtomModal {
+  @Prop() idName?: string
   @Prop() trigger?: string
   @Prop() headerTitle = ''
   @Prop() primaryButtonText?: string
@@ -29,6 +30,7 @@ export class AtomModal {
   @Prop() disablePrimaryButton = false
   @Prop() disableSecondaryButton = false
   @Prop({ mutable: true }) isOpen = false
+  @Prop({ mutable: true }) canDismiss?: boolean
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -88,6 +90,7 @@ export class AtomModal {
           aria-describedby='atom-modal__content'
           ref={(el) => (this.modal = el as HTMLIonModalElement)}
           trigger={this.trigger}
+          id={this.idName}
           class={{
             'atom-modal': true,
             'atom-modal--progress': !!this.progress,
@@ -96,6 +99,7 @@ export class AtomModal {
           onDidDismiss={this.handleDidDismiss}
           onDidPresent={this.handleDidPresent}
           isOpen={this.isOpen}
+          canDismiss={this.canDismiss}
           part='modal'
         >
           <header part='header' class='atom-modal__header'>
