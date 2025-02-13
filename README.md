@@ -23,7 +23,7 @@
 | ------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | Core | [`@juntossomosmais/atomium`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/core/README.md)   |
 | React | [`@juntossomosmais/atomium/react`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/react/README.md)  |
-| Vue | [`@juntossomosmais/atomium/vue`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/react/README.md)  |
+| Vue | [`@juntossomosmais/atomium/vue`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/vue/README.md)  |
 | Tokens | [`@juntossomosmais/atomium-tokens`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Ftokens%2Fpackage.json" alt="version"> | [README](./packages/tokens/README.md) |
 
 ## About
@@ -151,7 +151,7 @@ To locally test Atomium using NPM Link, follow the steps below:
 Build the Atomium libraries by running the following command in the root directory of the Atomium project
 
 ```bash
-npm run core:build
+npm run build
 ```
 
 Link the Atomium libraries by navigating to the `node_modules/@juntossomosmais/atomium` directory

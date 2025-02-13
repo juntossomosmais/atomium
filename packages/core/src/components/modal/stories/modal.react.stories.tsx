@@ -23,6 +23,8 @@ const createModal = (args) => (
       disablePrimaryButton={args.disablePrimaryButton}
       disableSecondaryButton={args.disableSecondaryButton}
       isOpen={args.isOpen}
+      canDismiss={args.canDismiss}
+      id={args.id}
     >
       <div slot='header'>Custom Header</div>
       <p>Modal Content</p>
@@ -61,7 +63,7 @@ export const Alert: StoryObj = {
   },
 }
 
-export const Error: StoryObj = {
+export const ErrorModal: StoryObj = {
   render: (args) => createModal(args),
   args: {
     ...ModalComponentArgs,
