@@ -28,9 +28,9 @@ export class AtomRichTooltip {
     | 'left' = 'top'
   @Prop() action: 'hover' | 'click' = 'hover'
   @Prop() title?: string
-  @Prop() actionText: string
+  @Prop() actionText?: string
 
-  @Event() buttonAction: EventEmitter<void>
+  @Event() buttonAction?: EventEmitter<void>
 
   render() {
     return (
@@ -42,7 +42,7 @@ export class AtomRichTooltip {
           class='rich-tooltip'
         >
           <div class='rich-tooltip__content'>
-            <h1 class='title'>{this.title}</h1>
+            {this.title && <h1 class='title'>{this.title}</h1>}
             <p class='text'>
               <slot />
             </p>

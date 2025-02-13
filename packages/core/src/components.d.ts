@@ -227,7 +227,7 @@ export namespace Components {
     }
     interface AtomRichTooltip {
         "action": 'hover' | 'click';
-        "actionText": string;
+        "actionText"?: string;
         "element": string;
         "placement": | 'top'
     | 'top-start'
