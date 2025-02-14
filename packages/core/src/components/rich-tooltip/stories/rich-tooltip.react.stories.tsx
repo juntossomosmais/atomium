@@ -1,4 +1,4 @@
-import { AtomButton, AtomRichTooltip } from '@juntossomosmais/atomium/react'
+import { AtomButton, RichAtomTooltip } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
@@ -12,7 +12,7 @@ export default {
   ...RichTooltipStoryArgs,
 } as Meta
 
-const createTooltip = (args, buttonText = 'Hover') => (
+const createRichTooltip = (args, buttonText = 'Hover') => (
   <>
     <AtomButton
       fill='solid'
@@ -23,22 +23,22 @@ const createTooltip = (args, buttonText = 'Hover') => (
       {buttonText}
     </AtomButton>
 
-    <AtomRichTooltip
+    <RichAtomTooltip
       id='atom-rich-tooltip'
       placement={args.placement}
       element={buttonText}
       title={args.title}
       action={args.action}
-      actionText={args.actiontext}
+      actionText={args.actionText}
       open={args.open}
     >
       {args.text}
-    </AtomRichTooltip>
+    </RichAtomTooltip>
   </>
 )
 
 export const Hover: StoryObj = {
-  render: (args) => createTooltip(args, 'Hover'),
+  render: (args) => createRichTooltip(args, 'Hover'),
   args: {
     ...RichTooltipComponentArgs,
     element: 'hover',
@@ -48,7 +48,7 @@ export const Hover: StoryObj = {
 }
 
 export const Click: StoryObj = {
-  render: (args) => createTooltip(args, 'Click'),
+  render: (args) => createRichTooltip(args, 'Click'),
   args: {
     ...RichTooltipComponentArgs,
     element: 'click',
@@ -59,7 +59,7 @@ export const Click: StoryObj = {
 }
 
 export const Opened: StoryObj = {
-  render: (args) => createTooltip(args, 'Opened'),
+  render: (args) => createRichTooltip(args, 'Opened'),
   args: {
     ...RichTooltipComponentArgs,
     element: 'opened',

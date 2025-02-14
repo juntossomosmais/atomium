@@ -1,5 +1,6 @@
-import { AtomButton, AtomRichTooltip } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { AtomButton, RichAtomTooltip } from '@juntossomosmais/atomium/react'
+import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
 
 import {
   RichTooltipComponentArgs,
@@ -11,50 +12,46 @@ export default {
   ...RichTooltipStoryArgs,
 } as Meta
 
-const createTooltip = (args, buttonText = 'Hover') => ({
-  components: { AtomButton, AtomRichTooltip },
-  setup() {
-    return { args, buttonText }
-  },
-  template: `
-    <div>
-      <AtomButton
-        fill="solid"
-        size="large"
-        :id="buttonText"
-        aria-describedby="atom-rich-tooltip"
-      >
-        {{ buttonText }}
-      </AtomButton>
+const createRichTooltip = (args, buttonText = 'Hover') => (
+  <>
+    <AtomButton
+      fill='solid'
+      size='large'
+      id={buttonText}
+      aria-describedby='atom-rich-tooltip'
+    >
+      {buttonText}
+    </AtomButton>
 
-      <AtomRichTooltip
-        id="atom-rich-tooltip"
-        :placement="args.placement"
-        :element="buttonText"
-        :title="args.title"
-        :action="args.action"
-        :actionText="args.actiontext"
-        :open="args.open"
-      >
-        {{ args.text }}
-      </AtomRichTooltip>
-    </div>
-  `,
-})
+    <RichAtomTooltip
+      id='atom-rich-tooltip'
+      placement={args.placement}
+      element={buttonText}
+      tooltipTitle={args.tooltipTitle}
+      action={args.action}
+      actiontext={args.actiontext}
+      open={args.open}
+    >
+      {args.text}
+    </RichAtomTooltip>
+  </>
+)
 
 export const Hover: StoryObj = {
-  render: (args) => createTooltip(args, 'Hover'),
+  render: (args) => createRichTooltip(args, 'Hover'),
   args: {
     ...RichTooltipComponentArgs,
+    element: 'hover',
     placement: 'top',
     open: false,
   },
 }
 
 export const Click: StoryObj = {
-  render: (args) => createTooltip(args, 'Click'),
+  render: (args) => createRichTooltip(args, 'Click'),
   args: {
     ...RichTooltipComponentArgs,
+    element: 'click',
     placement: 'top',
     action: 'click',
     open: false,
@@ -62,10 +59,11 @@ export const Click: StoryObj = {
 }
 
 export const Opened: StoryObj = {
-  render: (args) => createTooltip(args, 'Opened'),
+  render: (args) => createRichTooltip(args, 'Opened'),
   args: {
     ...RichTooltipComponentArgs,
     element: 'opened',
+    placement: 'left',
     action: 'click',
     open: true,
   },
