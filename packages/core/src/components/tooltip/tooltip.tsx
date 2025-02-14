@@ -232,6 +232,7 @@ export class AtomTooltip {
           data-hide={!this.open}
           data-show={this.open}
           class={{ 'atom-tooltip': true }}
+          part='tooltip'
         >
           <div class='atom-tooltip__content'>
             <slot />
