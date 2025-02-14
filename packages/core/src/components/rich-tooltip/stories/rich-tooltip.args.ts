@@ -20,9 +20,6 @@ export const RichTooltipStoryArgs = {
       control: 'select',
       defaultValue: { summary: 'top' },
       options: [
-        'auto',
-        'auto-start',
-        'auto-end',
         'top',
         'top-start',
         'top-end',
