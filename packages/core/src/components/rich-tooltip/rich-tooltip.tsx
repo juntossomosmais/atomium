@@ -29,6 +29,7 @@ export class AtomRichTooltip {
   @Prop() action: 'hover' | 'click' = 'hover'
   @Prop() label?: string
   @Prop() actionText?: string
+  @Prop({ mutable: true }) open = false
 
   @Event() buttonAction?: EventEmitter<void>
 
@@ -39,6 +40,7 @@ export class AtomRichTooltip {
           element={this.element}
           placement={this.placement}
           action={this.action}
+          open={this.open}
           class='rich-tooltip'
         >
           <div class='rich-tooltip__content'>

@@ -232,6 +232,7 @@ export namespace Components {
         "actionText"?: string;
         "element": string;
         "label"?: string;
+        "open": boolean;
         "placement": | 'top'
     | 'top-start'
     | 'top-end'
@@ -1028,6 +1029,7 @@ declare namespace LocalJSX {
         "element"?: string;
         "label"?: string;
         "onButtonAction"?: (event: AtomRichTooltipCustomEvent<void>) => void;
+        "open"?: boolean;
         "placement"?: | 'top'
     | 'top-start'
     | 'top-end'
