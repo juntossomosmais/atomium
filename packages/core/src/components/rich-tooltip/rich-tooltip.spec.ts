@@ -9,7 +9,7 @@ describe('AtomRichTooltip', () => {
     open = false
   ) => `
       <button id="${id}" aria-describedby="${id}--tooltip">Hover</button>
-      <atom-rich-tooltip id="${id}--tooltip" element="${id}" open="${open}" action="${action}" title="Test Title" actiontext="Click me">Tooltip content</atom-rich-tooltip>
+      <atom-rich-tooltip id="${id}--tooltip" element="${id}" open="${open}" action="${action}" label="Test Title" actiontext="Click me">Tooltip content</atom-rich-tooltip>
     `
 
   it('should render correctly', async () => {
@@ -19,7 +19,7 @@ describe('AtomRichTooltip', () => {
     })
 
     expect(page.root).toEqualHtml(`
-      <atom-rich-tooltip id="test-element--tooltip" element="test-element" open="false" action="hover" title="Test Title" actiontext="Click me" role="tooltip">
+      <atom-rich-tooltip id="test-element--tooltip" element="test-element" open="false" action="hover" label="Test Title" actiontext="Click me" role="tooltip">
         <mock:shadow-root>
           <atom-tooltip element="test-element" placement="top" action="hover" class="rich-tooltip">
             <div class="rich-tooltip__content">

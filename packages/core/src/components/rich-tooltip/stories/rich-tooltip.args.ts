@@ -62,7 +62,7 @@ export const RichTooltipStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
-    title: {
+    label: {
       control: 'text',
       description: 'Determines a title for tooltip.',
       table: {
@@ -111,7 +111,7 @@ export const RichTooltipComponentArgs = {
   placement: 'top',
   text: 'Supporting line text lorem ipsum dolor sit amet, consectetur',
   action: 'hover',
-  title: 'Title',
+  label: 'Title',
   actionText: 'Action Button',
   open: false,
 }

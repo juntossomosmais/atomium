@@ -231,6 +231,7 @@ export namespace Components {
         "action": 'hover' | 'click';
         "actionText"?: string;
         "element": string;
+        "label"?: string;
         "placement": | 'top'
     | 'top-start'
     | 'top-end'
@@ -239,7 +240,6 @@ export namespace Components {
     | 'bottom-end'
     | 'right'
     | 'left';
-        "title"?: string;
     }
     interface AtomSelect {
         "disabled"?: boolean;
@@ -1026,6 +1026,7 @@ declare namespace LocalJSX {
         "action"?: 'hover' | 'click';
         "actionText"?: string;
         "element"?: string;
+        "label"?: string;
         "onButtonAction"?: (event: AtomRichTooltipCustomEvent<void>) => void;
         "placement"?: | 'top'
     | 'top-start'
@@ -1035,7 +1036,6 @@ declare namespace LocalJSX {
     | 'bottom-end'
     | 'right'
     | 'left';
-        "title"?: string;
     }
     interface AtomSelect {
         "disabled"?: boolean;

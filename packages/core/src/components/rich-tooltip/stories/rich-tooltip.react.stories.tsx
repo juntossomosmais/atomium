@@ -27,7 +27,7 @@ const createRichTooltip = (args, buttonText = 'Hover') => (
       id='atom-rich-tooltip'
       placement={args.placement}
       element={buttonText}
-      title={args.title}
+      label={args.label}
       action={args.action}
       actionText={args.actionText}
       open={args.open}
