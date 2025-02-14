@@ -10,7 +10,7 @@ export const RichTooltipStoryArgs = {
     docs: {
       description: {
         component:
-          'Tooltip is a small pop-up box that appears when a user moves a mouse over an element',
+          'Rich Tooltip is a component that provides more information to the user and allows them to perform quick actions within the context of the problem.',
       },
     },
     layout: 'centered',
