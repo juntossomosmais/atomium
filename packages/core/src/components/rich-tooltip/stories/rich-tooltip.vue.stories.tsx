@@ -1,4 +1,4 @@
-import { AtomButton, RichAtomTooltip } from '@juntossomosmais/atomium/react'
+import { AtomButton, AtomRichTooltip } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
@@ -23,7 +23,7 @@ const createRichTooltip = (args, buttonText = 'Hover') => (
       {buttonText}
     </AtomButton>
 
-    <RichAtomTooltip
+    <AtomRichTooltip
       id='atom-rich-tooltip'
       placement={args.placement}
       element={buttonText}
@@ -33,7 +33,7 @@ const createRichTooltip = (args, buttonText = 'Hover') => (
       open={args.open}
     >
       {args.text}
-    </RichAtomTooltip>
+    </AtomRichTooltip>
   </>
 )
 
