@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/blocks'
 import { Box, BoxList } from './components/Box.jsx'
+import Table from './components/Table.jsx'
 
-<Meta title="Tokens/Elevation" />
+<Meta title='Tokens/Elevation' />
 
 # Elevation
 
@@ -11,16 +12,45 @@ Elevation indicates how far the interface elements are from the surface and dete
 
 To get a more natural shadow effect, we use overlapping of two or more shadows on each token. Elevation values range from 0 to 8dp, as shown in the table below:
 
-| Value                                                                                                 | Variable             |
-| ----------------------------------------------------------------------------------------------------- | -------------------- |
-| 0px 1px 1px rgba(0, 0, 0, 0.14)                                                                       | `var(--elevation-1)` |
-| 0px 1px 5px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.14)                                      | `var(--elevation-2)` |
-| 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 2px 4px rgba(0, 0, 0, 0.2)     | `var(--elevation-3)` |
-| 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 3px 5px rgba(0, 0, 0, 0.2)    | `var(--elevation-4)` |
-| 0px 5px 22px rgba(0, 0, 0, 0.12), 0px 12px 17px rgba(0, 0, 0, 0.14), 0px 7px 8px rgba(0, 0, 0, 0.2)   | `var(--elevation-5)` |
-| 0px 6px 30px rgba(0, 0, 0, 0.12), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 8px 10px rgba(0, 0, 0, 0.2)  | `var(--elevation-6)` |
-| 0px 8px 38px rgba(0, 0, 0, 0.12), 0px 20px 31px rgba(0, 0, 0, 0.14), 0px 10px 13px rgba(0, 0, 0, 0.2) | `var(--elevation-7)` |
-| 0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2) | `var(--elevation-8)` |
+<Table
+  headers={['Variable', 'Value']}
+  rows={[
+    ['var(--elevation-1)', '0px 1px 1px rgba(0, 0, 0, 0.14)'],
+    [
+      'var(--elevation-2)',
+      '0px 1px 5px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.14)',
+    ],
+    [
+      'var(--elevation-3)',
+      '0px 1px 10px rgba(0, 0, 0, 0.12), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 2px 4px rgba(0, 0, 0, 0.2)',
+    ],
+    [
+      'var(--elevation-4)',
+      '0px 1px 18px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.14), 0px 3px 5px rgba(0, 0, 0, 0.2)',
+    ],
+    [
+      'var(--elevation-5)',
+      '0px 5px 22px rgba(0, 0, 0, 0.12), 0px 12px 17px rgba(0, 0, 0, 0.14), 0px 7px 8px rgba(0, 0, 0, 0.2)',
+    ],
+    [
+      'var(--elevation-6)',
+      '0px 6px 30px rgba(0, 0, 0, 0.12), 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 8px 10px rgba(0, 0, 0, 0.2)',
+    ],
+    [
+      'var(--elevation-7)',
+      '0px 8px 38px rgba(0, 0, 0, 0.12), 0px 20px 31px rgba(0, 0, 0, 0.14), 0px 10px 13px rgba(0, 0, 0, 0.2)',
+    ],
+    [
+      'var(--elevation-8)',
+      '0px 9px 46px rgba(0, 0, 0, 0.12), 0px 24px 38px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2)',
+    ],
+    ['var(--zindex-1)', '1'],
+    ['var(--zindex-10)', '10'],
+    ['var(--zindex-100)', '100'],
+    ['var(--zindex-1000)', '1000'],
+    ['var(--zindex-overlay)', '10000'],
+  ]}
+/>
 
 ## Usage
 
@@ -38,17 +68,17 @@ filter: drop-shadow(var(--elevation-8));
 <BoxList>
   <Box elevation="--elevation-1" />
 
-  <Box elevation="--elevation-2" />
+<Box elevation='--elevation-2' />
 
-  <Box elevation="--elevation-3" />
+<Box elevation='--elevation-3' />
 
-  <Box elevation="--elevation-4" />
+<Box elevation='--elevation-4' />
 
-  <Box elevation="--elevation-5" />
+<Box elevation='--elevation-5' />
 
-  <Box elevation="--elevation-6" />
+<Box elevation='--elevation-6' />
 
-  <Box elevation="--elevation-7" />
+<Box elevation='--elevation-7' />
 
   <Box elevation="--elevation-8" />
 </BoxList>
