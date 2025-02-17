@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/blocks'
 import { Box, BoxList } from './components/Box.jsx'
+import Table from './components/Table.jsx'
 
-<Meta title="Tokens/Misc" />
+<Meta title='Tokens/Misc' />
 
 # Miscellaneous
 
@@ -11,12 +12,31 @@ In our Design System, most components have rounded edges. Depending on the size 
 
 ### Variants
 
-| value | Variable                      | Description                                                                                                   |
-| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| 4px   | `var(--border-radius)`        | Used in smaller components like tooltips, alerts, text fields.                                                |
-| 8px   | `var(--border-radius-medium)` | Used in larger components like dialogs, cards and dropdown menu.                                              |
-| 12px  | `var(--border-radius-large)`  | Depending on the context, the this border radius can also be used on larger components like cards and images. |
-| 50%   | `var(--border-radius-full)`   | The fully rounded edge is used for specific components like buttons, badges and avatars.                      |
+<Table
+  headers={['Variable', 'Value', 'Description']}
+  rows={[
+    [
+      'var(--border-radius)',
+      '4px',
+      'Used in smaller components like tooltips, alerts, text fields.',
+    ],
+    [
+      'var(--border-radius-medium)',
+      '8px',
+      'Used in larger components like dialogs, cards and dropdown menu.',
+    ],
+    [
+      'var(--border-radius-large)',
+      '12px',
+      'Depending on the context, this border radius can also be used on larger components like cards and images.',
+    ],
+    [
+      'var(--border-radius-full)',
+      '50%',
+      'The fully rounded edge is used for specific components like buttons, badges and avatars.',
+    ],
+  ]}
+/>
 
 ### Usage
 
@@ -27,9 +47,9 @@ This token must be used **only** with `border-radius` CSS property.
 <BoxList>
   <Box borderRadius="var(--border-radius)" />
 
-  <Box borderRadius="var(--border-radius-medium)" />
+<Box borderRadius='var(--border-radius-medium)' />
 
-  <Box borderRadius="var(--border-radius-large)" />
+<Box borderRadius='var(--border-radius-large)' />
 
   <Box borderRadius="var(--border-radius-full)" />
 </BoxList>
@@ -38,18 +58,22 @@ This token must be used **only** with `border-radius` CSS property.
 
 The default `transition-duration` for all transitions
 
-| value | Variable                     |
-| ----- | ---------------------------- |
-| 0.25s | `var(--transition-duration)` |
+<Table
+  headers={['Variable', 'Value']}
+  rows={[['var(--transition-duration)', '0.25s']]}
+/>
 
 ## z-index
 
 All `z-index` variables to keep consistency
 
-| value | Variable                |
-| ----- | ----------------------- |
-| 1     | `var(--zindex-1)`       |
-| 10    | `var(--zindex-10)`      |
-| 100   | `var(--zindex-100)`     |
-| 1000  | `var(--zindex-1000)`    |
-| 10000 | `var(--zindex-overlay)` |
+<Table
+  headers={['Variable', 'Value']}
+  rows={[
+    [1, 'var(--zindex-1)'],
+    [10, 'var(--zindex-100)'],
+    [100, 'var(--zindex-100)'],
+    [1000, 'var(--zindex-1000)'],
+    [10000, 'var(--zindex-overlay)'],
+  ]}
+/>

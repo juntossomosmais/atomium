@@ -1,6 +1,7 @@
 import { Meta, Typeset } from '@storybook/blocks'
+import Table from './components/Table.jsx'
 
-<Meta title="Tokens/Typography" />
+<Meta title='Tokens/Typography' />
 
 # Typography
 
@@ -26,7 +27,7 @@ All typography tokens available in the design system.
     '46px',
     '52px',
   ]}
-  sampleText="Atomium is the best!"
+  sampleText='Atomium is the best!'
 />
 
 ## Using
@@ -35,31 +36,40 @@ Tokens could be used as CSS Variables or CSS Classes.
 
 ### Variable values
 
-| Variable                   | Font weight | font-size/line-height | Mobile    | Letter Spacing |
-| -------------------------- | ----------- | --------------------- | --------- | -------------- |
-| `--title-giant`            | 700         | 52px/68px             | 30px/40px | 0.25%            |
-| `--title-display`          | 700         | 46px/60px             | 28px/36px | 0.25%            |
-| `--title-headline-xxlarge` | 700         | 42px/56px             | 26px/36px | 0.25%            |
-| `--title-headline-xlarge`  | 700         | 36px/48px             | 25px/32px | 0.25%            |
-| `--title-headline-large`   | 700         | 32px/40px             | 24px/32px | 0.25%            |
-| `--title-headline-medium`  | 700         | 28px/36px             | 22px/28px | 0.15%            |
-| `--title-headline-small`   | 700         | 26px/36px             | 20px/28px | 0.15%            |
-| `--title-headline-xsmall`  | 700         | 22px/28px             | 19px/24px | 0.15%            |
-| `--text-subtitle-large`    | 700         | 20px/28px             | 18px/24px | 0.15%            |
-| `--text-subtitle-medium`   | 700         | 18px/24px             | 16px/20px | 0.1%             |
-| `--text-body-large`        | 400         | 18px/28px             | 18px/28px | 0.5%             |
-| `--text-body-medium`       | 400         | 16px/24px             | 16px/24px | 0.5%             |
-| `--text-body-small`        | 400         | 14px/24px             | 14px/24px | 0.25%            |
-| `--text-link-large`        | 700         | 18px/28px             | 18px/28px | 0.5%             |
-| `--text-link-medium`       | 700         | 16px/24px             | 16px/24px | 0.5%             |
-| `--text-link-small`        | 700         | 14px/24px             | 14px/24px | 0.25%            |
-| `--button-large`           | 700         | 18px/28px             | 18px/28px | 8%             |
-| `--button-medium`          | 700         | 16px/24px             | 16px/24px | 8%             |
-| `--button-small`           | 700         | 14px/20px             | 14px/20px | 8%             |
-| `--text-caption`           | 400         | 12px/20px             | 14px/24px | 0.4%             |
-| `--text-caption-focused`   | 700         | 12px/20px             | 14px/24px | 0.4%           |
-| `--text-overline`          | 400         | 11px/20px             | 13px/20px | 16%            |
-| `--text-badge`             | 700         | 10px/16px             | 12px/20px | 4%           |
+<Table
+  headers={[
+    'Variable',
+    'Font weight',
+    'font-size/line-height',
+    'Mobile',
+    'Letter Spacing',
+  ]}
+  rows={[
+    ['--title-giant', '700', '52px/68px', '30px/40px', '0.25%'],
+    ['--title-display', '700', '46px/60px', '28px/36px', '0.25%'],
+    ['--title-headline-xxlarge', '700', '42px/56px', '26px/36px', '0.25%'],
+    ['--title-headline-xlarge', '700', '36px/48px', '25px/32px', '0.25%'],
+    ['--title-headline-large', '700', '32px/40px', '24px/32px', '0.25%'],
+    ['--title-headline-medium', '700', '28px/36px', '22px/28px', '0.15%'],
+    ['--title-headline-small', '700', '26px/36px', '20px/28px', '0.15%'],
+    ['--title-headline-xsmall', '700', '22px/28px', '19px/24px', '0.15%'],
+    ['--text-subtitle-large', '700', '20px/28px', '18px/24px', '0.15%'],
+    ['--text-subtitle-medium', '700', '18px/24px', '16px/20px', '0.1%'],
+    ['--text-body-large', '400', '18px/28px', '18px/28px', '0.5%'],
+    ['--text-body-medium', '400', '16px/24px', '16px/24px', '0.5%'],
+    ['--text-body-small', '400', '14px/24px', '14px/24px', '0.25%'],
+    ['--text-link-large', '700', '18px/28px', '18px/28px', '0.5%'],
+    ['--text-link-medium', '700', '16px/24px', '16px/24px', '0.5%'],
+    ['--text-link-small', '700', '14px/24px', '14px/24px', '0.25%'],
+    ['--button-large', '700', '18px/28px', '18px/28px', '8%'],
+    ['--button-medium', '700', '16px/24px', '16px/24px', '8%'],
+    ['--button-small', '700', '14px/20px', '14px/20px', '8%'],
+    ['--text-caption', '400', '12px/20px', '14px/24px', '0.4%'],
+    ['--text-caption-focused', '700', '12px/20px', '14px/24px', '0.4%'],
+    ['--text-overline', '400', '11px/20px', '13px/20px', '16%'],
+    ['--text-badge', '700', '10px/16px', '12px/20px', '4%'],
+  ]}
+/>
 
 #### !important
 
@@ -69,13 +79,17 @@ All the `letter-spacing` variable is the font + letter, example: `var(--title-gi
 
 ### Font family
 
-| Variable             | Value                 |
-| -------------------- | --------------------- |
-| `var(--font-family)` | 'Roboto', sans-serif' |
+<Table
+  headers={['Variable', 'Value']}
+  rows={[['var(--font-family)', "'Roboto', sans-serif'"]]}
+/>
 
 ### Font weight
 
-| Variable                     | Value |
-| ---------------------------- | ----- |
-| `var(--font-weight-regular)` | 400   |
-| `var(--font-weight-bold)`    | 700   |
+<Table
+  headers={['Variable', 'Value']}
+  rows={[
+    ['var(--font-family)', "'Roboto', sans-serif'"],
+    ['var(--font-weight-bold)', '700'],
+  ]}
+/>
