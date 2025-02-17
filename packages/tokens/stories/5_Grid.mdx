@@ -1,6 +1,7 @@
 import { Meta } from '@storybook/blocks'
+import Table from './components/Table.jsx'
 
-<Meta title="Tokens/Grid" />
+<Meta title='Tokens/Grid' />
 
 # Grid
 
@@ -8,19 +9,25 @@ The [default grid system](/docs/components-grid--docs) is based on a `16` column
 
 ## Tokens
 
-| Variable              | Value                 |
-| --------------------- | --------------------- |
-| `var(--grid-gap)`     | `var(--spacing-base)` |
-| `var(--grid-columns)` | `12`                  |
+<Table
+  headers={['Variable', 'Value']}
+  rows={[
+    ['var(--grid-gap)', 'var(--spacing-base)'],
+    ['var(--grid-columns)', '12'],
+  ]}
+/>
 
 ## Grid Patterns
 
 You could check our [screen sizes here](/docs/tokens-screen-sizes--docs).
 
-| Breakpoint  | Container        | Columns | Gutter | External Margin |
-| ----------- | ---------------- | ------- | ------ | --------------- |
-| Extra Small | Fluid            | 4       | 8px    | 16px            |
-| Small       | Fluid            | 8       | 8px    | 16px            |
-| Medium      | Fluid            | 8       | 24px   | 16px            |
-| Large       | Fluid            | 16      | 32px   | 16px            |
-| Extra Large | Fixed (`1136px`) | 16      | auto   | 16px            |
+<Table
+  headers={['Breakpoint', 'Container', 'Columns', 'Gutter', 'External Margin']}
+  rows={[
+    ['Extra Small', 'Fluid', '4', '8px', '16px'],
+    ['Small', 'Fluid', '8', '8px', '16px'],
+    ['Medium', 'Fluid', '8', '24px', '16px'],
+    ['Large', 'Fluid', '16', '32px', '16px'],
+    ['Extra Large', 'Fixed (1136px)', '16', 'auto', '16px'],
+  ]}
+/>
