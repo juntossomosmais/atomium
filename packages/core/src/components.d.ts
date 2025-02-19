@@ -91,8 +91,8 @@ export namespace Components {
         "disabled"?: boolean;
         "doneText"?: string;
         "formatOptions": {
-    date: Intl.DateTimeFormatOptions
-    time: Intl.DateTimeFormatOptions
+    date?: Intl.DateTimeFormatOptions
+    time?: Intl.DateTimeFormatOptions
   };
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
         "hourCycle": 'h12' | 'h23';
@@ -873,8 +873,8 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "doneText"?: string;
         "formatOptions"?: {
-    date: Intl.DateTimeFormatOptions
-    time: Intl.DateTimeFormatOptions
+    date?: Intl.DateTimeFormatOptions
+    time?: Intl.DateTimeFormatOptions
   };
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
         "hourCycle"?: 'h12' | 'h23';

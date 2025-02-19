@@ -135,7 +135,7 @@ export const UsingWithButton = {
     <AtomGrid>
       <AtomCol size='8'>
         <AtomDatetime
-          useButton='true'
+          useButton={true}
           label='Selecione uma data'
           datetimeId='datetime-with-button-date'
           presentation='date'
@@ -143,7 +143,7 @@ export const UsingWithButton = {
       </AtomCol>
       <AtomCol size='8'>
         <AtomDatetime
-          useButton='true'
+          useButton={true}
           label='Selecione uma hora'
           datetimeId='datetime-with-button-time'
           presentation='time'
@@ -151,7 +151,7 @@ export const UsingWithButton = {
       </AtomCol>
       <AtomCol size='8'>
         <AtomDatetime
-          useButton='true'
+          useButton={true}
           label='Selecione um mês e ano'
           datetimeId='datetime-with-button-year-month'
           presentation='month-year'

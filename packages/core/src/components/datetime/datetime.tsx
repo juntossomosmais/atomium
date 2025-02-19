@@ -34,8 +34,8 @@ export class AtomDatetime {
   @Prop() disabled?: boolean
   @Prop() doneText?: string
   @Prop() formatOptions: {
-    date: Intl.DateTimeFormatOptions
-    time: Intl.DateTimeFormatOptions
+    date?: Intl.DateTimeFormatOptions
+    time?: Intl.DateTimeFormatOptions
   } = {
     date: {
       month: '2-digit',
