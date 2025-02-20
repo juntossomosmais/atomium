@@ -9,11 +9,11 @@ import {
 } from '@stencil/core'
 
 @Component({
-  tag: 'atom-rich-tooltip',
-  styleUrl: 'rich-tooltip.scss',
+  tag: 'atom-popover',
+  styleUrl: 'popover.scss',
   shadow: true,
 })
-export class AtomRichTooltip {
+export class AtomPopover {
   @Element() el: HTMLElement
 
   @Prop() element: string
@@ -41,9 +41,8 @@ export class AtomRichTooltip {
           placement={this.placement}
           action={this.action}
           open={this.open}
-          class='rich-tooltip'
         >
-          <div class='rich-tooltip__content'>
+          <div>
             {this.label && <h1 class='title'>{this.label}</h1>}
             <p class='text'>
               <slot />

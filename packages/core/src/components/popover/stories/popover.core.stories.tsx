@@ -1,29 +1,26 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
-import {
-  RichTooltipComponentArgs,
-  RichTooltipStoryArgs,
-} from './rich-tooltip.args'
+import { PopoverComponentArgs, PopoverStoryArgs } from './popover.args'
 
 export default {
-  title: 'Components/Rich Tooltip',
-  ...RichTooltipStoryArgs,
+  title: 'Components/Popover',
+  ...PopoverStoryArgs,
 } as Meta
 
-const createRichTooltip = (args, buttonText = 'hover') => {
+const createPopover = (args, buttonText = 'hover') => {
   return html`
     <div style="height: 300px; display: flex; align-items: center;">
       <atom-button
         fill="solid"
         size="large"
         id="${buttonText}"
-        aria-describedby="atom-rich-tooltip"
+        aria-describedby="atom-popover"
       >
         ${buttonText}
       </atom-button>
-      <atom-rich-tooltip
-        id="atom-rich-tooltip"
+      <atom-popover
+        id="atom-popover"
         placement="${args.placement}"
         element="${buttonText}"
         label="${args.label}"
@@ -32,24 +29,24 @@ const createRichTooltip = (args, buttonText = 'hover') => {
         open="${args.open}"
       >
         ${args.text}
-      </atom-rich-tooltip>
+      </atom-popover>
     </div>
   `
 }
 
 export const Hover: StoryObj = {
-  render: (args) => createRichTooltip(args, 'Hover'),
+  render: (args) => createPopover(args, 'Hover'),
   args: {
-    ...RichTooltipComponentArgs,
+    ...PopoverComponentArgs,
     placement: 'top',
     open: false,
   },
 }
 
 export const Click: StoryObj = {
-  render: (args) => createRichTooltip(args, 'Click'),
+  render: (args) => createPopover(args, 'Click'),
   args: {
-    ...RichTooltipComponentArgs,
+    ...PopoverComponentArgs,
     placement: 'right',
     action: 'click',
     open: false,
@@ -57,9 +54,9 @@ export const Click: StoryObj = {
 }
 
 export const Opened: StoryObj = {
-  render: (args) => createRichTooltip(args, 'Opened'),
+  render: (args) => createPopover(args, 'Opened'),
   args: {
-    ...RichTooltipComponentArgs,
+    ...PopoverComponentArgs,
     placement: 'left',
     action: 'click',
     open: true,

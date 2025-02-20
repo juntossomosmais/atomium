@@ -1,7 +1,7 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
 import { withActions } from '@storybook/addon-actions/decorator'
 
-export const RichTooltipStoryArgs = {
+export const PopoverStoryArgs = {
   parameters: {
     actions: {
       handles: ['atomOpen', 'atomClose'],
@@ -10,7 +10,7 @@ export const RichTooltipStoryArgs = {
     docs: {
       description: {
         component:
-          'Rich Tooltip is a component that provides more information to the user and allows them to perform quick actions within the context of the problem.',
+          'Popover is a component that provides more information to the user and allows them to perform quick actions within the context of the problem.',
       },
     },
     layout: 'centered',
@@ -29,7 +29,7 @@ export const RichTooltipStoryArgs = {
         'right',
         'left',
       ],
-      description: 'Determines placement for tooltip',
+      description: 'Determines placement for popover',
       table: {
         category: Category.PROPERTIES,
       },
@@ -39,7 +39,7 @@ export const RichTooltipStoryArgs = {
       defaultValue: { summary: 'hover' },
       options: ['hover', 'click'],
       description:
-        'Determines the trigger action for the tooltip: `hover` or `click`.',
+        'Determines the trigger action for the popover: `hover` or `click`.',
       table: {
         category: Category.PROPERTIES,
       },
@@ -47,28 +47,28 @@ export const RichTooltipStoryArgs = {
     element: {
       control: 'text',
       description:
-        'Specifies the element responsible for opening/closing the tooltip.',
+        'Specifies the element responsible for opening/closing the popover.',
       table: {
         category: Category.PROPERTIES,
       },
     },
     open: {
       control: 'boolean',
-      description: 'Controls whether the tooltip is open or closed.',
+      description: 'Controls whether the popover is open or closed.',
       table: {
         category: Category.PROPERTIES,
       },
     },
     label: {
       control: 'text',
-      description: 'Determines a title for tooltip.',
+      description: 'Determines a title for popover.',
       table: {
         category: Category.PROPERTIES,
       },
     },
     text: {
       control: 'text',
-      description: 'Determines a text for tooltip.',
+      description: 'Determines a text for popover.',
       table: {
         category: Category.PROPERTIES,
       },
@@ -95,7 +95,7 @@ export const RichTooltipStoryArgs = {
       },
     },
     atomClose: {
-      description: 'Event emitted when the tooltip is closed.',
+      description: 'Event emitted when the popover is closed.',
       table: {
         category: Category.EVENTS,
       },
@@ -103,7 +103,7 @@ export const RichTooltipStoryArgs = {
   },
 }
 
-export const RichTooltipComponentArgs = {
+export const PopoverComponentArgs = {
   element: 'atomium-element',
   placement: 'top',
   text: 'Supporting line text lorem ipsum dolor sit amet, consectetur',
