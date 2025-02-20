@@ -1,6 +1,5 @@
-import { AtomButton, AtomPopover } from '@juntossomosmais/atomium/react'
-import { Meta, StoryObj } from '@storybook/react'
-import React from 'react'
+import { AtomButton, AtomPopover } from '@juntossomosmais/atomium/vue'
+import { Meta, StoryObj } from '@storybook/vue3'
 
 import { PopoverComponentArgs, PopoverStoryArgs } from './popover.args'
 
@@ -9,30 +8,34 @@ export default {
   ...PopoverStoryArgs,
 } as Meta
 
-const createPopover = (args, buttonText = 'Hover') => (
-  <>
+const createPopover = (args, buttonText = 'Hover') => ({
+  components: { AtomButton, AtomPopover },
+  setup() {
+    return { args, buttonText }
+  },
+  template: `
     <AtomButton
-      fill='solid'
-      size='large'
-      id={buttonText}
-      aria-describedby='atom-popover'
+      fill="solid"
+      size="large"
+      :id="buttonText"
+      aria-describedby="atom-popover"
     >
-      {buttonText}
+      {{ buttonText }}
     </AtomButton>
 
     <AtomPopover
-      id='atom-popover'
-      placement={args.placement}
-      element={buttonText}
-      label={args.label}
-      action={args.action}
-      actionText={args.actionText}
-      open={args.open}
+      id="atom-popover"
+      :placement="args.placement"
+      :element="buttonText"
+      :label="args.label"
+      :action="args.action"
+      :actionText="args.actionText"
+      :open="args.open"
     >
-      {args.text}
+      {{ args.text }}
     </AtomPopover>
-  </>
-)
+  `,
+})
 
 export const Hover: StoryObj = {
   render: (args) => createPopover(args, 'Hover'),
