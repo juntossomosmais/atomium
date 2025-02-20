@@ -5,7 +5,7 @@ import React from 'react'
 import { PopoverComponentArgs, PopoverStoryArgs } from './popover.args'
 
 export default {
-  title: 'Components/Rich Tooltip',
+  title: 'Components/Popover',
   ...PopoverStoryArgs,
 } as Meta
 
