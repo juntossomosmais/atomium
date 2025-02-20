@@ -1,30 +1,27 @@
-import { AtomButton, AtomRichTooltip } from '@juntossomosmais/atomium/react'
+import { AtomButton, AtomPopover } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
 
-import {
-  RichTooltipComponentArgs,
-  RichTooltipStoryArgs,
-} from './rich-tooltip.args'
+import { PopoverComponentArgs, PopoverStoryArgs } from './popover.args'
 
 export default {
   title: 'Components/Rich Tooltip',
-  ...RichTooltipStoryArgs,
+  ...PopoverStoryArgs,
 } as Meta
 
-const createRichTooltip = (args, buttonText = 'Hover') => (
+const createPopover = (args, buttonText = 'Hover') => (
   <>
     <AtomButton
       fill='solid'
       size='large'
       id={buttonText}
-      aria-describedby='atom-rich-tooltip'
+      aria-describedby='atom-popover'
     >
       {buttonText}
     </AtomButton>
 
-    <AtomRichTooltip
-      id='atom-rich-tooltip'
+    <AtomPopover
+      id='atom-popover'
       placement={args.placement}
       element={buttonText}
       label={args.label}
@@ -33,14 +30,14 @@ const createRichTooltip = (args, buttonText = 'Hover') => (
       open={args.open}
     >
       {args.text}
-    </AtomRichTooltip>
+    </AtomPopover>
   </>
 )
 
 export const Hover: StoryObj = {
-  render: (args) => createRichTooltip(args, 'Hover'),
+  render: (args) => createPopover(args, 'Hover'),
   args: {
-    ...RichTooltipComponentArgs,
+    ...PopoverComponentArgs,
     element: 'hover',
     placement: 'top',
     open: false,
@@ -48,9 +45,9 @@ export const Hover: StoryObj = {
 }
 
 export const Click: StoryObj = {
-  render: (args) => createRichTooltip(args, 'Click'),
+  render: (args) => createPopover(args, 'Click'),
   args: {
-    ...RichTooltipComponentArgs,
+    ...PopoverComponentArgs,
     element: 'click',
     placement: 'top',
     action: 'click',
@@ -59,9 +56,9 @@ export const Click: StoryObj = {
 }
 
 export const Opened: StoryObj = {
-  render: (args) => createRichTooltip(args, 'Opened'),
+  render: (args) => createPopover(args, 'Opened'),
   args: {
-    ...RichTooltipComponentArgs,
+    ...PopoverComponentArgs,
     element: 'opened',
     placement: 'left',
     action: 'click',
