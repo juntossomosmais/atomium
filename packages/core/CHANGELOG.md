@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.5.0...atomium-v3.6.0) (2025-02-20)
+
+
+### Features
+
+* **rich-tooltip:** add new component ([#698](https://github.com/juntossomosmais/atomium/issues/698)) ([192b380](https://github.com/juntossomosmais/atomium/commit/192b380658685bc5f114ae51e2bb592434819de6))
+
+
+### Bug Fixes
+
+* **datetime:** improve types ([079d3f0](https://github.com/juntossomosmais/atomium/commit/079d3f0c5364c71691794d20ec3de949ae045bc0))
+* **popover:** adjust name component rich tooltip to popover ([#708](https://github.com/juntossomosmais/atomium/issues/708)) ([1460bd8](https://github.com/juntossomosmais/atomium/commit/1460bd885a1310cd4744cfbf35a3f3a2a1335944))
+
 ## [3.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.4.0...atomium-v3.5.0) (2025-02-13)
 
 
