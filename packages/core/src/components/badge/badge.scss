@@ -30,4 +30,30 @@
   &[color='dark'] {
     background-color: var(--color-neutral-regular);
   }
+
+  &[size='large'] {
+    font-size: var(--spacing-base);
+    padding: var(--spacing-xxsmall) var(--spacing-base);
+
+    &[shape='round'] {
+      border-radius: var(--spacing-base);
+    }
+  }
+
+  &[size='medium'] {
+    font-size: var(--spacing-small);
+    padding: 2px var(--spacing-xsmall);
+
+    &[shape='round'] {
+      border-radius: var(--spacing-base);
+    }
+  }
+
+  &[shape='rectangle'] {
+    border-radius: var(--spacing-xxsmall);
+  }
+
+  &[shape='round'] {
+    border-radius: var(--spacing-base);
+  }
 }
