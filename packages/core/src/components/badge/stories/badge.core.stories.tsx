@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
-import { BadgeStoryArgs } from './badge.args'
+import { BadgeComponentArgs, BadgeStoryArgs } from './badge.args'
 
 export default {
   title: 'Components/Badge',
@@ -9,14 +9,17 @@ export default {
 } as Meta
 
 const createBadge = (args) => {
-  return html` <atom-badge type="${args.type}"> ${args.label} </atom-badge> `
+  return html`
+    <atom-badge type="${args.type}" size="${args.size}" shape="${args.shape}">
+      ${args.label}
+    </atom-badge>
+  `
 }
 
 export const Primary: StoryObj = {
   render: (args) => createBadge(args),
   args: {
-    type: 'primary',
-    label: 'Badge',
+    ...BadgeComponentArgs,
   },
 }
 
@@ -73,5 +76,14 @@ export const Dark: StoryObj = {
   args: {
     ...Primary.args,
     type: 'dark',
+  },
+}
+export const RectangleButton: StoryObj = {
+  render: (args) => createBadge(args),
+  args: {
+    ...Primary.args,
+    color: 'secondary',
+    size: 'default',
+    shape: 'rectangle',
   },
 }

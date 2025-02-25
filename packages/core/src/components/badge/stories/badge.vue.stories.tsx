@@ -14,7 +14,8 @@ const createBadge = (args) => ({
     return { args }
   },
   template: `
-    <AtomBadge type="${args.type}">{{ args.label }}</AtomBadge>
+    <AtomBadge type="${args.type} shape='${args.shape}'" size="${args.size}">
+    >{{ args.label }}</AtomBadge>
   `,
 })
 
@@ -23,6 +24,8 @@ export const Primary: StoryObj = {
   args: {
     type: 'primary',
     label: 'Badge',
+    shape: 'rounded',
+    size: 'default',
   },
 }
 

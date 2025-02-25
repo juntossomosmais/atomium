@@ -32,5 +32,29 @@ export const BadgeStoryArgs = {
       control: 'text',
       description: 'The label of the badge',
     },
+    size: {
+      control: 'select',
+      options: ['default', 'medium', 'large'],
+      defaultValue: { summary: 'default' },
+      description: 'The size of the button.',
+      table: {
+        category: 'Properties',
+      },
+    },
+    shape: {
+      control: 'select',
+      options: ['round', 'rectangle'],
+      description: 'The shape of the button.',
+      table: {
+        category: 'Properties',
+      },
+    },
   },
+}
+
+export const BadgeComponentArgs = {
+  size: 'default',
+  shape: 'round',
+  type: 'primary',
+  label: 'Badge',
 }

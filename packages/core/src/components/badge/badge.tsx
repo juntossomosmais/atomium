@@ -15,11 +15,17 @@ export class AtomBadge {
     | 'danger'
     | 'neutral'
     | 'dark' = 'primary'
-
+  @Prop({ mutable: true }) size: 'default' | 'medium' | 'large' = 'default'
+  @Prop({ mutable: true }) shape?: 'round' | 'rectangle' = 'round'
   render() {
     return (
       <Host>
-        <ion-badge color={this.type} class='atom-badge'>
+        <ion-badge
+          size={this.size}
+          shape={this.shape}
+          color={this.type}
+          class='atom-badge'
+        >
           <slot />
         </ion-badge>
       </Host>
