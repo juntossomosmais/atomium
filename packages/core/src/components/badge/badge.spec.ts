@@ -27,7 +27,7 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='primary'>
         <mock:shadow-root>
-        <ion-badge color='primary' class="atom-badge">
+        <ion-badge color='primary' class="atom-badge" shape="round" size="default">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
@@ -47,7 +47,7 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='secondary'>
         <mock:shadow-root>
-        <ion-badge color='secondary' class="atom-badge">
+        <ion-badge color='secondary' class="atom-badge" shape="round" size="default">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
@@ -67,7 +67,7 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='info'>
         <mock:shadow-root>
-        <ion-badge color='info' class="atom-badge">
+        <ion-badge color='info' class="atom-badge" shape="round" size="default">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
@@ -87,7 +87,7 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='success'>
         <mock:shadow-root>
-        <ion-badge color='success' class="atom-badge">
+        <ion-badge color='success' class="atom-badge" shape="round" size="default">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
@@ -107,7 +107,7 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='warning'>
         <mock:shadow-root>
-        <ion-badge color='warning' class="atom-badge">
+        <ion-badge color='warning' class="atom-badge" shape="round" size="default">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
@@ -127,7 +127,7 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='danger'>
         <mock:shadow-root>
-        <ion-badge color='danger' class="atom-badge">
+        <ion-badge color='danger' class="atom-badge" shape="round" size="default">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
@@ -147,7 +147,7 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='neutral'>
         <mock:shadow-root>
-        <ion-badge color='neutral' class="atom-badge">
+        <ion-badge color='neutral' class="atom-badge" shape="round" size="default">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
@@ -167,7 +167,47 @@ describe('atom-badge', () => {
     expect(page.root).toEqualHtml(`
       <atom-badge type='dark'>
         <mock:shadow-root>
-        <ion-badge color='dark' class="atom-badge">
+        <ion-badge color='dark' class="atom-badge" shape="round" size="default">
+          <slot></slot>
+        </ion-badge>
+        </mock:shadow-root>
+        Badge
+      </atom-badge>
+    `)
+  })
+
+  it('should add "ion-badge-rectangle" and large classes when shape prop is rectangle and size large', async () => {
+    const page = await newSpecPage({
+      components: [AtomBadge],
+      html: `<atom-badge type='primary' shape='rectangle' size='large'>Badge</atom-badge>`,
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-badge type='primary' shape='rectangle' size='large'>
+        <mock:shadow-root>
+        <ion-badge color='primary' class="atom-badge" shape="rectangle" size="large">
+          <slot></slot>
+        </ion-badge>
+        </mock:shadow-root>
+        Badge
+      </atom-badge>
+    `)
+  })
+
+  it('should add "ion-badge-rectangle" and medium classes when shape prop is rectangle and size medium', async () => {
+    const page = await newSpecPage({
+      components: [AtomBadge],
+      html: `<atom-badge type='primary' shape='rectangle' size='medium'>Badge</atom-badge>`,
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-badge type='primary' shape='rectangle' size='medium'>
+        <mock:shadow-root>
+        <ion-badge color='primary' class="atom-badge" shape="rectangle" size="medium">
           <slot></slot>
         </ion-badge>
         </mock:shadow-root>
