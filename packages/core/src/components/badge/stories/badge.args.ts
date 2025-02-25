@@ -44,7 +44,7 @@ export const BadgeStoryArgs = {
     shape: {
       control: 'select',
       options: ['round', 'rectangle'],
-      description: 'The shape of the button.',
+      description: 'The shape of the badge.',
       table: {
         category: 'Properties',
       },
