@@ -36,7 +36,7 @@ export const BadgeStoryArgs = {
       control: 'select',
       options: ['default', 'medium', 'large'],
       defaultValue: { summary: 'default' },
-      description: 'The size of the button.',
+      description: 'The size of the badge.',
       table: {
         category: 'Properties',
       },
