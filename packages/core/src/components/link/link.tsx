@@ -43,6 +43,7 @@ export class AtomLink {
             class={{
               [`atom-link__button`]: true,
               [`is-loading`]: this.loading,
+              [`atom-link--${this.size}`]: true,
             }}
             onClick={this.handleClick.bind(this)}
           >
