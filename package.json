@@ -32,7 +32,7 @@
   "dependencies": {
     "@ionic/core": "^8.4.3",
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "~4.25.1"
+    "@stencil/core": "~4.27.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.7",
@@ -111,7 +111,7 @@
     "vue": "^3.5.13"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.32.1"
+    "@rollup/rollup-linux-x64-gnu": "4.34.8"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
