@@ -146,18 +146,17 @@ export class AtomStepsModal {
       <Host>
         <atom-modal
           trigger={this.trigger}
-          alert-type=''
-          primary-button-text={this.primaryButtonText}
-          secondary-button-text={this.secondaryButtonText}
+          primaryButtonText={this.primaryButtonText}
+          secondaryButtonText={this.secondaryButtonText}
           progress={this.progress}
-          has-footer=''
-          header-title={this.stepsTitlesArray[this.currentStep - 1].trim()}
-          disable-primary-button={this.disablePrimaryButton}
-          disable-secondary-button={this.disableSecondaryButton}
+          headerTitle={this.stepsTitlesArray[this.currentStep - 1].trim()}
+          disablePrimaryButton={this.disablePrimaryButton}
+          disableSecondaryButton={this.disableSecondaryButton}
           onAtomPrimaryClick={this.handlePrimaryClick}
           onAtomSecondaryClick={this.handleSecondaryClick}
-          is-open={this.isOpen}
-          has-divider
+          isOpen={this.isOpen}
+          hasFooter={false}
+          hasDivider={true}
           onAtomDidDismiss={this.handleDidDismiss}
           onAtomDidPresent={this.handleDidPresent}
           onAtomCloseClick={this.handleCloseClick}
