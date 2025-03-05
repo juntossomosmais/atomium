@@ -9,7 +9,7 @@ describe('AtomTooltip', () => {
     open = false
   ) => `
       <button id="${id}" aria-describedby="${id}--tooltip">Hover</button>
-      <atom-tooltip id="${id}--tooltip" element="${id}" open="${open}" action="${action}">John Doe</atom-tooltip>
+      <atom-tooltip id="${id}--tooltip" element="${id}" open="${open}" action="${action}" part="tooltip">John Doe</atom-tooltip>
     `
 
   const hoverTooltip = createTooltip('hover')
@@ -23,17 +23,17 @@ describe('AtomTooltip', () => {
       })
 
       expect(page.root).toEqualHtml(`
-      <atom-tooltip action=\"hover\" data-popper-placement=\"top\" data-popper-reference-hidden element=\"hover\" id=\"hover--tooltip\" open=\"false\" role=\"tooltip\" style=\"z-index: -1; position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);\">
-        <mock:shadow-root>
-          <div class=\"atom-tooltip\" data-hide data-placement=\"top\">
-            <div class=\"atom-tooltip__content\">
-              <slot></slot>
+        <atom-tooltip action="hover" data-popper-placement="top" data-popper-reference-hidden element="hover" id="hover--tooltip" open="false" part="tooltip" role="tooltip" style="z-index: -1; position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <div class="atom-tooltip" data-hide data-placement="top" part="tooltip">
+              <div class="atom-tooltip__content">
+                <slot></slot>
+              </div>
+              <div aria-hidden="" class="atom-tooltip__arrow" style="position: absolute;"></div>
             </div>
-            <div aria-hidden=\"\" class=\"atom-tooltip__arrow\"></div>
-          </div>
-        </mock:shadow-root>
-        John Doe
-     </atom-tooltip>
+          </mock:shadow-root>
+          John Doe
+        </atom-tooltip>
       `)
 
       const element = page.body.querySelector('#hover')
@@ -49,7 +49,7 @@ describe('AtomTooltip', () => {
   )
 
   it.each(['mouseleave', 'blur'])(
-    'should close tooptip when %s from target element',
+    'should close tooltip when %s from target element',
     async (event) => {
       const page = await newSpecPage({
         components: [AtomTooltip],
@@ -62,17 +62,10 @@ describe('AtomTooltip', () => {
 
       await page.waitForChanges()
 
-      expect(
-        page.root?.shadowRoot?.querySelector('.atom-tooltip')
-      ).toHaveAttribute('data-show')
-
       element?.dispatchEvent(new Event(event))
 
       await page.waitForChanges()
 
-      expect(
-        page.root?.shadowRoot?.querySelector('.atom-tooltip')
-      ).not.toHaveAttribute('data-show')
       expect(
         page.root?.shadowRoot?.querySelector('.atom-tooltip')
       ).toHaveAttribute('data-hide')

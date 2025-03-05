@@ -1,5 +1,3 @@
-@import '~@atomium/scss-utils/index';
-
 /* We need to use !important to override the default styles used by techniques like * { padding: 0, margin: 0 }, it is very common inside projects and override values without !important :( */
 
 :host {

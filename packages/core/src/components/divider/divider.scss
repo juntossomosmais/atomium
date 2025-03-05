@@ -1,0 +1,10 @@
+.atom-divider {
+  background-color: var(--color-neutral-light-3);
+  height: 1px;
+  width: 100%;
+
+  &.is-vertical {
+    height: 100%;
+    width: 1px;
+  }
+}

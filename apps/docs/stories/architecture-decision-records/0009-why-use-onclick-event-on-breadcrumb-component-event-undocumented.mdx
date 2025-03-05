@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Docs/Architecture Decision Records/ADR 0009: Why use onClick event on breadcrumb component even undocumented?" />
+
+# Why use `onClick` event on breadcrumb component even undocumented?
+
+🗓️ 2023-07 · ✍️ [@denilsonrp](https://github.com/denilsonrp)
+
+## Context
+
+In the [breadcrumb component's pull request](https://github.com/juntossomosmais/atomium/pull/163) a [doubt arose about the correct functioning of the `onClick` event](https://github.com/juntossomosmais/atomium/pull/163#discussion_r1250986555), as this event isn't documented in [ion-breadcrumb docs](https://ionicframework.com/docs/api/breadcrumb#events).
+
+## Decision
+
+We ran some tests on Atomium's breadcrumb component in order to ensure the correct firing of the event and even though the `onClick` event isn't documented in the events section of the [ion-breadcrumb docs](https://ionicframework.com/docs/api/breadcrumb#events), the tests were successful and the event fired correctly.
+
+Based on these tests, we can assume that, even without event documentation, it's possible to use it. The idea of ​​exposing this decision is to serve as a reference in possible similar scenarios in the future.

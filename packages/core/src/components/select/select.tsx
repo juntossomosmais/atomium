@@ -128,10 +128,27 @@ export class AtomSelect {
 
   componentDidLoad() {
     this.selectEl.addEventListener('ionDismiss', this.handleDismiss)
+    this.applyPointerEventsNone()
   }
 
   disconnectedCallback() {
     this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
+  }
+
+  /*
+   * In some cases, individual elements inside `ion-select` are clickable, causing the popover to open with an incorrect size.
+   * For example, clicking on the arrow icon can result in a very small options overlay, leading to a poor user experience.
+   * This method is a workaround to fix this issue by adding `pointer-events: none` to elements inside the `ion-select`
+   * that are not the `label` or `icon`, ensuring a consistent overlay size.
+   */
+  private applyPointerEventsNone() {
+    const ionSelect = this.selectEl?.shadowRoot?.querySelector('ion-select')
+    const selectWrapper =
+      ionSelect?.shadowRoot?.querySelector('.select-wrapper')
+
+    if (selectWrapper) {
+      (selectWrapper as HTMLElement).style.pointerEvents = 'none'
+    }
   }
 
   private handleChange: IonTypes.IonSelect['onIonChange'] = (event) => {
@@ -161,7 +178,7 @@ export class AtomSelect {
     this.atomDismiss.emit()
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Host
         class={{

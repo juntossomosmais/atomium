@@ -8,3 +8,45 @@ updates:
     rebase-strategy: 'disabled'
     target-branch: main
     open-pull-requests-limit: 10
+    groups:
+      production-dependencies:
+        dependency-type: 'production'
+      development-dependencies:
+        dependency-type: 'development'
+      storybook:
+        patterns:
+          - '@storybook*'
+      stencil:
+        patterns:
+          - '@stencil*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      nx:
+        patterns:
+          - '@nrwl*'
+          - '@nx*'
+          - 'nx*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@types/react*'
+      babel:
+        patterns:
+          - '@babel*'
+      commitlint:
+        patterns:
+          - '@commitlint*'
+      eslint:
+        patterns:
+          - 'eslint'
+        update-types:
+          - 'minor'
+          - 'patch'
+    ignore:
+      - dependency-name: 'eslint'
+        versions: ['9.x']

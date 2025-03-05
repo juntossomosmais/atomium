@@ -112,7 +112,10 @@ export const config: Config = {
   namespace: 'core',
   plugins: [
     sass({
-      injectGlobalPaths: ['../../node_modules/@ionic/core/css/core.css'],
+      injectGlobalPaths: [
+        '../../node_modules/@atomium/scss-utils/index.scss',
+        '../../node_modules/@ionic/core/css/core.css',
+      ],
     }),
   ],
   extras: {

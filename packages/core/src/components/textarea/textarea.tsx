@@ -126,7 +126,7 @@ export class AtomTextarea {
     this.atomFocus.emit()
   }
 
-  render(): JSX.Element {
+  render() {
     return (
       <Host>
         <ion-textarea

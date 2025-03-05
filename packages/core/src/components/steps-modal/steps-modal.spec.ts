@@ -35,14 +35,12 @@ describe('atom-steps-modal', () => {
         >
         <atom-modal
             trigger="open-modal-steps"
-            alert-type=""
             class="atom-steps-modal"
-            primary-button-text="Next"
+            primarybuttontext="Next"
             progress="0.3333333333333333"
-            secondary-button-text="Close"
-            has-footer=""
-            has-divider=""
-            header-title="Step 1"
+            secondarybuttontext="Close"
+            hasdivider=""
+            headertitle="Step 1"
             part="steps-modal"
             >
             <div class="atom-steps-modal__step" style="display: block;">
@@ -66,7 +64,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 2')
 
     page.root
@@ -76,7 +74,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 3')
   })
 
@@ -87,7 +85,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 2')
 
     page.root
@@ -97,7 +95,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 1')
   })
 
@@ -153,16 +151,14 @@ describe('atom-steps-modal', () => {
       >
       <atom-modal
           trigger="open-modal-steps"
-          alert-type=""
           class="atom-steps-modal"
-          primary-button-text="Next"
+          primarybuttontext="Next"
           progress="0.3333333333333333"
-          secondary-button-text="Close"
-          has-footer=""
-          has-divider=""
-          header-title="Step 1"
-          disable-primary=""
-          disable-secondary=""
+          secondarybuttontext="Close"
+          hasdivider=""
+          headertitle="Step 1"
+          disableprimarybutton=""
+          disablesecondarybutton=""
           part="steps-modal"
           >
           <div class="atom-steps-modal__step" style="display: block;">
@@ -204,7 +200,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 1')
     expect(cancelSpy).toHaveBeenCalled()
   })
@@ -283,7 +279,7 @@ describe('atom-steps-modal', () => {
     })
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headerTitle')
     ).toBe('Step 2')
   })
 

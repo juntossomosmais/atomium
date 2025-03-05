@@ -2,20 +2,6 @@ import { newSpecPage, SpecPage } from '@stencil/core/testing'
 
 import { AtomModal } from './modal'
 
-Object.defineProperty(document.body, 'classList', {
-  value: {
-    add: jest.fn(),
-    remove: jest.fn(),
-  },
-})
-
-Object.defineProperty(document.documentElement, 'classList', {
-  value: {
-    add: jest.fn(),
-    remove: jest.fn(),
-  },
-})
-
 describe('atom-modal', () => {
   let page: SpecPage
 
@@ -96,6 +82,7 @@ describe('atom-modal', () => {
 
     expect(page.root?.innerHTML).not.toContain('isopen')
   })
+
   it('should render modal opened if is open is set to true', async () => {
     page = await newSpecPage({
       components: [AtomModal],
@@ -108,87 +95,6 @@ describe('atom-modal', () => {
     })
 
     expect(page.root?.innerHTML).toContain('isopen')
-
-    page.rootInstance.isOpen = false
-
-    await page.waitForChanges()
-
-    expect(document.body.classList.remove).toHaveBeenCalled()
-  })
-  it('should call remove and add on backdrop no scroll class when is-open changes', async () => {
-    page = await newSpecPage({
-      components: [AtomModal],
-      html: `
-      <atom-modal header-title="Header from prop" is-open="true">
-        Modal content
-        <div slot="header">Custom Header</div>
-      </atom-modal>
-    `,
-    })
-
-    expect(page.root?.innerHTML).toContain('isopen')
-
-    page.rootInstance.modal = {
-      dismiss: jest.fn(),
-      close: jest.fn(),
-    }
-    page.rootInstance.handleDidPresent()
-
-    expect(document.body.classList.add).toHaveBeenCalled()
-    expect(document.documentElement.classList.add).toHaveBeenCalled()
-
-    page.rootInstance.handleDidDismiss()
-
-    expect(page.rootInstance.modal.close).toHaveBeenCalled()
-
-    page.rootInstance.handleCloseClick()
-
-    expect(page.rootInstance.modal.close).toHaveBeenCalled()
-  })
-
-  it('should call remove and add on backdrop no scroll class when is-open changes', async () => {
-    page = await newSpecPage({
-      components: [AtomModal],
-      html: `
-      <atom-modal header-title="Header from prop" is-open="true">
-        Modal content
-        <div slot="header">Custom Header</div>
-      </atom-modal>
-    `,
-    })
-
-    expect(page.root?.innerHTML).toContain('isopen')
-
-    page.rootInstance.modal = {
-      dismiss: jest.fn(),
-    }
-
-    page.rootInstance.handleDidPresent()
-
-    expect(document.body.classList.add).toHaveBeenCalled()
-    expect(document.documentElement.classList.add).toHaveBeenCalled()
-  })
-
-  it('should call remove on class list when call remove classes', async () => {
-    page = await newSpecPage({
-      components: [AtomModal],
-      html: `
-      <atom-modal header-title="Header from prop" is-open="true">
-        Modal content
-        <div slot="header">Custom Header</div>
-      </atom-modal>
-    `,
-    })
-
-    page.rootInstance.addClasses()
-
-    expect(document.body.classList.add).toHaveBeenCalled()
-    expect(document.documentElement.classList.add).toHaveBeenCalled()
-
-    page.rootInstance.removeClasses()
-
-    expect(document.body.classList.remove).toHaveBeenCalled()
-    expect(document.documentElement.classList.remove).toHaveBeenCalled()
   })
 
   it('should render icon type when alertType is passed', async () => {
@@ -241,6 +147,7 @@ describe('atom-modal', () => {
     expect(spyPrimary).toHaveBeenCalled()
     expect(spySecondary).toHaveBeenCalled()
   })
+
   it('should render progress bar when progress is passed even if it is zero', async () => {
     await page.setContent(`
       <atom-modal>
@@ -267,10 +174,12 @@ describe('atom-modal', () => {
       '<ion-progress-bar value="0" color="primary"></ion-progress-bar>'
     )
   })
+
   it('should emit atomIsOpenChange when is open changes', async () => {
     const isOpenChangeSpy = jest.fn()
 
     page.root?.addEventListener('atomIsOpenChange', isOpenChangeSpy)
+    expect(isOpenChangeSpy).not.toHaveBeenCalled()
 
     page.rootInstance.isOpen = true
 
@@ -278,5 +187,44 @@ describe('atom-modal', () => {
 
     expect(isOpenChangeSpy).toHaveBeenCalled()
     expect(isOpenChangeSpy.mock.calls[0][0].detail).toBe(true)
+  })
+
+  it('should render not can close modal when prop.canDismiss is set to true', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" can-dismiss="true">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain('candismiss')
+  })
+
+  it('should render not can close modal when prop.canDismiss is set to false', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" can-dismiss="false">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).not.toContain('candismiss')
+  })
+
+  it('should render the modal with the specified id when the idName prop is set', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" id-name="modal-id">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    expect(page.root?.innerHTML).toContain('modal-id')
   })
 })

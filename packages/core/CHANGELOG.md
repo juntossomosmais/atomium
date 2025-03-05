@@ -1,5 +1,123 @@
 # Changelog
 
+## [3.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.5.0...atomium-v3.6.0) (2025-02-27)
+
+
+### Features
+
+* **rich-tooltip:** add new component ([#698](https://github.com/juntossomosmais/atomium/issues/698)) ([192b380](https://github.com/juntossomosmais/atomium/commit/192b380658685bc5f114ae51e2bb592434819de6))
+
+
+### Bug Fixes
+
+* **atom-link:** adjust prop size when type is button in atom-link ([#712](https://github.com/juntossomosmais/atomium/issues/712)) ([e180641](https://github.com/juntossomosmais/atomium/commit/e180641f429685f9b17220e1cf6bc9c7b20d1480))
+* **datetime:** improve types ([079d3f0](https://github.com/juntossomosmais/atomium/commit/079d3f0c5364c71691794d20ec3de949ae045bc0))
+* **popover:** adjust name component rich tooltip to popover ([#708](https://github.com/juntossomosmais/atomium/issues/708)) ([1460bd8](https://github.com/juntossomosmais/atomium/commit/1460bd885a1310cd4744cfbf35a3f3a2a1335944))
+
+## [3.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.4.0...atomium-v3.5.0) (2025-02-13)
+
+
+### Features
+
+* **modal:** add can-dismiss property to control modal dismissal ([#700](https://github.com/juntossomosmais/atomium/issues/700)) ([6b7640f](https://github.com/juntossomosmais/atomium/commit/6b7640f10eb71a30024ffed35b6addfa698b0615))
+
+## [3.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.3.0...atomium-v3.4.0) (2025-02-11)
+
+
+### Features
+
+* **meter:** create new component ([#695](https://github.com/juntossomosmais/atomium/issues/695)) ([f6e9d98](https://github.com/juntossomosmais/atomium/commit/f6e9d9891b6915b574e1bff772af6478358ba2db))
+
+
+### Bug Fixes
+
+* **carousel:** enable previus click to back to index 0 ([#702](https://github.com/juntossomosmais/atomium/issues/702)) ([7ce50cd](https://github.com/juntossomosmais/atomium/commit/7ce50cdb225637f3dc524ee07c8c771462ea73d6))
+
+## [3.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.1...atomium-v3.3.0) (2025-02-04)
+
+
+### Features
+
+* **datetime:** add new component ([#687](https://github.com/juntossomosmais/atomium/issues/687)) ([778dc0c](https://github.com/juntossomosmais/atomium/commit/778dc0ca6a011070a2d8dd8527c8d59eeafd5746))
+* **divider:** create new component ([#692](https://github.com/juntossomosmais/atomium/issues/692)) ([53716d7](https://github.com/juntossomosmais/atomium/commit/53716d7a5fc138119a0c88ae479d6d7ea88263be))
+* **icons:** add shopping cart icon and cupom ([#688](https://github.com/juntossomosmais/atomium/issues/688)) ([ae65156](https://github.com/juntossomosmais/atomium/commit/ae6515646d1f9bf279dfedc505f965bc4793c9fb))
+* **icons:** adding icons for new home component ([#691](https://github.com/juntossomosmais/atomium/issues/691)) ([fffcf04](https://github.com/juntossomosmais/atomium/commit/fffcf04ec15f6789f30134c15434504404cacdf8))
+
+
+### Bug Fixes
+
+* **select:** prevent clicks on non-interactive elements inside ion-select to ensure correct popover size ([#697](https://github.com/juntossomosmais/atomium/issues/697)) ([02200ec](https://github.com/juntossomosmais/atomium/commit/02200ec3cdd2c54693f1b1365121c90c6432b427))
+
+## [3.2.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.2.0...atomium-v3.2.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* **core:** increase priority of custom ionic css variables ([#684](https://github.com/juntossomosmais/atomium/issues/684)) ([2a57843](https://github.com/juntossomosmais/atomium/commit/2a5784307d370a5e7950566e0d397dcee6d9d9e9))
+
+## [3.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.1.0...atomium-v3.2.0) (2025-01-03)
+
+
+### Features
+
+* **icons:** add category, videogame and monetization icon ([#669](https://github.com/juntossomosmais/atomium/issues/669)) ([90cf61d](https://github.com/juntossomosmais/atomium/commit/90cf61d36757bf3ad8b1ab6e39df666931b6e1ca))
+* **icons:** add monetization outline ([#683](https://github.com/juntossomosmais/atomium/issues/683)) ([d3c8ba4](https://github.com/juntossomosmais/atomium/commit/d3c8ba4b2494ffbb9ffaec5932288b3176255b2b))
+
+## [3.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.0.0...atomium-v3.1.0) (2024-12-17)
+
+
+### Features
+
+* **icons:** add pets icon ([#665](https://github.com/juntossomosmais/atomium/issues/665)) ([96de054](https://github.com/juntossomosmais/atomium/commit/96de0543e4c19a39acc313094b8f4f07fa4ee755))
+
+## [3.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.31.0...atomium-v3.0.0) (2024-12-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core:** update stencil and ionic ([#632](https://github.com/juntossomosmais/atomium/issues/632))
+
+### Features
+
+* **core:** update stencil and ionic ([#632](https://github.com/juntossomosmais/atomium/issues/632)) ([a2c3d06](https://github.com/juntossomosmais/atomium/commit/a2c3d068b497c48d9c9875fc47537272dcf37d36))
+
+## [2.31.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.30.0...atomium-v2.31.0) (2024-12-13)
+
+
+### Features
+
+* **icons:** add star-circle icon ([#652](https://github.com/juntossomosmais/atomium/issues/652)) ([7f76790](https://github.com/juntossomosmais/atomium/commit/7f767901b6c3415f7ae53bbe1535853207a0d360))
+
+## [2.30.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.29.0...atomium-v2.30.0) (2024-12-10)
+
+
+### Features
+
+* **pagination:** create pagination component ([#647](https://github.com/juntossomosmais/atomium/issues/647)) ([66a2b6b](https://github.com/juntossomosmais/atomium/commit/66a2b6b0bba12a25e86c8768ff6a0aad0afc6a17))
+
+
+## [2.29.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.28.0...atomium-v2.29.0) (2024-12-03)
+
+
+### Features
+
+* **component:** create spinner component ([#628](https://github.com/juntossomosmais/atomium/issues/628)) ([44d800a](https://github.com/juntossomosmais/atomium/commit/44d800ac2e366cd404140d9d2d66fea76720765d))
+* **icon:** add new icon add-circle-outline ([#648](https://github.com/juntossomosmais/atomium/issues/648)) ([36622f0](https://github.com/juntossomosmais/atomium/commit/36622f02f9c2746a64ad0f1acb0a69554f5a6484))
+
+## [2.28.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.27.1...atomium-v2.28.0) (2024-12-02)
+
+
+### Features
+
+* **icons:** add new icon ([#644](https://github.com/juntossomosmais/atomium/issues/644)) ([e0e6f3b](https://github.com/juntossomosmais/atomium/commit/e0e6f3b9a45369fef856214b1e6807cbaedd6a87))
+
+## [2.27.1](https://github.com/juntossomosmais/atomium/compare/atomium-v2.27.0...atomium-v2.27.1) (2024-11-25)
+
+
+### Bug Fixes
+
+* **steps-modal:** use correct prop name to disable primary and secondary button ([#630](https://github.com/juntossomosmais/atomium/issues/630)) ([cf3dea9](https://github.com/juntossomosmais/atomium/commit/cf3dea982448e8c058e5f884e21e810031a5f42c))
+
 ## [2.27.0](https://github.com/juntossomosmais/atomium/compare/atomium-v2.26.0...atomium-v2.27.0) (2024-11-25)
 
 

@@ -11,7 +11,6 @@ const preview = {
     viewport: {
       viewports: CustomViewports,
     },
-    actions: { argTypesRegex: '^atom.*' },
     docs: {
       page: DocumentationTemplate,
     },

@@ -29,6 +29,13 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    id: {
+      control: 'text',
+      description: 'The id of the modal',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     hasDivider: {
       control: 'boolean',
       description: 'if true, a divider will be added on the header and footer',
@@ -104,6 +111,14 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    canDismiss: {
+      control: 'boolean',
+      description:
+        'If true, the modal can be dismissed by clicking outside the modal. Default is true',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     atomCloseClick: {
       action: 'atomCloseClick',
       description:
@@ -168,6 +183,55 @@ export const ModalStoryArgs = {
         category: Category.CSS_CUSTOM_PROPERTIES,
       },
     },
+    '--height': {
+      description: 'Height of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--max-height': {
+      description: 'Maximum height of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--max-width': {
+      description: 'Maximum width of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--min-height': {
+      description: 'Minimum height of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--min-width': {
+      description: 'Minimum width of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    '--width': {
+      description: 'Width of the modal.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
+    present: {
+      description:
+        'Method to present the modal overlay after it has been created.',
+      table: {
+        category: Category.METHODS,
+      },
+    },
+    dismiss: {
+      description: 'Method to close the modal after it has been presented.',
+      table: {
+        category: Category.METHODS,
+      },
+    },
   },
 }
 
@@ -178,4 +242,5 @@ export const ModalComponentArgs = {
   disableSecondaryButton: false,
   disablePrimaryButton: false,
   isOpen: false,
+  canDismiss: true,
 }

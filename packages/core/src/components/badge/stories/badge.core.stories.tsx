@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components'
-
 import { html } from 'lit'
 
 import { BadgeStoryArgs } from './badge.args'

@@ -16,12 +16,19 @@ module.exports = {
       files: ['**/*.spec.{js,ts,tsx}'],
       rules: {
         'sonarjs/no-duplicate-string': 'off',
+        'sonarjs/unused-import': 'off',
       },
     },
     {
       files: ['**/scripts/**'],
       rules: {
         'no-console': 'off',
+      },
+    },
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        'sonarjs/unused-import': 'off',
       },
     },
   ],

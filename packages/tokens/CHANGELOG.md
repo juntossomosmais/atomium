@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.1...atomium-tokens-v2.0.2) (2025-02-27)
+
+
+### Bug Fixes
+
+* **docs:** adjust tokens table doc ([#705](https://github.com/juntossomosmais/atomium/issues/705)) ([9fa4ba8](https://github.com/juntossomosmais/atomium/commit/9fa4ba881a2912405678fbcdc99b8bc9547e5ae0))
+
+## [2.0.1](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.0...atomium-tokens-v2.0.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* **tokens:** adjust rgb colors ([8da9025](https://github.com/juntossomosmais/atomium/commit/8da902538f561af6d0286e21b0c35ba3d074b7a1))
+
 ## [2.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v1.2.0...atomium-tokens-v2.0.0) (2024-09-10)
 
 

@@ -11,6 +11,8 @@ import {
   h,
 } from '@stencil/core'
 
+import { isMobile } from '../../utils/screens'
+
 @Component({
   tag: 'atom-tooltip',
   styleUrl: 'tooltip.scss',
@@ -140,10 +142,6 @@ export class AtomTooltip {
     this._popperInstance.destroy()
   }
 
-  private isMobile() {
-    return window.matchMedia('(max-width: 768px)').matches
-  }
-
   private readonly addEventListeners = (
     events: string[],
     handler: EventListenerOrEventListenerObject
@@ -163,7 +161,7 @@ export class AtomTooltip {
   }
 
   private readonly attachEvents = () => {
-    const isMobile = this.isMobile()
+    const isMobileScreen = isMobile()
 
     if (this.action === 'click') {
       this.addEventListeners(this._eventsToShowClick, this.show)
@@ -172,7 +170,7 @@ export class AtomTooltip {
       this.addEventListeners(this._eventsToShowHover, this.show)
       this.addEventListeners(this._eventsToHideHover, this.hide)
 
-      if (isMobile) {
+      if (isMobileScreen) {
         this.addEventListeners(this._eventsToShowClick, this.show)
         this.removeEventListeners(this._eventsToShowHover, this.show)
         this.removeEventListeners(this._eventsToHideHover, this.hide)
@@ -227,18 +225,19 @@ export class AtomTooltip {
         style={{
           zIndex: this.open ? '1' : '-1',
         }}
-        role={this.isMobile() ? 'dialog' : 'tooltip'}
+        role={isMobile() ? 'dialog' : 'tooltip'}
       >
         <div
           data-placement={this.placement}
           data-hide={!this.open}
           data-show={this.open}
           class={{ 'atom-tooltip': true }}
+          part='tooltip'
         >
           <div class='atom-tooltip__content'>
             <slot />
 
-            {(this.action === 'click' || this.isMobile()) && (
+            {(this.action === 'click' || isMobile()) && (
               <button
                 class='atom-tooltip__action--close'
                 aria-label='Fechar'
