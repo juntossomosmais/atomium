@@ -54,7 +54,7 @@ describe('atom-link', () => {
     expect(page.root).toEqualHtml(`
       <atom-link color="secondary" type="button">
         <mock:shadow-root>
-        <button class="atom-link__button">
+        <button class="atom-link--medium atom-link__button">
           <span class="atom-link" color="secondary">
             <slot></slot>
           </span>
