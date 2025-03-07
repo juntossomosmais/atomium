@@ -227,4 +227,22 @@ describe('atom-modal', () => {
 
     expect(page.root?.innerHTML).toContain('modal-id')
   })
+
+  it('should not render buttons when buttons have no text', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+        <atom-modal is-open="true" id-name="modal-id">
+          Modal content
+        </atom-modal>
+      `,
+    })
+
+    expect(
+      page.root?.querySelector('.atom-modal__btn-action--primary')
+    ).toBeNull()
+    expect(
+      page.root?.querySelector('.atom-modal__btn-action--secondary')
+    ).toBeNull()
+  })
 })

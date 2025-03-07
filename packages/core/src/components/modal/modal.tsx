@@ -82,6 +82,8 @@ export class AtomModal {
 
   render() {
     const iconType = this.alertMap[this.alertType]
+    const wihoutButtons = !this.primaryButtonText && !this.secondaryButtonText
+    const showFooter = this.hasFooter && !wihoutButtons
 
     return (
       <Host>
@@ -145,17 +147,19 @@ export class AtomModal {
           >
             <slot />
           </div>
-          {this.hasFooter && (
+          {showFooter && (
             <footer part='footer' class='atom-modal__footer'>
-              <atom-button
-                color='secondary'
-                disabled={this.disableSecondaryButton}
-                fill='outline'
-                class='atom-modal__btn-action atom-modal__btn-action--secondary'
-                onClick={this.handleSecondaryClick}
-              >
-                {this.secondaryButtonText}
-              </atom-button>
+              {this.secondaryButtonText && (
+                <atom-button
+                  color='secondary'
+                  disabled={this.disableSecondaryButton}
+                  fill='outline'
+                  class='atom-modal__btn-action atom-modal__btn-action--secondary'
+                  onClick={this.handleSecondaryClick}
+                >
+                  {this.secondaryButtonText}
+                </atom-button>
+              )}
               <atom-button
                 color='primary'
                 disabled={this.disablePrimaryButton}
