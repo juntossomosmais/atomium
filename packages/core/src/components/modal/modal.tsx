@@ -82,6 +82,8 @@ export class AtomModal {
 
   render() {
     const iconType = this.alertMap[this.alertType]
+    const wihoutButtons = !this.primaryButtonText && !this.secondaryButtonText
+    const showFooter = this.hasFooter && !wihoutButtons
 
     return (
       <Host>
@@ -145,7 +147,7 @@ export class AtomModal {
           >
             <slot />
           </div>
-          {this.hasFooter && (
+          {showFooter && (
             <footer part='footer' class='atom-modal__footer'>
               {this.secondaryButtonText && (
                 <atom-button
