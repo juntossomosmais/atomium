@@ -147,23 +147,27 @@ export class AtomModal {
           </div>
           {this.hasFooter && (
             <footer part='footer' class='atom-modal__footer'>
-              <atom-button
-                color='secondary'
-                disabled={this.disableSecondaryButton}
-                fill='outline'
-                class='atom-modal__btn-action atom-modal__btn-action--secondary'
-                onClick={this.handleSecondaryClick}
-              >
-                {this.secondaryButtonText}
-              </atom-button>
-              <atom-button
-                color='primary'
-                disabled={this.disablePrimaryButton}
-                class='atom-modal__btn-action atom-modal__btn-action--primary'
-                onClick={this.handlePrimaryClick}
-              >
-                {this.primaryButtonText}
-              </atom-button>
+              {this.secondaryButtonText && (
+                <atom-button
+                  color='secondary'
+                  disabled={this.disableSecondaryButton}
+                  fill='outline'
+                  class='atom-modal__btn-action atom-modal__btn-action--secondary'
+                  onClick={this.handleSecondaryClick}
+                >
+                  {this.secondaryButtonText}
+                </atom-button>
+              )}
+              {this.primaryButtonText && (
+                <atom-button
+                  color='primary'
+                  disabled={this.disablePrimaryButton}
+                  class='atom-modal__btn-action atom-modal__btn-action--primary'
+                  onClick={this.handlePrimaryClick}
+                >
+                  {this.primaryButtonText}
+                </atom-button>
+              )}
             </footer>
           )}
         </ion-modal>
