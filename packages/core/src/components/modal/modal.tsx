@@ -82,8 +82,8 @@ export class AtomModal {
 
   render() {
     const iconType = this.alertMap[this.alertType]
-    const wihoutButtons = !this.primaryButtonText && !this.secondaryButtonText
-    const showFooter = this.hasFooter && !wihoutButtons
+    const withoutButtons = !this.primaryButtonText && !this.secondaryButtonText
+    const showFooter = this.hasFooter && !withoutButtons
 
     return (
       <Host>
