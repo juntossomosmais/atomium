@@ -155,7 +155,7 @@ export class AtomStepsModal {
           onAtomPrimaryClick={this.handlePrimaryClick}
           onAtomSecondaryClick={this.handleSecondaryClick}
           isOpen={this.isOpen}
-          hasFooter={false}
+          hasFooter={true}
           hasDivider={true}
           onAtomDidDismiss={this.handleDidDismiss}
           onAtomDidPresent={this.handleDidPresent}

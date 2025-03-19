@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.6.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.1...atomium-v3.6.2) (2025-03-12)
+
+
+### Bug Fixes
+
+* **steps-modal:** show buttons in step modal ([#718](https://github.com/juntossomosmais/atomium/issues/718)) ([6a229f8](https://github.com/juntossomosmais/atomium/commit/6a229f87638a559de9a9b96ce44f22eaa454cf91))
+
+## [3.6.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.0...atomium-v3.6.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* **modal:** show buttons modal only buttons have text ([#716](https://github.com/juntossomosmais/atomium/issues/716)) ([884cb7e](https://github.com/juntossomosmais/atomium/commit/884cb7e36cd2138f29cd74fe21544ec9c4f03964))
+
 ## [3.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.5.0...atomium-v3.6.0) (2025-02-27)
 
 
