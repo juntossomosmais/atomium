@@ -1,5 +1,24 @@
 # Changelog
 
+## [3.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.3...atomium-tokens-v3.0.0) (2025-03-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **tokens:** fix all letter spacing values ([#537](https://github.com/juntossomosmais/atomium/issues/537))
+
+### Features
+
+* add tag component ([#261](https://github.com/juntossomosmais/atomium/issues/261)) ([11e8d3b](https://github.com/juntossomosmais/atomium/commit/11e8d3b59714eff3710f78cc0c7ebf6a64629ec1))
+* carousel component ([#235](https://github.com/juntossomosmais/atomium/issues/235)) ([91d3368](https://github.com/juntossomosmais/atomium/commit/91d33687318d6842f577509bf6d0587c6ac4c340))
+
+
+### Bug Fixes
+
+* **docs:** adjust tokens table doc ([#705](https://github.com/juntossomosmais/atomium/issues/705)) ([9fa4ba8](https://github.com/juntossomosmais/atomium/commit/9fa4ba881a2912405678fbcdc99b8bc9547e5ae0))
+* **tokens:** adjust rgb colors ([8da9025](https://github.com/juntossomosmais/atomium/commit/8da902538f561af6d0286e21b0c35ba3d074b7a1))
+* **tokens:** fix all letter spacing values ([#537](https://github.com/juntossomosmais/atomium/issues/537)) ([550fd34](https://github.com/juntossomosmais/atomium/commit/550fd34de953a8868551f9906c28bbd5e3d9786a))
+
 ## [2.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.1...atomium-tokens-v2.0.2) (2025-02-27)
 
 
