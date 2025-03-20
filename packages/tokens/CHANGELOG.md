@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.2...atomium-tokens-v2.0.3) (2025-03-20)
+
+
+### Bug Fixes
+
+* force bump ([50897ea](https://github.com/juntossomosmais/atomium/commit/50897eac3293474761e7aa9f21003ace2d34a5d5))
+
 ## [2.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.1...atomium-tokens-v2.0.2) (2025-02-27)
 
 
