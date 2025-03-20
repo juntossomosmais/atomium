@@ -1,4 +1,4 @@
-name: Release and Publish Packages
+name: Release, Publish, and Deploy Packages
 
 on:
   push:
@@ -10,9 +10,11 @@ permissions:
   contents: write
   packages: write
   pull-requests: write
+  id-token: write
+  actions: read
 
 jobs:
-  release-and-publish-packages:
+  release-and-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
@@ -51,23 +53,45 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Authenticate with the GitHub Package Registry and Install dependencies
+      - name: Authenticate and Install Dependencies
         if: ${{ steps.release.outputs.releases_created }}
         run: |
           echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
           npm ci --legacy-peer-deps
 
-      - name: Build and publish Core
+      - name: Extract SEMVER for Core and Tokens
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          echo "CORE_VERSION=$(jq -r .version packages/core/package.json)" >> $GITHUB_ENV
+          echo "TOKENS_VERSION=$(jq -r .version packages/tokens/package.json)" >> $GITHUB_ENV
+
+      - name: Build and Publish Core
         if: ${{ steps.release.outputs['packages/core--release_created'] }}
         run: npx nx run @juntossomosmais/atomium:publish-library
-        continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish Tokens
+      - name: Build and Publish Tokens
         if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
         run: npx nx run @juntossomosmais/atomium-tokens:publish-library
-        continue-on-error: false
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure AWS credentials
+        if: ${{ steps.release.outputs.releases_created }}
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: us-east-1
+
+      - name: Deploy Core Package to S3
+        if: ${{ steps.release.outputs['packages/core--release_created'] }}
+        run: |
+          aws s3 sync packages/core/dist ${{ secrets.AWS_S3_BUCKET }}/core/$CORE_VERSION
+          aws s3 sync packages/core/loader ${{ secrets.AWS_S3_BUCKET }}/core/$CORE_VERSION
+
+      - name: Deploy Tokens Package to S3
+        if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
+        run: |
+          aws s3 cp packages/tokens/dist/tokens.css s3://atomium/token/$TOKENS_VERSION/tokens.css
