@@ -1,3 +1,129 @@
 .atom-stepper {
-  color: red;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+
+  @include above(medium) {
+    flex-direction: row;
+    height: 100%;
+  }
+}
+
+.number {
+  align-items: center;
+  border: 1px solid var(--color-contextual-success-light-1);
+  border-radius: var(--border-radius-full);
+  color: var(--color-contextual-success-light-1);
+  display: flex;
+  font: var(--text-body-small);
+  height: var(--spacing-large);
+  justify-content: center;
+  letter-spacing: var(--text-body-small-letter);
+  margin-bottom: var(--spacing-base);
+  width: var(--spacing-large);
+}
+
+.step {
+  display: flex;
+  flex-direction: row;
+  height: var(--space-lg);
+  list-style-type: none;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background-color: var(--gray-2);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 14px;
+    margin-left: 2px;
+    margin-right: var(--space-sm);
+    position: relative;
+    text-align: center;
+    width: 14px;
+    z-index: var(--zindex-1);
+  }
+
+  &::after {
+    background-color: var(--gray-2);
+    content: '';
+    height: 100%;
+    left: var(--space-xs);
+    position: absolute;
+    top: var(--space-xxs);
+    width: 2px;
+  }
+
+  &:last-child::after {
+    content: none;
+  }
+
+  .subtitle:last-child:not(:empty)::before {
+    content: '-';
+    display: inline-block;
+    text-align: center;
+    width: var(--space-xs);
+  }
+
+  @include above(medium) {
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+
+    &::before {
+      margin-bottom: var(--space-sm);
+      margin-top: 2px;
+    }
+
+    &:not(:last-child)::after {
+      height: 2px;
+      left: var(--space-xs);
+      top: var(--space-xs);
+      width: 100%;
+    }
+
+    .subtitle:last-child:not(:empty)::before {
+      content: none;
+    }
+  }
+}
+
+.title {
+  color: var(--color-neutral-regular);
+  font: var(--text-body-small);
+  letter-spacing: var(--text-body-small-letter);
+}
+
+.completed {
+  .number {
+    background-color: var(--color-contextual-success-light-1);
+    border: none;
+  }
+}
+
+.active {
+  .title {
+    font-weight: bold;
+  }
+}
+
+.disabled {
+  .title {
+    color: var(--color-neutral-light-2);
+  }
+
+  .number {
+    background-color: var(--color-neutral-light-3);
+    border: none;
+    color: var(--color-neutral-light-2);
+  }
+}
+
+.last::after {
+  background-color: var(--gray-2);
 }
