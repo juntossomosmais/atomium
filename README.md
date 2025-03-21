@@ -179,6 +179,10 @@ We are using [GitHub Actions](https://github.com/juntossomosmais/atomium/actions
 
 When a PR is merged into the `main` branch, the release process is triggered. The release process will create a new release and publish the packages to GitHub Packages.
 
+### CDN Deployment
+
+The Atomium can be deployed to a CDN using S3. The deployment is [triggered manually using GitHub Actions](https://github.com/juntossomosmais/atomium/actions/runs/13998448879/job/39199209248)
+
 ### Publish errors
 
 If you get an error in Github Actions to publish to NPM, you can run the following command to restart the release process:
