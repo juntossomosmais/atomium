@@ -22,3 +22,23 @@ defineCustomElements(window)
 <atom-button>Click me</atom-button>
 ```
 
+#### Using with CDN
+
+```html
+<head>
+  <link rel="stylesheet" href="https://atomium.juntossomosmais.com.br/core/SEMVER/core.css">
+  <link rel="stylesheet" href="https://atomium.juntossomosmais.com.br/tokens/SEMVER/tokens.css">
+</head>
+<body>
+  <atom-button>Click me</atom-button>
+
+  <script type="module">
+    import { defineCustomElements } from 'https://atomium.juntossomosmais.com.br/core/SEMVER/loader/index.js'
+
+    document.addEventListener('DOMContentLoaded', function () {
+      defineCustomElements()
+    })
+  </script>
+</body>
+```
+

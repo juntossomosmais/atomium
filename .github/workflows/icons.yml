@@ -60,4 +60,4 @@ jobs:
 
       - name: Sync AWS S3 bucket
         run: |
-          aws s3 sync packages/icons/dist/svg ${{ secrets.AWS_S3_BUCKET }}
+          aws s3 sync packages/icons/dist/svg s3://atomium/icons
