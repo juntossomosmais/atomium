@@ -107,7 +107,7 @@ export const ReactivityProblemOnEmit: StoryObj = {
       <AtomButton id='open-modal' @click="isOpen=true">Open the modal to see the example code</AtomButton> or <AtomButton
       fill="clear"
       type="button"
-      href="https://github.com/juntossomosmais/atomium"
+      href="https://github.com/juntossomosmais/atomium/blob/9acac8688128569e033598c2a5f3267746837385/packages/core/src/components/modal/stories/modal.vue.stories.tsx#L145-L166"
       >see the example on GitHub</AtomButton>
       <AtomModal
         disable-primary-button="${ModalComponentArgs.disablePrimaryButton}"
