@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title='Docs/Architecture Decision Records/ADR 0015: Why use a CDN for Atomium distribution' />
+
+# ADR 0015: Why use a CDN for Atomium distribution
+
+🗓️ 2025-03 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
+
+## Context
+
+Atomium needs to be accessible in projects that do not use Node.js, such as Django applications or simple HTML projects. In these cases, installing the library via npm is not an option, making a CDN the most practical way to distribute and integrate Atomium.
+
+## Challenges
+
+- Ensuring seamless access to Atomium for non-Node projects.
+- Managing versioning effectively to prevent breaking changes.
+- Automating deployment to the CDN to maintain consistency and reduce manual effort.
+- Keeping the process simple and scalable.
+
+## Decision Drivers
+
+- **Broader Accessibility**: Atomium should be usable in any project, regardless of its tech stack.
+- **Controlled Releases**: Since only a few projects rely on the CDN version, frequent updates are unnecessary.
+- **Semantic Versioning (SEMVER)**: Versions should follow SEMVER to ensure stability and predictability.
+- **Ease of Integration**: Developers should be able to quickly and reliably include Atomium in their projects.
+
+## Decision
+
+To support non-Node projects, Atomium will be distributed via a CDN with the following structure:
+
+```sh
+https://atomium.juntossomosmais.com.br/core/SEMVER/
+https://atomium.juntossomosmais.com.br/tokens/SEMVER/
+```
+
+This approach ensures that developers can integrate Atomium using standard `<script>` or `<link>` tags without requiring Node.js.
+
+However, to prevent excessive versioning on the CDN, we will not deploy every new release automatically. Instead, we will use a manual trigger in GitHub Actions to publish a new version only when necessary.

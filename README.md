@@ -21,10 +21,10 @@
 
 | Project | Package                                                                                                 | Version                                                                                                                                                                                            | Documentation                         |
 | ------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| Core | [`@juntossomosmais/atomium`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/core/README.md)   |
-| React | [`@juntossomosmais/atomium/react`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/react/README.md)  |
-| Vue | [`@juntossomosmais/atomium/vue`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/vue/README.md)  |
-| Tokens | [`@juntossomosmais/atomium-tokens`](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Ftokens%2Fpackage.json" alt="version"> | [README](./packages/tokens/README.md) |
+| Core | [@juntossomosmais/atomium](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/core/README.md)   |
+| React | [@juntossomosmais/atomium/react](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/react/README.md)  |
+| Vue | [@juntossomosmais/atomium/vue](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Fcore%2Fpackage.json" alt="version"> | [README](./packages/vue/README.md)  |
+| Tokens | [@juntossomosmais/atomium-tokens](https://github.com/juntossomosmais/atomium/pkgs/npm/atomium-tokens) | <img src="https://img.shields.io/github/package-json/v/juntossomosmais/atomium?filename=packages%2Ftokens%2Fpackage.json" alt="version"> | [README](./packages/tokens/README.md) |
 
 ## About
 
@@ -178,6 +178,10 @@ By following these steps, you can easily test and verify any customizations or m
 We are using [GitHub Actions](https://github.com/juntossomosmais/atomium/actions), [GitHub Packages](https://github.com/orgs/juntossomosmais/packages?repo_name=atomium) and [release please](https://github.com/googleapis/release-please) to automate the release process.
 
 When a PR is merged into the `main` branch, the release process is triggered. The release process will create a new release and publish the packages to GitHub Packages.
+
+### CDN Deployment
+
+The Atomium can be deployed to a CDN using S3. The deployment is [triggered manually using GitHub Actions](https://github.com/juntossomosmais/atomium/actions/runs/13998448879/job/39199209248)
 
 ### Publish errors
 
