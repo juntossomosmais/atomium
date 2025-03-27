@@ -25,6 +25,7 @@ const createModal = (args) => (
       isOpen={args.isOpen}
       canDismiss={args.canDismiss}
       id={args.id}
+      metaData={args.metaData || {}}
     >
       <div slot='header'>Custom Header</div>
       <p>Modal Content</p>
@@ -76,5 +77,17 @@ export const HeaderTitle: StoryObj = {
   args: {
     ...ModalComponentArgs,
     headerTitle: 'Title',
+  },
+}
+
+export const AutomatedTest: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    metaData: {
+      primaryButtonTestId: 'primary-btn',
+      secondaryButtonTestId: 'secondary-btn',
+      closeButtonTestId: 'close-btn',
+    },
   },
 }

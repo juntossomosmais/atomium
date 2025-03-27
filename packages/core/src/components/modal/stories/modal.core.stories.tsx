@@ -31,6 +31,12 @@ const createModal = (args) => {
         <p>Modal Content</p>
       </<atom-modal>
     </div>
+
+     <script>
+     ;(function () {
+      document.querySelector('atom-modal').metaData = ${JSON.stringify(args.metaData || {})}
+      })()
+      </script>
   `
 }
 
@@ -78,5 +84,17 @@ export const HeaderTitle: StoryObj = {
   args: {
     ...ModalComponentArgs,
     headerTitle: 'Title',
+  },
+}
+
+export const AutomatedTest: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    metaData: {
+      primaryButtonTestId: 'primary-btn',
+      secondaryButtonTestId: 'secondary-btn',
+      closeButtonTestId: 'close-btn',
+    },
   },
 }
