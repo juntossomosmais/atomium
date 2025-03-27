@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.2...atomium-v3.7.0) (2025-03-27)
+
+
+### Features
+
+* **modal:** add overflow in modal ([#728](https://github.com/juntossomosmais/atomium/issues/728)) ([167267e](https://github.com/juntossomosmais/atomium/commit/167267e51c2cfde094e5882274e19a20061c0d7a))
+
 ## [3.6.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.1...atomium-v3.6.2) (2025-03-12)
 
 
