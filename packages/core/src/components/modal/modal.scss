@@ -44,6 +44,7 @@
   &__header {
     color: var(--color-neutral-light-1);
     padding: var(--spacing-large);
+    padding-right: calc(var(--spacing-large) * 2);
     position: relative;
   }
 
