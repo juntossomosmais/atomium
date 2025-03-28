@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.2...atomium-v3.7.0) (2025-03-28)
+
+
+### Features
+
+* **modal:** add metadata prop allowing automated tests ([#731](https://github.com/juntossomosmais/atomium/issues/731)) ([0e91bc5](https://github.com/juntossomosmais/atomium/commit/0e91bc55185d1e529fc7cbca20fb1b79e499c960))
+
 ## [3.6.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.1...atomium-v3.6.2) (2025-03-12)
 
 
