@@ -1,8 +1,7 @@
-:host {
-  --atom-modal-zindex: var(--zindex-1000);
-}
-
 .atom-modal {
+  --atom-modal-padding-close-icon: var(--spacing-xxxxlarge);
+  --atom-modal-zindex: var(--zindex-1000);
+
   position: fixed;
   z-index: var(--atom-modal-zindex) !important;
 
@@ -44,8 +43,9 @@
   &__header {
     color: var(--color-neutral-light-1);
     padding: var(--spacing-large);
-    padding-right: var(--spacing-xxxxlarge);
+    padding-right: var(--atom-modal-padding-close-icon);
     position: relative;
+    z-index: var(--atom-modal-zindex) !important;
   }
 
   &__icon-type {
