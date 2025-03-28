@@ -11,26 +11,38 @@ export default {
 const createModal = (args) => {
   return html`
     <div>
-      <atom-button id="open-modal">Open Modal</atom-button>
+      <atom-button id="${args.trigger}">open modal</atom-button>
       <atom-modal
         alert-type="${args.alertType}"
         has-divider="${args.hasDivider}"
         primary-button-text="${args.primaryButtonText}"
         secondary-button-text="${args.secondaryButtonText}"
-        trigger="open-modal"
+        trigger=${args.trigger}
         progress="${args.progress}"
         has-footer="${args.hasFooter}"
         header-title="${args.headerTitle}"
         disable-secondary-button="${args.disableSecondaryButton}"
         disable-primary-button="${args.disablePrimaryButton}"
         is-open="${args.isOpen}"
-        can-dismiss="${args.canDismiss}"
         id="${args.id}"
+        can-dismiss="${args.canDismiss}"
       >
         <div slot="header">Custom Header</div>
         <p>Modal Content</p>
       </<atom-modal>
     </div>
+
+     <script>
+     ;(function () {
+      // for automated test section
+      const modal = document.querySelector('#automated-test-modal')
+
+      if(modal) {
+        modal.metaData = ${JSON.stringify(args.metaData || {})}
+      }
+
+      })()
+      </script>
   `
 }
 
@@ -38,6 +50,7 @@ export const Default: StoryObj = {
   render: (args) => createModal(args),
   args: {
     ...ModalComponentArgs,
+    trigger: 'open-modal',
   },
 }
 
@@ -46,6 +59,7 @@ export const Divided: StoryObj = {
   args: {
     ...ModalComponentArgs,
     hasDivider: true,
+    trigger: 'open-modal-1',
   },
 }
 
@@ -54,6 +68,7 @@ export const Progress: StoryObj = {
   args: {
     ...ModalComponentArgs,
     progress: 0.5,
+    trigger: 'open-modal-2',
   },
 }
 
@@ -62,6 +77,7 @@ export const Alert: StoryObj = {
   args: {
     ...ModalComponentArgs,
     alertType: 'alert',
+    trigger: 'open-modal-3',
   },
 }
 
@@ -70,6 +86,7 @@ export const ErrorModal: StoryObj = {
   args: {
     ...ModalComponentArgs,
     alertType: 'error',
+    trigger: 'open-modal-4',
   },
 }
 
@@ -78,5 +95,20 @@ export const HeaderTitle: StoryObj = {
   args: {
     ...ModalComponentArgs,
     headerTitle: 'Title',
+    trigger: 'open-modal-5',
+  },
+}
+
+export const AutomatedTest: StoryObj = {
+  render: (args) => createModal(args),
+  args: {
+    ...ModalComponentArgs,
+    metaData: {
+      primaryButtonTestId: 'primary-btn',
+      secondaryButtonTestId: 'secondary-btn',
+      closeButtonTestId: 'close-btn',
+    },
+    trigger: 'open-modal-6',
+    id: 'automated-test-modal',
   },
 }
