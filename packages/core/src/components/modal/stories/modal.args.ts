@@ -1,5 +1,4 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
-import DocumentationTemplate from '@atomium/storybook-utils/templates/DocumentationWithoutStories.mdx'
 import { withActions } from '@storybook/addon-actions/decorator'
 
 export const ModalStoryArgs = {
@@ -18,7 +17,6 @@ export const ModalStoryArgs = {
         component:
           'Wrapper of Ionic Modal component. Read the [Ionic documentation](https://ionicframework.com/docs/api/modal) for more information about the available properties and possibilities.',
       },
-      page: DocumentationTemplate,
     },
   },
   decorators: [withActions],
@@ -230,6 +228,14 @@ export const ModalStoryArgs = {
       description: 'Method to close the modal after it has been presented.',
       table: {
         category: Category.METHODS,
+      },
+    },
+    metaData: {
+      control: 'object',
+      description:
+        'Object containing data-testid for modal actions such as primary and secondary buttons. Example: `{ primaryButtonTestId: "primary-btn", secondaryButtonTestId: "secondary-btn", closeButtonTestId: "close-btn" }`',
+      table: {
+        category: Category.PROPERTIES,
       },
     },
   },
