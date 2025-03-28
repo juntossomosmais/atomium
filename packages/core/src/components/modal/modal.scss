@@ -1,5 +1,5 @@
 .atom-modal {
-  --atom-modal-padding-close-icon: var(--spacing-xxxxlarge);
+  --atom-modal-padding-header: var(--spacing-xxxxlarge);
   --atom-modal-zindex: var(--zindex-1000);
 
   position: fixed;
@@ -43,9 +43,8 @@
   &__header {
     color: var(--color-neutral-light-1);
     padding: var(--spacing-large);
-    padding-right: var(--atom-modal-padding-close-icon);
+    padding-right: var(--atom-modal-padding-header);
     position: relative;
-    z-index: var(--atom-modal-zindex) !important;
   }
 
   &__icon-type {
