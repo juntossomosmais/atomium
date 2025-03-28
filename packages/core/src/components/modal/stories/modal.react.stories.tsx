@@ -12,13 +12,13 @@ export default {
 
 const createModal = (args) => (
   <div>
-    <AtomButton id='open-modal'>Open Modal</AtomButton>
+    <AtomButton id={args.trigger}>Open Modal</AtomButton>
     <AtomModal
       alertType={args.alertType}
       hasDivider={args.hasDivider}
       primaryButtonText={args.primaryButtonText}
       secondaryButtonText={args.secondaryButtonText}
-      trigger='open-modal'
+      trigger={args.trigger}
       progress={args.progress}
       disablePrimaryButton={args.disablePrimaryButton}
       disableSecondaryButton={args.disableSecondaryButton}
@@ -37,6 +37,7 @@ export const Default: StoryObj = {
   render: (args) => createModal(args),
   args: {
     ...ModalComponentArgs,
+    trigger: 'open-modal',
   },
 }
 
@@ -45,6 +46,7 @@ export const Divided: StoryObj = {
   args: {
     ...ModalComponentArgs,
     hasDivider: true,
+    trigger: 'open-modal-2',
   },
 }
 
@@ -53,6 +55,7 @@ export const Progress: StoryObj = {
   args: {
     ...ModalComponentArgs,
     progress: 0.5,
+    trigger: 'open-modal-3',
   },
 }
 
@@ -61,6 +64,7 @@ export const Alert: StoryObj = {
   args: {
     ...ModalComponentArgs,
     alertType: 'alert',
+    trigger: 'open-modal-4',
   },
 }
 
@@ -69,6 +73,7 @@ export const ErrorModal: StoryObj = {
   args: {
     ...ModalComponentArgs,
     alertType: 'error',
+    trigger: 'open-modal-5',
   },
 }
 
@@ -77,6 +82,7 @@ export const HeaderTitle: StoryObj = {
   args: {
     ...ModalComponentArgs,
     headerTitle: 'Title',
+    trigger: 'open-modal-6',
   },
 }
 
@@ -89,5 +95,6 @@ export const AutomatedTest: StoryObj = {
       secondaryButtonTestId: 'secondary-btn',
       closeButtonTestId: 'close-btn',
     },
+    trigger: 'open-modal-7',
   },
 }

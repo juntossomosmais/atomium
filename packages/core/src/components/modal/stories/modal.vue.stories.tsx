@@ -15,13 +15,13 @@ const createModal = (args, themeColor = 'light') => ({
   },
   template: `
     <div>
-      <AtomButton id='open-modal'>Open Modal</AtomButton>
+      <AtomButton id='${args.trigger}'>Open Modal</AtomButton>
       <AtomModal
         alert-type="${args.alertType}"
         has-divider="${args.hasDivider}"
         primary-button-text="${args.primaryButtonText}"
         secondary-button-text="${args.secondaryButtonText}"
-        trigger="open-modal"
+        trigger="${args.trigger}"
         progress="${args.progress}"
         disable-primary-button="${args.disablePrimaryButton}"
         disable-secondary-button="${args.disableSecondaryButton}"
@@ -41,6 +41,7 @@ export const Default: StoryObj = {
   render: (args) => createModal(args),
   args: {
     ...ModalComponentArgs,
+    trigger: 'open-modal',
   },
 }
 
@@ -49,6 +50,7 @@ export const Divided: StoryObj = {
   args: {
     ...ModalComponentArgs,
     hasDivider: true,
+    trigger: 'open-modal-2',
   },
 }
 
@@ -57,6 +59,7 @@ export const Progress: StoryObj = {
   args: {
     ...ModalComponentArgs,
     progress: 0.5,
+    trigger: 'open-modal-3',
   },
 }
 
@@ -65,6 +68,7 @@ export const Alert: StoryObj = {
   args: {
     ...ModalComponentArgs,
     alertType: 'alert',
+    trigger: 'open-modal-4',
   },
 }
 
@@ -73,6 +77,7 @@ export const ErrorModal: StoryObj = {
   args: {
     ...ModalComponentArgs,
     alertType: 'error',
+    trigger: 'open-modal-5',
   },
 }
 
@@ -81,6 +86,7 @@ export const HeaderTitle: StoryObj = {
   args: {
     ...ModalComponentArgs,
     headerTitle: 'Title',
+    trigger: 'open-modal-6',
   },
 }
 
@@ -93,6 +99,7 @@ export const AutomatedTest: StoryObj = {
       secondaryButtonTestId: 'secondary-btn',
       closeButtonTestId: 'close-btn',
     },
+    trigger: 'open-modal-7',
   },
 }
 
@@ -104,7 +111,7 @@ export const ReactivityProblemOnEmit: StoryObj = {
     },
     template: `
     <div>
-      <AtomButton id='open-modal' @click="isOpen=true">Open the modal to see the example code</AtomButton> or <AtomButton
+      <AtomButton  @click="isOpen=true">Open the modal to see the example code</AtomButton> or <AtomButton
       fill="clear"
       type="button"
       href="https://github.com/juntossomosmais/atomium/blob/9acac8688128569e033598c2a5f3267746837385/packages/core/src/components/modal/stories/modal.vue.stories.tsx#L145-L166"
