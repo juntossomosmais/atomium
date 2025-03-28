@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.0...atomium-v3.7.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* **modal:** add overflow in modal and padding in title header ([#730](https://github.com/juntossomosmais/atomium/issues/730)) ([97cfff9](https://github.com/juntossomosmais/atomium/commit/97cfff94246a58924d571654a27a413b91fd77ca))
+
 ## [3.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.2...atomium-v3.7.0) (2025-03-28)
 
 
