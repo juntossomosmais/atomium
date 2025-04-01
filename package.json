@@ -30,9 +30,9 @@
     "tokens:build": "nx build @juntossomosmais/atomium-tokens"
   },
   "dependencies": {
-    "@ionic/core": "^8.4.3",
+    "@ionic/core": "^8.5.2",
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "~4.27.1"
+    "@stencil/core": "~4.28.2"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
@@ -112,7 +112,7 @@
     "vue": "^3.5.13"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.34.9"
+    "@rollup/rollup-linux-x64-gnu": "4.38.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
