@@ -25,7 +25,7 @@
     margin-top: var(--spacing-xsmall);
   }
 
-  @include below(small) {
+  @include below('small') {
     font: var(--text-body-small);
     letter-spacing: var(--text-body-small-letter);
   }
@@ -36,7 +36,7 @@
   letter-spacing: var(--text-body-medium-letter);
   margin: 0;
 
-  @include below(small) {
+  @include below('small') {
     font: var(--text-body-small);
     letter-spacing: var(--text-body-small-letter);
   }
