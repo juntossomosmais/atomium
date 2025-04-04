@@ -1,4 +1,6 @@
-@import './rupture';
+@use 'sass:map';
+
+@import 'rupture';
 
 $screen-xs: 576px; // xExtra small screen / phone
 $screen-sm: 768px; // Extra small screen / phone
