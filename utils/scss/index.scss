@@ -1,1 +1,7 @@
-@import 'screens';
+@forward './screens';
+@forward './rupture' hide
+    // Hide all utility functions to prevent comment propagation
+  _to-length,
+  _number, _strip-units, _is-string, _get-scale-number, _convert-to, _on-scale,
+  _larger-than-scale, _is-zero, _overlap-shift, _add, _adjust-overlap,
+  _density-queries, create-fallback-class;
