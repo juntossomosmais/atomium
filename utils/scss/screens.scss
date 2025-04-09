@@ -1,7 +1,5 @@
 @use 'sass:map';
 
-@import 'rupture';
-
 $screen-xs: 576px; // xExtra small screen / phone
 $screen-sm: 768px; // Extra small screen / phone
 $screen-md: 992px; // Small screen / tablet
@@ -23,13 +21,16 @@ $screens-alias: (
   'desktop4k': '4k',
 );
 
-$rupture: map-merge(
-  $rupture,
-  (
-    anti-overlap: -1px,
-    scale: 0 $screen-xs $screen-sm $screen-md $screen-lg $screen-xlg $screen-fhd
-      $screen-2k $screen-4k,
-    scale-names: 'xsmall' 'small' 'medium' 'large' 'xlarge' 'xxlarge' 'xxxlarge'
-      'desktop2k' 'desktop4k',
-  )
+$custom-rupture: (
+  anti-overlap: -1px,
+  scale: 0 $screen-xs $screen-sm $screen-md $screen-lg $screen-xlg $screen-fhd
+    $screen-2k $screen-4k,
+  scale-names: 'xsmall' 'small' 'medium' 'large' 'xlarge' 'xxlarge' 'xxxlarge'
+    'desktop2k' 'desktop4k',
 );
+
+@use './rupture' as rupture with (
+  $rupture: $custom-rupture
+);
+
+@forward './rupture';

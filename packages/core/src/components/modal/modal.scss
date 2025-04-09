@@ -77,7 +77,7 @@
     background-color: var(--color-brand-primary-light-2);
   }
 
-  @include below(small) {
+  @include below('small') {
     &__btn-action {
       width: 100%;
 
@@ -92,7 +92,7 @@ ion-modal::part(content) {
   --border-radius: 8px;
   height: auto;
 
-  @include below(small) {
+  @include below('small') {
     --border-radius: 0;
     height: 100%;
   }
