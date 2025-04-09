@@ -41,7 +41,7 @@
     "@babel/preset-typescript": "^7.27.0",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
-    "@juntossomosmais/linters": "^0.22.0",
+    "@juntossomosmais/linters": "^0.23.0",
     "@nrwl/workspace": "19.8.4",
     "@rollup/plugin-typescript": "^12.1.2",
     "@stencil/react-output-target": "^0.5.3",
