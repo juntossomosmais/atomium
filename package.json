@@ -113,7 +113,8 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.39.0",
-    "sass-embedded-linux-x64": "^1.86.3"
+    "sass-embedded-linux-x64": "^1.86.3",
+    "sass-embedded-darwin-arm64": "^1.86.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
