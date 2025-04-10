@@ -8,9 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+import { AtomModal } from "./components/modal/modal";
 export { IconProps } from "./icons";
 export { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+export { AtomModal } from "./components/modal/modal";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
@@ -509,7 +511,6 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "disable-secondary-button"?: boolean;
-        "id": string;
         "isOpen": boolean;
         /**
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
@@ -520,11 +521,7 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "locked-initial-step"?: number;
-        "metaData"?: any;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "meta-data"?: any;
+        "metaData"?: AtomModal['metaData'];
         "primaryButtonTextsByStep": string;
         /**
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
@@ -1613,7 +1610,6 @@ declare namespace LocalJSX {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "disable-secondary-button"?: boolean;
-        "id"?: string;
         "isOpen"?: boolean;
         /**
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
@@ -1624,11 +1620,7 @@ declare namespace LocalJSX {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "locked-initial-step"?: number;
-        "metaData"?: any;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "meta-data"?: any;
+        "metaData"?: AtomModal['metaData'];
         "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;
