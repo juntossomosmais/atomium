@@ -233,7 +233,7 @@ export const ModalStoryArgs = {
     metaData: {
       control: 'object',
       description:
-        'Object containing data-testid for modal actions such as primary and secondary buttons. Example: `{ primaryButtonTestId: "primary-btn", secondaryButtonTestId: "secondary-btn", closeButtonTestId: "close-btn" }`',
+        'Object containing meta-data such as data-testid for modal actions. Example: `{ primaryButtonTestId: "primary-btn", secondaryButtonTestId: "secondary-btn", closeButtonTestId: "close-btn" }`',
       table: {
         category: Category.PROPERTIES,
       },
