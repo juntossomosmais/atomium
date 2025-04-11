@@ -490,6 +490,14 @@ export namespace Components {
         "size": number;
         "type": 'primary' | 'secondary' | 'dark';
     }
+    interface AtomStepper {
+        "steps": {
+    title: string
+    completed: boolean
+    actual?: boolean
+    disabled?: boolean
+  }[];
+    }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         /**
@@ -991,6 +999,12 @@ declare global {
         prototype: HTMLAtomSpinnerElement;
         new (): HTMLAtomSpinnerElement;
     };
+    interface HTMLAtomStepperElement extends Components.AtomStepper, HTMLStencilElement {
+    }
+    var HTMLAtomStepperElement: {
+        prototype: HTMLAtomStepperElement;
+        new (): HTMLAtomStepperElement;
+    };
     interface HTMLAtomStepsModalElementEventMap {
         "atomFinish": any;
         "atomCancel": any;
@@ -1083,6 +1097,7 @@ declare global {
         "atom-popover": HTMLAtomPopoverElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-spinner": HTMLAtomSpinnerElement;
+        "atom-stepper": HTMLAtomStepperElement;
         "atom-steps-modal": HTMLAtomStepsModalElement;
         "atom-tag": HTMLAtomTagElement;
         "atom-textarea": HTMLAtomTextareaElement;
@@ -1589,6 +1604,14 @@ declare namespace LocalJSX {
         "size"?: number;
         "type"?: 'primary' | 'secondary' | 'dark';
     }
+    interface AtomStepper {
+        "steps"?: {
+    title: string
+    completed: boolean
+    actual?: boolean
+    disabled?: boolean
+  }[];
+    }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         /**
@@ -1797,6 +1820,7 @@ declare namespace LocalJSX {
         "atom-popover": AtomPopover;
         "atom-select": AtomSelect;
         "atom-spinner": AtomSpinner;
+        "atom-stepper": AtomStepper;
         "atom-steps-modal": AtomStepsModal;
         "atom-tag": AtomTag;
         "atom-textarea": AtomTextarea;
@@ -1830,6 +1854,7 @@ declare module "@stencil/core" {
             "atom-popover": LocalJSX.AtomPopover & JSXBase.HTMLAttributes<HTMLAtomPopoverElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-spinner": LocalJSX.AtomSpinner & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
+            "atom-stepper": LocalJSX.AtomStepper & JSXBase.HTMLAttributes<HTMLAtomStepperElement>;
             "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
             "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
