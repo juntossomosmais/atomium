@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.1...atomium-v3.8.0) (2025-04-10)
+
+
+### Features
+
+* add meta data on steps modal ([#741](https://github.com/juntossomosmais/atomium/issues/741)) ([dc4a00f](https://github.com/juntossomosmais/atomium/commit/dc4a00f730204b86bf4374910eacaf34dbb72548))
+
 ## [3.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.0...atomium-v3.7.1) (2025-03-28)
 
 
