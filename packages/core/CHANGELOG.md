@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.8.0...atomium-v3.9.0) (2025-04-16)
+
+
+### Features
+
+* **icons:** add new icon and types ([#744](https://github.com/juntossomosmais/atomium/issues/744)) ([ce3dd6e](https://github.com/juntossomosmais/atomium/commit/ce3dd6e594fc1bafbb7ceebdff959b350cb5fa49))
+
 ## [3.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.1...atomium-v3.8.0) (2025-04-10)
 
 
