@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.8.0...atomium-v3.9.0) (2025-04-16)
+
+
+### Features
+
+* **icons:** add new icon and types ([#744](https://github.com/juntossomosmais/atomium/issues/744)) ([ce3dd6e](https://github.com/juntossomosmais/atomium/commit/ce3dd6e594fc1bafbb7ceebdff959b350cb5fa49))
+
+## [3.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.1...atomium-v3.8.0) (2025-04-10)
+
+
+### Features
+
+* add meta data on steps modal ([#741](https://github.com/juntossomosmais/atomium/issues/741)) ([dc4a00f](https://github.com/juntossomosmais/atomium/commit/dc4a00f730204b86bf4374910eacaf34dbb72548))
+
+## [3.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.0...atomium-v3.7.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* **modal:** add overflow in modal and padding in title header ([#730](https://github.com/juntossomosmais/atomium/issues/730)) ([97cfff9](https://github.com/juntossomosmais/atomium/commit/97cfff94246a58924d571654a27a413b91fd77ca))
+
+## [3.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.2...atomium-v3.7.0) (2025-03-28)
+
+
+### Features
+
+* **modal:** add metadata prop allowing automated tests ([#731](https://github.com/juntossomosmais/atomium/issues/731)) ([0e91bc5](https://github.com/juntossomosmais/atomium/commit/0e91bc55185d1e529fc7cbca20fb1b79e499c960))
+
 ## [3.6.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.1...atomium-v3.6.2) (2025-03-12)
 
 
