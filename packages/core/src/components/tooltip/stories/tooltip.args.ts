@@ -82,6 +82,12 @@ export const TooltipStoryArgs = {
         category: Category.EVENTS,
       },
     },
+    '--background': {
+      description: 'Custom background variable to tooltip.',
+      table: {
+        category: Category.CSS_CUSTOM_PROPERTIES,
+      },
+    },
   },
 }
 
