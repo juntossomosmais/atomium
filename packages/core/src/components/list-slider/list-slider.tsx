@@ -19,6 +19,7 @@ import { debounce } from '../../utils/debounce'
 export class AtomListSlider {
   @Prop({ mutable: true }) hasNavigation = true
   @Prop({ mutable: true }) centralized: boolean
+  @Prop({ mutable: true }) step: number = 1
 
   @State() currentIdx: number = 0
   @State() currentCentralized = false
@@ -139,7 +140,9 @@ export class AtomListSlider {
       this.clickPrev.emit()
     }
 
-    const newIndex = this.currentIndex + (isNext ? 1 : -1)
+    const stepValue = Number(this.step) || 1
+
+    const newIndex = this.currentIndex + (isNext ? stepValue : -stepValue)
 
     const isLastItemAndNext = isNext && newIndex >= this.sliderItems.length
     const isFirstItemAndPrev = !isNext && newIndex < 0
@@ -236,8 +239,8 @@ export class AtomListSlider {
     const isSwipeLeft = this.touchEndX < this.touchStartX
 
     this.currentIndex = isSwipeLeft
-      ? Math.min(this.currentIndex + 1, lastIndex)
-      : Math.max(this.currentIndex - 1, 0)
+      ? Math.min(this.currentIndex + this.step, lastIndex)
+      : Math.max(this.currentIndex - this.step, 0)
   }
 
   render() {
