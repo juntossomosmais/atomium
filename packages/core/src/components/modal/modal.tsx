@@ -11,6 +11,11 @@ import {
 import { IconProps } from '../../icons'
 
 type AlertType = Record<'alert' | 'error', { icon: IconProps; color: string }>
+type MetaData = {
+  primaryButtonTestId?: string
+  secondaryButtonTestId?: string
+  closeButtonTestId?: string
+}
 
 @Component({
   tag: 'atom-modal',
@@ -31,6 +36,7 @@ export class AtomModal {
   @Prop() disableSecondaryButton = false
   @Prop({ mutable: true }) isOpen = false
   @Prop({ mutable: true }) canDismiss?: boolean
+  @Prop() metaData?: MetaData = {}
 
   @Event() atomCloseClick: EventEmitter
   @Event() atomDidDismiss: EventEmitter
@@ -82,6 +88,8 @@ export class AtomModal {
 
   render() {
     const iconType = this.alertMap[this.alertType]
+    const withoutButtons = !this.primaryButtonText && !this.secondaryButtonText
+    const showFooter = this.hasFooter && !withoutButtons
 
     return (
       <Host>
@@ -124,6 +132,7 @@ export class AtomModal {
               onClick={this.handleCloseClick}
               aria-label='close'
               class='atom-modal__close'
+              data-testid={this.metaData.closeButtonTestId}
             >
               <atom-icon
                 icon='close'
@@ -145,22 +154,26 @@ export class AtomModal {
           >
             <slot />
           </div>
-          {this.hasFooter && (
+          {showFooter && (
             <footer part='footer' class='atom-modal__footer'>
-              <atom-button
-                color='secondary'
-                disabled={this.disableSecondaryButton}
-                fill='outline'
-                class='atom-modal__btn-action atom-modal__btn-action--secondary'
-                onClick={this.handleSecondaryClick}
-              >
-                {this.secondaryButtonText}
-              </atom-button>
+              {this.secondaryButtonText && (
+                <atom-button
+                  color='secondary'
+                  disabled={this.disableSecondaryButton}
+                  fill='outline'
+                  class='atom-modal__btn-action atom-modal__btn-action--secondary'
+                  onClick={this.handleSecondaryClick}
+                  data-testid={this.metaData.secondaryButtonTestId}
+                >
+                  {this.secondaryButtonText}
+                </atom-button>
+              )}
               <atom-button
                 color='primary'
                 disabled={this.disablePrimaryButton}
                 class='atom-modal__btn-action atom-modal__btn-action--primary'
                 onClick={this.handlePrimaryClick}
+                data-testid={this.metaData.primaryButtonTestId}
               >
                 {this.primaryButtonText}
               </atom-button>

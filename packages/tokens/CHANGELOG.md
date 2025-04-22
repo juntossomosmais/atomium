@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.2...atomium-tokens-v2.1.0) (2025-04-09)
+
+
+### Features
+
+* **tokens:** add css nano to minify and improve css ([#739](https://github.com/juntossomosmais/atomium/issues/739)) ([e52c571](https://github.com/juntossomosmais/atomium/commit/e52c571b85c9eda1ba9d105efb74ae78ceac5de5))
+
+## [2.0.2](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.1...atomium-tokens-v2.0.2) (2025-02-27)
+
+
+### Bug Fixes
+
+* **docs:** adjust tokens table doc ([#705](https://github.com/juntossomosmais/atomium/issues/705)) ([9fa4ba8](https://github.com/juntossomosmais/atomium/commit/9fa4ba881a2912405678fbcdc99b8bc9547e5ae0))
+
 ## [2.0.1](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.0...atomium-tokens-v2.0.1) (2025-02-04)
 
 

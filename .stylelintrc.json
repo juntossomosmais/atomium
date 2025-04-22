@@ -1,12 +1,4 @@
 {
   "extends": ["@juntossomosmais/linters/stylelint.config.scss.js"],
-  "ignoreFiles": ["utils/scss/**"],
-  "rules": {
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": ["function", "if", "each", "include", "mixin", "else"]
-      }
-    ]
-  }
+  "ignoreFiles": ["utils/scss/**"]
 }

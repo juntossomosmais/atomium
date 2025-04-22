@@ -1,5 +1,4 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
-import DocumentationTemplate from '@atomium/storybook-utils/templates/DocumentationWithoutStories.mdx'
 import { withActions } from '@storybook/addon-actions/decorator'
 
 export const ModalStoryArgs = {
@@ -20,7 +19,6 @@ export const ModalStoryArgs = {
         component:
           'A wrapper for the Atom Modal component that includes step navigation functionality. For further details, refer to the [Atom Modal documentation](https://juntossomosmais.github.io/atomium/?path=/docs/components-modal--docs).',
       },
-      page: DocumentationTemplate,
     },
   },
   decorators: [withActions],
@@ -159,6 +157,14 @@ export const ModalStoryArgs = {
         'The slot where the content for each step will be rendered, with x as the step index.',
       table: {
         category: Category.SLOTS,
+      },
+    },
+    metaData: {
+      control: 'object',
+      description:
+        'Object containing meta-data such as data-testid for modal actions. Example: `{ primaryButtonTestId: "primary-btn", secondaryButtonTestId: "secondary-btn", closeButtonTestId: "close-btn" }`',
+      table: {
+        category: Category.PROPERTIES,
       },
     },
     '--atom-modal-zindex': {

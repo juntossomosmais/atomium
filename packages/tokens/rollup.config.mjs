@@ -1,4 +1,5 @@
 import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 import postcss from 'rollup-plugin-postcss'
 
 export default {
@@ -13,7 +14,19 @@ export default {
       extract: true,
       modules: false,
       use: ['sass'],
-      plugins: [autoprefixer()],
+      plugins: [
+        autoprefixer(),
+        cssnano({
+          preset: [
+            'default',
+            {
+              discardComments: {
+                removeAll: true,
+              },
+            },
+          ],
+        }),
+      ],
     }),
   ],
 }
