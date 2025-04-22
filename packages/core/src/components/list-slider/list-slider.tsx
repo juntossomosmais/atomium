@@ -237,10 +237,11 @@ export class AtomListSlider {
 
     const lastIndex = this.sliderItems.length - 1
     const isSwipeLeft = this.touchEndX < this.touchStartX
+    const stepValue = Number(this.step) || 1
 
     this.currentIndex = isSwipeLeft
-      ? Math.min(this.currentIndex + this.step, lastIndex)
-      : Math.max(this.currentIndex - this.step, 0)
+      ? Math.min(this.currentIndex + stepValue, lastIndex)
+      : Math.max(this.currentIndex - stepValue, 0)
   }
 
   render() {
