@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.10.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.9.0...atomium-v3.10.0) (2025-04-22)
+
+
+### Features
+
+* **tooltip:** custom bg variable ([#746](https://github.com/juntossomosmais/atomium/issues/746)) ([f87a236](https://github.com/juntossomosmais/atomium/commit/f87a236db7297d9ea457aee9ada93d2632283d05))
+
 ## [3.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.8.0...atomium-v3.9.0) (2025-04-16)
 
 
