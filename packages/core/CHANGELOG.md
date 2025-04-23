@@ -1,5 +1,61 @@
 # Changelog
 
+## [3.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.8.0...atomium-v3.9.0) (2025-04-16)
+
+
+### Features
+
+* **icons:** add new icon and types ([#744](https://github.com/juntossomosmais/atomium/issues/744)) ([ce3dd6e](https://github.com/juntossomosmais/atomium/commit/ce3dd6e594fc1bafbb7ceebdff959b350cb5fa49))
+
+## [3.8.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.1...atomium-v3.8.0) (2025-04-10)
+
+
+### Features
+
+* add meta data on steps modal ([#741](https://github.com/juntossomosmais/atomium/issues/741)) ([dc4a00f](https://github.com/juntossomosmais/atomium/commit/dc4a00f730204b86bf4374910eacaf34dbb72548))
+
+## [3.7.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.7.0...atomium-v3.7.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* **modal:** add overflow in modal and padding in title header ([#730](https://github.com/juntossomosmais/atomium/issues/730)) ([97cfff9](https://github.com/juntossomosmais/atomium/commit/97cfff94246a58924d571654a27a413b91fd77ca))
+
+## [3.7.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.2...atomium-v3.7.0) (2025-03-28)
+
+
+### Features
+
+* **modal:** add metadata prop allowing automated tests ([#731](https://github.com/juntossomosmais/atomium/issues/731)) ([0e91bc5](https://github.com/juntossomosmais/atomium/commit/0e91bc55185d1e529fc7cbca20fb1b79e499c960))
+
+## [3.6.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.1...atomium-v3.6.2) (2025-03-12)
+
+
+### Bug Fixes
+
+* **steps-modal:** show buttons in step modal ([#718](https://github.com/juntossomosmais/atomium/issues/718)) ([6a229f8](https://github.com/juntossomosmais/atomium/commit/6a229f87638a559de9a9b96ce44f22eaa454cf91))
+
+## [3.6.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.6.0...atomium-v3.6.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* **modal:** show buttons modal only buttons have text ([#716](https://github.com/juntossomosmais/atomium/issues/716)) ([884cb7e](https://github.com/juntossomosmais/atomium/commit/884cb7e36cd2138f29cd74fe21544ec9c4f03964))
+
+## [3.6.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.5.0...atomium-v3.6.0) (2025-02-27)
+
+
+### Features
+
+* **rich-tooltip:** add new component ([#698](https://github.com/juntossomosmais/atomium/issues/698)) ([192b380](https://github.com/juntossomosmais/atomium/commit/192b380658685bc5f114ae51e2bb592434819de6))
+
+
+### Bug Fixes
+
+* **atom-link:** adjust prop size when type is button in atom-link ([#712](https://github.com/juntossomosmais/atomium/issues/712)) ([e180641](https://github.com/juntossomosmais/atomium/commit/e180641f429685f9b17220e1cf6bc9c7b20d1480))
+* **datetime:** improve types ([079d3f0](https://github.com/juntossomosmais/atomium/commit/079d3f0c5364c71691794d20ec3de949ae045bc0))
+* **popover:** adjust name component rich tooltip to popover ([#708](https://github.com/juntossomosmais/atomium/issues/708)) ([1460bd8](https://github.com/juntossomosmais/atomium/commit/1460bd885a1310cd4744cfbf35a3f3a2a1335944))
+
 ## [3.5.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.4.0...atomium-v3.5.0) (2025-02-13)
 
 

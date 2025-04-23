@@ -1,5 +1,7 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing'
 
+import { AtomModal } from '../modal/modal'
+
 import { AtomStepsModal } from './steps-modal'
 
 describe('atom-steps-modal', () => {
@@ -35,14 +37,13 @@ describe('atom-steps-modal', () => {
         >
         <atom-modal
             trigger="open-modal-steps"
-            alert-type=""
             class="atom-steps-modal"
-            primary-button-text="Next"
+            primarybuttontext="Next"
             progress="0.3333333333333333"
-            secondary-button-text="Close"
-            has-footer=""
-            has-divider=""
-            header-title="Step 1"
+            secondarybuttontext="Close"
+            hasfooter=""
+            hasdivider=""
+            headertitle="Step 1"
             part="steps-modal"
             >
             <div class="atom-steps-modal__step" style="display: block;">
@@ -66,7 +67,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 2')
 
     page.root
@@ -76,7 +77,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 3')
   })
 
@@ -87,7 +88,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 2')
 
     page.root
@@ -97,7 +98,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 1')
   })
 
@@ -153,16 +154,15 @@ describe('atom-steps-modal', () => {
       >
       <atom-modal
           trigger="open-modal-steps"
-          alert-type=""
           class="atom-steps-modal"
-          primary-button-text="Next"
+          primarybuttontext="Next"
           progress="0.3333333333333333"
-          secondary-button-text="Close"
-          has-footer=""
-          has-divider=""
-          header-title="Step 1"
-          disable-primary-button=""
-          disable-secondary-button=""
+          secondarybuttontext="Close"
+          hasfooter=""
+          hasdivider=""
+          headertitle="Step 1"
+          disableprimarybutton=""
+          disablesecondarybutton=""
           part="steps-modal"
           >
           <div class="atom-steps-modal__step" style="display: block;">
@@ -204,7 +204,7 @@ describe('atom-steps-modal', () => {
     await page.waitForChanges()
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headertitle')
     ).toBe('Step 1')
     expect(cancelSpy).toHaveBeenCalled()
   })
@@ -283,7 +283,7 @@ describe('atom-steps-modal', () => {
     })
 
     expect(
-      page.root?.querySelector('atom-modal')?.getAttribute('header-title')
+      page.root?.querySelector('atom-modal')?.getAttribute('headerTitle')
     ).toBe('Step 2')
   })
 
@@ -419,5 +419,36 @@ describe('atom-steps-modal', () => {
     page.rootInstance.handleDidDismiss(mockEventObject)
 
     expect(page.rootInstance.currentStep).toBe(2)
+  })
+
+  it('should apply data-testid attributes from metaData prop', async () => {
+    const meta = await newSpecPage({
+      components: [AtomStepsModal],
+      html: `
+          <atom-steps-modal
+            trigger="button"
+            primary-button-text="Primary"
+            secondary-button-text="Secondary"
+            disable-primary-button="true""
+             steps="3"
+            trigger="open-modal-steps"
+            steps-titles="Step 1, Step 2, Step 3"
+            locked-initial-step="2"
+            primary-button-texts-by-step="Next, Next, Finish"
+            secondary-button-texts-by-step="Close, Close, Previous"
+            meta-data='{"primaryButtonTestId": "primary-btn", "secondaryButtonTestId": "secondary-btn", "closeButtonTestId": "close-btn"}'
+          >
+            <div slot="step-1">Step 1 Content</div>
+          </atom-steps-modal>
+          `,
+    })
+
+    await page.waitForChanges()
+
+    const modal = meta.body.querySelector('atom-modal') as Element & AtomModal
+
+    expect(modal?.getAttribute('metaData')).toBe(
+      '{"primaryButtonTestId": "primary-btn", "secondaryButtonTestId": "secondary-btn", "closeButtonTestId": "close-btn"}'
+    )
   })
 })
