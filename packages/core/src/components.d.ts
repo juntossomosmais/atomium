@@ -356,6 +356,7 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "has-navigation"?: boolean;
+        "step": number;
     }
     interface AtomListSliderItem {
     }
@@ -1443,6 +1444,7 @@ declare namespace LocalJSX {
         "has-navigation"?: boolean;
         "onClickNext"?: (event: AtomListSliderCustomEvent<any>) => void;
         "onClickPrev"?: (event: AtomListSliderCustomEvent<any>) => void;
+        "step"?: number;
     }
     interface AtomListSliderItem {
     }
