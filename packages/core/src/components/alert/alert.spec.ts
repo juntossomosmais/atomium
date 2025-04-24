@@ -2,8 +2,6 @@ import { newSpecPage } from '@stencil/core/testing'
 
 import { AtomAlert } from './alert'
 
-jest.mock('dompurify')
-
 const messageTitle = 'Alert title'
 const messageText = 'Alert text'
 
