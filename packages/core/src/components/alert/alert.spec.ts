@@ -1,6 +1,9 @@
 import { newSpecPage } from '@stencil/core/testing'
+import DOMPurify from 'dompurify'
 
 import { AtomAlert } from './alert'
+
+jest.mock('dompurify')
 
 const messageTitle = 'Alert title'
 const messageText = 'Alert text'
@@ -256,5 +259,33 @@ describe('AtomAlert', () => {
     page.root?.dispatchEvent(new CustomEvent('atomClose'))
 
     expect(spy).toHaveBeenCalled()
+  })
+
+  it('should sanitize the messageTitle and messageText using DOMPurify', async () => {
+    const sanitizedText = '<i>Sanitized Text</i>'
+    const sanitizedTitle = '<strong>Sanitized Title</strong>'
+
+    ;(DOMPurify.sanitize as jest.Mock).mockImplementation((input: string) => {
+      if (input === messageText) return '<i>Sanitized Text</i>'
+
+      if (input === messageTitle) return '<strong>Sanitized Title</strong>'
+
+      return input
+    })
+
+    const page = await newSpecPage({
+      components: [AtomAlert],
+      html: `<atom-alert message-title="${sanitizedTitle}" message-text="${sanitizedText}"></atom-alert>`,
+    })
+
+    expect(DOMPurify.sanitize).toHaveBeenCalledWith(messageText)
+    expect(
+      page.root?.shadowRoot?.querySelector('.atom-message')?.innerHTML
+    ).toBe(sanitizedText)
+
+    expect(DOMPurify.sanitize).toHaveBeenCalledWith(messageTitle)
+    expect(page.root?.shadowRoot?.querySelector('.atom-title')?.innerHTML).toBe(
+      sanitizedTitle
+    )
   })
 })
