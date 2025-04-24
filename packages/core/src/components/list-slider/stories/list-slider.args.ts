@@ -30,6 +30,14 @@ export const ListSliderStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    step: {
+      description: 'Number of items to advance or go back when navigating.',
+      defaultValue: { summary: 1 },
+      control: { type: 'number' },
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     '--slider-height': {
       description: 'The min-height of the slider.',
       defaultValue: { summary: '42px' },
@@ -77,4 +85,6 @@ export const ListSliderStoryArgs = {
   },
 }
 
-export const ListSliderComponentArgs = {}
+export const ListSliderComponentArgs = {
+  step: 1,
+}
