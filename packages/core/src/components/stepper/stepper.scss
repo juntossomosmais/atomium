@@ -44,6 +44,7 @@
 
   &:last-child::after {
     content: none;
+    display: none;
   }
 
   @include above(medium) {
@@ -54,9 +55,9 @@
 
     &:not(:last-child)::after {
       height: 1px;
-      left: var(--spacing-xsmall);
-      top: var(--spacing-xsmall);
-      width: 100%;
+      left: 60%;
+      top: var(--spacing-small);
+      width: 80%;
     }
   }
 }

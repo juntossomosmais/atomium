@@ -9,7 +9,7 @@ export default {
 } as Meta
 
 const createStepper = (args) => {
-  return html` <atom-stepper .steps="${args.steps}"></atom-stepper>`
+  return html`<atom-stepper .steps="${args.steps}"></atom-stepper>`
 }
 
 export const Primary: StoryObj = {
