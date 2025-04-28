@@ -1,5 +1,24 @@
 # Changelog
 
+## [3.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.10.0...atomium-v3.11.0) (2025-04-25)
+
+
+### Features
+
+* **atom-list-slider:** add 'step' property to the interface ([#748](https://github.com/juntossomosmais/atomium/issues/748)) ([6b7fc0d](https://github.com/juntossomosmais/atomium/commit/6b7fc0d6347c1282e95f279477eb5b29f35b2f57))
+
+
+### Bug Fixes
+
+* **alert:** add dompurify to resolve injection problems ([#749](https://github.com/juntossomosmais/atomium/issues/749)) ([43cc804](https://github.com/juntossomosmais/atomium/commit/43cc804159e469f283f75926cc27a319ab33565e))
+
+## [3.10.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.9.0...atomium-v3.10.0) (2025-04-22)
+
+
+### Features
+
+* **tooltip:** custom bg variable ([#746](https://github.com/juntossomosmais/atomium/issues/746)) ([f87a236](https://github.com/juntossomosmais/atomium/commit/f87a236db7297d9ea457aee9ada93d2632283d05))
+
 ## [3.9.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.8.0...atomium-v3.9.0) (2025-04-16)
 
 
