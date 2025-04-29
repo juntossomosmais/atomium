@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from '@storybook/web-components'
 import { html } from 'lit'
 
-import { BadgeStoryArgs } from './stepper.args'
+import { StepperStoryArgs } from './stepper.args'
 
 export default {
   title: 'Components/Stepper',
-  ...BadgeStoryArgs,
+  ...StepperStoryArgs,
 } as Meta
 
 const createStepper = (args) => {
@@ -20,6 +20,7 @@ export const Primary: StoryObj = {
       { title: 'Step 2', completed: true },
       { title: 'Step 3', completed: false, actual: true },
       { title: 'Step 4', completed: false, disabled: true },
+      { title: 'Step 5', completed: false, disabled: true },
     ],
   },
 }
