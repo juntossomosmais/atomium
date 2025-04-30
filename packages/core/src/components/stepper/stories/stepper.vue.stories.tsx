@@ -1,83 +1,32 @@
-import { AtomBadge } from '@juntossomosmais/atomium/vue'
+import { AtomStepper } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
-import { BadgeStoryArgs } from './stepper.args'
+import { StepperStoryArgs } from './stepper.args'
 
 export default {
-  title: 'Components/Badge',
-  ...BadgeStoryArgs,
+  title: 'Components/Stepper',
+  ...StepperStoryArgs,
 } as Meta
 
-const createBadge = (args) => ({
-  components: { AtomBadge },
+const createStepper = (args) => ({
+  components: { AtomStepper },
   setup() {
     return { args }
   },
   template: `
-    <AtomBadge type="${args.type}">{{ args.label }}</AtomBadge>
+    <AtomStepper steps="${args.steps}"></AtomStepper>
   `,
 })
 
 export const Primary: StoryObj = {
-  render: (args) => createBadge(args),
+  render: (args) => createStepper(args),
   args: {
-    type: 'primary',
-    label: 'Badge',
-  },
-}
-
-export const Secondary: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'secondary',
-  },
-}
-
-export const Success: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'success',
-  },
-}
-
-export const Warning: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'warning',
-  },
-}
-
-export const Danger: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'danger',
-  },
-}
-
-export const Neutral: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'neutral',
-  },
-}
-
-export const Dark: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'dark',
-  },
-}
-
-export const Info: StoryObj = {
-  render: (args) => createBadge(args),
-  args: {
-    ...Primary.args,
-    type: 'info',
+    steps: [
+      { title: 'Step 1', completed: true },
+      { title: 'Step 2', completed: true },
+      { title: 'Step 3', completed: false, actual: true },
+      { title: 'Step 4', completed: false, disabled: true },
+      { title: 'Step 5', completed: false, disabled: true },
+    ],
   },
 }
