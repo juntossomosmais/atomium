@@ -14,6 +14,7 @@ const createStepper = (args) => {
       .steps=${args.steps}
       .activeStep=${args.activeStep}
       .disabledStep=${args.disabledStep}
+      .stepTitle=${args.stepTitle}
     ></atom-stepper>
   `
 }
@@ -30,5 +31,6 @@ export const Primary: StoryObj = {
     ],
     activeStep: 2,
     disabledStep: [3, 4],
+    stepTitle: 'Etapa 1 de 5',
   },
 }

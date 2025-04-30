@@ -96,3 +96,15 @@
 .last::after {
   background-color: var(--color-neutral-light-3);
 }
+
+// StepperMobile
+
+.atom-stepper-mobile {
+  align-items: center;
+  display: flex;
+
+  .number {
+    height: var(--spacing-xxxlarge);
+    width: var(--spacing-xxxlarge);
+  }
+}

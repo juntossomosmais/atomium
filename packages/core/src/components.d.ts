@@ -493,7 +493,12 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "active-step"?: number;
-        "disabledStep": number[];
+        "disabledStep"?: number[];
+        "stepTitle"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "step-title"?: string;
         "steps": {
     title: string
     completed: boolean
@@ -1610,6 +1615,11 @@ declare namespace LocalJSX {
          */
         "active-step"?: number;
         "disabledStep"?: number[];
+        "stepTitle"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "step-title"?: string;
         "steps"?: {
     title: string
     completed: boolean

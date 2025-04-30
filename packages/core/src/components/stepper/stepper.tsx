@@ -12,9 +12,9 @@ export class AtomStepper {
     title: string
     completed: boolean
   }[]
-
+  @Prop() stepTitle?: string
   @Prop() activeStep: number
-  @Prop() disabledStep: number[]
+  @Prop() disabledStep?: number[]
 
   private readonly isCompleted = (completed: boolean) =>
     completed ? 'completed' : ''
@@ -36,19 +36,15 @@ export class AtomStepper {
       <Host>
         {!isMobile() ? (
           <div>
-            <div>
-              {actualStep && (
+            {actualStep && (
+              <div class='atom-stepper-mobile'>
+                <div class='number'>{this.activeStep}</div>
                 <div>
-                  <div class='number'>{this.activeStep}</div>
-                  <div>
-                    <p>
-                      Etapa {this.activeStep + 1} de {this.steps.length}
-                    </p>
-                    <p>{actualStep.title}</p>
-                  </div>
+                  <div innerHTML={this.stepTitle}></div>
+                  <p>{actualStep.title}</p>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         ) : (
           <ul class='atom-stepper'>
