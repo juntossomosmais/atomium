@@ -1,6 +1,7 @@
 import { Component, Host, Prop, h } from '@stencil/core'
+import DOMPurify from 'dompurify'
 
-import { isMobile } from '../../utils/screens'
+import { isMaxTablet } from '../../utils/screens'
 
 @Component({
   tag: 'atom-stepper',
@@ -31,17 +32,26 @@ export class AtomStepper {
 
   render() {
     const actualStep = this.steps[this.activeStep]
+    const completedStep = actualStep.completed
 
     return (
       <Host>
-        {!isMobile() ? (
+        {isMaxTablet() ? (
           <div>
             {actualStep && (
-              <div class='atom-stepper-mobile'>
-                <div class='number'>{this.activeStep}</div>
+              <div
+                class={`atom-stepper-mobile ${completedStep ? 'completed' : ''}`}
+              >
+                <div class='number'>
+                  {completedStep ? (
+                    <atom-icon icon='check' color='white' size={26} />
+                  ) : (
+                    this.activeStep + 1
+                  )}
+                </div>
                 <div>
-                  <div innerHTML={this.stepTitle}></div>
-                  <p>{actualStep.title}</p>
+                  <div innerHTML={DOMPurify.sanitize(this.stepTitle)}></div>
+                  <span class='title'>{actualStep.title}</span>
                 </div>
               </div>
             )}
