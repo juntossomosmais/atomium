@@ -44,6 +44,18 @@ describe('atom-modal', () => {
         </ion-modal>
       </atom-modal>
     `)
+
+    const closeButton = page.root?.querySelector('.atom-modal__close')
+    const primaryButton = page.root?.querySelector(
+      '.atom-modal__btn-action--primary'
+    )
+    const secondaryButton = page.root?.querySelector(
+      '.atom-modal__btn-action--secondary'
+    )
+
+    expect(closeButton?.getAttribute('data-testid')).toBeNull()
+    expect(primaryButton?.getAttribute('data-testid')).toBeNull()
+    expect(secondaryButton?.getAttribute('data-testid')).toBeNull()
   })
 
   it('should render header slot when headerTitle is not passed', async () => {
@@ -244,5 +256,44 @@ describe('atom-modal', () => {
     expect(
       page.root?.querySelector('.atom-modal__btn-action--secondary')
     ).toBeNull()
+  })
+
+  it('should apply data-testid attributes from metaData prop', async () => {
+    const meta = await newSpecPage({
+      components: [AtomModal],
+      html: `
+        <atom-modal
+          trigger="button"
+          primary-button-text="Primary"
+          secondary-button-text="Secondary"
+          disable-primary-button="true""
+        >
+          Modal content
+        </atom-modal>
+        `,
+    })
+
+    // on core mode, we should provide inner props programmatically, otherwise they will not be provider to children component
+    const modal = meta.body.querySelector('atom-modal') as Element & AtomModal
+
+    modal.metaData = {
+      primaryButtonTestId: 'primary-btn',
+      secondaryButtonTestId: 'secondary-btn',
+      closeButtonTestId: 'close-btn',
+    }
+
+    await page.waitForChanges()
+
+    const closeButton = meta.root?.querySelector('.atom-modal__close')
+    const primaryButton = meta.root?.querySelector(
+      '.atom-modal__btn-action--primary'
+    )
+    const secondaryButton = meta.root?.querySelector(
+      '.atom-modal__btn-action--secondary'
+    )
+
+    expect(closeButton?.getAttribute('data-testid')).toBe('close-btn')
+    expect(primaryButton?.getAttribute('data-testid')).toBe('primary-btn')
+    expect(secondaryButton?.getAttribute('data-testid')).toBe('secondary-btn')
   })
 })

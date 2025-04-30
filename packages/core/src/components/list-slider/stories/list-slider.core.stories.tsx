@@ -10,9 +10,9 @@ export default {
   ...ListSliderStoryArgs,
 } as Meta
 
-const createListSlider = () => {
+const createListSlider = (args) => {
   return html`
-    <atom-list-slider>
+    <atom-list-slider step="${args.step}">
       <atom-list-slider-item class="slide">
         <div>Example 1</div>
       </atom-list-slider-item>
@@ -28,12 +28,27 @@ const createListSlider = () => {
       <atom-list-slider-item class="slide">
         <div>Example 5</div>
       </atom-list-slider-item>
+      <atom-list-slider-item class="slide">
+        <div>Example 6</div>
+      </atom-list-slider-item>
+      <atom-list-slider-item class="slide">
+        <div>Example 7</div>
+      </atom-list-slider-item>
+      <atom-list-slider-item class="slide">
+        <div>Example 8</div>
+      </atom-list-slider-item>
+      <atom-list-slider-item class="slide">
+        <div>Example 9</div>
+      </atom-list-slider-item>
+      <atom-list-slider-item class="slide">
+        <div>Example 10</div>
+      </atom-list-slider-item>
     </atom-list-slider>
   `
 }
 
 export const Default: StoryObj = {
-  render: () => createListSlider(),
+  render: (args) => createListSlider(args),
 }
 
 export const Centralized: StoryObj = {

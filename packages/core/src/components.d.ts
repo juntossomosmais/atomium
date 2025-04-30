@@ -8,9 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+import { AtomModal } from "./components/modal/modal";
 export { IconProps } from "./icons";
 export { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+export { AtomModal } from "./components/modal/modal";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
@@ -354,6 +356,7 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "has-navigation"?: boolean;
+        "step": number;
     }
     interface AtomListSliderItem {
     }
@@ -416,6 +419,7 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "is-open"?: boolean;
+        "metaData"?: MetaData;
         "primaryButtonText"?: string;
         /**
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
@@ -535,6 +539,7 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "locked-initial-step"?: number;
+        "metaData"?: AtomModal['metaData'];
         "primaryButtonTextsByStep": string;
         /**
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
@@ -1463,6 +1468,7 @@ declare namespace LocalJSX {
         "has-navigation"?: boolean;
         "onClickNext"?: (event: AtomListSliderCustomEvent<any>) => void;
         "onClickPrev"?: (event: AtomListSliderCustomEvent<any>) => void;
+        "step"?: number;
     }
     interface AtomListSliderItem {
     }
@@ -1525,6 +1531,7 @@ declare namespace LocalJSX {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "is-open"?: boolean;
+        "metaData"?: MetaData;
         "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidPresent"?: (event: AtomModalCustomEvent<any>) => void;
@@ -1656,6 +1663,7 @@ declare namespace LocalJSX {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "locked-initial-step"?: number;
+        "metaData"?: AtomModal['metaData'];
         "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomStepsModalCustomEvent<any>) => void;

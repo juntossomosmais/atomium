@@ -304,4 +304,79 @@ describe('AtomListSlider', () => {
     expect(instance.touchEndX).toBe(150)
     expect(instance.currentIndex).toBe(0)
   })
+
+  it('should navigate by step value when clicking on navigation buttons', async () => {
+    const page = await newSpecPage({
+      components: [AtomListSlider, AtomListSliderItem],
+      html: `
+        <atom-list-slider step="2">
+          <atom-list-slider-item>Slide 1</atom-list-slider-item>
+          <atom-list-slider-item>Slide 2</atom-list-slider-item>
+          <atom-list-slider-item>Slide 3</atom-list-slider-item>
+          <atom-list-slider-item>Slide 4</atom-list-slider-item>
+          <atom-list-slider-item>Slide 5</atom-list-slider-item>
+        </atom-list-slider>
+      `,
+    })
+
+    await page.waitForChanges()
+
+    const nextButton = page.root?.shadowRoot?.querySelector(
+      '.navigation--next'
+    ) as HTMLElement
+
+    nextButton?.click()
+    await page.waitForChanges()
+
+    expect(page.rootInstance.currentIndex).toBe(2)
+
+    nextButton?.click()
+    await page.waitForChanges()
+
+    expect(page.rootInstance.currentIndex).toBe(4)
+  })
+
+  it('should navigate by step value when swiping', async () => {
+    const page = await newSpecPage({
+      components: [AtomListSlider, AtomListSliderItem],
+      html: `
+        <atom-list-slider step="3">
+          <atom-list-slider-item>Slide 1</atom-list-slider-item>
+          <atom-list-slider-item>Slide 2</atom-list-slider-item>
+          <atom-list-slider-item>Slide 3</atom-list-slider-item>
+          <atom-list-slider-item>Slide 4</atom-list-slider-item>
+          <atom-list-slider-item>Slide 5</atom-list-slider-item>
+          <atom-list-slider-item>Slide 6</atom-list-slider-item>
+        </atom-list-slider>
+      `,
+    })
+
+    await page.waitForChanges()
+    const instance = page.rootInstance
+    const wrapper = page?.root?.shadowRoot?.querySelector(
+      '.wrapper'
+    ) as HTMLElement
+
+    instance.sliderItems = page.root?.querySelectorAll('atom-list-slider-item')
+    instance.currentIndex = 0
+
+    const touchStartEvent = new MockTouchEvent('touchstart', {
+      touches: [{ clientX: 100 }] as unknown as Touch[],
+    })
+
+    wrapper.dispatchEvent(touchStartEvent)
+
+    const touchMoveEvent = new MockTouchEvent('touchmove', {})
+
+    wrapper.dispatchEvent(touchMoveEvent)
+
+    const touchEndEventLeft = new MockTouchEvent('touchend', {
+      changedTouches: [{ clientX: 50 }] as unknown as Touch[],
+    })
+
+    wrapper.dispatchEvent(touchEndEventLeft)
+    await page.waitForChanges()
+
+    expect(instance.currentIndex).toBe(3)
+  })
 })

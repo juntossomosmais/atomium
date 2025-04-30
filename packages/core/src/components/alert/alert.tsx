@@ -7,6 +7,7 @@ import {
   State,
   h,
 } from '@stencil/core'
+import DOMPurify from 'dompurify'
 
 import { IconProps } from '../../icons'
 
@@ -63,10 +64,16 @@ export class AtomAlert {
               )}
               <div class='atom-content'>
                 {this.messageTitle && (
-                  <div class='atom-title' innerHTML={this.messageTitle}></div>
+                  <div
+                    class='atom-title'
+                    innerHTML={DOMPurify.sanitize(this.messageTitle)}
+                  ></div>
                 )}
                 {this.messageText && (
-                  <div class='atom-message' innerHTML={this.messageText}></div>
+                  <div
+                    class='atom-message'
+                    innerHTML={DOMPurify.sanitize(this.messageText)}
+                  ></div>
                 )}
               </div>
             </div>
