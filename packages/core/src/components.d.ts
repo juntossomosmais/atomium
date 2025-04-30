@@ -488,11 +488,15 @@ export namespace Components {
         "type": 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepper {
+        "activeStep": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "active-step"?: number;
+        "disabledStep": number[];
         "steps": {
     title: string
     completed: boolean
-    actual?: boolean
-    disabled?: boolean
   }[];
     }
     interface AtomStepsModal {
@@ -1600,11 +1604,15 @@ declare namespace LocalJSX {
         "type"?: 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepper {
+        "activeStep"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "active-step"?: number;
+        "disabledStep"?: number[];
         "steps"?: {
     title: string
     completed: boolean
-    actual?: boolean
-    disabled?: boolean
   }[];
     }
     interface AtomStepsModal {

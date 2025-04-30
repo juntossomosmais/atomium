@@ -9,7 +9,13 @@ export default {
 } as Meta
 
 const createStepper = (args) => {
-  return html`<atom-stepper .steps="${args.steps}"></atom-stepper>`
+  return html`
+    <atom-stepper
+      .steps=${args.steps}
+      .activeStep=${args.activeStep}
+      .disabledStep=${args.disabledStep}
+    ></atom-stepper>
+  `
 }
 
 export const Primary: StoryObj = {
@@ -18,9 +24,11 @@ export const Primary: StoryObj = {
     steps: [
       { title: 'Step 1', completed: true },
       { title: 'Step 2', completed: true },
-      { title: 'Step 3', completed: false, actual: true },
-      { title: 'Step 4', completed: false, disabled: true },
-      { title: 'Step 5', completed: false, disabled: true },
+      { title: 'Step 3', completed: false },
+      { title: 'Step 4', completed: false },
+      { title: 'Step 5', completed: false },
     ],
+    activeStep: 2,
+    disabledStep: [3, 4],
   },
 }
