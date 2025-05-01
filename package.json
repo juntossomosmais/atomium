@@ -30,9 +30,9 @@
     "tokens:build": "nx build @juntossomosmais/atomium-tokens"
   },
   "dependencies": {
-    "@ionic/core": "^8.4.3",
+    "@ionic/core": "^8.5.6",
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "~4.27.1",
+    "@stencil/core": "~4.30.0",
     "dompurify": "^3.2.5"
   },
   "devDependencies": {
@@ -113,9 +113,9 @@
     "vue": "^3.5.13"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.39.0",
-    "sass-embedded-darwin-arm64": "^1.86.3",
-    "sass-embedded-linux-x64": "^1.86.3"
+    "@rollup/rollup-linux-x64-gnu": "4.40.1",
+    "sass-embedded-darwin-arm64": "^1.87.0",
+    "sass-embedded-linux-x64": "^1.87.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
