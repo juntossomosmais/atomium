@@ -16,7 +16,21 @@ export const StepperStoryArgs = {
   argTypes: {
     steps: {
       control: 'array',
-      description: 'The steps to display in the stepper',
+      description:
+        'The steps to display in the stepper. Each step should have a title and a completed state.',
+    },
+    activeStep: {
+      control: 'number',
+      description: 'The index of the active step.',
+    },
+    disabledUnrenderedStep: {
+      control: 'boolean',
+      description: 'If true, unrendered steps will be disabled.',
+      defaultValue: true,
+    },
+    stepTitle: {
+      control: 'text',
+      description: 'The title of the step. Only used on mobile.',
     },
   },
 }

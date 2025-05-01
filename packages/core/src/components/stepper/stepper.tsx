@@ -15,7 +15,7 @@ export class AtomStepper {
   }[]
   @Prop() stepTitle?: string
   @Prop() activeStep: number
-  @Prop() disabledStep?: number[]
+  @Prop() disabledUnrenderedStep?: boolean = true
 
   private readonly isCompleted = (completed: boolean) =>
     completed ? 'completed' : ''
@@ -59,8 +59,9 @@ export class AtomStepper {
         ) : (
           <ul class='atom-stepper'>
             {this.steps.map(({ title, completed }, index) => {
-              const isDisabled = this.disabledStep?.includes(index)
               const isActive = index === this.activeStep
+              const shouldDisabled =
+                this.disabledUnrenderedStep && index > this.activeStep
 
               return (
                 <li
@@ -69,7 +70,7 @@ export class AtomStepper {
                     ${isActive ? 'active' : ''}
                     ${this.isLastActive(index)}
                     ${this.isCompleted(completed)}
-                    ${isDisabled ? 'disabled' : ''}
+                    ${shouldDisabled ? 'disabled' : ''}
                   `}
                   key={index}
                 >

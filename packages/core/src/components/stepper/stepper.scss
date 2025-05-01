@@ -68,16 +68,20 @@
   letter-spacing: var(--text-body-small-letter);
 }
 
+.active {
+  .title {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
 .completed {
   .number {
     background-color: var(--color-contextual-success-light-1);
     border: none;
   }
-}
 
-.active {
   .title {
-    font-weight: var(--font-weight-bold);
+    font-weight: normal;
   }
 }
 
