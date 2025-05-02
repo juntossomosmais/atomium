@@ -1,9 +1,8 @@
 import { AtomStepper } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { defaultArgs } from 'puppeteer'
 import React from 'react'
 
-import { StepperStoryArgs } from './stepper.args'
+import { StepperStoryArgs, defaultArgs } from './stepper.args'
 
 export default {
   title: 'Components/Stepper',
