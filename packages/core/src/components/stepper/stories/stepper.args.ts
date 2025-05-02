@@ -34,3 +34,16 @@ export const StepperStoryArgs = {
     },
   },
 }
+
+export const defaultArgs = {
+  steps: [
+    { title: 'Step 1', completed: true },
+    { title: 'Step 2', completed: true },
+    { title: 'Step 3', completed: false },
+    { title: 'Step 4', completed: false },
+    { title: 'Step 5', completed: false },
+  ],
+  activeStep: 2,
+  disabledUnrenderedStep: true,
+  stepTitle: 'Progress 3 of 5',
+}

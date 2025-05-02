@@ -1,5 +1,6 @@
 import { AtomStepper } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react'
+import { defaultArgs } from 'puppeteer'
 import React from 'react'
 
 import { StepperStoryArgs } from './stepper.args'
@@ -21,23 +22,13 @@ const createStepper = (args) => (
 
 export const InProgress: StoryObj = {
   render: (args) => createStepper(args),
-  args: {
-    steps: [
-      { title: 'Step 1', completed: true },
-      { title: 'Step 2', completed: true },
-      { title: 'Step 3', completed: false },
-      { title: 'Step 4', completed: false },
-      { title: 'Step 5', completed: false },
-    ],
-    activeStep: 2,
-    disabledUnrenderedStep: true,
-    stepTitle: 'Etapa 1 de 5',
-  },
+  args: defaultArgs,
 }
 
 export const Uncompleted: StoryObj = {
   render: (args) => createStepper(args),
   args: {
+    ...defaultArgs,
     steps: [
       { title: 'Step 1', completed: false },
       { title: 'Step 2', completed: false },
@@ -46,7 +37,6 @@ export const Uncompleted: StoryObj = {
       { title: 'Step 5', completed: false },
     ],
     activeStep: 0,
-    disabledUnrenderedStep: true,
     stepTitle: 'Progress 1 of 5',
   },
 }
@@ -54,6 +44,7 @@ export const Uncompleted: StoryObj = {
 export const Completed: StoryObj = {
   render: (args) => createStepper(args),
   args: {
+    ...defaultArgs,
     steps: [
       { title: 'Step 1', completed: true },
       { title: 'Step 2', completed: true },
@@ -61,8 +52,7 @@ export const Completed: StoryObj = {
       { title: 'Step 4', completed: true },
       { title: 'Step 5', completed: true },
     ],
-    activeStep: 4,
-    disabledUnrenderedStep: false,
-    stepTitle: 'Etapa 1 de 5',
+    activeStep: 0,
+    stepTitle: 'Progress 5 of 5',
   },
 }
