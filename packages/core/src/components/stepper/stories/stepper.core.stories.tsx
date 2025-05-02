@@ -21,7 +21,7 @@ const createStepper = (args) => {
 
 export const InProgress: StoryObj = {
   render: (args) => createStepper(args),
-  args: { defaultArgs },
+  args: defaultArgs,
 }
 
 export const Uncompleted: StoryObj = {
