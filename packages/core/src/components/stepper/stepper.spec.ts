@@ -28,6 +28,7 @@ describe('atom-stepper', () => {
       </atom-stepper>
     `)
   })
+
   it('should render completed steps', async () => {
     const page = await newSpecPage({
       components: [AtomStepper],

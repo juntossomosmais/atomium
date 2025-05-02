@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from '@stencil/core'
+import { Component, Host, Prop, Watch, h } from '@stencil/core'
 import DOMPurify from 'dompurify'
 
 import { isMaxTablet } from '../../utils/screens'
@@ -9,7 +9,7 @@ import { isMaxTablet } from '../../utils/screens'
   shadow: true,
 })
 export class AtomStepper {
-  @Prop() steps:
+  @Prop({ mutable: true }) steps:
     | string
     | {
         title: string
@@ -23,6 +23,11 @@ export class AtomStepper {
     title: string
     completed: boolean
   }[] = []
+
+  @Watch('steps')
+  parseSteps(newVal) {
+    this.parsedSteps = typeof newVal === 'string' ? JSON.parse(newVal) : newVal
+  }
 
   componentWillLoad() {
     if (typeof this.steps === 'string') {
