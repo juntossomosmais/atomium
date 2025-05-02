@@ -507,10 +507,11 @@ export namespace Components {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "step-title"?: string;
-        "steps": {
-    title: string
-    completed: boolean
-  }[];
+        "steps": | string
+    | {
+        title: string
+        completed: boolean
+      }[];
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
@@ -1635,10 +1636,11 @@ declare namespace LocalJSX {
          * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
          */
         "step-title"?: string;
-        "steps"?: {
-    title: string
-    completed: boolean
-  }[];
+        "steps"?: | string
+    | {
+        title: string
+        completed: boolean
+      }[];
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;

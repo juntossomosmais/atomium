@@ -9,33 +9,48 @@ import { isMaxTablet } from '../../utils/screens'
   shadow: true,
 })
 export class AtomStepper {
-  @Prop() steps: {
+  @Prop() steps:
+    | string
+    | {
+        title: string
+        completed: boolean
+      }[] = []
+  @Prop() activeStep: number
+  @Prop() stepTitle?: string
+  @Prop() disabledUnrenderedStep?: boolean = true
+
+  private parsedSteps: {
     title: string
     completed: boolean
-  }[]
-  @Prop() stepTitle?: string
-  @Prop() activeStep: number
-  @Prop() disabledUnrenderedStep?: boolean = true
+  }[] = []
+
+  componentWillLoad() {
+    if (typeof this.steps === 'string') {
+      this.parsedSteps = JSON.parse(this.steps)
+    } else {
+      this.parsedSteps = this.steps
+    }
+  }
 
   private readonly isCompleted = (completed: boolean) =>
     completed ? 'completed' : ''
 
   private readonly isLastActive = (index: number) => {
-    const currentStep = this.steps[index]
-    const nextStep = this.steps[index + 1]
+    const currentStep = this.parsedSteps[index]
+    const nextStep = this.parsedSteps[index + 1]
 
     const currentStepIsTheLastCompleted =
-      currentStep.completed && nextStep && !nextStep.completed
+      currentStep?.completed && nextStep && !nextStep.completed
 
     return currentStepIsTheLastCompleted ? 'last' : ''
   }
 
   render() {
-    const actualStep = this.steps[this.activeStep]
-    const completedStep = actualStep.completed
+    const actualStep = this.parsedSteps[this.activeStep]
+    const completedStep = actualStep?.completed
 
     return (
-      <Host>
+      <Host role='stepper'>
         {isMaxTablet() ? (
           <div>
             {actualStep && (
@@ -50,7 +65,7 @@ export class AtomStepper {
                   )}
                 </div>
                 <div>
-                  <div innerHTML={DOMPurify.sanitize(this.stepTitle)}></div>
+                  <div innerHTML={DOMPurify.sanitize(this?.stepTitle)}></div>
                   <span class='title'>{actualStep.title}</span>
                 </div>
               </div>
@@ -58,7 +73,7 @@ export class AtomStepper {
           </div>
         ) : (
           <ul class='atom-stepper'>
-            {this.steps.map(({ title, completed }, index) => {
+            {this.parsedSteps.map(({ title, completed }, index) => {
               const isActive = index === this.activeStep
               const shouldDisabled =
                 this.disabledUnrenderedStep && index > this.activeStep
