@@ -60,45 +60,43 @@
       width: 80%;
     }
   }
+
+  &.is-completed {
+    .number {
+      background-color: var(--color-contextual-success-light-1);
+      border: none;
+    }
+
+    .title {
+      font-weight: normal;
+    }
+  }
+
+  &.is-disabled {
+    .title {
+      color: var(--color-neutral-light-2);
+    }
+
+    .number {
+      background-color: var(--color-neutral-light-3);
+      border: none;
+      color: var(--color-neutral-light-2);
+    }
+  }
+
+  &.is-last::after {
+    background-color: var(--color-neutral-light-3);
+  }
 }
 
 .title {
   color: var(--color-neutral-regular);
   font: var(--text-body-small);
   letter-spacing: var(--text-body-small-letter);
-}
 
-.active {
-  .title {
+  &.is-active {
     font-weight: var(--font-weight-bold);
   }
-}
-
-.completed {
-  .number {
-    background-color: var(--color-contextual-success-light-1);
-    border: none;
-  }
-
-  .title {
-    font-weight: normal;
-  }
-}
-
-.disabled {
-  .title {
-    color: var(--color-neutral-light-2);
-  }
-
-  .number {
-    background-color: var(--color-neutral-light-3);
-    border: none;
-    color: var(--color-neutral-light-2);
-  }
-}
-
-.last::after {
-  background-color: var(--color-neutral-light-3);
 }
 
 .atom-stepper-mobile {

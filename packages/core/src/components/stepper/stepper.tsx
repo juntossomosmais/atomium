@@ -38,7 +38,7 @@ export class AtomStepper {
   }
 
   private readonly isCompleted = (completed: boolean) =>
-    completed ? 'completed' : ''
+    completed ? 'is-completed' : ''
 
   private readonly isLastActive = (index: number) => {
     const currentStep = this.parsedSteps[index]
@@ -47,7 +47,7 @@ export class AtomStepper {
     const currentStepIsTheLastCompleted =
       currentStep?.completed && nextStep && !nextStep.completed
 
-    return currentStepIsTheLastCompleted ? 'last' : ''
+    return currentStepIsTheLastCompleted ? 'is-last' : ''
   }
 
   render() {
@@ -60,7 +60,7 @@ export class AtomStepper {
           <div>
             {actualStep && (
               <div
-                class={`atom-stepper-mobile ${completedStep ? 'completed' : ''}`}
+                class={`atom-stepper-mobile ${completedStep ? 'is-completed' : ''}`}
               >
                 <div class='number'>
                   {completedStep ? (
@@ -87,10 +87,9 @@ export class AtomStepper {
                 <li
                   class={`
                     step
-                    ${isActive ? 'active' : ''}
                     ${this.isLastActive(index)}
                     ${this.isCompleted(completed)}
-                    ${shouldDisabled ? 'disabled' : ''}
+                    ${shouldDisabled ? 'is-disabled' : ''}
                   `}
                   key={index}
                 >
@@ -101,7 +100,14 @@ export class AtomStepper {
                       index + 1
                     )}
                   </div>
-                  <span class='title'>{title}</span>
+                  <span
+                    class={`
+                      title
+                      ${isActive ? 'is-active' : ''}
+                    `}
+                  >
+                    {title}
+                  </span>
                 </li>
               )
             })}
