@@ -37,7 +37,7 @@ export class AtomStepper {
     }
   }
 
-  private readonly isCompleted = (completed: boolean) =>
+  private readonly addCompletedClass = (completed: boolean) =>
     completed ? 'is-completed' : ''
 
   private readonly isLastActive = (index: number) => {
@@ -88,13 +88,13 @@ export class AtomStepper {
                   class={`
                     step
                     ${this.isLastActive(index)}
-                    ${this.isCompleted(completed)}
+                    ${this.addCompletedClass(completed)}
                     ${shouldDisabled ? 'is-disabled' : ''}
                   `}
                   key={index}
                 >
                   <div class='number'>
-                    {this.isCompleted(completed) ? (
+                    {this.addCompletedClass(completed) ? (
                       <atom-icon icon='check' color='white' size={16} />
                     ) : (
                       index + 1
