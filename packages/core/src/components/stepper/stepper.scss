@@ -55,9 +55,9 @@
 
     &:not(:last-child)::after {
       height: 1px;
-      left: 60%;
+      left: calc(100% - (var(--spacing-giant) + var(--spacing-xsmall)));
       top: var(--spacing-small);
-      width: 80%;
+      width: calc(100% - (var(--spacing-xxlarge) + var(--spacing-xxsmall)));
     }
   }
 
