@@ -15,11 +15,11 @@ describe('atom-stepper', () => {
       <atom-stepper active-step="0" role="stepper" steps='[{"title":"Step 1","completed":false},{"title":"Step 2","completed":false}]'>
         <mock:shadow-root>
           <ul class="atom-stepper">
-            <li class="step active">
+            <li class="step">
               <div class="number">1</div>
-              <span class="title">Step 1</span>
+              <span class="is-active title">Step 1</span>
             </li>
-            <li class="step disabled">
+            <li class="step is-disabled">
               <div class="number">2</div>
               <span class="title">Step 2</span>
             </li>
@@ -39,15 +39,15 @@ describe('atom-stepper', () => {
       <atom-stepper active-step="1" role="stepper" steps='[{"title":"Step 1","completed":true},{"title":"Step 2","completed":false}]'>
         <mock:shadow-root>
           <ul class="atom-stepper">
-            <li class="completed last step">
+            <li class="is-completed is-last step">
               <div class="number">
                 <atom-icon icon="check" color="white" size="16"></atom-icon>
               </div>
               <span class="title">Step 1</span>
             </li>
-            <li class="step active">
+            <li class="step">
               <div class="number">2</div>
-              <span class="title">Step 2</span>
+              <span class="is-active title">Step 2</span>
             </li>
           </ul>
         </mock:shadow-root>
@@ -65,11 +65,11 @@ describe('atom-stepper', () => {
       <atom-stepper active-step="0" role="stepper" steps='[{"title":"Step 1","completed":false},{"title":"Step 2","completed":false}]' disabled-unrendered-step="true">
         <mock:shadow-root>
           <ul class="atom-stepper">
-            <li class="step active">
+            <li class="step">
               <div class="number">1</div>
-              <span class="title">Step 1</span>
+              <span class="is-active title">Step 1</span>
             </li>
-            <li class="step disabled">
+            <li class="step is-disabled">
               <div class="number">2</div>
               <span class="title">Step 2</span>
             </li>
