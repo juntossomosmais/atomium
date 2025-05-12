@@ -108,6 +108,11 @@
     height: var(--spacing-xxxlarge);
     margin-bottom: 0;
     width: var(--spacing-xxxlarge);
+
+    &.is-completed {
+      background-color: var(--color-contextual-success-light-1);
+      border: none;
+    }
   }
 
   .title {

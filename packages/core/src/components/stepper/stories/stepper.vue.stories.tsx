@@ -55,7 +55,7 @@ export const Completed: StoryObj = {
       { title: 'Step 4', completed: true },
       { title: 'Step 5', completed: true },
     ],
-    activeStep: 0,
+    activeStep: 4,
     stepTitle: 'Progress 5 of 5',
   },
 }

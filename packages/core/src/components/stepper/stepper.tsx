@@ -59,10 +59,13 @@ export class AtomStepper {
         {isMaxTablet() ? (
           <div>
             {actualStep && (
-              <div
-                class={`atom-stepper-mobile ${completedStep ? 'is-completed' : ''}`}
-              >
-                <div class='number'>
+              <div class='atom-stepper-mobile'>
+                <div
+                  class={`
+                  number
+                  ${completedStep ? 'is-completed' : ''}
+                  `}
+                >
                   {completedStep ? (
                     <atom-icon icon='check' color='white' size={26} />
                   ) : (
