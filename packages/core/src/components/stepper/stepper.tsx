@@ -74,7 +74,7 @@ export class AtomStepper {
                     ${this.addCompletedClass(completed)}
                     ${shouldDisabled ? 'is-disabled' : ''}
                   `}
-                  key={index}
+                  key={title}
                 >
                   <div class='number'>
                     {this.addCompletedClass(completed) ? (
