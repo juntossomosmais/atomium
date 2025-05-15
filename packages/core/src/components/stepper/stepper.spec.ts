@@ -5,7 +5,7 @@ import * as screens from '../../utils/screens'
 import { AtomStepper } from './stepper'
 
 describe('atom-stepper', () => {
-  it('should render completed steps', async () => {
+  it('should render in progress steps', async () => {
     const page = await newSpecPage({
       components: [AtomStepper],
       html: `<atom-stepper active-step="1" role="stepper"></atom-stepper>`,
