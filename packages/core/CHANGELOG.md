@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.11.0...atomium-v3.12.0) (2025-05-16)
+
+
+### Features
+
+* **component:** create stepper component ([#726](https://github.com/juntossomosmais/atomium/issues/726)) ([9603540](https://github.com/juntossomosmais/atomium/commit/960354046f34cfe9a44c772a0bb8483cb7726db7))
+
 ## [3.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.10.0...atomium-v3.11.0) (2025-04-25)
 
 
