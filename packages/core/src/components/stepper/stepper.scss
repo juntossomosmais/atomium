@@ -1,0 +1,121 @@
+.atom-stepper {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+
+  @include above(medium) {
+    flex-direction: row;
+    height: 100%;
+  }
+}
+
+.number {
+  align-items: center;
+  border: 1px solid var(--color-contextual-success-light-1);
+  border-radius: var(--border-radius-full);
+  color: var(--color-contextual-success-light-1);
+  display: flex;
+  font: var(--text-body-small);
+  height: var(--spacing-large);
+  justify-content: center;
+  letter-spacing: var(--text-body-small-letter);
+  margin-bottom: var(--spacing-base);
+  width: var(--spacing-large);
+}
+
+.step {
+  display: flex;
+  height: var(--spacing-large);
+  list-style-type: none;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    background-color: var(--color-neutral-light-3);
+    content: '';
+    height: 100%;
+    left: var(--spacing-xsmall);
+    position: absolute;
+    top: var(--spacing-xxsmall);
+    width: 1px;
+  }
+
+  &:last-child::after {
+    content: none;
+    display: none;
+  }
+
+  @include above(medium) {
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+
+    &:not(:last-child)::after {
+      height: 1px;
+      left: calc(100% - (var(--spacing-giant) + var(--spacing-xsmall)));
+      top: var(--spacing-small);
+      width: calc(100% - (var(--spacing-xxlarge) + var(--spacing-xxsmall)));
+    }
+  }
+
+  &.is-completed {
+    .number {
+      background-color: var(--color-contextual-success-light-1);
+      border: none;
+    }
+
+    .title {
+      font-weight: normal;
+    }
+  }
+
+  &.is-disabled {
+    .title {
+      color: var(--color-neutral-light-2);
+    }
+
+    .number {
+      background-color: var(--color-neutral-light-3);
+      border: none;
+      color: var(--color-neutral-light-2);
+    }
+  }
+
+  &.is-last::after {
+    background-color: var(--color-neutral-light-3);
+  }
+}
+
+.title {
+  color: var(--color-neutral-regular);
+  font: var(--text-body-small);
+  letter-spacing: var(--text-body-small-letter);
+
+  &.is-active {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+.atom-stepper-mobile {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-base);
+
+  .number {
+    height: var(--spacing-xxxlarge);
+    margin-bottom: 0;
+    width: var(--spacing-xxxlarge);
+
+    &.is-completed {
+      background-color: var(--color-contextual-success-light-1);
+      border: none;
+    }
+  }
+
+  .title {
+    font-weight: var(--font-weight-bold);
+  }
+}
