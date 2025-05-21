@@ -1,8 +1,7 @@
-:host {
-  --atom-modal-zindex: var(--zindex-1000);
-}
-
 .atom-modal {
+  --atom-modal-padding-header: var(--spacing-xxxxlarge);
+  --atom-modal-zindex: var(--zindex-1000);
+
   position: fixed;
   z-index: var(--atom-modal-zindex) !important;
 
@@ -22,6 +21,7 @@
     font: var(--text-body-medium);
     height: 100%;
     letter-spacing: var(--text-body-medium-letter);
+    overflow-y: auto;
     padding: var(--spacing-large);
     padding-top: 0;
 
@@ -43,6 +43,7 @@
   &__header {
     color: var(--color-neutral-light-1);
     padding: var(--spacing-large);
+    padding-right: var(--atom-modal-padding-header);
     position: relative;
   }
 
@@ -76,7 +77,7 @@
     background-color: var(--color-brand-primary-light-2);
   }
 
-  @include below(small) {
+  @include below('small') {
     &__btn-action {
       width: 100%;
 
@@ -91,7 +92,7 @@ ion-modal::part(content) {
   --border-radius: 8px;
   height: auto;
 
-  @include below(small) {
+  @include below('small') {
     --border-radius: 0;
     height: 100%;
   }

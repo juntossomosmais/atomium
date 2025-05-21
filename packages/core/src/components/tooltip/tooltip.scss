@@ -18,7 +18,7 @@ $placements: 'top', 'bottom', 'left', 'right';
     --arrow-height: 8px;
     --arrow-square-range: -3px;
 
-    background: var(--color-neutral-light-1);
+    background: var(--background, var(--color-neutral-light-1));
     border-radius: var(--border-radius);
     color: var(--color-neutral-white);
     font: var(--text-body-small);

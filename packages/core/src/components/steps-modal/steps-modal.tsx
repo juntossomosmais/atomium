@@ -9,6 +9,8 @@ import {
   h,
 } from '@stencil/core'
 
+import { AtomModal } from '../modal/modal'
+
 @Component({
   tag: 'atom-steps-modal',
   styleUrl: 'steps-modal.scss',
@@ -25,6 +27,7 @@ export class AtomStepsModal {
   @Prop() lockedInitialStep?: number
   @Prop() primaryButtonTextsByStep: string
   @Prop() secondaryButtonTextsByStep: string
+  @Prop() metaData?: AtomModal['metaData'] = {}
 
   @Event() atomFinish: EventEmitter
   @Event() atomCancel: EventEmitter
@@ -145,6 +148,7 @@ export class AtomStepsModal {
     return (
       <Host>
         <atom-modal
+          metaData={this.metaData}
           trigger={this.trigger}
           primaryButtonText={this.primaryButtonText}
           secondaryButtonText={this.secondaryButtonText}
@@ -155,7 +159,7 @@ export class AtomStepsModal {
           onAtomPrimaryClick={this.handlePrimaryClick}
           onAtomSecondaryClick={this.handleSecondaryClick}
           isOpen={this.isOpen}
-          hasFooter={false}
+          hasFooter={true}
           hasDivider={true}
           onAtomDidDismiss={this.handleDidDismiss}
           onAtomDidPresent={this.handleDidPresent}

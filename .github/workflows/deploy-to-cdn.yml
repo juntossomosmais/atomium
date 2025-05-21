@@ -1,0 +1,64 @@
+name: Deploy Packages to S3
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+  actions: read
+
+jobs:
+  deploy-to-s3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Extract SEMVER for Core and Tokens
+        run: |
+          echo "CORE_VERSION=$(jq -r .version packages/core/package.json)" >> $GITHUB_ENV
+          echo "TOKENS_VERSION=$(jq -r .version packages/tokens/package.json)" >> $GITHUB_ENV
+
+      - name: Build Core and Tokens
+        run: |
+          npx nx run @juntossomosmais/atomium:build
+          npx nx run @juntossomosmais/atomium-tokens:build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: us-east-1
+
+      - name: Deploy Core Package to S3
+        run: |
+          aws s3 sync packages/core/dist s3://atomium/core/$CORE_VERSION/dist
+          aws s3 sync packages/core/loader s3://atomium/core/$CORE_VERSION/loader
+          aws s3 cp packages/core/package.json s3://atomium/core/$CORE_VERSION/package.json
+          aws s3 cp packages/core/core.css s3://atomium/core/$CORE_VERSION/core.css
+
+      - name: Deploy Tokens Package to S3
+        run: |
+          aws s3 cp packages/tokens/dist/tokens.css s3://atomium/tokens/$TOKENS_VERSION/tokens.css
