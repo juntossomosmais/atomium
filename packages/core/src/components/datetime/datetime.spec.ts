@@ -162,4 +162,24 @@ describe('AtomDatetime', () => {
 
     expect(spy).toHaveBeenCalled()
   })
+
+  it('should render custom dateTarget when dateTarget slot is used', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: `<atom-datetime>
+        <div slot="date-target">Custom Date Target</div>
+      </atom-datetime>`,
+    })
+
+    await page.waitForChanges()
+
+    expect(page.root).toEqualHtml(`
+      <atom-datetime>
+        <div slot="date-target">
+          Custom Date Target
+        </div>
+        <ion-datetime class="atom-datetime" color="secondary" hourcycle="h23" id="datetime" locale="pt-BR" mode="md" presentation="date" size="fixed"></ion-datetime>
+      </atom-datetime>
+    `)
+  })
 })
