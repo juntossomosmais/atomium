@@ -169,7 +169,7 @@ export const UsingWithButton: StoryObj = {
           use-button="true"
           label="Selecione uma data"
           datetime-id="datetime-with-custom-date-format"
-          presentation="date"
+          presentation="date-time"
         >
           <span slot="date-target">Custom Date</span>
           <span slot="time-target">Custom Time</span>

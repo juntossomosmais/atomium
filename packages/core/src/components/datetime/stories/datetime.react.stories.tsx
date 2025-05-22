@@ -163,7 +163,7 @@ export const UsingWithButton = {
           useButton={true}
           label='Selecione uma data'
           datetimeId='datetime-with-custom-date-format'
-          presentation='date'
+          presentation='date-time'
         >
           <span slot="date-target">Custom-Date</span>
           <span slot="time-target">Custom Time</span>
