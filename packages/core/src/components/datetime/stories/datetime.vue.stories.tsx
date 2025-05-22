@@ -212,7 +212,7 @@ export const UsingWithButton = {
             useButton="true"
             label="Selecione uma data"
             datetimeId="datetime-with-button-date"
-            presentation="date-time"
+            presentation="date"
           >
             <span slot="date-target">Custom Date</span>
           </AtomDatetime>
