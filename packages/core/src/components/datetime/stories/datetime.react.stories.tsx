@@ -166,7 +166,6 @@ export const UsingWithButton = {
           presentation='date-time'
         >
           <span slot="date-target">Custom-Date</span>
-          <span slot="time-target">Custom Time</span>
         </AtomDatetime>
       </AtomCol>
     </AtomGrid>

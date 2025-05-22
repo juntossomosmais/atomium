@@ -172,7 +172,6 @@ export const UsingWithButton: StoryObj = {
           presentation="date-time"
         >
           <span slot="date-target">Custom Date</span>
-          <span slot="time-target">Custom Time</span>
         </atom-datetime>
       </atom-col>
     </atom-grid>
