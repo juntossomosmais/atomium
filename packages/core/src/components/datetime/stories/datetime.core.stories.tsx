@@ -164,6 +164,17 @@ export const UsingWithButton: StoryObj = {
           .formatOptions="${{ date: { month: 'long', year: 'numeric' } }}"
         ></atom-datetime>
       </atom-col>
+      <atom-col size="8">
+        <atom-datetime
+          use-button="true"
+          label="Selecione uma data"
+          datetime-id="datetime-with-custom-date-format"
+          presentation="date"
+        >
+          <span slot="date-target">Custom Date</span>
+          <span slot="time-target">Custom Time</span>
+        </atom-datetime>
+      </atom-col>
     </atom-grid>
   `,
 }
