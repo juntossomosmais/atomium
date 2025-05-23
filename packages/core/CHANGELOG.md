@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.11.0...atomium-v3.12.0) (2025-05-23)
+
+
+### Features
+
+* **component:** create stepper component ([#726](https://github.com/juntossomosmais/atomium/issues/726)) ([9603540](https://github.com/juntossomosmais/atomium/commit/960354046f34cfe9a44c772a0bb8483cb7726db7))
+* **datetime:** add date-target and time-target slots ([#754](https://github.com/juntossomosmais/atomium/issues/754)) ([e47ade4](https://github.com/juntossomosmais/atomium/commit/e47ade47ec39355e29bf30b2a13fbe75971175e0))
+
 ## [3.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.10.0...atomium-v3.11.0) (2025-04-25)
 
 
