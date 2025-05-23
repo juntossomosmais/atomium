@@ -219,7 +219,10 @@ export class AtomDatetime {
                 datetime={this.datetimeId}
                 disabled={this.disabled}
                 mode='md'
-              ></ion-datetime-button>
+              >
+                <slot name='date-target' />
+                <slot name='time-target' />
+              </ion-datetime-button>
               <span class='atom-label'>{this.label}</span>
               <atom-icon
                 class='atom-icon'

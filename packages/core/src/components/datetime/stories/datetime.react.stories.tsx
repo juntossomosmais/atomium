@@ -158,6 +158,16 @@ export const UsingWithButton = {
           formatOptions={{ date: { month: 'long', year: 'numeric' } }}
         />
       </AtomCol>
+      <AtomCol size='8'>
+        <AtomDatetime
+          useButton={true}
+          label='Selecione uma data'
+          datetimeId='datetime-with-custom-date-format'
+          presentation='date'
+        >
+          <span slot="date-target">Custom-Date</span>
+        </AtomDatetime>
+      </AtomCol>
     </AtomGrid>
   ),
 }
