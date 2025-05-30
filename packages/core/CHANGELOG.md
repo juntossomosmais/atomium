@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.0...atomium-v3.12.1) (2025-05-30)
+
+
+### Bug Fixes
+
+* **deps:** downgrade stencil version ([#755](https://github.com/juntossomosmais/atomium/issues/755)) ([73e3206](https://github.com/juntossomosmais/atomium/commit/73e3206a9e6db868005b97b677e74224fa75e799))
+
 ## [3.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.11.0...atomium-v3.12.0) (2025-05-23)
 
 
