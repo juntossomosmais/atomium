@@ -37,6 +37,27 @@
     "publish-library": "npm publish --access public",
     "publish-library-alpha": "npm publish --access public --tag alpha"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./react": {
+      "types": "./react/dist/types/index.d.ts",
+      "import": "./react/dist/esm/index.js",
+      "require": "./react/dist/cjs/index.js"
+    },
+    "./vue": {
+      "types": "./vue/dist/types/index.d.ts",
+      "import": "./vue/dist/esm/index.js"
+    }
+  },
   "nx": {
     "targets": {
       "build": {
