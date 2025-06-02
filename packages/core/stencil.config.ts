@@ -1,5 +1,4 @@
 import { Config } from '@stencil/core'
-import { OutputTargetCustom } from '@stencil/core/internal'
 import { reactOutputTarget } from '@stencil/react-output-target'
 import { sass } from '@stencil/sass'
 import { vueOutputTarget } from '@stencil/vue-output-target'
@@ -112,10 +111,7 @@ export const config: Config = {
   namespace: 'core',
   plugins: [
     sass({
-      injectGlobalPaths: [
-        '../../node_modules/@atomium/scss-utils/index.scss',
-        '../../node_modules/@ionic/core/css/core.css',
-      ],
+      injectGlobalPaths: ['../../node_modules/@atomium/scss-utils/index.scss'],
     }),
   ],
   extras: {
@@ -140,9 +136,8 @@ export const config: Config = {
       excludeComponents,
     }),
     reactOutputTarget({
-      stencilPackageName: '@juntossomosmais/atomium',
       outDir: '../react/src/components',
       excludeComponents,
     }),
-  ] as OutputTargetCustom[],
+  ],
 }

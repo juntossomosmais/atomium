@@ -1,31 +1,21 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
-    "lib": ["dom", "es2015"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "target": "es2015",
-    "skipLibCheck": true,
-    "jsx": "react",
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationDir": "dist/types",
     "allowUnreachableCode": false,
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
+    "lib": ["dom", "es2022"],
+    "declaration": true,
+    "declarationDir": "../core/react/dist/",
+    "outDir": "../core/react/dist/",
+    "moduleResolution": "Bundler",
+    "module": "esnext",
+    "target": "es2022",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "removeComments": false,
-    "sourceMap": true
+    "jsx": "react",
+    "jsxFactory": "h",
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules"],
-  "compileOnSave": false,
-  "buildOnSave": false
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

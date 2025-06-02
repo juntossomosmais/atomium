@@ -10,7 +10,7 @@
   "scripts": {
     "start": "tsc -p . --watch",
     "build": "nx build @juntossomosmais/atomium && npm run compile && npm run copy",
-    "compile": "tsc --outDir ../core/react/dist --declarationDir ../core/react/dist/types",
+    "compile": "tsc -p tsconfig.json",
     "copy": "npx copyfiles --flat ./package.json ../core/react"
   },
   "nx": {
@@ -36,5 +36,8 @@
         ]
       }
     }
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.27.1"
   }
 }
