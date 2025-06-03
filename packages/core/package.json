@@ -56,6 +56,10 @@
     "./vue": {
       "types": "./vue/dist/types/index.d.ts",
       "import": "./vue/dist/esm/index.js"
+    },
+    "./core.css": {
+      "import": "./core.css",
+      "require": "./core.css"
     }
   },
   "nx": {
