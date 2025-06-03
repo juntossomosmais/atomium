@@ -60,6 +60,10 @@
     "./core.css": {
       "import": "./core.css",
       "require": "./core.css"
+    },
+    "./dist/core/core.css": {
+      "import": "./dist/core/core.css",
+      "require": "./dist/core/core.css"
     }
   },
   "nx": {
