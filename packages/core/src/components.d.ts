@@ -16,13 +16,22 @@ export { AtomModal } from "./components/modal/modal";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
+        /**
+          * @default false
+         */
         "close": boolean;
+        /**
+          * @default 'neutral'
+         */
         "color"?: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
         "icon"?: IconProps;
         "messageText"?: string;
         "messageTitle"?: string;
     }
     interface AtomBadge {
+        /**
+          * @default 'primary'
+         */
         "type": | 'primary'
     | 'secondary'
     | 'info'
@@ -33,41 +42,86 @@ export namespace Components {
     | 'dark';
     }
     interface AtomBreadcrumb {
+        /**
+          * @default []
+         */
         "items": BreadcrumbItemProp[];
     }
     interface AtomButton {
+        /**
+          * @default 'primary'
+         */
         "color": 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
+        /**
+          * @default 'solid'
+         */
         "fill": | 'clear'
     | 'outline'
     | 'outline-filled'
     | 'solid';
         "href"?: string;
         "loading"?: boolean;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
         "rel"?: string;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | 'circle';
+        /**
+          * @default 'default'
+         */
         "size": 'small' | 'default' | 'large';
         "target"?: string;
+        /**
+          * @default 'button'
+         */
         "type": 'submit' | 'reset' | 'button';
     }
     interface AtomCarousel {
         "autoplay": number;
+        /**
+          * @default true
+         */
         "hasNavigation": boolean;
+        /**
+          * @default true
+         */
         "hasPagination": boolean;
+        /**
+          * @default false
+         */
         "loop": boolean;
         "thumbnails": string[];
     }
     interface AtomCarouselItem {
     }
     interface AtomChip {
+        /**
+          * @default false
+         */
         "activated": boolean;
+        /**
+          * @default false
+         */
         "close": boolean;
+        /**
+          * @default false
+         */
         "disabled": boolean;
         "icon"?: IconProps;
+        /**
+          * @default 'md'
+         */
         "mode": 'ios' | 'md';
+        /**
+          * @default false
+         */
         "outline": boolean;
     }
     interface AtomCol {
@@ -83,24 +137,39 @@ export namespace Components {
         "sizeSm"?: string;
     }
     interface AtomContainer {
+        /**
+          * @default true
+         */
         "hasPadding": boolean;
     }
     interface AtomDatetime {
         "cancelText"?: string;
         "clearText"?: string;
+        /**
+          * @default 'datetime'
+         */
         "datetimeId": string;
         "dayValues"?: number[] | string;
         "disabled"?: boolean;
         "doneText"?: string;
+        /**
+          * @default {     date: {       month: '2-digit',       day: '2-digit',       year: 'numeric',     },     time: {       hour: '2-digit',       minute: '2-digit',     },   }
+         */
         "formatOptions": {
     date?: Intl.DateTimeFormatOptions
     time?: Intl.DateTimeFormatOptions
   };
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
+        /**
+          * @default 'h23'
+         */
         "hourCycle": 'h12' | 'h23';
         "hourValues"?: number[] | string;
         "isDateEnabled"?: (dateString: string) => boolean;
         "label"?: string;
+        /**
+          * @default 'pt-BR'
+         */
         "locale": string;
         "max"?: string;
         "min"?: string;
@@ -108,22 +177,43 @@ export namespace Components {
         "monthValues"?: number[] | string;
         "multiple"?: boolean;
         "name"?: string;
+        /**
+          * @default false
+         */
         "preferWheel": boolean;
+        /**
+          * @default 'date'
+         */
         "presentation"?: DatetimePresentation;
         "rangeMode"?: boolean;
         "readonly"?: boolean;
         "setValue": (value: any) => Promise<void>;
         "showClearButton"?: boolean;
         "showDefaultButtons"?: boolean;
+        /**
+          * @default false
+         */
         "showDefaultTimeLabel": boolean;
+        /**
+          * @default false
+         */
         "showDefaultTitle": boolean;
+        /**
+          * @default 'fixed'
+         */
         "size"?: 'cover' | 'fixed';
+        /**
+          * @default false
+         */
         "useButton": boolean;
         "value"?: | DatetimeCustomEvent
     | DatetimeChangeEventDetail;
         "yearValues"?: number[] | string;
     }
     interface AtomDivider {
+        /**
+          * @default 'horizontal'
+         */
         "type": 'horizontal' | 'vertical';
     }
     interface AtomGrid {
@@ -135,18 +225,42 @@ export namespace Components {
         "size"?: Size;
     }
     interface AtomInput {
+        /**
+          * @default 'off'
+         */
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus": boolean;
+        /**
+          * @default false
+         */
         "clearInput": boolean;
+        /**
+          * @default false
+         */
         "clearOnEdit": boolean;
+        /**
+          * @default 'secondary'
+         */
         "color"?: 'primary' | 'secondary' | 'danger';
+        /**
+          * @default false
+         */
         "counter": boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce": number;
+        /**
+          * @default false
+         */
         "disabled": boolean;
+        /**
+          * @default 'enter'
+         */
         "enterKeyHint": | 'enter'
     | 'done'
     | 'go'
@@ -155,8 +269,14 @@ export namespace Components {
     | 'search'
     | 'send';
         "errorText"?: string;
+        /**
+          * @default 'solid'
+         */
         "fill": 'solid' | 'outline';
         "getInputElement": () => Promise<HTMLInputElement>;
+        /**
+          * @default false
+         */
         "hasError": boolean;
         "helperText"?: string;
         "icon"?: IconProps;
@@ -169,58 +289,130 @@ export namespace Components {
     | 'decimal'
     | 'search';
         "label"?: string;
+        /**
+          * @default 'floating'
+         */
         "labelPlacement"?: 'stacked' | 'floating';
         "max"?: string | number;
         "maxlength"?: number;
         "min"?: string | number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
+        /**
+          * @default false
+         */
         "multiple": boolean;
         "name"?: string;
+        /**
+          * @default false
+         */
         "passwordToggle": boolean;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly": boolean;
+        /**
+          * @default false
+         */
         "required": boolean;
         "setFocus": () => Promise<void>;
         "setInputEl": (inputEl: HTMLIonInputElement) => Promise<void>;
+        /**
+          * @default 'round'
+         */
         "shape": 'round' | undefined;
         "step"?: string;
+        /**
+          * @default 'text'
+         */
         "type": TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
     interface AtomLink {
+        /**
+          * @default 'secondary'
+         */
         "color": 'primary' | 'secondary';
+        /**
+          * @default false
+         */
         "loading"?: boolean;
+        /**
+          * @default 'medium'
+         */
         "size": 'small' | 'medium' | 'large';
+        /**
+          * @default 'anchor'
+         */
         "type": 'anchor' | 'button';
     }
     interface AtomListSlider {
         "centralized": boolean;
+        /**
+          * @default true
+         */
         "hasNavigation": boolean;
+        /**
+          * @default 1
+         */
         "step": number;
     }
     interface AtomListSliderItem {
     }
     interface AtomMeter {
         "actual": number;
+        /**
+          * @default false
+         */
         "hasCenterTitle"?: boolean;
         "max": number;
         "min": number;
+        /**
+          * @default 'large'
+         */
         "size"?: 'small' | 'large';
         "title": string;
+        /**
+          * @default 'neutral'
+         */
         "type"?: 'success' | 'neutral' | 'warning' | 'danger';
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
         "canDismiss"?: boolean;
+        /**
+          * @default false
+         */
         "disablePrimaryButton": boolean;
+        /**
+          * @default false
+         */
         "disableSecondaryButton": boolean;
+        /**
+          * @default false
+         */
         "hasDivider": boolean;
+        /**
+          * @default true
+         */
         "hasFooter": boolean;
+        /**
+          * @default ''
+         */
         "headerTitle": string;
         "idName"?: string;
+        /**
+          * @default false
+         */
         "isOpen": boolean;
+        /**
+          * @default {}
+         */
         "metaData"?: MetaData;
         "primaryButtonText"?: string;
         "progress"?: number;
@@ -232,11 +424,20 @@ export namespace Components {
         "page": number;
     }
     interface AtomPopover {
+        /**
+          * @default 'hover'
+         */
         "action": 'hover' | 'click';
         "actionText"?: string;
         "element": string;
         "label"?: string;
+        /**
+          * @default false
+         */
         "open": boolean;
+        /**
+          * @default 'top'
+         */
         "placement": | 'top'
     | 'top-start'
     | 'top-end'
@@ -249,13 +450,22 @@ export namespace Components {
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
+        /**
+          * @default 'solid'
+         */
         "fill": 'solid' | 'outline';
         "helperText"?: string;
         "icon"?: IconProps;
         "label"?: string;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
         "multiple"?: boolean;
         "name": string;
+        /**
+          * @default []
+         */
         "options": Array<{
     id: string
     value: string
@@ -270,38 +480,46 @@ export namespace Components {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomSpinner {
+        /**
+          * @default 40
+         */
         "size": number;
+        /**
+          * @default 'primary'
+         */
         "type": 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepper {
         "activeStep": number;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "active-step"?: number;
         "disabledUnrenderedStep"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "disabled-unrendered-step"?: boolean;
         "stepTitle"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default []
          */
-        "step-title"?: string;
-        "steps": | string
-    | {
-        title: string
-        completed: boolean
-      }[];
+        "steps": Array<{
+    title: string
+    completed: boolean
+  }>;
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
+        /**
+          * @default 1
+         */
         "currentStep": number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
+        /**
+          * @default false
+         */
         "isOpen": boolean;
         "lockedInitialStep"?: number;
+        /**
+          * @default {}
+         */
         "metaData"?: AtomModal['metaData'];
         "primaryButtonTextsByStep": string;
         "secondaryButtonTextsByStep": string;
@@ -316,19 +534,43 @@ export namespace Components {
         "icon"?: IconProps;
     }
     interface AtomTextarea {
+        /**
+          * @default false
+         */
         "autoGrow": boolean;
+        /**
+          * @default 'off'
+         */
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus": boolean;
+        /**
+          * @default false
+         */
         "clearOnEdit": boolean;
+        /**
+          * @default 'secondary'
+         */
         "color"?: 'primary' | 'secondary' | 'danger';
         "cols"?: number;
+        /**
+          * @default false
+         */
         "counter": boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce": number;
+        /**
+          * @default false
+         */
         "disabled": boolean;
+        /**
+          * @default 'enter'
+         */
         "enterKeyHint": | 'enter'
     | 'done'
     | 'go'
@@ -337,8 +579,14 @@ export namespace Components {
     | 'search'
     | 'send';
         "errorText"?: string;
+        /**
+          * @default 'solid'
+         */
         "fill": 'solid' | 'outline';
         "getInputElement": () => Promise<HTMLTextAreaElement>;
+        /**
+          * @default false
+         */
         "hasError": boolean;
         "helperText"?: string;
         "icon"?: IconProps;
@@ -351,27 +599,54 @@ export namespace Components {
     | 'decimal'
     | 'search';
         "label"?: string;
+        /**
+          * @default 'floating'
+         */
         "labelPlacement"?: 'stacked' | 'floating';
         "maxlength"?: number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
         "name"?: string;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly": boolean;
+        /**
+          * @default false
+         */
         "required": boolean;
+        /**
+          * @default 4
+         */
         "rows": number;
         "setFocus": () => Promise<void>;
         "setInputEl": (textareaEl: HTMLIonTextareaElement) => Promise<void>;
+        /**
+          * @default 'round'
+         */
         "shape": 'round' | undefined;
         "step"?: string;
         "value"?: IonTypes.IonTextarea['value'];
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
+        /**
+          * @default 'hover'
+         */
         "action": 'hover' | 'click';
         "element": string;
+        /**
+          * @default false
+         */
         "open": boolean;
+        /**
+          * @default 'top'
+         */
         "placement": | 'auto'
     | 'auto-start'
     | 'auto-end'
@@ -826,7 +1101,13 @@ declare global {
 declare namespace LocalJSX {
     interface AtomAlert {
         "actionText"?: string;
+        /**
+          * @default false
+         */
         "close"?: boolean;
+        /**
+          * @default 'neutral'
+         */
         "color"?: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
         "icon"?: IconProps;
         "messageText"?: string;
@@ -835,6 +1116,9 @@ declare namespace LocalJSX {
         "onAtomClose"?: (event: AtomAlertCustomEvent<any>) => void;
     }
     interface AtomBadge {
+        /**
+          * @default 'primary'
+         */
         "type"?: | 'primary'
     | 'secondary'
     | 'info'
@@ -845,43 +1129,88 @@ declare namespace LocalJSX {
     | 'dark';
     }
     interface AtomBreadcrumb {
+        /**
+          * @default []
+         */
         "items"?: BreadcrumbItemProp[];
     }
     interface AtomButton {
+        /**
+          * @default 'primary'
+         */
         "color"?: 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
+        /**
+          * @default 'solid'
+         */
         "fill"?: | 'clear'
     | 'outline'
     | 'outline-filled'
     | 'solid';
         "href"?: string;
         "loading"?: boolean;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
         "onClick"?: (event: AtomButtonCustomEvent<any>) => void;
         "rel"?: string;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | 'circle';
+        /**
+          * @default 'default'
+         */
         "size"?: 'small' | 'default' | 'large';
         "target"?: string;
+        /**
+          * @default 'button'
+         */
         "type"?: 'submit' | 'reset' | 'button';
     }
     interface AtomCarousel {
         "autoplay"?: number;
+        /**
+          * @default true
+         */
         "hasNavigation"?: boolean;
+        /**
+          * @default true
+         */
         "hasPagination"?: boolean;
+        /**
+          * @default false
+         */
         "loop"?: boolean;
         "thumbnails"?: string[];
     }
     interface AtomCarouselItem {
     }
     interface AtomChip {
+        /**
+          * @default false
+         */
         "activated"?: boolean;
+        /**
+          * @default false
+         */
         "close"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "icon"?: IconProps;
+        /**
+          * @default 'md'
+         */
         "mode"?: 'ios' | 'md';
         "onAtomClick"?: (event: AtomChipCustomEvent<any>) => void;
+        /**
+          * @default false
+         */
         "outline"?: boolean;
     }
     interface AtomCol {
@@ -897,24 +1226,39 @@ declare namespace LocalJSX {
         "sizeSm"?: string;
     }
     interface AtomContainer {
+        /**
+          * @default true
+         */
         "hasPadding"?: boolean;
     }
     interface AtomDatetime {
         "cancelText"?: string;
         "clearText"?: string;
+        /**
+          * @default 'datetime'
+         */
         "datetimeId"?: string;
         "dayValues"?: number[] | string;
         "disabled"?: boolean;
         "doneText"?: string;
+        /**
+          * @default {     date: {       month: '2-digit',       day: '2-digit',       year: 'numeric',     },     time: {       hour: '2-digit',       minute: '2-digit',     },   }
+         */
         "formatOptions"?: {
     date?: Intl.DateTimeFormatOptions
     time?: Intl.DateTimeFormatOptions
   };
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
+        /**
+          * @default 'h23'
+         */
         "hourCycle"?: 'h12' | 'h23';
         "hourValues"?: number[] | string;
         "isDateEnabled"?: (dateString: string) => boolean;
         "label"?: string;
+        /**
+          * @default 'pt-BR'
+         */
         "locale"?: string;
         "max"?: string;
         "min"?: string;
@@ -926,21 +1270,42 @@ declare namespace LocalJSX {
         "onAtomCancel"?: (event: AtomDatetimeCustomEvent<string>) => void;
         "onAtomChange"?: (event: AtomDatetimeCustomEvent<string | string[]>) => void;
         "onAtomFocus"?: (event: AtomDatetimeCustomEvent<void>) => void;
+        /**
+          * @default false
+         */
         "preferWheel"?: boolean;
+        /**
+          * @default 'date'
+         */
         "presentation"?: DatetimePresentation;
         "rangeMode"?: boolean;
         "readonly"?: boolean;
         "showClearButton"?: boolean;
         "showDefaultButtons"?: boolean;
+        /**
+          * @default false
+         */
         "showDefaultTimeLabel"?: boolean;
+        /**
+          * @default false
+         */
         "showDefaultTitle"?: boolean;
+        /**
+          * @default 'fixed'
+         */
         "size"?: 'cover' | 'fixed';
+        /**
+          * @default false
+         */
         "useButton"?: boolean;
         "value"?: | DatetimeCustomEvent
     | DatetimeChangeEventDetail;
         "yearValues"?: number[] | string;
     }
     interface AtomDivider {
+        /**
+          * @default 'horizontal'
+         */
         "type"?: 'horizontal' | 'vertical';
     }
     interface AtomGrid {
@@ -952,18 +1317,42 @@ declare namespace LocalJSX {
         "size"?: Size;
     }
     interface AtomInput {
+        /**
+          * @default 'off'
+         */
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus"?: boolean;
+        /**
+          * @default false
+         */
         "clearInput"?: boolean;
+        /**
+          * @default false
+         */
         "clearOnEdit"?: boolean;
+        /**
+          * @default 'secondary'
+         */
         "color"?: 'primary' | 'secondary' | 'danger';
+        /**
+          * @default false
+         */
         "counter"?: boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce"?: number;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
+        /**
+          * @default 'enter'
+         */
         "enterKeyHint"?: | 'enter'
     | 'done'
     | 'go'
@@ -972,7 +1361,13 @@ declare namespace LocalJSX {
     | 'search'
     | 'send';
         "errorText"?: string;
+        /**
+          * @default 'solid'
+         */
         "fill"?: 'solid' | 'outline';
+        /**
+          * @default false
+         */
         "hasError"?: boolean;
         "helperText"?: string;
         "icon"?: IconProps;
@@ -985,63 +1380,135 @@ declare namespace LocalJSX {
     | 'decimal'
     | 'search';
         "label"?: string;
+        /**
+          * @default 'floating'
+         */
         "labelPlacement"?: 'stacked' | 'floating';
         "max"?: string | number;
         "maxlength"?: number;
         "min"?: string | number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
+        /**
+          * @default false
+         */
         "multiple"?: boolean;
         "name"?: string;
         "onAtomBlur"?: (event: AtomInputCustomEvent<void>) => void;
         "onAtomChange"?: (event: AtomInputCustomEvent<string>) => void;
         "onAtomFocus"?: (event: AtomInputCustomEvent<void>) => void;
         "onAtomInput"?: (event: AtomInputCustomEvent<string>) => void;
+        /**
+          * @default false
+         */
         "passwordToggle"?: boolean;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly"?: boolean;
+        /**
+          * @default false
+         */
         "required"?: boolean;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | undefined;
         "step"?: string;
+        /**
+          * @default 'text'
+         */
         "type"?: TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
     interface AtomLink {
+        /**
+          * @default 'secondary'
+         */
         "color"?: 'primary' | 'secondary';
+        /**
+          * @default false
+         */
         "loading"?: boolean;
         "onClick"?: (event: AtomLinkCustomEvent<any>) => void;
+        /**
+          * @default 'medium'
+         */
         "size"?: 'small' | 'medium' | 'large';
+        /**
+          * @default 'anchor'
+         */
         "type"?: 'anchor' | 'button';
     }
     interface AtomListSlider {
         "centralized"?: boolean;
+        /**
+          * @default true
+         */
         "hasNavigation"?: boolean;
         "onClickNext"?: (event: AtomListSliderCustomEvent<any>) => void;
         "onClickPrev"?: (event: AtomListSliderCustomEvent<any>) => void;
+        /**
+          * @default 1
+         */
         "step"?: number;
     }
     interface AtomListSliderItem {
     }
     interface AtomMeter {
         "actual"?: number;
+        /**
+          * @default false
+         */
         "hasCenterTitle"?: boolean;
         "max"?: number;
         "min"?: number;
+        /**
+          * @default 'large'
+         */
         "size"?: 'small' | 'large';
         "title"?: string;
+        /**
+          * @default 'neutral'
+         */
         "type"?: 'success' | 'neutral' | 'warning' | 'danger';
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
         "canDismiss"?: boolean;
+        /**
+          * @default false
+         */
         "disablePrimaryButton"?: boolean;
+        /**
+          * @default false
+         */
         "disableSecondaryButton"?: boolean;
+        /**
+          * @default false
+         */
         "hasDivider"?: boolean;
+        /**
+          * @default true
+         */
         "hasFooter"?: boolean;
+        /**
+          * @default ''
+         */
         "headerTitle"?: string;
         "idName"?: string;
+        /**
+          * @default false
+         */
         "isOpen"?: boolean;
+        /**
+          * @default {}
+         */
         "metaData"?: MetaData;
         "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
@@ -1060,12 +1527,21 @@ declare namespace LocalJSX {
         "page"?: number;
     }
     interface AtomPopover {
+        /**
+          * @default 'hover'
+         */
         "action"?: 'hover' | 'click';
         "actionText"?: string;
         "element"?: string;
         "label"?: string;
         "onButtonAction"?: (event: AtomPopoverCustomEvent<void>) => void;
+        /**
+          * @default false
+         */
         "open"?: boolean;
+        /**
+          * @default 'top'
+         */
         "placement"?: | 'top'
     | 'top-start'
     | 'top-end'
@@ -1078,10 +1554,16 @@ declare namespace LocalJSX {
     interface AtomSelect {
         "disabled"?: boolean;
         "errorText"?: string;
+        /**
+          * @default 'solid'
+         */
         "fill"?: 'solid' | 'outline';
         "helperText"?: string;
         "icon"?: IconProps;
         "label"?: string;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
         "multiple"?: boolean;
         "name"?: string;
@@ -1090,6 +1572,9 @@ declare namespace LocalJSX {
         "onAtomChange"?: (event: AtomSelectCustomEvent<string>) => void;
         "onAtomDismiss"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomFocus"?: (event: AtomSelectCustomEvent<void>) => void;
+        /**
+          * @default []
+         */
         "options"?: Array<{
     id: string
     value: string
@@ -1103,38 +1588,46 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomSpinner {
+        /**
+          * @default 40
+         */
         "size"?: number;
+        /**
+          * @default 'primary'
+         */
         "type"?: 'primary' | 'secondary' | 'dark';
     }
     interface AtomStepper {
         "activeStep"?: number;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "active-step"?: number;
         "disabledUnrenderedStep"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "disabled-unrendered-step"?: boolean;
         "stepTitle"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default []
          */
-        "step-title"?: string;
-        "steps"?: | string
-    | {
-        title: string
-        completed: boolean
-      }[];
+        "steps"?: Array<{
+    title: string
+    completed: boolean
+  }>;
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
+        /**
+          * @default 1
+         */
         "currentStep"?: number;
         "disablePrimaryButton"?: boolean;
         "disableSecondaryButton"?: boolean;
+        /**
+          * @default false
+         */
         "isOpen"?: boolean;
         "lockedInitialStep"?: number;
+        /**
+          * @default {}
+         */
         "metaData"?: AtomModal['metaData'];
         "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
@@ -1157,19 +1650,43 @@ declare namespace LocalJSX {
         "icon"?: IconProps;
     }
     interface AtomTextarea {
+        /**
+          * @default false
+         */
         "autoGrow"?: boolean;
+        /**
+          * @default 'off'
+         */
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus"?: boolean;
+        /**
+          * @default false
+         */
         "clearOnEdit"?: boolean;
+        /**
+          * @default 'secondary'
+         */
         "color"?: 'primary' | 'secondary' | 'danger';
         "cols"?: number;
+        /**
+          * @default false
+         */
         "counter"?: boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce"?: number;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
+        /**
+          * @default 'enter'
+         */
         "enterKeyHint"?: | 'enter'
     | 'done'
     | 'go'
@@ -1178,7 +1695,13 @@ declare namespace LocalJSX {
     | 'search'
     | 'send';
         "errorText"?: string;
+        /**
+          * @default 'solid'
+         */
         "fill"?: 'solid' | 'outline';
+        /**
+          * @default false
+         */
         "hasError"?: boolean;
         "helperText"?: string;
         "icon"?: IconProps;
@@ -1191,9 +1714,15 @@ declare namespace LocalJSX {
     | 'decimal'
     | 'search';
         "label"?: string;
+        /**
+          * @default 'floating'
+         */
         "labelPlacement"?: 'stacked' | 'floating';
         "maxlength"?: number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
         "name"?: string;
         "onAtomBlur"?: (event: AtomTextareaCustomEvent<void>) => void;
@@ -1202,15 +1731,30 @@ declare namespace LocalJSX {
         "onAtomInput"?: (event: AtomTextareaCustomEvent<string>) => void;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly"?: boolean;
+        /**
+          * @default false
+         */
         "required"?: boolean;
+        /**
+          * @default 4
+         */
         "rows"?: number;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | undefined;
         "step"?: string;
         "value"?: IonTypes.IonTextarea['value'];
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
+        /**
+          * @default 'hover'
+         */
         "action"?: 'hover' | 'click';
         "element"?: string;
         /**
@@ -1221,7 +1765,13 @@ declare namespace LocalJSX {
           * Event is dispatched when: 1. Mouse enter event in selector 2. Click in element when is mobile
          */
         "onAtomOpen"?: (event: AtomTooltipCustomEvent<any>) => void;
+        /**
+          * @default false
+         */
         "open"?: boolean;
+        /**
+          * @default 'top'
+         */
         "placement"?: | 'auto'
     | 'auto-start'
     | 'auto-end'
