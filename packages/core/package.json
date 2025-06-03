@@ -55,15 +55,11 @@
     },
     "./vue": {
       "types": "./vue/dist/types/index.d.ts",
-      "import": "./vue/dist/esm/index.js"
+      "import": "./vue/dist/index.js"
     },
     "./core.css": {
       "import": "./core.css",
       "require": "./core.css"
-    },
-    "./dist/core/core.css": {
-      "import": "./dist/core/core.css",
-      "require": "./dist/core/core.css"
     }
   },
   "nx": {
