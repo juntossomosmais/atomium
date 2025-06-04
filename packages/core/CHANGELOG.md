@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.1...atomium-v3.12.2) (2025-06-04)
+
+
+### Bug Fixes
+
+* **core:** include core css on exports ([#759](https://github.com/juntossomosmais/atomium/issues/759)) ([7f326f6](https://github.com/juntossomosmais/atomium/commit/7f326f6a56aff67d1fa8053e9a898cb705e1a85a))
+* **core:** stencil core update ([#763](https://github.com/juntossomosmais/atomium/issues/763)) ([6249f90](https://github.com/juntossomosmais/atomium/commit/6249f90071def6d109643d7eaf43d4b3ba3e7b4b))
+
 ## [3.12.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.0...atomium-v3.12.1) (2025-05-30)
 
 
