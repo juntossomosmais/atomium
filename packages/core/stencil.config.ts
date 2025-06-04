@@ -130,11 +130,15 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
+    {
+      type: 'dist-custom-elements',
+      dir: 'components',
+      externalRuntime: false,
+    },
     vueOutputTarget({
+      includeImportCustomElements: true,
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../vue/src/components/index.ts',
-      includeDefineCustomElements: false,
-      includePolyfills: false,
       excludeComponents,
     }),
     reactOutputTarget({

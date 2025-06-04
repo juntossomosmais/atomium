@@ -21,6 +21,7 @@
   "unpkg": "dist/core/core.esm.js",
   "files": [
     "dist/",
+    "components/",
     "loader/",
     "react/",
     "vue/",
@@ -42,6 +43,14 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs.js",
       "types": "./dist/types/index.d.ts"
+    },
+    "./components": {
+      "import": "./components/index.js",
+      "types": "./components/index.d.ts"
+    },
+    "./components/atom-alert.js": {
+      "import": "./components/atom-alert.js",
+      "types": "./components/atom-alert.d.ts"
     },
     "./loader": {
       "types": "./loader/index.d.ts",

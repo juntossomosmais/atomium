@@ -47,7 +47,7 @@
     "@rollup/plugin-typescript": "^12.1.2",
     "@stencil/react-output-target": "^0.5.3",
     "@stencil/sass": "^3.2.1",
-    "@stencil/vue-output-target": "^0.8.9",
+    "@stencil/vue-output-target": "^0.10.7",
     "@storybook/addon-a11y": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.6",

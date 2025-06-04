@@ -10,7 +10,7 @@
   "scripts": {
     "start": "tsc -p . --watch",
     "build": "nx build @juntossomosmais/atomium && npm run compile && npm run copy",
-    "compile": "tsc --outDir ../core/vue/dist --declarationDir ../core/vue/dist/types",
+    "compile": "tsc -p tsconfig.json",
     "copy": "npx copyfiles --flat ./package.json ../core/vue"
   },
   "nx": {

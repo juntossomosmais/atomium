@@ -275,25 +275,12 @@ export namespace Components {
     }
     interface AtomStepper {
         "activeStep": number;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "active-step"?: number;
         "disabledUnrenderedStep"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "disabled-unrendered-step"?: boolean;
         "stepTitle"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "step-title"?: string;
-        "steps": | string
-    | {
-        title: string
-        completed: boolean
-      }[];
+        "steps": Array<{
+    title: string
+    completed: boolean
+  }>;
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
@@ -1108,25 +1095,12 @@ declare namespace LocalJSX {
     }
     interface AtomStepper {
         "activeStep"?: number;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "active-step"?: number;
         "disabledUnrenderedStep"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "disabled-unrendered-step"?: boolean;
         "stepTitle"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "step-title"?: string;
-        "steps"?: | string
-    | {
-        title: string
-        completed: boolean
-      }[];
+        "steps"?: Array<{
+    title: string
+    completed: boolean
+  }>;
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
