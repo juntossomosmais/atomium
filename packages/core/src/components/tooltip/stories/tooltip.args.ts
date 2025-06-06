@@ -30,7 +30,11 @@ export const TooltipStoryArgs = {
         'bottom-start',
         'bottom-end',
         'right',
+        'right-start',
+        'right-end',
         'left',
+        'left-start',
+        'left-end',
       ],
       description: 'Determines placement for tooltip',
       table: {

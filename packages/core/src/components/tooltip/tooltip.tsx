@@ -44,7 +44,11 @@ export class AtomTooltip {
     | 'bottom-start'
     | 'bottom-end'
     | 'right'
-    | 'left' = 'top'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end' = 'top'
 
   @Watch('placement')
   placementShouldUpdatePopperInstance(newPlacement: typeof this.placement) {
@@ -52,6 +56,7 @@ export class AtomTooltip {
       ...options,
       placement: newPlacement,
     }))
+
     this._popperInstance.update()
   }
 
@@ -228,7 +233,7 @@ export class AtomTooltip {
         role={isMobile() ? 'dialog' : 'tooltip'}
       >
         <div
-          data-placement={this.placement}
+          data-placement={this._popperInstance.state.placement}
           data-hide={!this.open}
           data-show={this.open}
           class={{ 'atom-tooltip': true }}
