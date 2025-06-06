@@ -1,1 +1,0 @@
-import{r as a,h as s,g as o,H as r}from"./index-B01BA9dC.js";import"./vue.esm-bundler-UQm0beuB.js";import"./iframe-DiScqvXb.js";const t=":host{display:flex;flex-wrap:wrap}",d=class{constructor(e){a(this,e)}render(){return s(r,{key:"a690022e2abdce6946d24264574e4aa0886a8ea5",class:o(this)},s("slot",{key:"d1a0e831dd1dbfe7877d3ad01d0a3045a5fb29e3"}))}};d.style=t;export{d as ion_row};
