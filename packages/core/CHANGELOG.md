@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.3](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.2...atomium-v3.12.3) (2025-06-06)
+
+
+### Bug Fixes
+
+* **tooltip:** use popper instance to get correct placement ([#767](https://github.com/juntossomosmais/atomium/issues/767)) ([051b027](https://github.com/juntossomosmais/atomium/commit/051b027f7b6707277fb290407073edda7fde2bed))
+
 ## [3.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.1...atomium-v3.12.2) (2025-06-04)
 
 
