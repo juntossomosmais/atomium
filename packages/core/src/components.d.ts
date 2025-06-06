@@ -657,7 +657,11 @@ export namespace Components {
     | 'bottom-start'
     | 'bottom-end'
     | 'right'
-    | 'left';
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
     }
 }
 export interface AtomAlertCustomEvent<T> extends CustomEvent<T> {
@@ -1782,7 +1786,11 @@ declare namespace LocalJSX {
     | 'bottom-start'
     | 'bottom-end'
     | 'right'
-    | 'left';
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
     }
     interface IntrinsicElements {
         "atom-alert": AtomAlert;
