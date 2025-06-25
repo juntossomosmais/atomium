@@ -118,6 +118,7 @@ export const config: Config = {
         '../../node_modules/@atomium/scss-utils/index.scss',
         '../../node_modules/@ionic/core/css/core.css',
       ],
+      includePaths: ['../../node_modules'],
     }),
   ],
   extras: {
