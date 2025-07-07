@@ -81,6 +81,14 @@ export class AtomDatetime {
 
   private _datetimeEl!: HTMLIonDatetimeElement
 
+  get datetimeEl(): HTMLIonDatetimeElement {
+    return this._datetimeEl
+  }
+
+  set datetimeEl(value: HTMLIonDatetimeElement) {
+    this._datetimeEl = value
+  }
+
   componentWillLoad() {
     if (this.rangeMode && Array.isArray(this.value)) {
       this.selectedDates = this.calculateDateRange(this.value)
@@ -220,58 +228,53 @@ export class AtomDatetime {
   private renderDatetime() {
     return (
       <ion-datetime
-        id={this.datetimeId}
-        class={{
-          'datetime-range': this.rangeMode,
-          'datetime-disabled': this.disabled,
-        }}
-        presentation={this.presentation}
+        ref={(el) => (this.datetimeEl = el as HTMLIonDatetimeElement)}
+        class='atom-datetime'
+        color='secondary'
+        cancelText={this.cancelText}
+        clearText={this.clearText}
+        dayValues={this.dayValues}
         disabled={this.disabled}
-        readonly={this.readonly}
-        multiple={this.multiple}
-        preferWheel={this.preferWheel}
+        doneText={this.doneText}
+        formatOptions={this.formatOptions}
+        highlightedDates={this.highlightedDates}
         hourCycle={this.hourCycle}
+        hourValues={this.hourValues}
+        id={this.datetimeId}
+        isDateEnabled={this.isDateEnabled}
         locale={this.locale}
-        min={this.min}
         max={this.max}
-        value={this.value as string}
+        min={this.min}
+        minuteValues={this.minuteValues}
+        monthValues={this.monthValues}
+        multiple={this.multiple || this.rangeMode}
+        mode='md'
+        name={this.name}
+        presentation={this.presentation}
+        preferWheel={this.preferWheel}
+        readonly={this.readonly}
+        showClearButton={this.showClearButton}
+        showDefaultButtons={this.showDefaultButtons}
+        showDefaultTimeLabel={this.showDefaultTimeLabel}
+        showDefaultTitle={this.showDefaultTitle}
+        size={this.size}
+        yearValues={this.yearValues}
+        value={this.rangeMode ? this.selectedDates : this.value}
         onIonChange={this.handleDateChange}
+        onIonCancel={this.handleCancel}
         onIonBlur={this.handleBlur}
         onIonFocus={this.handleFocus}
       >
-        <div class='datetime-header'>
-          <div class='datetime-title'>
-            <slot name='title'>
-              {this.showDefaultTitle ? 'Selecione uma data' : null}
-            </slot>
-          </div>
-          <div class='datetime-buttons'>
-            <ion-button slot='start' fill='clear' onClick={this.handleCancel}>
-              {this.cancelText || 'Cancelar'}
-            </ion-button>
-            <ion-button slot='end' fill='clear' onClick={this.handleBlur}>
-              {this.doneText || 'Concluído'}
-            </ion-button>
-          </div>
-        </div>
-        <div class='datetime-content'>
-          <slot />
-        </div>
-        {this.showClearButton && !this.readonly ? (
-          <div class='datetime-footer'>
-            <ion-button
-              expand='full'
-              fill='clear'
-              onClick={() => {
-                this.value = undefined
-                this.selectedDates = []
-                this.atomChange.emit(this.selectedDates)
-              }}
-            >
-              {this.clearText || 'Limpar'}
-            </ion-button>
-          </div>
-        ) : null}
+        {this.showDefaultTimeLabel && (
+          <span slot='time-label'>
+            <slot name='time-label' />
+          </span>
+        )}
+        {this.showDefaultTitle && (
+          <span slot='title'>
+            <slot name='title' />
+          </span>
+        )}
       </ion-datetime>
     )
   }

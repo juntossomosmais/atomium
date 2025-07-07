@@ -3,25 +3,13 @@
 exports[`AtomDatetime renders with all props 1`] = `
 <atom-datetime label="Select a date">
   <!---->
-  <ion-datetime hourcycle="h23" id="datetime" locale="pt-BR" presentation="date">
-    <div class="datetime-header">
-      <div class="datetime-title"></div>
-      <div class="datetime-buttons"></div>
-    </div>
-    <div class="datetime-content"></div>
-  </ion-datetime>
+  <ion-datetime class="atom-datetime" color="secondary" hourcycle="h23" id="datetime" locale="pt-BR" mode="md" presentation="date" size="fixed"></ion-datetime>
 </atom-datetime>
 `;
 
 exports[`AtomDatetime should renders with a button when useButton is true 1`] = `
 <atom-datetime usebutton="true">
   <!---->
-  <ion-datetime hourcycle="h23" id="datetime" locale="pt-BR" presentation="date">
-    <div class="datetime-header">
-      <div class="datetime-title"></div>
-      <div class="datetime-buttons"></div>
-    </div>
-    <div class="datetime-content"></div>
-  </ion-datetime>
+  <ion-datetime class="atom-datetime" color="secondary" hourcycle="h23" id="datetime" locale="pt-BR" mode="md" presentation="date" size="fixed"></ion-datetime>
 </atom-datetime>
 `;
