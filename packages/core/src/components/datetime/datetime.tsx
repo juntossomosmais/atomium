@@ -125,7 +125,9 @@ export class AtomDatetime {
     this.atomChange.emit(this.selectedDates)
   }
 
-  private handleDateChange: JSX.IonDatetime['onIonChange'] = (event) => {
+  private handleDateChange = (
+    event: CustomEvent<DatetimeChangeEventDetail>
+  ) => {
     const dates = Array.isArray(event.detail.value)
       ? event.detail.value
       : [event.detail.value]
