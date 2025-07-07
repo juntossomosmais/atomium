@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.13.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.1...atomium-v3.13.2) (2025-07-07)
+
+
+### Bug Fixes
+
+* **datetime:** add ellipsis for overflowing custom date label ([b7f4436](https://github.com/juntossomosmais/atomium/commit/b7f4436b9dfc66d9d649d942c9ef6c3d47da9997))
+
 ## [3.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.0...atomium-v3.13.1) (2025-07-07)
 
 
