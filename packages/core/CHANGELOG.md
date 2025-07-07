@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.3...atomium-v3.13.0) (2025-07-07)
+
+
+### Features
+
+* **datetime:** improve default value handling in range mode ([#771](https://github.com/juntossomosmais/atomium/issues/771)) ([f543a66](https://github.com/juntossomosmais/atomium/commit/f543a66492b602ec1919959c0b21ed2c122aebd0))
+
 ## [3.12.3](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.2...atomium-v3.12.3) (2025-06-06)
 
 
