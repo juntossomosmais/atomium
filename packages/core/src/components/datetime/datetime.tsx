@@ -169,6 +169,26 @@ export class AtomDatetime {
     })
   }
 
+  private getRangeLabel(): string | null {
+    if (!this.rangeMode || this.selectedDates.length < 2) return null
+
+    const [start, end] = [
+      this.selectedDates[0],
+      this.selectedDates[this.selectedDates.length - 1],
+    ]
+
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+    const format = (date: Date) =>
+      date.toLocaleDateString(this.locale || 'pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+
+    return `${format(startDate)} - ${format(endDate)}`
+  }
+
   get datetimeEl(): HTMLIonDatetimeElement {
     return this._datetimeEl
   }
@@ -231,6 +251,27 @@ export class AtomDatetime {
     )
   }
 
+  private getDateTargetSlot(): React.ReactNode {
+    if (!this.rangeMode) return <slot name='date-target' />
+
+    if (this.selectedDates.length === 0) {
+      return <span slot='date-target'>Selecionar data</span>
+    }
+
+    if (this.selectedDates.length === 1) {
+      const date = new Date(this.selectedDates[0])
+      const formatted = date.toLocaleDateString(this.locale || 'pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+
+      return <span slot='date-target'>{formatted}</span>
+    }
+
+    return <span slot='date-target'>{this.getRangeLabel()}</span>
+  }
+
   render() {
     return (
       <Host>
@@ -244,7 +285,7 @@ export class AtomDatetime {
                 disabled={this.disabled}
                 mode='md'
               >
-                <slot name='date-target' />
+                {this.getDateTargetSlot()}
                 <slot name='time-target' />
               </ion-datetime-button>
               <span class='atom-label'>{this.label}</span>
