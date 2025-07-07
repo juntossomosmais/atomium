@@ -11,11 +11,11 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
-  Method,
   Prop,
   State,
-  h,
+  Watch,
 } from '@stencil/core'
 
 @Component({
@@ -82,18 +82,59 @@ export class AtomDatetime {
 
   private _datetimeEl!: HTMLIonDatetimeElement
 
-  get datetimeEl(): HTMLIonDatetimeElement {
-    return this._datetimeEl
+  componentWillLoad() {
+    if (this.rangeMode && Array.isArray(this.value)) {
+      this.selectedDates = this.calculateDateRange(this.value)
+    }
   }
 
-  set datetimeEl(value: HTMLIonDatetimeElement) {
-    this._datetimeEl = value
+  componentDidLoad() {
+    // Ensure the state is properly set after the component loads
+    if (this.rangeMode && this.value && Array.isArray(this.value)) {
+      this.selectedDates = this.calculateDateRange(this.value)
+    }
   }
 
-  @Method()
-  async setValue(value) {
-    if (this.datetimeEl) {
-      this.datetimeEl.value = value
+  @Watch('value')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onValueChange(newValue: any) {
+    // Update selectedDates when value prop changes in range mode
+    if (this.rangeMode && newValue) {
+      if (Array.isArray(newValue)) {
+        this.selectedDates = this.calculateDateRange(newValue)
+      }
+    }
+  }
+
+  private handleRangeMode(dates: string[]) {
+    if (dates.length === 2) {
+      // Calculate the full range between start and end dates
+      this.selectedDates = [...this.calculateDateRange(dates)]
+    } else if (dates.length === 1) {
+      // If we previously had a range (more than 2 dates), start new selection
+      // If we had 0 or 1 date, add to current selection
+      this.selectedDates =
+        this.selectedDates.length >= 2
+          ? [...dates]
+          : [...this.selectedDates, ...dates]
+    } else {
+      this.selectedDates = []
+    }
+
+    // Trigger re-render for button text update
+    this.selectedDates = [...this.selectedDates]
+    this.atomChange.emit(this.selectedDates)
+  }
+
+  private handleDateChange: JSX.IonDatetime['onIonChange'] = (event) => {
+    const dates = Array.isArray(event.detail.value)
+      ? event.detail.value
+      : [event.detail.value]
+
+    if (this.rangeMode) {
+      this.handleRangeMode(dates)
+    } else {
+      this.atomChange.emit(event.detail.value)
     }
   }
 
@@ -110,6 +151,8 @@ export class AtomDatetime {
   }
 
   private calculateDateRange(dates: string[]): string[] {
+    if (dates.length < 2) return dates
+
     const [start, end] = dates.map((date) => new Date(date))
 
     const increment = start <= end ? 1 : -1
@@ -126,31 +169,12 @@ export class AtomDatetime {
     })
   }
 
-  private handleRangeMode(dates: string[]) {
-    if (dates.length === 2) {
-      this.selectedDates = this.calculateDateRange(dates)
-    } else if (dates.length === 1) {
-      this.selectedDates =
-        this.selectedDates.length === 2
-          ? dates
-          : this.selectedDates.concat(dates)
-    } else {
-      this.selectedDates = []
-    }
-
-    this.atomChange.emit(this.selectedDates)
+  get datetimeEl(): HTMLIonDatetimeElement {
+    return this._datetimeEl
   }
 
-  private handleDateChange: JSX.IonDatetime['onIonChange'] = (event) => {
-    const dates = Array.isArray(event.detail.value)
-      ? event.detail.value
-      : [event.detail.value]
-
-    if (this.rangeMode) {
-      this.handleRangeMode(dates)
-    } else {
-      this.atomChange.emit(event.detail.value)
-    }
+  set datetimeEl(value: HTMLIonDatetimeElement) {
+    this._datetimeEl = value
   }
 
   private renderDatetime() {

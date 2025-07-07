@@ -174,6 +174,144 @@ export const UsingRangeMode = {
   }),
 }
 
+export const RangeModeWithDefaultDates = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        defaultDates: ['2025-01-15', '2025-01-20'],
+      }
+    },
+    template: `
+      <AtomDatetime rangeMode="true" :value="defaultDates" />
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (January 15-20, 2025).',
+      },
+    },
+  },
+}
+
+export const RangeModeWithDefaultDatesAndButton = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        defaultDates: ['2025-02-01', '2025-02-07'],
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        useButton="true"
+        label="Selecionar período"
+        datetimeId="datetime-range-with-button"
+        cancelText="Cancelar"
+        clearText="Limpar"
+        doneText="Confirmar"
+        locale="pt-BR"
+        :value="defaultDates"
+      >
+        <span slot="date-target">1 a 7 de fev de 2025</span>
+      </AtomDatetime>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with button interface, default dates (February 1-7, 2025), and custom Portuguese text in the button.',
+      },
+    },
+  },
+}
+
+export const RangeModeWeekExample = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        weekDates: ['2025-03-10', '2025-03-16'],
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        :value="weekDates"
+        presentation="date"
+      />
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example demonstrates a week selection (March 10-16, 2025) using range mode.',
+      },
+    },
+  },
+}
+
+export const RangeModeMonthExample = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        monthDates: ['2025-04-01', '2025-04-30'],
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        :value="monthDates"
+        presentation="date"
+      />
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows a full month selection (April 2025) using range mode.',
+      },
+    },
+  },
+}
+
+export const RangeModeWithMinMax = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        summerDates: ['2025-06-01', '2025-08-31'],
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        min="2025-01-01"
+        max="2025-12-31"
+        :value="summerDates"
+        useButton="true"
+        label="Select summer period"
+        datetimeId="datetime-range-constrained"
+      />
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example demonstrates range mode with min/max constraints and default summer period selection.',
+      },
+    },
+  },
+}
+
 export const UsingWithButton = {
   render: (args) => ({
     components: { AtomDatetime, AtomCol, AtomGrid },
@@ -220,4 +358,38 @@ export const UsingWithButton = {
       </AtomGrid>
     `,
   }),
+}
+
+export const RangeModeCustomButtonText = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        workDates: ['2025-07-07', '2025-07-13'],
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        useButton="true"
+        label="Período de trabalho"
+        datetimeId="datetime-range-custom-text"
+        cancelText="Cancelar"
+        clearText="Limpar"
+        doneText="Confirmar"
+        locale="pt-BR"
+        :value="workDates"
+      >
+        <span slot="date-target">7 dias selecionados</span>
+      </AtomDatetime>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows how to customize the button text to display "7 dias selecionados" instead of the default "7 days" text.',
+      },
+    },
+  },
 }

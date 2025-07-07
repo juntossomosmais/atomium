@@ -1,6 +1,5 @@
 import { AtomCol, AtomDatetime, AtomGrid } from '@juntossomosmais/atomium/react'
 import { Meta } from '@storybook/react'
-import React from 'react'
 
 import {
   DatetimeComponentArgs,
@@ -66,7 +65,10 @@ export const AdvancedDateConstraints = {
 
 export const HighlightingSpecificDatesArray = {
   render: (args) => (
-    <AtomDatetime highlightedDates={args.highlightedDates} value='2025-01-01' />
+    <AtomDatetime
+      highlightedDates={args.highlightedDates}
+      value={'2025-01-01' as any}
+    />
   ),
   args: {
     highlightedDates: [
@@ -130,6 +132,109 @@ export const UsingRangeMode = {
   render: () => <AtomDatetime rangeMode={true} />,
 }
 
+export const RangeModeWithDefaultDates = {
+  render: () => (
+    <AtomDatetime
+      rangeMode={true}
+      value={['2025-01-15', '2025-01-20'] as any}
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (January 15-20, 2025).',
+      },
+    },
+  },
+}
+
+export const RangeModeWithDefaultDatesAndButton = {
+  render: () => (
+    <AtomDatetime
+      rangeMode={true}
+      useButton={true}
+      label='Selecionar período'
+      datetimeId='datetime-range-with-button'
+      cancelText='Cancelar'
+      clearText='Limpar'
+      doneText='Confirmar'
+      locale='pt-BR'
+      value={['2025-02-01', '2025-02-07'] as any}
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with button interface and default dates (February 1-7, 2025).',
+      },
+    },
+  },
+}
+
+export const RangeModeWeekExample = {
+  render: () => (
+    <AtomDatetime
+      rangeMode={true}
+      value={['2025-03-10', '2025-03-16'] as any}
+      presentation='date'
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example demonstrates a week selection (March 10-16, 2025) using range mode.',
+      },
+    },
+  },
+}
+
+export const RangeModeMonthExample = {
+  render: () => (
+    <AtomDatetime
+      rangeMode={true}
+      value={['2025-04-01', '2025-04-30'] as any}
+      presentation='date'
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows a full month selection (April 2025) using range mode.',
+      },
+    },
+  },
+}
+
+export const RangeModeWithMinMax = {
+  render: () => (
+    <AtomDatetime
+      rangeMode={true}
+      min='2025-01-01'
+      max='2025-12-31'
+      value={['2025-06-01', '2025-08-31'] as any}
+      useButton={true}
+      label='Selecionar período de verão'
+      datetimeId='datetime-range-constrained'
+      cancelText='Cancelar'
+      clearText='Limpar'
+      doneText='Confirmar'
+      locale='pt-BR'
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example demonstrates range mode with min/max constraints and default summer period selection.',
+      },
+    },
+  },
+}
+
 export const UsingWithButton = {
   render: () => (
     <AtomGrid>
@@ -165,7 +270,7 @@ export const UsingWithButton = {
           datetimeId='datetime-with-custom-date-format'
           presentation='date'
         >
-          <span slot="date-target">Custom-Date</span>
+          <span slot='date-target'>Custom-Date</span>
         </AtomDatetime>
       </AtomCol>
     </AtomGrid>
