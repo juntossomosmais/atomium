@@ -222,7 +222,11 @@ export class AtomDatetime {
       return <span slot='date-target'>{formatted}</span>
     }
 
-    return <span slot='date-target'>{this.getRangeLabel()}</span>
+    return (
+      <span slot='date-target' class='custom-date-target'>
+        {this.getRangeLabel()}
+      </span>
+    )
   }
 
   private renderDatetime() {

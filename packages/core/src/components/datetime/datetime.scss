@@ -100,3 +100,10 @@
     }
   }
 }
+
+.custom-date-target {
+  overflow: hidden;
+  padding-right: var(--spacing-xlarge);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
