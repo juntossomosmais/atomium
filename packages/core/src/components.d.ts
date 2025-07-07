@@ -187,7 +187,6 @@ export namespace Components {
         "presentation"?: DatetimePresentation;
         "rangeMode"?: boolean;
         "readonly"?: boolean;
-        "setValue": (value: any) => Promise<void>;
         "showClearButton"?: boolean;
         "showDefaultButtons"?: boolean;
         /**
