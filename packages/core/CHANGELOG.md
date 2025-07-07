@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.0...atomium-v3.13.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* **datetime:** add correct render to ion-datetime ([ef9a53c](https://github.com/juntossomosmais/atomium/commit/ef9a53c3458700dcfd00dd29238fdc245134bc26))
+
 ## [3.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.3...atomium-v3.13.0) (2025-07-07)
 
 
