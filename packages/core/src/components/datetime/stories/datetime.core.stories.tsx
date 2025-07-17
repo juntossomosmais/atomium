@@ -136,18 +136,27 @@ export const UsingRangeMode: StoryObj = {
   render: () => html` <atom-datetime range-mode></atom-datetime> `,
 }
 
+const getLast30DaysRange = () => {
+  const today = new Date()
+  const thirtyDaysAgo = new Date()
+
+  thirtyDaysAgo.setDate(today.getDate() - 30)
+  const format = (d: Date) => d.toISOString().slice(0, 10)
+
+  return [format(thirtyDaysAgo), format(today)]
+}
+
+const todayISO = new Date().toISOString().slice(0, 10)
+
 export const RangeModeWithDefaultDates: StoryObj = {
   render: () => html`
-    <atom-datetime
-      range-mode
-      .value=${['2025-01-15', '2025-01-20']}
-    ></atom-datetime>
+    <atom-datetime range-mode .value=${getLast30DaysRange()}></atom-datetime>
   `,
   parameters: {
     docs: {
       description: {
         story:
-          'This example shows the Datetime component in range mode with default start and end dates pre-selected (January 15-20, 2025).',
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (last 30 days).',
       },
     },
   },
@@ -164,50 +173,14 @@ export const RangeModeWithDefaultDatesAndButton: StoryObj = {
       clear-text="Limpar"
       done-text="Confirmar"
       locale="pt-BR"
-      .value=${['2025-02-01', '2025-02-07']}
+      .value=${getLast30DaysRange()}
     ></atom-datetime>
   `,
   parameters: {
     docs: {
       description: {
         story:
-          'This example shows the Datetime component in range mode with button interface, default dates (February 1-7, 2025), and custom Portuguese text in the button.',
-      },
-    },
-  },
-}
-
-export const RangeModeWeekExample: StoryObj = {
-  render: () => html`
-    <atom-datetime
-      range-mode
-      .value=${['2025-03-10', '2025-03-16']}
-      presentation="date"
-    ></atom-datetime>
-  `,
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'This example demonstrates a week selection (March 10-16, 2025) using range mode.',
-      },
-    },
-  },
-}
-
-export const RangeModeMonthExample: StoryObj = {
-  render: () => html`
-    <atom-datetime
-      range-mode
-      .value=${['2025-04-01', '2025-04-30']}
-      presentation="date"
-    ></atom-datetime>
-  `,
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'This example shows a full month selection (April 2025) using range mode.',
+          'This example shows the Datetime component in range mode with button interface, default dates (last 30 days), and custom Portuguese text in the button.',
       },
     },
   },
@@ -225,15 +198,15 @@ export const RangeModeWithMinMax: StoryObj = {
       done-text="Confirmar"
       locale="pt-BR"
       min="2025-01-01"
-      max="2025-12-31"
-      .value=${['2025-01-15', '2025-01-20']}
+      max="${todayISO}"
+      .value=${getLast30DaysRange()}
     ></atom-datetime>
   `,
   parameters: {
     docs: {
       description: {
         story:
-          'This example shows the Datetime component in range mode with min/max date restrictions.',
+          'This example shows the Datetime component in range mode with min/max date restrictions (last 30 days, max is today).',
       },
     },
   },

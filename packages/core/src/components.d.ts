@@ -6,11 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
-import { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
+import { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 import { AtomModal } from "./components/modal/modal";
 export { IconProps } from "./icons";
-export { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
+export { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export { AtomModal } from "./components/modal/modal";
 export namespace Components {
@@ -205,8 +205,7 @@ export namespace Components {
           * @default false
          */
         "useButton": boolean;
-        "value"?: | DatetimeCustomEvent
-    | DatetimeChangeEventDetail;
+        "value"?: TValue;
         "yearValues"?: number[] | string;
     }
     interface AtomDivider {
@@ -811,8 +810,8 @@ declare global {
     interface HTMLAtomDatetimeElementEventMap {
         "atomFocus": void;
         "atomBlur": void;
-        "atomChange": string | string[];
-        "atomCancel": string;
+        "atomChange": string | string[] | undefined;
+        "atomCancel": void;
     }
     interface HTMLAtomDatetimeElement extends Components.AtomDatetime, HTMLStencilElement {
         addEventListener<K extends keyof HTMLAtomDatetimeElementEventMap>(type: K, listener: (this: HTMLAtomDatetimeElement, ev: AtomDatetimeCustomEvent<HTMLAtomDatetimeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1270,8 +1269,8 @@ declare namespace LocalJSX {
         "multiple"?: boolean;
         "name"?: string;
         "onAtomBlur"?: (event: AtomDatetimeCustomEvent<void>) => void;
-        "onAtomCancel"?: (event: AtomDatetimeCustomEvent<string>) => void;
-        "onAtomChange"?: (event: AtomDatetimeCustomEvent<string | string[]>) => void;
+        "onAtomCancel"?: (event: AtomDatetimeCustomEvent<void>) => void;
+        "onAtomChange"?: (event: AtomDatetimeCustomEvent<string | string[] | undefined>) => void;
         "onAtomFocus"?: (event: AtomDatetimeCustomEvent<void>) => void;
         /**
           * @default false
@@ -1301,8 +1300,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "useButton"?: boolean;
-        "value"?: | DatetimeCustomEvent
-    | DatetimeChangeEventDetail;
+        "value"?: TValue;
         "yearValues"?: number[] | string;
     }
     interface AtomDivider {

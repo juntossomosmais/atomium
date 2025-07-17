@@ -17,6 +17,13 @@ import {
   Watch,
 } from '@stencil/core'
 
+type TValue =
+  | string
+  | string[]
+  | DatetimeCustomEvent
+  | DatetimeChangeEventDetail
+  | undefined
+
 @Component({
   tag: 'atom-datetime',
   styleUrl: 'datetime.scss',
@@ -67,17 +74,17 @@ export class AtomDatetime {
   @Prop() showDefaultTitle = false
   @Prop() useButton = false
   @Prop() size?: 'cover' | 'fixed' = 'fixed'
-  @Prop({ mutable: true, reflect: true }) value?:
-    | DatetimeCustomEvent
-    | DatetimeChangeEventDetail
+  @Prop({ mutable: true, reflect: true }) value?: TValue
+
   @Prop() yearValues?: number[] | string
 
   @State() selectedDates: string[] = []
+  @State() private ionDatetimeValue: string[] | undefined = undefined
 
   @Event() atomFocus!: EventEmitter<void>
   @Event() atomBlur!: EventEmitter<void>
-  @Event() atomChange!: EventEmitter<string | string[]>
-  @Event() atomCancel!: EventEmitter<string>
+  @Event() atomChange!: EventEmitter<string | string[] | undefined>
+  @Event() atomCancel!: EventEmitter<void>
 
   private _datetimeEl!: HTMLIonDatetimeElement
 
@@ -89,62 +96,156 @@ export class AtomDatetime {
     this._datetimeEl = value
   }
 
-  componentWillLoad() {
-    if (this.rangeMode && Array.isArray(this.value)) {
-      this.selectedDates = this.calculateDateRange(this.value)
+  private normalizeValue(val: TValue): string[] | undefined {
+    if (val === undefined || val === null) {
+      return undefined
     }
-  }
 
-  componentDidLoad() {
-    // Ensure the state is properly set after the component loads
-    if (this.rangeMode && this.value && Array.isArray(this.value)) {
-      this.selectedDates = this.calculateDateRange(this.value)
+    if (Array.isArray(val)) {
+      return val as string[]
     }
-  }
 
-  @Watch('value')
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onValueChange(newValue: any) {
-    // Update selectedDates when value prop changes in range mode
-    if (this.rangeMode && newValue) {
-      if (Array.isArray(newValue)) {
-        this.selectedDates = this.calculateDateRange(newValue)
+    if (typeof val === 'string') {
+      return [val]
+    }
+
+    if (
+      val &&
+      typeof (val as DatetimeCustomEvent).detail?.value !== 'undefined' &&
+      (val as DatetimeCustomEvent).detail.value !== null
+    ) {
+      if (typeof (val as DatetimeCustomEvent).detail.value === 'string') {
+        return [(val as DatetimeCustomEvent).detail.value as string]
+      }
+
+      if (Array.isArray((val as DatetimeCustomEvent).detail.value)) {
+        return (val as DatetimeCustomEvent).detail.value as string[]
       }
     }
+
+    return undefined
   }
 
-  private handleRangeMode(dates: string[]) {
-    if (dates.length === 2) {
-      // Calculate the full range between start and end dates
-      this.selectedDates = [...this.calculateDateRange(dates)]
-    } else if (dates.length === 1) {
-      // If we previously had a range (more than 2 dates), start new selection
-      // If we had 0 or 1 date, add to current selection
-      this.selectedDates =
-        this.selectedDates.length >= 2
-          ? [...dates]
-          : [...this.selectedDates, ...dates]
+  componentWillLoad() {
+    const normalizedValue = this.normalizeValue(this.value)
+
+    if (this.rangeMode && normalizedValue) {
+      this.selectedDates = this.calculateDateRange(normalizedValue)
+    } else if (normalizedValue) {
+      this.selectedDates = normalizedValue
     } else {
       this.selectedDates = []
     }
 
-    // Trigger re-render for button text update
+    // WORKAROUND: Ionic's ion-datetime can sometimes reset to a default year (e.g., 2021)
+    // if its 'value' prop is set too early during component initialization or state updates.
+    // Setting the value with a setTimeout(..., 0) allows the ion-datetime to fully render
+    // before its value is programmatically applied, preventing this bug.
+    setTimeout(() => {
+      let valueToSet: string[] | undefined
+
+      if (this.rangeMode) {
+        valueToSet = [...this.selectedDates]
+      } else {
+        valueToSet =
+          this.selectedDates.length > 0 ? [this.selectedDates[0]] : undefined
+      }
+
+      this.ionDatetimeValue = valueToSet
+    }, 0)
+  }
+
+  @Watch('value')
+  onValueChange(newValue: TValue) {
+    const normalizedValue = this.normalizeValue(newValue)
+
+    if (this.rangeMode && normalizedValue) {
+      this.selectedDates = this.calculateDateRange(normalizedValue)
+    } else if (normalizedValue) {
+      this.selectedDates = normalizedValue
+    } else {
+      this.selectedDates = []
+    }
+
+    // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
+    setTimeout(() => {
+      let valueToSet: string[] | undefined
+
+      if (this.rangeMode) {
+        valueToSet = [...this.selectedDates]
+      } else {
+        valueToSet =
+          this.selectedDates.length > 0 ? [this.selectedDates[0]] : undefined
+      }
+
+      this.ionDatetimeValue = valueToSet
+    }, 0)
+  }
+
+  private handleRangeMode(dates: string[]) {
+    const sortedDates = [...dates].sort()
+
+    if (sortedDates.length === 2) {
+      this.selectedDates = this.calculateDateRange(sortedDates)
+    } else if (sortedDates.length === 1) {
+      this.selectedDates =
+        this.selectedDates.length >= 2
+          ? sortedDates
+          : [...this.selectedDates, ...sortedDates]
+    } else {
+      this.selectedDates = []
+    }
+
     this.selectedDates = [...this.selectedDates]
     this.atomChange.emit(this.selectedDates)
+
+    // WORKAROUND: See explanation in componentWillLoad. Applied after user range selection.
+    setTimeout(() => {
+      this.ionDatetimeValue = [...this.selectedDates]
+    }, 0)
   }
 
   private handleDateChange = (
     event: CustomEvent<DatetimeChangeEventDetail>
   ) => {
-    const dates = Array.isArray(event.detail.value)
-      ? event.detail.value
-      : [event.detail.value]
+    const rawValue = event.detail.value
+    let dates: string[]
+
+    if (Array.isArray(rawValue)) {
+      dates = rawValue as string[]
+    } else if (rawValue === null || rawValue === undefined) {
+      dates = []
+    } else {
+      dates = [rawValue as string]
+    }
 
     if (this.rangeMode) {
       this.handleRangeMode(dates)
-    } else {
-      this.atomChange.emit(event.detail.value)
+
+      return
     }
+
+    // Fix: handle multiple mode (not range)
+    if (this.multiple && !this.rangeMode) {
+      this.selectedDates = dates
+      this.atomChange.emit(this.selectedDates)
+
+      // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
+      setTimeout(() => {
+        this.ionDatetimeValue = [...this.selectedDates]
+      }, 0)
+
+      return
+    }
+
+    const singleValue = dates.length > 0 ? dates[0] : undefined
+
+    this.atomChange.emit(singleValue)
+
+    // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
+    setTimeout(() => {
+      this.ionDatetimeValue = singleValue ? [singleValue] : undefined
+    }, 0)
   }
 
   private readonly handleBlur = () => {
@@ -162,20 +263,27 @@ export class AtomDatetime {
   private calculateDateRange(dates: string[]): string[] {
     if (dates.length < 2) return dates
 
-    const [start, end] = dates.map((date) => new Date(date))
+    let [start, end] = dates.map((dateStr) => this.parseLocalDate(dateStr))
 
-    const increment = start <= end ? 1 : -1
-    const daysDifference = Math.abs(
-      (end.getTime() - start.getTime()) / (1000 * 3600 * 24)
+    if (start.getTime() > end.getTime()) {
+      [start, end] = [end, start]
+    }
+
+    const dayMilliseconds = 1000 * 60 * 60 * 24
+    const daysDifference = Math.round(
+      Math.abs((end.getTime() - start.getTime()) / dayMilliseconds)
     )
 
-    return Array.from({ length: daysDifference + 1 }, (_, i) => {
+    const dateRange: string[] = []
+
+    for (let i = 0; i <= daysDifference; i++) {
       const currentDate = new Date(start)
 
-      currentDate.setDate(start.getDate() + i * increment)
+      currentDate.setDate(start.getDate() + i)
+      dateRange.push(this.formatDateToISOString(currentDate))
+    }
 
-      return currentDate.toISOString().split('T')[0]
-    })
+    return dateRange
   }
 
   private parseLocalDate(dateString: string): Date {
@@ -184,12 +292,21 @@ export class AtomDatetime {
     return new Date(year, month - 1, day)
   }
 
+  private formatDateToISOString(date: Date): string {
+    const year = date.getFullYear()
+    const month = (date.getMonth() + 1).toString().padStart(2, '0')
+    const day = date.getDate().toString().padStart(2, '0')
+
+    return `${year}-${month}-${day}`
+  }
+
   private getRangeLabel(): string | null {
     if (!this.rangeMode || this.selectedDates.length < 2) return null
 
+    const sortedSelectedDates = [...this.selectedDates].sort()
     const [start, end] = [
-      this.selectedDates[0],
-      this.selectedDates[this.selectedDates.length - 1],
+      sortedSelectedDates[0],
+      sortedSelectedDates[sortedSelectedDates.length - 1],
     ]
 
     const startDate = this.parseLocalDate(start)
@@ -263,7 +380,7 @@ export class AtomDatetime {
         showDefaultTitle={this.showDefaultTitle}
         size={this.size}
         yearValues={this.yearValues}
-        value={this.rangeMode ? this.selectedDates : this.value}
+        value={this.ionDatetimeValue}
         onIonChange={this.handleDateChange}
         onIonCancel={this.handleCancel}
         onIonBlur={this.handleBlur}
@@ -283,44 +400,46 @@ export class AtomDatetime {
     )
   }
 
-  render() {
+  private renderWithButton(): React.ReactNode {
     return (
-      <Host>
-        {this.useButton ? (
-          <div>
-            <div class='atom-item'>
-              <ion-datetime-button
-                class='atom-button'
-                color='secondary'
-                datetime={this.datetimeId}
-                disabled={this.disabled}
-                mode='md'
-              >
-                {this.getDateTargetSlot()}
-                <slot name='time-target' />
-              </ion-datetime-button>
-              <span class='atom-label'>{this.label}</span>
-              <atom-icon
-                class='atom-icon'
-                icon={
-                  this.presentation === 'time'
-                    ? 'clock-outline'
-                    : 'calendar-today-outline'
-                }
-              />
-            </div>
-            <ion-popover
-              keep-contents-mounted='true'
-              show-backdrop='false'
-              style={{ 'margin-top': '1px' }}
-            >
-              {this.renderDatetime()}
-            </ion-popover>
-          </div>
-        ) : (
-          this.renderDatetime()
-        )}
-      </Host>
+      <div>
+        <div class='atom-item'>
+          <ion-datetime-button
+            class='atom-button'
+            color='secondary'
+            datetime={this.datetimeId}
+            disabled={this.disabled}
+            mode='md'
+          >
+            {this.getDateTargetSlot()}
+            <slot name='time-target' />
+          </ion-datetime-button>
+          <span class='atom-label'>{this.label}</span>
+          <atom-icon
+            class='atom-icon'
+            icon={
+              this.presentation === 'time'
+                ? 'clock-outline'
+                : 'calendar-today-outline'
+            }
+          />
+        </div>
+        <ion-popover
+          keep-contents-mounted='true'
+          show-backdrop='false'
+          style={{ 'margin-top': '1px' }}
+        >
+          {this.renderDatetime()}
+        </ion-popover>
+      </div>
     )
+  }
+
+  render() {
+    if (this.useButton) {
+      return <Host>{this.renderWithButton()}</Host>
+    } else {
+      return <Host>{this.renderDatetime()}</Host>
+    }
   }
 }
