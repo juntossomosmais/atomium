@@ -174,12 +174,22 @@ export const UsingRangeMode = {
   }),
 }
 
+const getLast30DaysRange = () => {
+  const today = new Date()
+  const thirtyDaysAgo = new Date()
+
+  thirtyDaysAgo.setDate(today.getDate() - 30)
+  const format = (d) => d.toISOString().slice(0, 10)
+
+  return [format(thirtyDaysAgo), format(today)]
+}
+
 export const RangeModeWithDefaultDates = {
   render: () => ({
     components: { AtomDatetime },
     data() {
       return {
-        defaultDates: ['2025-01-15', '2025-01-20'],
+        defaultDates: getLast30DaysRange(),
       }
     },
     template: `
@@ -190,7 +200,7 @@ export const RangeModeWithDefaultDates = {
     docs: {
       description: {
         story:
-          'This example shows the Datetime component in range mode with default start and end dates pre-selected (January 15-20, 2025).',
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (last 30 days).',
       },
     },
   },
@@ -201,7 +211,7 @@ export const RangeModeWithDefaultDatesAndButton = {
     components: { AtomDatetime },
     data() {
       return {
-        defaultDates: ['2025-02-01', '2025-02-07'],
+        defaultDates: getLast30DaysRange(),
       }
     },
     template: `
@@ -216,7 +226,7 @@ export const RangeModeWithDefaultDatesAndButton = {
         locale="pt-BR"
         :value="defaultDates"
       >
-        <span slot="date-target">1 a 7 de fev de 2025</span>
+        <span slot="date-target">Últimos 30 dias</span>
       </AtomDatetime>
     `,
   }),
@@ -224,7 +234,7 @@ export const RangeModeWithDefaultDatesAndButton = {
     docs: {
       description: {
         story:
-          'This example shows the Datetime component in range mode with button interface, default dates (February 1-7, 2025), and custom Portuguese text in the button.',
+          'This example shows the Datetime component in range mode with button interface, default dates (last 30 days), and custom Portuguese text in the button.',
       },
     },
   },
@@ -235,7 +245,7 @@ export const RangeModeWeekExample = {
     components: { AtomDatetime },
     data() {
       return {
-        weekDates: ['2025-03-10', '2025-03-16'],
+        weekDates: getLast30DaysRange(),
       }
     },
     template: `
@@ -250,7 +260,7 @@ export const RangeModeWeekExample = {
     docs: {
       description: {
         story:
-          'This example demonstrates a week selection (March 10-16, 2025) using range mode.',
+          'This example demonstrates a week selection using range mode (last 30 days).',
       },
     },
   },
@@ -261,7 +271,7 @@ export const RangeModeMonthExample = {
     components: { AtomDatetime },
     data() {
       return {
-        monthDates: ['2025-04-01', '2025-04-30'],
+        monthDates: getLast30DaysRange(),
       }
     },
     template: `
@@ -276,7 +286,7 @@ export const RangeModeMonthExample = {
     docs: {
       description: {
         story:
-          'This example shows a full month selection (April 2025) using range mode.',
+          'This example shows a full month selection using range mode (last 30 days).',
       },
     },
   },
@@ -287,7 +297,7 @@ export const RangeModeWithMinMax = {
     components: { AtomDatetime },
     data() {
       return {
-        summerDates: ['2025-06-01', '2025-08-31'],
+        summerDates: getLast30DaysRange(),
       }
     },
     template: `
@@ -306,7 +316,7 @@ export const RangeModeWithMinMax = {
     docs: {
       description: {
         story:
-          'This example demonstrates range mode with min/max constraints and default summer period selection.',
+          'This example demonstrates range mode with min/max constraints and default last 30 days selection.',
       },
     },
   },

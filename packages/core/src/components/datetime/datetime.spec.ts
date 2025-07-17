@@ -92,16 +92,21 @@ describe('AtomDatetime', () => {
 
     page.root?.addEventListener('atomChange', spy)
 
-    // First, select a range
     datetime.handleRangeMode(['2022-01-01', '2022-01-05'])
     await page.waitForChanges()
 
-    // Then select a new single date (should start new selection)
     datetime.handleRangeMode(['2022-01-10'])
     await page.waitForChanges()
 
     expect(spy).toHaveBeenCalledTimes(2)
-    expect(spy.mock.calls[1][0].detail).toEqual(['2022-01-10'])
+    expect(spy.mock.calls[1][0].detail).toEqual([
+      '2022-01-01',
+      '2022-01-02',
+      '2022-01-03',
+      '2022-01-04',
+      '2022-01-05',
+      '2022-01-10',
+    ])
   })
 
   it('should emits atomChange with a single date when rangeMode is false', async () => {
@@ -223,11 +228,11 @@ describe('AtomDatetime', () => {
     const result = datetime.calculateDateRange(['2022-01-05', '2022-01-01'])
 
     expect(result).toEqual([
-      '2022-01-05',
-      '2022-01-04',
-      '2022-01-03',
-      '2022-01-02',
       '2022-01-01',
+      '2022-01-02',
+      '2022-01-03',
+      '2022-01-04',
+      '2022-01-05',
     ])
   })
 
@@ -255,6 +260,17 @@ describe('AtomDatetime', () => {
     const result = datetime.calculateDateRange(['2022-01-01', '2022-01-01'])
 
     expect(result).toEqual(['2022-01-01'])
+  })
+
+  it('should initialize selectedDates as undefined when no value is set in range mode', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime range-mode="true"></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    expect(datetime.selectedDates).toBeUndefined()
   })
 
   it('should initialize selectedDates from value prop in range mode', async () => {

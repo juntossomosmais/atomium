@@ -1,12 +1,21 @@
 import { AtomCol, AtomDatetime, AtomGrid } from '@juntossomosmais/atomium/react'
 import { Meta } from '@storybook/react'
-import React from 'react'
 
 import {
   DatetimeComponentArgs,
   DatetimeExampleTexts,
   DatetimeStoryArgs,
 } from './datetime.args'
+
+const getLast30DaysRange = () => {
+  const today = new Date()
+  const thirtyDaysAgo = new Date()
+
+  thirtyDaysAgo.setDate(today.getDate() - 30)
+  const format = (d: Date) => d.toISOString().slice(0, 10)
+
+  return [format(thirtyDaysAgo), format(today)]
+}
 
 export default {
   title: 'Components/Datetime',
@@ -68,7 +77,7 @@ export const HighlightingSpecificDatesArray = {
   render: (args) => (
     <AtomDatetime
       highlightedDates={args.highlightedDates}
-      value={'2025-01-01' as any}
+      value={'2025-01-01'}
     />
   ),
   args: {
@@ -134,17 +143,12 @@ export const UsingRangeMode = {
 }
 
 export const RangeModeWithDefaultDates = {
-  render: () => (
-    <AtomDatetime
-      rangeMode={true}
-      value={['2025-01-15', '2025-01-20'] as any}
-    />
-  ),
+  render: () => <AtomDatetime rangeMode={true} value={getLast30DaysRange()} />,
   parameters: {
     docs: {
       description: {
         story:
-          'This example shows the Datetime component in range mode with default start and end dates pre-selected (January 15-20, 2025).',
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (last 30 days).',
       },
     },
   },
@@ -161,14 +165,14 @@ export const RangeModeWithDefaultDatesAndButton = {
       clearText='Limpar'
       doneText='Confirmar'
       locale='pt-BR'
-      value={['2025-02-01', '2025-02-07'] as any}
+      value={getLast30DaysRange()}
     />
   ),
   parameters: {
     docs: {
       description: {
         story:
-          'This example shows the Datetime component in range mode with button interface and default dates (February 1-7, 2025).',
+          'This example shows the Datetime component in range mode with button interface and default dates (last 30 days).',
       },
     },
   },
@@ -178,7 +182,7 @@ export const RangeModeWeekExample = {
   render: () => (
     <AtomDatetime
       rangeMode={true}
-      value={['2025-03-10', '2025-03-16'] as any}
+      value={getLast30DaysRange()}
       presentation='date'
     />
   ),
@@ -186,7 +190,7 @@ export const RangeModeWeekExample = {
     docs: {
       description: {
         story:
-          'This example demonstrates a week selection (March 10-16, 2025) using range mode.',
+          'This example demonstrates a week selection using range mode (last 30 days).',
       },
     },
   },
@@ -196,7 +200,7 @@ export const RangeModeMonthExample = {
   render: () => (
     <AtomDatetime
       rangeMode={true}
-      value={['2025-04-01', '2025-04-30'] as any}
+      value={getLast30DaysRange()}
       presentation='date'
     />
   ),
@@ -204,7 +208,7 @@ export const RangeModeMonthExample = {
     docs: {
       description: {
         story:
-          'This example shows a full month selection (April 2025) using range mode.',
+          'This example shows a full month selection using range mode (last 30 days).',
       },
     },
   },
@@ -216,7 +220,7 @@ export const RangeModeWithMinMax = {
       rangeMode={true}
       min='2025-01-01'
       max='2025-12-31'
-      value={['2025-06-01', '2025-08-31'] as any}
+      value={getLast30DaysRange()}
       useButton={true}
       label='Selecionar período de verão'
       datetimeId='datetime-range-constrained'
@@ -230,7 +234,7 @@ export const RangeModeWithMinMax = {
     docs: {
       description: {
         story:
-          'This example demonstrates range mode with min/max constraints and default summer period selection.',
+          'This example demonstrates range mode with min/max constraints and default last 30 days selection.',
       },
     },
   },
