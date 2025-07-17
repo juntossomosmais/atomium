@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.2...atomium-v3.14.0) (2025-07-17)
+
+
+### Features
+
+* **datetime:** support dynamic range selection ([442d355](https://github.com/juntossomosmais/atomium/commit/442d3554373e7e3adec95d3e52abcef9e8a01711))
+
 ## [3.13.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.1...atomium-v3.13.2) (2025-07-07)
 
 
