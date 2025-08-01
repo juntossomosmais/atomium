@@ -1,4 +1,3 @@
-
 import { AtomCol, AtomDatetime, AtomGrid } from '@juntossomosmais/atomium/react'
 import { Meta } from '@storybook/react'
 import React from 'react'
