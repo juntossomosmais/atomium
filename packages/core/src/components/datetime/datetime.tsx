@@ -97,7 +97,7 @@ export class AtomDatetime {
   }
 
   private filterEmptyStrings(arr: string[]): string[] | undefined {
-    const filteredArray = arr.filter((item) => item && item.trim() !== '')
+    const filteredArray = arr.filter((item) => item?.trim() !== '')
 
     return filteredArray.length > 0 ? filteredArray : undefined
   }
@@ -380,8 +380,8 @@ export class AtomDatetime {
         id={this.datetimeId}
         isDateEnabled={this.isDateEnabled}
         locale={this.locale}
-        max={this.max && this.max.trim() !== '' ? this.max : undefined}
-        min={this.min && this.min.trim() !== '' ? this.min : undefined}
+        max={this.max?.trim() || undefined}
+        min={this.min?.trim() || undefined}
         minuteValues={this.minuteValues}
         monthValues={this.monthValues}
         multiple={this.multiple || this.rangeMode}
