@@ -132,7 +132,7 @@ export class AtomDatetime {
     }
 
     if ('detail' in val && val.detail?.value !== undefined) {
-      return this.handleCustomEventValue(val as DatetimeCustomEvent)
+      return this.handleCustomEventValue(val)
     }
 
     return undefined
