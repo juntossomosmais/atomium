@@ -228,9 +228,7 @@ export class AtomDatetime {
     }, 0)
   }
 
-  readonly handleDateChange = (
-    event: CustomEvent<DatetimeChangeEventDetail>
-  ) => {
+  handleDateChange = (event: CustomEvent<DatetimeChangeEventDetail>) => {
     const rawValue = event.detail.value
     let dates: string[]
 
