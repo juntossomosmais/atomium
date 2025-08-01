@@ -123,6 +123,10 @@ export class AtomDatetime {
   }
 
   private normalizeValue(val: TValue): string[] | undefined {
+    if (!val) {
+      return undefined
+    }
+
     if (Array.isArray(val)) {
       return this.filterEmptyStrings(val)
     }
@@ -131,7 +135,7 @@ export class AtomDatetime {
       return this.handleStringValue(val)
     }
 
-    if ('detail' in val && val.detail?.value !== undefined) {
+    if (val && 'detail' in val && val.detail?.value !== undefined) {
       return this.handleCustomEventValue(val)
     }
 
