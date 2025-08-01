@@ -317,4 +317,160 @@ describe('AtomDatetime', () => {
       expect(button?.textContent).toContain('10/07/2025 - 15/07/2025')
     })
   })
+
+  it('should handle empty string values gracefully', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    datetime.value = ''
+    datetime.componentWillLoad()
+
+    expect(datetime.selectedDates).toEqual([])
+  })
+
+  it('should handle empty array values gracefully', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    datetime.value = []
+    datetime.componentWillLoad()
+
+    expect(datetime.selectedDates).toEqual([])
+  })
+
+  it('should filter out empty strings from arrays', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    datetime.value = ['2022-01-01', '', '2022-01-03', '']
+    datetime.componentWillLoad()
+
+    expect(datetime.selectedDates).toEqual(['2022-01-01', '2022-01-03'])
+  })
+
+  it('should handle null and undefined values', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    datetime.value = null
+    datetime.componentWillLoad()
+    expect(datetime.selectedDates).toEqual([])
+
+    datetime.value = undefined
+    datetime.componentWillLoad()
+    expect(datetime.selectedDates).toEqual([])
+  })
+
+  it('should handle custom event with empty detail value', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    datetime.value = { detail: { value: null } }
+    datetime.componentWillLoad()
+    expect(datetime.selectedDates).toEqual([])
+
+    datetime.value = { detail: { value: undefined } }
+    datetime.componentWillLoad()
+    expect(datetime.selectedDates).toEqual([])
+  })
+
+  it('should handle custom event with empty string detail value', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    datetime.value = { detail: { value: '' } }
+    datetime.componentWillLoad()
+    expect(datetime.selectedDates).toEqual([])
+  })
+
+  it('should handle custom event with array containing empty strings', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+
+    datetime.value = { detail: { value: ['2022-01-01', '', '2022-01-03'] } }
+    datetime.componentWillLoad()
+    expect(datetime.selectedDates).toEqual(['2022-01-01', '2022-01-03'])
+  })
+
+  it('should not pass min/max props when they are empty', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime min="" max=""></atom-datetime>',
+    })
+
+    await page.waitForChanges()
+
+    const ionDatetime = page.root?.querySelector('ion-datetime')
+
+    expect(ionDatetime?.getAttribute('min')).toBeNull()
+    expect(ionDatetime?.getAttribute('max')).toBeNull()
+  })
+
+  it('should pass min/max props when they have valid values', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime min="2022-01-01" max="2022-12-31"></atom-datetime>',
+    })
+
+    await page.waitForChanges()
+
+    const ionDatetime = page.root?.querySelector('ion-datetime')
+
+    expect(ionDatetime?.getAttribute('min')).toBe('2022-01-01')
+    expect(ionDatetime?.getAttribute('max')).toBe('2022-12-31')
+  })
+
+  it('should handle single value correctly when multiple is false', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime></atom-datetime>',
+    })
+
+    await page.waitForChanges()
+
+    const ionDatetime = page.root?.querySelector('ion-datetime')
+
+    expect(ionDatetime?.getAttribute('multiple')).toBeNull()
+  })
+
+  it('should handle multiple values correctly when multiple is true', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime multiple="true"></atom-datetime>',
+    })
+
+    await page.waitForChanges()
+
+    const ionDatetime = page.root?.querySelector('ion-datetime')
+
+    expect(ionDatetime?.hasAttribute('multiple')).toBe(true)
+  })
 })

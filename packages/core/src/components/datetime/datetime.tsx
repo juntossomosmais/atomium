@@ -96,31 +96,47 @@ export class AtomDatetime {
     this._datetimeEl = value
   }
 
+  private filterEmptyStrings(arr: string[]): string[] | undefined {
+    const filteredArray = arr.filter((item) => item?.trim() !== '')
+
+    return filteredArray.length > 0 ? filteredArray : undefined
+  }
+
+  private handleStringValue(val: string): string[] | undefined {
+    return val.trim() !== '' ? [val] : undefined
+  }
+
+  private handleCustomEventValue(
+    val: DatetimeCustomEvent
+  ): string[] | undefined {
+    const detailValue = val.detail?.value
+
+    if (typeof detailValue === 'string') {
+      return this.handleStringValue(detailValue)
+    }
+
+    if (Array.isArray(detailValue)) {
+      return this.filterEmptyStrings(detailValue)
+    }
+
+    return undefined
+  }
+
   private normalizeValue(val: TValue): string[] | undefined {
-    if (val === undefined || val === null) {
+    if (!val) {
       return undefined
     }
 
     if (Array.isArray(val)) {
-      return val as string[]
+      return this.filterEmptyStrings(val)
     }
 
     if (typeof val === 'string') {
-      return [val]
+      return this.handleStringValue(val)
     }
 
-    if (
-      val &&
-      typeof (val as DatetimeCustomEvent).detail?.value !== 'undefined' &&
-      (val as DatetimeCustomEvent).detail.value !== null
-    ) {
-      if (typeof (val as DatetimeCustomEvent).detail.value === 'string') {
-        return [(val as DatetimeCustomEvent).detail.value as string]
-      }
-
-      if (Array.isArray((val as DatetimeCustomEvent).detail.value)) {
-        return (val as DatetimeCustomEvent).detail.value as string[]
-      }
+    if (val && 'detail' in val && val.detail?.value !== undefined) {
+      return this.handleCustomEventValue(val)
     }
 
     return undefined
@@ -183,7 +199,9 @@ export class AtomDatetime {
   }
 
   private handleRangeMode(dates: string[]) {
-    const sortedDates = [...dates].sort()
+    const sortedDates = [...dates].sort(
+      (a, b) => new Date(a).getTime() - new Date(b).getTime()
+    )
 
     if (sortedDates.length === 2) {
       this.selectedDates = this.calculateDateRange(sortedDates)
@@ -205,18 +223,16 @@ export class AtomDatetime {
     }, 0)
   }
 
-  private handleDateChange = (
-    event: CustomEvent<DatetimeChangeEventDetail>
-  ) => {
+  handleDateChange = (event: CustomEvent<DatetimeChangeEventDetail>) => {
     const rawValue = event.detail.value
     let dates: string[]
 
     if (Array.isArray(rawValue)) {
-      dates = rawValue as string[]
-    } else if (rawValue === null || rawValue === undefined) {
+      dates = rawValue
+    } else if (!rawValue) {
       dates = []
     } else {
-      dates = [rawValue as string]
+      dates = [rawValue]
     }
 
     if (this.rangeMode) {
@@ -303,7 +319,9 @@ export class AtomDatetime {
   private getRangeLabel(): string | null {
     if (!this.rangeMode || this.selectedDates.length < 2) return null
 
-    const sortedSelectedDates = [...this.selectedDates].sort()
+    const sortedSelectedDates = [...this.selectedDates].sort(
+      (a, b) => new Date(a).getTime() - new Date(b).getTime()
+    )
     const [start, end] = [
       sortedSelectedDates[0],
       sortedSelectedDates[sortedSelectedDates.length - 1],
@@ -364,8 +382,8 @@ export class AtomDatetime {
         id={this.datetimeId}
         isDateEnabled={this.isDateEnabled}
         locale={this.locale}
-        max={this.max}
-        min={this.min}
+        max={this.max?.trim() || undefined}
+        min={this.min?.trim() || undefined}
         minuteValues={this.minuteValues}
         monthValues={this.monthValues}
         multiple={this.multiple || this.rangeMode}
@@ -380,7 +398,11 @@ export class AtomDatetime {
         showDefaultTitle={this.showDefaultTitle}
         size={this.size}
         yearValues={this.yearValues}
-        value={this.ionDatetimeValue}
+        value={
+          this.multiple || this.rangeMode
+            ? this.ionDatetimeValue
+            : (this.ionDatetimeValue?.[0] ?? undefined)
+        }
         onIonChange={this.handleDateChange}
         onIonCancel={this.handleCancel}
         onIonBlur={this.handleBlur}
