@@ -111,10 +111,6 @@ export class AtomDatetime {
   ): string[] | undefined {
     const detailValue = val.detail?.value
 
-    if (detailValue === null || detailValue === undefined) {
-      return undefined
-    }
-
     if (typeof detailValue === 'string') {
       return this.handleStringValue(detailValue)
     }
@@ -127,7 +123,7 @@ export class AtomDatetime {
   }
 
   private normalizeValue(val: TValue): string[] | undefined {
-    if (val === undefined || val === null) {
+    if (!val) {
       return undefined
     }
 
@@ -139,10 +135,7 @@ export class AtomDatetime {
       return this.handleStringValue(val)
     }
 
-    if (
-      val &&
-      typeof (val as DatetimeCustomEvent).detail?.value !== 'undefined'
-    ) {
+    if ('detail' in val && val.detail?.value !== undefined) {
       return this.handleCustomEventValue(val as DatetimeCustomEvent)
     }
 
@@ -234,7 +227,7 @@ export class AtomDatetime {
 
     if (Array.isArray(rawValue)) {
       dates = rawValue
-    } else if (rawValue === null || rawValue === undefined) {
+    } else if (!rawValue) {
       dates = []
     } else {
       dates = [rawValue]
@@ -324,8 +317,8 @@ export class AtomDatetime {
   private getRangeLabel(): string | null {
     if (!this.rangeMode || this.selectedDates.length < 2) return null
 
-    const sortedSelectedDates = [...this.selectedDates].sort((a, b) =>
-      a.localeCompare(b)
+    const sortedSelectedDates = [...this.selectedDates].sort(
+      (a, b) => new Date(a).getTime() - new Date(b).getTime()
     )
     const [start, end] = [
       sortedSelectedDates[0],
@@ -406,7 +399,7 @@ export class AtomDatetime {
         value={
           this.multiple || this.rangeMode
             ? this.ionDatetimeValue
-            : this.ionDatetimeValue?.[0] || undefined
+            : (this.ionDatetimeValue?.[0] ?? undefined)
         }
         onIonChange={this.handleDateChange}
         onIonCancel={this.handleCancel}
