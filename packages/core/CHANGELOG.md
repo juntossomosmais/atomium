@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.14.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.14.0...atomium-v3.14.1) (2025-08-01)
+
+
+### Bug Fixes
+
+* **datetime:** improve value normalization and prevent ionic parsing warnings ([#777](https://github.com/juntossomosmais/atomium/issues/777)) ([47bcd1e](https://github.com/juntossomosmais/atomium/commit/47bcd1e4e1a613b4c26777111a078db5f270cb10))
+
 ## [3.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.2...atomium-v3.14.0) (2025-07-17)
 
 
