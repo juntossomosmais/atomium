@@ -195,7 +195,9 @@ export class AtomDatetime {
   }
 
   private handleRangeMode(dates: string[]) {
-    const sortedDates = [...dates].sort()
+    const sortedDates = [...dates].sort(
+      (a, b) => new Date(a).getTime() - new Date(b).getTime()
+    )
 
     if (sortedDates.length === 2) {
       this.selectedDates = this.calculateDateRange(sortedDates)
