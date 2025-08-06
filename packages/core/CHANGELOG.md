@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.14.1...atomium-v3.15.0) (2025-08-06)
+
+
+### Features
+
+* **meter:** use regular color on meter component ([#780](https://github.com/juntossomosmais/atomium/issues/780)) ([aa953c5](https://github.com/juntossomosmais/atomium/commit/aa953c5f3f0e06a646a306b5a1d7e1d6c7a926ca))
+
 ## [3.14.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.14.0...atomium-v3.14.1) (2025-08-01)
 
 
