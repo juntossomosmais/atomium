@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.15.0...atomium-v3.16.0) (2025-10-10)
+
+
+### Features
+
+* **icons:** add cancel-box icon ([#782](https://github.com/juntossomosmais/atomium/issues/782)) ([b2f5bdf](https://github.com/juntossomosmais/atomium/commit/b2f5bdf49f0680d93152f5cd09616aafdfeff0a4))
+
 ## [3.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.14.1...atomium-v3.15.0) (2025-08-06)
 
 
