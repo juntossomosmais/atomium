@@ -53,6 +53,7 @@ export type IconProps =
   | 'bolt'
   | 'calendar-today-outline'
   | 'calendar-today'
+  | 'cancel-box'
   | 'category'
   | 'cellphone-settings'
   | 'cellphone'
