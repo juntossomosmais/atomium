@@ -136,6 +136,82 @@ export const UsingRangeMode: StoryObj = {
   render: () => html` <atom-datetime range-mode></atom-datetime> `,
 }
 
+const getLast30DaysRange = () => {
+  const today = new Date()
+  const thirtyDaysAgo = new Date()
+
+  thirtyDaysAgo.setDate(today.getDate() - 30)
+  const format = (d: Date) => d.toISOString().slice(0, 10)
+
+  return [format(thirtyDaysAgo), format(today)]
+}
+
+const todayISO = new Date().toISOString().slice(0, 10)
+
+export const RangeModeWithDefaultDates: StoryObj = {
+  render: () => html`
+    <atom-datetime range-mode .value=${getLast30DaysRange()}></atom-datetime>
+  `,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (last 30 days).',
+      },
+    },
+  },
+}
+
+export const RangeModeWithDefaultDatesAndButton: StoryObj = {
+  render: () => html`
+    <atom-datetime
+      range-mode
+      use-button="true"
+      label="Selecionar período"
+      datetime-id="datetime-range-with-button"
+      cancel-text="Cancelar"
+      clear-text="Limpar"
+      done-text="Confirmar"
+      locale="pt-BR"
+      .value=${getLast30DaysRange()}
+    ></atom-datetime>
+  `,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with button interface, default dates (last 30 days), and custom Portuguese text in the button.',
+      },
+    },
+  },
+}
+
+export const RangeModeWithMinMax: StoryObj = {
+  render: () => html`
+    <atom-datetime
+      range-mode
+      use-button="true"
+      label="Selecionar período (min/max)"
+      datetime-id="datetime-range-min-max"
+      cancel-text="Cancelar"
+      clear-text="Limpar"
+      done-text="Confirmar"
+      locale="pt-BR"
+      min="2025-01-01"
+      max="${todayISO}"
+      .value=${getLast30DaysRange()}
+    ></atom-datetime>
+  `,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with min/max date restrictions (last 30 days, max is today).',
+      },
+    },
+  },
+}
+
 export const UsingWithButton: StoryObj = {
   render: () => html`
     <atom-grid>
@@ -163,6 +239,16 @@ export const UsingWithButton: StoryObj = {
           presentation="month-year"
           .formatOptions="${{ date: { month: 'long', year: 'numeric' } }}"
         ></atom-datetime>
+      </atom-col>
+      <atom-col size="8">
+        <atom-datetime
+          use-button="true"
+          label="Selecione uma data"
+          datetime-id="datetime-with-custom-date-format"
+          presentation="date"
+        >
+          <span slot="date-target">Custom Date</span>
+        </atom-datetime>
       </atom-col>
     </atom-grid>
   `,

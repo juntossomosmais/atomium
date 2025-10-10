@@ -6,35 +6,32 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
-import { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
+import { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 import { AtomModal } from "./components/modal/modal";
 export { IconProps } from "./icons";
-export { DatetimeChangeEventDetail, DatetimeCustomEvent, DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
+export { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
 export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
 export { AtomModal } from "./components/modal/modal";
 export namespace Components {
     interface AtomAlert {
         "actionText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "action-text"?: string;
         "close": boolean;
+        /**
+          * @default 'neutral'
+         */
         "color"?: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
         "icon"?: IconProps;
         "messageText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "message-text"?: string;
         "messageTitle"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "message-title"?: string;
     }
     interface AtomBadge {
+        /**
+          * @default 'primary'
+         */
         "type": | 'primary'
     | 'secondary'
     | 'info'
@@ -45,201 +42,176 @@ export namespace Components {
     | 'dark';
     }
     interface AtomBreadcrumb {
+        /**
+          * @default []
+         */
         "items": BreadcrumbItemProp[];
     }
     interface AtomButton {
+        /**
+          * @default 'primary'
+         */
         "color": 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
+        /**
+          * @default 'solid'
+         */
         "fill": | 'clear'
     | 'outline'
     | 'outline-filled'
     | 'solid';
         "href"?: string;
         "loading"?: boolean;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
         "rel"?: string;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | 'circle';
+        /**
+          * @default 'default'
+         */
         "size": 'small' | 'default' | 'large';
         "target"?: string;
+        /**
+          * @default 'button'
+         */
         "type": 'submit' | 'reset' | 'button';
     }
     interface AtomCarousel {
         "autoplay": number;
+        /**
+          * @default true
+         */
         "hasNavigation": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "has-navigation"?: boolean;
         "hasPagination": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "has-pagination"?: boolean;
         "loop": boolean;
         "thumbnails": string[];
     }
     interface AtomCarouselItem {
     }
     interface AtomChip {
+        /**
+          * @default false
+         */
         "activated": boolean;
+        /**
+          * @default false
+         */
         "close": boolean;
+        /**
+          * @default false
+         */
         "disabled": boolean;
         "icon"?: IconProps;
+        /**
+          * @default 'md'
+         */
         "mode": 'ios' | 'md';
+        /**
+          * @default false
+         */
         "outline": boolean;
     }
     interface AtomCol {
         "offset"?: string;
         "offsetLg"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "offset-lg"?: string;
         "offsetMd"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "offset-md"?: string;
         "offsetSm"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "offset-sm"?: string;
         "pull"?: string;
         "push"?: string;
         "size"?: 'auto' | string;
         "sizeLg"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "size-lg"?: string;
         "sizeMd"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "size-md"?: string;
         "sizeSm"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "size-sm"?: string;
     }
     interface AtomContainer {
-        "hasPadding": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "has-padding"?: boolean;
+        "hasPadding": boolean;
     }
     interface AtomDatetime {
         "cancelText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "cancel-text"?: string;
         "clearText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'datetime'
          */
-        "clear-text"?: string;
         "datetimeId": string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "datetime-id"?: string;
         "dayValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "day-values"?: number[] | string;
         "disabled"?: boolean;
         "doneText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default {     date: {       month: '2-digit',       day: '2-digit',       year: 'numeric',     },     time: {       hour: '2-digit',       minute: '2-digit',     },   }
          */
-        "done-text"?: string;
         "formatOptions": {
     date?: Intl.DateTimeFormatOptions
     time?: Intl.DateTimeFormatOptions
   };
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
+        /**
+          * @default 'h23'
+         */
         "hourCycle": 'h12' | 'h23';
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "hour-cycle"?: 'h12' | 'h23';
         "hourValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "hour-values"?: number[] | string;
         "isDateEnabled"?: (dateString: string) => boolean;
         "label"?: string;
+        /**
+          * @default 'pt-BR'
+         */
         "locale": string;
         "max"?: string;
         "min"?: string;
         "minuteValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "minute-values"?: number[] | string;
         "monthValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "month-values"?: number[] | string;
         "multiple"?: boolean;
         "name"?: string;
+        /**
+          * @default false
+         */
         "preferWheel": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'date'
          */
-        "prefer-wheel"?: boolean;
         "presentation"?: DatetimePresentation;
         "rangeMode"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "range-mode"?: boolean;
         "readonly"?: boolean;
-        "setValue": (value: any) => Promise<void>;
         "showClearButton"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "show-clear-button"?: boolean;
         "showDefaultButtons"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "show-default-buttons"?: boolean;
         "showDefaultTimeLabel": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "show-default-time-label"?: boolean;
         "showDefaultTitle": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'fixed'
          */
-        "show-default-title"?: boolean;
         "size"?: 'cover' | 'fixed';
+        /**
+          * @default false
+         */
         "useButton": boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "use-button"?: boolean;
-        "value"?: | DatetimeCustomEvent
-    | DatetimeChangeEventDetail;
+        "value"?: TValue;
         "yearValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "year-values"?: number[] | string;
     }
     interface AtomDivider {
+        /**
+          * @default 'horizontal'
+         */
         "type": 'horizontal' | 'vertical';
     }
     interface AtomGrid {
@@ -251,37 +223,43 @@ export namespace Components {
         "size"?: Size;
     }
     interface AtomInput {
+        /**
+          * @default 'off'
+         */
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus": boolean;
+        /**
+          * @default false
+         */
         "clearInput": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "clear-input"?: boolean;
         "clearOnEdit": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'secondary'
          */
-        "clear-on-edit"?: boolean;
         "color"?: 'primary' | 'secondary' | 'danger';
+        /**
+          * @default false
+         */
         "counter": boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce": number;
-        "disabled": boolean;
-        "enterKeyHint": | 'enter'
-    | 'done'
-    | 'go'
-    | 'next'
-    | 'previous'
-    | 'search'
-    | 'send';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "enter-key-hint"?: | 'enter'
+        "disabled": boolean;
+        /**
+          * @default 'enter'
+         */
+        "enterKeyHint": | 'enter'
     | 'done'
     | 'go'
     | 'next'
@@ -290,21 +268,15 @@ export namespace Components {
     | 'send';
         "errorText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'solid'
          */
-        "error-text"?: string;
         "fill": 'solid' | 'outline';
         "getInputElement": () => Promise<HTMLInputElement>;
+        /**
+          * @default false
+         */
         "hasError": boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "has-error"?: boolean;
         "helperText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "helper-text"?: string;
         "icon"?: IconProps;
         "inputmode"?: | 'none'
     | 'text'
@@ -315,122 +287,134 @@ export namespace Components {
     | 'decimal'
     | 'search';
         "label"?: string;
-        "labelPlacement"?: 'stacked' | 'floating';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'floating'
          */
-        "label-placement"?: 'stacked' | 'floating';
+        "labelPlacement"?: 'stacked' | 'floating';
         "max"?: string | number;
         "maxlength"?: number;
         "min"?: string | number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
+        /**
+          * @default false
+         */
         "multiple": boolean;
         "name"?: string;
-        "passwordToggle": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "password-toggle"?: boolean;
+        "passwordToggle": boolean;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly": boolean;
+        /**
+          * @default false
+         */
         "required": boolean;
         "setFocus": () => Promise<void>;
         "setInputEl": (inputEl: HTMLIonInputElement) => Promise<void>;
+        /**
+          * @default 'round'
+         */
         "shape": 'round' | undefined;
         "step"?: string;
+        /**
+          * @default 'text'
+         */
         "type": TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
     interface AtomLink {
+        /**
+          * @default 'secondary'
+         */
         "color": 'primary' | 'secondary';
+        /**
+          * @default false
+         */
         "loading"?: boolean;
+        /**
+          * @default 'medium'
+         */
         "size": 'small' | 'medium' | 'large';
+        /**
+          * @default 'anchor'
+         */
         "type": 'anchor' | 'button';
     }
     interface AtomListSlider {
         "centralized": boolean;
+        /**
+          * @default true
+         */
         "hasNavigation": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 1
          */
-        "has-navigation"?: boolean;
         "step": number;
     }
     interface AtomListSliderItem {
     }
     interface AtomMeter {
         "actual": number;
-        "hasCenterTitle"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "has-center-title"?: boolean;
+        "hasCenterTitle"?: boolean;
         "max": number;
         "min": number;
+        /**
+          * @default 'large'
+         */
         "size"?: 'small' | 'large';
         "title": string;
+        /**
+          * @default 'neutral'
+         */
         "type"?: 'success' | 'neutral' | 'warning' | 'danger';
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "alert-type"?: 'alert' | 'error';
         "canDismiss"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "can-dismiss"?: boolean;
         "disablePrimaryButton": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "disable-primary-button"?: boolean;
         "disableSecondaryButton": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "disable-secondary-button"?: boolean;
         "hasDivider": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "has-divider"?: boolean;
         "hasFooter": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default ''
          */
-        "has-footer"?: boolean;
         "headerTitle": string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "header-title"?: string;
         "idName"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "id-name"?: string;
         "isOpen": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default {}
          */
-        "is-open"?: boolean;
         "metaData"?: MetaData;
         "primaryButtonText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "primary-button-text"?: string;
         "progress"?: number;
         "secondaryButtonText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "secondary-button-text"?: string;
         "trigger"?: string;
     }
     interface AtomPagination {
@@ -438,15 +422,20 @@ export namespace Components {
         "page": number;
     }
     interface AtomPopover {
+        /**
+          * @default 'hover'
+         */
         "action": 'hover' | 'click';
         "actionText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "action-text"?: string;
         "element": string;
         "label"?: string;
+        /**
+          * @default false
+         */
         "open": boolean;
+        /**
+          * @default 'top'
+         */
         "placement": | 'top'
     | 'top-start'
     | 'top-end'
@@ -460,20 +449,21 @@ export namespace Components {
         "disabled"?: boolean;
         "errorText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'solid'
          */
-        "error-text"?: string;
         "fill": 'solid' | 'outline';
         "helperText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "helper-text"?: string;
         "icon"?: IconProps;
         "label"?: string;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
         "multiple"?: boolean;
         "name": string;
+        /**
+          * @default []
+         */
         "options": Array<{
     id: string
     value: string
@@ -488,106 +478,98 @@ export namespace Components {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomSpinner {
+        /**
+          * @default 40
+         */
         "size": number;
+        /**
+          * @default 'primary'
+         */
         "type": 'primary' | 'secondary' | 'dark';
+    }
+    interface AtomStepper {
+        "activeStep": number;
+        /**
+          * @default true
+         */
+        "disabledUnrenderedStep"?: boolean;
+        "stepTitle"?: string;
+        /**
+          * @default []
+         */
+        "steps": Array<{
+    title: string
+    completed: boolean
+  }>;
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 1
          */
-        "close-on-finish"?: boolean;
         "currentStep": number;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "current-step"?: number;
         "disablePrimaryButton"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "disable-primary-button"?: boolean;
         "disableSecondaryButton"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "disable-secondary-button"?: boolean;
         "isOpen": boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "is-open"?: boolean;
         "lockedInitialStep"?: number;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default {}
          */
-        "locked-initial-step"?: number;
         "metaData"?: AtomModal['metaData'];
         "primaryButtonTextsByStep": string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "primary-button-texts-by-step"?: string;
         "secondaryButtonTextsByStep": string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "secondary-button-texts-by-step"?: string;
         "steps": number;
         "stepsTitles": string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "steps-titles"?: string;
         "trigger"?: string;
     }
     interface AtomTag {
         "color": 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
         "customBackgroundColor"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "custom-background-color"?: string;
         "customTextColor"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "custom-text-color"?: string;
         "icon"?: IconProps;
     }
     interface AtomTextarea {
+        /**
+          * @default false
+         */
         "autoGrow": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'off'
          */
-        "auto-grow"?: boolean;
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus": boolean;
+        /**
+          * @default false
+         */
         "clearOnEdit": boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'secondary'
          */
-        "clear-on-edit"?: boolean;
         "color"?: 'primary' | 'secondary' | 'danger';
         "cols"?: number;
+        /**
+          * @default false
+         */
         "counter": boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce": number;
-        "disabled": boolean;
-        "enterKeyHint": | 'enter'
-    | 'done'
-    | 'go'
-    | 'next'
-    | 'previous'
-    | 'search'
-    | 'send';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "enter-key-hint"?: | 'enter'
+        "disabled": boolean;
+        /**
+          * @default 'enter'
+         */
+        "enterKeyHint": | 'enter'
     | 'done'
     | 'go'
     | 'next'
@@ -596,21 +578,15 @@ export namespace Components {
     | 'send';
         "errorText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'solid'
          */
-        "error-text"?: string;
         "fill": 'solid' | 'outline';
         "getInputElement": () => Promise<HTMLTextAreaElement>;
+        /**
+          * @default false
+         */
         "hasError": boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "has-error"?: boolean;
         "helperText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "helper-text"?: string;
         "icon"?: IconProps;
         "inputmode"?: | 'none'
     | 'text'
@@ -621,31 +597,54 @@ export namespace Components {
     | 'decimal'
     | 'search';
         "label"?: string;
-        "labelPlacement"?: 'stacked' | 'floating';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'floating'
          */
-        "label-placement"?: 'stacked' | 'floating';
+        "labelPlacement"?: 'stacked' | 'floating';
         "maxlength"?: number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode": Mode;
         "name"?: string;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly": boolean;
+        /**
+          * @default false
+         */
         "required": boolean;
+        /**
+          * @default 4
+         */
         "rows": number;
         "setFocus": () => Promise<void>;
         "setInputEl": (textareaEl: HTMLIonTextareaElement) => Promise<void>;
+        /**
+          * @default 'round'
+         */
         "shape": 'round' | undefined;
         "step"?: string;
         "value"?: IonTypes.IonTextarea['value'];
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
+        /**
+          * @default 'hover'
+         */
         "action": 'hover' | 'click';
         "element": string;
+        /**
+          * @default false
+         */
         "open": boolean;
+        /**
+          * @default 'top'
+         */
         "placement": | 'auto'
     | 'auto-start'
     | 'auto-end'
@@ -656,7 +655,11 @@ export namespace Components {
     | 'bottom-start'
     | 'bottom-end'
     | 'right'
-    | 'left';
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
     }
 }
 export interface AtomAlertCustomEvent<T> extends CustomEvent<T> {
@@ -807,8 +810,8 @@ declare global {
     interface HTMLAtomDatetimeElementEventMap {
         "atomFocus": void;
         "atomBlur": void;
-        "atomChange": string | string[];
-        "atomCancel": string;
+        "atomChange": string | string[] | undefined;
+        "atomCancel": void;
     }
     interface HTMLAtomDatetimeElement extends Components.AtomDatetime, HTMLStencilElement {
         addEventListener<K extends keyof HTMLAtomDatetimeElementEventMap>(type: K, listener: (this: HTMLAtomDatetimeElement, ev: AtomDatetimeCustomEvent<HTMLAtomDatetimeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -992,6 +995,12 @@ declare global {
         prototype: HTMLAtomSpinnerElement;
         new (): HTMLAtomSpinnerElement;
     };
+    interface HTMLAtomStepperElement extends Components.AtomStepper, HTMLStencilElement {
+    }
+    var HTMLAtomStepperElement: {
+        prototype: HTMLAtomStepperElement;
+        new (): HTMLAtomStepperElement;
+    };
     interface HTMLAtomStepsModalElementEventMap {
         "atomFinish": any;
         "atomCancel": any;
@@ -1084,6 +1093,7 @@ declare global {
         "atom-popover": HTMLAtomPopoverElement;
         "atom-select": HTMLAtomSelectElement;
         "atom-spinner": HTMLAtomSpinnerElement;
+        "atom-stepper": HTMLAtomStepperElement;
         "atom-steps-modal": HTMLAtomStepsModalElement;
         "atom-tag": HTMLAtomTagElement;
         "atom-textarea": HTMLAtomTextareaElement;
@@ -1094,26 +1104,23 @@ declare namespace LocalJSX {
     interface AtomAlert {
         "actionText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "action-text"?: string;
         "close"?: boolean;
+        /**
+          * @default 'neutral'
+         */
         "color"?: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
         "icon"?: IconProps;
         "messageText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "message-text"?: string;
         "messageTitle"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "message-title"?: string;
         "onAtomAction"?: (event: AtomAlertCustomEvent<any>) => void;
         "onAtomClose"?: (event: AtomAlertCustomEvent<any>) => void;
     }
     interface AtomBadge {
+        /**
+          * @default 'primary'
+         */
         "type"?: | 'primary'
     | 'secondary'
     | 'info'
@@ -1124,206 +1131,182 @@ declare namespace LocalJSX {
     | 'dark';
     }
     interface AtomBreadcrumb {
+        /**
+          * @default []
+         */
         "items"?: BreadcrumbItemProp[];
     }
     interface AtomButton {
+        /**
+          * @default 'primary'
+         */
         "color"?: 'primary' | 'secondary' | 'white' | 'custom';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
+        /**
+          * @default 'solid'
+         */
         "fill"?: | 'clear'
     | 'outline'
     | 'outline-filled'
     | 'solid';
         "href"?: string;
         "loading"?: boolean;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
         "onClick"?: (event: AtomButtonCustomEvent<any>) => void;
         "rel"?: string;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | 'circle';
+        /**
+          * @default 'default'
+         */
         "size"?: 'small' | 'default' | 'large';
         "target"?: string;
+        /**
+          * @default 'button'
+         */
         "type"?: 'submit' | 'reset' | 'button';
     }
     interface AtomCarousel {
         "autoplay"?: number;
+        /**
+          * @default true
+         */
         "hasNavigation"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "has-navigation"?: boolean;
         "hasPagination"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "has-pagination"?: boolean;
         "loop"?: boolean;
         "thumbnails"?: string[];
     }
     interface AtomCarouselItem {
     }
     interface AtomChip {
+        /**
+          * @default false
+         */
         "activated"?: boolean;
+        /**
+          * @default false
+         */
         "close"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "icon"?: IconProps;
+        /**
+          * @default 'md'
+         */
         "mode"?: 'ios' | 'md';
         "onAtomClick"?: (event: AtomChipCustomEvent<any>) => void;
+        /**
+          * @default false
+         */
         "outline"?: boolean;
     }
     interface AtomCol {
         "offset"?: string;
         "offsetLg"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "offset-lg"?: string;
         "offsetMd"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "offset-md"?: string;
         "offsetSm"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "offset-sm"?: string;
         "pull"?: string;
         "push"?: string;
         "size"?: 'auto' | string;
         "sizeLg"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "size-lg"?: string;
         "sizeMd"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "size-md"?: string;
         "sizeSm"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "size-sm"?: string;
     }
     interface AtomContainer {
-        "hasPadding"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "has-padding"?: boolean;
+        "hasPadding"?: boolean;
     }
     interface AtomDatetime {
         "cancelText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "cancel-text"?: string;
         "clearText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'datetime'
          */
-        "clear-text"?: string;
         "datetimeId"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "datetime-id"?: string;
         "dayValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "day-values"?: number[] | string;
         "disabled"?: boolean;
         "doneText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default {     date: {       month: '2-digit',       day: '2-digit',       year: 'numeric',     },     time: {       hour: '2-digit',       minute: '2-digit',     },   }
          */
-        "done-text"?: string;
         "formatOptions"?: {
     date?: Intl.DateTimeFormatOptions
     time?: Intl.DateTimeFormatOptions
   };
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
+        /**
+          * @default 'h23'
+         */
         "hourCycle"?: 'h12' | 'h23';
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "hour-cycle"?: 'h12' | 'h23';
         "hourValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "hour-values"?: number[] | string;
         "isDateEnabled"?: (dateString: string) => boolean;
         "label"?: string;
+        /**
+          * @default 'pt-BR'
+         */
         "locale"?: string;
         "max"?: string;
         "min"?: string;
         "minuteValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "minute-values"?: number[] | string;
         "monthValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "month-values"?: number[] | string;
         "multiple"?: boolean;
         "name"?: string;
         "onAtomBlur"?: (event: AtomDatetimeCustomEvent<void>) => void;
-        "onAtomCancel"?: (event: AtomDatetimeCustomEvent<string>) => void;
-        "onAtomChange"?: (event: AtomDatetimeCustomEvent<string | string[]>) => void;
+        "onAtomCancel"?: (event: AtomDatetimeCustomEvent<void>) => void;
+        "onAtomChange"?: (event: AtomDatetimeCustomEvent<string | string[] | undefined>) => void;
         "onAtomFocus"?: (event: AtomDatetimeCustomEvent<void>) => void;
+        /**
+          * @default false
+         */
         "preferWheel"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'date'
          */
-        "prefer-wheel"?: boolean;
         "presentation"?: DatetimePresentation;
         "rangeMode"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "range-mode"?: boolean;
         "readonly"?: boolean;
         "showClearButton"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "show-clear-button"?: boolean;
         "showDefaultButtons"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "show-default-buttons"?: boolean;
         "showDefaultTimeLabel"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "show-default-time-label"?: boolean;
         "showDefaultTitle"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'fixed'
          */
-        "show-default-title"?: boolean;
         "size"?: 'cover' | 'fixed';
+        /**
+          * @default false
+         */
         "useButton"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "use-button"?: boolean;
-        "value"?: | DatetimeCustomEvent
-    | DatetimeChangeEventDetail;
+        "value"?: TValue;
         "yearValues"?: number[] | string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "year-values"?: number[] | string;
     }
     interface AtomDivider {
+        /**
+          * @default 'horizontal'
+         */
         "type"?: 'horizontal' | 'vertical';
     }
     interface AtomGrid {
@@ -1335,37 +1318,43 @@ declare namespace LocalJSX {
         "size"?: Size;
     }
     interface AtomInput {
+        /**
+          * @default 'off'
+         */
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus"?: boolean;
+        /**
+          * @default false
+         */
         "clearInput"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "clear-input"?: boolean;
         "clearOnEdit"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'secondary'
          */
-        "clear-on-edit"?: boolean;
         "color"?: 'primary' | 'secondary' | 'danger';
+        /**
+          * @default false
+         */
         "counter"?: boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce"?: number;
-        "disabled"?: boolean;
-        "enterKeyHint"?: | 'enter'
-    | 'done'
-    | 'go'
-    | 'next'
-    | 'previous'
-    | 'search'
-    | 'send';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "enter-key-hint"?: | 'enter'
+        "disabled"?: boolean;
+        /**
+          * @default 'enter'
+         */
+        "enterKeyHint"?: | 'enter'
     | 'done'
     | 'go'
     | 'next'
@@ -1374,20 +1363,14 @@ declare namespace LocalJSX {
     | 'send';
         "errorText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'solid'
          */
-        "error-text"?: string;
         "fill"?: 'solid' | 'outline';
+        /**
+          * @default false
+         */
         "hasError"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "has-error"?: boolean;
         "helperText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "helper-text"?: string;
         "icon"?: IconProps;
         "inputmode"?: | 'none'
     | 'text'
@@ -1398,115 +1381,135 @@ declare namespace LocalJSX {
     | 'decimal'
     | 'search';
         "label"?: string;
-        "labelPlacement"?: 'stacked' | 'floating';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'floating'
          */
-        "label-placement"?: 'stacked' | 'floating';
+        "labelPlacement"?: 'stacked' | 'floating';
         "max"?: string | number;
         "maxlength"?: number;
         "min"?: string | number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
+        /**
+          * @default false
+         */
         "multiple"?: boolean;
         "name"?: string;
         "onAtomBlur"?: (event: AtomInputCustomEvent<void>) => void;
         "onAtomChange"?: (event: AtomInputCustomEvent<string>) => void;
         "onAtomFocus"?: (event: AtomInputCustomEvent<void>) => void;
         "onAtomInput"?: (event: AtomInputCustomEvent<string>) => void;
-        "passwordToggle"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "password-toggle"?: boolean;
+        "passwordToggle"?: boolean;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly"?: boolean;
+        /**
+          * @default false
+         */
         "required"?: boolean;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | undefined;
         "step"?: string;
+        /**
+          * @default 'text'
+         */
         "type"?: TextFieldTypes;
         "value"?: IonTypes.IonInput['value'];
     }
     interface AtomLink {
+        /**
+          * @default 'secondary'
+         */
         "color"?: 'primary' | 'secondary';
+        /**
+          * @default false
+         */
         "loading"?: boolean;
         "onClick"?: (event: AtomLinkCustomEvent<any>) => void;
+        /**
+          * @default 'medium'
+         */
         "size"?: 'small' | 'medium' | 'large';
+        /**
+          * @default 'anchor'
+         */
         "type"?: 'anchor' | 'button';
     }
     interface AtomListSlider {
         "centralized"?: boolean;
-        "hasNavigation"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "has-navigation"?: boolean;
+        "hasNavigation"?: boolean;
         "onClickNext"?: (event: AtomListSliderCustomEvent<any>) => void;
         "onClickPrev"?: (event: AtomListSliderCustomEvent<any>) => void;
+        /**
+          * @default 1
+         */
         "step"?: number;
     }
     interface AtomListSliderItem {
     }
     interface AtomMeter {
         "actual"?: number;
-        "hasCenterTitle"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "has-center-title"?: boolean;
+        "hasCenterTitle"?: boolean;
         "max"?: number;
         "min"?: number;
+        /**
+          * @default 'large'
+         */
         "size"?: 'small' | 'large';
         "title"?: string;
+        /**
+          * @default 'neutral'
+         */
         "type"?: 'success' | 'neutral' | 'warning' | 'danger';
     }
     interface AtomModal {
         "alertType"?: 'alert' | 'error';
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "alert-type"?: 'alert' | 'error';
         "canDismiss"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "can-dismiss"?: boolean;
         "disablePrimaryButton"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "disable-primary-button"?: boolean;
         "disableSecondaryButton"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "disable-secondary-button"?: boolean;
         "hasDivider"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default true
          */
-        "has-divider"?: boolean;
         "hasFooter"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default ''
          */
-        "has-footer"?: boolean;
         "headerTitle"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "header-title"?: string;
         "idName"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "id-name"?: string;
         "isOpen"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default {}
          */
-        "is-open"?: boolean;
         "metaData"?: MetaData;
         "onAtomCloseClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomDidDismiss"?: (event: AtomModalCustomEvent<any>) => void;
@@ -1515,16 +1518,8 @@ declare namespace LocalJSX {
         "onAtomPrimaryClick"?: (event: AtomModalCustomEvent<any>) => void;
         "onAtomSecondaryClick"?: (event: AtomModalCustomEvent<any>) => void;
         "primaryButtonText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "primary-button-text"?: string;
         "progress"?: number;
         "secondaryButtonText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "secondary-button-text"?: string;
         "trigger"?: string;
     }
     interface AtomPagination {
@@ -1533,16 +1528,21 @@ declare namespace LocalJSX {
         "page"?: number;
     }
     interface AtomPopover {
+        /**
+          * @default 'hover'
+         */
         "action"?: 'hover' | 'click';
         "actionText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "action-text"?: string;
         "element"?: string;
         "label"?: string;
         "onButtonAction"?: (event: AtomPopoverCustomEvent<void>) => void;
+        /**
+          * @default false
+         */
         "open"?: boolean;
+        /**
+          * @default 'top'
+         */
         "placement"?: | 'top'
     | 'top-start'
     | 'top-end'
@@ -1556,17 +1556,15 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "errorText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'solid'
          */
-        "error-text"?: string;
         "fill"?: 'solid' | 'outline';
         "helperText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "helper-text"?: string;
         "icon"?: IconProps;
         "label"?: string;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
         "multiple"?: boolean;
         "name"?: string;
@@ -1575,6 +1573,9 @@ declare namespace LocalJSX {
         "onAtomChange"?: (event: AtomSelectCustomEvent<string>) => void;
         "onAtomDismiss"?: (event: AtomSelectCustomEvent<void>) => void;
         "onAtomFocus"?: (event: AtomSelectCustomEvent<void>) => void;
+        /**
+          * @default []
+         */
         "options"?: Array<{
     id: string
     value: string
@@ -1588,40 +1589,46 @@ declare namespace LocalJSX {
         "value"?: IonTypes.IonSelect['value'];
     }
     interface AtomSpinner {
+        /**
+          * @default 40
+         */
         "size"?: number;
+        /**
+          * @default 'primary'
+         */
         "type"?: 'primary' | 'secondary' | 'dark';
+    }
+    interface AtomStepper {
+        "activeStep"?: number;
+        /**
+          * @default true
+         */
+        "disabledUnrenderedStep"?: boolean;
+        "stepTitle"?: string;
+        /**
+          * @default []
+         */
+        "steps"?: Array<{
+    title: string
+    completed: boolean
+  }>;
     }
     interface AtomStepsModal {
         "closeOnFinish"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 1
          */
-        "close-on-finish"?: boolean;
         "currentStep"?: number;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "current-step"?: number;
         "disablePrimaryButton"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "disable-primary-button"?: boolean;
         "disableSecondaryButton"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "disable-secondary-button"?: boolean;
         "isOpen"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "is-open"?: boolean;
         "lockedInitialStep"?: number;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default {}
          */
-        "locked-initial-step"?: number;
         "metaData"?: AtomModal['metaData'];
         "onAtomCancel"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomCloseClick"?: (event: AtomStepsModalCustomEvent<any>) => void;
@@ -1632,70 +1639,56 @@ declare namespace LocalJSX {
         "onAtomNextStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "onAtomPreviousStep"?: (event: AtomStepsModalCustomEvent<any>) => void;
         "primaryButtonTextsByStep"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "primary-button-texts-by-step"?: string;
         "secondaryButtonTextsByStep"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "secondary-button-texts-by-step"?: string;
         "steps"?: number;
         "stepsTitles"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "steps-titles"?: string;
         "trigger"?: string;
     }
     interface AtomTag {
         "color"?: 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
         "customBackgroundColor"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "custom-background-color"?: string;
         "customTextColor"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "custom-text-color"?: string;
         "icon"?: IconProps;
     }
     interface AtomTextarea {
+        /**
+          * @default false
+         */
         "autoGrow"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'off'
          */
-        "auto-grow"?: boolean;
         "autocomplete"?: 'on' | 'off';
+        /**
+          * @default false
+         */
         "autofocus"?: boolean;
+        /**
+          * @default false
+         */
         "clearOnEdit"?: boolean;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'secondary'
          */
-        "clear-on-edit"?: boolean;
         "color"?: 'primary' | 'secondary' | 'danger';
         "cols"?: number;
+        /**
+          * @default false
+         */
         "counter"?: boolean;
         "counterFormatter"?: (
     inputLength: number,
     maxLength: number
   ) => string | undefined;
         "debounce"?: number;
-        "disabled"?: boolean;
-        "enterKeyHint"?: | 'enter'
-    | 'done'
-    | 'go'
-    | 'next'
-    | 'previous'
-    | 'search'
-    | 'send';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default false
          */
-        "enter-key-hint"?: | 'enter'
+        "disabled"?: boolean;
+        /**
+          * @default 'enter'
+         */
+        "enterKeyHint"?: | 'enter'
     | 'done'
     | 'go'
     | 'next'
@@ -1704,20 +1697,14 @@ declare namespace LocalJSX {
     | 'send';
         "errorText"?: string;
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'solid'
          */
-        "error-text"?: string;
         "fill"?: 'solid' | 'outline';
+        /**
+          * @default false
+         */
         "hasError"?: boolean;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "has-error"?: boolean;
         "helperText"?: string;
-        /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
-         */
-        "helper-text"?: string;
         "icon"?: IconProps;
         "inputmode"?: | 'none'
     | 'text'
@@ -1728,13 +1715,15 @@ declare namespace LocalJSX {
     | 'decimal'
     | 'search';
         "label"?: string;
-        "labelPlacement"?: 'stacked' | 'floating';
         /**
-         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+          * @default 'floating'
          */
-        "label-placement"?: 'stacked' | 'floating';
+        "labelPlacement"?: 'stacked' | 'floating';
         "maxlength"?: number;
         "minlength"?: number;
+        /**
+          * @default 'md'
+         */
         "mode"?: Mode;
         "name"?: string;
         "onAtomBlur"?: (event: AtomTextareaCustomEvent<void>) => void;
@@ -1743,15 +1732,30 @@ declare namespace LocalJSX {
         "onAtomInput"?: (event: AtomTextareaCustomEvent<string>) => void;
         "pattern"?: string;
         "placeholder"?: string;
+        /**
+          * @default false
+         */
         "readonly"?: boolean;
+        /**
+          * @default false
+         */
         "required"?: boolean;
+        /**
+          * @default 4
+         */
         "rows"?: number;
+        /**
+          * @default 'round'
+         */
         "shape"?: 'round' | undefined;
         "step"?: string;
         "value"?: IonTypes.IonTextarea['value'];
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface AtomTooltip {
+        /**
+          * @default 'hover'
+         */
         "action"?: 'hover' | 'click';
         "element"?: string;
         /**
@@ -1762,7 +1766,13 @@ declare namespace LocalJSX {
           * Event is dispatched when: 1. Mouse enter event in selector 2. Click in element when is mobile
          */
         "onAtomOpen"?: (event: AtomTooltipCustomEvent<any>) => void;
+        /**
+          * @default false
+         */
         "open"?: boolean;
+        /**
+          * @default 'top'
+         */
         "placement"?: | 'auto'
     | 'auto-start'
     | 'auto-end'
@@ -1773,7 +1783,11 @@ declare namespace LocalJSX {
     | 'bottom-start'
     | 'bottom-end'
     | 'right'
-    | 'left';
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
     }
     interface IntrinsicElements {
         "atom-alert": AtomAlert;
@@ -1799,6 +1813,7 @@ declare namespace LocalJSX {
         "atom-popover": AtomPopover;
         "atom-select": AtomSelect;
         "atom-spinner": AtomSpinner;
+        "atom-stepper": AtomStepper;
         "atom-steps-modal": AtomStepsModal;
         "atom-tag": AtomTag;
         "atom-textarea": AtomTextarea;
@@ -1832,6 +1847,7 @@ declare module "@stencil/core" {
             "atom-popover": LocalJSX.AtomPopover & JSXBase.HTMLAttributes<HTMLAtomPopoverElement>;
             "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
             "atom-spinner": LocalJSX.AtomSpinner & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
+            "atom-stepper": LocalJSX.AtomStepper & JSXBase.HTMLAttributes<HTMLAtomStepperElement>;
             "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
             "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
             "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;

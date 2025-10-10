@@ -1,5 +1,77 @@
 # Changelog
 
+## [3.15.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.14.1...atomium-v3.15.0) (2025-08-06)
+
+
+### Features
+
+* **meter:** use regular color on meter component ([#780](https://github.com/juntossomosmais/atomium/issues/780)) ([aa953c5](https://github.com/juntossomosmais/atomium/commit/aa953c5f3f0e06a646a306b5a1d7e1d6c7a926ca))
+
+## [3.14.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.14.0...atomium-v3.14.1) (2025-08-01)
+
+
+### Bug Fixes
+
+* **datetime:** improve value normalization and prevent ionic parsing warnings ([#777](https://github.com/juntossomosmais/atomium/issues/777)) ([47bcd1e](https://github.com/juntossomosmais/atomium/commit/47bcd1e4e1a613b4c26777111a078db5f270cb10))
+
+## [3.14.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.2...atomium-v3.14.0) (2025-07-17)
+
+
+### Features
+
+* **datetime:** support dynamic range selection ([442d355](https://github.com/juntossomosmais/atomium/commit/442d3554373e7e3adec95d3e52abcef9e8a01711))
+
+## [3.13.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.1...atomium-v3.13.2) (2025-07-07)
+
+
+### Bug Fixes
+
+* **datetime:** add ellipsis for overflowing custom date label ([b7f4436](https://github.com/juntossomosmais/atomium/commit/b7f4436b9dfc66d9d649d942c9ef6c3d47da9997))
+
+## [3.13.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.13.0...atomium-v3.13.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* **datetime:** add correct render to ion-datetime ([ef9a53c](https://github.com/juntossomosmais/atomium/commit/ef9a53c3458700dcfd00dd29238fdc245134bc26))
+
+## [3.13.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.3...atomium-v3.13.0) (2025-07-07)
+
+
+### Features
+
+* **datetime:** improve default value handling in range mode ([#771](https://github.com/juntossomosmais/atomium/issues/771)) ([f543a66](https://github.com/juntossomosmais/atomium/commit/f543a66492b602ec1919959c0b21ed2c122aebd0))
+
+## [3.12.3](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.2...atomium-v3.12.3) (2025-06-06)
+
+
+### Bug Fixes
+
+* **tooltip:** use popper instance to get correct placement ([#767](https://github.com/juntossomosmais/atomium/issues/767)) ([051b027](https://github.com/juntossomosmais/atomium/commit/051b027f7b6707277fb290407073edda7fde2bed))
+
+## [3.12.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.1...atomium-v3.12.2) (2025-06-04)
+
+
+### Bug Fixes
+
+* **core:** include core css on exports ([#759](https://github.com/juntossomosmais/atomium/issues/759)) ([7f326f6](https://github.com/juntossomosmais/atomium/commit/7f326f6a56aff67d1fa8053e9a898cb705e1a85a))
+* **core:** stencil core update ([#763](https://github.com/juntossomosmais/atomium/issues/763)) ([6249f90](https://github.com/juntossomosmais/atomium/commit/6249f90071def6d109643d7eaf43d4b3ba3e7b4b))
+
+## [3.12.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.12.0...atomium-v3.12.1) (2025-05-30)
+
+
+### Bug Fixes
+
+* **deps:** downgrade stencil version ([#755](https://github.com/juntossomosmais/atomium/issues/755)) ([73e3206](https://github.com/juntossomosmais/atomium/commit/73e3206a9e6db868005b97b677e74224fa75e799))
+
+## [3.12.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.11.0...atomium-v3.12.0) (2025-05-23)
+
+
+### Features
+
+* **component:** create stepper component ([#726](https://github.com/juntossomosmais/atomium/issues/726)) ([9603540](https://github.com/juntossomosmais/atomium/commit/960354046f34cfe9a44c772a0bb8483cb7726db7))
+* **datetime:** add date-target and time-target slots ([#754](https://github.com/juntossomosmais/atomium/issues/754)) ([e47ade4](https://github.com/juntossomosmais/atomium/commit/e47ade47ec39355e29bf30b2a13fbe75971175e0))
+
 ## [3.11.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.10.0...atomium-v3.11.0) (2025-04-25)
 
 

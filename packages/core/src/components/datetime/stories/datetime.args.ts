@@ -186,6 +186,22 @@ export const DatetimeStoryArgs = {
         category: Category.SLOTS,
       },
     },
+    dateTarget: {
+      control: 'text',
+      description:
+        'The date value displayed when used with useButton. If not provided, the default date format will be shown.',
+      table: {
+        category: Category.SLOTS,
+      },
+    },
+    timeTarget: {
+      control: 'text',
+      description:
+        'The time value displayed when used with useButton. If not provided, the default time format will be shown.',
+      table: {
+        category: Category.SLOTS,
+      },
+    },
     useButton: {
       control: 'boolean',
       description: 'If true, the datetime uses a button.',

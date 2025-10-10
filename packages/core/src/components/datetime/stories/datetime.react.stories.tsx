@@ -8,6 +8,18 @@ import {
   DatetimeStoryArgs,
 } from './datetime.args'
 
+const getLast30DaysRange = () => {
+  const today = new Date()
+  const thirtyDaysAgo = new Date()
+
+  thirtyDaysAgo.setDate(today.getDate() - 30)
+  const format = (d: Date) => d.toISOString().slice(0, 10)
+
+  return [format(thirtyDaysAgo), format(today)]
+}
+
+const todayISO = new Date().toISOString().slice(0, 10)
+
 export default {
   title: 'Components/Datetime',
   ...DatetimeStoryArgs,
@@ -66,7 +78,10 @@ export const AdvancedDateConstraints = {
 
 export const HighlightingSpecificDatesArray = {
   render: (args) => (
-    <AtomDatetime highlightedDates={args.highlightedDates} value='2025-01-01' />
+    <AtomDatetime
+      highlightedDates={args.highlightedDates}
+      value={'2025-01-01'}
+    />
   ),
   args: {
     highlightedDates: [
@@ -130,6 +145,68 @@ export const UsingRangeMode = {
   render: () => <AtomDatetime rangeMode={true} />,
 }
 
+export const RangeModeWithDefaultDates = {
+  render: () => <AtomDatetime rangeMode={true} value={getLast30DaysRange()} />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (last 30 days).',
+      },
+    },
+  },
+}
+
+export const RangeModeWithDefaultDatesAndButton = {
+  render: () => (
+    <AtomDatetime
+      rangeMode={true}
+      useButton={true}
+      label='Selecionar período'
+      datetimeId='datetime-range-with-button'
+      cancelText='Cancelar'
+      clearText='Limpar'
+      doneText='Confirmar'
+      locale='pt-BR'
+      value={getLast30DaysRange()}
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with button interface and default dates (last 30 days).',
+      },
+    },
+  },
+}
+
+export const RangeModeWithMinMax = {
+  render: () => (
+    <AtomDatetime
+      rangeMode={true}
+      min='2025-01-01'
+      max={todayISO}
+      value={getLast30DaysRange()}
+      useButton={true}
+      label='Selecionar período de verão'
+      datetimeId='datetime-range-constrained'
+      cancelText='Cancelar'
+      clearText='Limpar'
+      doneText='Confirmar'
+      locale='pt-BR'
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example demonstrates range mode with min/max constraints and default last 30 days selection (max is today).',
+      },
+    },
+  },
+}
+
 export const UsingWithButton = {
   render: () => (
     <AtomGrid>
@@ -157,6 +234,16 @@ export const UsingWithButton = {
           presentation='month-year'
           formatOptions={{ date: { month: 'long', year: 'numeric' } }}
         />
+      </AtomCol>
+      <AtomCol size='8'>
+        <AtomDatetime
+          useButton={true}
+          label='Selecione uma data'
+          datetimeId='datetime-with-custom-date-format'
+          presentation='date'
+        >
+          <span slot='date-target'>Custom-Date</span>
+        </AtomDatetime>
       </AtomCol>
     </AtomGrid>
   ),
