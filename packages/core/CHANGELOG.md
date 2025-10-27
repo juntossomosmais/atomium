@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.16.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.0...atomium-v3.16.1) (2025-10-27)
+
+
+### Bug Fixes
+
+* **datetime:** start new range on click when range already selected ([#784](https://github.com/juntossomosmais/atomium/issues/784)) ([ab54db8](https://github.com/juntossomosmais/atomium/commit/ab54db8e72405c57726cf603bc7be7724ed0d19c))
+
 ## [3.16.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.15.0...atomium-v3.16.0) (2025-10-10)
 
 
