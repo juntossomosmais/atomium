@@ -104,6 +104,88 @@ describe('AtomDatetime', () => {
     expect(spy.mock.calls[1][0].detail).toEqual(['2022-01-10'])
   })
 
+  it('should start a new range when user clicks outside existing range', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime range-mode="true"></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomChange', spy)
+
+    datetime.handleRangeMode(['2022-01-01', '2022-01-05'])
+    await page.waitForChanges()
+
+    expect(datetime.selectedDates).toEqual([
+      '2022-01-01',
+      '2022-01-02',
+      '2022-01-03',
+      '2022-01-04',
+      '2022-01-05',
+    ])
+
+    // Simulate ionic datetime behavior: when user clicks outside range with multiple=true,
+    // ionic adds the new date to the selection
+    datetime.handleRangeMode([
+      '2022-01-01',
+      '2022-01-02',
+      '2022-01-03',
+      '2022-01-04',
+      '2022-01-05',
+      '2022-01-15',
+    ])
+    await page.waitForChanges()
+
+    // Should start a new range with just the clicked date
+    expect(spy).toHaveBeenCalledTimes(2)
+    expect(spy.mock.calls[1][0].detail).toEqual(['2022-01-15'])
+  })
+
+  it('should complete new range when second date is clicked after starting new range', async () => {
+    const page = await newSpecPage({
+      components: [AtomDatetime],
+      html: '<atom-datetime range-mode="true"></atom-datetime>',
+    })
+
+    const datetime = page.rootInstance
+    const spy = jest.fn()
+
+    page.root?.addEventListener('atomChange', spy)
+
+    // Select initial range
+    datetime.handleRangeMode(['2022-01-01', '2022-01-05'])
+    await page.waitForChanges()
+
+    // Start new range (click outside existing range)
+    datetime.handleRangeMode([
+      '2022-01-01',
+      '2022-01-02',
+      '2022-01-03',
+      '2022-01-04',
+      '2022-01-05',
+      '2022-01-15',
+    ])
+    await page.waitForChanges()
+
+    expect(datetime.selectedDates).toEqual(['2022-01-15'])
+
+    // Complete new range by clicking second date
+    datetime.handleRangeMode(['2022-01-15', '2022-01-20'])
+    await page.waitForChanges()
+
+    expect(spy).toHaveBeenCalledTimes(3)
+    expect(spy.mock.calls[2][0].detail).toEqual([
+      '2022-01-15',
+      '2022-01-16',
+      '2022-01-17',
+      '2022-01-18',
+      '2022-01-19',
+      '2022-01-20',
+    ])
+  })
+
   it('should emits atomChange with a single date when rangeMode is false', async () => {
     const page = await newSpecPage({
       components: [AtomDatetime],

@@ -198,20 +198,45 @@ export class AtomDatetime {
     }, 0)
   }
 
+  private handleRangeModeWithZeroDates() {
+    this.selectedDates = []
+  }
+
+  private handleRangeModeWithOneDate(sortedDates: string[]) {
+    this.selectedDates = sortedDates
+  }
+
+  private handleRangeModeWithTwoDates(sortedDates: string[]) {
+    this.selectedDates = this.calculateDateRange(sortedDates)
+  }
+
+  private handleRangeModeWithMultipleDates(sortedDates: string[]) {
+    const previousDates = new Set(this.selectedDates)
+    const newDate = sortedDates.find((date) => !previousDates.has(date))
+
+    if (newDate && this.selectedDates.length >= 2) {
+      this.selectedDates = [newDate]
+    } else {
+      this.selectedDates = this.calculateDateRange([
+        sortedDates[0],
+        sortedDates[sortedDates.length - 1],
+      ])
+    }
+  }
+
   private handleRangeMode(dates: string[]) {
     const sortedDates = [...dates].sort(
       (a, b) => new Date(a).getTime() - new Date(b).getTime()
     )
 
-    if (sortedDates.length === 2) {
-      this.selectedDates = this.calculateDateRange(sortedDates)
+    if (sortedDates.length === 0) {
+      this.handleRangeModeWithZeroDates()
     } else if (sortedDates.length === 1) {
-      this.selectedDates =
-        this.selectedDates.length >= 2
-          ? sortedDates
-          : [...this.selectedDates, ...sortedDates]
+      this.handleRangeModeWithOneDate(sortedDates)
+    } else if (sortedDates.length === 2) {
+      this.handleRangeModeWithTwoDates(sortedDates)
     } else {
-      this.selectedDates = []
+      this.handleRangeModeWithMultipleDates(sortedDates)
     }
 
     this.selectedDates = [...this.selectedDates]
