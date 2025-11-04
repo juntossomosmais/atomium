@@ -1,0 +1,171 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title='Docs/Architecture Decision Records/ADR 0016: React Output Target Update' />
+
+# ADR 0016: React Output Target Update
+
+🗓️ 2025-11 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
+
+## Context
+
+The `@stencil/react-output-target` package underwent significant API changes after version 0.7.x, introducing a new runtime-based approach that requires different configuration and dependency management. Our project needed to be updated to use this new API while maintaining compatibility with our existing architecture.
+
+## Problems
+
+### Before the Update
+
+1. **Local react-component-lib**: The older versions (< 0.7.x) generated a local `react-component-lib` folder with custom helper functions for creating React wrappers.
+
+2. **Dependency Management**: There was confusion about where `@stencil/react-output-target` should be installed and whether consuming projects needed it.
+
+3. **Build Issues**: After version 0.7.x, projects using Ionic components experienced issues where the wrappers weren't being generated correctly ([GitHub Issue #552](https://github.com/stenciljs/output-targets/issues/552)).
+
+4. **Runtime Dependency**: The new versions require `@stencil/react-output-target/runtime` to be available at runtime, not just at build time ([GitHub Issue #645](https://github.com/stenciljs/output-targets/issues/645)).
+
+## Decision
+
+We decided to update to the latest version of `@stencil/react-output-target` (v1.2.0) and adopt the new runtime-based API with the following changes:
+
+### 1. Updated Stencil Configuration
+
+```typescript
+reactOutputTarget({
+  outDir: '../react/src/components',
+  stencilPackageName: '@juntossomosmais/atomium',
+  customElementsDir: 'dist/components',
+  excludeComponents, // Ionic components remain excluded
+  esModules: true,
+})
+```
+
+Key configuration changes:
+
+- Added `stencilPackageName` to specify the package name for imports
+- Added `customElementsDir` to point to the correct output directory
+- Enabled `esModules` for modern JavaScript output
+- Maintained `excludeComponents` list for Ionic components
+
+### 2. Dependency Management
+
+**Root package.json** (devDependencies):
+
+```json
+{
+  "devDependencies": {
+    "@stencil/react-output-target": "^1.2.0"
+  }
+}
+```
+
+Used for generating the React wrappers during build.
+
+**packages/react/package.json** (dependencies):
+
+```json
+{
+  "dependencies": {
+    "@stencil/react-output-target": "^1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  }
+}
+```
+
+The runtime is included as a regular dependency so it's automatically installed in consuming projects.
+
+### 3. Removed Local react-component-lib
+
+The old `packages/react/src/components/react-component-lib/` folder was removed. All components now import from `@stencil/react-output-target/runtime`:
+
+```typescript
+import { createComponent } from '@stencil/react-output-target/runtime'
+import type {
+  EventName,
+  StencilReactComponent,
+} from '@stencil/react-output-target/runtime'
+```
+
+### 4. Individual Component Files
+
+The new generator creates individual component files instead of a monolithic file:
+
+- `atom-button.ts`
+- `atom-input.ts`
+- etc.
+
+Each file is self-contained with its own imports and type definitions.
+
+### 5. TypeScript Configuration
+
+Updated `packages/react/tsconfig.json` with path mappings to resolve imports during compilation:
+
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@juntossomosmais/atomium": ["../core/src/index.ts"],
+      "@juntossomosmais/atomium/*": ["../core/*"]
+    }
+  }
+}
+```
+
+## Benefits
+
+1. **Automatic Dependency Resolution**: Consuming projects don't need to explicitly install `@stencil/react-output-target` - it's pulled in automatically as a transitive dependency.
+
+2. **Better Type Safety**: The new runtime provides better TypeScript types and interfaces.
+
+3. **Improved Event Handling**: Better handling of React synthetic events and custom events.
+
+4. **Future Proof**: Aligns with the current and future direction of Stencil's React output target.
+
+5. **Cleaner Build Output**: Individual component files are easier to tree-shake and debug.
+
+6. **Ionic Compatibility**: Properly excludes Ionic components from React wrappers while keeping them available globally.
+
+## Consequences
+
+### Positive
+
+- ✅ Consuming projects have a simpler setup - just install `@juntossomosmais/atomium`
+- ✅ Better TypeScript support and autocompletion
+- ✅ Aligned with Stencil's official recommendations
+- ✅ Ionic components continue to work as expected
+- ✅ All build processes work correctly
+
+### Neutral
+
+- 🔄 Breaking change in how components are generated internally (but not for consumers)
+- 🔄 Additional runtime dependency (`@stencil/react-output-target` in the bundle)
+
+### Negative
+
+- ❌ Slight increase in bundle size due to the runtime dependency (minimal impact)
+
+## Migration Notes
+
+For consumers of the library:
+
+- No changes required in consuming applications
+- The import paths remain the same: `import { AtomButton } from '@juntossomosmais/atomium/react'`
+- `@stencil/react-output-target` is installed automatically
+
+For maintainers:
+
+- The local `react-component-lib` folder is no longer generated or needed
+- All React wrapper logic now comes from the npm package runtime
+- Ionic components remain excluded and available globally via `@ionic/core`
+
+## References
+
+- [Stencil React Output Target Documentation](https://stenciljs.com/docs/react)
+- [GitHub Issue #645: Cannot find module '@stencil/react-output-target/runtime'](https://github.com/stenciljs/output-targets/issues/645)
+- [GitHub Issue #552: React output target not wrapping Ionic components](https://github.com/stenciljs/output-targets/issues/552)
+- [ADR 0007: Why do we transpile Web Components for React and Vue?](./0007-why-do-we-transpile-web-components-for-react-and-vue.mdx)
+- [ADR 0010: Why do we need a fix in React?](./0010-why-do-we-need-react-fix.mdx)
