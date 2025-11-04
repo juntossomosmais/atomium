@@ -40,6 +40,7 @@ const excludeComponents = [
   'ion-img',
   'ion-infinite-scroll-content',
   'ion-infinite-scroll',
+  'ion-input-otp',
   'ion-input-password-toggle',
   'ion-input',
   'ion-item-divider',
@@ -141,7 +142,10 @@ export const config: Config = {
     }),
     reactOutputTarget({
       outDir: '../react/src/components',
+      stencilPackageName: '@juntossomosmais/atomium',
+      customElementsDir: 'dist/components',
       excludeComponents,
+      esModules: true,
     }),
   ],
 }
