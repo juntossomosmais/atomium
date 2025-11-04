@@ -11,7 +11,9 @@
         "dependsOn": [
           {
             "projects": [
-              "@juntossomosmais/atomium"
+              "@juntossomosmais/atomium",
+              "@juntossomosmais/atomium-react",
+              "@juntossomosmais/atomium-vue"
             ],
             "target": "build"
           }

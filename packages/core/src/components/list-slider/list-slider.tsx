@@ -38,7 +38,7 @@ export class AtomListSlider {
   maxTranslateX = 0
 
   sliderWrapper: HTMLElement
-  sliderItems: NodeListOf<HTMLElement>
+  sliderItems: NodeListOf<HTMLAtomListSliderItemElement>
   nextButton: HTMLButtonElement
   prevButton: HTMLButtonElement
 
