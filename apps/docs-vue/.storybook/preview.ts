@@ -4,7 +4,7 @@ import DocumentationTemplate from '@atomium/storybook-utils/templates/Documentat
 import '@atomium/storybook-utils/preview.css'
 
 import '@juntossomosmais/atomium-tokens/tokens.css'
-import '@juntossomosmais/atomium/dist/core/core.css'
+import '@juntossomosmais/atomium/core.css'
 
 import { ComponentLibrary } from '@juntossomosmais/atomium/vue'
 

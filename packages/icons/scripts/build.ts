@@ -1,6 +1,6 @@
-import path from 'path'
+import path from 'node:path'
 
-import { optimize } from 'svgo'
+import { optimize, type PluginConfig } from 'svgo'
 
 import { readSvg, readSvgDirectories, writeSvgFile } from './helpers.js'
 
@@ -10,12 +10,7 @@ function optimizeSvg(filePath: string, svg: string) {
     plugins: [
       {
         name: 'preset-default',
-        params: {
-          overrides: {
-            removeViewBox: false,
-          },
-        },
-      },
+      } as PluginConfig,
     ],
   })
 

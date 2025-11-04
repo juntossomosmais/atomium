@@ -29,8 +29,9 @@ $custom-rupture: (
     'desktop2k' 'desktop4k',
 );
 
-@use './rupture' as rupture with (
+@use '../../node_modules/@juntossomosmais/rupture-scss/rupture.scss' as rupture
+  with (
   $rupture: $custom-rupture
 );
 
-@forward './rupture';
+@forward '../../node_modules/@juntossomosmais/rupture-scss/rupture.scss';

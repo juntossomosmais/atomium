@@ -174,6 +174,104 @@ export const UsingRangeMode = {
   }),
 }
 
+const getLast30DaysRange = () => {
+  const today = new Date()
+  const thirtyDaysAgo = new Date()
+
+  thirtyDaysAgo.setDate(today.getDate() - 30)
+  const format = (d) => d.toISOString().slice(0, 10)
+
+  return [format(thirtyDaysAgo), format(today)]
+}
+
+const todayISO = new Date().toISOString().slice(0, 10)
+
+export const RangeModeWithDefaultDates = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        defaultDates: getLast30DaysRange(),
+      }
+    },
+    template: `
+      <AtomDatetime rangeMode="true" :value="defaultDates" />
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with default start and end dates pre-selected (last 30 days).',
+      },
+    },
+  },
+}
+
+export const RangeModeWithDefaultDatesAndButton = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        defaultDates: getLast30DaysRange(),
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        useButton="true"
+        label="Selecionar período"
+        datetimeId="datetime-range-with-button"
+        cancelText="Cancelar"
+        clearText="Limpar"
+        doneText="Confirmar"
+        locale="pt-BR"
+        :value="defaultDates"
+      >
+        <span slot="date-target">Últimos 30 dias</span>
+      </AtomDatetime>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows the Datetime component in range mode with button interface, default dates (last 30 days), and custom Portuguese text in the button.',
+      },
+    },
+  },
+}
+
+export const RangeModeWithMinMax = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        summerDates: getLast30DaysRange(),
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        min="2025-01-01"
+        :max="'${todayISO}'"
+        :value="summerDates"
+        useButton="true"
+        label="Select summer period"
+        datetimeId="datetime-range-constrained"
+      />
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example demonstrates range mode with min/max constraints and default last 30 days selection (max is today).',
+      },
+    },
+  },
+}
+
 export const UsingWithButton = {
   render: (args) => ({
     components: { AtomDatetime, AtomCol, AtomGrid },
@@ -207,7 +305,51 @@ export const UsingWithButton = {
             formatOptions="${{ date: { month: 'long', year: 'numeric' } }}"
           />
         </AtomCol>
+        <AtomCol size="8">
+          <AtomDatetime
+            useButton="true"
+            label="Selecione uma data"
+            datetimeId="datetime-with-button-date"
+            presentation="date"
+          >
+            <span slot="date-target">Custom Date</span>
+          </AtomDatetime>
+        </AtomCol>
       </AtomGrid>
     `,
   }),
+}
+
+export const RangeModeCustomButtonText = {
+  render: () => ({
+    components: { AtomDatetime },
+    data() {
+      return {
+        workDates: ['2025-07-07', '2025-07-13'],
+      }
+    },
+    template: `
+      <AtomDatetime
+        rangeMode="true"
+        useButton="true"
+        label="Período de trabalho"
+        datetimeId="datetime-range-custom-text"
+        cancelText="Cancelar"
+        clearText="Limpar"
+        doneText="Confirmar"
+        locale="pt-BR"
+        :value="workDates"
+      >
+        <span slot="date-target">7 dias selecionados</span>
+      </AtomDatetime>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This example shows how to customize the button text to display "7 dias selecionados" instead of the default "7 days" text.',
+      },
+    },
+  },
 }
