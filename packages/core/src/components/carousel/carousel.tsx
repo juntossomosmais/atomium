@@ -37,7 +37,7 @@ export class AtomCarousel {
   }
 
   carouselWrapper: HTMLElement
-  carouselItems: NodeListOf<HTMLElement>
+  carouselItems: NodeListOf<HTMLAtomCarouselItemElement>
   nextButton: HTMLButtonElement
   prevButton: HTMLButtonElement
   autoplayIntervalId: NodeJS.Timeout
