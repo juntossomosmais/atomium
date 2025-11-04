@@ -37,7 +37,16 @@
       }
     }
   },
+  "dependencies": {
+    "@stencil/react-output-target": "^1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.27.1"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   }
 }
