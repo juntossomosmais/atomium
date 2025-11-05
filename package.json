@@ -46,7 +46,7 @@
     "@juntossomosmais/rupture-scss": "^1.1.0",
     "@nrwl/workspace": "19.8.4",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@stencil/react-output-target": "^0.5.3",
+    "@stencil/react-output-target": "0.5.3",
     "@stencil/sass": "^3.2.3",
     "@stencil/vue-output-target": "^0.8.9",
     "@storybook/addon-a11y": "^8.6.12",
