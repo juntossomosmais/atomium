@@ -53,7 +53,7 @@ describe('atom-tag', () => {
     const pageRoot = await setup('success', mockedIcon)
 
     expect(pageRoot?.root?.shadowRoot)
-      .toEqualHtml(`<ion-badge class="atom-tag" color="success" mode="md" part="tag">
+      .toEqualHtml(`<ion-badge class="atom-tag" color="success" mode="md">
     <atom-icon class="atom-icon" icon=${mockedIcon}></atom-icon>
     <slot></slot>
   </ion-badge>`)
