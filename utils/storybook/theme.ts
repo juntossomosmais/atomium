@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming'
+import { create } from 'storybook/theming'
 
 const $blue = 'rgb(0 127 216)'
 const $grayDark = 'rgb(33 33 33)'

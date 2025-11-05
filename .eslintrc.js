@@ -3,6 +3,7 @@ const baseConfig = require('@juntossomosmais/linters/eslint.config.js')
 module.exports = {
   ...baseConfig,
   root: true,
+
   settings: {
     'import/resolver': {
       typescript: {
@@ -10,6 +11,7 @@ module.exports = {
       },
     },
   },
+
   overrides: [
     ...baseConfig.overrides,
     {
@@ -32,4 +34,6 @@ module.exports = {
       },
     },
   ],
+
+  extends: ['plugin:storybook/recommended']
 }

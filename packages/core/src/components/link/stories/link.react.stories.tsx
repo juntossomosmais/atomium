@@ -1,5 +1,5 @@
 import { AtomIcon, AtomLink } from '@juntossomosmais/atomium/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 
 import { LinkReactStoryArgs } from './link.args'
 

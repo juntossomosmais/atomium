@@ -1,5 +1,5 @@
 import { AtomButton, AtomStepsModal } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import { ModalComponentArgs, ModalStoryArgs } from './steps-modal.args'
 

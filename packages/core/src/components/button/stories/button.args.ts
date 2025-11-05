@@ -1,5 +1,5 @@
 import { Category } from '@atomium/storybook-utils/enums/table'
-import { withActions } from '@storybook/addon-actions/decorator'
+import { withActions } from 'storybook/actions/decorator'
 
 export const ButtonStoryArgs = {
   parameters: {
