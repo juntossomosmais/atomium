@@ -24,7 +24,7 @@
     "removeComments": false,
     "sourceMap": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/types/**/*.d.ts"],
   "exclude": ["node_modules"],
   "compileOnSave": false,
   "buildOnSave": false
