@@ -1,0 +1,5 @@
+import{w as l}from"./index-ZjP4CjeZ-B2PaWDFh.js";import{r as v}from"./helpers-53vrVRiL-DS0Py0hd.js";import{p as E}from"./index-uR7fBKDC.js";/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ */const h=(r,t,o)=>{let n,e;if(l!==void 0&&"MutationObserver"in l){const d=Array.isArray(t)?t:[t];n=new MutationObserver(s=>{for(const c of s)for(const i of c.addedNodes)if(i.nodeType===Node.ELEMENT_NODE&&d.includes(i.slot)){o(),v(()=>u(i));return}}),n.observe(r,{childList:!0,subtree:!0})}const u=d=>{var s;e&&(e.disconnect(),e=void 0),e=new MutationObserver(c=>{o();for(const i of c)for(const a of i.removedNodes)a.nodeType===Node.ELEMENT_NODE&&a.slot===t&&f()}),e.observe((s=d.parentElement)!==null&&s!==void 0?s:d,{subtree:!0,childList:!0})},p=()=>{n&&(n.disconnect(),n=void 0),f()},f=()=>{e&&(e.disconnect(),e=void 0)};return{destroy:p}};/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ */const C=(r,t,o)=>{const n=r==null?0:r.toString().length,e=b(n,t);if(o===void 0)return e;try{return o(n,t)}catch(u){return E("[ion-input] - Exception in provided `counterFormatter`:",u),e}},b=(r,t)=>`${r} / ${t}`;export{h as c,C as g};
