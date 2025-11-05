@@ -50,3 +50,5 @@ updates:
     ignore:
       - dependency-name: 'eslint'
         versions: ['9.x']
+      - dependency-name: '@stencil/react-output-target'
+        versions: ['>= 0.6.0']
