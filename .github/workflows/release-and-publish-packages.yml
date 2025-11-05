@@ -33,7 +33,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
           registry-url: 'https://npm.pkg.github.com'
           scope: '@juntossomosmais'
 
