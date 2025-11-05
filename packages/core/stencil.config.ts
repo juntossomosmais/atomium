@@ -45,6 +45,7 @@ const excludeComponents = [
   'ion-infinite-scroll',
   'ion-input-password-toggle',
   'ion-input',
+  'ion-input-otp',
   'ion-item-divider',
   'ion-item-group',
   'ion-item-option',
