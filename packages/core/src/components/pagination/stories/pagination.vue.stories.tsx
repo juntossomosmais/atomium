@@ -1,5 +1,5 @@
 import { AtomPagination } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import { PaginationComponentArgs, PaginationStoryArgs } from './pagination.args'
 

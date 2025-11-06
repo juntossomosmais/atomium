@@ -51,3 +51,12 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Log files
+logs
+*.log
+npm-debug.log* 
+
+# AI
+.claude
+.cursor
