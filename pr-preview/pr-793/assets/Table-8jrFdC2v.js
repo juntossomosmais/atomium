@@ -1,1 +1,0 @@
-import{R as e}from"./iframe-DPKEHp6z.js";const E=({headers:a,rows:m})=>e.createElement("table",null,e.createElement("thead",null,e.createElement("tr",null,a.map((t,l)=>e.createElement("th",{key:l},t)))),e.createElement("tbody",null,m.map((t,l)=>e.createElement("tr",{key:l},t.map((n,r)=>e.createElement("td",{key:r},n))))));export{E as T};
