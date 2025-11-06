@@ -1,5 +1,5 @@
 import { AtomContainer } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import { ContainerStoryArgs } from './container.args'
 

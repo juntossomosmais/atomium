@@ -1,21 +1,36 @@
-module.exports = {
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
+import type { StorybookConfig } from '@storybook/react-vite'
+
+const config: StorybookConfig = {
   stories: [
     '../stories/*.@(mdx|stories.@(js|jsx|ts|tsx))',
     '../../../packages/core/src/**/*.react.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
+
   addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-actions',
-    '@storybook/addon-a11y',
-    '@storybook/addon-viewport',
-    '@storybook/theming',
-    '@storybook/addon-webpack5-compiler-babel',
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-docs'),
   ],
+
   framework: {
-    name: '@storybook/react-webpack5',
+    name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
-  docs: {
-    autodocs: true,
+
+  async viteFinal(config) {
+    // Ensure React story files use React JSX transform, not Stencil's
+    config.esbuild = {
+      ...config.esbuild,
+      jsx: 'automatic',
+      jsxImportSource: 'react',
+    }
+    return config
   },
+}
+
+export default config
+
+function getAbsolutePath(value: string): any {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
 }
