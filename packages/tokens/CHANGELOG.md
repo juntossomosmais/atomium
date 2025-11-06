@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.1.0...atomium-tokens-v2.2.0) (2025-11-06)
+
+
+### Features
+
+* **storybook:** upgrade to v10 and migrate from webpack5 to vite ([#793](https://github.com/juntossomosmais/atomium/issues/793)) ([43900e0](https://github.com/juntossomosmais/atomium/commit/43900e0cbe3ec0033aa29ae6cd3bbd2a9df5283b))
+
 ## [2.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.2...atomium-tokens-v2.1.0) (2025-04-09)
 
 

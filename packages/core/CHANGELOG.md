@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.17.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.1...atomium-v3.17.0) (2025-11-06)
+
+
+### Features
+
+* **storybook:** upgrade to v10 and migrate from webpack5 to vite ([#793](https://github.com/juntossomosmais/atomium/issues/793)) ([43900e0](https://github.com/juntossomosmais/atomium/commit/43900e0cbe3ec0033aa29ae6cd3bbd2a9df5283b))
+
 ## [3.16.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.0...atomium-v3.16.1) (2025-10-27)
 
 
