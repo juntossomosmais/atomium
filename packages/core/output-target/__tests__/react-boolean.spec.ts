@@ -7,7 +7,7 @@ import {
 import { createNodeLogger, createNodeSys } from '@stencil/core/sys/node'
 import { reactOutputTarget } from '@stencil/react-output-target'
 import fs from 'fs'
-import { reactBooleanFixOutputTarget } from './react-boolean'
+import { reactBooleanFixOutputTarget } from '../react-boolean'
 
 describe.skip('React Boolean Fix', () => {
   let compiler: Compiler
