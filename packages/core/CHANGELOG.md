@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.17.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.1...atomium-v3.17.0) (2025-11-07)
+
+
+### Features
+
+* **react:** update to react 18 from react 19 ([#797](https://github.com/juntossomosmais/atomium/issues/797)) ([59ee497](https://github.com/juntossomosmais/atomium/commit/59ee4973a77ed7f5db1299ba9abff984c7f44040))
+
 ## [3.16.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.0...atomium-v3.16.1) (2025-10-27)
 
 
