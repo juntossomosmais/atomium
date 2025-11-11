@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.17.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.1...atomium-v3.17.2) (2025-11-11)
+
+
+### Bug Fixes
+
+* **form-request-submit:** replace deprecated method ([2de5bdf](https://github.com/juntossomosmais/atomium/commit/2de5bdff2743294e45ed8c5e9f18abacd4096efa))
+* **list-slider:** correct navigation button display logic ([322b756](https://github.com/juntossomosmais/atomium/commit/322b756469f778e3e43bf6d80253dc87e9efac84))
+* **select:** optimize item iteration and improve early returns ([e3fac32](https://github.com/juntossomosmais/atomium/commit/e3fac32b3f6044602f9c1acaea71862e0af86a42))
+* **tooltip:** remove role attribute ([7960538](https://github.com/juntossomosmais/atomium/commit/7960538375f4032577f3a998ecd42dd2e40c30e7))
+* **tooltip:** replace `forEach` with `for...of` for event ([95e8bfc](https://github.com/juntossomosmais/atomium/commit/95e8bfc15f122109dfbc35e550f3dfa799fc54ee))
+
 ## [3.17.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.0...atomium-v3.17.1) (2025-11-11)
 
 
