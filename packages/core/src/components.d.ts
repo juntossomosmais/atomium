@@ -131,7 +131,7 @@ export namespace Components {
         "offsetSm"?: string;
         "pull"?: string;
         "push"?: string;
-        "size"?: 'auto' | string;
+        "size"?: string;
         "sizeLg"?: string;
         "sizeMd"?: string;
         "sizeSm"?: string;
@@ -1222,7 +1222,7 @@ declare namespace LocalJSX {
         "offsetSm"?: string;
         "pull"?: string;
         "push"?: string;
-        "size"?: 'auto' | string;
+        "size"?: string;
         "sizeLg"?: string;
         "sizeMd"?: string;
         "sizeSm"?: string;

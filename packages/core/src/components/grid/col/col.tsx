@@ -37,7 +37,7 @@ const matchBreakpoint = (breakpoint: string | undefined) => {
   styleUrl: 'col.scss',
 })
 export class AtomCol {
-  @Prop() size?: 'auto' | string
+  @Prop() size?: string
   @Prop() sizeSm?: string
   @Prop() sizeMd?: string
   @Prop() sizeLg?: string
