@@ -259,7 +259,7 @@ export class AtomListSlider {
             aria-label='Previous'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
-            style={{ display: !this.hasNavigation ? 'none' : '' }}
+            style={{ display: this.hasNavigation ? '' : 'none' }}
           >
             <atom-icon icon='chevron-left'></atom-icon>
           </button>
@@ -281,7 +281,7 @@ export class AtomListSlider {
             aria-label='Next'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
-            style={{ display: !this.hasNavigation ? 'none' : '' }}
+            style={{ display: this.hasNavigation ? '' : 'none' }}
           >
             <atom-icon icon='chevron-right'></atom-icon>
           </button>
