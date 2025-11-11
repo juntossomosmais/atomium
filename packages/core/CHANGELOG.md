@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.17.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.0...atomium-v3.17.1) (2025-11-11)
+
+
+### Bug Fixes
+
+* **carousel:** change carousel structure from divs to ol ([ebcc4d1](https://github.com/juntossomosmais/atomium/commit/ebcc4d1fb9bfae9ae883b948ef2db07e937302ce))
+* **carousel:** simplify null checks using optional chaining ([bfe0a01](https://github.com/juntossomosmais/atomium/commit/bfe0a01bd0e539f758e0855802d9c1e1572e7c65))
+* **carousel:** use `globalThis` for dispatching event ([70f1d5f](https://github.com/juntossomosmais/atomium/commit/70f1d5fc41006e98564ce48eb86a95e9317d59c5))
+* **chip:** change `tabIndex` from 1 to 0 for accessibility ([87f81fd](https://github.com/juntossomosmais/atomium/commit/87f81fd3af9e5c3e5edb34cbf7446366d24e8f68))
+* **datetime:** correct logic for date arrays ([64b9961](https://github.com/juntossomosmais/atomium/commit/64b9961e5d0fa84a726224160a7767baabac28fb))
+* **datetime:** update active day background color to use brand color ([a38a357](https://github.com/juntossomosmais/atomium/commit/a38a35720f13ea009166bf51fd6cdcc19184fe15))
+
 ## [3.17.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.1...atomium-v3.17.0) (2025-11-07)
 
 
