@@ -69,6 +69,7 @@
     "copyfiles": "^2.4.1",
     "cssnano": "^7.1.2",
     "eslint": "^8.57.0",
+    "eslint-import-resolver-node": "^0.3.9",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-sonarjs": "^3.0.5",

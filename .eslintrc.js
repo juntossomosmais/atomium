@@ -5,7 +5,12 @@ module.exports = {
   root: true,
 
   settings: {
+    ...baseConfig.settings,
     'import/resolver': {
+      ...baseConfig.settings?.['import/resolver'],
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
       typescript: {
         project: './tsconfig.base.json',
       },
@@ -35,5 +40,5 @@ module.exports = {
     },
   ],
 
-  extends: ['plugin:storybook/recommended']
+  extends: ['plugin:storybook/recommended'],
 }
