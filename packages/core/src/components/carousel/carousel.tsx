@@ -186,7 +186,6 @@ export class AtomCarousel {
           {this.hasNavigation && (
             <button
               class='carousel-navigation navigation--prev'
-              role='button'
               aria-label='Previous'
               aria-disabled={this.loop ? 'false' : 'true'}
               onClick={() => this.handleNavigationClick('prev')}
@@ -202,7 +201,6 @@ export class AtomCarousel {
           {this.hasNavigation && (
             <button
               class='carousel-navigation navigation--next'
-              role='button'
               aria-label='Next'
               onClick={() => this.handleNavigationClick('next')}
             >
