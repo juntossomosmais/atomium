@@ -69,7 +69,7 @@ export class AtomListSlider {
       detail: { currentIndex: this.currentIndex },
     })
 
-    window.dispatchEvent(transitionendEvent)
+    globalThis.dispatchEvent(transitionendEvent)
   }
 
   componentDidLoad() {
@@ -104,7 +104,7 @@ export class AtomListSlider {
   }
 
   connectedCallback() {
-    window.addEventListener('resize', this.handleOnResize)
+    globalThis.addEventListener('resize', this.handleOnResize)
   }
 
   disconnectedCallback() {
@@ -113,7 +113,7 @@ export class AtomListSlider {
     this.sliderWrapper.removeEventListener('touchstart', this.handleTouchStart)
     this.sliderWrapper.removeEventListener('touchend', this.handleTouchEnd)
     this.sliderWrapper.removeEventListener('touchmove', this.handleTouchMove)
-    window.removeEventListener('resize', this.handleOnResize)
+    globalThis.removeEventListener('resize', this.handleOnResize)
   }
 
   handleOnResize() {
