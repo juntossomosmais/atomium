@@ -209,13 +209,10 @@ export class AtomCarousel {
           )}
         </section>
         {this.hasPagination && (
-          <div
-            class='carousel-pagination'
-            role='navigation'
-            aria-label='Pagination'
-          >
-            {Array.from(this.carouselItems).map((_, index) => (
+          <nav class='carousel-pagination' aria-label='Pagination'>
+            {Array.from(this.carouselItems).map((item, index) => (
               <button
+                key={`carousel-pagination-${index}`}
                 class={`carousel-pagination__item ${index === this.currentIdx ? 'active' : ''} ${this.thumbnails?.length > 0 ? 'carousel-pagination--thumbnails' : 'carousel-pagination--bullets'}`}
                 role='tab'
                 aria-selected={index === this.currentIdx}
@@ -234,7 +231,7 @@ export class AtomCarousel {
                 )}
               </button>
             ))}
-          </div>
+          </nav>
         )}
       </Host>
     )
