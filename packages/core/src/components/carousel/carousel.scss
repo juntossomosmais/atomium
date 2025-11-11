@@ -19,6 +19,9 @@
 .carousel-wrapper {
   display: flex;
   flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   transition: transform var(--transition-duration);
   will-change: transform;
 }

@@ -11,9 +11,9 @@ export class AtomCarouselItem {
   render() {
     return (
       <Host>
-        <div class='atom-carousel-item'>
+        <li class='atom-carousel-item'>
           <slot />
-        </div>
+        </li>
       </Host>
     )
   }
