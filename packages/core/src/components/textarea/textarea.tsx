@@ -102,26 +102,30 @@ export class AtomTextarea {
     return this.textareaEl.getInputElement()
   }
 
-  private handleChange: IonTypes.IonTextarea['onIonChange'] = (event) => {
+  private readonly handleChange: IonTypes.IonTextarea['onIonChange'] = (
+    event
+  ) => {
     const value = event.target.value
 
     this.value = value
     this.atomChange.emit(String(value))
   }
 
-  private handleInput: IonTypes.IonTextarea['onIonInput'] = (event) => {
+  private readonly handleInput: IonTypes.IonTextarea['onIonInput'] = (
+    event
+  ) => {
     const value = event.target.value
 
     this.value = value
     this.atomInput.emit(String(value))
   }
 
-  private handleBlur = () => {
+  private readonly handleBlur = () => {
     this.textareaEl.removeEventListener('ionBlur', this.handleBlur)
     this.atomBlur.emit()
   }
 
-  private handleFocus = () => {
+  private readonly handleFocus = () => {
     this.textareaEl.removeEventListener('ionFocus', this.handleFocus)
     this.atomFocus.emit()
   }
