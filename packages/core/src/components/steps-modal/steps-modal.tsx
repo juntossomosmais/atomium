@@ -63,11 +63,11 @@ export class AtomStepsModal {
     this.secondaryButtonTextsArray = this.secondaryButtonTextsByStep.split(',')
   }
 
-  private handleStep = (step: number) => {
+  private readonly handleStep = (step: number) => {
     this.currentStep = step
   }
 
-  private handleNextStep = () => {
+  private readonly handleNextStep = () => {
     const { atomNextStep, el, currentStep, handleStep } = this
 
     handleStep(currentStep + 1)
@@ -75,7 +75,7 @@ export class AtomStepsModal {
     forceUpdate(el)
   }
 
-  private handleFinish = () => {
+  private readonly handleFinish = () => {
     this.atomFinish.emit()
 
     if (this.closeOnFinish) {
@@ -83,19 +83,19 @@ export class AtomStepsModal {
     }
   }
 
-  private handlePrimaryClick = () => {
+  private readonly handlePrimaryClick = () => {
     const { currentStep, steps, handleNextStep, handleFinish } = this
 
     return currentStep === steps ? handleFinish() : handleNextStep()
   }
 
-  private handleCloseClick = (e: Event) => {
+  private readonly handleCloseClick = (e: Event) => {
     e.stopImmediatePropagation()
     this.isOpen = false
     this.atomCloseClick.emit()
   }
 
-  private handleSecondaryClick = () => {
+  private readonly handleSecondaryClick = () => {
     if (this.currentStep === this.lockedInitialStep) {
       this.atomCancel.emit()
 
@@ -112,13 +112,13 @@ export class AtomStepsModal {
     this.atomPreviousStep.emit(this.currentStep)
   }
 
-  private handleDidPresent = (e: Event) => {
+  private readonly handleDidPresent = (e: Event) => {
     e.stopImmediatePropagation()
     this.isOpen = true
     this.atomDidPresent.emit(this.currentStep)
   }
 
-  private handleDidDismiss = (e: Event) => {
+  private readonly handleDidDismiss = (e: Event) => {
     e.stopImmediatePropagation()
     this.isOpen = false
     this.atomDidDismiss.emit(this.currentStep)
