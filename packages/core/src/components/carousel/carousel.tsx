@@ -33,7 +33,7 @@ export class AtomCarousel {
       detail: { currentIndex: this.currentIndex },
     })
 
-    window.dispatchEvent(transitionendEvent)
+    globalThis.dispatchEvent(transitionendEvent)
   }
 
   carouselWrapper: HTMLElement
