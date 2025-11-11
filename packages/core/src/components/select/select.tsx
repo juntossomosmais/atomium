@@ -151,29 +151,31 @@ export class AtomSelect {
     }
   }
 
-  private handleChange: IonTypes.IonSelect['onIonChange'] = (event) => {
+  private readonly handleChange: IonTypes.IonSelect['onIonChange'] = (
+    event
+  ) => {
     this.value = event.detail.value
     this.atomChange.emit(this.value)
   }
 
-  private handleCancel = () => {
+  private readonly handleCancel = () => {
     this.selectEl.removeEventListener('ionCancel', this.handleCancel)
     this.atomCancel.emit()
   }
 
-  private handleBlur = () => {
+  private readonly handleBlur = () => {
     if (Object.values(this.optionsWithTag).length) this.setTagInSelectOptions()
 
     this.selectEl.removeEventListener('ionBlur', this.handleBlur)
     this.atomBlur.emit()
   }
 
-  private handleFocus = () => {
+  private readonly handleFocus = () => {
     this.selectEl.removeEventListener('ionFocus', this.handleBlur)
     this.atomFocus.emit()
   }
 
-  private handleDismiss = () => {
+  private readonly handleDismiss = () => {
     this.selectEl.removeEventListener('ionDismiss', this.handleDismiss)
     this.atomDismiss.emit()
   }
