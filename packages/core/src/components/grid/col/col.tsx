@@ -6,7 +6,7 @@ import { Component, forceUpdate, h, Host, Listen, Prop } from '@stencil/core'
 
 const BREAKPOINTS = ['', 'xs', 'sm', 'md', 'lg', 'xl']
 
-const SIZE_TO_MEDIA: any = {
+const SIZE_TO_MEDIA: Record<string, string> = {
   xs: '(min-width: 0px)',
   sm: '(min-width: 576px)',
   md: '(min-width: 768px)',
@@ -21,10 +21,13 @@ const matchBreakpoint = (breakpoint: string | undefined) => {
   if (breakpoint === undefined || breakpoint === '') {
     return true
   }
-  if ((window as any).matchMedia) {
+
+  if (typeof globalThis !== 'undefined' && 'matchMedia' in globalThis) {
     const mediaQuery = SIZE_TO_MEDIA[breakpoint]
-    return window.matchMedia(mediaQuery).matches
+
+    return globalThis.matchMedia(mediaQuery).matches
   }
+
   return false
 }
 
@@ -60,9 +63,9 @@ export class AtomCol {
 
       // Grab the value of the property, if it exists and our
       // media query matches we return the value
-      const columns = (this as any)[
+      const propName =
         property + breakpoint.charAt(0).toUpperCase() + breakpoint.slice(1)
-      ]
+      const columns = (this as Record<string, string | undefined>)[propName]
 
       if (matches && columns !== undefined) {
         matched = columns
