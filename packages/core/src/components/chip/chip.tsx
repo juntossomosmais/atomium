@@ -17,7 +17,7 @@ export class AtomChip {
 
   @Event() atomClick: EventEmitter
 
-  private handleClick = () => {
+  private readonly handleClick = () => {
     this.atomClick.emit()
   }
 
