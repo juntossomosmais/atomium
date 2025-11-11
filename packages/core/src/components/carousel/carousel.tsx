@@ -95,7 +95,7 @@ export class AtomCarousel {
   }
 
   handleMoveToPaginationItem(index: number) {
-    if (!this.carouselItems || !this.carouselItems[index]) return
+    if (!this.carouselItems?.[index]) return
 
     this.currentIndex = index
 
