@@ -22,9 +22,9 @@ describe('AtomCarousel', () => {
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div class="carousel-sliders">
-              <ol class="carousel-wrapper">
+              <div class="carousel-wrapper">
                 <slot></slot>
-              </ol>
+              </div>
             </div>
             <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next">
               <atom-icon icon="chevron-right"></atom-icon>
@@ -69,9 +69,9 @@ describe('AtomCarousel', () => {
         <mock:shadow-root>
           <section aria-label="Carousel" class="atom-carousel">
             <div class="carousel-sliders">
-              <ol class="carousel-wrapper">
+              <div class="carousel-wrapper">
                 <slot></slot>
-              </ol>
+              </div>
             </div>
           </section>
         </mock:shadow-root>
@@ -111,9 +111,9 @@ describe('AtomCarousel', () => {
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div class="carousel-sliders">
-              <ol class="carousel-wrapper">
+              <div class="carousel-wrapper">
                 <slot></slot>
-              </ol>
+              </div>
             </div>
             <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next">
               <atom-icon icon="chevron-right"></atom-icon>

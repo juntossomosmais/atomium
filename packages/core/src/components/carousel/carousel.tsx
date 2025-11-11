@@ -194,9 +194,9 @@ export class AtomCarousel {
             </button>
           )}
           <div class='carousel-sliders'>
-            <ol class='carousel-wrapper'>
+            <div class='carousel-wrapper'>
               <slot />
-            </ol>
+            </div>
           </div>
           {this.hasNavigation && (
             <button
