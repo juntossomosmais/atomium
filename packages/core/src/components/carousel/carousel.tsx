@@ -182,7 +182,7 @@ export class AtomCarousel {
   render() {
     return (
       <Host>
-        <div class='atom-carousel' role='region' aria-label='Carousel'>
+        <section class='atom-carousel' aria-label='Carousel'>
           {this.hasNavigation && (
             <button
               class='carousel-navigation navigation--prev'
@@ -209,7 +209,7 @@ export class AtomCarousel {
               <atom-icon icon='chevron-right'></atom-icon>
             </button>
           )}
-        </div>
+        </section>
         {this.hasPagination && (
           <div
             class='carousel-pagination'
