@@ -94,7 +94,7 @@ export class AtomListSlider {
       '--slider-gap'
     )
 
-    this.sliderGapValue = parseFloat(sliderGap)
+    this.sliderGapValue = Number.parseFloat(sliderGap)
 
     this.handleOnResize()
   }
