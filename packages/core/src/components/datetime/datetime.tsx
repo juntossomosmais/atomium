@@ -103,7 +103,7 @@ export class AtomDatetime {
   }
 
   private handleStringValue(val: string): string[] | undefined {
-    return val.trim() !== '' ? [val] : undefined
+    return val.trim() === '' ? undefined : [val]
   }
 
   private handleCustomEventValue(
@@ -254,10 +254,10 @@ export class AtomDatetime {
 
     if (Array.isArray(rawValue)) {
       dates = rawValue
-    } else if (!rawValue) {
-      dates = []
-    } else {
+    } else if (rawValue) {
       dates = [rawValue]
+    } else {
+      dates = []
     }
 
     if (this.rangeMode) {
@@ -307,7 +307,7 @@ export class AtomDatetime {
     let [start, end] = dates.map((dateStr) => this.parseLocalDate(dateStr))
 
     if (start.getTime() > end.getTime()) {
-      [start, end] = [end, start]
+      ;[start, end] = [end, start]
     }
 
     const dayMilliseconds = 1000 * 60 * 60 * 24
@@ -364,7 +364,7 @@ export class AtomDatetime {
     return `${format(startDate)} - ${format(endDate)}`
   }
 
-  private getDateTargetSlot(): React.ReactNode {
+  private getDateTargetSlot() {
     if (!this.rangeMode) return <slot name='date-target' />
 
     if (this.selectedDates.length === 0) {
@@ -447,7 +447,7 @@ export class AtomDatetime {
     )
   }
 
-  private renderWithButton(): React.ReactNode {
+  private renderWithButton() {
     return (
       <div>
         <div class='atom-item'>
