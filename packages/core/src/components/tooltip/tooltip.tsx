@@ -151,18 +151,18 @@ export class AtomTooltip {
     events: string[],
     handler: EventListenerOrEventListenerObject
   ) => {
-    events.forEach((event) =>
+    for (const event of events) {
       this._elementSelector.addEventListener(event, handler)
-    )
+    }
   }
 
   private readonly removeEventListeners = (
     events: string[],
     handler: EventListenerOrEventListenerObject
   ) => {
-    events.forEach((event) =>
+    for (const event of events) {
       this._elementSelector.removeEventListener(event, handler)
-    )
+    }
   }
 
   private readonly attachEvents = () => {
