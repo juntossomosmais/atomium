@@ -253,10 +253,9 @@ export class AtomListSlider {
   render() {
     return (
       <Host>
-        <div class='atom-list-slider' role='region' aria-label='Carousel'>
+        <section class='atom-list-slider' aria-label='Carousel'>
           <button
             class='navigation navigation--prev'
-            role='button'
             aria-label='Previous'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
@@ -279,7 +278,6 @@ export class AtomListSlider {
 
           <button
             class='navigation navigation--next'
-            role='button'
             aria-label='Next'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
@@ -287,7 +285,7 @@ export class AtomListSlider {
           >
             <atom-icon icon='chevron-right'></atom-icon>
           </button>
-        </div>
+        </section>
       </Host>
     )
   }
