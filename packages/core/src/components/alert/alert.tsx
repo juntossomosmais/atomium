@@ -28,12 +28,12 @@ export class AtomAlert {
   @Event() atomClose: EventEmitter
   @Event() atomAction: EventEmitter
 
-  private handleClose = () => {
+  private readonly handleClose = () => {
     this.atomClose.emit()
     this.isAlertOpen = false
   }
 
-  private handleAction = () => {
+  private readonly handleAction = () => {
     this.atomAction.emit()
   }
 
