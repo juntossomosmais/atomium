@@ -29,7 +29,7 @@ export class AtomChip {
           [`has-activated`]: this.activated,
         }}
         disabled={this.disabled}
-        tabIndex={1}
+        tabIndex={0}
         onClick={this.handleClick}
       >
         {this.icon && (
