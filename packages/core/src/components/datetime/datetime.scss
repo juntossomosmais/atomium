@@ -17,7 +17,7 @@
   }
 
   &::part(calendar-day active) {
-    background-color: red;
+    background-color: var(--color-brand-secondary-regular);
   }
 }
 
