@@ -230,7 +230,6 @@ export class AtomTooltip {
         style={{
           zIndex: this.open ? '1' : '-1',
         }}
-        role={isMobile() ? 'dialog' : 'tooltip'}
       >
         <div
           data-placement={this._popperInstance.state.placement}
