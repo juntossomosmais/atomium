@@ -161,12 +161,16 @@ export class AtomListSlider {
 
     this.viewportWidth = this.sliderWrapper.offsetWidth
 
-    Array.from(this.sliderItems).forEach((item, index) => {
+    const items = Array.from(this.sliderItems)
+
+    for (let index = 0; index < items.length; index++) {
+      const item = items[index]
+
       totalWidth += item.offsetWidth
-      if (index !== this.sliderItems.length - 1) {
+      if (index !== items.length - 1) {
         totalWidth += this.sliderGapValue
       }
-    })
+    }
 
     if (this.centralized === true) {
       this.currentCentralized = totalWidth <= this.viewportWidth
