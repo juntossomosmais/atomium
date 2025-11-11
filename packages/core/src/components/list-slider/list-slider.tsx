@@ -51,7 +51,9 @@ export class AtomListSlider {
 
     if (!translateX) return 0
 
-    const translateXValue = parseInt(translateX.replace('translateX(', ''))
+    const translateXValue = Number.parseInt(
+      translateX.replace('translateX(', '')
+    )
 
     return translateXValue === 0 ? 0 : -translateXValue
   }
