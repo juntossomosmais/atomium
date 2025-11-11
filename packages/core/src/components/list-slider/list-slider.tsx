@@ -270,7 +270,6 @@ export class AtomListSlider {
                 [`wrapper`]: true,
                 [`wrapper--centralized`]: this.currentCentralized,
               }}
-              role='list'
             >
               <slot />
             </div>
