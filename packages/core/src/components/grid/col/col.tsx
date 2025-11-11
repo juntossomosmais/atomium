@@ -65,7 +65,9 @@ export class AtomCol {
       // media query matches we return the value
       const propName =
         property + breakpoint.charAt(0).toUpperCase() + breakpoint.slice(1)
-      const columns = (this as Record<string, string | undefined>)[propName]
+      const columns = (this as unknown as Record<string, string | undefined>)[
+        propName
+      ]
 
       if (matches && columns !== undefined) {
         matched = columns
