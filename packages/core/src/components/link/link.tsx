@@ -13,7 +13,7 @@ export class AtomLink {
 
   @Event() click: EventEmitter
 
-  private handleClick = (event: MouseEvent) => {
+  private readonly handleClick = (event: MouseEvent) => {
     if (this.loading) {
       return
     }
