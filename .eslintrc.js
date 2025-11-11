@@ -38,6 +38,13 @@ module.exports = {
         'sonarjs/unused-import': 'off',
       },
     },
+    {
+      // Stencil components use 'class' (not 'className') as they compile to standard web components
+      files: ['packages/core/src/components/**/*.tsx'],
+      rules: {
+        'react/no-unknown-property': ['error', { ignore: ['class'] }],
+      },
+    },
   ],
 
   extends: ['plugin:storybook/recommended'],
