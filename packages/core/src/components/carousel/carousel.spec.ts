@@ -17,20 +17,20 @@ describe('AtomCarousel', () => {
     expect(page?.root).toEqualHtml(`
       <atom-carousel>
         <mock:shadow-root>
-          <div aria-label="Carousel" class="atom-carousel" role="region">
-            <button aria-disabled="true" aria-label="Previous" class="carousel-navigation navigation--prev" role="button">
+          <section aria-label="Carousel" class="atom-carousel">
+            <button aria-disabled="true" aria-label="Previous" class="carousel-navigation navigation--prev">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div class="carousel-sliders">
-              <div class="carousel-wrapper" role="list">
+              <ol class="carousel-wrapper">
                 <slot></slot>
-              </div>
+              </ol>
             </div>
-            <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next" role="button">
+            <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
-          </div>
-          <div aria-label="Pagination" class="carousel-pagination" role="navigation">
+          </section>
+          <nav aria-label="Pagination" class="carousel-pagination">
             <button aria-controls="carousel-item-0" aria-selected="" class="active carousel-pagination--bullets carousel-pagination__item" role="tab">
               <span class="pagination-text">
                 1
@@ -41,7 +41,7 @@ describe('AtomCarousel', () => {
                 2
               </span>
             </button>
-          </div>
+          </nav>
         </mock:shadow-root>
         <atom-carousel-item>
           Slide 1
@@ -67,13 +67,13 @@ describe('AtomCarousel', () => {
     expect(page?.root).toEqualHtml(`
       <atom-carousel has-navigation="false" has-pagination="false">
         <mock:shadow-root>
-          <div aria-label="Carousel" class="atom-carousel" role="region">
+          <section aria-label="Carousel" class="atom-carousel">
             <div class="carousel-sliders">
-              <div class="carousel-wrapper" role="list">
+              <ol class="carousel-wrapper">
                 <slot></slot>
-              </div>
+              </ol>
             </div>
-          </div>
+          </section>
         </mock:shadow-root>
         <atom-carousel-item>
           Slide 1
@@ -106,27 +106,27 @@ describe('AtomCarousel', () => {
     expect(page?.root).toEqualHtml(`
       <atom-carousel thumbnails>
         <mock:shadow-root>
-          <div aria-label="Carousel" class="atom-carousel" role="region">
-            <button aria-disabled="true" aria-label="Previous" class="carousel-navigation navigation--prev" role="button">
+          <section aria-label="Carousel" class="atom-carousel">
+            <button aria-disabled="true" aria-label="Previous" class="carousel-navigation navigation--prev">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div class="carousel-sliders">
-              <div class="carousel-wrapper" role="list">
+              <ol class="carousel-wrapper">
                 <slot></slot>
-              </div>
+              </ol>
             </div>
-            <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next" role="button">
+            <button aria-disabled="false" aria-label="Next" class="carousel-navigation navigation--next">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
-          </div>
-          <div aria-label="Pagination" class="carousel-pagination" role="navigation">
+          </section>
+          <nav aria-label="Pagination" class="carousel-pagination">
             <button aria-controls="carousel-item-0" aria-selected="" class="active carousel-pagination--thumbnails carousel-pagination__item" role="tab">
               <img alt="1" aria-hidden="true" class="thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==">
             </button>
             <button aria-controls="carousel-item-1" class="carousel-pagination--thumbnails carousel-pagination__item" role="tab">
             <img alt="2" aria-hidden="true" class="thumbnail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==">
           </button>
-          </div>
+          </nav>
         </mock:shadow-root>
         <atom-carousel-item>
           Slide 1
