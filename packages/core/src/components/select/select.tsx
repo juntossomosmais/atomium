@@ -60,11 +60,11 @@ export class AtomSelect {
 
     const ionItemElements = document.querySelectorAll('ion-item')
 
-    ionItemElements?.forEach((itemElement) => {
+    for (const itemElement of Array.from(ionItemElements)) {
       const optionText = itemElement.textContent?.trim()
       const optionWithTag = this.optionsWithTag[optionText]
 
-      if (!optionWithTag) return
+      if (!optionWithTag) continue
 
       const { color, label } = optionWithTag.tag
 
@@ -72,12 +72,12 @@ export class AtomSelect {
         this.getElementByTag(itemElement, 'ion-radio') ||
         this.getElementByTag(itemElement, 'ion-checkbox')
 
-      if (!optionElement?.shadowRoot) return
+      if (!optionElement?.shadowRoot) continue
 
       const optionShadowRoot = optionElement.shadowRoot
         .firstElementChild as HTMLElement
 
-      if (!optionShadowRoot) return
+      if (!optionShadowRoot) continue
 
       const firstElementInOption =
         optionShadowRoot.firstElementChild as HTMLElement
@@ -93,7 +93,7 @@ export class AtomSelect {
 
       firstElementInOption.style.marginRight = '0'
       firstElementInOption.insertAdjacentElement('afterend', tagElement)
-    })
+    }
   }
 
   getElementByTag(element, name) {
@@ -147,7 +147,7 @@ export class AtomSelect {
       ionSelect?.shadowRoot?.querySelector('.select-wrapper')
 
     if (selectWrapper) {
-      (selectWrapper as HTMLElement).style.pointerEvents = 'none'
+      ;(selectWrapper as HTMLElement).style.pointerEvents = 'none'
     }
   }
 
