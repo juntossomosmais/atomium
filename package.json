@@ -92,7 +92,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.97.1",
     "sass-loader": "^16.0.6",
-    "storybook": "^10.0.5",
+    "storybook": "^10.1.11",
     "stylelint": "^16.26.1",
     "stylelint-config-recommended": "^17.0.0",
     "stylelint-order": "^7.0.1",
