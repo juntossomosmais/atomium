@@ -1,4 +1,0 @@
-import{N as e}from"./iframe-BElrKgc3.js";import{C as o}from"./table-D060eKuu.js";import"./preload-helper-PPVm8Dsz.js";const n={parameters:{docs:{description:{component:"A pagination component is an interface that allows users to navigate through large amounts of content that has been split into multiple pages"}}},argTypes:{page:{control:"number",description:"Current page.",table:{category:o.PROPERTIES}},count:{control:"number",description:"Total pages.",table:{category:o.PROPERTIES}}}},r={page:1,count:10},g={title:"Components/Pagination",...n},s=t=>e`<atom-pagination page="${t.page}" count="${t.count}" />`,a={render:t=>s(t),args:r};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
-  render: args => createPagination(args),
-  args: PaginationComponentArgs
-}`,...a.parameters?.docs?.source}}};const m=["Default"];export{a as Default,m as __namedExportsOrder,g as default};
