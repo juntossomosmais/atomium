@@ -52,3 +52,11 @@ updates:
         versions: ['9.x']
       - dependency-name: '@stencil/react-output-target'
         versions: ['>= 0.6.0']
+      - dependency-name: '@stencil/vue-output-target'
+        versions: ['>= 0.8.9']
+      - dependency-name: 'jest'
+        versions: ['>= 29.7.0']
+      - dependency-name: 'jest-cli'
+        versions: ['>= 29.7.0']
+      - dependency-name: '@types/jest'
+        versions: ['>= 29.7.0']
