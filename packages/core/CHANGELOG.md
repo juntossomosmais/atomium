@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.18.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.2...atomium-v3.18.0) (2026-01-28)
+
+
+### Features
+
+* **tooltip:** add flip and adjust distance from reference element ([#807](https://github.com/juntossomosmais/atomium/issues/807)) ([b70306f](https://github.com/juntossomosmais/atomium/commit/b70306f546667a682cec7a96008ee2264b977dfe))
+
 ## [3.17.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.1...atomium-v3.17.2) (2025-11-11)
 
 
