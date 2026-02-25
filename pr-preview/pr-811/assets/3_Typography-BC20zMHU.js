@@ -1,0 +1,16 @@
+import{u as i,j as e,M as l,T as s}from"./iframe-CEyGnNHL.js";import{T as t}from"./Table-BRVS12E6.js";import"./preload-helper-PPVm8Dsz.js";function n(p){const x={code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",p:"p",...i(),...p.components};return e.jsxs(e.Fragment,{children:[e.jsx(l,{title:"Tokens/Typography"}),`
+`,e.jsx(x.h1,{id:"typography",children:"Typography"}),`
+`,e.jsx(x.p,{children:"All typography tokens available in the design system."}),`
+`,e.jsx(x.h2,{id:"sizes",children:"Sizes"}),`
+`,e.jsx(s,{fontSizes:["10px","11px","12px","14px","16px","18px","20px","22px","26px","28px","32px","36px","42px","46px","52px"],sampleText:"Atomium is the best!"}),`
+`,e.jsx(x.h2,{id:"using",children:"Using"}),`
+`,e.jsx(x.p,{children:"Tokens could be used as CSS Variables or CSS Classes."}),`
+`,e.jsx(x.h3,{id:"variable-values",children:"Variable values"}),`
+`,e.jsx(t,{headers:["Variable","Font weight","font-size/line-height","Mobile","Letter Spacing"],rows:[["--title-giant","700","52px/68px","30px/40px","0.25%"],["--title-display","700","46px/60px","28px/36px","0.25%"],["--title-headline-xxlarge","700","42px/56px","26px/36px","0.25%"],["--title-headline-xlarge","700","36px/48px","25px/32px","0.25%"],["--title-headline-large","700","32px/40px","24px/32px","0.25%"],["--title-headline-medium","700","28px/36px","22px/28px","0.15%"],["--title-headline-small","700","26px/36px","20px/28px","0.15%"],["--title-headline-xsmall","700","22px/28px","19px/24px","0.15%"],["--text-subtitle-large","700","20px/28px","18px/24px","0.15%"],["--text-subtitle-medium","700","18px/24px","16px/20px","0.1%"],["--text-body-large","400","18px/28px","18px/28px","0.5%"],["--text-body-medium","400","16px/24px","16px/24px","0.5%"],["--text-body-small","400","14px/24px","14px/24px","0.25%"],["--text-link-large","700","18px/28px","18px/28px","0.5%"],["--text-link-medium","700","16px/24px","16px/24px","0.5%"],["--text-link-small","700","14px/24px","14px/24px","0.25%"],["--button-large","700","18px/28px","18px/28px","8%"],["--button-medium","700","16px/24px","16px/24px","8%"],["--button-small","700","14px/20px","14px/20px","8%"],["--text-caption","400","12px/20px","14px/24px","0.4%"],["--text-caption-focused","700","12px/20px","14px/24px","0.4%"],["--text-overline","400","11px/20px","13px/20px","16%"],["--text-badge","700","10px/16px","12px/20px","4%"]]}),`
+`,e.jsx(x.h4,{id:"important",children:"!important"}),`
+`,e.jsxs(x.p,{children:["We have variables to ",e.jsx(x.code,{children:"font"})," and ",e.jsx(x.code,{children:"letter spacing"}),", so you just need to use on ",e.jsx(x.code,{children:"font"})," and ",e.jsx(x.code,{children:"letter-spacing"})," property."]}),`
+`,e.jsxs(x.p,{children:["All the ",e.jsx(x.code,{children:"letter-spacing"})," variable is the font + letter, example: ",e.jsx(x.code,{children:"var(--title-giant-letter)"})]}),`
+`,e.jsx(x.h3,{id:"font-family",children:"Font family"}),`
+`,e.jsx(t,{headers:["Variable","Value"],rows:[["var(--font-family)","'Roboto', sans-serif'"]]}),`
+`,e.jsx(x.h3,{id:"font-weight",children:"Font weight"}),`
+`,e.jsx(t,{headers:["Variable","Value"],rows:[["var(--font-family)","'Roboto', sans-serif'"],["var(--font-weight-bold)","700"]]})]})}function d(p={}){const{wrapper:x}={...i(),...p.components};return x?e.jsx(x,{...p,children:e.jsx(n,{...p})}):n(p)}export{d as default};
