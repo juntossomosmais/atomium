@@ -275,12 +275,14 @@ describe('AtomCarousel', () => {
 
     await page.waitForChanges()
 
+    const previousInternalId = page.rootInstance.autoplayIntervalId
+
     const nextButton = page.root?.shadowRoot?.querySelector(
       '.navigation--next'
     ) as HTMLElement
 
     nextButton?.click()
 
-    expect(page?.rootInstance.autoplayIntervalId).toBeDefined()
+    expect(page.rootInstance.autoplayIntervalId).not.toEqual(previousInternalId)
   })
 })

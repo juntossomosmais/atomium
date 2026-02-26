@@ -100,6 +100,7 @@ export class AtomCarousel {
     this.currentIndex = index
 
     this.showOrHideNavigationButtons()
+    this.resetAutoplayTimer()
   }
 
   handleNavigationClick(button: 'prev' | 'next') {
@@ -119,6 +120,7 @@ export class AtomCarousel {
 
     this.currentIndex = newIndex
     this.showOrHideNavigationButtons()
+    this.resetAutoplayTimer()
   }
 
   showOrHideNavigationButtons() {
@@ -145,6 +147,13 @@ export class AtomCarousel {
 
   restartAutoplay = () => {
     if (!this.autoplayIntervalId) {
+      this.startAutoplay()
+    }
+  }
+
+  resetAutoplayTimer() {
+    if (this.autoplay) {
+      this.stopAutoplay()
       this.startAutoplay()
     }
   }
@@ -177,6 +186,7 @@ export class AtomCarousel {
       : Math.max(this.currentIndex - 1, 0)
 
     this.showOrHideNavigationButtons()
+    this.resetAutoplayTimer()
   }
 
   render() {
