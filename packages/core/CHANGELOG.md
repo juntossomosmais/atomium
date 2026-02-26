@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.19.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.18.0...atomium-v3.19.0) (2026-02-26)
+
+
+### Features
+
+* **carousel:** implement autoplay reset on navigation changes ([#811](https://github.com/juntossomosmais/atomium/issues/811)) ([97ec5d0](https://github.com/juntossomosmais/atomium/commit/97ec5d0cbbb2690bb193f2e870e81ff940726e11))
+
 ## [3.18.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.2...atomium-v3.18.0) (2026-01-28)
 
 
