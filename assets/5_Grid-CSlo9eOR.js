@@ -1,0 +1,8 @@
+import"./components-sxD-Pwkd.js";import{i as e}from"./chunk-YKABRMAI-rQu7s1e9.js";import"./react-DFKUFpG3.js";import"./chunk-242VQQM5-BH6EcrRQ.js";import{m as t,u as n}from"./iframe-D71TlG5e.js";import{t as r}from"./Table-DxtczWVa.js";var i=e();function a(e){let a={a:`a`,code:`code`,h1:`h1`,h2:`h2`,p:`p`,...t(),...e.components};return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n,{title:`Tokens/Grid`}),`
+`,(0,i.jsx)(a.h1,{id:`grid`,children:`Grid`}),`
+`,(0,i.jsxs)(a.p,{children:[`The `,(0,i.jsx)(a.a,{href:`/docs/components-grid--docs`,children:`default grid system`}),` is based on a `,(0,i.jsx)(a.code,{children:`16`}),` column grid with a `,(0,i.jsx)(a.code,{children:`16px`}),` gutter.`]}),`
+`,(0,i.jsx)(a.h2,{id:`tokens`,children:`Tokens`}),`
+`,(0,i.jsx)(r,{headers:[`Variable`,`Value`],rows:[[`var(--grid-gap)`,`var(--spacing-base)`],[`var(--grid-columns)`,`12`]]}),`
+`,(0,i.jsx)(a.h2,{id:`grid-patterns`,children:`Grid Patterns`}),`
+`,(0,i.jsxs)(a.p,{children:[`You could check our `,(0,i.jsx)(a.a,{href:`/docs/tokens-screen-sizes--docs`,children:`screen sizes here`}),`.`]}),`
+`,(0,i.jsx)(r,{headers:[`Breakpoint`,`Container`,`Columns`,`Gutter`,`External Margin`],rows:[[`Extra Small`,`Fluid`,`4`,`8px`,`16px`],[`Small`,`Fluid`,`8`,`8px`,`16px`],[`Medium`,`Fluid`,`8`,`24px`,`16px`],[`Large`,`Fluid`,`16`,`32px`,`16px`],[`Extra Large`,`Fixed (1136px)`,`16`,`auto`,`16px`]]})]})}function o(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,i.jsx)(n,{...e,children:(0,i.jsx)(a,{...e})}):a(e)}export{o as default};

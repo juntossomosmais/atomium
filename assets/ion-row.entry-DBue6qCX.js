@@ -1,1 +1,0 @@
-import{c as o,h as s,g as t,H as r}from"./iframe-CEyGnNHL.js";import"./preload-helper-PPVm8Dsz.js";const a=()=>":host{display:flex;flex-wrap:wrap}",c=class{constructor(e){o(this,e)}render(){return s(r,{key:"65592a79621bd8f75f9566db3e8c05a4b8fc6048",class:t(this)},s("slot",{key:"56f09784db7a0299c9ce76dfcede185b295251ff"}))}};c.style=a();export{c as ion_row};

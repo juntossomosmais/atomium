@@ -1,0 +1,6 @@
+import"./chunk-DseTPa7n.js";import{t as e}from"./react-BeYaFARg.js";import{t}from"./jsx-runtime-DsGsusFP.js";import"./react-dom-BaYUCVRd.js";import"./index-BIuA1NfB-Jxohl6WW.js";import{b as n}from"./esm-AmgW3jIi.js";import{t as r}from"./table-jqz5s6A8.js";e();var i={parameters:{docs:{description:{component:`A pagination component is an interface that allows users to navigate through large amounts of content that has been split into multiple pages`}}},argTypes:{page:{control:`number`,description:`Current page.`,table:{category:r.PROPERTIES}},count:{control:`number`,description:`Total pages.`,table:{category:r.PROPERTIES}}}},a={page:1,count:10},o=t(),s={title:`Components/Pagination`,component:n,...i},c=e=>(0,o.jsx)(n,{count:e.count,page:e.page}),l={render:e=>c(e),args:{...a}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: args => createPagination(args),
+  args: {
+    ...PaginationComponentArgs
+  }
+}`,...l.parameters?.docs?.source}}};var u=[`Default`];export{l as Default,u as __namedExportsOrder,s as default};

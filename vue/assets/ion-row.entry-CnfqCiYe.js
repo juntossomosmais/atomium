@@ -1,0 +1,1 @@
+import{g as e,l as t,r as n,u as r}from"./iframe-DHKEqBzE.js";var i=()=>`:host{display:flex;flex-wrap:wrap}`,a=class{constructor(t){e(this,t)}render(){return r(n,{key:`65592a79621bd8f75f9566db3e8c05a4b8fc6048`,class:t(this)},r(`slot`,{key:`56f09784db7a0299c9ce76dfcede185b295251ff`}))}};a.style=i();export{a as ion_row};

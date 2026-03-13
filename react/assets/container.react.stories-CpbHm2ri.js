@@ -1,0 +1,6 @@
+import"./chunk-DseTPa7n.js";import{t as e}from"./react-BeYaFARg.js";import{t}from"./jsx-runtime-DsGsusFP.js";import"./react-dom-BaYUCVRd.js";import"./index-BIuA1NfB-Jxohl6WW.js";import{l as n}from"./esm-AmgW3jIi.js";e();var r={decorators:[],parameters:{actions:{handles:[]},docs:{description:{component:`Container is a component that wraps content in application using a max-width and padding to define the width of the content.`}}},argTypes:{hasPadding:{control:`boolean`,defaultValue:{summary:!0},description:`If false the container will not have padding`}}},i={hasPadding:!0},a=t(),o={title:`Components/Container`,component:n,...r},s=e=>(0,a.jsxs)(n,{className:`wrapper`,hasPadding:e.hasPadding,children:[(0,a.jsx)(`h1`,{className:`title`,children:`Container Title`}),(0,a.jsx)(`p`,{className:`text`,children:`This is a sample content inside the container to demonstrate its behavior and appearance with and without padding. Adjust the controls to see how it changes.`})]}),c={render:e=>s(e),args:{...i}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  render: args => createContainer(args),
+  args: {
+    ...ContainerComponentArgs
+  }
+}`,...c.parameters?.docs?.source}}};var l=[`Default`];export{c as Default,l as __namedExportsOrder,o as default};
