@@ -121,6 +121,7 @@ export const config: Config = {
         '../../node_modules/@ionic/core/css/core.css',
       ],
       includePaths: ['../../node_modules'],
+      silenceDeprecations: ['if-function'],
     }),
   ],
   extras: {
