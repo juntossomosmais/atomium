@@ -1,0 +1,13 @@
+<svg width="48" height="40" viewBox="4 6 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4.16037" y="12.3029" width="31.8443" height="22.046" rx="2.0413" transform="rotate(-12.7074 4.16037 12.3029)" fill="#FF7D00" stroke="black" stroke-width="0.816519"/>
+  <rect x="5.2385" y="17.0822" width="31.8443" height="4.63488" transform="rotate(-12.7074 5.2385 17.0822)" fill="#F1F3F3" stroke="black" stroke-width="0.816519"/>
+  <path opacity="0.2" d="M33.3264 6.13534L26.0156 7.75195C28.0108 8.39715 28.8701 10.4425 29.0504 11.3845L35.8124 9.76681L35.272 7.37064C35.0742 6.49342 34.2045 5.94119 33.3264 6.13534Z" fill="#814205"/>
+  <path d="M35.9971 10.5723L28.6484 12.2053H36.4054L35.9971 10.5723Z" fill="#B9BFC6"/>
+  <path d="M13.9455 12.6132C12.8182 12.6132 11.9042 13.5271 11.9042 14.6545V32.6179C11.9042 33.7453 12.8182 34.6592 13.9455 34.6592H41.7072C42.8346 34.6592 43.7485 33.7453 43.7485 32.6179V14.6545C43.7485 13.5271 42.8346 12.6132 41.7072 12.6132H13.9455Z" fill="#E3F9FD" stroke="black" stroke-width="0.816519"/>
+  <path d="M29.4603 13.0215H41.7081C42.61 13.0215 43.3411 13.7526 43.3411 14.6545V32.6179C43.3411 33.5198 42.61 34.251 41.7081 34.251H23.3359C23.3359 34.251 24.969 33.4345 27.8268 26.4941C30.6846 19.5536 29.4603 13.0215 29.4603 13.0215Z" fill="#C2F3FC"/>
+  <path d="M15.5781 28.5352H20.4772" stroke="black" stroke-width="0.816519" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35.1719 28.5352H40.071" stroke="black" stroke-width="0.816519" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28.6406 28.5352H33.5397" stroke="black" stroke-width="0.816519" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22.1094 28.5352H27.0085" stroke="black" stroke-width="0.816519" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.4025 15.8788C15.726 15.8788 15.1777 16.4272 15.1777 17.1036V19.5532C15.1777 20.2296 15.726 20.778 16.4025 20.778H20.4851C21.1615 20.778 21.7098 20.2296 21.7098 19.5532V17.1036C21.7098 16.4272 21.1615 15.8788 20.4851 15.8788H16.4025Z" fill="#FFC900" stroke="black" stroke-width="0.816519"/>
+</svg>

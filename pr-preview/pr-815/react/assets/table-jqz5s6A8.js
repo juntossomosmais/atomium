@@ -1,0 +1,1 @@
+var e=function(e){return e.CSS_CUSTOM_PROPERTIES=`CSS Custom Properties`,e.EVENTS=`Events`,e.METHODS=`Methods`,e.PROPERTIES=`Properties`,e.SLOTS=`Slots`,e}({});export{e as t};

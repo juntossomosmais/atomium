@@ -1,0 +1,1 @@
+var e=()=>globalThis.matchMedia(`(max-width: 768px)`).matches,t=()=>globalThis.matchMedia(`(max-width: 991px)`).matches;export{e as n,t};
