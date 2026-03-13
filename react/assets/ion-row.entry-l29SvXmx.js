@@ -1,0 +1,1 @@
+import{f as e,r as t,u as n,v as r}from"./index--pUmmU2V-CE9k8Uy1.js";var i=()=>`:host{display:flex;flex-wrap:wrap}`,a=class{constructor(e){r(this,e)}render(){return e(t,{key:`8ba906a8cbea060a79ed658c9bf34906f0c11d38`,class:n(this)},e(`slot`,{key:`d1009176f45b588fa52c7d9eb336f3c6d3214bb8`}))}};a.style=i();export{a as ion_row};

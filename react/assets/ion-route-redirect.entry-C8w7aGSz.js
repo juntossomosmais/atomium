@@ -1,1 +1,0 @@
-import{o as e,v as t}from"./index-BIuA1NfB-Jxohl6WW.js";var n=class{constructor(n){t(this,n),this.ionRouteRedirectChanged=e(this,`ionRouteRedirectChanged`,7)}propDidChange(){this.ionRouteRedirectChanged.emit()}connectedCallback(){this.ionRouteRedirectChanged.emit()}static get watchers(){return{from:[{propDidChange:0}],to:[{propDidChange:0}]}}};export{n as ion_route_redirect};

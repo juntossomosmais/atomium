@@ -1,1 +1,0 @@
-import{f as e,r as t,u as n,v as r}from"./index-BIuA1NfB-Jxohl6WW.js";var i=()=>`ion-item-group{display:block}`,a=()=>`ion-item-group{display:block}`,o=class{constructor(e){r(this,e)}render(){let r=n(this);return e(t,{key:`e49dc8f99247d2431d7c6db01b6e021a0f5b1c37`,role:`group`,class:{[r]:!0,[`item-group-${r}`]:!0,item:!0}})}};o.style={ios:i(),md:a()};export{o as ion_item_group};
