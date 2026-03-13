@@ -38,6 +38,7 @@ describe('atom-steps-modal', () => {
         <atom-modal
             trigger="open-modal-steps"
             class="atom-steps-modal"
+            part="steps-modal"
             primarybuttontext="Next"
             progress="0.3333333333333333"
             secondarybuttontext="Close"
@@ -154,6 +155,7 @@ describe('atom-steps-modal', () => {
       <atom-modal
           trigger="open-modal-steps"
           class="atom-steps-modal"
+          part="steps-modal"
           primarybuttontext="Next"
           progress="0.3333333333333333"
           secondarybuttontext="Close"
