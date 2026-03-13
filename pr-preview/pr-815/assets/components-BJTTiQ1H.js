@@ -1,1 +1,0 @@
-import"./components-sxD-Pwkd.js";import{r as e}from"./chunk-YKABRMAI-rQu7s1e9.js";import"./react-DFKUFpG3.js";import"./chunk-242VQQM5-BH6EcrRQ.js";export{e as createCopyToClipboardFunction};

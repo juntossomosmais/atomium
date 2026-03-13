@@ -1,1 +1,0 @@
-import"./react-DFKUFpG3.js";import{m as e}from"./theming-M5QllTA6.js";export{e as color};
