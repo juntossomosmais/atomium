@@ -1,6 +1,7 @@
-import { fileURLToPath } from "node:url";
-import { dirname } from "node:path";
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
 import type { StorybookConfig } from '@storybook/web-components-vite'
+import { mergeConfig } from 'vite'
 
 function getStorybookRefs(configType: string) {
   if (configType === 'DEVELOPMENT') {
@@ -36,21 +37,40 @@ const config: StorybookConfig = {
     '../../../packages/tokens/stories/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
 
-  addons: [getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("@storybook/addon-docs")],
+  addons: [
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-docs'),
+  ],
   staticDirs: ['../../../packages/icons/svg'],
 
   framework: {
-    name: getAbsolutePath("@storybook/web-components-vite"),
+    name: getAbsolutePath('@storybook/web-components-vite'),
     options: {},
   },
 
   refs: (config, { configType = '' }) => {
     return getStorybookRefs(configType)
-  }
+  },
+
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: (id) => {
+              if (id.includes('@storybook')) {
+                return 'storybook'
+              }
+            },
+          },
+        },
+      },
+    })
+  },
 }
 
 export default config
 
 function getAbsolutePath(value: string): any {
-  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
 }
