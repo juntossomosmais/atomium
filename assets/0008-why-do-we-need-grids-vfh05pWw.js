@@ -1,0 +1,14 @@
+import{S as e,l as t,w as n}from"./storybook-CfikGCXO.js";var r=n();function i(n){let i={a:`a`,code:`code`,h1:`h1`,h2:`h2`,li:`li`,ol:`ol`,p:`p`,strong:`strong`,...e(),...n.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(t,{title:`Docs/Architecture Decision Records/ADR 0008: Why do we need Grids`}),`
+`,(0,r.jsx)(i.h1,{id:`adr-0008-why-do-we-need-grids`,children:`ADR 0008: Why do we need Grids`}),`
+`,(0,r.jsxs)(i.p,{children:[`🗓️ 2023-05 · ✍️ `,(0,r.jsx)(i.a,{href:`https://twitter.com/mauriciomutte`,rel:`nofollow`,children:`@mauriciomutte`}),` and `,(0,r.jsx)(i.a,{href:`https://twitter.com/felipefialho_`,rel:`nofollow`,children:`@felipefialho`})]}),`
+`,(0,r.jsx)(i.h2,{id:`context`,children:`Context`}),`
+`,(0,r.jsx)(i.p,{children:`In order to achieve greater consistency in our layouts, we recognize the importance of incorporating a grid system. It is crucial for us to utilize a grid system that is both user-friendly and easily comprehensible. This document aims to highlight the significance of grids within our design system.`}),`
+`,(0,r.jsx)(i.h2,{id:`problems`,children:`Problems`}),`
+`,(0,r.jsxs)(i.p,{children:[`Initially, we considered using the `,(0,r.jsx)(i.a,{href:`https://ionicframework.com/docs/api/grid`,rel:`nofollow`,children:`grid system provided by Ionic`}),`. However, we encountered two issues with this approach:`]}),`
+`,(0,r.jsxs)(i.ol,{children:[`
+`,(0,r.jsxs)(i.li,{children:[(0,r.jsx)(i.strong,{children:`Default padding within the grid system items:`}),` The presence of padding by default is problematic as it does not align with our layout requirements. Consequently, we are compelled to extensively use the !important CSS declaration to override this behavior.`]}),`
+`,(0,r.jsxs)(i.li,{children:[(0,r.jsx)(i.strong,{children:`Inadequate spacing implementation:`}),` Instead of using padding, we prefer to utilize the gap property for spacing between items. Unfortunately, integrating gap within the grid system resulted in a broken layout. This issue arises because the gap property adds to the width of the item, necessitating the use of calc to subtract the gap value from the item's width.`]}),`
+`]}),`
+`,(0,r.jsx)(i.h2,{id:`decision`,children:`Decision`}),`
+`,(0,r.jsxs)(i.p,{children:[`We decided to internalize the `,(0,r.jsx)(i.code,{children:`Col`}),` component of Ionic Grid system and use `,(0,r.jsx)(i.code,{children:`padding`}),` instead of `,(0,r.jsx)(i.code,{children:`gap`}),` for spacing between items and add an negative margin to the `,(0,r.jsx)(i.code,{children:`Grid`}),` component to compensate the padding.`]}),`
+`,(0,r.jsxs)(i.p,{children:[`Another decision is remove the `,(0,r.jsx)(i.code,{children:`Row`}),` component and use just the `,(0,r.jsx)(i.code,{children:`Grid`}),` as wrapper component instead.`]})]})}function a(t={}){let{wrapper:n}={...e(),...t.components};return n?(0,r.jsx)(n,{...t,children:(0,r.jsx)(i,{...t})}):i(t)}export{a as default};

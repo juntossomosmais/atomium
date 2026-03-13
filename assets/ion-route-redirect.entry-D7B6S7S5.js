@@ -1,0 +1,1 @@
+import{B as e,k as t}from"./storybook-CfikGCXO.js";var n=class{constructor(n){e(this,n),this.ionRouteRedirectChanged=t(this,`ionRouteRedirectChanged`,7)}propDidChange(){this.ionRouteRedirectChanged.emit()}connectedCallback(){this.ionRouteRedirectChanged.emit()}static get watchers(){return{from:[{propDidChange:0}],to:[{propDidChange:0}]}}};export{n as ion_route_redirect};

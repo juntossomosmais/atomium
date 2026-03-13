@@ -1,0 +1,1 @@
+import{B as e,D as t,N as n,P as r}from"./storybook-CfikGCXO.js";var i=()=>`:host{display:flex;flex-wrap:wrap}`,a=class{constructor(t){e(this,t)}render(){return r(t,{key:`8ba906a8cbea060a79ed658c9bf34906f0c11d38`,class:n(this)},r(`slot`,{key:`d1009176f45b588fa52c7d9eb336f3c6d3214bb8`}))}};a.style=i();export{a as ion_row};

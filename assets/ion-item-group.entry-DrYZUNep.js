@@ -1,0 +1,1 @@
+import{B as e,D as t,N as n,P as r}from"./storybook-CfikGCXO.js";var i=()=>`ion-item-group{display:block}`,a=()=>`ion-item-group{display:block}`,o=class{constructor(t){e(this,t)}render(){let e=n(this);return r(t,{key:`f1743af1d075682f63fae3802c5c5bf050507563`,role:`group`,class:{[e]:!0,[`item-group-${e}`]:!0,item:!0}})}};o.style={ios:i(),md:a()};export{o as ion_item_group};
