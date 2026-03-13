@@ -37,16 +37,16 @@
       submitter.hidden = true
       this.appendChild(submitter)
       submitter.click()
-      this.removeChild(submitter)
+      submitter.remove()
     }
   }
 
   function validateSubmitter(submitter, form) {
     submitter instanceof HTMLElement ||
       raise(TypeError, "parameter 1 is not of type 'HTMLElement'")
-    submitter.type == 'submit' ||
+    submitter.type === 'submit' ||
       raise(TypeError, 'The specified element is not a submit button')
-    submitter.form == form ||
+    submitter.form === form ||
       raise(
         DOMException,
         'The specified element is not owned by this form element',
@@ -62,4 +62,4 @@
       name
     )
   }
-})(typeof window !== 'undefined' && window.HTMLFormElement.prototype)
+})(typeof globalThis !== 'undefined' && globalThis.HTMLFormElement.prototype)

@@ -1,5 +1,5 @@
 import { AtomTextarea } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
 import { TextareaComponentArgs, TextareaStoryArgs } from './textarea.args'

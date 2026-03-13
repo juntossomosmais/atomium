@@ -4,6 +4,7 @@ import { reactOutputTarget } from '@stencil/react-output-target'
 import { sass } from '@stencil/sass'
 import { vueOutputTarget } from '@stencil/vue-output-target'
 
+import { react19FixOutputTarget } from './output-target/react-19-fix'
 import { reactBooleanFixOutputTarget } from './output-target/react-boolean'
 
 // Since Ionic components are imported in `global.ts`
@@ -120,6 +121,7 @@ export const config: Config = {
         '../../node_modules/@ionic/core/css/core.css',
       ],
       includePaths: ['../../node_modules'],
+      silenceDeprecations: ['if-function'],
     }),
   ],
   extras: {
@@ -149,6 +151,12 @@ export const config: Config = {
     reactBooleanFixOutputTarget({
       attachPropsFile:
         '../../react/src/components/react-component-lib/utils/attachProps.ts',
+    }),
+    react19FixOutputTarget({
+      createOverlayComponentFile:
+        '../../react/src/components/react-component-lib/createOverlayComponent.tsx',
+      utilsIndexFile:
+        '../../react/src/components/react-component-lib/utils/index.tsx',
     }),
   ] as OutputTargetCustom[],
 }

@@ -1,5 +1,5 @@
 import { AtomCol, AtomDatetime, AtomGrid } from '@juntossomosmais/atomium/vue'
-import { Meta } from '@storybook/vue3'
+import { Meta } from '@storybook/vue3-vite'
 
 import {
   DatetimeComponentArgs,

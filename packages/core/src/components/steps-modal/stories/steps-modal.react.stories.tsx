@@ -1,5 +1,5 @@
 import { AtomButton, AtomStepsModal } from '@juntossomosmais/atomium/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
 import { ModalComponentArgs, ModalStoryArgs } from './steps-modal.args'

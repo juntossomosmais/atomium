@@ -6,7 +6,7 @@
     "declaration": false,
     "experimentalDecorators": true,
     "lib": ["dom", "es2017"],
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "module": "esnext",
     "target": "es2017",
     "noUnusedLocals": false,
@@ -20,6 +20,7 @@
     "node_modules",
     "**/*.spec.ts",
     "**/__tests__/**",
-    "**/*.stories.tsx"
+    "**/*.stories.tsx",
+    "**/*.args.ts"
   ]
 }

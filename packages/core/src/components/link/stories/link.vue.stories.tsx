@@ -1,5 +1,5 @@
 import { AtomIcon, AtomLink } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { defineComponent, h } from 'vue'
 
 import { LinkVueStoryArgs } from './link.args'

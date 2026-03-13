@@ -110,9 +110,16 @@ export class AtomTooltip {
       placement: this.placement,
       modifiers: [
         {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top', 'bottom', 'right', 'left'],
+          },
+        },
+        {
           name: 'offset',
           options: {
-            offset: [0, 4],
+            // 4px from visible distance + 3px from arrow square range (negative value) from SCSS.
+            offset: [0, 7],
           },
         },
       ],
@@ -151,18 +158,18 @@ export class AtomTooltip {
     events: string[],
     handler: EventListenerOrEventListenerObject
   ) => {
-    events.forEach((event) =>
+    for (const event of events) {
       this._elementSelector.addEventListener(event, handler)
-    )
+    }
   }
 
   private readonly removeEventListeners = (
     events: string[],
     handler: EventListenerOrEventListenerObject
   ) => {
-    events.forEach((event) =>
+    for (const event of events) {
       this._elementSelector.removeEventListener(event, handler)
-    )
+    }
   }
 
   private readonly attachEvents = () => {
@@ -230,7 +237,6 @@ export class AtomTooltip {
         style={{
           zIndex: this.open ? '1' : '-1',
         }}
-        role={isMobile() ? 'dialog' : 'tooltip'}
       >
         <div
           data-placement={this._popperInstance.state.placement}

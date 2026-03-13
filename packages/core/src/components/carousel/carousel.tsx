@@ -33,7 +33,7 @@ export class AtomCarousel {
       detail: { currentIndex: this.currentIndex },
     })
 
-    window.dispatchEvent(transitionendEvent)
+    globalThis.dispatchEvent(transitionendEvent)
   }
 
   carouselWrapper: HTMLElement
@@ -95,11 +95,12 @@ export class AtomCarousel {
   }
 
   handleMoveToPaginationItem(index: number) {
-    if (!this.carouselItems || !this.carouselItems[index]) return
+    if (!this.carouselItems?.[index]) return
 
     this.currentIndex = index
 
     this.showOrHideNavigationButtons()
+    this.resetAutoplayTimer()
   }
 
   handleNavigationClick(button: 'prev' | 'next') {
@@ -119,6 +120,7 @@ export class AtomCarousel {
 
     this.currentIndex = newIndex
     this.showOrHideNavigationButtons()
+    this.resetAutoplayTimer()
   }
 
   showOrHideNavigationButtons() {
@@ -145,6 +147,13 @@ export class AtomCarousel {
 
   restartAutoplay = () => {
     if (!this.autoplayIntervalId) {
+      this.startAutoplay()
+    }
+  }
+
+  resetAutoplayTimer() {
+    if (this.autoplay) {
+      this.stopAutoplay()
       this.startAutoplay()
     }
   }
@@ -177,16 +186,16 @@ export class AtomCarousel {
       : Math.max(this.currentIndex - 1, 0)
 
     this.showOrHideNavigationButtons()
+    this.resetAutoplayTimer()
   }
 
   render() {
     return (
       <Host>
-        <div class='atom-carousel' role='region' aria-label='Carousel'>
+        <section class='atom-carousel' aria-label='Carousel'>
           {this.hasNavigation && (
             <button
               class='carousel-navigation navigation--prev'
-              role='button'
               aria-label='Previous'
               aria-disabled={this.loop ? 'false' : 'true'}
               onClick={() => this.handleNavigationClick('prev')}
@@ -195,29 +204,25 @@ export class AtomCarousel {
             </button>
           )}
           <div class='carousel-sliders'>
-            <div class='carousel-wrapper' role='list'>
+            <div class='carousel-wrapper'>
               <slot />
             </div>
           </div>
           {this.hasNavigation && (
             <button
               class='carousel-navigation navigation--next'
-              role='button'
               aria-label='Next'
               onClick={() => this.handleNavigationClick('next')}
             >
               <atom-icon icon='chevron-right'></atom-icon>
             </button>
           )}
-        </div>
+        </section>
         {this.hasPagination && (
-          <div
-            class='carousel-pagination'
-            role='navigation'
-            aria-label='Pagination'
-          >
-            {Array.from(this.carouselItems).map((_, index) => (
+          <nav class='carousel-pagination' aria-label='Pagination'>
+            {Array.from(this.carouselItems).map((item, index) => (
               <button
+                key={`carousel-pagination-${index}`}
                 class={`carousel-pagination__item ${index === this.currentIdx ? 'active' : ''} ${this.thumbnails?.length > 0 ? 'carousel-pagination--thumbnails' : 'carousel-pagination--bullets'}`}
                 role='tab'
                 aria-selected={index === this.currentIdx}
@@ -236,7 +241,7 @@ export class AtomCarousel {
                 )}
               </button>
             ))}
-          </div>
+          </nav>
         )}
       </Host>
     )

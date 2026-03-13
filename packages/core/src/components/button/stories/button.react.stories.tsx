@@ -1,5 +1,5 @@
 import { AtomButton, AtomIcon } from '@juntossomosmais/atomium/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
 import { ButtonComponentArgs, ButtonStoryArgs } from './button.args'

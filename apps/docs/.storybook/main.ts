@@ -1,4 +1,6 @@
-import type { StorybookConfig } from '@storybook/web-components-webpack5'
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
+import type { StorybookConfig } from '@storybook/web-components-vite'
 
 function getStorybookRefs(configType: string) {
   if (configType === 'DEVELOPMENT') {
@@ -33,25 +35,22 @@ const config: StorybookConfig = {
     '../../../packages/core/src/**/*.core.@(mdx|stories.@(js|jsx|ts|tsx))',
     '../../../packages/tokens/stories/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-actions',
-    '@storybook/addon-a11y',
-    '@storybook/addon-viewport',
-    '@storybook/theming',
-    '@storybook/addon-webpack5-compiler-babel',
-  ],
+
+  addons: [getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("@storybook/addon-docs")],
   staticDirs: ['../../../packages/icons/svg'],
+
   framework: {
-    name: '@storybook/web-components-webpack5',
+    name: getAbsolutePath("@storybook/web-components-vite"),
     options: {},
   },
-  docs: {
-    autodocs: true,
-  },
+
   refs: (config, { configType = '' }) => {
     return getStorybookRefs(configType)
-  },
+  }
 }
 
 export default config
+
+function getAbsolutePath(value: string): any {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
+}

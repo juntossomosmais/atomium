@@ -13,12 +13,14 @@ ComponentLibrary.install()
 const preview = {
   parameters: {
     viewport: {
-      viewports: CustomViewports,
+      options: CustomViewports,
     },
     docs: {
       page: DocumentationTemplate,
     },
   },
+
+  tags: ['autodocs']
 }
 
 export default preview

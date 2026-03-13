@@ -1,5 +1,5 @@
 import { AtomMeter } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 import { MeterStoryArgs } from './meter.args'
 

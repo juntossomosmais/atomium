@@ -1,5 +1,49 @@
 # Changelog
 
+## [3.19.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.18.0...atomium-v3.19.0) (2026-02-26)
+
+
+### Features
+
+* **carousel:** implement autoplay reset on navigation changes ([#811](https://github.com/juntossomosmais/atomium/issues/811)) ([97ec5d0](https://github.com/juntossomosmais/atomium/commit/97ec5d0cbbb2690bb193f2e870e81ff940726e11))
+
+## [3.18.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.2...atomium-v3.18.0) (2026-01-28)
+
+
+### Features
+
+* **tooltip:** add flip and adjust distance from reference element ([#807](https://github.com/juntossomosmais/atomium/issues/807)) ([b70306f](https://github.com/juntossomosmais/atomium/commit/b70306f546667a682cec7a96008ee2264b977dfe))
+
+## [3.17.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.1...atomium-v3.17.2) (2025-11-11)
+
+
+### Bug Fixes
+
+* **form-request-submit:** replace deprecated method ([2de5bdf](https://github.com/juntossomosmais/atomium/commit/2de5bdff2743294e45ed8c5e9f18abacd4096efa))
+* **list-slider:** correct navigation button display logic ([322b756](https://github.com/juntossomosmais/atomium/commit/322b756469f778e3e43bf6d80253dc87e9efac84))
+* **select:** optimize item iteration and improve early returns ([e3fac32](https://github.com/juntossomosmais/atomium/commit/e3fac32b3f6044602f9c1acaea71862e0af86a42))
+* **tooltip:** remove role attribute ([7960538](https://github.com/juntossomosmais/atomium/commit/7960538375f4032577f3a998ecd42dd2e40c30e7))
+* **tooltip:** replace `forEach` with `for...of` for event ([95e8bfc](https://github.com/juntossomosmais/atomium/commit/95e8bfc15f122109dfbc35e550f3dfa799fc54ee))
+
+## [3.17.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.17.0...atomium-v3.17.1) (2025-11-11)
+
+
+### Bug Fixes
+
+* **carousel:** change carousel structure from divs to ol ([ebcc4d1](https://github.com/juntossomosmais/atomium/commit/ebcc4d1fb9bfae9ae883b948ef2db07e937302ce))
+* **carousel:** simplify null checks using optional chaining ([bfe0a01](https://github.com/juntossomosmais/atomium/commit/bfe0a01bd0e539f758e0855802d9c1e1572e7c65))
+* **carousel:** use `globalThis` for dispatching event ([70f1d5f](https://github.com/juntossomosmais/atomium/commit/70f1d5fc41006e98564ce48eb86a95e9317d59c5))
+* **chip:** change `tabIndex` from 1 to 0 for accessibility ([87f81fd](https://github.com/juntossomosmais/atomium/commit/87f81fd3af9e5c3e5edb34cbf7446366d24e8f68))
+* **datetime:** correct logic for date arrays ([64b9961](https://github.com/juntossomosmais/atomium/commit/64b9961e5d0fa84a726224160a7767baabac28fb))
+* **datetime:** update active day background color to use brand color ([a38a357](https://github.com/juntossomosmais/atomium/commit/a38a35720f13ea009166bf51fd6cdcc19184fe15))
+
+## [3.17.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.1...atomium-v3.17.0) (2025-11-07)
+
+
+### Features
+
+* **react:** update to react 18 from react 19 ([#797](https://github.com/juntossomosmais/atomium/issues/797)) ([59ee497](https://github.com/juntossomosmais/atomium/commit/59ee4973a77ed7f5db1299ba9abff984c7f44040))
+
 ## [3.16.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.16.0...atomium-v3.16.1) (2025-10-27)
 
 

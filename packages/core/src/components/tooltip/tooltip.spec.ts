@@ -23,13 +23,13 @@ describe('AtomTooltip', () => {
       })
 
       expect(page.root).toEqualHtml(`
-        <atom-tooltip action="hover" data-popper-placement="top" data-popper-reference-hidden element="hover" id="hover--tooltip" open="false" part="tooltip" role="tooltip" style="z-index: -1; position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+        <atom-tooltip action="hover" data-popper-placement="top" data-popper-reference-hidden element="hover" id="hover--tooltip" open="false" part="tooltip" style="z-index: -1; position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
           <mock:shadow-root>
             <div class="atom-tooltip" data-hide data-placement="bottom" part="tooltip">
               <div class="atom-tooltip__content">
                 <slot></slot>
               </div>
-              <div aria-hidden="" class="atom-tooltip__arrow" style="position: absolute;"></div>
+              <div aria-hidden="" class="atom-tooltip__arrow" style="position: absolute; left: 0; transform: translate(0px, 0px);"></div>
             </div>
           </mock:shadow-root>
           John Doe
