@@ -66,6 +66,15 @@ export const TooltipStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    fixed: {
+      control: 'boolean',
+      defaultValue: { summary: false },
+      description:
+        'Keeps the tooltip open until the close button is clicked. Ignores all auto-close triggers.',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     text: {
       control: 'text',
       description: 'Determines a text for tooltip.',
@@ -101,4 +110,5 @@ export const TooltipComponentArgs = {
   text: 'Tooltip',
   action: 'hover',
   open: false,
+  fixed: false,
 }

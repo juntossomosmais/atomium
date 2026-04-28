@@ -62,6 +62,8 @@ export class AtomTooltip {
 
   @Prop() action: 'hover' | 'click' = 'hover'
 
+  @Prop({ mutable: true }) fixed = false
+
   @Watch('action')
   updateEvents() {
     this.untachEvents()
@@ -218,6 +220,16 @@ export class AtomTooltip {
   }
 
   private readonly hide = () => {
+    if (this.fixed) return
+
+    this._doHide()
+  }
+
+  private readonly forceHide = () => {
+    this._doHide()
+  }
+
+  private readonly _doHide = () => {
     this.open = false
     this.atomClose.emit()
 
@@ -248,11 +260,11 @@ export class AtomTooltip {
           <div class='atom-tooltip__content'>
             <slot />
 
-            {(this.action === 'click' || isMobile()) && (
+            {(this.action === 'click' || isMobile() || this.fixed) && (
               <button
                 class='atom-tooltip__action--close'
                 aria-label='Fechar'
-                onClick={this.hide}
+                onClick={this.forceHide}
               >
                 <atom-icon icon='close'></atom-icon>
               </button>

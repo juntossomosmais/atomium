@@ -20,6 +20,7 @@ const createTooltip = (args, buttonText = 'hover') => {
       element="${args.element}"
       action="${args.action}"
       open="${args.open}"
+      fixed="${args.fixed}"
     >
       ${args.text}
     </atom-tooltip>
@@ -60,6 +61,17 @@ export const Opened: StoryObj = {
     element: 'opened',
     placement: 'left',
     action: 'click',
+    open: true,
+  },
+}
+
+export const Fixed: StoryObj = {
+  render: (args) => createTooltip(args, 'Fixed'),
+  args: {
+    ...TooltipComponentArgs,
+    element: 'fixed',
+    placement: 'top',
+    fixed: true,
     open: true,
   },
 }

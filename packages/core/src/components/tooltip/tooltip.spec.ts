@@ -194,4 +194,62 @@ describe('AtomTooltip', () => {
         ?.shadowRoot?.querySelector('.atom-tooltip')
     ).toHaveAttribute('data-show')
   })
+
+  describe('fixed prop', () => {
+    const fixedTooltip = `
+      <button id="fixed" aria-describedby="fixed--tooltip">Trigger</button>
+      <atom-tooltip id="fixed--tooltip" element="fixed" open="true" action="hover" fixed="true" part="tooltip">Content</atom-tooltip>
+    `
+
+    it('should stay open after mouseleave when fixed', async () => {
+      const page = await newSpecPage({
+        components: [AtomTooltip],
+        html: fixedTooltip,
+      })
+
+      const element = page.body.querySelector('#fixed')
+
+      element?.dispatchEvent(new Event('mouseleave'))
+
+      await page.waitForChanges()
+
+      expect(
+        page.root?.shadowRoot?.querySelector('.atom-tooltip')
+      ).toHaveAttribute('data-show')
+    })
+
+    it('should stay open after outside click when fixed', async () => {
+      const page = await newSpecPage({
+        components: [AtomTooltip],
+        html: fixedTooltip,
+      })
+
+      page.body.dispatchEvent(new Event('click', { bubbles: true }))
+
+      await page.waitForChanges()
+
+      expect(
+        page.root?.shadowRoot?.querySelector('.atom-tooltip')
+      ).toHaveAttribute('data-show')
+    })
+
+    it('should close when close button is clicked when fixed', async () => {
+      const page = await newSpecPage({
+        components: [AtomTooltip],
+        html: fixedTooltip,
+      })
+
+      const closeButton = page.root?.shadowRoot?.querySelector(
+        '.atom-tooltip__action--close'
+      ) as HTMLElement
+
+      closeButton?.click()
+
+      await page.waitForChanges()
+
+      expect(
+        page.root?.shadowRoot?.querySelector('.atom-tooltip')
+      ).toHaveAttribute('data-hide')
+    })
+  })
 })
