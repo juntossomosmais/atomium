@@ -1,1 +1,0 @@
-var e=(e,t,n)=>typeof n==`function`?n(e,t):typeof n==`string`?e[n]===t[n]:Array.isArray(t)?t.includes(e):e===t,t=(t,n,r)=>t===void 0?!1:Array.isArray(t)?t.some(t=>e(t,n,r)):e(t,n,r);export{t as n,e as t};

@@ -1,1 +1,0 @@
-import{K as e,Y as t,q as n}from"./storybook-E0WNibQg.js";var r=(0,t(n(),1).default)(2)(async(t,n)=>t===!1?n:e(n));export{r as formatter};
