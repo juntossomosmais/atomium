@@ -641,6 +641,10 @@ export namespace Components {
         /**
           * @default false
          */
+        "fixed": boolean;
+        /**
+          * @default false
+         */
         "open": boolean;
         /**
           * @default 'top'
@@ -1759,6 +1763,10 @@ declare namespace LocalJSX {
         "action"?: 'hover' | 'click';
         "element"?: string;
         /**
+          * @default false
+         */
+        "fixed"?: boolean;
+        /**
           * Event is dispatched when: 1. Mouse leave event in selector 2. Click "Close" button when is mobile
          */
         "onAtomClose"?: (event: AtomTooltipCustomEvent<any>) => void;
@@ -2105,6 +2113,7 @@ declare namespace LocalJSX {
     | 'left-start'
     | 'left-end';
         "action": 'hover' | 'click';
+        "fixed": boolean;
     }
 
     interface IntrinsicElements {

@@ -20,7 +20,7 @@ $placements: 'top', 'bottom', 'left', 'right';
 
     background: var(--background, var(--color-neutral-light-1));
     border-radius: var(--border-radius);
-    color: var(--color-neutral-white);
+    color: var(--color, var(--color-neutral-white));
     font: var(--text-body-small);
     letter-spacing: var(--text-body-small-letter);
     padding: var(--spacing-xsmall);
