@@ -1,0 +1,1 @@
+var e=e=>{let t=e.classList.contains(`ion-touched`),n=e.classList.contains(`ion-invalid`);return t&&n};export{e as t};

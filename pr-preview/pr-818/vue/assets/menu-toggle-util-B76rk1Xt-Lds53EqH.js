@@ -1,0 +1,1 @@
+import{t as e}from"./index-CfUbXwzx-DR8YD1gW.js";var t=async t=>{let n=await e.get(t);return!!(n&&await n.isActive())};export{t};
