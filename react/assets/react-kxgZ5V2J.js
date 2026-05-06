@@ -1,1 +1,0 @@
-import"./react-BeYaFARg.js";import{o as e}from"./iframe-BRNz3rVE.js";export{e as MDXProvider};
