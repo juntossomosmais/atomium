@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.19.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.0...atomium-v3.19.1) (2026-05-06)
+
+
+### Bug Fixes
+
+* **core:** prevent ssr crash in request submit polyfill ([#821](https://github.com/juntossomosmais/atomium/issues/821)) ([8e1a46f](https://github.com/juntossomosmais/atomium/commit/8e1a46f9c62430899b66b9e6b0fb6305cd49659f))
+
 ## [3.19.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.18.0...atomium-v3.19.0) (2026-02-26)
 
 
