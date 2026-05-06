@@ -62,4 +62,4 @@
       name
     )
   }
-})(typeof globalThis !== 'undefined' && globalThis.HTMLFormElement.prototype)
+})(typeof globalThis !== 'undefined' && globalThis.HTMLFormElement?.prototype)
