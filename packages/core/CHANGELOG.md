@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.19.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.1...atomium-v3.19.2) (2026-05-13)
+
+
+### Bug Fixes
+
+* **core:** prevent ionic palette injection per component bundle ([#823](https://github.com/juntossomosmais/atomium/issues/823)) ([3e877f8](https://github.com/juntossomosmais/atomium/commit/3e877f88a0b1aae93258d78b1bdce6471d52915e))
+
 ## [3.19.1](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.0...atomium-v3.19.1) (2026-05-06)
 
 
