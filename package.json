@@ -111,7 +111,14 @@
     "sass-embedded-linux-x64": "^1.98.0"
   },
   "overrides": {
-    "sass-embedded": "1.98.0"
+    "sass-embedded": "1.98.0",
+    "nx": {
+      "axios": "1.16.1",
+      "brace-expansion": "5.0.6",
+      "follow-redirects": "1.16.0",
+      "tmp": "0.2.7",
+      "yaml": "2.9.0"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
