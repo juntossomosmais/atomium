@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.1.0...atomium-tokens-v2.1.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* **sonar:** add key props in iterators and fix tokens sonar base dir ([#827](https://github.com/juntossomosmais/atomium/issues/827)) ([2a736f8](https://github.com/juntossomosmais/atomium/commit/2a736f862e705fc12295c7a9d0701a4af259e4dd))
+
 ## [2.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.0.2...atomium-tokens-v2.1.0) (2025-04-09)
 
 
