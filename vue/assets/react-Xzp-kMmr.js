@@ -1,1 +1,0 @@
-import"./react-9sOqBLsc.js";import{Z as e}from"./iframe-CsfUtXEn.js";export{e as MDXProvider};
