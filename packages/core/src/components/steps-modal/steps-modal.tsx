@@ -173,7 +173,7 @@ export class AtomStepsModal {
         >
           {this.stepsTitlesArray.map((title, index) => (
             <div
-              key={index}
+              key={title}
               class='atom-steps-modal__step'
               style={{
                 display: this.currentStep === index + 1 ? 'block' : 'none',
