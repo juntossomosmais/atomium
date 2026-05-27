@@ -112,6 +112,7 @@
   },
   "overrides": {
     "sass-embedded": "1.99.0",
+    "brace-expansion": "1.1.13",
     "nx": {
       "axios": "1.16.1",
       "brace-expansion": "5.0.6",
