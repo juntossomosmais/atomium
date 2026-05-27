@@ -1,0 +1,17 @@
+import{n as e}from"./rolldown-runtime-BVpWp9h4.js";import{D as t,T as n,k as r,l as i,s as a}from"./storybook-AbPZ34TI.js";function o(e){let n={a:`a`,h1:`h1`,h2:`h2`,li:`li`,p:`p`,strong:`strong`,ul:`ul`,...t(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(a,{title:`Docs/Architecture Decision Records/ADR 0000: Why Design System?`}),`
+`,(0,c.jsx)(n.h1,{id:`adr-0000-why-design-system`,children:`ADR 0000: Why Design System?`}),`
+`,(0,c.jsxs)(n.p,{children:[`🗓️ 2023-03 · ✍️ `,(0,c.jsx)(n.a,{href:`https://twitter.com/felipefialho_`,rel:`nofollow`,children:`@felipefialho`})]}),`
+`,(0,c.jsx)(n.h2,{id:`context`,children:`Context`}),`
+`,(0,c.jsx)(n.p,{children:`In order to create consistent and cohesive digital products across multiple projects, we have decided that we need a new design system, we already try this approach in the past, but we didn't have a consistency in our component design and a clear process to maintain and improve it.`}),`
+`,(0,c.jsx)(n.p,{children:`Create a new design system will allow us to create reusable components, establish clear guidelines for visual design, and increase efficiency by streamlining the design and development process.`}),`
+`,(0,c.jsx)(n.h2,{id:`decision-drivers`,children:`Decision Drivers`}),`
+`,(0,c.jsxs)(n.ul,{children:[`
+`,(0,c.jsxs)(n.li,{children:[(0,c.jsx)(n.strong,{children:`Consistency`}),`: We want to ensure that all of our digital products have a consistent look and feel, which can be achieved through the use of a design system.`]}),`
+`,(0,c.jsxs)(n.li,{children:[(0,c.jsx)(n.strong,{children:`Efficiency`}),`: By creating a set of reusable components and clear design guidelines, we can increase efficiency and reduce duplication of effort across multiple projects.`]}),`
+`,(0,c.jsxs)(n.li,{children:[(0,c.jsx)(n.strong,{children:`Scalability`}),`: As our organization grows and we take on more projects, a design system will become even more important to maintain consistency and efficiency.`]}),`
+`,(0,c.jsxs)(n.li,{children:[(0,c.jsx)(n.strong,{children:`Collaboration`}),`: A design system will help to facilitate collaboration between designers and developers, making it easier to communicate design decisions and ensure that everyone is on the same page.`]}),`
+`,(0,c.jsxs)(n.li,{children:[(0,c.jsx)(n.strong,{children:`Branding`}),`: By establishing clear visual guidelines and using consistent branding elements, we can help to build and reinforce our brand across all digital products.`]}),`
+`]}),`
+`,(0,c.jsx)(n.h2,{id:`decision`,children:`Decision`}),`
+`,(0,c.jsx)(n.p,{children:`After considering our decision drivers, we have decided that a design system is necessary for our organization in this time because we will begin by establishing clear visual guidelines and creating a set of reusable components that can be used across multiple projects.`}),`
+`,(0,c.jsx)(n.p,{children:`We will also focus on collaboration between designers and developers to ensure that everyone is working towards the same goals. As we continue to grow and take on more projects, we will continue to iterate and improve upon our design system to maintain consistency and efficiency.`})]})}function s(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,c.jsx)(n,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;e((()=>{c=r(),n(),i()}))();export{s as default};

@@ -1,1 +1,0 @@
-import{f as e,r as t,v as n}from"./index-Biskkn2q-BYkSIHID.js";var r=()=>`:host{display:flex;flex:0 0 auto}`,i=class{constructor(e){n(this,e)}render(){return e(t,{key:`92b5e065c4c91aaacb0c5fd7fec4493a0ee47418`},e(`slot`,{key:`b9a646fded05abf380f953a79d084aae073d0dd2`}))}};i.style=r();export{i as atom_list_slider_item};

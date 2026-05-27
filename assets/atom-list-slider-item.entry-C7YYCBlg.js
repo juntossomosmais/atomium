@@ -1,1 +1,0 @@
-import{B as e,D as t,P as n}from"./storybook-7dI1WigM.js";var r=()=>`:host{display:flex;flex:0 0 auto}`,i=class{constructor(t){e(this,t)}render(){return n(t,{key:`92b5e065c4c91aaacb0c5fd7fec4493a0ee47418`},n(`slot`,{key:`b9a646fded05abf380f953a79d084aae073d0dd2`}))}};i.style=r();export{i as atom_list_slider_item};
