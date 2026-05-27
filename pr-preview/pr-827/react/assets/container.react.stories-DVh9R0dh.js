@@ -1,6 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{U as t,X as n}from"./iframe-Dcsh9Uv1.js";import{t as r,u as i}from"./esm-CKlgLPyg.js";var a,o,s=e((()=>{a={decorators:[],parameters:{actions:{handles:[]},docs:{description:{component:`Container is a component that wraps content in application using a max-width and padding to define the width of the content.`}}},argTypes:{hasPadding:{control:`boolean`,defaultValue:{summary:!0},description:`If false the container will not have padding`}}},o={hasPadding:!0}})),c=e((()=>{})),l,u,d,f,p;e((()=>{r(),n(),s(),c(),l=t(),u={title:`Components/Container`,component:i,...a},d=e=>(0,l.jsxs)(i,{className:`wrapper`,hasPadding:e.hasPadding,children:[(0,l.jsx)(`h1`,{className:`title`,children:`Container Title`}),(0,l.jsx)(`p`,{className:`text`,children:`This is a sample content inside the container to demonstrate its behavior and appearance with and without padding. Adjust the controls to see how it changes.`})]}),f={render:e=>d(e),args:{...o}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
-  render: args => createContainer(args),
-  args: {
-    ...ContainerComponentArgs
-  }
-}`,...f.parameters?.docs?.source}}},p=[`Default`]}))();export{f as Default,p as __namedExportsOrder,u as default};
