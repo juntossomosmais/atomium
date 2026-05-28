@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.19.3](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.2...atomium-v3.19.3) (2026-05-27)
+
+
+### Bug Fixes
+
+* **sonar:** add key props in iterators and fix tokens sonar base dir ([#827](https://github.com/juntossomosmais/atomium/issues/827)) ([2a736f8](https://github.com/juntossomosmais/atomium/commit/2a736f862e705fc12295c7a9d0701a4af259e4dd))
+
 ## [3.19.2](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.1...atomium-v3.19.2) (2026-05-13)
 
 
