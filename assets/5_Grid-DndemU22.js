@@ -1,8 +1,0 @@
-import{n as e}from"./rolldown-runtime-BVpWp9h4.js";import{D as t,T as n,k as r,l as i,s as a}from"./storybook-Dh_ljuHc.js";import{n as o,t as s}from"./Table-CLWD-hhy.js";function c(e){let n={a:`a`,code:`code`,h1:`h1`,h2:`h2`,p:`p`,...t(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(a,{title:`Tokens/Grid`}),`
-`,(0,u.jsx)(n.h1,{id:`grid`,children:`Grid`}),`
-`,(0,u.jsxs)(n.p,{children:[`The `,(0,u.jsx)(n.a,{href:`/docs/components-grid--docs`,children:`default grid system`}),` is based on a `,(0,u.jsx)(n.code,{children:`16`}),` column grid with a `,(0,u.jsx)(n.code,{children:`16px`}),` gutter.`]}),`
-`,(0,u.jsx)(n.h2,{id:`tokens`,children:`Tokens`}),`
-`,(0,u.jsx)(s,{headers:[`Variable`,`Value`],rows:[[`var(--grid-gap)`,`var(--spacing-base)`],[`var(--grid-columns)`,`12`]]}),`
-`,(0,u.jsx)(n.h2,{id:`grid-patterns`,children:`Grid Patterns`}),`
-`,(0,u.jsxs)(n.p,{children:[`You could check our `,(0,u.jsx)(n.a,{href:`/docs/tokens-screen-sizes--docs`,children:`screen sizes here`}),`.`]}),`
-`,(0,u.jsx)(s,{headers:[`Breakpoint`,`Container`,`Columns`,`Gutter`,`External Margin`],rows:[[`Extra Small`,`Fluid`,`4`,`8px`,`16px`],[`Small`,`Fluid`,`8`,`8px`,`16px`],[`Medium`,`Fluid`,`8`,`24px`,`16px`],[`Large`,`Fluid`,`16`,`32px`,`16px`],[`Extra Large`,`Fixed (1136px)`,`16`,`auto`,`16px`]]})]})}function l(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,u.jsx)(n,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;e((()=>{u=r(),n(),i(),o()}))();export{l as default};
