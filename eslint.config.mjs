@@ -1,4 +1,4 @@
-import react from '@juntossomosmais/linters/eslint-config/flat/react.mjs'
+import base from '@juntossomosmais/linters/eslint-config/flat/base.mjs'
 import storybook from 'eslint-plugin-storybook'
 
 export default [
@@ -21,7 +21,7 @@ export default [
     ],
   },
 
-  ...react,
+  ...base,
 
   ...storybook.configs['flat/recommended'],
 
@@ -84,19 +84,5 @@ export default [
     // Storybook config files need `any` for the framework typings.
     files: ['**/.storybook/**'],
     rules: { '@typescript-eslint/no-explicit-any': 'off' },
-  },
-
-  {
-    // Stencil components compile to standard web components: they use `class`
-    // (not `className`), set `innerHTML` directly, and don't need React in
-    // scope for JSX.
-    files: ['packages/core/src/components/**/*.tsx'],
-    rules: {
-      'react/no-unknown-property': [
-        'error',
-        { ignore: ['class', 'innerHTML'] },
-      ],
-      'react/react-in-jsx-scope': 'off',
-    },
   },
 ]
