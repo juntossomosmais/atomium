@@ -1,5 +1,6 @@
-import { AtomButton, AtomIcon } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomButton, AtomIcon } from '@juntossomosmais/atomium/vue'
 
 import { ButtonComponentArgs, ButtonStoryArgs } from './button.args'
 

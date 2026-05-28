@@ -1,5 +1,6 @@
-import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/vue'
 
 import './carousel.css'
 

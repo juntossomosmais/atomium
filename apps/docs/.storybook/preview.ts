@@ -1,7 +1,6 @@
-import { defineCustomElements } from '@juntossomosmais/atomium/loader'
-
 import { CustomViewports } from '@atomium/storybook-utils/custom-viewports'
 import DocumentationTemplate from '@atomium/storybook-utils/templates/DocumentationTemplate.mdx'
+import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 
 import '@atomium/storybook-utils/preview.css'
 
@@ -20,7 +19,7 @@ const preview = {
     },
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
 }
 
 export default preview

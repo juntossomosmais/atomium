@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components-vite'
-
 import { html } from 'lit'
 
 import { AlertComponentArgs, AlertStoryArgs } from './alert.args'

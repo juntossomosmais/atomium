@@ -1,6 +1,7 @@
-import { AtomContainer } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
+
+import { AtomContainer } from '@juntossomosmais/atomium/react'
 
 import { ContainerComponentArgs, ContainerStoryArgs } from './container.args'
 

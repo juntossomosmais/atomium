@@ -1,5 +1,6 @@
-import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import type { StorybookConfig } from '@storybook/vue3-vite'
 
 const config: StorybookConfig = {
@@ -24,6 +25,7 @@ const config: StorybookConfig = {
       ...config.esbuild,
       jsx: 'preserve',
     }
+
     return config
   },
 }

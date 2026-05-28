@@ -7,6 +7,7 @@ import {
 function generateTypes() {
   console.log(`Generating types...`)
   const files = readSvgDirectories()
+
   writeListFile(files)
   writeTypeDefinitionFile(files)
 }

@@ -1,5 +1,6 @@
-import { AtomIcon, AtomLink } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
+
+import { AtomIcon, AtomLink } from '@juntossomosmais/atomium/react'
 
 import { LinkReactStoryArgs } from './link.args'
 
@@ -47,7 +48,7 @@ export const Loading: StoryObj = {
   render: (args) => (
     <Link>
       <a>
-        <AtomLink color={args.color} type={args.type} loading>
+        <AtomLink color={args.color} type={args.type} loading={true}>
           Loading...
         </AtomLink>
       </a>

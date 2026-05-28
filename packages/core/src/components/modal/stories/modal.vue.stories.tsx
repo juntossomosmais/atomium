@@ -1,5 +1,6 @@
-import { AtomButton, AtomModal } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomButton, AtomModal } from '@juntossomosmais/atomium/vue'
 
 import { ModalComponentArgs, ModalStoryArgs } from './modal.args'
 

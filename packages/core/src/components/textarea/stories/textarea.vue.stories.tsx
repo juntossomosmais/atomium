@@ -1,6 +1,7 @@
-import { AtomTextarea } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
+
+import { AtomTextarea } from '@juntossomosmais/atomium/vue'
 
 import { TextareaComponentArgs, TextareaStoryArgs } from './textarea.args'
 
@@ -108,7 +109,7 @@ export const WithCounter: StoryObj = {
   render: () => ({
     components: { AtomTextarea },
     methods: {
-      counterFormatter(inputLength, maxLength) {
+      counterFormatter(inputLength, _maxLength) {
         return `${inputLength}/300`
       },
     },

@@ -1,5 +1,6 @@
-import { AtomSpinner } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomSpinner } from '@juntossomosmais/atomium/vue'
 
 import { SpinnerStoryArgs } from './spinner.args'
 

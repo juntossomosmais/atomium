@@ -8,6 +8,7 @@ describe('AtomInput', () => {
       components: [AtomInput],
       html: `<atom-input value="test"></atom-input>`,
     })
+
     expect(page.root).toEqualHtml(
       `<atom-input value="test"><ion-input class="atom-input" autocomplete="off" color="secondary" enterkeyhint="enter" fill="solid" labelplacement="floating" mode="md" shape="round" type="text" value="test"></ion-input></atom-input>`
     )
@@ -70,6 +71,7 @@ describe('AtomInput', () => {
     const togglePasswordEl = page.root?.shadowRoot?.querySelector(
       '.atom-password-icon'
     )
+
     togglePasswordEl?.dispatchEvent(new Event('click'))
     await page.waitForChanges()
 
@@ -201,6 +203,7 @@ describe('AtomInput', () => {
     })
 
     const component = page.rootInstance
+
     component.inputEl = mockInputEl
 
     await component.setFocus()

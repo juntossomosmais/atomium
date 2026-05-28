@@ -1,5 +1,6 @@
-import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import type { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
@@ -25,6 +26,7 @@ const config: StorybookConfig = {
       jsx: 'automatic',
       jsxImportSource: 'react',
     }
+
     return config
   },
 }

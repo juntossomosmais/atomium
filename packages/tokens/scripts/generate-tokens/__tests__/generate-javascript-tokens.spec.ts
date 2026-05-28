@@ -36,6 +36,7 @@ describe('Generate JavaScript tokens', () => {
       --any-variable: any_value;
     `
     const tokens: Record<string, string> = {}
+
     extractTokensFromCss(cssContent, 'color')
     expect(tokens).toEqual({})
   })

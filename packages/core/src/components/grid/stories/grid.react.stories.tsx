@@ -1,7 +1,7 @@
-import { AtomCol, AtomGrid } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
+import { AtomCol, AtomGrid } from '@juntossomosmais/atomium/react'
 
 import { GridStoryArgs } from './grid.args'
 
