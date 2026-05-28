@@ -259,7 +259,7 @@ export class AtomTooltip {
             )}
           </div>
 
-          <div class='atom-tooltip__arrow' aria-hidden />
+          <div class='atom-tooltip__arrow' aria-hidden={true} />
         </div>
       </Host>
     )

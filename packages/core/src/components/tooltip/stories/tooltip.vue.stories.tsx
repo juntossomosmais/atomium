@@ -1,5 +1,6 @@
-import { AtomButton, AtomTooltip } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomButton, AtomTooltip } from '@juntossomosmais/atomium/vue'
 
 import { TooltipComponentArgs, TooltipStoryArgs } from './tooltip.args'
 

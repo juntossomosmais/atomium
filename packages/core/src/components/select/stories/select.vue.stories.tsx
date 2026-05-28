@@ -1,5 +1,6 @@
-import { AtomSelect } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomSelect } from '@juntossomosmais/atomium/vue'
 
 import { SelectComponentArgs, SelectStoryArgs } from './select.args'
 

@@ -1,6 +1,7 @@
-import { AtomStepper } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
+
+import { AtomStepper } from '@juntossomosmais/atomium/react'
 
 import { StepperStoryArgs, defaultArgs } from './stepper.args'
 

@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/web-components-vite'
-
 import { html } from 'lit'
 
 import { ChipComponentArgs, ChipStoryArgs } from './chip.args'

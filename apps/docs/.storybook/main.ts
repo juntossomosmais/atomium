@@ -1,5 +1,6 @@
-import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import type { StorybookConfig } from '@storybook/web-components-vite'
 import { mergeConfig } from 'vite'
 
@@ -16,6 +17,7 @@ function getStorybookRefs(configType: string) {
       },
     }
   }
+
   return {
     react: {
       title: 'React Library',

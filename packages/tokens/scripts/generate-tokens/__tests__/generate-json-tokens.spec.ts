@@ -42,6 +42,7 @@ describe('Generate tokens.json', () => {
       --any-variable: any_value;
     `
     const tokens: Record<string, string> = {}
+
     extractTokensFromCss(cssContent, 'color')
     expect(tokens).toEqual({})
   })

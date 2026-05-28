@@ -1,5 +1,6 @@
-import { AtomBadge } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomBadge } from '@juntossomosmais/atomium/vue'
 
 import { BadgeStoryArgs } from './badge.args'
 

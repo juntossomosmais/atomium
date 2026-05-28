@@ -1,6 +1,5 @@
-import { withActions } from 'storybook/actions/decorator'
-
 import { Category } from '@atomium/storybook-utils/enums/table'
+import { withActions } from 'storybook/actions/decorator'
 
 export const ChipStoryArgs = {
   decorators: [withActions],

@@ -1,5 +1,6 @@
-import { AtomDivider } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomDivider } from '@juntossomosmais/atomium/vue'
 
 import { DividerStoryArgs } from './divider.args'
 

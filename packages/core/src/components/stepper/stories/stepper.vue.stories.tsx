@@ -1,5 +1,6 @@
-import { AtomStepper } from '@juntossomosmais/atomium/vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
+
+import { AtomStepper } from '@juntossomosmais/atomium/vue'
 
 import { StepperStoryArgs, defaultArgs } from './stepper.args'
 

@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const CURRENT_DIR = __dirname
+
 export const OUTPUT_DIR = path.resolve(CURRENT_DIR, '../../')
 
 const tokens: Record<string, string> = {}
@@ -20,6 +21,7 @@ export function extractTokensFromCss(cssContent: string, prefix: string) {
         .join('')
 
       tokens[variableCamelCase] = value.trim()
+
       return ''
     }
   )
