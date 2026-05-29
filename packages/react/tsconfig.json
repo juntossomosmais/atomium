@@ -5,20 +5,15 @@
     "experimentalDecorators": true,
     "lib": ["dom", "es2022"],
     "declaration": true,
-    "declarationDir": "../core/react/dist/",
-    "outDir": "../core/react/dist/",
+    "rootDir": "src",
+    "outDir": "../core/react/dist",
     "moduleResolution": "Bundler",
     "module": "esnext",
     "target": "es2022",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h",
-    "skipLibCheck": true,
-    "paths": {
-      "@juntossomosmais/atomium": ["../core/src/index.ts"],
-      "@juntossomosmais/atomium/*": ["../core/*"]
-    }
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]
