@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-BVpWp9h4.js";var t,n=e((()=>{t=function(e){return e.CSS_CUSTOM_PROPERTIES=`CSS Custom Properties`,e.EVENTS=`Events`,e.METHODS=`Methods`,e.PROPERTIES=`Properties`,e.SLOTS=`Slots`,e}({})}));export{n,t};

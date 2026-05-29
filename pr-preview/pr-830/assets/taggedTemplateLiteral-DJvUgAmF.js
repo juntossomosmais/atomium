@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-BVpWp9h4.js";function t(e,t){return t||=e.slice(0),Object.freeze(Object.defineProperties(e,{raw:{value:Object.freeze(t)}}))}var n=e((()=>{}));export{n,t};
