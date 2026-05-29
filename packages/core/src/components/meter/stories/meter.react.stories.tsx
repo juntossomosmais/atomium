@@ -1,7 +1,7 @@
-import { AtomMeter } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
+import { AtomMeter } from '@juntossomosmais/atomium/react'
 
 import { MeterStoryArgs } from './meter.args'
 

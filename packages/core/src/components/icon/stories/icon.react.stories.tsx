@@ -1,7 +1,7 @@
-import { AtomIcon } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
+import { AtomIcon } from '@juntossomosmais/atomium/react'
 
 import { IconComponentArgs, IconStoryArgs } from './icon.args'
 

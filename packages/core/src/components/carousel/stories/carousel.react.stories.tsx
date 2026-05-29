@@ -1,7 +1,7 @@
-import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
+import { AtomCarousel, AtomCarouselItem } from '@juntossomosmais/atomium/react'
 
 import './carousel.css'
 

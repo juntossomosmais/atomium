@@ -1,7 +1,7 @@
-import { AtomDivider } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
+import { AtomDivider } from '@juntossomosmais/atomium/react'
 
 import { DividerStoryArgs } from './divider.args'
 

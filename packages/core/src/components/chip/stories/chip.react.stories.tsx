@@ -1,7 +1,7 @@
-import { AtomChip } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
+import { AtomChip } from '@juntossomosmais/atomium/react'
 
 import { ChipComponentArgs, ChipStoryArgs } from './chip.args'
 

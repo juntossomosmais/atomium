@@ -1,7 +1,7 @@
-import { AtomSelect } from '@juntossomosmais/atomium/react'
 import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
+import { AtomSelect } from '@juntossomosmais/atomium/react'
 
 import { SelectComponentArgs, SelectStoryArgs } from './select.args'
 
