@@ -31,7 +31,7 @@ reactOutputTarget({
 })
 ```
 
-The Ionic components stay in the `excludeComponents` list, exactly as before. They are registered globally through `global.ts` / `defineCustomElements()`, so React consumers keep using them as they always have. This is what keeps the Ionic wrappers working and addresses the wrapping problem from [output-targets#552](https://github.com/stenciljs/output-targets/issues/552).
+The Ionic components stay in the `excludeComponents` list, exactly as before, so we do not emit React wrappers for raw `ion-*` elements. Atomium's own components (which wrap Ionic internally) are generated against the `dist-custom-elements` output. `esModules: true` makes the generator emit one file per component plus a `components.ts` barrel, which is what enables per-component tree-shaking (see section 5).
 
 ### 2. Runtime instead of a local `react-component-lib`
 
@@ -51,25 +51,41 @@ Internally that runtime delegates to [`@lit/react`](https://www.npmjs.com/packag
 
 The `packages/core/output-target/` folder (`react-19-fix.ts`, `react-boolean.ts`) was removed. This ADR supersedes ADR 0010 and the _Why React 19 compatibility patch?_ ADR.
 
-### 4. Dependency management
+### 4. Ionic styling fix (output-targets#552)
 
-`@stencil/react-output-target` is a dev dependency at the root (used to generate the wrappers at build time) and a regular dependency of `packages/react` (the runtime ships with the published package). Consuming apps do not need to install it directly.
+The `1.x` model registers components through the `dist-custom-elements` output, with each wrapper importing its own `dist/components/atom-*.js` and calling `defineCustomElement` individually. **This path never runs Stencil global scripts**, so Ionic's own global initialization (which sets the default `mode`) does not fire. Without a resolved `mode`, Ionic's mode-specific stylesheet (`button.md` / `button.ios`) is never attached and Ionic-backed components render unstyled. This is the root cause of the long-standing [output-targets#552](https://github.com/stenciljs/output-targets/issues/552).
 
-### 5. TypeScript configuration
+The fix is to set the mode resolver explicitly in the core global script, so it is compiled into the shared Stencil runtime chunk every component imports:
 
-`packages/react/tsconfig.json` uses `moduleResolution: "Bundler"` with path mappings so the generated proxies resolve against the local core build during compilation:
+```typescript
+// packages/core/src/global/global.ts
+import { setMode } from '@stencil/core'
 
-```json
-{
-  "compilerOptions": {
-    "moduleResolution": "Bundler",
-    "paths": {
-      "@juntossomosmais/atomium": ["../core/src/index.ts"],
-      "@juntossomosmais/atomium/*": ["../core/*"]
-    }
-  }
-}
+setMode(() => 'md')
 ```
+
+Mode is forced to `md` for consistency across platforms. Atomium is a Material-based design system, so we deliberately do not want per-OS Ionic styling (`ios` on Apple devices). This also makes the Vue / `defineCustomElements()` loader path deterministic.
+
+### 5. Build output, package exports and tree-shaking
+
+`packages/react` compiles with `tsc` into `packages/core/react/dist` and is published through the core package's `./react` export.
+
+- **Flat ESM output.** `packages/react/tsconfig.json` sets an explicit `rootDir: "src"` and `moduleResolution: "Bundler"` (required to resolve the `@stencil/react-output-target/runtime` subpath). It does **not** use `paths` mappings: an earlier attempt mapped the bare `@juntossomosmais/atomium` import to `../core/src`, which dragged core source into `tsc`'s emit set and nested the output (`react/dist/react/src/index.js`), breaking the `@juntossomosmais/atomium/react` resolution. The bare import now resolves through the workspace symlink to core's built declarations instead.
+- **ESM-only export.** The `./react` export ships `import` + `types` only (no `require`/CJS condition):
+
+  ```jsonc
+  "./react": {
+    "types": "./react/dist/index.d.ts",
+    "import": "./react/dist/index.js"
+  }
+  ```
+
+- **`./dist/components` export.** Added to `packages/core/package.json` because the generated proxies import the `dist/components` directory, which the `./dist/*` pattern does not resolve under Node `exports`.
+- **Tree-shaking.** The react package declares `"sideEffects": false`. Combined with the per-component files from `esModules: true`, importing a single component no longer pulls the whole library (a single `AtomButton` import dropped from ~880 KB to ~93 KB in an esbuild check).
+
+### 6. Dependency management
+
+`@stencil/react-output-target` is a dev dependency at the root (used to generate the wrappers at build time) **and a runtime `dependency` of the published `@juntossomosmais/atomium` (`packages/core`)** so its `/runtime` import resolves in consumer apps. `react` and `react-dom` are declared as optional peer dependencies. Consuming apps do not need to install the runtime directly.
 
 ## Consequences
 
@@ -77,14 +93,19 @@ The `packages/core/output-target/` folder (`react-19-fix.ts`, `react-boolean.ts`
 
 - ✅ No more custom patch output targets to maintain.
 - ✅ React 19 supported natively, dependency bumps are no longer blocked.
-- ✅ Per-component files are easier to tree-shake.
-- ✅ Ionic components keep working exactly as before (global registration + `excludeComponents`).
-- ✅ No changes required in consuming apps — import paths stay `@juntossomosmais/atomium/react`.
+- ✅ Ionic-backed components render correctly in React again (closes the long-standing #552).
+- ✅ Per-component files plus `sideEffects: false` make imports genuinely tree-shakeable.
 
 ### Neutral
 
-- 🔄 Internal change in how wrappers are generated (not visible to consumers).
+- 🔄 Internal change in how wrappers are generated (not visible at the import-path level).
 - 🔄 `@stencil/react-output-target/runtime` (and `@lit/react`) ship in the bundle.
+- 🔄 Ionic `mode` is now always `md`, including on the Vue / loader path (previously platform-adaptive).
+
+### Breaking (major release)
+
+- 💥 **ESM-only `./react` export.** The `require`/CJS condition was removed. Consumers that load the wrappers as CommonJS (notably Jest with `jest-environment-jsdom`, which resolves the `require` condition) must allowlist `@juntossomosmais/atomium` in `transformIgnorePatterns`, or set `testEnvironmentOptions.customExportConditions: ['import']`.
+- 💥 **React `>=18` required.** `@stencil/react-output-target@1.x` dropped React 16/17 support.
 
 ## References
 
