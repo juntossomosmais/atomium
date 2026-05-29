@@ -51,7 +51,9 @@ export class AtomListSlider {
 
     if (!translateX) return 0
 
-    const translateXValue = parseInt(translateX.replace('translateX(', ''))
+    const translateXValue = Number.parseInt(
+      translateX.replace('translateX(', '')
+    )
 
     return translateXValue === 0 ? 0 : -translateXValue
   }
@@ -67,7 +69,7 @@ export class AtomListSlider {
       detail: { currentIndex: this.currentIndex },
     })
 
-    window.dispatchEvent(transitionendEvent)
+    globalThis.dispatchEvent(transitionendEvent)
   }
 
   componentDidLoad() {
@@ -92,7 +94,7 @@ export class AtomListSlider {
       '--slider-gap'
     )
 
-    this.sliderGapValue = parseFloat(sliderGap)
+    this.sliderGapValue = Number.parseFloat(sliderGap)
 
     this.handleOnResize()
   }
@@ -102,7 +104,7 @@ export class AtomListSlider {
   }
 
   connectedCallback() {
-    window.addEventListener('resize', this.handleOnResize)
+    globalThis.addEventListener('resize', this.handleOnResize)
   }
 
   disconnectedCallback() {
@@ -111,7 +113,7 @@ export class AtomListSlider {
     this.sliderWrapper.removeEventListener('touchstart', this.handleTouchStart)
     this.sliderWrapper.removeEventListener('touchend', this.handleTouchEnd)
     this.sliderWrapper.removeEventListener('touchmove', this.handleTouchMove)
-    window.removeEventListener('resize', this.handleOnResize)
+    globalThis.removeEventListener('resize', this.handleOnResize)
   }
 
   handleOnResize() {
@@ -159,12 +161,16 @@ export class AtomListSlider {
 
     this.viewportWidth = this.sliderWrapper.offsetWidth
 
-    Array.from(this.sliderItems).forEach((item, index) => {
+    const items = Array.from(this.sliderItems)
+
+    for (let index = 0; index < items.length; index++) {
+      const item = items[index]
+
       totalWidth += item.offsetWidth
-      if (index !== this.sliderItems.length - 1) {
+      if (index !== items.length - 1) {
         totalWidth += this.sliderGapValue
       }
-    })
+    }
 
     if (this.centralized === true) {
       this.currentCentralized = totalWidth <= this.viewportWidth
@@ -247,14 +253,13 @@ export class AtomListSlider {
   render() {
     return (
       <Host>
-        <div class='atom-list-slider' role='region' aria-label='Carousel'>
+        <section class='atom-list-slider' aria-label='Carousel'>
           <button
             class='navigation navigation--prev'
-            role='button'
             aria-label='Previous'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
-            style={{ display: !this.hasNavigation ? 'none' : '' }}
+            style={{ display: this.hasNavigation ? '' : 'none' }}
           >
             <atom-icon icon='chevron-left'></atom-icon>
           </button>
@@ -265,7 +270,6 @@ export class AtomListSlider {
                 [`wrapper`]: true,
                 [`wrapper--centralized`]: this.currentCentralized,
               }}
-              role='list'
             >
               <slot />
             </div>
@@ -273,15 +277,14 @@ export class AtomListSlider {
 
           <button
             class='navigation navigation--next'
-            role='button'
             aria-label='Next'
             aria-disabled='true'
             onClick={(event) => this.handleNavigationClick(event)}
-            style={{ display: !this.hasNavigation ? 'none' : '' }}
+            style={{ display: this.hasNavigation ? '' : 'none' }}
           >
             <atom-icon icon='chevron-right'></atom-icon>
           </button>
-        </div>
+        </section>
       </Host>
     )
   }

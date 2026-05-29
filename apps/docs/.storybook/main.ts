@@ -1,4 +1,8 @@
-import type { StorybookConfig } from '@storybook/web-components-webpack5'
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+import type { StorybookConfig } from '@storybook/web-components-vite'
+import { mergeConfig } from 'vite'
 
 function getStorybookRefs(configType: string) {
   if (configType === 'DEVELOPMENT') {
@@ -13,6 +17,7 @@ function getStorybookRefs(configType: string) {
       },
     }
   }
+
   return {
     react: {
       title: 'React Library',
@@ -33,25 +38,41 @@ const config: StorybookConfig = {
     '../../../packages/core/src/**/*.core.@(mdx|stories.@(js|jsx|ts|tsx))',
     '../../../packages/tokens/stories/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
+
   addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-actions',
-    '@storybook/addon-a11y',
-    '@storybook/addon-viewport',
-    '@storybook/theming',
-    '@storybook/addon-webpack5-compiler-babel',
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-docs'),
   ],
   staticDirs: ['../../../packages/icons/svg'],
+
   framework: {
-    name: '@storybook/web-components-webpack5',
+    name: getAbsolutePath('@storybook/web-components-vite'),
     options: {},
   },
-  docs: {
-    autodocs: true,
-  },
+
   refs: (config, { configType = '' }) => {
     return getStorybookRefs(configType)
+  },
+
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: (id) => {
+              if (id.includes('@storybook')) {
+                return 'storybook'
+              }
+            },
+          },
+        },
+      },
+    })
   },
 }
 
 export default config
+
+function getAbsolutePath(value: string): any {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
+}

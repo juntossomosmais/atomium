@@ -1,7 +1,6 @@
-import { defineCustomElements } from '@juntossomosmais/atomium/loader'
-
 import { CustomViewports } from '@atomium/storybook-utils/custom-viewports'
 import DocumentationTemplate from '@atomium/storybook-utils/templates/DocumentationTemplate.mdx'
+import { defineCustomElements } from '@juntossomosmais/atomium/loader'
 
 import '@atomium/storybook-utils/preview.css'
 
@@ -13,12 +12,14 @@ defineCustomElements()
 const preview = {
   parameters: {
     viewport: {
-      viewports: CustomViewports,
+      options: CustomViewports,
     },
     docs: {
       page: DocumentationTemplate,
     },
   },
+
+  tags: ['autodocs'],
 }
 
 export default preview

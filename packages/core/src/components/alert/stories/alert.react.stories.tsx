@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { AtomAlert } from '@juntossomosmais/atomium/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
-import { AtomAlert } from '@juntossomosmais/atomium/react'
 
 import { AlertComponentArgs, AlertStoryArgs } from './alert.args'
 

@@ -1,6 +1,7 @@
 import { AtomTextarea } from '@juntossomosmais/atomium/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
+
 
 import { TextareaComponentArgs, TextareaStoryArgs } from './textarea.args'
 
@@ -99,7 +100,7 @@ export const WithCounter: StoryObj = {
         placeholder='Start typing...'
         counter={true}
         maxlength={300}
-        counterFormatter={(inputLength: number, maxLength: number) =>
+        counterFormatter={(inputLength: number, _maxLength: number) =>
           `${inputLength}/300`
         }
       />

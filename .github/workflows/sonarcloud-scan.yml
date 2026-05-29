@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
           registry-url: 'https://npm.pkg.github.com'
           token: ${{ secrets.GH_ACTIONS }}
 
@@ -98,4 +98,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          projectBaseDir: packages/tokens/
+          projectBaseDir: .
+          args: -Dproject.settings=packages/tokens/sonar-project.properties

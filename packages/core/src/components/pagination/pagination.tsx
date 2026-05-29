@@ -94,7 +94,7 @@ export class AtomPagination {
         const currentPage = item.number === this.page ? 'page' : undefined
 
         return (
-          <li aria-current={currentPage}>
+          <li key={item.number} aria-current={currentPage}>
             <button
               class={{
                 'atom-pagination__nav-item': true,
@@ -111,7 +111,7 @@ export class AtomPagination {
         item.type === 'start-ellipsis'
       ) {
         return (
-          <li>
+          <li key={item.type}>
             <span
               class={{
                 'atom-pagination__nav-item': true,

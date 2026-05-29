@@ -7,11 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
 import { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
-import { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+import { JSX as IonTypes } from "@ionic/core/dist/types/components";
 import { AtomModal } from "./components/modal/modal";
 export { IconProps } from "./icons";
 export { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
-export { LocalJSX as IonTypes } from "@ionic/core/dist/types/components";
+export { JSX as IonTypes } from "@ionic/core/dist/types/components";
 export { AtomModal } from "./components/modal/modal";
 export namespace Components {
     interface AtomAlert {
@@ -131,7 +131,7 @@ export namespace Components {
         "offsetSm"?: string;
         "pull"?: string;
         "push"?: string;
-        "size"?: 'auto' | string;
+        "size"?: string;
         "sizeLg"?: string;
         "sizeMd"?: string;
         "sizeSm"?: string;
@@ -1222,7 +1222,7 @@ declare namespace LocalJSX {
         "offsetSm"?: string;
         "pull"?: string;
         "push"?: string;
-        "size"?: 'auto' | string;
+        "size"?: string;
         "sizeLg"?: string;
         "sizeMd"?: string;
         "sizeSm"?: string;
@@ -1789,69 +1789,387 @@ declare namespace LocalJSX {
     | 'left-start'
     | 'left-end';
     }
+
+    interface AtomAlertAttributes {
+        "color": 'info' | 'success' | 'warning' | 'danger' | 'neutral';
+        "icon": IconProps;
+        "messageTitle": string;
+        "messageText": string;
+        "actionText": string;
+        "close": boolean;
+    }
+    interface AtomBadgeAttributes {
+        "type": | 'primary'
+    | 'secondary'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'neutral'
+    | 'dark';
+    }
+    interface AtomButtonAttributes {
+        "color": 'primary' | 'secondary' | 'white' | 'custom';
+        "disabled": boolean;
+        "download": string;
+        "expand": 'block';
+        "fill": | 'clear'
+    | 'outline'
+    | 'outline-filled'
+    | 'solid';
+        "shape": 'round' | 'circle';
+        "href": string;
+        "loading": boolean;
+        "mode": Mode;
+        "rel": string;
+        "size": 'small' | 'default' | 'large';
+        "target": string;
+        "type": 'submit' | 'reset' | 'button';
+    }
+    interface AtomCarouselAttributes {
+        "loop": boolean;
+        "autoplay": number;
+        "hasNavigation": boolean;
+        "hasPagination": boolean;
+    }
+    interface AtomChipAttributes {
+        "disabled": boolean;
+        "activated": boolean;
+        "outline": boolean;
+        "mode": 'ios' | 'md';
+        "icon": IconProps;
+        "close": boolean;
+    }
+    interface AtomColAttributes {
+        "size": string;
+        "sizeSm": string;
+        "sizeMd": string;
+        "sizeLg": string;
+        "offset": string;
+        "offsetSm": string;
+        "offsetMd": string;
+        "offsetLg": string;
+        "push": string;
+        "pull": string;
+    }
+    interface AtomContainerAttributes {
+        "hasPadding": boolean;
+    }
+    interface AtomDatetimeAttributes {
+        "label": string;
+        "cancelText": string;
+        "clearText": string;
+        "datetimeId": string;
+        "dayValues": number[] | string;
+        "disabled": boolean;
+        "doneText": string;
+        "hourCycle": 'h12' | 'h23';
+        "hourValues": number[] | string;
+        "locale": string;
+        "max": string;
+        "min": string;
+        "minuteValues": number[] | string;
+        "monthValues": number[] | string;
+        "multiple": boolean;
+        "name": string;
+        "preferWheel": boolean;
+        "presentation": DatetimePresentation;
+        "rangeMode": boolean;
+        "readonly": boolean;
+        "showClearButton": boolean;
+        "showDefaultButtons": boolean;
+        "showDefaultTimeLabel": boolean;
+        "showDefaultTitle": boolean;
+        "useButton": boolean;
+        "size": 'cover' | 'fixed';
+        "value": TValue;
+        "yearValues": number[] | string;
+    }
+    interface AtomDividerAttributes {
+        "type": 'horizontal' | 'vertical';
+    }
+    interface AtomGridAttributes {
+        "fixed": boolean;
+    }
+    interface AtomIconAttributes {
+        "color": ColorProps;
+        "icon": IconProps;
+        "size": string;
+    }
+    interface AtomInputAttributes {
+        "autocomplete": 'on' | 'off';
+        "autofocus": boolean;
+        "clearInput": boolean;
+        "clearOnEdit": boolean;
+        "color": 'primary' | 'secondary' | 'danger';
+        "counter": boolean;
+        "debounce": number;
+        "disabled": boolean;
+        "enterKeyHint": | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send';
+        "errorText": string;
+        "fill": 'solid' | 'outline';
+        "hasError": boolean;
+        "helperText": string;
+        "icon": IconProps;
+        "inputmode": | 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
+        "label": string;
+        "labelPlacement": 'stacked' | 'floating';
+        "max": string;
+        "maxlength": number;
+        "min": string;
+        "minlength": number;
+        "mode": Mode;
+        "multiple": boolean;
+        "name": string;
+        "passwordToggle": boolean;
+        "pattern": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "shape": 'round' | undefined;
+        "step": string;
+        "type": TextFieldTypes;
+        "value": string;
+    }
+    interface AtomLinkAttributes {
+        "color": 'primary' | 'secondary';
+        "type": 'anchor' | 'button';
+        "loading": boolean;
+        "size": 'small' | 'medium' | 'large';
+    }
+    interface AtomListSliderAttributes {
+        "hasNavigation": boolean;
+        "centralized": boolean;
+        "step": number;
+    }
+    interface AtomMeterAttributes {
+        "type": 'success' | 'neutral' | 'warning' | 'danger';
+        "size": 'small' | 'large';
+        "title": string;
+        "hasCenterTitle": boolean;
+        "min": number;
+        "max": number;
+        "actual": number;
+    }
+    interface AtomModalAttributes {
+        "idName": string;
+        "trigger": string;
+        "headerTitle": string;
+        "primaryButtonText": string;
+        "secondaryButtonText": string;
+        "hasDivider": boolean;
+        "alertType": 'alert' | 'error';
+        "progress": number;
+        "hasFooter": boolean;
+        "disablePrimaryButton": boolean;
+        "disableSecondaryButton": boolean;
+        "isOpen": boolean;
+        "canDismiss": boolean;
+    }
+    interface AtomPaginationAttributes {
+        "page": number;
+        "count": number;
+    }
+    interface AtomPopoverAttributes {
+        "element": string;
+        "placement": | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'left';
+        "action": 'hover' | 'click';
+        "label": string;
+        "actionText": string;
+        "open": boolean;
+    }
+    interface AtomSelectAttributes {
+        "disabled": boolean;
+        "errorText": string;
+        "fill": 'solid' | 'outline';
+        "helperText": string;
+        "icon": IconProps;
+        "label": string;
+        "mode": Mode;
+        "multiple": boolean;
+        "name": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "value": string;
+    }
+    interface AtomSpinnerAttributes {
+        "type": 'primary' | 'secondary' | 'dark';
+        "size": number;
+    }
+    interface AtomStepperAttributes {
+        "activeStep": number;
+        "stepTitle": string;
+        "disabledUnrenderedStep": boolean;
+    }
+    interface AtomStepsModalAttributes {
+        "steps": number;
+        "currentStep": number;
+        "trigger": string;
+        "stepsTitles": string;
+        "isOpen": boolean;
+        "closeOnFinish": boolean;
+        "disablePrimaryButton": boolean;
+        "disableSecondaryButton": boolean;
+        "lockedInitialStep": number;
+        "primaryButtonTextsByStep": string;
+        "secondaryButtonTextsByStep": string;
+    }
+    interface AtomTagAttributes {
+        "color": 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
+        "icon": IconProps;
+        "customBackgroundColor": string;
+        "customTextColor": string;
+    }
+    interface AtomTextareaAttributes {
+        "autocomplete": 'on' | 'off';
+        "autofocus": boolean;
+        "autoGrow": boolean;
+        "clearOnEdit": boolean;
+        "color": 'primary' | 'secondary' | 'danger';
+        "cols": number;
+        "counter": boolean;
+        "debounce": number;
+        "disabled": boolean;
+        "enterKeyHint": | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send';
+        "errorText": string;
+        "fill": 'solid' | 'outline';
+        "hasError": boolean;
+        "helperText": string;
+        "icon": IconProps;
+        "inputmode": | 'none'
+    | 'text'
+    | 'tel'
+    | 'url'
+    | 'email'
+    | 'numeric'
+    | 'decimal'
+    | 'search';
+        "label": string;
+        "labelPlacement": 'stacked' | 'floating';
+        "maxlength": number;
+        "minlength": number;
+        "mode": Mode;
+        "name": string;
+        "pattern": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "rows": number;
+        "shape": 'round' | undefined;
+        "step": string;
+        "value": IonTypes.IonTextarea['value'];
+        "wrap": 'hard' | 'soft' | 'off';
+    }
+    interface AtomTooltipAttributes {
+        "open": boolean;
+        "element": string;
+        "placement": | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
+        "action": 'hover' | 'click';
+    }
+
     interface IntrinsicElements {
-        "atom-alert": AtomAlert;
-        "atom-badge": AtomBadge;
+        "atom-alert": Omit<AtomAlert, keyof AtomAlertAttributes> & { [K in keyof AtomAlert & keyof AtomAlertAttributes]?: AtomAlert[K] } & { [K in keyof AtomAlert & keyof AtomAlertAttributes as `attr:${K}`]?: AtomAlertAttributes[K] } & { [K in keyof AtomAlert & keyof AtomAlertAttributes as `prop:${K}`]?: AtomAlert[K] };
+        "atom-badge": Omit<AtomBadge, keyof AtomBadgeAttributes> & { [K in keyof AtomBadge & keyof AtomBadgeAttributes]?: AtomBadge[K] } & { [K in keyof AtomBadge & keyof AtomBadgeAttributes as `attr:${K}`]?: AtomBadgeAttributes[K] } & { [K in keyof AtomBadge & keyof AtomBadgeAttributes as `prop:${K}`]?: AtomBadge[K] };
         "atom-breadcrumb": AtomBreadcrumb;
-        "atom-button": AtomButton;
-        "atom-carousel": AtomCarousel;
+        "atom-button": Omit<AtomButton, keyof AtomButtonAttributes> & { [K in keyof AtomButton & keyof AtomButtonAttributes]?: AtomButton[K] } & { [K in keyof AtomButton & keyof AtomButtonAttributes as `attr:${K}`]?: AtomButtonAttributes[K] } & { [K in keyof AtomButton & keyof AtomButtonAttributes as `prop:${K}`]?: AtomButton[K] };
+        "atom-carousel": Omit<AtomCarousel, keyof AtomCarouselAttributes> & { [K in keyof AtomCarousel & keyof AtomCarouselAttributes]?: AtomCarousel[K] } & { [K in keyof AtomCarousel & keyof AtomCarouselAttributes as `attr:${K}`]?: AtomCarouselAttributes[K] } & { [K in keyof AtomCarousel & keyof AtomCarouselAttributes as `prop:${K}`]?: AtomCarousel[K] };
         "atom-carousel-item": AtomCarouselItem;
-        "atom-chip": AtomChip;
-        "atom-col": AtomCol;
-        "atom-container": AtomContainer;
-        "atom-datetime": AtomDatetime;
-        "atom-divider": AtomDivider;
-        "atom-grid": AtomGrid;
-        "atom-icon": AtomIcon;
-        "atom-input": AtomInput;
-        "atom-link": AtomLink;
-        "atom-list-slider": AtomListSlider;
+        "atom-chip": Omit<AtomChip, keyof AtomChipAttributes> & { [K in keyof AtomChip & keyof AtomChipAttributes]?: AtomChip[K] } & { [K in keyof AtomChip & keyof AtomChipAttributes as `attr:${K}`]?: AtomChipAttributes[K] } & { [K in keyof AtomChip & keyof AtomChipAttributes as `prop:${K}`]?: AtomChip[K] };
+        "atom-col": Omit<AtomCol, keyof AtomColAttributes> & { [K in keyof AtomCol & keyof AtomColAttributes]?: AtomCol[K] } & { [K in keyof AtomCol & keyof AtomColAttributes as `attr:${K}`]?: AtomColAttributes[K] } & { [K in keyof AtomCol & keyof AtomColAttributes as `prop:${K}`]?: AtomCol[K] };
+        "atom-container": Omit<AtomContainer, keyof AtomContainerAttributes> & { [K in keyof AtomContainer & keyof AtomContainerAttributes]?: AtomContainer[K] } & { [K in keyof AtomContainer & keyof AtomContainerAttributes as `attr:${K}`]?: AtomContainerAttributes[K] } & { [K in keyof AtomContainer & keyof AtomContainerAttributes as `prop:${K}`]?: AtomContainer[K] };
+        "atom-datetime": Omit<AtomDatetime, keyof AtomDatetimeAttributes> & { [K in keyof AtomDatetime & keyof AtomDatetimeAttributes]?: AtomDatetime[K] } & { [K in keyof AtomDatetime & keyof AtomDatetimeAttributes as `attr:${K}`]?: AtomDatetimeAttributes[K] } & { [K in keyof AtomDatetime & keyof AtomDatetimeAttributes as `prop:${K}`]?: AtomDatetime[K] };
+        "atom-divider": Omit<AtomDivider, keyof AtomDividerAttributes> & { [K in keyof AtomDivider & keyof AtomDividerAttributes]?: AtomDivider[K] } & { [K in keyof AtomDivider & keyof AtomDividerAttributes as `attr:${K}`]?: AtomDividerAttributes[K] } & { [K in keyof AtomDivider & keyof AtomDividerAttributes as `prop:${K}`]?: AtomDivider[K] };
+        "atom-grid": Omit<AtomGrid, keyof AtomGridAttributes> & { [K in keyof AtomGrid & keyof AtomGridAttributes]?: AtomGrid[K] } & { [K in keyof AtomGrid & keyof AtomGridAttributes as `attr:${K}`]?: AtomGridAttributes[K] } & { [K in keyof AtomGrid & keyof AtomGridAttributes as `prop:${K}`]?: AtomGrid[K] };
+        "atom-icon": Omit<AtomIcon, keyof AtomIconAttributes> & { [K in keyof AtomIcon & keyof AtomIconAttributes]?: AtomIcon[K] } & { [K in keyof AtomIcon & keyof AtomIconAttributes as `attr:${K}`]?: AtomIconAttributes[K] } & { [K in keyof AtomIcon & keyof AtomIconAttributes as `prop:${K}`]?: AtomIcon[K] };
+        "atom-input": Omit<AtomInput, keyof AtomInputAttributes> & { [K in keyof AtomInput & keyof AtomInputAttributes]?: AtomInput[K] } & { [K in keyof AtomInput & keyof AtomInputAttributes as `attr:${K}`]?: AtomInputAttributes[K] } & { [K in keyof AtomInput & keyof AtomInputAttributes as `prop:${K}`]?: AtomInput[K] };
+        "atom-link": Omit<AtomLink, keyof AtomLinkAttributes> & { [K in keyof AtomLink & keyof AtomLinkAttributes]?: AtomLink[K] } & { [K in keyof AtomLink & keyof AtomLinkAttributes as `attr:${K}`]?: AtomLinkAttributes[K] } & { [K in keyof AtomLink & keyof AtomLinkAttributes as `prop:${K}`]?: AtomLink[K] };
+        "atom-list-slider": Omit<AtomListSlider, keyof AtomListSliderAttributes> & { [K in keyof AtomListSlider & keyof AtomListSliderAttributes]?: AtomListSlider[K] } & { [K in keyof AtomListSlider & keyof AtomListSliderAttributes as `attr:${K}`]?: AtomListSliderAttributes[K] } & { [K in keyof AtomListSlider & keyof AtomListSliderAttributes as `prop:${K}`]?: AtomListSlider[K] };
         "atom-list-slider-item": AtomListSliderItem;
-        "atom-meter": AtomMeter;
-        "atom-modal": AtomModal;
-        "atom-pagination": AtomPagination;
-        "atom-popover": AtomPopover;
-        "atom-select": AtomSelect;
-        "atom-spinner": AtomSpinner;
-        "atom-stepper": AtomStepper;
-        "atom-steps-modal": AtomStepsModal;
-        "atom-tag": AtomTag;
-        "atom-textarea": AtomTextarea;
-        "atom-tooltip": AtomTooltip;
+        "atom-meter": Omit<AtomMeter, keyof AtomMeterAttributes> & { [K in keyof AtomMeter & keyof AtomMeterAttributes]?: AtomMeter[K] } & { [K in keyof AtomMeter & keyof AtomMeterAttributes as `attr:${K}`]?: AtomMeterAttributes[K] } & { [K in keyof AtomMeter & keyof AtomMeterAttributes as `prop:${K}`]?: AtomMeter[K] };
+        "atom-modal": Omit<AtomModal, keyof AtomModalAttributes> & { [K in keyof AtomModal & keyof AtomModalAttributes]?: AtomModal[K] } & { [K in keyof AtomModal & keyof AtomModalAttributes as `attr:${K}`]?: AtomModalAttributes[K] } & { [K in keyof AtomModal & keyof AtomModalAttributes as `prop:${K}`]?: AtomModal[K] };
+        "atom-pagination": Omit<AtomPagination, keyof AtomPaginationAttributes> & { [K in keyof AtomPagination & keyof AtomPaginationAttributes]?: AtomPagination[K] } & { [K in keyof AtomPagination & keyof AtomPaginationAttributes as `attr:${K}`]?: AtomPaginationAttributes[K] } & { [K in keyof AtomPagination & keyof AtomPaginationAttributes as `prop:${K}`]?: AtomPagination[K] };
+        "atom-popover": Omit<AtomPopover, keyof AtomPopoverAttributes> & { [K in keyof AtomPopover & keyof AtomPopoverAttributes]?: AtomPopover[K] } & { [K in keyof AtomPopover & keyof AtomPopoverAttributes as `attr:${K}`]?: AtomPopoverAttributes[K] } & { [K in keyof AtomPopover & keyof AtomPopoverAttributes as `prop:${K}`]?: AtomPopover[K] };
+        "atom-select": Omit<AtomSelect, keyof AtomSelectAttributes> & { [K in keyof AtomSelect & keyof AtomSelectAttributes]?: AtomSelect[K] } & { [K in keyof AtomSelect & keyof AtomSelectAttributes as `attr:${K}`]?: AtomSelectAttributes[K] } & { [K in keyof AtomSelect & keyof AtomSelectAttributes as `prop:${K}`]?: AtomSelect[K] };
+        "atom-spinner": Omit<AtomSpinner, keyof AtomSpinnerAttributes> & { [K in keyof AtomSpinner & keyof AtomSpinnerAttributes]?: AtomSpinner[K] } & { [K in keyof AtomSpinner & keyof AtomSpinnerAttributes as `attr:${K}`]?: AtomSpinnerAttributes[K] } & { [K in keyof AtomSpinner & keyof AtomSpinnerAttributes as `prop:${K}`]?: AtomSpinner[K] };
+        "atom-stepper": Omit<AtomStepper, keyof AtomStepperAttributes> & { [K in keyof AtomStepper & keyof AtomStepperAttributes]?: AtomStepper[K] } & { [K in keyof AtomStepper & keyof AtomStepperAttributes as `attr:${K}`]?: AtomStepperAttributes[K] } & { [K in keyof AtomStepper & keyof AtomStepperAttributes as `prop:${K}`]?: AtomStepper[K] };
+        "atom-steps-modal": Omit<AtomStepsModal, keyof AtomStepsModalAttributes> & { [K in keyof AtomStepsModal & keyof AtomStepsModalAttributes]?: AtomStepsModal[K] } & { [K in keyof AtomStepsModal & keyof AtomStepsModalAttributes as `attr:${K}`]?: AtomStepsModalAttributes[K] } & { [K in keyof AtomStepsModal & keyof AtomStepsModalAttributes as `prop:${K}`]?: AtomStepsModal[K] };
+        "atom-tag": Omit<AtomTag, keyof AtomTagAttributes> & { [K in keyof AtomTag & keyof AtomTagAttributes]?: AtomTag[K] } & { [K in keyof AtomTag & keyof AtomTagAttributes as `attr:${K}`]?: AtomTagAttributes[K] } & { [K in keyof AtomTag & keyof AtomTagAttributes as `prop:${K}`]?: AtomTag[K] };
+        "atom-textarea": Omit<AtomTextarea, keyof AtomTextareaAttributes> & { [K in keyof AtomTextarea & keyof AtomTextareaAttributes]?: AtomTextarea[K] } & { [K in keyof AtomTextarea & keyof AtomTextareaAttributes as `attr:${K}`]?: AtomTextareaAttributes[K] } & { [K in keyof AtomTextarea & keyof AtomTextareaAttributes as `prop:${K}`]?: AtomTextarea[K] };
+        "atom-tooltip": Omit<AtomTooltip, keyof AtomTooltipAttributes> & { [K in keyof AtomTooltip & keyof AtomTooltipAttributes]?: AtomTooltip[K] } & { [K in keyof AtomTooltip & keyof AtomTooltipAttributes as `attr:${K}`]?: AtomTooltipAttributes[K] } & { [K in keyof AtomTooltip & keyof AtomTooltipAttributes as `prop:${K}`]?: AtomTooltip[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "atom-alert": LocalJSX.AtomAlert & JSXBase.HTMLAttributes<HTMLAtomAlertElement>;
-            "atom-badge": LocalJSX.AtomBadge & JSXBase.HTMLAttributes<HTMLAtomBadgeElement>;
-            "atom-breadcrumb": LocalJSX.AtomBreadcrumb & JSXBase.HTMLAttributes<HTMLAtomBreadcrumbElement>;
-            "atom-button": LocalJSX.AtomButton & JSXBase.HTMLAttributes<HTMLAtomButtonElement>;
-            "atom-carousel": LocalJSX.AtomCarousel & JSXBase.HTMLAttributes<HTMLAtomCarouselElement>;
-            "atom-carousel-item": LocalJSX.AtomCarouselItem & JSXBase.HTMLAttributes<HTMLAtomCarouselItemElement>;
-            "atom-chip": LocalJSX.AtomChip & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
-            "atom-col": LocalJSX.AtomCol & JSXBase.HTMLAttributes<HTMLAtomColElement>;
-            "atom-container": LocalJSX.AtomContainer & JSXBase.HTMLAttributes<HTMLAtomContainerElement>;
-            "atom-datetime": LocalJSX.AtomDatetime & JSXBase.HTMLAttributes<HTMLAtomDatetimeElement>;
-            "atom-divider": LocalJSX.AtomDivider & JSXBase.HTMLAttributes<HTMLAtomDividerElement>;
-            "atom-grid": LocalJSX.AtomGrid & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
-            "atom-icon": LocalJSX.AtomIcon & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
-            "atom-input": LocalJSX.AtomInput & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
-            "atom-link": LocalJSX.AtomLink & JSXBase.HTMLAttributes<HTMLAtomLinkElement>;
-            "atom-list-slider": LocalJSX.AtomListSlider & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
-            "atom-list-slider-item": LocalJSX.AtomListSliderItem & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
-            "atom-meter": LocalJSX.AtomMeter & JSXBase.HTMLAttributes<HTMLAtomMeterElement>;
-            "atom-modal": LocalJSX.AtomModal & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
-            "atom-pagination": LocalJSX.AtomPagination & JSXBase.HTMLAttributes<HTMLAtomPaginationElement>;
-            "atom-popover": LocalJSX.AtomPopover & JSXBase.HTMLAttributes<HTMLAtomPopoverElement>;
-            "atom-select": LocalJSX.AtomSelect & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
-            "atom-spinner": LocalJSX.AtomSpinner & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
-            "atom-stepper": LocalJSX.AtomStepper & JSXBase.HTMLAttributes<HTMLAtomStepperElement>;
-            "atom-steps-modal": LocalJSX.AtomStepsModal & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
-            "atom-tag": LocalJSX.AtomTag & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
-            "atom-textarea": LocalJSX.AtomTextarea & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
-            "atom-tooltip": LocalJSX.AtomTooltip & JSXBase.HTMLAttributes<HTMLAtomTooltipElement>;
+            "atom-alert": LocalJSX.IntrinsicElements["atom-alert"] & JSXBase.HTMLAttributes<HTMLAtomAlertElement>;
+            "atom-badge": LocalJSX.IntrinsicElements["atom-badge"] & JSXBase.HTMLAttributes<HTMLAtomBadgeElement>;
+            "atom-breadcrumb": LocalJSX.IntrinsicElements["atom-breadcrumb"] & JSXBase.HTMLAttributes<HTMLAtomBreadcrumbElement>;
+            "atom-button": LocalJSX.IntrinsicElements["atom-button"] & JSXBase.HTMLAttributes<HTMLAtomButtonElement>;
+            "atom-carousel": LocalJSX.IntrinsicElements["atom-carousel"] & JSXBase.HTMLAttributes<HTMLAtomCarouselElement>;
+            "atom-carousel-item": LocalJSX.IntrinsicElements["atom-carousel-item"] & JSXBase.HTMLAttributes<HTMLAtomCarouselItemElement>;
+            "atom-chip": LocalJSX.IntrinsicElements["atom-chip"] & JSXBase.HTMLAttributes<HTMLAtomChipElement>;
+            "atom-col": LocalJSX.IntrinsicElements["atom-col"] & JSXBase.HTMLAttributes<HTMLAtomColElement>;
+            "atom-container": LocalJSX.IntrinsicElements["atom-container"] & JSXBase.HTMLAttributes<HTMLAtomContainerElement>;
+            "atom-datetime": LocalJSX.IntrinsicElements["atom-datetime"] & JSXBase.HTMLAttributes<HTMLAtomDatetimeElement>;
+            "atom-divider": LocalJSX.IntrinsicElements["atom-divider"] & JSXBase.HTMLAttributes<HTMLAtomDividerElement>;
+            "atom-grid": LocalJSX.IntrinsicElements["atom-grid"] & JSXBase.HTMLAttributes<HTMLAtomGridElement>;
+            "atom-icon": LocalJSX.IntrinsicElements["atom-icon"] & JSXBase.HTMLAttributes<HTMLAtomIconElement>;
+            "atom-input": LocalJSX.IntrinsicElements["atom-input"] & JSXBase.HTMLAttributes<HTMLAtomInputElement>;
+            "atom-link": LocalJSX.IntrinsicElements["atom-link"] & JSXBase.HTMLAttributes<HTMLAtomLinkElement>;
+            "atom-list-slider": LocalJSX.IntrinsicElements["atom-list-slider"] & JSXBase.HTMLAttributes<HTMLAtomListSliderElement>;
+            "atom-list-slider-item": LocalJSX.IntrinsicElements["atom-list-slider-item"] & JSXBase.HTMLAttributes<HTMLAtomListSliderItemElement>;
+            "atom-meter": LocalJSX.IntrinsicElements["atom-meter"] & JSXBase.HTMLAttributes<HTMLAtomMeterElement>;
+            "atom-modal": LocalJSX.IntrinsicElements["atom-modal"] & JSXBase.HTMLAttributes<HTMLAtomModalElement>;
+            "atom-pagination": LocalJSX.IntrinsicElements["atom-pagination"] & JSXBase.HTMLAttributes<HTMLAtomPaginationElement>;
+            "atom-popover": LocalJSX.IntrinsicElements["atom-popover"] & JSXBase.HTMLAttributes<HTMLAtomPopoverElement>;
+            "atom-select": LocalJSX.IntrinsicElements["atom-select"] & JSXBase.HTMLAttributes<HTMLAtomSelectElement>;
+            "atom-spinner": LocalJSX.IntrinsicElements["atom-spinner"] & JSXBase.HTMLAttributes<HTMLAtomSpinnerElement>;
+            "atom-stepper": LocalJSX.IntrinsicElements["atom-stepper"] & JSXBase.HTMLAttributes<HTMLAtomStepperElement>;
+            "atom-steps-modal": LocalJSX.IntrinsicElements["atom-steps-modal"] & JSXBase.HTMLAttributes<HTMLAtomStepsModalElement>;
+            "atom-tag": LocalJSX.IntrinsicElements["atom-tag"] & JSXBase.HTMLAttributes<HTMLAtomTagElement>;
+            "atom-textarea": LocalJSX.IntrinsicElements["atom-textarea"] & JSXBase.HTMLAttributes<HTMLAtomTextareaElement>;
+            "atom-tooltip": LocalJSX.IntrinsicElements["atom-tooltip"] & JSXBase.HTMLAttributes<HTMLAtomTooltipElement>;
         }
     }
 }

@@ -1,6 +1,7 @@
 import { AtomButton, AtomTooltip } from '@juntossomosmais/atomium/react'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
+
 
 import { TooltipComponentArgs, TooltipStoryArgs } from './tooltip.args'
 

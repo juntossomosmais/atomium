@@ -1,10 +1,12 @@
-import { Meta } from '@storybook/blocks'
+import { Meta } from '@storybook/addon-docs/blocks'
 
 <Meta title="Docs/Architecture Decision Records/ADR 0010: Why do we need a fix in React?" />
 
 # ADR 0010: Why do we need a fix in React?
 
 🗓️ 2023-07 · ✍️ [@igorwessel](https://twitter.com/igor_wessel)
+
+> ⚠️ **Superseded by [2025-11-04: React Output Target Update](./2025-11-04-react-output-target-update.mdx).** The `reactBooleanFixOutputTarget` patch was removed when we moved to `@stencil/react-output-target@^1.5.3`, whose runtime (`@lit/react`) sets DOM properties instead of stringified attributes, so the boolean bug described here no longer occurs. This ADR is kept for historical context.
 
 ## Context
 

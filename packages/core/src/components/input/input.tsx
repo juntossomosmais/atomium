@@ -104,25 +104,25 @@ export class AtomInput {
     return this.inputEl.getInputElement()
   }
 
-  private handleChange: IonTypes.IonInput['onIonChange'] = (event) => {
+  private readonly handleChange: IonTypes.IonInput['onIonChange'] = (event) => {
     const value = event.target.value
 
     this.value = value
     this.atomChange.emit(String(value))
   }
 
-  private handleInput: IonTypes.IonInput['onIonInput'] = (event) => {
+  private readonly handleInput: IonTypes.IonInput['onIonInput'] = (event) => {
     const value = event.target.value
 
     this.value = value
     this.atomInput.emit(String(value))
   }
 
-  private handleBlur = () => {
+  private readonly handleBlur = () => {
     this.atomBlur.emit()
   }
 
-  private handleFocus = () => {
+  private readonly handleFocus = () => {
     this.atomFocus.emit()
   }
 

@@ -112,11 +112,16 @@ export const config: Config = {
   namespace: 'core',
   plugins: [
     sass({
-      injectGlobalPaths: [
-        '../../node_modules/@atomium/scss-utils/index.scss',
-        '../../node_modules/@ionic/core/css/core.css',
-      ],
+      // Only inject Sass-only files (variables, mixins, functions) here.
+      // Files containing actual CSS rules (e.g. @ionic/core/css/core.css) MUST NOT
+      // be listed: Stencil prepends them to every component's SCSS, which causes
+      // their rules (including :root{--ion-color-*: …} from Ionic's stock palette)
+      // to be baked into every per-component CSS bundle and re-injected into the
+      // document head when each component hydrates, overriding the global theme.
+      // Pure CSS files belong in `src/global/global.scss` (loaded once via `globalStyle`).
+      injectGlobalPaths: ['../../node_modules/@atomium/scss-utils/index.scss'],
       includePaths: ['../../node_modules'],
+      silenceDeprecations: ['if-function'],
     }),
   ],
   extras: {

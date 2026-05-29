@@ -38,12 +38,14 @@ describe('atom-steps-modal', () => {
         <atom-modal
             trigger="open-modal-steps"
             class="atom-steps-modal"
+            part="steps-modal"
             primarybuttontext="Next"
             progress="0.3333333333333333"
             secondarybuttontext="Close"
             hasfooter=""
             hasdivider=""
             headertitle="Step 1"
+            part="steps-modal"
             >
             <div class="atom-steps-modal__step" style="display: block;">
                 <div slot="step-1">Step 1 Content</div>
@@ -154,6 +156,7 @@ describe('atom-steps-modal', () => {
       <atom-modal
           trigger="open-modal-steps"
           class="atom-steps-modal"
+          part="steps-modal"
           primarybuttontext="Next"
           progress="0.3333333333333333"
           secondarybuttontext="Close"
@@ -162,6 +165,7 @@ describe('atom-steps-modal', () => {
           headertitle="Step 1"
           disableprimarybutton=""
           disablesecondarybutton=""
+          part="steps-modal"
           >
           <div class="atom-steps-modal__step" style="display: block;">
               <div slot="step-1">Step 1 Content</div>

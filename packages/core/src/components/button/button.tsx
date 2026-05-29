@@ -38,7 +38,7 @@ export class AtomButton {
 
   @Element() element: HTMLElement
 
-  private formFunctions = {
+  private readonly formFunctions = {
     reset: 'reset',
     submit: 'requestSubmit',
   }
@@ -47,7 +47,7 @@ export class AtomButton {
     return this.href || this.download || this.target
   }
 
-  private handleClick = (event) => {
+  private readonly handleClick = (event) => {
     if (this.isLink) return
 
     event.preventDefault()

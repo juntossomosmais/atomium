@@ -1,5 +1,6 @@
+import { Meta, StoryObj } from '@storybook/vue3-vite'
+
 import { AtomButton, AtomPopover } from '@juntossomosmais/atomium/vue'
-import { Meta, StoryObj } from '@storybook/vue3'
 
 import { PopoverComponentArgs, PopoverStoryArgs } from './popover.args'
 

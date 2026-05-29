@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { AtomInput } from '@juntossomosmais/atomium/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
-import { AtomInput } from '@juntossomosmais/atomium/react'
 
 import { InputComponentArgs, InputStoryArgs } from './input.args'
 

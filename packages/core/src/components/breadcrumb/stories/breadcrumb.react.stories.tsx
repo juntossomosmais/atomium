@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { AtomBreadcrumb } from '@juntossomosmais/atomium/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
 
-import { AtomBreadcrumb } from '@juntossomosmais/atomium/react'
 
 import { BreadcrumbStoryArgs } from './breadcrumb.args'
 

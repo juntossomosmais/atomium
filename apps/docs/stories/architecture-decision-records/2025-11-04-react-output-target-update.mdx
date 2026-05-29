@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Docs/Architecture Decision Records/2025-11-04: React Output Target Update' />
+
+# 2025-11-04: React Output Target Update
+
+🗓️ 2025-11-04 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
+
+## Context
+
+For a long time the project was locked to `@stencil/react-output-target@0.5.3`. That version generated a local `react-component-lib` folder with our own copies of the wrapper helpers (`createComponent`, `createOverlayComponent`, `attachProps`, etc.). Because we could not move forward, we accumulated two custom build-time patch output targets to fix bugs in that generated code:
+
+- `reactBooleanFixOutputTarget` (see ADR 0010): rewrote `attachProps.ts` so boolean props followed the HTML spec (`disabled=""` / attribute removed) instead of being serialized as the strings `"true"` / `"false"`, which Web Components read as truthy.
+- `react19FixOutputTarget` (see ADR _Why React 19 compatibility patch?_): rewrote `createOverlayComponent.tsx` and `utils/index.tsx` so the generated `forwardRef` usage compiled under React 19.
+
+Both patches were workarounds for limitations of the old generator, and both depended on a locally generated `react-component-lib` that only the `0.x` line produces. This made every dependency bump risky and blocked React 19 adoption ([output-targets#552](https://github.com/stenciljs/output-targets/issues/552), [output-targets#645](https://github.com/stenciljs/output-targets/issues/645)).
+
+## Decision
+
+Update to `@stencil/react-output-target@^1.5.3` and adopt its runtime-based API, removing both custom patch output targets.
+
+### 1. Stencil configuration
+
+```typescript
+reactOutputTarget({
+  outDir: '../react/src/components',
+  stencilPackageName: '@juntossomosmais/atomium',
+  customElementsDir: 'dist/components',
+  excludeComponents, // Ionic components remain excluded
+  esModules: true,
+})
+```
+
+The Ionic components stay in the `excludeComponents` list, exactly as before. They are registered globally through `global.ts` / `defineCustomElements()`, so React consumers keep using them as they always have. This is what keeps the Ionic wrappers working and addresses the wrapping problem from [output-targets#552](https://github.com/stenciljs/output-targets/issues/552).
+
+### 2. Runtime instead of a local `react-component-lib`
+
+The `1.x` generator no longer emits a local `react-component-lib`. Each component is generated as its own file (`atom-button.ts`, `atom-input.ts`, ...) plus a `components.ts` barrel, and every file imports from the published runtime:
+
+```typescript
+import { createComponent } from '@stencil/react-output-target/runtime'
+import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime'
+```
+
+Internally that runtime delegates to [`@lit/react`](https://www.npmjs.com/package/@lit/react), which assigns values as DOM **properties** (`el.disabled = false`) rather than stringified attributes.
+
+### 3. Both custom patches are now obsolete
+
+- **Boolean fix is no longer needed.** Because `@lit/react` sets properties instead of attributes, the boolean-as-string bug from ADR 0010 cannot happen.
+- **React 19 fix is no longer needed.** There is no local `react-component-lib` to patch, and the runtime declares `react: ^18 || ^19`.
+
+The `packages/core/output-target/` folder (`react-19-fix.ts`, `react-boolean.ts`) was removed. This ADR supersedes ADR 0010 and the _Why React 19 compatibility patch?_ ADR.
+
+### 4. Dependency management
+
+`@stencil/react-output-target` is a dev dependency at the root (used to generate the wrappers at build time) and a regular dependency of `packages/react` (the runtime ships with the published package). Consuming apps do not need to install it directly.
+
+### 5. TypeScript configuration
+
+`packages/react/tsconfig.json` uses `moduleResolution: "Bundler"` with path mappings so the generated proxies resolve against the local core build during compilation:
+
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@juntossomosmais/atomium": ["../core/src/index.ts"],
+      "@juntossomosmais/atomium/*": ["../core/*"]
+    }
+  }
+}
+```
+
+## Consequences
+
+### Positive
+
+- ✅ No more custom patch output targets to maintain.
+- ✅ React 19 supported natively, dependency bumps are no longer blocked.
+- ✅ Per-component files are easier to tree-shake.
+- ✅ Ionic components keep working exactly as before (global registration + `excludeComponents`).
+- ✅ No changes required in consuming apps — import paths stay `@juntossomosmais/atomium/react`.
+
+### Neutral
+
+- 🔄 Internal change in how wrappers are generated (not visible to consumers).
+- 🔄 `@stencil/react-output-target/runtime` (and `@lit/react`) ship in the bundle.
+
+## References
+
+- [Stencil React Output Target Documentation](https://stenciljs.com/docs/react)
+- [output-targets#552: React output target not wrapping Ionic components](https://github.com/stenciljs/output-targets/issues/552)
+- [output-targets#645: Cannot find module '@stencil/react-output-target/runtime'](https://github.com/stenciljs/output-targets/issues/645)
+- [ADR 0007: Why do we transpile Web Components for React and Vue?](./0007-why-do-we-transpile-web-components-for-react-and-vue.mdx)
+- [ADR 0010: Why do we need a fix in React?](./0010-why-do-we-need-react-fix.mdx)

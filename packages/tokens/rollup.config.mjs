@@ -13,7 +13,7 @@ export default {
     postcss({
       extract: true,
       modules: false,
-      use: ['sass'],
+      use: { sass: { silenceDeprecations: ['legacy-js-api', 'if-function'] } },
       plugins: [
         autoprefixer(),
         cssnano({

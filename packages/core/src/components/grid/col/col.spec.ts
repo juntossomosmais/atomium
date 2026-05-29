@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+
 import { AtomCol } from './col'
 
 describe('AtomCol', () => {

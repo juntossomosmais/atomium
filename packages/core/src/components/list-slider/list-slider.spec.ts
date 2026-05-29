@@ -40,19 +40,19 @@ describe('AtomListSlider', () => {
     expect(page?.root).toEqualHtml(`
       <atom-list-slider>
         <mock:shadow-root>
-          <div aria-label="Carousel" class="atom-list-slider" role="region">
-            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev" role="button">
+          <section aria-label="Carousel" class="atom-list-slider">
+            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div aria-live="polite" class="sliders">
-              <div class="wrapper" role="list">
+              <div class="wrapper">
                 <slot></slot>
               </div>
             </div>
-            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next" role="button">
+            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
-          </div>
+          </section>
         </mock:shadow-root>
         <atom-list-slider-item>
           <mock:shadow-root>
@@ -86,19 +86,19 @@ describe('AtomListSlider', () => {
     expect(page?.root).toEqualHtml(`
       <atom-list-slider has-navigation="false">
         <mock:shadow-root>
-          <div aria-label="Carousel" class="atom-list-slider" role="region">
-            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev" role="button" style="display: none;">
+          <section aria-label="Carousel" class="atom-list-slider">
+            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev" style="display: none;">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div aria-live="polite" class="sliders">
-              <div class="wrapper" role="list">
+              <div class="wrapper">
                 <slot></slot>
               </div>
             </div>
-            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next" role="button" style="display: none;">
+            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next" style="display: none;">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
-          </div>
+          </section>
         </mock:shadow-root>
         <atom-list-slider-item>
           <mock:shadow-root>
@@ -133,19 +133,19 @@ describe('AtomListSlider', () => {
     expect(page?.root).toEqualHtml(`
       <atom-list-slider centralized="true">
         <mock:shadow-root>
-          <div aria-label="Carousel" class="atom-list-slider" role="region">
-            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev" role="button">
+          <section aria-label="Carousel" class="atom-list-slider">
+            <button aria-disabled="true" aria-label="Previous" class="navigation navigation--prev">
               <atom-icon icon="chevron-left"></atom-icon>
             </button>
             <div aria-live="polite" class="sliders">
-              <div class="wrapper wrapper--centralized" role="list">
+              <div class="wrapper wrapper--centralized">
                 <slot></slot>
               </div>
             </div>
-            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next" role="button">
+            <button aria-disabled="true" aria-label="Next" class="navigation navigation--next">
               <atom-icon icon="chevron-right"></atom-icon>
             </button>
-          </div>
+          </section>
         </mock:shadow-root>
         <atom-list-slider-item style="width: 100px;">
           <mock:shadow-root>
@@ -226,8 +226,8 @@ describe('AtomListSlider', () => {
       instance.sliderWrapper,
       'removeEventListener'
     )
-    const removeWindowEventListenerSpy = jest.spyOn(
-      window,
+    const removeGlobalEventListenerSpy = jest.spyOn(
+      globalThis,
       'removeEventListener'
     )
 
@@ -245,13 +245,13 @@ describe('AtomListSlider', () => {
       'touchmove',
       instance.handleTouchMove
     )
-    expect(removeWindowEventListenerSpy).toHaveBeenCalledWith(
+    expect(removeGlobalEventListenerSpy).toHaveBeenCalledWith(
       'resize',
       instance.handleOnResize
     )
 
     removeEventListenerSpy.mockRestore()
-    removeWindowEventListenerSpy.mockRestore()
+    removeGlobalEventListenerSpy.mockRestore()
   })
 
   it('should handle touch events correctly', async () => {

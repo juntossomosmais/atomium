@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+
 import { AtomChip } from './chip'
 
 describe('AtomChip', () => {
@@ -15,7 +16,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip>
         <mock:shadow-root>
-          <ion-chip class="atom-chip" tabindex="1">
+          <ion-chip class="atom-chip" tabindex="0">
             <slot></slot>
           </ion-chip>
         </mock:shadow-root>
@@ -35,7 +36,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip activated>
         <mock:shadow-root>
-          <ion-chip class="atom-chip has-activated" tabindex="1">
+          <ion-chip class="atom-chip has-activated" tabindex="0">
             <slot></slot>
           </ion-chip>
         </mock:shadow-root>
@@ -54,7 +55,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip icon="account-multiple">
         <mock:shadow-root>
-          <ion-chip class="atom-chip" tabindex="1">
+          <ion-chip class="atom-chip" tabindex="0">
             <atom-icon class="atom-icon" icon="account-multiple"></atom-icon>
             <slot></slot>
           </ion-chip>
@@ -74,7 +75,7 @@ describe('AtomChip', () => {
     expect(page.root).toEqualHtml(`
       <atom-chip close>
         <mock:shadow-root>
-          <ion-chip class="atom-chip" tabindex="1">
+          <ion-chip class="atom-chip" tabindex="0">
             <slot></slot>
             <atom-icon class="atom-close" icon="close"></atom-icon>
           </ion-chip>

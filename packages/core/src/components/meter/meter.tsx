@@ -16,7 +16,7 @@ export class AtomMeter {
   @Prop() max: number
   @Prop() actual: number
 
-  private getProgress = () => {
+  private readonly getProgress = () => {
     if (this.actual >= this.max) return 100
 
     if (this.actual <= this.min) return 0
