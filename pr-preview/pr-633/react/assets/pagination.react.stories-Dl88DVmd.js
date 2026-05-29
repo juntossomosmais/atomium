@@ -1,0 +1,6 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{U as t,X as n}from"./iframe-BUHKmaMN.js";import{t as r,v as i}from"./dist-BK4tPckK.js";import{n as a,t as o}from"./table-CVkdcsHV.js";var s,c,l=e((()=>{a(),s={parameters:{docs:{description:{component:`A pagination component is an interface that allows users to navigate through large amounts of content that has been split into multiple pages`}}},argTypes:{page:{control:`number`,description:`Current page.`,table:{category:o.PROPERTIES}},count:{control:`number`,description:`Total pages.`,table:{category:o.PROPERTIES}}}},c={page:1,count:10}})),u,d,f,p,m;e((()=>{n(),r(),l(),u=t(),d={title:`Components/Pagination`,component:i,...s},f=e=>(0,u.jsx)(i,{count:e.count,page:e.page}),p={render:e=>f(e),args:{...c}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  render: args => createPagination(args),
+  args: {
+    ...PaginationComponentArgs
+  }
+}`,...p.parameters?.docs?.source}}},m=[`Default`]}))();export{p as Default,m as __namedExportsOrder,d as default};
