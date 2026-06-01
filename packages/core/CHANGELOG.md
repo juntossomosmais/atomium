@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.3...atomium-v4.0.0) (2026-06-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **react:** update react-output-target ([#633](https://github.com/juntossomosmais/atomium/issues/633))
+
+### Features
+
+* **react:** update react-output-target ([#633](https://github.com/juntossomosmais/atomium/issues/633)) ([58c76a3](https://github.com/juntossomosmais/atomium/commit/58c76a3df6bbe9e9271c767678170a820e24a172))
+
 ## [3.19.3](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.2...atomium-v3.19.3) (2026-05-27)
 
 
