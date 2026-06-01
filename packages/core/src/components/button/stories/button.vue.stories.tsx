@@ -51,6 +51,14 @@ export const Secondary: StoryObj = {
   },
 }
 
+export const Danger: StoryObj = {
+  render: (args) => createButton(args),
+  args: {
+    ...Primary.args,
+    color: 'danger',
+  },
+}
+
 export const OutlineFilled: StoryObj = {
   render: (args) => createButton(args, 'dark'),
   args: {

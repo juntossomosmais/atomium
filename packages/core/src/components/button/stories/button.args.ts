@@ -21,9 +21,10 @@ export const ButtonStoryArgs = {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'white', 'custom'],
+      options: ['primary', 'secondary', 'white', 'custom', 'danger'],
       defaultValue: { summary: 'primary' },
-      description: "The color to use from your application's color palette.",
+      description:
+        "The color to use from your application's color palette. Use `danger` for destructive actions.",
       table: {
         category: Category.PROPERTIES,
       },

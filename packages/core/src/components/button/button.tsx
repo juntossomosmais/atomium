@@ -15,8 +15,12 @@ import {
   shadow: true,
 })
 export class AtomButton {
-  @Prop({ mutable: true }) color: 'primary' | 'secondary' | 'white' | 'custom' =
-    'primary'
+  @Prop({ mutable: true }) color:
+    | 'primary'
+    | 'secondary'
+    | 'white'
+    | 'custom'
+    | 'danger' = 'primary'
   @Prop({ mutable: true }) disabled?: boolean
   @Prop({ mutable: true }) download?: string
   @Prop({ mutable: true }) expand?: 'block'
