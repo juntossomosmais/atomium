@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.1.1...atomium-tokens-v2.1.2) (2026-06-01)
+
+
+### Bug Fixes
+
+* **tokens:** add 'types' condition to exports for bundler module resolution ([#836](https://github.com/juntossomosmais/atomium/issues/836)) ([959ed58](https://github.com/juntossomosmais/atomium/commit/959ed587828b36d2c9e2e9ae9a4285b25bd4cf77))
+
 ## [2.1.1](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.1.0...atomium-tokens-v2.1.1) (2026-05-27)
 
 
