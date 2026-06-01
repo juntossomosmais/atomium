@@ -2,18 +2,17 @@
   "name": "@juntossomosmais/atomium-react",
   "description": "React transpiled for Atomium",
   "private": true,
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
   "files": [
     "dist/"
   ],
   "scripts": {
     "start": "tsc -p . --watch",
     "build": "nx build @juntossomosmais/atomium && npm run compile && npm run copy",
-    "compile": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc --module commonjs --outDir ../core/react/dist/cjs --declarationDir ../core/react/dist/types",
-    "build:esm": "tsc --module es6 --outDir ../core/react/dist/esm --declarationDir ../core/react/dist/types",
+    "compile": "tsc -p tsconfig.json",
     "copy": "npx copyfiles --flat ./package.json ../core/react"
   },
   "nx": {
@@ -39,5 +38,14 @@
         ]
       }
     }
+  },
+  "dependencies": {
+    "@stencil/react-output-target": "^1.5.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   }
 }

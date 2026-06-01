@@ -43,15 +43,19 @@
       "require": "./dist/index.cjs.js",
       "types": "./dist/types/index.d.ts"
     },
+    "./dist/components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./dist/*": "./dist/*",
     "./loader": {
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
       "require": "./loader/index.cjs.js"
     },
     "./react": {
-      "types": "./react/dist/types/index.d.ts",
-      "import": "./react/dist/esm/index.js",
-      "require": "./react/dist/cjs/index.js"
+      "types": "./react/dist/index.d.ts",
+      "import": "./react/dist/index.js"
     },
     "./vue": {
       "types": "./vue/dist/types/index.d.ts",
@@ -60,6 +64,21 @@
     "./core.css": {
       "import": "./core.css",
       "require": "./core.css"
+    }
+  },
+  "dependencies": {
+    "@stencil/react-output-target": "^1.5.3"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
     }
   },
   "nx": {

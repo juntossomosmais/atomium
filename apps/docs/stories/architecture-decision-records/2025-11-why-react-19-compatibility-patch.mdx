@@ -6,6 +6,8 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 🗓️ 2025-11 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
 
+> ⚠️ **Superseded by [2025-11-04: React Output Target Update](./2025-11-04-react-output-target-update.mdx).** The `react19FixOutputTarget` patch and the local `react-component-lib` it modified were removed when we moved to `@stencil/react-output-target@^1.5.3`, which supports React 19 natively. This ADR is kept for historical context.
+
 ## Context
 
 Atomium uses Stencil to build Web Components and generates React wrappers using `@stencil/react-output-target`. The project wraps many `@ionic/core` components within custom Stencil components, and we need to upgrade to React 19 to keep dependencies up-to-date.

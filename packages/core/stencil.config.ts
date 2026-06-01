@@ -1,11 +1,7 @@
 import { Config } from '@stencil/core'
-import { OutputTargetCustom } from '@stencil/core/internal'
 import { reactOutputTarget } from '@stencil/react-output-target'
 import { sass } from '@stencil/sass'
 import { vueOutputTarget } from '@stencil/vue-output-target'
-
-import { react19FixOutputTarget } from './output-target/react-19-fix'
-import { reactBooleanFixOutputTarget } from './output-target/react-boolean'
 
 // Since Ionic components are imported in `global.ts`
 // we need to exclude them here to avoid unnecessary imports in the React and Vue output module
@@ -44,9 +40,9 @@ const excludeComponents = [
   'ion-img',
   'ion-infinite-scroll-content',
   'ion-infinite-scroll',
+  'ion-input-otp',
   'ion-input-password-toggle',
   'ion-input',
-  'ion-input-otp',
   'ion-item-divider',
   'ion-item-group',
   'ion-item-option',
@@ -138,6 +134,10 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
+    {
+      type: 'dist-custom-elements',
+      externalRuntime: false,
+    },
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../vue/src/components/index.ts',
@@ -146,21 +146,11 @@ export const config: Config = {
       excludeComponents,
     }),
     reactOutputTarget({
-      componentCorePackage: '@juntossomosmais/atomium',
-      proxiesFile: '../react/src/components/index.ts',
-      includeDefineCustomElements: true,
-      includePolyfills: false,
+      outDir: '../react/src/components',
+      stencilPackageName: '@juntossomosmais/atomium',
+      customElementsDir: 'dist/components',
       excludeComponents,
+      esModules: true,
     }),
-    reactBooleanFixOutputTarget({
-      attachPropsFile:
-        '../../react/src/components/react-component-lib/utils/attachProps.ts',
-    }),
-    react19FixOutputTarget({
-      createOverlayComponentFile:
-        '../../react/src/components/react-component-lib/createOverlayComponent.tsx',
-      utilsIndexFile:
-        '../../react/src/components/react-component-lib/utils/index.tsx',
-    }),
-  ] as OutputTargetCustom[],
+  ],
 }
