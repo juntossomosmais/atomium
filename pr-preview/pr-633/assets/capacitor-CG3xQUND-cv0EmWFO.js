@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-BVpWp9h4.js";import{n as t,r as n}from"./index-ZjP4CjeZ-Dx3GGlpO.js";var r,i=e((()=>{t(),r=()=>{if(n!==void 0)return n.Capacitor}}));export{i as n,r as t};
