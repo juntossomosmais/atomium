@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.0.0...atomium-v4.1.0) (2026-06-01)
+
+
+### Features
+
+* **button:** add danger as supported color value ([8d75c63](https://github.com/juntossomosmais/atomium/commit/8d75c63a98ec1df3d030a5d4c6402b45729f481b))
+
 ## [4.0.0](https://github.com/juntossomosmais/atomium/compare/atomium-v3.19.3...atomium-v4.0.0) (2026-06-01)
 
 
