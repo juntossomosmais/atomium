@@ -13,7 +13,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@juntossomosmais/atomium": ["../core/dist/types/index.d.ts"],
+      "@juntossomosmais/atomium/dist/components": ["../core/dist/components/index.d.ts"],
+      "@juntossomosmais/atomium/dist/components/*": ["../core/dist/components/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]
