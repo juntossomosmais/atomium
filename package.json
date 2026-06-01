@@ -32,7 +32,7 @@
   "dependencies": {
     "@ionic/core": "^8.8.5",
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "^4.43.4",
+    "@stencil/core": "^4.43.5",
     "dompurify": "^3.4.2"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.60.0",
     "@typescript-eslint/parser": "^8.60.0",
@@ -88,8 +88,8 @@
     "prettier": "3.8.3",
     "prop-types": "^15.8.1",
     "puppeteer": "^24.42.0",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "remark-gfm": "^4.0.1",
     "rollup": "^4.60.2",
     "rollup-plugin-postcss": "^4.0.2",
@@ -110,7 +110,7 @@
     "vue": "^3.5.33"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.60.2",
+    "@rollup/rollup-linux-x64-gnu": "4.61.0",
     "sass-embedded-darwin-arm64": "^1.99.0",
     "sass-embedded-linux-x64": "^1.99.0"
   },
