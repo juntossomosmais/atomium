@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow-wrap: break-word;
   width: 100%;
-  word-wrap: break-word;
 }
 
 .container-text {
