@@ -32,7 +32,7 @@
   "dependencies": {
     "@ionic/core": "^8.8.5",
     "@popperjs/core": "^2.11.8",
-    "@stencil/core": "^4.43.4",
+    "@stencil/core": "^4.43.5",
     "dompurify": "^3.4.2"
   },
   "devDependencies": {
