@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-BVpWp9h4.js";import{$ as t,Q as n,et as r,it as i,rt as a,tt as o}from"./storybook-DZEUUYC3.js";var s;e((()=>{r(),t(),i(),s=(0,a(o(),1).default)(2)(async(e,t)=>e===!1?t:n(t))}))();export{s as formatter};
