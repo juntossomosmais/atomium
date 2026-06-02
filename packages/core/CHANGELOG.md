@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.0...atomium-v4.1.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* **meter:** replace deprecated word-wrap with overflow-wrap ([#839](https://github.com/juntossomosmais/atomium/issues/839)) ([57db920](https://github.com/juntossomosmais/atomium/commit/57db92011f09e7438615da0adf97e5f030648e61))
+
 ## [4.1.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.0.0...atomium-v4.1.0) (2026-06-01)
 
 
