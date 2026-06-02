@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";import{n as t,t as n}from"./index-5IHHVBCV-CxRRPF_s.js";var r,i=e((()=>{n(),r=async e=>{let n=await t.get(e);return!!(n&&await n.isActive())}}));export{r as n,i as t};
