@@ -74,7 +74,7 @@ export class AtomDatetime {
   @Prop() showDefaultTitle = false
   @Prop() useButton = false
   @Prop() size?: 'cover' | 'fixed' = 'fixed'
-  @Prop({ mutable: true, reflect: true }) value?: TValue
+  @Prop({ mutable: true }) value?: TValue
 
   @Prop() yearValues?: number[] | string
 
