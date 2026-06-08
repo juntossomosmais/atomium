@@ -777,4 +777,64 @@ describe('AtomDatetime', () => {
       expect(datetime.ionDatetimeValue).toEqual(['initial'])
     })
   })
+
+  describe('re-syncs the calendar view when the popover reopens', () => {
+    const buildRangeModePage = async () =>
+      newSpecPage({
+        components: [AtomDatetime],
+        html: '<atom-datetime use-button="true" range-mode="true"></atom-datetime>',
+      })
+
+    it('resets ion-datetime when the popover presents', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+      const reset = jest.fn().mockResolvedValue(undefined)
+
+      datetime._datetimeEl = { reset }
+      datetime.handlePopoverPresent()
+
+      expect(reset).toHaveBeenCalled()
+    })
+
+    it('does nothing on present when there is no datetime element', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      datetime._datetimeEl = undefined
+
+      expect(() => datetime.handlePopoverPresent()).not.toThrow()
+    })
+
+    it('attaches the present listener to the popover only once', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+      const popover = { addEventListener: jest.fn() }
+
+      datetime.setupPopover(popover)
+      datetime.setupPopover(popover)
+
+      expect(popover.addEventListener).toHaveBeenCalledTimes(1)
+      expect(popover.addEventListener).toHaveBeenCalledWith(
+        'ionDidPresent',
+        expect.any(Function)
+      )
+    })
+
+    it('removes the present listener on disconnect', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+      const popover = {
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      }
+
+      datetime.setupPopover(popover)
+      datetime.disconnectedCallback()
+
+      expect(popover.removeEventListener).toHaveBeenCalledWith(
+        'ionDidPresent',
+        expect.any(Function)
+      )
+    })
+  })
 })
