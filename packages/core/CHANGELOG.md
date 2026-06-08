@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.2](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.1...atomium-v4.1.2) (2026-06-08)
+
+
+### Bug Fixes
+
+* **datetime:** live range fill with default buttons and value hardening ([#842](https://github.com/juntossomosmais/atomium/issues/842)) ([230db37](https://github.com/juntossomosmais/atomium/commit/230db37de0ea543b53c877a73b9af9ee995742b3))
+
 ## [4.1.1](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.0...atomium-v4.1.1) (2026-06-02)
 
 
