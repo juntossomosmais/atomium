@@ -74,7 +74,7 @@ export class AtomDatetime {
   @Prop() showDefaultTitle = false
   @Prop() useButton = false
   @Prop() size?: 'cover' | 'fixed' = 'fixed'
-  @Prop({ mutable: true, reflect: true }) value?: TValue
+  @Prop({ mutable: true }) value?: TValue
 
   @Prop() yearValues?: number[] | string
 
@@ -87,13 +87,45 @@ export class AtomDatetime {
   @Event() atomCancel!: EventEmitter<void>
 
   private _datetimeEl!: HTMLIonDatetimeElement
+  private deferredValueTimeout?: ReturnType<typeof setTimeout>
+
+  private readonly handleRangeFillClick = (event: Event) => {
+    const clickedCalendarDay = event
+      .composedPath()
+      .some(
+        (target) =>
+          target instanceof HTMLElement &&
+          target.classList.contains('calendar-day')
+      )
+
+    if (!clickedCalendarDay) return
+
+    // With default buttons, ion-datetime defers ionChange until "Confirmar", so
+    // handleRangeMode never runs while the calendar is open and only the two
+    // endpoints stay highlighted. Re-apply the contiguous range after
+    // ion-datetime repaints the clicked day (double rAF) so the days in between
+    // highlight live.
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => this.fillVisibleRange())
+    )
+  }
 
   get datetimeEl(): HTMLIonDatetimeElement {
     return this._datetimeEl
   }
 
   set datetimeEl(value: HTMLIonDatetimeElement) {
+    if (this._datetimeEl === value) return
+
+    if (this._datetimeEl) {
+      this._datetimeEl.removeEventListener('click', this.handleRangeFillClick)
+    }
+
     this._datetimeEl = value
+
+    if (this.rangeMode && value) {
+      value.addEventListener('click', this.handleRangeFillClick)
+    }
   }
 
   private filterEmptyStrings(arr: string[]): string[] | undefined {
@@ -142,6 +174,40 @@ export class AtomDatetime {
     return undefined
   }
 
+  private getDeferredIonValue(): string[] | undefined {
+    if (this.rangeMode) return [...this.selectedDates]
+
+    if (this.selectedDates.length > 0) return [this.selectedDates[0]]
+
+    return undefined
+  }
+
+  // WORKAROUND: ion-datetime can reset to a default year (e.g. 2021) when its
+  // value is set too early during render. Deferring the assignment with
+  // setTimeout(0) lets ion-datetime finish rendering first. The timeout is
+  // tracked so it can be cancelled on disconnect and never resolves against an
+  // unmounted component.
+  private scheduleIonDatetimeValue(getValue: () => string[] | undefined) {
+    if (this.deferredValueTimeout) {
+      clearTimeout(this.deferredValueTimeout)
+    }
+
+    this.deferredValueTimeout = setTimeout(() => {
+      this.deferredValueTimeout = undefined
+      this.ionDatetimeValue = getValue()
+    }, 0)
+  }
+
+  disconnectedCallback() {
+    if (this.deferredValueTimeout) {
+      clearTimeout(this.deferredValueTimeout)
+    }
+
+    if (this._datetimeEl) {
+      this._datetimeEl.removeEventListener('click', this.handleRangeFillClick)
+    }
+  }
+
   componentWillLoad() {
     const normalizedValue = this.normalizeValue(this.value)
 
@@ -153,22 +219,7 @@ export class AtomDatetime {
       this.selectedDates = []
     }
 
-    // WORKAROUND: Ionic's ion-datetime can sometimes reset to a default year (e.g., 2021)
-    // if its 'value' prop is set too early during component initialization or state updates.
-    // Setting the value with a setTimeout(..., 0) allows the ion-datetime to fully render
-    // before its value is programmatically applied, preventing this bug.
-    setTimeout(() => {
-      let valueToSet: string[] | undefined
-
-      if (this.rangeMode) {
-        valueToSet = [...this.selectedDates]
-      } else {
-        valueToSet =
-          this.selectedDates.length > 0 ? [this.selectedDates[0]] : undefined
-      }
-
-      this.ionDatetimeValue = valueToSet
-    }, 0)
+    this.scheduleIonDatetimeValue(() => this.getDeferredIonValue())
   }
 
   @Watch('value')
@@ -183,19 +234,7 @@ export class AtomDatetime {
       this.selectedDates = []
     }
 
-    // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
-    setTimeout(() => {
-      let valueToSet: string[] | undefined
-
-      if (this.rangeMode) {
-        valueToSet = [...this.selectedDates]
-      } else {
-        valueToSet =
-          this.selectedDates.length > 0 ? [this.selectedDates[0]] : undefined
-      }
-
-      this.ionDatetimeValue = valueToSet
-    }, 0)
+    this.scheduleIonDatetimeValue(() => this.getDeferredIonValue())
   }
 
   private handleRangeModeWithZeroDates() {
@@ -226,7 +265,8 @@ export class AtomDatetime {
 
   private handleRangeMode(dates: string[]) {
     const sortedDates = [...dates].sort(
-      (a, b) => new Date(a).getTime() - new Date(b).getTime()
+      (a, b) =>
+        this.parseLocalDate(a).getTime() - this.parseLocalDate(b).getTime()
     )
 
     if (sortedDates.length === 0) {
@@ -242,10 +282,7 @@ export class AtomDatetime {
     this.selectedDates = [...this.selectedDates]
     this.atomChange.emit(this.selectedDates)
 
-    // WORKAROUND: See explanation in componentWillLoad. Applied after user range selection.
-    setTimeout(() => {
-      this.ionDatetimeValue = [...this.selectedDates]
-    }, 0)
+    this.scheduleIonDatetimeValue(() => [...this.selectedDates])
   }
 
   handleDateChange = (event: CustomEvent<DatetimeChangeEventDetail>) => {
@@ -271,10 +308,7 @@ export class AtomDatetime {
       this.selectedDates = dates
       this.atomChange.emit(this.selectedDates)
 
-      // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
-      setTimeout(() => {
-        this.ionDatetimeValue = [...this.selectedDates]
-      }, 0)
+      this.scheduleIonDatetimeValue(() => [...this.selectedDates])
 
       return
     }
@@ -283,10 +317,9 @@ export class AtomDatetime {
 
     this.atomChange.emit(singleValue)
 
-    // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
-    setTimeout(() => {
-      this.ionDatetimeValue = singleValue ? [singleValue] : undefined
-    }, 0)
+    this.scheduleIonDatetimeValue(() =>
+      singleValue ? [singleValue] : undefined
+    )
   }
 
   private readonly handleBlur = () => {
@@ -341,11 +374,62 @@ export class AtomDatetime {
     return `${year}-${month}-${day}`
   }
 
+  private readCalendarDayIsoDate(day: HTMLElement): string | null {
+    const { year, month, day: dayOfMonth } = day.dataset
+
+    if (!year || !month || !dayOfMonth) return null
+
+    return `${year}-${month.padStart(2, '0')}-${dayOfMonth.padStart(2, '0')}`
+  }
+
+  private getFilledRangeFromSelection(
+    selectedDates: string[]
+  ): string[] | null {
+    if (selectedDates.length < 2) return null
+
+    const sortedDates = [...selectedDates].sort((a, b) => a.localeCompare(b))
+    const filledRange = this.calculateDateRange([
+      sortedDates[0],
+      sortedDates[sortedDates.length - 1],
+    ])
+
+    // The visible selection is already contiguous; re-applying it would loop the
+    // render with no change.
+    if (filledRange.length === selectedDates.length) return null
+
+    return filledRange
+  }
+
+  private fillVisibleRange() {
+    if (!this.rangeMode || !this._datetimeEl) return
+
+    const calendarRoot = this._datetimeEl.shadowRoot
+
+    if (!calendarRoot) return
+
+    const activeDays = Array.from(
+      calendarRoot.querySelectorAll<HTMLElement>(
+        '[part~="calendar-day"][part~="active"]'
+      )
+    )
+
+    const selectedDates = activeDays
+      .map((day) => this.readCalendarDayIsoDate(day))
+      .filter((date): date is string => date !== null)
+
+    const filledRange = this.getFilledRangeFromSelection(selectedDates)
+
+    if (filledRange) {
+      this.ionDatetimeValue = filledRange
+    }
+  }
+
   private getRangeLabel(): string | null {
     if (!this.rangeMode || this.selectedDates.length < 2) return null
 
     const sortedSelectedDates = [...this.selectedDates].sort(
-      (a, b) => new Date(a).getTime() - new Date(b).getTime()
+      (a, b) =>
+        this.parseLocalDate(a).getTime() - this.parseLocalDate(b).getTime()
     )
     const [start, end] = [
       sortedSelectedDates[0],

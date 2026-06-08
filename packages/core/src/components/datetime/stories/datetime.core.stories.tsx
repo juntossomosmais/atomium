@@ -186,6 +186,30 @@ export const RangeModeWithDefaultDatesAndButton: StoryObj = {
   },
 }
 
+export const RangeModeWithButtonAndDefaultButtons: StoryObj = {
+  render: () => html`
+    <atom-datetime
+      range-mode
+      use-button="true"
+      show-default-buttons="true"
+      label="Selecionar período"
+      datetime-id="datetime-range-with-default-buttons"
+      cancel-text="Cancelar"
+      clear-text="Limpar"
+      done-text="Confirmar"
+      locale="pt-BR"
+    ></atom-datetime>
+  `,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Range mode with the button interface and the default Cancelar/Limpar/Confirmar buttons. While the calendar is open, selecting a start and end date highlights every day in between, even though ion-datetime only emits its value on "Confirmar".',
+      },
+    },
+  },
+}
+
 export const RangeModeWithMinMax: StoryObj = {
   render: () => html`
     <atom-datetime
