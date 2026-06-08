@@ -87,7 +87,26 @@ export class AtomDatetime {
   @Event() atomCancel!: EventEmitter<void>
 
   private _datetimeEl!: HTMLIonDatetimeElement
+  private popoverEl?: HTMLElement
   private deferredValueTimeout?: ReturnType<typeof setTimeout>
+
+  private readonly setupPopover = (popover: HTMLElement | undefined) => {
+    if (!popover || this.popoverEl === popover) return
+
+    this.popoverEl = popover
+    popover.addEventListener('ionDidPresent', this.handlePopoverPresent)
+  }
+
+  private readonly handlePopoverPresent = () => {
+    if (!this._datetimeEl) return
+
+    // After switching browser tabs and back, the kept-mounted ion-datetime can
+    // desync its rendered calendar grid from its header — clicking a visible day
+    // then registers a different month. reset() re-renders the view to the
+    // current value's month (without changing the value), re-syncing grid and
+    // header so clicks land on the day the user sees.
+    this._datetimeEl.reset().catch(() => undefined)
+  }
 
   private readonly handleRangeFillClick = (event: Event) => {
     const clickedCalendarDay = event
@@ -205,6 +224,13 @@ export class AtomDatetime {
 
     if (this._datetimeEl) {
       this._datetimeEl.removeEventListener('click', this.handleRangeFillClick)
+    }
+
+    if (this.popoverEl) {
+      this.popoverEl.removeEventListener(
+        'ionDidPresent',
+        this.handlePopoverPresent
+      )
     }
   }
 
@@ -556,6 +582,7 @@ export class AtomDatetime {
           />
         </div>
         <ion-popover
+          ref={(el) => this.setupPopover(el)}
           keep-contents-mounted='true'
           show-backdrop='false'
           style={{ 'margin-top': '1px' }}
