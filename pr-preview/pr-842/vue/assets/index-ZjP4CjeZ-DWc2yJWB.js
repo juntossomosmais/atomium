@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";var t,n,r=e((()=>{t=typeof window<`u`?window:void 0,n=typeof document<`u`?document:void 0}));export{r as n,t as r,n as t};
