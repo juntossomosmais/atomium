@@ -555,4 +555,39 @@ describe('AtomDatetime', () => {
 
     expect(ionDatetime?.hasAttribute('multiple')).toBe(true)
   })
+
+  describe('deferred ion-datetime value updates', () => {
+    it('applies the latest scheduled value once the timer runs', async () => {
+      const page = await newSpecPage({
+        components: [AtomDatetime],
+        html: '<atom-datetime range-mode="true"></atom-datetime>',
+      })
+      const datetime = page.rootInstance
+
+      jest.useFakeTimers()
+      datetime.scheduleIonDatetimeValue(() => ['2022-01-01'])
+      datetime.scheduleIonDatetimeValue(() => ['2022-02-02'])
+      jest.runAllTimers()
+      jest.useRealTimers()
+
+      expect(datetime.ionDatetimeValue).toEqual(['2022-02-02'])
+    })
+
+    it('cancels a pending value update when the component disconnects', async () => {
+      const page = await newSpecPage({
+        components: [AtomDatetime],
+        html: '<atom-datetime range-mode="true"></atom-datetime>',
+      })
+      const datetime = page.rootInstance
+
+      jest.useFakeTimers()
+      datetime.ionDatetimeValue = ['initial']
+      datetime.scheduleIonDatetimeValue(() => ['deferred'])
+      datetime.disconnectedCallback()
+      jest.runAllTimers()
+      jest.useRealTimers()
+
+      expect(datetime.ionDatetimeValue).toEqual(['initial'])
+    })
+  })
 })

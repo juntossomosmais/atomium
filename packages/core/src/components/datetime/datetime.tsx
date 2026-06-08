@@ -87,6 +87,7 @@ export class AtomDatetime {
   @Event() atomCancel!: EventEmitter<void>
 
   private _datetimeEl!: HTMLIonDatetimeElement
+  private deferredValueTimeout?: ReturnType<typeof setTimeout>
 
   get datetimeEl(): HTMLIonDatetimeElement {
     return this._datetimeEl
@@ -142,6 +143,36 @@ export class AtomDatetime {
     return undefined
   }
 
+  private getDeferredIonValue(): string[] | undefined {
+    if (this.rangeMode) return [...this.selectedDates]
+
+    if (this.selectedDates.length > 0) return [this.selectedDates[0]]
+
+    return undefined
+  }
+
+  // WORKAROUND: ion-datetime can reset to a default year (e.g. 2021) when its
+  // value is set too early during render. Deferring the assignment with
+  // setTimeout(0) lets ion-datetime finish rendering first. The timeout is
+  // tracked so it can be cancelled on disconnect and never resolves against an
+  // unmounted component.
+  private scheduleIonDatetimeValue(getValue: () => string[] | undefined) {
+    if (this.deferredValueTimeout) {
+      clearTimeout(this.deferredValueTimeout)
+    }
+
+    this.deferredValueTimeout = setTimeout(() => {
+      this.deferredValueTimeout = undefined
+      this.ionDatetimeValue = getValue()
+    }, 0)
+  }
+
+  disconnectedCallback() {
+    if (this.deferredValueTimeout) {
+      clearTimeout(this.deferredValueTimeout)
+    }
+  }
+
   componentWillLoad() {
     const normalizedValue = this.normalizeValue(this.value)
 
@@ -153,22 +184,7 @@ export class AtomDatetime {
       this.selectedDates = []
     }
 
-    // WORKAROUND: Ionic's ion-datetime can sometimes reset to a default year (e.g., 2021)
-    // if its 'value' prop is set too early during component initialization or state updates.
-    // Setting the value with a setTimeout(..., 0) allows the ion-datetime to fully render
-    // before its value is programmatically applied, preventing this bug.
-    setTimeout(() => {
-      let valueToSet: string[] | undefined
-
-      if (this.rangeMode) {
-        valueToSet = [...this.selectedDates]
-      } else {
-        valueToSet =
-          this.selectedDates.length > 0 ? [this.selectedDates[0]] : undefined
-      }
-
-      this.ionDatetimeValue = valueToSet
-    }, 0)
+    this.scheduleIonDatetimeValue(() => this.getDeferredIonValue())
   }
 
   @Watch('value')
@@ -183,19 +199,7 @@ export class AtomDatetime {
       this.selectedDates = []
     }
 
-    // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
-    setTimeout(() => {
-      let valueToSet: string[] | undefined
-
-      if (this.rangeMode) {
-        valueToSet = [...this.selectedDates]
-      } else {
-        valueToSet =
-          this.selectedDates.length > 0 ? [this.selectedDates[0]] : undefined
-      }
-
-      this.ionDatetimeValue = valueToSet
-    }, 0)
+    this.scheduleIonDatetimeValue(() => this.getDeferredIonValue())
   }
 
   private handleRangeModeWithZeroDates() {
@@ -243,10 +247,7 @@ export class AtomDatetime {
     this.selectedDates = [...this.selectedDates]
     this.atomChange.emit(this.selectedDates)
 
-    // WORKAROUND: See explanation in componentWillLoad. Applied after user range selection.
-    setTimeout(() => {
-      this.ionDatetimeValue = [...this.selectedDates]
-    }, 0)
+    this.scheduleIonDatetimeValue(() => [...this.selectedDates])
   }
 
   handleDateChange = (event: CustomEvent<DatetimeChangeEventDetail>) => {
@@ -272,10 +273,7 @@ export class AtomDatetime {
       this.selectedDates = dates
       this.atomChange.emit(this.selectedDates)
 
-      // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
-      setTimeout(() => {
-        this.ionDatetimeValue = [...this.selectedDates]
-      }, 0)
+      this.scheduleIonDatetimeValue(() => [...this.selectedDates])
 
       return
     }
@@ -284,10 +282,9 @@ export class AtomDatetime {
 
     this.atomChange.emit(singleValue)
 
-    // WORKAROUND: See explanation in componentWillLoad. Applied on prop changes too.
-    setTimeout(() => {
-      this.ionDatetimeValue = singleValue ? [singleValue] : undefined
-    }, 0)
+    this.scheduleIonDatetimeValue(() =>
+      singleValue ? [singleValue] : undefined
+    )
   }
 
   private readonly handleBlur = () => {
