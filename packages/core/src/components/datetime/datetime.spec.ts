@@ -556,6 +556,114 @@ describe('AtomDatetime', () => {
     expect(ionDatetime?.hasAttribute('multiple')).toBe(true)
   })
 
+  describe('live range fill while the calendar is open', () => {
+    const buildCalendarDay = (isoDate: string): HTMLElement => {
+      const [year, month, day] = isoDate.split('-')
+      const element = document.createElement('button')
+
+      element.setAttribute('part', 'calendar-day active')
+      element.setAttribute('data-year', year)
+      element.setAttribute('data-month', String(Number(month)))
+      element.setAttribute('data-day', String(Number(day)))
+
+      return element
+    }
+
+    const buildRangeModePage = async () =>
+      newSpecPage({
+        components: [AtomDatetime],
+        html: '<atom-datetime range-mode="true"></atom-datetime>',
+      })
+
+    it('expands two selected endpoints into a contiguous range', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      expect(
+        datetime.getFilledRangeFromSelection(['2022-01-01', '2022-01-04'])
+      ).toEqual(['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04'])
+    })
+
+    it('returns null when fewer than two dates are selected', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      expect(datetime.getFilledRangeFromSelection(['2022-01-01'])).toBeNull()
+    })
+
+    it('returns null when the selection is already contiguous', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      expect(
+        datetime.getFilledRangeFromSelection([
+          '2022-01-01',
+          '2022-01-02',
+          '2022-01-03',
+        ])
+      ).toBeNull()
+    })
+
+    it('reads an ISO date from a calendar-day element', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      expect(
+        datetime.readCalendarDayIsoDate(buildCalendarDay('2022-03-07'))
+      ).toBe('2022-03-07')
+    })
+
+    it('returns null when a calendar-day element has no date data', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      expect(
+        datetime.readCalendarDayIsoDate(document.createElement('button'))
+      ).toBeNull()
+    })
+
+    it('applies the filled range to the active calendar days', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      datetime._datetimeEl = {
+        shadowRoot: {
+          querySelectorAll: () => [
+            buildCalendarDay('2022-01-01'),
+            buildCalendarDay('2022-01-03'),
+          ],
+        },
+      }
+
+      datetime.fillVisibleRange()
+
+      expect(datetime.ionDatetimeValue).toEqual([
+        '2022-01-01',
+        '2022-01-02',
+        '2022-01-03',
+      ])
+    })
+
+    it('does not change the value when the active days are already contiguous', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+
+      datetime.ionDatetimeValue = undefined
+      datetime._datetimeEl = {
+        shadowRoot: {
+          querySelectorAll: () => [
+            buildCalendarDay('2022-01-01'),
+            buildCalendarDay('2022-01-02'),
+          ],
+        },
+      }
+
+      datetime.fillVisibleRange()
+
+      expect(datetime.ionDatetimeValue).toBeUndefined()
+    })
+  })
+
   describe('deferred ion-datetime value updates', () => {
     it('applies the latest scheduled value once the timer runs', async () => {
       const page = await newSpecPage({

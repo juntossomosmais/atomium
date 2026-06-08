@@ -89,12 +89,43 @@ export class AtomDatetime {
   private _datetimeEl!: HTMLIonDatetimeElement
   private deferredValueTimeout?: ReturnType<typeof setTimeout>
 
+  private readonly handleRangeFillClick = (event: Event) => {
+    const clickedCalendarDay = event
+      .composedPath()
+      .some(
+        (target) =>
+          target instanceof HTMLElement &&
+          target.classList.contains('calendar-day')
+      )
+
+    if (!clickedCalendarDay) return
+
+    // With default buttons, ion-datetime defers ionChange until "Confirmar", so
+    // handleRangeMode never runs while the calendar is open and only the two
+    // endpoints stay highlighted. Re-apply the contiguous range after
+    // ion-datetime repaints the clicked day (double rAF) so the days in between
+    // highlight live.
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => this.fillVisibleRange())
+    )
+  }
+
   get datetimeEl(): HTMLIonDatetimeElement {
     return this._datetimeEl
   }
 
   set datetimeEl(value: HTMLIonDatetimeElement) {
+    if (this._datetimeEl === value) return
+
+    if (this._datetimeEl) {
+      this._datetimeEl.removeEventListener('click', this.handleRangeFillClick)
+    }
+
     this._datetimeEl = value
+
+    if (this.rangeMode && value) {
+      value.addEventListener('click', this.handleRangeFillClick)
+    }
   }
 
   private filterEmptyStrings(arr: string[]): string[] | undefined {
@@ -170,6 +201,10 @@ export class AtomDatetime {
   disconnectedCallback() {
     if (this.deferredValueTimeout) {
       clearTimeout(this.deferredValueTimeout)
+    }
+
+    if (this._datetimeEl) {
+      this._datetimeEl.removeEventListener('click', this.handleRangeFillClick)
     }
   }
 
@@ -337,6 +372,58 @@ export class AtomDatetime {
     const day = date.getDate().toString().padStart(2, '0')
 
     return `${year}-${month}-${day}`
+  }
+
+  private readCalendarDayIsoDate(day: HTMLElement): string | null {
+    const year = day.getAttribute('data-year')
+    const month = day.getAttribute('data-month')
+    const dayOfMonth = day.getAttribute('data-day')
+
+    if (!year || !month || !dayOfMonth) return null
+
+    return `${year}-${month.padStart(2, '0')}-${dayOfMonth.padStart(2, '0')}`
+  }
+
+  private getFilledRangeFromSelection(
+    selectedDates: string[]
+  ): string[] | null {
+    if (selectedDates.length < 2) return null
+
+    const sortedDates = [...selectedDates].sort()
+    const filledRange = this.calculateDateRange([
+      sortedDates[0],
+      sortedDates[sortedDates.length - 1],
+    ])
+
+    // The visible selection is already contiguous; re-applying it would loop the
+    // render with no change.
+    if (filledRange.length === selectedDates.length) return null
+
+    return filledRange
+  }
+
+  private fillVisibleRange() {
+    if (!this.rangeMode || !this._datetimeEl) return
+
+    const calendarRoot = this._datetimeEl.shadowRoot
+
+    if (!calendarRoot) return
+
+    const activeDays = Array.from(
+      calendarRoot.querySelectorAll<HTMLElement>(
+        '[part~="calendar-day"][part~="active"]'
+      )
+    )
+
+    const selectedDates = activeDays
+      .map((day) => this.readCalendarDayIsoDate(day))
+      .filter((date): date is string => date !== null)
+
+    const filledRange = this.getFilledRangeFromSelection(selectedDates)
+
+    if (filledRange) {
+      this.ionDatetimeValue = filledRange
+    }
   }
 
   private getRangeLabel(): string | null {
