@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.3](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.2...atomium-v4.1.3) (2026-06-08)
+
+
+### Bug Fixes
+
+* **datetime:** re-sync calendar view on reopen to stop month jump ([#844](https://github.com/juntossomosmais/atomium/issues/844)) ([8f0a901](https://github.com/juntossomosmais/atomium/commit/8f0a9016645caa51c065e0541b39ec2a662aa91c))
+
 ## [4.1.2](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.1...atomium-v4.1.2) (2026-06-08)
 
 
