@@ -375,9 +375,7 @@ export class AtomDatetime {
   }
 
   private readCalendarDayIsoDate(day: HTMLElement): string | null {
-    const year = day.getAttribute('data-year')
-    const month = day.getAttribute('data-month')
-    const dayOfMonth = day.getAttribute('data-day')
+    const { year, month, day: dayOfMonth } = day.dataset
 
     if (!year || !month || !dayOfMonth) return null
 
@@ -389,7 +387,7 @@ export class AtomDatetime {
   ): string[] | null {
     if (selectedDates.length < 2) return null
 
-    const sortedDates = [...selectedDates].sort()
+    const sortedDates = [...selectedDates].sort((a, b) => a.localeCompare(b))
     const filledRange = this.calculateDateRange([
       sortedDates[0],
       sortedDates[sortedDates.length - 1],

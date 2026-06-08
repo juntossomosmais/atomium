@@ -561,6 +561,7 @@ describe('AtomDatetime', () => {
       const [year, month, day] = isoDate.split('-')
       const element = document.createElement('button')
 
+      element.classList.add('calendar-day')
       element.setAttribute('part', 'calendar-day active')
       element.setAttribute('data-year', year)
       element.setAttribute('data-month', String(Number(month)))
@@ -661,6 +662,84 @@ describe('AtomDatetime', () => {
       datetime.fillVisibleRange()
 
       expect(datetime.ionDatetimeValue).toBeUndefined()
+    })
+
+    it('moves the click listener between datetime elements', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+      const first = {
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      }
+      const second = {
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      }
+
+      datetime.datetimeEl = first
+      datetime.datetimeEl = second
+
+      expect(first.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
+      expect(first.removeEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
+      expect(second.addEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
+    })
+
+    it('removes the click listener on disconnect', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+      const element = {
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      }
+
+      datetime.datetimeEl = element
+      datetime.disconnectedCallback()
+
+      expect(element.removeEventListener).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function)
+      )
+    })
+
+    it('ignores clicks that are not on a calendar day', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+      const rafSpy = jest
+        .spyOn(globalThis, 'requestAnimationFrame')
+        .mockImplementation(() => 0)
+
+      datetime.handleRangeFillClick({
+        composedPath: () => [document.createElement('div')],
+      })
+
+      expect(rafSpy).not.toHaveBeenCalled()
+
+      rafSpy.mockRestore()
+    })
+
+    it('schedules a range fill when a calendar day is clicked', async () => {
+      const page = await buildRangeModePage()
+      const datetime = page.rootInstance
+      const rafSpy = jest
+        .spyOn(globalThis, 'requestAnimationFrame')
+        .mockImplementation(() => 0)
+
+      datetime.handleRangeFillClick({
+        composedPath: () => [buildCalendarDay('2022-01-01')],
+      })
+
+      expect(rafSpy).toHaveBeenCalled()
+
+      rafSpy.mockRestore()
     })
   })
 
