@@ -226,7 +226,8 @@ export class AtomDatetime {
 
   private handleRangeMode(dates: string[]) {
     const sortedDates = [...dates].sort(
-      (a, b) => new Date(a).getTime() - new Date(b).getTime()
+      (a, b) =>
+        this.parseLocalDate(a).getTime() - this.parseLocalDate(b).getTime()
     )
 
     if (sortedDates.length === 0) {
@@ -345,7 +346,8 @@ export class AtomDatetime {
     if (!this.rangeMode || this.selectedDates.length < 2) return null
 
     const sortedSelectedDates = [...this.selectedDates].sort(
-      (a, b) => new Date(a).getTime() - new Date(b).getTime()
+      (a, b) =>
+        this.parseLocalDate(a).getTime() - this.parseLocalDate(b).getTime()
     )
     const [start, end] = [
       sortedSelectedDates[0],
