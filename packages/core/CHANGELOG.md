@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.4](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.3...atomium-v4.1.4) (2026-06-10)
+
+
+### Bug Fixes
+
+* **core:** declare esm module format for dist/components output ([c614467](https://github.com/juntossomosmais/atomium/commit/c6144670da90108d22a488ad44a6882a3b078841))
+
 ## [4.1.3](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.2...atomium-v4.1.3) (2026-06-08)
 
 
