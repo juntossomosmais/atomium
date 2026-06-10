@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";import{n as t,r as n}from"./index-ZjP4CjeZ-DWc2yJWB.js";var r,i=e((()=>{t(),r=()=>{if(n!==void 0)return n.Capacitor}}));export{i as n,r as t};
