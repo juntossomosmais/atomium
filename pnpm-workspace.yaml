@@ -4,6 +4,7 @@ packages:
   - 'utils/*'
 
 overrides:
+  'json5@<1.0.2': 1.0.2
   sass-embedded: 1.99.0
   'brace-expansion@^1': 1.1.13
   'brace-expansion@^2': 2.1.1
