@@ -20,26 +20,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      # release-type and monorepo tagging are configured in release-please-config.json
+      - uses: googleapis/release-please-action@v5
         with:
-          release-type: node
-          command: manifest
-          monorepo-tags: true
           token: ${{ secrets.GITHUB_TOKEN }}
         id: release
 
       - name: Checkout Repository
-        if: ${{ steps.release.outputs.releases_created }}
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
         uses: actions/checkout@v6
         with:
           ref: main
 
       - name: Setup pnpm
-        if: ${{ steps.release.outputs.releases_created }}
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
         uses: pnpm/action-setup@v6
 
       - name: Setup Node
-        if: ${{ steps.release.outputs.releases_created }}
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
         uses: actions/setup-node@v6
         with:
           node-version: 22
@@ -48,20 +46,20 @@ jobs:
           scope: '@juntossomosmais'
 
       - name: Authenticate with the GitHub Package Registry and Install dependencies
-        if: ${{ steps.release.outputs.releases_created }}
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
         run: |
           echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
           pnpm install --frozen-lockfile
 
       - name: Build and publish Core
-        if: ${{ steps.release.outputs['packages/core--release_created'] }}
+        if: ${{ steps.release.outputs['packages/core--release_created'] == 'true' }}
         run: pnpm exec nx run @juntossomosmais/atomium:publish-library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and publish Tokens
-        if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
+        if: ${{ steps.release.outputs['packages/tokens--release_created'] == 'true' }}
         run: pnpm exec nx run @juntossomosmais/atomium-tokens:publish-library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
