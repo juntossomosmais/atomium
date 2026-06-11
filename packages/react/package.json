@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "start": "tsc -p . --watch",
-    "build": "nx build @juntossomosmais/atomium && npm run compile && npm run copy",
+    "build": "npm run compile && npm run copy",
     "compile": "tsc -p tsconfig.json",
     "copy": "npx copyfiles --flat ./package.json ../core/react"
   },
