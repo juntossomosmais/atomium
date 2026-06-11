@@ -26,6 +26,23 @@ const config: StorybookConfig = {
       jsx: 'preserve',
     }
 
+    // The vue3-vite framework aliases `vue` to the browser esm-bundler build,
+    // which also rewrites the `vue/server-renderer` subpath imported by
+    // @stencil/vue-output-target/runtime. Pin the subpath first so it resolves
+    // to the real module (aliases are matched in order).
+    const serverRenderer = {
+      find: /^vue\/server-renderer$/,
+      replacement: fileURLToPath(import.meta.resolve('vue/server-renderer')),
+    }
+    const alias = config.resolve?.alias
+
+    config.resolve = {
+      ...config.resolve,
+      alias: Array.isArray(alias)
+        ? [serverRenderer, ...alias]
+        : { 'vue/server-renderer': serverRenderer.replacement, ...alias },
+    }
+
     return config
   },
 }
