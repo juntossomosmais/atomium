@@ -1,0 +1,101 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Docs/Architecture Decision Records/2026-06-11: Vue Output Target Update' />
+
+# 2026-06-11: Vue Output Target Update
+
+🗓️ 2026-06-11 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
+
+## Context
+
+After the React output target migration (see ADR _2025-11-04: React Output Target Update_), the Vue output was the last wrapper still on the old model: `@stencil/vue-output-target@0.8.9` generated a single proxies file backed by a vendored `vue-component-lib`, and registration depended on the lazy loader through the `ComponentLibrary` plugin (which also converted camelCase Stencil events to kebab-case DOM events). That model had no per-component tree-shaking: a single `AtomButton` import pulled the entire lazy loader (~1.1 MB in an esbuild check).
+
+`@stencil/vue-output-target@0.13.x` brings the Vue output in line with the React `1.x` model: per-component ES modules (`esModules`), proxies generated against the `dist-custom-elements` output (`includeImportCustomElements`), and a published `/runtime` subpath instead of vendored helpers.
+
+## Decision
+
+Update to `@stencil/vue-output-target@^0.13.2`, generate the wrappers from `dist-custom-elements`, and remove the `ComponentLibrary` plugin.
+
+### 1. Stencil configuration
+
+```typescript
+vueOutputTarget({
+  componentCorePackage: '@juntossomosmais/atomium',
+  proxiesFile: '../vue/src/components/index.ts',
+  includeImportCustomElements: true,
+  customElementsDir: 'dist/components',
+  esModules: true,
+  excludeComponents, // Ionic components remain excluded
+  componentModels: [
+    {
+      elements: ['atom-input', 'atom-textarea', 'atom-select', 'atom-datetime'],
+      targetAttr: 'value',
+      event: 'atomChange',
+    },
+  ],
+})
+```
+
+`esModules: true` emits one file per component (`atom-button.ts`, `atom-input.ts`, ...) plus an `index.ts` barrel. Each file imports its own `dist/components/atom-*.js` custom element and self-registers via `defineCustomElement`, reusing the same `dist-custom-elements` output (and the `setMode(() => 'md')` global fix) introduced by the React migration.
+
+### 2. Runtime instead of a vendored `vue-component-lib`
+
+The generator no longer emits a local `vue-component-lib`. Every wrapper imports `defineContainer` from the published runtime:
+
+```typescript
+import { defineContainer } from '@stencil/vue-output-target/runtime'
+```
+
+`@stencil/vue-output-target` is therefore a dev dependency at the root (wrapper generation at build time) **and a runtime `dependency` of the published `@juntossomosmais/atomium` (`packages/core`)**, exactly like `@stencil/react-output-target`. `vue` is declared as an optional peer dependency of core.
+
+### 3. `ComponentLibrary` plugin removed
+
+The plugin existed for two reasons, both gone:
+
+- **Registration:** it called the lazy loader's `defineCustomElements()`. Wrappers now self-register on import.
+- **Event casing:** its `ael`/`rel`/`ce` overrides converted camelCase Stencil events (`atomChange`) to kebab-case DOM events (`atom-change`) so raw `<atom-*>` tags could use `@atom-change` in templates. The new runtime listens to the camelCase DOM event and re-emits it as a Vue component event, and Vue camelizes `v-on` arguments on components — so `@atom-change` on a **wrapper** keeps working without any conversion.
+
+Raw `<atom-*>` tags used without the wrappers now dispatch camelCase DOM events only. Those consumers must either migrate to the wrappers or listen to the camelCase events directly.
+
+### 4. v-model support
+
+`componentModels` binds `v-model` on `AtomInput`, `AtomTextarea`, `AtomSelect` and `AtomDatetime` to the `value` prop, updated on `atomChange`. Note the event name is the camelCase DOM event, matching the new runtime semantics.
+
+### 5. Build output, package exports and tree-shaking
+
+`packages/vue` compiles with `tsc` into `packages/core/vue/dist` and is published through the core package's `./vue` export.
+
+- **Flat ESM output.** `packages/vue` now declares `"type": "module"` and `"sideEffects": false`, and its tsconfig mirrors `packages/react`: `moduleResolution: "Bundler"` plus explicit `paths` into `../core/dist` so the build resolves on a fresh CI runner where the workspace symlink resolution fails.
+- **Declarations co-located.** The separate `dist/types` directory is gone; `.d.ts` files sit next to the `.js` output and the `./vue` export's `types` condition points at `./vue/dist/index.d.ts`.
+- **Explicit extensions.** `src/index.ts` re-exports with the `.js` extension (`export * from './components/index.js'`) so plain-Node ESM and SSR consumers resolve it (same lesson as atomium#846 on the React side).
+- **Tree-shaking.** Importing a single `AtomButton` dropped from ~1.1 MB to ~75 KB in an esbuild check (−93%).
+
+### 6. Storybook note (`vue/server-renderer`)
+
+The 0.13 runtime contains an SSR helper that dynamically imports `vue/server-renderer`. Storybook's `vue3-vite` framework aliases `vue` to the browser `esm-bundler` build, and that alias prefix-matches the subpath, producing an unresolvable id. `apps/docs-vue/.storybook/main.ts` pins an exact `vue/server-renderer` alias ahead of the framework's, resolving it to the real module.
+
+## Consequences
+
+### Positive
+
+- ✅ Per-component files plus `sideEffects: false` make Vue imports genuinely tree-shakeable (−93% for a single-component import).
+- ✅ No more vendored `vue-component-lib`; wrapper helpers come from the maintained runtime.
+- ✅ `v-model` works on the form components.
+- ✅ React and Vue outputs now share the same `dist-custom-elements` pipeline and styling fix.
+
+### Neutral
+
+- 🔄 `@stencil/vue-output-target/runtime` ships in the bundle.
+- 🔄 Components register eagerly per import instead of lazily via the loader; component styles ship inside the JS bundles.
+
+### Behavior changes for consumers
+
+- 💥 **`ComponentLibrary` plugin removed.** Wrapper users only delete the `install()` call. Raw `<atom-*>` tag users lose the kebab-case DOM event conversion and must migrate to wrappers or camelCase listeners.
+- 💥 **ESM-only `./vue` export with `vue >= 3.4.38`** (runtime peer range). CJS test runners need the same allowlisting as the React output; Vitest handles it natively.
+
+## References
+
+- [Stencil Vue Output Target Documentation](https://stenciljs.com/docs/vue)
+- [stenciljs/output-targets — vue-output-target](https://github.com/stenciljs/output-targets/tree/main/packages/vue)
+- [ADR: Why do we transpile Web Components for React and Vue?](./2024-05-why-do-we-transpile-web-components-for-react-and-vue.mdx)
+- [ADR 2025-11-04: React Output Target Update](./2025-11-04-react-output-target-update.mdx)

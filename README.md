@@ -142,6 +142,8 @@ import { AtomButton } from '@juntossomosmais/atomium/vue'
 </script>
 ```
 
+**Note:** The `@stencil/vue-output-target` runtime is automatically installed as a dependency. You don't need to install it explicitly. Components self-register on import, so no plugin or loader setup is required.
+
 ### Usage with Web Components
 
 ```html
