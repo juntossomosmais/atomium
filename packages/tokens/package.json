@@ -43,6 +43,10 @@
       "build": {
         "dependsOn": [
           "build:css"
+        ],
+        "outputs": [
+          "{projectRoot}/dist",
+          "{projectRoot}/index.ts"
         ]
       },
       "publish-library": {

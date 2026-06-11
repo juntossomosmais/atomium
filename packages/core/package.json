@@ -97,6 +97,14 @@
             ],
             "target": "build"
           }
+        ],
+        "outputs": [
+          "{projectRoot}/dist",
+          "{projectRoot}/loader",
+          "{projectRoot}/core.css",
+          "{projectRoot}/src/components.d.ts",
+          "{workspaceRoot}/packages/react/src/components",
+          "{workspaceRoot}/packages/vue/src/components/index.ts"
         ]
       },
       "start": {

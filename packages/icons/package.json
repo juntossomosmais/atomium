@@ -19,6 +19,11 @@
       "build": {
         "dependsOn": [
           "build:scripts"
+        ],
+        "outputs": [
+          "{projectRoot}/dist",
+          "{projectRoot}/index.ts",
+          "{workspaceRoot}/packages/core/src/icons.d.ts"
         ]
       }
     }
