@@ -18,5 +18,10 @@
         ]
       }
     }
+  },
+  "devDependencies": {
+    "@atomium/storybook-utils": "workspace:*",
+    "@juntossomosmais/atomium": "workspace:*",
+    "@juntossomosmais/atomium-tokens": "workspace:*"
   }
 }

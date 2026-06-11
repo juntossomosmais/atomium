@@ -7,49 +7,42 @@ on:
 
 permissions:
   contents: write
+  packages: read
+
+concurrency:
+  group: ghpages-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   ghpages:
-    concurrency: ghpages-${{ github.ref }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     if: ${{ !contains(github.event.head_commit.message, 'chore:') }}
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: 'pnpm'
           registry-url: 'https://npm.pkg.github.com'
-          token: ${{ secrets.GH_ACTIONS }}
 
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Install dependencies and build libs 🔧
+      - name: Install dependencies 🔧
         run: |
           echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
-          npm ci --legacy-peer-deps
-        continue-on-error: false
+          pnpm install --frozen-lockfile
 
       - name: Build Docs 📚
-        run: npm run docs:build
-        continue-on-error: false
+        run: pnpm run docs:build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

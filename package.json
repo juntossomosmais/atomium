@@ -3,20 +3,17 @@
   "description": "Atomium is a official design system of Juntos Somos Mais",
   "license": "MIT",
   "private": true,
-  "npmClient": "npm",
+  "packageManager": "pnpm@10.28.2",
   "engines": {
-    "yarn": "please-use-npm",
-    "npm": ">=8.x",
+    "yarn": "please-use-pnpm",
+    "npm": "please-use-pnpm",
+    "pnpm": ">=10",
     "node": ">=22"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "utils/*"
-  ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "nx build @juntossomosmais/atomium && nx build @juntossomosmais/atomium-react && nx build @juntossomosmais/atomium-vue",
-    "docs:build": "npm run build && nx build @atomium/docs && nx build @atomium/docs-react && nx build @atomium/docs-vue",
+    "docs:build": "pnpm run build && nx build @atomium/docs && nx build @atomium/docs-react && nx build @atomium/docs-vue",
     "docs-react:start": "nx run @atomium/docs-react:start",
     "docs-vue:start": "nx run @atomium/docs-vue:start",
     "icons:build": "nx build @juntossomosmais/atomium-icons",
@@ -36,6 +33,7 @@
     "dompurify": "^3.4.2"
   },
   "devDependencies": {
+    "@juntossomosmais/atomium": "workspace:*",
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.3",
     "@babel/preset-react": "^7.29.7",
@@ -108,18 +106,6 @@
     "typescript-eslint": "^8.60.1",
     "vite": "^8.0.16",
     "vue": "^3.5.33"
-  },
-  "overrides": {
-    "sass-embedded": "1.99.0",
-    "brace-expansion@^1": "1.1.13",
-    "brace-expansion@^2": "2.1.1",
-    "nx": {
-      "axios": "1.16.1",
-      "brace-expansion": "5.0.6",
-      "follow-redirects": "1.16.0",
-      "tmp": "0.2.7",
-      "yaml": "2.9.0"
-    }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

@@ -119,7 +119,7 @@ export const config: Config = {
       // to be baked into every per-component CSS bundle and re-injected into the
       // document head when each component hydrates, overriding the global theme.
       // Pure CSS files belong in `src/global/global.scss` (loaded once via `globalStyle`).
-      injectGlobalPaths: ['../../node_modules/@atomium/scss-utils/index.scss'],
+      injectGlobalPaths: ['node_modules/@atomium/scss-utils/index.scss'],
       includePaths: ['../../node_modules'],
       silenceDeprecations: ['if-function'],
     }),

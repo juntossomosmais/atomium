@@ -35,6 +35,9 @@
   "files": [
     "dist"
   ],
+  "devDependencies": {
+    "@atomium/scss-utils": "workspace:*"
+  },
   "nx": {
     "targets": {
       "build": {

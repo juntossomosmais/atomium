@@ -36,5 +36,8 @@
         ]
       }
     }
+  },
+  "devDependencies": {
+    "@juntossomosmais/atomium": "workspace:*"
   }
 }

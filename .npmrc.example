@@ -2,4 +2,3 @@
 @juntossomosmais:registry=https://npm.pkg.github.com
 
 engine-strict = true
-legacy-peer-deps=true

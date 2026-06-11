@@ -1,0 +1,22 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'utils/*'
+
+overrides:
+  sass-embedded: 1.99.0
+  'brace-expansion@^1': 1.1.13
+  'brace-expansion@^2': 2.1.1
+  'nx>axios': 1.16.1
+  'nx>brace-expansion': 5.0.6
+  'nx>follow-redirects': 1.16.0
+  'nx>tmp': 0.2.7
+  'nx>yaml': 2.9.0
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - esbuild
+  - nx
+  - puppeteer
+  - unrs-resolver
