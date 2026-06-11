@@ -4,37 +4,32 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   id-token: write
-  actions: read
+
+concurrency:
+  group: deploy-to-cdn
+  cancel-in-progress: false
 
 jobs:
   deploy-to-s3:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22
-
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          cache: 'pnpm'
 
       - name: Install Dependencies
-        run: npm ci --legacy-peer-deps
+        run: pnpm install --frozen-lockfile
 
       - name: Extract SEMVER for Core and Tokens
         run: |
@@ -43,11 +38,11 @@ jobs:
 
       - name: Build Core and Tokens
         run: |
-          npx nx run @juntossomosmais/atomium:build
-          npx nx run @juntossomosmais/atomium-tokens:build
+          pnpm exec nx run @juntossomosmais/atomium:build
+          pnpm exec nx run @juntossomosmais/atomium-tokens:build
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v5
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: us-east-1

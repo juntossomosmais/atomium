@@ -11,9 +11,14 @@ permissions:
   packages: write
   pull-requests: write
 
+concurrency:
+  group: release-and-publish
+  cancel-in-progress: false
+
 jobs:
   release-and-publish-packages:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
@@ -25,49 +30,38 @@ jobs:
 
       - name: Checkout Repository
         if: ${{ steps.release.outputs.releases_created }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: main
 
+      - name: Setup pnpm
+        if: ${{ steps.release.outputs.releases_created }}
+        uses: pnpm/action-setup@v6
+
       - name: Setup Node
         if: ${{ steps.release.outputs.releases_created }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: 'pnpm'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@juntossomosmais'
-
-      - name: Cache node modules
-        if: ${{ steps.release.outputs.releases_created }}
-        id: cache-npm
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
       - name: Authenticate with the GitHub Package Registry and Install dependencies
         if: ${{ steps.release.outputs.releases_created }}
         run: |
           echo "@juntossomosmais:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ACTIONS }}" >> .npmrc
-          npm ci --legacy-peer-deps
+          pnpm install --frozen-lockfile
 
       - name: Build and publish Core
         if: ${{ steps.release.outputs['packages/core--release_created'] }}
-        run: npx nx run @juntossomosmais/atomium:publish-library
-        continue-on-error: false
+        run: pnpm exec nx run @juntossomosmais/atomium:publish-library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and publish Tokens
         if: ${{ steps.release.outputs['packages/tokens--release_created'] }}
-        run: npx nx run @juntossomosmais/atomium-tokens:publish-library
-        continue-on-error: false
+        run: pnpm exec nx run @juntossomosmais/atomium-tokens:publish-library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

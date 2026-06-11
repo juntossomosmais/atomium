@@ -51,7 +51,11 @@ export namespace Components {
         /**
           * @default 'primary'
          */
-        "color": 'primary' | 'secondary' | 'white' | 'custom';
+        "color": | 'primary'
+    | 'secondary'
+    | 'white'
+    | 'custom'
+    | 'danger';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
@@ -1140,7 +1144,11 @@ declare namespace LocalJSX {
         /**
           * @default 'primary'
          */
-        "color"?: 'primary' | 'secondary' | 'white' | 'custom';
+        "color"?: | 'primary'
+    | 'secondary'
+    | 'white'
+    | 'custom'
+    | 'danger';
         "disabled"?: boolean;
         "download"?: string;
         "expand"?: 'block';
@@ -1809,7 +1817,11 @@ declare namespace LocalJSX {
     | 'dark';
     }
     interface AtomButtonAttributes {
-        "color": 'primary' | 'secondary' | 'white' | 'custom';
+        "color": | 'primary'
+    | 'secondary'
+    | 'white'
+    | 'custom'
+    | 'danger';
         "disabled": boolean;
         "download": string;
         "expand": 'block';

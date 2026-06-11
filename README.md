@@ -49,47 +49,51 @@ Copy `.npmrc.example` to `.npmrc`.
 
 Replace `<your-github-token-here>` in the `.npmrc` file with your [GitHub PAT](https://github.com/settings/tokens). Your PAT should have following scopes: `repo` and `write:packages`.
 
+This project uses [pnpm](https://pnpm.io) as package manager. If you don't have it installed, enable it via [Corepack](https://nodejs.org/api/corepack.html):
+
+```bash
+corepack enable pnpm
+```
+
 ### Installation
 
 ```bash
-npm i
-npm run build
+pnpm i
+pnpm run build
 ```
-
-If you get errors about unresolved dependencies, you may need to run `npm i --legacy-peer-deps` instead.
 
 ### Running Storybook and Stencil
 
 ```bash
-npm start
+pnpm start
 ```
 
-If you want to run React Stories locally, you need to run the following command before `npm start`:
+If you want to run React Stories locally, you need to run the following command before `pnpm start`:
 
 ```bash
-npm run docs-react:start
+pnpm run docs-react:start
 ```
 
-And if you want to run Vue Stories locally, you need to run the following command before `npm start`:
+And if you want to run Vue Stories locally, you need to run the following command before `pnpm start`:
 
 ```bash
-npm run docs-vue:start
+pnpm run docs-vue:start
 ```
 
 ### Running Tests
 
 ```bash
-npm test
+pnpm test
 ```
 
 ### Building
 
 ```bash
 ## Build Libs
-npm run build
+pnpm run build
 
 ## Build Storybook
-npm run docs:build
+pnpm run docs:build
 ```
 
 ## Main folder structure
@@ -187,7 +191,7 @@ To locally test Atomium using Alpha/Beta versions, follow the steps below:
 3. Build the Atomium libraries by running the following command in the root directory of the Atomium project
 
 ```bash
-npx nx run @juntossomosmais/atomium:publish-library-alpha
+pnpm exec nx run @juntossomosmais/atomium:publish-library-alpha
 ```
 
 OBS: you can even share the alpha version with your team, than they can test it locally.
@@ -199,13 +203,13 @@ To locally test Atomium using NPM Link, follow the steps below:
 Build the Atomium libraries by running the following command in the root directory of the Atomium project
 
 ```bash
-npm run build
+pnpm run build
 ```
 
-Link the Atomium libraries by navigating to the `node_modules/@juntossomosmais/atomium` directory
+Link the Atomium libraries by navigating to the `packages/core` directory
 
 ```bash
-cd node_modules/@juntossomosmais/atomium
+cd packages/core
 npm link
 ```
 
