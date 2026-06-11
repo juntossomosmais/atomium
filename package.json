@@ -33,7 +33,6 @@
     "dompurify": "^3.4.2"
   },
   "devDependencies": {
-    "@juntossomosmais/atomium": "workspace:*",
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.3",
     "@babel/preset-react": "^7.29.7",
@@ -41,6 +40,7 @@
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/js": "^10.0.1",
+    "@juntossomosmais/atomium": "workspace:*",
     "@juntossomosmais/linters": "^0.25.1",
     "@juntossomosmais/rupture-scss": "^1.1.0",
     "@nx/workspace": "^22.7.5",
@@ -102,7 +102,7 @@
     "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.60.1",
     "vite": "^8.0.16",
     "vue": "^3.5.33"
