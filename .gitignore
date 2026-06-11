@@ -20,8 +20,14 @@ tmp
 # dependencies
 node_modules
 
+# caches
+.nx
+.eslintcache
+/.sass-cache
+
 # IDEs and editors
 /.idea
+.vscode
 .project
 .classpath
 .c9/
@@ -29,34 +35,26 @@ node_modules
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# AI tools
+.cursor
+/.playwright-mcp
+
+# tests
+/coverage
+/connect.lock
+testem.log
+
+# logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log
 
 # misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
 /typings
-.eslintcache
-.nx
+/libpeerconnection.log
 
 # System Files
 .DS_Store
 Thumbs.db
-
-# Log files
-logs
-*.log
-npm-debug.log* 
-
-# AI
-.claude
-.cursor
