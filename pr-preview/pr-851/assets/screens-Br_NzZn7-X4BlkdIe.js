@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-BVpWp9h4.js";var t,n,r=e((()=>{t=()=>globalThis.matchMedia(`(max-width: 768px)`).matches,n=()=>globalThis.matchMedia(`(max-width: 991px)`).matches}));export{n,t as r,r as t};
