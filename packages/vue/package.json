@@ -23,6 +23,9 @@
             ],
             "target": "build"
           }
+        ],
+        "outputs": [
+          "{workspaceRoot}/packages/core/vue"
         ]
       },
       "start": {

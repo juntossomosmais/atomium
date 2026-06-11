@@ -17,6 +17,9 @@
             ],
             "target": "build"
           }
+        ],
+        "outputs": [
+          "{projectRoot}/storybook-static"
         ]
       }
     }

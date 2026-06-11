@@ -25,6 +25,9 @@
             ],
             "target": "build"
           }
+        ],
+        "outputs": [
+          "{workspaceRoot}/packages/core/react"
         ]
       },
       "start": {

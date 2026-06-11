@@ -18,6 +18,10 @@
     },
     "test": {
       "cache": true
+    },
+    "test:ci": {
+      "cache": true,
+      "outputs": ["{projectRoot}/coverage"]
     }
   }
 }

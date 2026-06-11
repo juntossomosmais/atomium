@@ -14,7 +14,16 @@
               "@juntossomosmais/atomium-vue"
             ],
             "target": "build"
+          },
+          {
+            "projects": [
+              "@atomium/docs"
+            ],
+            "target": "build"
           }
+        ],
+        "outputs": [
+          "{workspaceRoot}/apps/docs/storybook-static/vue"
         ]
       }
     }

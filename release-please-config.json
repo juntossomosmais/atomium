@@ -1,5 +1,7 @@
 {
   "last-release-sha": "efb44bdfe1cd1fe8d5c29c3065140d45ee9ddb44",
+  "release-type": "node",
+  "include-component-in-tag": true,
   "packages": {
     "packages/core": {},
     "packages/tokens": {}

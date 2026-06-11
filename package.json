@@ -13,7 +13,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "nx build @juntossomosmais/atomium && nx build @juntossomosmais/atomium-react && nx build @juntossomosmais/atomium-vue",
-    "docs:build": "pnpm run build && nx build @atomium/docs && nx build @atomium/docs-react && nx build @atomium/docs-vue",
+    "docs:build": "nx run-many --target=build --projects=@atomium/docs,@atomium/docs-react,@atomium/docs-vue",
     "docs-react:start": "nx run @atomium/docs-react:start",
     "docs-vue:start": "nx run @atomium/docs-vue:start",
     "icons:build": "nx build @juntossomosmais/atomium-icons",
