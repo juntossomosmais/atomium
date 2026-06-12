@@ -141,9 +141,22 @@ export const config: Config = {
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../vue/src/components/index.ts',
-      includeDefineCustomElements: false,
-      includePolyfills: false,
+      includeImportCustomElements: true,
+      customElementsDir: 'dist/components',
+      esModules: true,
       excludeComponents,
+      componentModels: [
+        {
+          elements: [
+            'atom-input',
+            'atom-textarea',
+            'atom-select',
+            'atom-datetime',
+          ],
+          targetAttr: 'value',
+          event: 'atomChange',
+        },
+      ],
     }),
     reactOutputTarget({
       outDir: '../react/src/components',

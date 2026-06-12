@@ -76,6 +76,25 @@ export const HelperText: StoryObj = {
   },
 }
 
+export const VModel = {
+  render: () => ({
+    components: { AtomInput },
+    setup() {
+      const text = ref('Atomium')
+
+      return { text }
+    },
+    template: `
+      <AtomInput
+        label="Name"
+        placeholder="Type your name"
+        v-model="text"
+      />
+      <p data-testid="v-model-output">Value: {{ text }}</p>
+    `,
+  }),
+}
+
 export const ErrorState = {
   render: () => ({
     components: { AtomInput },
