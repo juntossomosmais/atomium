@@ -1,7 +1,7 @@
 // `matchMedia` is unavailable during server-side hydration (Node),
 // so fall back to the desktop variant there.
 const matchesMedia = (query: string) => {
-  if (typeof globalThis !== 'undefined' && 'matchMedia' in globalThis) {
+  if ('matchMedia' in globalThis) {
     return globalThis.matchMedia(query).matches
   }
 
