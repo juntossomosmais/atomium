@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.4...atomium-v4.2.0) (2026-06-12)
+
+
+### Features
+
+* **vue:** update vue-output-target to 0.13.2 ([#851](https://github.com/juntossomosmais/atomium/issues/851)) ([bc5f7d8](https://github.com/juntossomosmais/atomium/commit/bc5f7d8d8b5f98f32507f9374a9ddb032d349df3))
+
 ## [4.1.4](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.3...atomium-v4.1.4) (2026-06-10)
 
 
