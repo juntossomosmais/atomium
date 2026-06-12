@@ -1,5 +1,6 @@
 import { createPopper } from '@popperjs/core'
 import {
+  Build,
   Component,
   Element,
   Event,
@@ -100,6 +101,10 @@ export class AtomTooltip {
   }
 
   componentWillLoad() {
+    // Popper measures layout, which does not exist during server-side
+    // hydration; the instance is created on the client render instead.
+    if (Build.isServer && !Build.isTesting) return
+
     const selector = document.getElementById(this.element)
 
     this._elementSelector = selector
@@ -127,6 +132,10 @@ export class AtomTooltip {
   }
 
   componentDidLoad() {
+    // Server-side hydration also runs this hook, but the Popper instance
+    // is only created on the client (see componentWillLoad).
+    if (Build.isServer && !Build.isTesting) return
+
     this._arrowElement = this.el.shadowRoot.querySelector(
       '.atom-tooltip__arrow'
     )
@@ -151,7 +160,7 @@ export class AtomTooltip {
   disconnectedCallback() {
     this.untachEvents()
 
-    this._popperInstance.destroy()
+    this._popperInstance?.destroy()
   }
 
   private readonly addEventListeners = (
@@ -159,7 +168,7 @@ export class AtomTooltip {
     handler: EventListenerOrEventListenerObject
   ) => {
     for (const event of events) {
-      this._elementSelector.addEventListener(event, handler)
+      this._elementSelector?.addEventListener(event, handler)
     }
   }
 
@@ -168,7 +177,7 @@ export class AtomTooltip {
     handler: EventListenerOrEventListenerObject
   ) => {
     for (const event of events) {
-      this._elementSelector.removeEventListener(event, handler)
+      this._elementSelector?.removeEventListener(event, handler)
     }
   }
 
@@ -239,7 +248,9 @@ export class AtomTooltip {
         }}
       >
         <div
-          data-placement={this._popperInstance.state.placement}
+          data-placement={
+            this._popperInstance?.state.placement ?? this.placement
+          }
           data-hide={!this.open}
           data-show={this.open}
           class={{ 'atom-tooltip': true }}
