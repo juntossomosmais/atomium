@@ -1,1 +1,0 @@
-import{i as e}from"./preload-helper-xPQekRTU.js";var t,n,r=e((()=>{t=()=>globalThis.matchMedia(`(max-width: 768px)`).matches,n=()=>globalThis.matchMedia(`(max-width: 991px)`).matches}));export{n,t as r,r as t};
