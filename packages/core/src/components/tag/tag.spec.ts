@@ -59,6 +59,14 @@ describe('atom-tag', () => {
   </ion-badge>`)
   })
 
+  it('should not resolve custom colors when they are not provided', async () => {
+    const page = await setup('success')
+
+    const badge = page?.root?.shadowRoot?.querySelector('ion-badge')
+
+    expect(badge?.getAttribute('style')).toBeNull()
+  })
+
   it('should render atom-tag with custom colors', async () => {
     const mockedBackgroundColor = '#a006fa'
     const mockedTextColor = '#00ff95'
