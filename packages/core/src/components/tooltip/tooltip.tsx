@@ -53,12 +53,12 @@ export class AtomTooltip {
 
   @Watch('placement')
   placementShouldUpdatePopperInstance(newPlacement: typeof this.placement) {
-    this._popperInstance.setOptions((options) => ({
+    this._popperInstance?.setOptions((options) => ({
       ...options,
       placement: newPlacement,
     }))
 
-    this._popperInstance.update()
+    this._popperInstance?.update()
   }
 
   @Prop() action: 'hover' | 'click' = 'hover'
@@ -216,28 +216,28 @@ export class AtomTooltip {
     this.open = true
     this.atomOpen.emit()
 
-    this._popperInstance.setOptions((options) => ({
+    this._popperInstance?.setOptions((options) => ({
       ...options,
       modifiers: [
         ...options.modifiers,
         { name: 'eventListeners', enabled: true },
       ],
     }))
-    this._popperInstance.update()
+    this._popperInstance?.update()
   }
 
   private readonly hide = () => {
     this.open = false
     this.atomClose.emit()
 
-    this._popperInstance.setOptions((options) => ({
+    this._popperInstance?.setOptions((options) => ({
       ...options,
       modifiers: [
         ...options.modifiers,
         { name: 'eventListeners', enabled: false },
       ],
     }))
-    this._popperInstance.update()
+    this._popperInstance?.update()
   }
 
   render() {
