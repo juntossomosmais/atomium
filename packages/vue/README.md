@@ -71,4 +71,4 @@ The loader-based `ComponentLibrary` plugin was removed. Previously it registered
 
 For more details about the architecture decisions, see:
 - [ADR: Why do we transpile Web Components for React and Vue?](../../apps/docs/stories/architecture-decision-records/2024-05-why-do-we-transpile-web-components-for-react-and-vue.mdx)
-- [ADR: Vue Output Target Update](../../apps/docs/stories/architecture-decision-records/2026-06-11-vue-output-target-update.mdx)
+- [ADR: Server-Side Rendering (SSR) Hydration](../../apps/docs/stories/architecture-decision-records/2026-06-12-server-side-rendering-hydration.mdx)

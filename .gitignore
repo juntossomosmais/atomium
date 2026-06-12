@@ -4,7 +4,9 @@
 
 # compiled output
 packages/react/src/components
+packages/react/src/index.server.ts
 packages/vue/src/components
+packages/core/hydrate
 packages/**/coverage
 packages/tokens/index.ts
 packages/icons/index.ts

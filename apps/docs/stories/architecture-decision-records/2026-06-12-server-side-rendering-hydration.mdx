@@ -1,0 +1,124 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Docs/Architecture Decision Records/2026-06-12: Server-Side Rendering (SSR) Hydration' />
+
+# 2026-06-12: Server-Side Rendering (SSR) Hydration
+
+🗓️ 2026-06-12 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
+
+## Context
+
+Consumer apps that render on the server (Next.js, Nuxt) received bare `<atom-*>` tags in the server HTML: no styles, no shadow DOM, with the visual result arriving only after the client JavaScript registered the custom elements. That meant FOUC and layout shift on every server-rendered page.
+
+Everything required to fix this was already in place: Stencil supports a [hydrate app](https://stenciljs.com/docs/hydrate-app) output target, and the output target versions adopted in the React and Vue migrations (`@stencil/react-output-target@1.x`, `@stencil/vue-output-target@0.13.x`) both support a `hydrateModule` option for server-side rendering.
+
+## Decision
+
+Add the `dist-hydrate-script` output target and wire `hydrateModule` into the React and Vue output targets, so components are serialized as [Declarative Shadow DOM](https://web.dev/articles/declarative-shadow-dom) (DSD) on the server and hydrated on the client.
+
+### 1. Stencil configuration
+
+```typescript
+outputTargets: [
+  {
+    type: 'dist-hydrate-script',
+    dir: 'hydrate',
+  },
+  vueOutputTarget({
+    // ...existing options
+    hydrateModule: '@juntossomosmais/atomium/hydrate',
+  }),
+  reactOutputTarget({
+    // ...existing options
+    hydrateModule: '@juntossomosmais/atomium/hydrate',
+    clientModule: '@juntossomosmais/atomium/react',
+  }),
+]
+```
+
+The hydrate app is published as the `./hydrate` export of the core package (ESM + CJS). It exposes `renderToString()`, which renders any markup containing Atomium components in Node and returns the HTML with each component's shadow root serialized as a `<template shadowrootmode="open">`.
+
+### 2. Ionic internals render fully on the server
+
+Because `src/global/global.ts` imports `@ionic/core`, the Ionic runtime is bundled into the hydrate app and executes against the same mock DOM during `renderToString()`. The `ion-*` elements inside Atomium shadow roots are therefore also server-rendered, with their own DSD, resolved `md` mode and styles. SSR output is complete, not just the Atomium shells.
+
+### 3. React: the `/react/next` server entry
+
+`@stencil/react-output-target` with `hydrateModule` + `esModules: true` generates one `atom-*.server.ts` wrapper per component, but no server barrel. `packages/react/scripts/generate-server-barrel.mjs` creates `src/index.server.ts` at build time, published as `@juntossomosmais/atomium/react/next` (the same subpath convention used by the official [output-targets example](https://github.com/stenciljs/output-targets/tree/main/example-project)).
+
+Next.js consumers have two options:
+
+- **Runtime-based**: import server components directly in React Server Components:
+
+  ```tsx
+  import { AtomButton } from '@juntossomosmais/atomium/react/next'
+  ```
+
+- **Compiler-based**: keep importing from `@juntossomosmais/atomium/react` and wrap the Next config with [`@stencil/ssr`](https://www.npmjs.com/package/@stencil/ssr):
+
+  ```typescript
+  // next.config.mjs
+  import stencilSSR from '@stencil/ssr/next'
+
+  export default stencilSSR({
+    module: import('@juntossomosmais/atomium/react'),
+    from: '@juntossomosmais/atomium/react',
+    hydrateModule: import('@juntossomosmais/atomium/hydrate'),
+  })(nextConfig)
+  ```
+
+Build note: the generated server wrappers import `@juntossomosmais/atomium/react` (the `clientModule`), a self-reference that resolves to the package's own `tsc` output. `packages/react/tsconfig.json` maps that import back to `./src/index.ts` (and `./hydrate` to core's built declarations), otherwise `tsc` picks its own output as input and fails with TS5055.
+
+### 4. Vue: SSR on the same entry
+
+`@stencil/vue-output-target` needs no extra entry point. Each generated proxy branches at runtime:
+
+```typescript
+export const AtomBadge = globalThis.window
+  ? defineContainer('atom-badge', defineAtomBadge, ['type'])
+  : defineStencilSSRComponent({
+      tagName: 'atom-badge',
+      hydrateModule: import('@juntossomosmais/atomium/hydrate'),
+    })
+```
+
+Nuxt consumers may need a Vite alias so the hydrate module's Node dependencies do not leak into the client bundle (see the [nuxt-app example](https://github.com/stenciljs/output-targets/tree/main/example-project/nuxt-app)), and `compilerOptions.isCustomElement` should match `atom-*` and `ion-*` tags to silence resolution warnings during SSR.
+
+### 5. Server-safe components and the `Build.isServer` gotcha
+
+Lifecycle hooks (`connectedCallback`, `componentWillLoad`, `componentDidLoad`, `render`) all run during server hydration. Two classes of fixes were needed:
+
+- **`globalThis` escapes the mock DOM.** Stencil's hydrate app patches bare `window`/`document` references with mock-doc, but `globalThis.matchMedia` reaches the real Node global and crashes. `utils/screens.ts` now falls back to the desktop variant when `matchMedia` is unavailable (same pattern `atom-col` already used).
+- **Layout-dependent code is guarded.** `atom-tooltip` only creates its Popper instance on the client, and `atom-tag` skips `getComputedStyle` resolution on the server (the client render resolves the CSS variable afterwards).
+
+The guards use `Build.isServer && !Build.isTesting`, not `Build.isServer` alone: Stencil substitutes `Build` flags at compile time per output target (the hydrate bundle compiles the guard away entirely), but the Jest spec platform runs with `isServer: true` **and** `isTesting: true` at runtime, so unit tests keep exercising the client path.
+
+To keep every component server-safe, `packages/core/scripts/ssr-smoke.mjs` runs on every core build and renders all components through the hydrate module, failing the build on any server-side error.
+
+## Consequences
+
+### Positive
+
+- ✅ Server-rendered pages ship styled components with Declarative Shadow DOM: no FOUC, no layout shift, including the Ionic internals.
+- ✅ Both Next.js consumption modes (runtime-based and compiler-based) and Nuxt are supported with the official Stencil tooling.
+- ✅ The SSR smoke test prevents future components from silently breaking server rendering.
+- ✅ The tooltip teardown null guards also fix a long-standing crash on jsdom unmounts in consumer test suites.
+
+### Neutral
+
+- 🔄 The published package grows by the `hydrate/` directory (a self-contained Node bundle of all components).
+- 🔄 Components that branch on `matchMedia` (`atom-meter`, `atom-stepper`, `atom-tooltip`) deterministically render the desktop variant on the server and adjust after client hydration.
+- 🔄 React server wrappers set `suppressHydrationWarning`, since the client runtime re-renders the shadow root after hydration.
+
+### Notes for consumers
+
+- Additive change (new export paths, no API changes): shipped as a minor release.
+- SSR is opt-in. Apps that render client-side only are unaffected.
+
+## References
+
+- [Stencil: Server-Side Rendering](https://stenciljs.com/docs/server-side-rendering)
+- [Stencil: Hydrate App](https://stenciljs.com/docs/hydrate-app)
+- [`@stencil/ssr` package](https://www.npmjs.com/package/@stencil/ssr)
+- [stenciljs/output-targets example project](https://github.com/stenciljs/output-targets/tree/main/example-project)
+- [ADR: Why do we transpile Web Components for React and Vue?](./2024-05-why-do-we-transpile-web-components-for-react-and-vue.mdx)

@@ -17,7 +17,9 @@
     "paths": {
       "@juntossomosmais/atomium": ["../core/dist/types/index.d.ts"],
       "@juntossomosmais/atomium/dist/components": ["../core/dist/components/index.d.ts"],
-      "@juntossomosmais/atomium/dist/components/*": ["../core/dist/components/*"]
+      "@juntossomosmais/atomium/dist/components/*": ["../core/dist/components/*"],
+      "@juntossomosmais/atomium/hydrate": ["../core/hydrate/index.d.ts"],
+      "@juntossomosmais/atomium/react": ["./src/index.ts"]
     }
   },
   "include": ["src"],

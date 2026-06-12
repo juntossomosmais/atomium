@@ -1,4 +1,5 @@
 import {
+  Build,
   Component,
   Element,
   Event,
@@ -104,6 +105,8 @@ export class AtomListSlider {
   }
 
   connectedCallback() {
+    if (Build.isServer && !Build.isTesting) return
+
     globalThis.addEventListener('resize', this.handleOnResize)
   }
 
