@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.2.0...atomium-v4.3.0) (2026-06-15)
+
+
+### Features
+
+* **core:** add ssr hydration support ([#853](https://github.com/juntossomosmais/atomium/issues/853)) ([cda3d00](https://github.com/juntossomosmais/atomium/commit/cda3d0016090e6d1799eabee8255080c0e79a2ad))
+
 ## [4.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.1.4...atomium-v4.2.0) (2026-06-12)
 
 
