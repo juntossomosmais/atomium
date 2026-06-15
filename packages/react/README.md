@@ -41,5 +41,5 @@ You could check the React components transpiled of Stencil in [React Stories](ht
 ## Architecture
 
 For more details about the architecture decisions, see:
-- [ADR 0007: Why do we transpile Web Components for React and Vue?](../../apps/docs/stories/architecture-decision-records/0007-why-do-we-transpile-web-components-for-react-and-vue.mdx)
-- [ADR 0016: React Output Target Update](../../apps/docs/stories/architecture-decision-records/0016-react-output-target-update.mdx)
+- [ADR: Why do we transpile Web Components for React and Vue?](../../apps/docs/stories/architecture-decision-records/2024-05-why-do-we-transpile-web-components-for-react-and-vue.mdx)
+- [ADR: Server-Side Rendering (SSR) Hydration](../../apps/docs/stories/architecture-decision-records/2026-06-12-server-side-rendering-hydration.mdx)

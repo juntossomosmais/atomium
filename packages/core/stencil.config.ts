@@ -138,12 +138,17 @@ export const config: Config = {
       type: 'dist-custom-elements',
       externalRuntime: false,
     },
+    {
+      type: 'dist-hydrate-script',
+      dir: 'hydrate',
+    },
     vueOutputTarget({
       componentCorePackage: '@juntossomosmais/atomium',
       proxiesFile: '../vue/src/components/index.ts',
       includeImportCustomElements: true,
       customElementsDir: 'dist/components',
       esModules: true,
+      hydrateModule: '@juntossomosmais/atomium/hydrate',
       excludeComponents,
       componentModels: [
         {
@@ -164,6 +169,8 @@ export const config: Config = {
       customElementsDir: 'dist/components',
       excludeComponents,
       esModules: true,
+      hydrateModule: '@juntossomosmais/atomium/hydrate',
+      clientModule: '@juntossomosmais/atomium/react',
     }),
   ],
 }

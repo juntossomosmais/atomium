@@ -1,7 +1,13 @@
-export const isMobile = () => {
-  return globalThis.matchMedia('(max-width: 768px)').matches
+// `matchMedia` is unavailable during server-side hydration (Node),
+// so fall back to the desktop variant there.
+const matchesMedia = (query: string) => {
+  if ('matchMedia' in globalThis) {
+    return globalThis.matchMedia(query).matches
+  }
+
+  return false
 }
 
-export const isMaxTablet = () => {
-  return globalThis.matchMedia('(max-width: 991px)').matches
-}
+export const isMobile = () => matchesMedia('(max-width: 768px)')
+
+export const isMaxTablet = () => matchesMedia('(max-width: 991px)')

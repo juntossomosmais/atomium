@@ -21,13 +21,14 @@
   "unpkg": "dist/core/core.esm.js",
   "files": [
     "dist/",
+    "hydrate/",
     "loader/",
     "react/",
     "vue/",
     "core.css"
   ],
   "scripts": {
-    "build": "stencil build && npx copyfiles --flat ./dist/core/core.css ./ && node -e \"require('fs').writeFileSync('dist/components/package.json', JSON.stringify({ type: 'module' }, null, 2) + '\\n')\"",
+    "build": "stencil build && npx copyfiles --flat ./dist/core/core.css ./ && node -e \"require('fs').writeFileSync('dist/components/package.json', JSON.stringify({ type: 'module' }, null, 2) + '\\n')\" && node scripts/ssr-smoke.mjs",
     "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:ci": "stencil test --spec --coverage --no-cache --updateSnapshot --ci",
@@ -48,6 +49,11 @@
       "import": "./dist/components/index.js"
     },
     "./dist/*": "./dist/*",
+    "./hydrate": {
+      "types": "./hydrate/index.d.ts",
+      "import": "./hydrate/index.mjs",
+      "require": "./hydrate/index.js"
+    },
     "./loader": {
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
@@ -56,6 +62,10 @@
     "./react": {
       "types": "./react/dist/index.d.ts",
       "import": "./react/dist/index.js"
+    },
+    "./react/next": {
+      "types": "./react/dist/index.server.d.ts",
+      "import": "./react/dist/index.server.js"
     },
     "./vue": {
       "types": "./vue/dist/index.d.ts",
@@ -105,6 +115,7 @@
         ],
         "outputs": [
           "{projectRoot}/dist",
+          "{projectRoot}/hydrate",
           "{projectRoot}/loader",
           "{projectRoot}/core.css",
           "{projectRoot}/src/components.d.ts",

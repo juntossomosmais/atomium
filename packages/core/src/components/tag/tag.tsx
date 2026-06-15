@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from '@stencil/core'
+import { Build, Component, Host, Prop, h } from '@stencil/core'
 
 import { IconProps } from '../../icons'
 
@@ -14,6 +14,10 @@ export class AtomTag {
   @Prop() customTextColor?: string
 
   getColor(color: string) {
+    // Computed styles are not resolvable during server-side hydration;
+    // the client render resolves the CSS variable afterwards.
+    if ((Build.isServer && !Build.isTesting) || !color) return color
+
     const colorFromCssVar = getComputedStyle(
       document.documentElement
     ).getPropertyValue(color)

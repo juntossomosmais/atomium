@@ -182,6 +182,55 @@ describe('AtomTooltip', () => {
     ).toHaveAttribute('data-show')
   })
 
+  it('should not throw when disconnected before popper instance is created', async () => {
+    const page = await newSpecPage({
+      components: [AtomTooltip],
+      html: hoverTooltip,
+    })
+
+    page.rootInstance._popperInstance = null
+
+    const tooltip = page.body?.querySelector('#hover--tooltip')
+
+    expect(() => tooltip?.remove()).not.toThrow()
+  })
+
+  it('should hide without popper instance when clicking outside', async () => {
+    const page = await newSpecPage({
+      components: [AtomTooltip],
+      html: createTooltip('hover', 'hover', true),
+    })
+
+    page.rootInstance._popperInstance = null
+
+    page.win.dispatchEvent(new Event('click'))
+
+    await page.waitForChanges()
+
+    expect(
+      page.root?.shadowRoot?.querySelector('.atom-tooltip')
+    ).toHaveAttribute('data-hide')
+  })
+
+  it('should fall back to placement prop without popper instance', async () => {
+    const page = await newSpecPage({
+      components: [AtomTooltip],
+      html: hoverTooltip,
+    })
+
+    page.rootInstance._popperInstance = null
+
+    page.root?.setAttribute('placement', 'right')
+
+    await page.waitForChanges()
+
+    expect(
+      page.root?.shadowRoot
+        ?.querySelector('.atom-tooltip')
+        ?.getAttribute('data-placement')
+    ).toBe('right')
+  })
+
   it('should control open state', async () => {
     const page = await newSpecPage({
       components: [AtomTooltip],
