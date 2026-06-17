@@ -160,6 +160,45 @@ describe('atom-modal', () => {
     expect(spySecondary).toHaveBeenCalled()
   })
 
+  it('should render the close button as disabled when disableCloseButton is true', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" disable-close-button="true">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    const closeButton = page.root?.querySelector('.atom-modal__close')
+
+    expect(closeButton?.hasAttribute('disabled')).toBe(true)
+  })
+
+  it('should not emit atomCloseClick nor dismiss when disableCloseButton is true', async () => {
+    page = await newSpecPage({
+      components: [AtomModal],
+      html: `
+      <atom-modal is-open="true" disable-close-button="true">
+        Modal content
+      </atom-modal>
+    `,
+    })
+
+    const dismiss = jest.fn()
+    const spyClose = jest.fn()
+
+    page.rootInstance.modal = { dismiss, close: jest.fn() }
+    page.root?.addEventListener('atomCloseClick', spyClose)
+
+    const closeButton = page.root?.querySelector('.atom-modal__close')
+
+    closeButton?.dispatchEvent(new Event('click'))
+
+    expect(spyClose).not.toHaveBeenCalled()
+    expect(dismiss).not.toHaveBeenCalled()
+  })
+
   it('should render progress bar when progress is passed even if it is zero', async () => {
     await page.setContent(`
       <atom-modal>

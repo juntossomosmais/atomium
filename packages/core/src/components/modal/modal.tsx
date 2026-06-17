@@ -34,6 +34,7 @@ export class AtomModal {
   @Prop() hasFooter = true
   @Prop() disablePrimaryButton = false
   @Prop() disableSecondaryButton = false
+  @Prop() disableCloseButton = false
   @Prop({ mutable: true }) isOpen = false
   @Prop({ mutable: true }) canDismiss?: boolean
   @Prop() metaData?: MetaData = {}
@@ -74,6 +75,10 @@ export class AtomModal {
   }
 
   private readonly handleCloseClick = async () => {
+    if (this.disableCloseButton) {
+      return
+    }
+
     this.atomCloseClick.emit(this.modal)
     this.modal.dismiss()
   }
@@ -129,6 +134,7 @@ export class AtomModal {
               color='secondary'
               fill='clear'
               shape='circle'
+              disabled={this.disableCloseButton}
               onClick={this.handleCloseClick}
               aria-label='close'
               class='atom-modal__close'
