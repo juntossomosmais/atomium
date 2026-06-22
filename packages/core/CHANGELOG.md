@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.0...atomium-v4.3.1) (2026-06-22)
+
+
+### Bug Fixes
+
+* **core:** render atom-input as shadow for ssr, keep overlays client-only ([#856](https://github.com/juntossomosmais/atomium/issues/856)) ([996504d](https://github.com/juntossomosmais/atomium/commit/996504d822b23d8c604f24cb8ff5b0b100d357ae))
+
 ## [4.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.2.0...atomium-v4.3.0) (2026-06-15)
 
 
