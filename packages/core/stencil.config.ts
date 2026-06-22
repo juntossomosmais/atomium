@@ -108,6 +108,17 @@ const excludeComponents = [
   'ion-toolbar',
 ]
 
+// Components excluded from Server Side Rendering. They wrap Ionic overlays
+// (ion-modal/ion-popover) that teleport their content to ion-app on present,
+// which is incompatible with SSR hydration. They are rendered client-only.
+// Kept as the single source of truth shared with the React server barrel
+// generator (packages/react/scripts/generate-server-barrel.mjs).
+export const ssrExcludedComponents = [
+  'atom-modal',
+  'atom-datetime',
+  'atom-steps-modal',
+]
+
 export const config: Config = {
   namespace: 'core',
   plugins: [
@@ -171,6 +182,13 @@ export const config: Config = {
       esModules: true,
       hydrateModule: '@juntossomosmais/atomium/hydrate',
       clientModule: '@juntossomosmais/atomium/react',
+      // Overlay components wrap Ionic overlays (ion-modal/ion-popover) that
+      // teleport their content to ion-app on present. They cannot be server
+      // rendered: as scoped they hydrate inert, and as shadow the teleport
+      // severs slot projection. They gain nothing from SSR (closed at first
+      // paint), so render them client-only. Keeping this here ships the
+      // decision in the package — consumers never need next/dynamic.
+      excludeServerSideRenderingFor: ssrExcludedComponents,
     }),
   ],
 }
