@@ -1,0 +1,100 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Docs/Architecture Decision Records/2026-06-22: Component Encapsulation Strategy for SSR' />
+
+# 2026-06-22: Component Encapsulation Strategy for SSR
+
+🗓️ 2026-06-22 · ✍️ [@felipefialho](https://twitter.com/felipefialho_)
+
+## Context
+
+After [SSR hydration](./2026-06-12-server-side-rendering-hydration.mdx) shipped, a consumer app reported that `atom-input` was inert under SSR (Next.js): the mask never applied, the value never reached the form library (React Hook Form), and the submit button stayed disabled because it enables via `onAtomInput`.
+
+The first instinct was to flip `atom-input` from `scoped: true` to `shadow: true`. Investigation showed that decision is not component-local: **three components were `scoped: true`** (`atom-input`, `atom-modal`, `atom-datetime`) plus `atom-steps-modal` (no encapsulation / light DOM). Flipping all of them to `shadow` blindly **breaks the overlays**. Two independent mechanisms are in tension, and the right encapsulation depends on the component's role.
+
+### Why shadow is required for SSR interactivity
+
+Under [`@stencil/ssr`](https://www.npmjs.com/package/@stencil/ssr):
+
+- a `shadow` component is emitted as a `<template shadowrootmode="open">` (Declarative Shadow DOM) with `s-id`/`hydrated` markers, and the Stencil runtime hydrates it to interactive — even when nested inside another Stencil component;
+- a `scoped` component is emitted as static `dangerouslySetInnerHTML`. When nested in another Stencil component's light DOM it cannot take the client-only `dynamic({ ssr: false })` path, so it never hydrates and stays **inert**.
+
+That nested-scoped case is exactly what made `atom-input` dead inside a server-rendered form.
+
+### Why shadow breaks the overlays
+
+`atom-modal`/`atom-datetime` render Ionic overlays (`ion-modal`/`ion-popover`). On present, Ionic's framework delegate **physically teleports** the overlay content to `ion-app`/`body` (leaving an `ionic teleport` comment placeholder).
+
+- In `scoped` mode, Stencil's slot polyfill has already physically relocated the host's light-DOM children into the slot, so they travel with the teleport.
+- In `shadow` mode, `<slot>` is a virtual projection: the projected children stay behind in the host while the `<slot>` element teleports away, so the content disappears. Confirmed in the browser (slotted modal content is visible only in `scoped`).
+
+This is a client-side runtime conflict, not an SSR artifact, and no Stencil/Ionic option fixes it — slot projection is a browser primitive.
+
+## Decision
+
+Choose encapsulation by component role, and make overlays client-only **inside the package** so consumers need no per-project configuration.
+
+### 1. Interactive in-flow components → `shadow`
+
+`atom-input` (and any other in-flow interactive component) uses `shadow: true`. DSD hydrates reliably under SSR. The change does not regress the native input validity behaviour from PR #223 (`required`, `type`, value propagation and the `onIonInput → atomInput` bridge were verified identical to `scoped` in the browser).
+
+### 2. Overlay / teleporting components → `scoped`/light DOM, excluded from SSR
+
+`atom-modal`, `atom-datetime` and `atom-steps-modal` keep their non-shadow encapsulation and are rendered client-only via `excludeServerSideRenderingFor` on the React output target:
+
+```typescript
+// packages/core/stencil.config.ts
+export const ssrExcludedComponents = [
+  'atom-modal',
+  'atom-datetime',
+  'atom-steps-modal',
+]
+
+reactOutputTarget({
+  // ...existing options
+  excludeServerSideRenderingFor: ssrExcludedComponents,
+})
+```
+
+Overlays are closed at first paint, so they gain nothing from SSR. Rendering them client-only avoids both the inert-scoped problem and the shadow-teleport breakage. The decision ships in the package — consumers import normally and never need `next/dynamic({ ssr: false })`.
+
+### 3. Server barrel keeps a complete export surface
+
+The output target still emits a `*.server.ts` for excluded components, but it is a stub that only exports `serializeShadowRoot` (no component wrapper). `packages/react/scripts/generate-server-barrel.mjs` detects those stubs and re-exports their **client** wrapper, so `@juntossomosmais/atomium/react/next` still exports every component while overlays resolve to the client-only version:
+
+```typescript
+// index.server.ts (generated)
+export { AtomInput } from './components/atom-input.server.js' // SSR (DSD)
+export { AtomModal } from './components/atom-modal.js' // client-only
+export { AtomDatetime } from './components/atom-datetime.js' // client-only
+export { AtomStepsModal } from './components/atom-steps-modal.js' // client-only
+```
+
+### 4. Vue needs no equivalent
+
+`@stencil/vue-output-target` proxies branch at runtime (`globalThis.window ? defineContainer : defineStencilSSRComponent`), so the client always mounts a real custom element that bootstraps. Vue therefore does not have the nested-scoped inert problem, and since the overlays stay non-shadow there is no teleport breakage. No Vue-side exclusion exists or is needed.
+
+## Consequences
+
+### Positive
+
+- ✅ `atom-input` is interactive under SSR (mask, value, validation), fixing the reported regression.
+- ✅ Overlays are robust under SSR by construction, with zero consumer configuration.
+- ✅ The encapsulation rule is explicit and documented, so future components can be classified on sight.
+
+### Neutral
+
+- 🔄 `excludeServerSideRenderingFor` governs the runtime server-barrel path (`@juntossomosmais/atomium/react/next`). The `@stencil/ssr` **compiler** plugin (configured in a consumer's `next.config.js` against `@juntossomosmais/atomium/react`) has no exclusion option; under it, top-level overlays already fall back to client-only `dynamic({ ssr: false })`, and the `atom-input` shadow change is what resolves the reported bug. To inherit the package's overlay decision, consumers should consume via the `react/next` barrel entry.
+- 🔄 Overlays render only on the client, so their content is not present in the initial server HTML (acceptable: they are closed at first paint).
+
+### Notes for consumers
+
+- Non-breaking: same import paths, same public API.
+- Apps that render client-side only are unaffected.
+
+## References
+
+- [ADR: Server-Side Rendering (SSR) Hydration](./2026-06-12-server-side-rendering-hydration.mdx)
+- [Stencil: Server-Side Rendering](https://stenciljs.com/docs/server-side-rendering)
+- [`@stencil/ssr` package](https://www.npmjs.com/package/@stencil/ssr)
+- [MDN: Using templates and slots](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots)

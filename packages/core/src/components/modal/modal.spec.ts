@@ -282,7 +282,7 @@ describe('atom-modal', () => {
       closeButtonTestId: 'close-btn',
     }
 
-    await page.waitForChanges()
+    await meta.waitForChanges()
 
     const closeButton = meta.root?.querySelector('.atom-modal__close')
     const primaryButton = meta.root?.querySelector(
