@@ -109,6 +109,14 @@ export const ModalStoryArgs = {
         category: Category.PROPERTIES,
       },
     },
+    disableCloseButton: {
+      control: 'boolean',
+      description:
+        'If true, the close button will be disabled. Default is false',
+      table: {
+        category: Category.PROPERTIES,
+      },
+    },
     canDismiss: {
       control: 'boolean',
       description:
@@ -247,6 +255,7 @@ export const ModalComponentArgs = {
   hasDivider: false,
   disableSecondaryButton: false,
   disablePrimaryButton: false,
+  disableCloseButton: false,
   isOpen: false,
   canDismiss: true,
 }
