@@ -16,7 +16,7 @@ import { IconProps } from '../../icons'
 @Component({
   tag: 'atom-input',
   styleUrl: 'input.scss',
-  scoped: true,
+  shadow: true,
 })
 export class AtomInput {
   @Element() element!: HTMLElement
@@ -92,7 +92,7 @@ export class AtomInput {
 
   @Method()
   async setFocus() {
-    await this.inputEl.setFocus()
+    await this.inputEl?.setFocus()
   }
 
   @Method()
@@ -101,21 +101,21 @@ export class AtomInput {
   }
 
   @Method() async getInputElement() {
-    return this.inputEl.getInputElement()
+    return this.inputEl?.getInputElement()
   }
 
   private readonly handleChange: IonTypes.IonInput['onIonChange'] = (event) => {
     const value = event.target.value
 
     this.value = value
-    this.atomChange.emit(String(value))
+    this.atomChange.emit(String(value ?? ''))
   }
 
   private readonly handleInput: IonTypes.IonInput['onIonInput'] = (event) => {
     const value = event.target.value
 
     this.value = value
-    this.atomInput.emit(String(value))
+    this.atomInput.emit(String(value ?? ''))
   }
 
   private readonly handleBlur = () => {
