@@ -4,6 +4,7 @@ import {
   DatetimeHighlight,
   DatetimeHighlightCallback,
   DatetimePresentation,
+  FormatOptions,
 } from '@ionic/core'
 import {
   Component,
@@ -39,10 +40,7 @@ export class AtomDatetime {
   @Prop() dayValues?: number[] | string
   @Prop() disabled?: boolean
   @Prop() doneText?: string
-  @Prop() formatOptions: {
-    date?: Intl.DateTimeFormatOptions
-    time?: Intl.DateTimeFormatOptions
-  } = {
+  @Prop() formatOptions: FormatOptions = {
     date: {
       month: '2-digit',
       day: '2-digit',

@@ -6,11 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconProps } from "./icons";
-import { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
+import { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, FormatOptions, Mode, TextFieldTypes } from "@ionic/core";
 import { JSX as IonTypes } from "@ionic/core/dist/types/components";
 import { AtomModal } from "./components/modal/modal";
 export { IconProps } from "./icons";
-export { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, Mode, TextFieldTypes } from "@ionic/core";
+export { DatetimeHighlight, DatetimeHighlightCallback, DatetimePresentation, FormatOptions, Mode, TextFieldTypes } from "@ionic/core";
 export { JSX as IonTypes } from "@ionic/core/dist/types/components";
 export { AtomModal } from "./components/modal/modal";
 export namespace Components {
@@ -159,10 +159,7 @@ export namespace Components {
         /**
           * @default {     date: {       month: '2-digit',       day: '2-digit',       year: 'numeric',     },     time: {       hour: '2-digit',       minute: '2-digit',     },   }
          */
-        "formatOptions": {
-    date?: Intl.DateTimeFormatOptions
-    time?: Intl.DateTimeFormatOptions
-  };
+        "formatOptions": FormatOptions;
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
         /**
           * @default 'h23'
@@ -1254,10 +1251,7 @@ declare namespace LocalJSX {
         /**
           * @default {     date: {       month: '2-digit',       day: '2-digit',       year: 'numeric',     },     time: {       hour: '2-digit',       minute: '2-digit',     },   }
          */
-        "formatOptions"?: {
-    date?: Intl.DateTimeFormatOptions
-    time?: Intl.DateTimeFormatOptions
-  };
+        "formatOptions"?: FormatOptions;
         "highlightedDates"?: DatetimeHighlight[] | DatetimeHighlightCallback;
         /**
           * @default 'h23'

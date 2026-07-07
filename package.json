@@ -27,10 +27,10 @@
     "tokens:build": "nx build @juntossomosmais/atomium-tokens"
   },
   "dependencies": {
-    "@ionic/core": "^8.8.5",
+    "@ionic/core": "^8.8.13",
     "@popperjs/core": "^2.11.8",
     "@stencil/core": "^4.43.5",
-    "dompurify": "^3.4.2"
+    "dompurify": "^3.4.11"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
@@ -45,9 +45,9 @@
     "@juntossomosmais/rupture-scss": "^1.1.1",
     "@nx/workspace": "^22.7.5",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@stencil/react-output-target": "^1.5.3",
+    "@stencil/react-output-target": "^1.6.0",
     "@stencil/sass": "^3.2.3",
-    "@stencil/vue-output-target": "^0.13.2",
+    "@stencil/vue-output-target": "^0.14.0",
     "@storybook/addon-a11y": "^10.4.6",
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/react-vite": "^10.4.6",

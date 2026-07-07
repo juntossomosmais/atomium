@@ -43,7 +43,7 @@
     }
   },
   "dependencies": {
-    "@stencil/vue-output-target": "^0.13.2"
+    "@stencil/vue-output-target": "^0.14.0"
   },
   "devDependencies": {
     "@juntossomosmais/atomium": "workspace:*",
