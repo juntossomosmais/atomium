@@ -43,7 +43,7 @@
     }
   },
   "dependencies": {
-    "@stencil/react-output-target": "^1.5.3"
+    "@stencil/react-output-target": "^1.6.0"
   },
   "devDependencies": {
     "@juntossomosmais/atomium": "workspace:*",

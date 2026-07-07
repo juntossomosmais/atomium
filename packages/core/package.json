@@ -77,8 +77,8 @@
     }
   },
   "dependencies": {
-    "@stencil/react-output-target": "^1.5.3",
-    "@stencil/vue-output-target": "^0.13.2"
+    "@stencil/react-output-target": "^1.6.0",
+    "@stencil/vue-output-target": "^0.14.0"
   },
   "devDependencies": {
     "@atomium/scss-utils": "workspace:*",
