@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@juntossomosmais/atomium": "workspace:*",
-    "vue": "^3.5.33"
+    "vue": "^3.5.39"
   },
   "peerDependencies": {
     "vue": ">=3.4.38"
