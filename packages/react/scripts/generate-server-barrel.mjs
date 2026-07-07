@@ -34,8 +34,12 @@ const toPascalCase = (tag) =>
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join('')
 
+// Only per-component wrappers follow the `atom-*` tag convention. Newer
+// versions of the React Output Target also emit a `components.server.ts`
+// barrel, which must be excluded so the toPascalCase heuristic does not emit
+// a bogus `export { Components }` for a member that does not exist.
 const serverFiles = readdirSync(componentsDir)
-  .filter((file) => file.endsWith('.server.ts'))
+  .filter((file) => file.startsWith('atom-') && file.endsWith('.server.ts'))
   .sort((a, b) => a.localeCompare(b))
 
 if (serverFiles.length === 0) {
