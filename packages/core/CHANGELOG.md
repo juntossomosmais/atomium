@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.2](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.1...atomium-v4.3.2) (2026-07-08)
+
+
+### Bug Fixes
+
+* **modal:** cap height and pin header/footer on tall content ([#861](https://github.com/juntossomosmais/atomium/issues/861)) ([eda5c72](https://github.com/juntossomosmais/atomium/commit/eda5c7261200bf58a76cc7eaba734c1ab9d65536))
+
 ## [4.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.0...atomium-v4.3.1) (2026-06-22)
 
 
