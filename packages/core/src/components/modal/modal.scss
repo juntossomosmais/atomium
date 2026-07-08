@@ -25,6 +25,13 @@
     padding: var(--spacing-large);
     padding-top: 0;
 
+    // Content is the only scroll container once ion-modal::part(content) is capped (see below);
+    // keeping this as auto would silently activate a nested scrollbar if this element ever gets
+    // an explicit height.
+    @include above('small') {
+      overflow-y: visible;
+    }
+
     &--divided {
       border-bottom: 1px solid var(--color-neutral-light-3);
       border-top: 1px solid var(--color-neutral-light-3);
@@ -38,6 +45,14 @@
     gap: var(--spacing-medium);
     justify-content: flex-end;
     padding: var(--spacing-large);
+
+    // Pins the footer while the content below scrolls (see ion-modal::part(content)).
+    @include above('small') {
+      background: var(--background, var(--color-neutral-white));
+      bottom: 0;
+      position: sticky;
+      z-index: var(--zindex-1);
+    }
   }
 
   &__header {
@@ -45,6 +60,14 @@
     padding: var(--spacing-large);
     padding-right: var(--atom-modal-padding-header);
     position: relative;
+
+    // Pins the header while the content below scrolls (see ion-modal::part(content)).
+    @include above('small') {
+      background: var(--background, var(--color-neutral-white));
+      position: sticky;
+      top: 0;
+      z-index: var(--zindex-1);
+    }
   }
 
   &__icon-type {
@@ -91,6 +114,18 @@
 ion-modal::part(content) {
   --border-radius: 8px;
   height: auto;
+
+  // With no max-height, content taller than the viewport just overflows past both edges instead
+  // of scrolling internally, pushing the header/footer off-screen. Capping it and letting it
+  // scroll (paired with the header/footer `position: sticky` above) fixes that.
+  @include above('small') {
+    max-height: 90vh;
+    overflow-y: auto;
+
+    // Reserves space so a keyboard-focused element near the top/bottom isn't hidden behind the
+    // sticky header/footer, which native focus scrolling doesn't otherwise account for.
+    scroll-padding-block: var(--spacing-xxxxlarge);
+  }
 
   @include below('small') {
     --border-radius: 0;
