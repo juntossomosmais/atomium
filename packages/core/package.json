@@ -28,7 +28,7 @@
     "core.css"
   ],
   "scripts": {
-    "build": "stencil build && npx copyfiles --flat ./dist/core/core.css ./ && node -e \"require('fs').writeFileSync('dist/components/package.json', JSON.stringify({ type: 'module' }, null, 2) + '\\n')\" && node scripts/ssr-smoke.mjs",
+    "build": "stencil build && npx copyfiles --flat ./dist/core/core.css ./ && node -e \"require('fs').writeFileSync('dist/components/package.json', JSON.stringify({ type: 'module' }, null, 2) + '\\n')\" && node scripts/write-hydrate-browser-stub.mjs && node scripts/ssr-smoke.mjs",
     "start": "stencil build --watch",
     "test": "stencil test --spec",
     "test:ci": "stencil test --spec --coverage --no-cache --updateSnapshot --ci",
@@ -51,6 +51,7 @@
     "./dist/*": "./dist/*",
     "./hydrate": {
       "types": "./hydrate/index.d.ts",
+      "browser": "./hydrate/index.browser.mjs",
       "import": "./hydrate/index.mjs",
       "require": "./hydrate/index.js"
     },
