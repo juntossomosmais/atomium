@@ -14,31 +14,25 @@
  * These functions are never invoked in a browser (the branch that uses them only
  * runs when `globalThis.window` is falsy), so they throw to surface any misuse.
  *
+ * Export names are derived from the real hydrate module (not hand-duplicated),
+ * so this stub can never drift from whatever Stencil generates.
+ *
  * Runs as part of `npm run build`, after `stencil build` has generated `hydrate/`.
  */
-import { writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 
-const target = resolve(
+import { writeHydrateBrowserStub } from './hydrate-browser-stub.mjs'
+import * as realHydrateModule from '../hydrate/index.mjs'
+
+const exportNames = Object.keys(realHydrateModule).sort()
+const targetPath = resolve(
   dirname(fileURLToPath(import.meta.url)),
   '../hydrate/index.browser.mjs',
 )
 
-const stub = `/* auto-generated — browser no-op for the Node-only hydrate app. See scripts/write-hydrate-browser-stub.mjs */
-const serverOnly = () => {
-  throw new Error('@juntossomosmais/atomium/hydrate is server-only and cannot run in the browser')
-}
-export const renderToString = serverOnly
-export const streamToString = serverOnly
-export const hydrateDocument = serverOnly
-export const createWindowFromHtml = serverOnly
-export const serializeDocumentToString = serverOnly
-export const serializeProperty = serverOnly
-export const deserializeProperty = serverOnly
-export const setTagTransformer = serverOnly
-export const transformTag = serverOnly
-`
+writeHydrateBrowserStub(exportNames, targetPath)
 
-writeFileSync(target, stub)
-console.log('Wrote hydrate/index.browser.mjs (browser no-op)')
+console.log(
+  `Wrote hydrate/index.browser.mjs (browser no-op) mirroring ${exportNames.length} export(s): ${exportNames.join(', ')}`,
+)
