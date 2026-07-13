@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.3](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.2...atomium-v4.3.3) (2026-07-13)
+
+
+### Bug Fixes
+
+* **core:** resolve hydrate to a browser no-op in client builds ([#863](https://github.com/juntossomosmais/atomium/issues/863)) ([9d96da5](https://github.com/juntossomosmais/atomium/commit/9d96da50281ffc60b42bd4d7ae44aa408e4ea03f))
+
 ## [4.3.2](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.1...atomium-v4.3.2) (2026-07-08)
 
 
