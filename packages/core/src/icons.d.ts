@@ -10,6 +10,7 @@ export type IconProps =
   | 'jsm-outline'
   | 'jsm'
   | 'leader-board'
+  | 'loja-mais-crown'
   | 'person-time-outline'
   | 'person-warning-outline'
   | 'pix-colorful'
