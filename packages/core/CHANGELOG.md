@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.3...atomium-v4.4.0) (2026-07-22)
+
+
+### Features
+
+* **icons:** add loja-mais-crown custom icon ([#865](https://github.com/juntossomosmais/atomium/issues/865)) ([84914c9](https://github.com/juntossomosmais/atomium/commit/84914c9befa8a60f557b77d74b5a527f337b5513))
+
 ## [4.3.3](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.2...atomium-v4.3.3) (2026-07-13)
 
 
