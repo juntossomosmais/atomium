@@ -213,7 +213,7 @@ export class AtomSelect {
           onIonFocus={this.handleFocus}
           onIonCancel={this.handleCancel}
           interfaceOptions={{
-            cssClass: `atom-select__popover`,
+            cssClass: 'atom-select__popover atomium-popover',
           }}
         >
           {this.options.map((option) => (
