@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.1](https://github.com/juntossomosmais/atomium/compare/atomium-v4.4.0...atomium-v4.4.1) (2026-07-29)
+
+
+### Bug Fixes
+
+* **core:** dismiss body-level ion-popover on scroll without ion-app ([#867](https://github.com/juntossomosmais/atomium/issues/867)) ([a2fa3bf](https://github.com/juntossomosmais/atomium/commit/a2fa3bf263e0c470bb1591cfa843656c4839659b))
+
 ## [4.4.0](https://github.com/juntossomosmais/atomium/compare/atomium-v4.3.3...atomium-v4.4.0) (2026-07-22)
 
 
