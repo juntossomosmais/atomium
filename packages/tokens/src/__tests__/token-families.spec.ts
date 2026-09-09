@@ -97,7 +97,7 @@ describe('token family wiring', () => {
     // whatever family-list.json itself claims.
     const familiesOnDisk = fs
       .readdirSync(FAMILIES_DIR)
-      .filter((file) => file.endsWith('.scss'))
+      .filter((file) => file.endsWith('.scss') && !file.startsWith('_'))
       .map((file) => file.replace(/\.scss$/, ''))
       .sort()
 
