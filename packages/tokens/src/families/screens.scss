@@ -1,0 +1,13 @@
+@mixin variables {
+  /* Screens
+  * ------------------------- */
+  --screen-xs: 576px;
+  --screen-sm: 768px;
+  --screen-md: 992px;
+  --screen-lg: 1200px;
+  --screen-xlg: 1440px;
+  --screen-fhd: 1920px;
+  --screen-2k: 2048px;
+  --screen-4k: 3840px;
+  --screen-max-container: 1136px;
+}

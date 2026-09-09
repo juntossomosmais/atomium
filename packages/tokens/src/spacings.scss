@@ -1,0 +1,6 @@
+@use 'families/spacings';
+
+:root,
+::backdrop {
+  @include spacings.variables;
+}

@@ -1,0 +1,12 @@
+@mixin variables {
+  /* Grid
+  * ------------------------- */
+  --grid-gap: var(--spacing-base);
+  --grid-columns: 16;
+}
+
+@mixin responsive-variables {
+  /* Grid
+  * ------------------------- */
+  --grid-gap: var(--spacing-xsmall);
+}

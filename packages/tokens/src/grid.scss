@@ -1,0 +1,11 @@
+@use '~@atomium/scss-utils/index' as *;
+@use 'families/grid';
+
+:root,
+::backdrop {
+  @include grid.variables;
+
+  @include below('small') {
+    @include grid.responsive-variables;
+  }
+}

@@ -1,0 +1,6 @@
+@use 'families/elevation';
+
+:root,
+::backdrop {
+  @include elevation.variables;
+}
