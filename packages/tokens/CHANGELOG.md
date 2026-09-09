@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.1.2...atomium-tokens-v2.2.0) (2026-09-09)
+
+
+### Features
+
+* **tokens:** publish variables-only css for each token family ([#870](https://github.com/juntossomosmais/atomium/issues/870)) ([dc69043](https://github.com/juntossomosmais/atomium/commit/dc690435cf0cf20dbb005612e868751ac81344e3))
+
+
+### Bug Fixes
+
+* **tokens:** keep css variable values inside their declaration block ([#869](https://github.com/juntossomosmais/atomium/issues/869)) ([d39131f](https://github.com/juntossomosmais/atomium/commit/d39131fe64543dd59232c8f2d9e2c6e94ef90c3e))
+
 ## [2.1.2](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.1.1...atomium-tokens-v2.1.2) (2026-06-01)
 
 
