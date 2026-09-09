@@ -40,7 +40,7 @@ function hasAtRuleAncestor(decl: Declaration): boolean {
  * is reachable through this package's own build.
  */
 export function matchCssVariables(cssContent: string, prefix: string) {
-  const prefixPattern = new RegExp(`^${prefix}[\\w-]+$`)
+  const prefixPattern = new RegExp(String.raw`^${prefix}[\w-]+$`)
   const matches: { variable: string; value: string }[] = []
 
   postcss.parse(cssContent).walkDecls((decl) => {
