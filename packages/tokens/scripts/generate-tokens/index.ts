@@ -15,6 +15,11 @@ export const variablePrefixes = [
   'border',
   'zindex',
   'transition',
+  'grid',
+  'title',
+  'text',
+  'button',
+  'elevation',
 ]
 
 generateJsTokensFromCssFile(TOKENS_DIR, variablePrefixes)
