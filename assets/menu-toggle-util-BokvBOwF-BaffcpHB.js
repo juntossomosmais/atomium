@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{n as t,t as n}from"./index-CsF_rbD4-e0ep3CkG.js";var r,i=e((()=>{n(),r=async e=>{let n=await t.get(e);return!!(n&&await n.isActive())}}));export{r as n,i as t};
