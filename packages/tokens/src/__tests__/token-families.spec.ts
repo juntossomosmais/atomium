@@ -89,6 +89,21 @@ describe('token family wiring', () => {
     })
   })
 
+  it('matches family-list.json exactly against the family partials on disk', () => {
+    // The filesystem, not family-list.json, is the source of truth: the
+    // token values actually live in src/families/*.scss. This asserts
+    // family-list.json (what rollup.config.mjs and this spec both read)
+    // has neither a stale entry nor a missing one, independently of
+    // whatever family-list.json itself claims.
+    const familiesOnDisk = fs
+      .readdirSync(FAMILIES_DIR)
+      .filter((file) => file.endsWith('.scss'))
+      .map((file) => file.replace(/\.scss$/, ''))
+      .sort()
+
+    expect([...variableFamilies].sort()).toEqual(familiesOnDisk)
+  })
+
   it('keeps family-list.json as the single source rollup.config.mjs builds from', () => {
     const rollupConfig = fs.readFileSync(
       path.resolve(SRC_DIR, '..', 'rollup.config.mjs'),
