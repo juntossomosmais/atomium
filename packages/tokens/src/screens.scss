@@ -1,0 +1,6 @@
+@use 'families/screens';
+
+:root,
+::backdrop {
+  @include screens.variables;
+}

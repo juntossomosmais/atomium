@@ -1,0 +1,6 @@
+@use 'families/misc';
+
+:root,
+::backdrop {
+  @include misc.variables;
+}

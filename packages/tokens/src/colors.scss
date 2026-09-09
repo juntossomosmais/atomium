@@ -1,0 +1,6 @@
+@use 'families/colors';
+
+:root,
+::backdrop {
+  @include colors.variables;
+}

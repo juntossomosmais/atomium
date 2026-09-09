@@ -1,0 +1,16 @@
+@mixin variables {
+  /* Spacings
+  * ------------------------- */
+  --spacing-xxsmall: 4px;
+  --spacing-xsmall: 8px;
+  --spacing-small: 12px;
+  --spacing-base: 16px;
+  --spacing-medium: 20px;
+  --spacing-large: 24px;
+  --spacing-xlarge: 28px;
+  --spacing-xxlarge: 32px;
+  --spacing-xxxlarge: 40px;
+  --spacing-xxxxlarge: 48px;
+  --spacing-giant: 64px;
+  --spacing-xgiant: 80px;
+}

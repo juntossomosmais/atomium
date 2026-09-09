@@ -56,4 +56,5 @@ jobs:
 
       - name: Deploy Tokens Package to S3
         run: |
-          aws s3 cp packages/tokens/dist/tokens.css s3://atomium/tokens/$TOKENS_VERSION/tokens.css
+          aws s3 sync packages/tokens/dist s3://atomium/tokens/$TOKENS_VERSION \
+            --exclude "*" --include "*.css"
