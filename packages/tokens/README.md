@@ -28,6 +28,46 @@ import '@juntossomosmais/atomium-tokens/tokens.css'
 }
 ```
 
+#### CSS variables only
+
+`tokens.css` also ships a `body` rule and the `.jsm-*` typography classes. To
+take the custom properties and nothing else, import `variables.css`:
+
+```js
+import '@juntossomosmais/atomium-tokens/variables.css'
+```
+
+Or import a single family:
+
+```js
+import '@juntossomosmais/atomium-tokens/colors.css'
+```
+
+| File | Contains | Requires |
+| --- | --- | --- |
+| `variables.css` | every token | - |
+| `colors.css` | `--color-*` | - |
+| `spacings.css` | `--spacing-*` | - |
+| `typography.css` | `--font-*`, `--text-*`, `--title-*`, `--button-*` | `colors.css` |
+| `screens.css` | `--screen-*` | - |
+| `grid.css` | `--grid-*` | `spacings.css` |
+| `misc.css` | `--border-radius*`, `--zindex-*`, `--transition-*` | - |
+| `elevation.css` | `--elevation-*` | - |
+
+`typography.css` references `--color-neutral-regular` (through `--text-color`)
+and `grid.css` references `--spacing-base` and `--spacing-xsmall` (through
+`--grid-gap`). Those files are composable, not self-contained: import the
+family they depend on alongside them if you use them standalone, or import
+`variables.css` if you would rather not think about it. The referenced tokens
+are intentionally not duplicated into the dependent file, since two files
+declaring the same custom property would make the winner depend on import
+order.
+
+`typography.css` and `grid.css` also carry the responsive overrides for the
+tokens they define, so they match `tokens.css` at every viewport.
+
+`tokens.css` is unchanged and stays supported.
+
 #### JavaScript
 
 You can also use the variables in **JavaScript**
