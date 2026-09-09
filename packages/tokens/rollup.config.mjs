@@ -1,6 +1,13 @@
+import { createRequire } from 'module'
+
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import postcss from 'rollup-plugin-postcss'
+
+// Shared with packages/tokens/src/__tests__/token-families.spec.ts, so the
+// family list cannot drift between the build and the test that verifies it.
+const require = createRequire(import.meta.url)
+const variableFamilies = require('./family-list.json')
 
 const cssBundle = (input, output) => ({
   input: `src/${input}.scss`,
@@ -30,16 +37,6 @@ const cssBundle = (input, output) => ({
     }),
   ],
 })
-
-const variableFamilies = [
-  'colors',
-  'spacings',
-  'typography',
-  'screens',
-  'grid',
-  'misc',
-  'elevation',
-]
 
 export default [
   cssBundle('index', 'tokens'),
