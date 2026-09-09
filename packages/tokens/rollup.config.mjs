@@ -2,11 +2,11 @@ import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import postcss from 'rollup-plugin-postcss'
 
-export default {
-  input: 'src/index.scss',
+const cssBundle = (input, output) => ({
+  input: `src/${input}.scss`,
   output: [
     {
-      file: `dist/tokens.css`,
+      file: `dist/${output}.css`,
     },
   ],
   plugins: [
@@ -29,4 +29,20 @@ export default {
       ],
     }),
   ],
-}
+})
+
+const variableFamilies = [
+  'colors',
+  'spacings',
+  'typography',
+  'screens',
+  'grid',
+  'misc',
+  'elevation',
+]
+
+export default [
+  cssBundle('index', 'tokens'),
+  cssBundle('tokens', 'variables'),
+  ...variableFamilies.map((family) => cssBundle(family, family)),
+]
