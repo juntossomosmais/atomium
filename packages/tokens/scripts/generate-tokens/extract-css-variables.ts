@@ -1,65 +1,59 @@
-function findBlockEnd(cssContent: string, openBraceIndex: number) {
-  let depth = 0
+import postcss from 'postcss'
+import type { Declaration } from 'postcss'
 
-  for (let index = openBraceIndex; index < cssContent.length; index++) {
-    if (cssContent[index] === '{') depth++
+// A minimal shape for walking the ancestor chain. postcss's own node types
+// (Root, Rule, AtRule, Document) each type `.parent` slightly differently,
+// which makes a single loop variable typed against them directly fight the
+// compiler; every one of them satisfies this shape at runtime.
+interface AncestorNode {
+  parent?: AncestorNode
+  type: string
+}
 
-    if (cssContent[index] === '}') {
-      depth--
+function hasAtRuleAncestor(decl: Declaration): boolean {
+  let node = decl.parent as AncestorNode | undefined
 
-      if (depth === 0) return index + 1
-    }
+  while (node) {
+    if (node.type === 'atrule') return true
+
+    node = node.parent
   }
 
-  return cssContent.length
+  return false
 }
 
 /**
- * Drops every at-rule block (e.g. @media, @supports), keeping only the
- * declarations that always apply. Values declared inside an at-rule are
- * conditional, so they cannot be represented in a flat map of one value
- * per token.
+ * Extracts every `--<prefix><name>: <value>` custom property declaration
+ * from `cssContent`, skipping any declaration nested inside an at-rule
+ * (@media, @supports, @charset, @import, @namespace, ...). A value declared
+ * inside an at-rule is conditional, so it cannot be represented in a flat
+ * map of one value per token; a statement at-rule (one that ends in `;`
+ * with no block of its own) contributes nothing to skip in the first
+ * place.
  *
- * Scans the string manually rather than with a regex: an unbounded
- * quantifier immediately before a brace literal is flagged as a
- * super-linear-backtracking risk by this repo's linting.
- */
-export function selectUnconditionalCss(cssContent: string) {
-  let result = ''
-  let cursor = 0
-
-  let atRuleIndex = cssContent.indexOf('@', cursor)
-
-  while (atRuleIndex !== -1) {
-    const openBraceIndex = cssContent.indexOf('{', atRuleIndex)
-
-    if (openBraceIndex === -1) {
-      cursor = cssContent.length
-      break
-    }
-
-    result += cssContent.slice(cursor, atRuleIndex)
-    cursor = findBlockEnd(cssContent, openBraceIndex)
-
-    atRuleIndex = cssContent.indexOf('@', cursor)
-  }
-
-  return result + cssContent.slice(cursor)
-}
-
-/**
- * Matches `--<prefix><name>: <value>` declarations. The value stops at `;`
- * or `}` because a minified stylesheet omits the semicolon of the last
- * declaration in a block, and treating `}` as an ordinary character lets
- * the match run past the block boundary into whatever follows.
+ * Parsed with postcss rather than scanned by hand: a hand-rolled scanner
+ * that treats every `@` as the start of a `{ }` block misidentifies the
+ * next, unrelated rule's `{` as that at-rule's block on any statement
+ * at-rule, deleting that rule's declarations along with it. Dart Sass
+ * emits `@charset "UTF-8";` ahead of any non-ASCII character in the
+ * source (including inside a comment) and cssnano preserves it, so this
+ * is reachable through this package's own build.
  */
 export function matchCssVariables(cssContent: string, prefix: string) {
-  const cssVariablePattern = new RegExp(
-    `--(${prefix}[\\w-]+):\\s*([^;}]+)`,
-    'g'
-  )
+  const prefixPattern = new RegExp(`^${prefix}[\\w-]+$`)
+  const matches: { variable: string; value: string }[] = []
 
-  return Array.from(cssContent.matchAll(cssVariablePattern)).map(
-    ([, variable, value]) => ({ value: value.trim(), variable })
-  )
+  postcss.parse(cssContent).walkDecls((decl) => {
+    if (!decl.prop.startsWith('--')) return
+
+    if (hasAtRuleAncestor(decl)) return
+
+    const variable = decl.prop.slice(2)
+
+    if (prefixPattern.test(variable)) {
+      matches.push({ variable, value: decl.value.trim() })
+    }
+  })
+
+  return matches
 }

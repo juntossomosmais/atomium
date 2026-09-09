@@ -1,10 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import {
-  matchCssVariables,
-  selectUnconditionalCss,
-} from './extract-css-variables'
+import { matchCssVariables } from './extract-css-variables'
 
 const CURRENT_DIR = __dirname
 
@@ -42,9 +39,7 @@ export function generateJsTokensFromCssFile(
   cssFilePath: string,
   variablePrefixes: string[]
 ) {
-  const cssContent = selectUnconditionalCss(
-    fs.readFileSync(cssFilePath, 'utf8')
-  )
+  const cssContent = fs.readFileSync(cssFilePath, 'utf8')
 
   const tokens = variablePrefixes.reduce(
     (accumulated, prefix) => ({

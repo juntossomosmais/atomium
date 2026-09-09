@@ -342,6 +342,9 @@ importers:
       '@atomium/scss-utils':
         specifier: workspace:*
         version: link:../../utils/scss
+      postcss:
+        specifier: ^8.5.16
+        version: 8.5.16
 
   packages/vue:
     dependencies:

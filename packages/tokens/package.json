@@ -36,7 +36,8 @@
     "dist"
   ],
   "devDependencies": {
-    "@atomium/scss-utils": "workspace:*"
+    "@atomium/scss-utils": "workspace:*",
+    "postcss": "^8.5.16"
   },
   "nx": {
     "targets": {

@@ -21,6 +21,14 @@ const ORIGINAL_CSS = `
 // @media block that overrides some of the same tokens.
 const MINIFIED_CSS = `::backdrop,:root{--color-primary:#ff0000;--spacing-small:4px;--screen-mobile:480px;--font-family:"Roboto",sans-serif;--border-radius:4px;--zindex-1:1;--grid-gap:16px;--title-giant:var(--font-weight-bold) 52px/68px var(--font-family);--text-color:var(--color-neutral-regular);--button-color:#ffffff;--elevation-1:0 1px 1px #00000024;--transition-duration:0.25s}@media only screen and (max-width:575px){::backdrop,:root{--title-giant:var(--font-weight-bold) 30px/40px var(--font-family);--grid-gap:8px;--transition-duration:0.1s}}body{color:var(--text-color)}`
 
+// A statement at-rule (no block of its own, ends in `;`) that a build tool
+// such as Dart Sass emits ahead of any non-ASCII character in the source.
+const CHARSET_PREFIXED_CSS = `@charset "UTF-8";${MINIFIED_CSS}`
+
+// A value containing a closing brace inside a quoted string, and a url()
+// value containing braces, both on an unterminated last declaration.
+const BRACE_IN_VALUE_CSS = `::backdrop,:root{--color-background:url("a{b}.png");--text-brace:"}"}`
+
 jest.mock('fs', () => ({
   readFileSync: jest.fn().mockReturnValue(''),
   writeFileSync: jest.fn(),
@@ -93,5 +101,35 @@ describe('Generate tokens.json', () => {
       'button-color': '#ffffff',
       'elevation-1': '0 1px 1px #00000024',
     })
+  })
+
+  it('should still extract every token when the stylesheet starts with a statement at-rule', () => {
+    ;(fs.readFileSync as jest.Mock).mockReturnValueOnce(CHARSET_PREFIXED_CSS)
+
+    generateJsonTokensFromCssFile(TOKENS_DIR, variablePrefixes)
+
+    const tokens = writtenTokens()
+
+    expect(tokens['transition-duration']).toBe('0.25s')
+    expect(tokens['title-giant']).toBe(
+      'var(--font-weight-bold) 52px/68px var(--font-family)'
+    )
+    expect(Object.keys(tokens).length).toBeGreaterThan(0)
+  })
+
+  it('should extract a url() value containing braces', () => {
+    ;(fs.readFileSync as jest.Mock).mockReturnValueOnce(BRACE_IN_VALUE_CSS)
+
+    generateJsonTokensFromCssFile(TOKENS_DIR, variablePrefixes)
+
+    expect(writtenTokens()['color-background']).toBe('url("a{b}.png")')
+  })
+
+  it('should extract a value containing a closing brace inside a quoted string', () => {
+    ;(fs.readFileSync as jest.Mock).mockReturnValueOnce(BRACE_IN_VALUE_CSS)
+
+    generateJsonTokensFromCssFile(TOKENS_DIR, variablePrefixes)
+
+    expect(writtenTokens()['text-brace']).toBe('"}"')
   })
 })
