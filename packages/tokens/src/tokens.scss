@@ -7,10 +7,12 @@
 @use 'families/elevation';
 @use 'families/misc';
 
-// The family responsive mixins below must be included in this order:
-// typography before grid. No two families declare the same custom
-// property today (verified), but a future family overriding another
-// family's token inside a media query would become order-dependent.
+// The include order in this file, both here and in the below('small')
+// block, matches the order the tokens were declared in before this file
+// was split by family. That is what keeps the built dist/tokens.css
+// byte-identical to the previously published file; reordering these
+// includes (e.g. alphabetically) changes that published byte stream even
+// though every value stays the same.
 
 :root,
 ::backdrop {
