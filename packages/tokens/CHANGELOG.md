@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.3.0...atomium-tokens-v2.3.1) (2026-09-10)
+
+
+### Bug Fixes
+
+* **tokens:** raise error-light-1 contrast to meet aa ([d5330d6](https://github.com/juntossomosmais/atomium/commit/d5330d6c9e95c88ff29a30537fb5126b3ffce788))
+
 ## [2.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.2.0...atomium-tokens-v2.3.0) (2026-09-10)
 
 
