@@ -22,5 +22,13 @@ export const variablePrefixes = [
   'elevation',
 ]
 
-generateJsTokensFromCssFile(TOKENS_DIR, variablePrefixes)
-generateJsonTokensFromCssFile(TOKENS_DIR, variablePrefixes)
+export function generateTokens() {
+  generateJsTokensFromCssFile(TOKENS_DIR, variablePrefixes)
+  generateJsonTokensFromCssFile(TOKENS_DIR, variablePrefixes)
+}
+
+// The exports map makes this file importable ("./*" -> "./dist/*"), so generate only
+// when run directly. Needs the build's `tsc --module commonjs` for `require.main`.
+if (require.main === module) {
+  generateTokens()
+}
