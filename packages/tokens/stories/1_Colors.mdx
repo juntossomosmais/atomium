@@ -109,7 +109,7 @@ Each contextual step carries an explicit contrast contract against [WCAG 2.1](ht
 
 - **`-dark-1`**: at least 7:1 against white. For emphasis, hover, and pressed states.
 - **`-regular`**: at least 4.5:1 against white AND at least 4.5:1 against its own `-light-2`. This is the default step: use it for text, icons, borders, and as a fill with white text.
-- **`-light-1`**: the light step, for use on dark surfaces.
+- **`-light-1`**: the light step, for use on dark surfaces. At least 4.5:1 as a fill carrying dark text, AND at least 4.5:1 as text or an icon on a dark surface.
 - **`-light-2`**: the soft surface, meant as a background, not as a foreground color.
 
 `-regular` is the step to reach for by default; it no longer requires falling back to `-dark-1` for ordinary text, icon, or border use. `-dark-1` remains the choice when a stronger, higher-emphasis contrast is wanted.
@@ -124,4 +124,16 @@ Each contextual step carries an explicit contrast contract against [WCAG 2.1](ht
   ]}
 />
 
-A dedicated test (`src/__tests__/contextual-color-contrast.spec.ts`) parses these token values from source and fails the build if any family's `-dark-1` or `-regular` step drops below its required ratio, so this table cannot silently go stale.
+`-light-1` carries dark text as a fill and stands on its own as text or an icon on a dark surface:
+
+<Table
+  headers={['Family', '`-light-1` with dark text', '`-light-1` as text on a dark surface']}
+  rows={[
+    ['Success', '5.73 PASS', '5.92 PASS'],
+    ['Warning', '11.59 PASS', '11.96 PASS'],
+    ['Info', '5.20 PASS', '5.37 PASS'],
+    ['Error', '4.56 PASS', '4.70 PASS'],
+  ]}
+/>
+
+A dedicated test (`src/__tests__/contextual-color-contrast.spec.ts`) parses these token values from source and fails the build if any family's `-dark-1`, `-regular`, or `-light-1` step drops below its required ratio, so these tables cannot silently go stale.

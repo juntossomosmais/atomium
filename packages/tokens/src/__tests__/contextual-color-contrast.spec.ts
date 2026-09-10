@@ -68,11 +68,24 @@ const contrastRatio = (hexA: string, hexB: string) => {
 
 const WHITE = '#ffffff'
 
+// Dark ink used for text/icons placed on top of a -light-1 fill, matching
+// --color-neutral-regular.
+const DARK_INK = '#1f2328'
+
+// Canonical dark surface used to judge a -light-1 step when it is placed as
+// text or an icon on a dark background. It is not itself a design token;
+// stories/1_Colors.mdx did not name a canonical dark surface when the
+// -regular contract was introduced, so this value is picked and documented
+// here.
+const DARK_SURFACE = '#16212c'
+
 // The contract each step is expected to hold, documented alongside the
 // tokens in stories/1_Colors.mdx.
 const DARK_1_MIN_CONTRAST_ON_WHITE = 7
 const REGULAR_MIN_CONTRAST_ON_WHITE = 4.5
 const REGULAR_MIN_CONTRAST_ON_LIGHT_2 = 4.5
+const LIGHT_1_MIN_CONTRAST_ON_DARK_INK = 4.5
+const LIGHT_1_MIN_CONTRAST_ON_DARK_SURFACE = 4.5
 
 describe('contextual color contrast contract', () => {
   const tokens = readContextualTokens()
@@ -110,6 +123,24 @@ describe('contextual color contrast contract', () => {
       )
 
       expect(ratio).toBeGreaterThanOrEqual(REGULAR_MIN_CONTRAST_ON_LIGHT_2)
+    }
+  )
+
+  it.each(CONTEXTUAL_FAMILIES)(
+    `%s-light-1 carries dark text at at least ${LIGHT_1_MIN_CONTRAST_ON_DARK_INK}:1`,
+    (family) => {
+      const ratio = contrastRatio(tokens[family]['light-1'], DARK_INK)
+
+      expect(ratio).toBeGreaterThanOrEqual(LIGHT_1_MIN_CONTRAST_ON_DARK_INK)
+    }
+  )
+
+  it.each(CONTEXTUAL_FAMILIES)(
+    `%s-light-1 works as text on a dark surface at at least ${LIGHT_1_MIN_CONTRAST_ON_DARK_SURFACE}:1`,
+    (family) => {
+      const ratio = contrastRatio(tokens[family]['light-1'], DARK_SURFACE)
+
+      expect(ratio).toBeGreaterThanOrEqual(LIGHT_1_MIN_CONTRAST_ON_DARK_SURFACE)
     }
   )
 })
