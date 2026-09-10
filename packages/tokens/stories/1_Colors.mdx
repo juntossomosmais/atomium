@@ -1,4 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
+import Table from './components/Table.jsx'
 
 <Meta title="Tokens/Colors" />
 
@@ -101,3 +102,26 @@ Contextual colors are used to signal the status of an element or component. They
     ]}
   />
 </ColorPalette>
+
+## Contrast
+
+Each contextual step carries an explicit contrast contract against [WCAG 2.1](https://www.w3.org/TR/WCAG21/) AA (4.5:1 for normal text):
+
+- **`-dark-1`**: at least 7:1 against white. For emphasis, hover, and pressed states.
+- **`-regular`**: at least 4.5:1 against white AND at least 4.5:1 against its own `-light-2`. This is the default step: use it for text, icons, borders, and as a fill with white text.
+- **`-light-1`**: the light step, for use on dark surfaces.
+- **`-light-2`**: the soft surface, meant as a background, not as a foreground color.
+
+`-regular` is the step to reach for by default; it no longer requires falling back to `-dark-1` for ordinary text, icon, or border use. `-dark-1` remains the choice when a stronger, higher-emphasis contrast is wanted.
+
+<Table
+  headers={['Family', '`-dark-1` vs white', '`-regular` vs white', '`-regular` vs `-light-2`']}
+  rows={[
+    ['Success', '7.68 PASS', '4.85 PASS', '4.55 PASS'],
+    ['Warning', '7.09 PASS', '5.02 PASS', '4.56 PASS'],
+    ['Error', '7.03 PASS', '5.44 PASS', '4.75 PASS'],
+    ['Info', '7.09 PASS', '4.96 PASS', '4.54 PASS'],
+  ]}
+/>
+
+A dedicated test (`src/__tests__/contextual-color-contrast.spec.ts`) parses these token values from source and fails the build if any family's `-dark-1` or `-regular` step drops below its required ratio, so this table cannot silently go stale.
