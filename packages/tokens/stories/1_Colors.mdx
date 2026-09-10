@@ -1,4 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
+import Table from './components/Table.jsx'
 
 <Meta title="Tokens/Colors" />
 
@@ -101,3 +102,33 @@ Contextual colors are used to signal the status of an element or component. They
     ]}
   />
 </ColorPalette>
+
+## Contrast
+
+The contextual color steps are not interchangeable as foreground/background pairs. Before pairing a `-regular`, `-dark-1`, `-light-1` or `-light-2` step with another, check its ratio against the [WCAG 2.1](https://www.w3.org/TR/WCAG21/) thresholds: 4.5:1 for normal text, and 3:1 for large text (18px bold or larger, or 24px regular or larger) and non-text elements such as icons and borders. A step that meets contrast in one family does not necessarily meet it in another; the hues carry different luminance even at the same step name.
+
+The most natural-looking combination, a `-regular` step as text on its own `-light-2` surface, fails AA for three of the four families. The table below covers every pairing worth checking.
+
+<Table
+  headers={['Pairing', 'Needs', 'Success', 'Warning', 'Error', 'Info']}
+  rows={[
+    ['White text on `-regular`', '4.5:1', '4.61 PASS', '1.54 FAIL', '5.44 PASS', '4.52 PASS'],
+    ['`-regular` text on white', '4.5:1', '4.61 PASS', '1.54 FAIL', '5.44 PASS', '4.52 PASS'],
+    ['`-regular` text on `-light-2`', '4.5:1', '4.32 FAIL', '1.40 FAIL', '4.75 PASS', '4.14 FAIL'],
+    ['`-dark-1` text on white', '4.5:1', '7.68 PASS', '5.23 PASS', '7.03 PASS', '7.09 PASS'],
+    ['`-dark-1` text on `-light-2`', '4.5:1', '7.20 PASS', '4.74 PASS', '6.13 PASS', '6.50 PASS'],
+    ['`-regular` as icon/border on white', '3:1', '4.61 PASS', '1.54 FAIL', '5.44 PASS', '4.52 PASS'],
+  ]}
+/>
+
+### Recommended pairings
+
+- **Text or icons on white:** use `-dark-1`. It passes in all four families (5.23 to 7.68).
+- **Text on the family's own `-light-2` surface:** use `-dark-1`, not `-regular`. It passes in all four families (4.74 to 7.20).
+- **`-regular` as a filled background:** pair it with white text for success, error and info. Do not pair it with white text for warning; see below.
+
+### Warning is a special case
+
+Warning's `-regular` step is a bright yellow fill. It only reaches AA when paired with a dark foreground: `-dark-1` text on `-regular` reaches 10.24:1. It is not usable as an icon, a border, or a text color against a white background (1.54:1, well under the 3:1 non-text threshold), and white text on it also fails (1.54:1). Reach for `-dark-1` whenever warning needs to read as text, an icon, or a border on a light surface.
+
+No palette value changes as a result of this section; these are usage constraints inherent to the hues themselves.
