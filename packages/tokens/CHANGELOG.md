@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.2.0...atomium-tokens-v2.3.0) (2026-09-10)
+
+
+### Features
+
+* **tokens:** make contextual regular steps meet wcag aa ([#875](https://github.com/juntossomosmais/atomium/issues/875)) ([b7abc2b](https://github.com/juntossomosmais/atomium/commit/b7abc2b74c18eb81fb044929918d4579e4ebe593))
+
+
+### Bug Fixes
+
+* **tokens:** run the generator only as the entry point ([#873](https://github.com/juntossomosmais/atomium/issues/873)) ([a5b5d84](https://github.com/juntossomosmais/atomium/commit/a5b5d84b77cc8ea6f1700ba7997bf32b14ef2aac))
+
 ## [2.2.0](https://github.com/juntossomosmais/atomium/compare/atomium-tokens-v2.1.2...atomium-tokens-v2.2.0) (2026-09-09)
 
 
