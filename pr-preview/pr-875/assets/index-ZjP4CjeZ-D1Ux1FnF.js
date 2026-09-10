@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";var t,n,r=e((()=>{t=typeof window<`u`?window:void 0,n=typeof document<`u`?document:void 0}));export{r as n,t as r,n as t};
